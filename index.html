@@ -37,10 +37,91 @@
             overflow: hidden;
         }
 
+        .context-section {
+            padding: 1.5rem;
+            background-color: var(--card-background);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .context-section h1 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .context-section .instructions {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .context-column {
+            background: var(--background-color);
+            padding: 1.25rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .context-column h2 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .context-column p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .context-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .context-column li {
+            margin-bottom: 0;
+            padding-left: 0;
+            position: relative;
+            color: var(--text-secondary);
+            display: inline;
+        }
+
+        .context-column li:not(:last-child)::after {
+            content: ",";
+            margin-right: 0.5rem;
+        }
+
+        .context-column li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
         .app-container {
             display: grid;
             grid-template-columns: 300px 300px 300px 1fr;
-            height: 100vh;
+            height: calc(100vh - 300px); /* Adjust height to account for context section */
             overflow: hidden;
             background-color: var(--background-color);
         }
@@ -63,6 +144,18 @@
             font-size: 1.1rem;
             letter-spacing: -0.025em;
             font-family: 'Raleway', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .column-header .badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .column-content {
@@ -295,9 +388,31 @@
     </style>
 </head>
 <body>
+    <div class="context-section">
+        <h1>Analogical Scenarios Explorer</h1>
+        <p class="instructions">Start by selecting a domain from the leftmost column to explore different contexts, choose a category within that domain to focus on specific aspects of the problem, browse through scenarios to find relevant analogies and solutions, click on any scenario to view detailed information about its active ingredients and overall synthesis, and use the search boxes in each column to filter and find specific content.</p>
+        <div class="context-grid">
+            <div class="context-column">
+                <h2>Design Problem</h2>
+                <p id="problemText"></p>
+            </div>
+            <div class="context-column">
+                <h2>Problem Abstraction</h2>
+                <p id="abstractionSummary"></p>
+                <h3>Key Entities</h3>
+                <p id="keyEntities"></p>
+                <h3>System Constraints</h3>
+                <p id="systemConstraints"></p>
+            </div>
+        </div>
+    </div>
+
     <div class="app-container">
         <div class="column">
-            <div class="column-header">Domains</div>
+            <div class="column-header">
+                Domains
+                <span class="badge" id="domainCount">0</span>
+            </div>
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search domains..." id="domainSearch">
             </div>
@@ -307,7 +422,10 @@
         </div>
 
         <div class="column">
-            <div class="column-header">Categories</div>
+            <div class="column-header">
+                Categories
+                <span class="badge" id="categoryCount">0</span>
+            </div>
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search categories..." id="categorySearch">
             </div>
@@ -317,7 +435,10 @@
         </div>
 
         <div class="column">
-            <div class="column-header">Scenarios</div>
+            <div class="column-header">
+                Scenarios
+                <span class="badge" id="scenarioCount">0</span>
+            </div>
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="Search scenarios..." id="scenarioSearch">
             </div>
@@ -341,9 +462,18 @@
         let selectedCategory = null;
         let selectedScenario = null;
 
-        // Initialize the interface
+        // Update the initialize function to populate the context section
         function initialize() {
-            filterDomains(''); // This will render all domains initially
+            // Populate context section
+            document.getElementById('problemText').textContent = data.problem.problem_text;
+            document.getElementById('abstractionSummary').textContent = data.problem_abstraction.text_summary;
+            
+            // Populate key entities and system constraints as plain text
+            document.getElementById('keyEntities').textContent = data.problem_abstraction.key_entities;
+            document.getElementById('systemConstraints').textContent = data.problem_abstraction.system_constraints;
+
+            // Initialize the rest of the interface
+            filterDomains('');
             setupEventListeners();
         }
 
@@ -387,6 +517,9 @@
                 domain.domain_rationale.toLowerCase().includes(searchTerm.toLowerCase())
             );
             
+            // Update domain count
+            document.getElementById('domainCount').textContent = filteredDomains.length;
+            
             domainsList.innerHTML = filteredDomains.map(domain => `
                 <div class="domain-item ${selectedDomain === domain.domain_name ? 'selected' : ''}" 
                      onclick="selectDomain('${domain.domain_name}')">
@@ -411,6 +544,7 @@
         function filterCategories(searchTerm) {
             if (!selectedDomain) {
                 document.getElementById('categoriesList').innerHTML = '';
+                document.getElementById('categoryCount').textContent = '0';
                 return;
             }
             
@@ -420,6 +554,9 @@
                 category.category_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 category.category_overview.toLowerCase().includes(searchTerm.toLowerCase())
             );
+            
+            // Update category count
+            document.getElementById('categoryCount').textContent = filteredCategories.length;
             
             categoriesList.innerHTML = filteredCategories.map(category => `
                 <div class="category-item ${selectedCategory === category.category_name ? 'selected' : ''}"
@@ -443,6 +580,7 @@
         function filterScenarios(searchTerm) {
             if (!selectedDomain || !selectedCategory) {
                 document.getElementById('scenariosList').innerHTML = '';
+                document.getElementById('scenarioCount').textContent = '0';
                 return;
             }
             
@@ -452,6 +590,9 @@
             const filteredScenarios = category.scenarios.filter(scenario =>
                 scenario.scenario_name.toLowerCase().includes(searchTerm.toLowerCase())
             );
+            
+            // Update scenario count
+            document.getElementById('scenarioCount').textContent = filteredScenarios.length;
             
             scenariosList.innerHTML = filteredScenarios.map(scenario => `
                 <div class="scenario-item ${selectedScenario === scenario.scenario_name ? 'selected' : ''}"
@@ -500,7 +641,7 @@
                     </div>
                     
                     <div class="overall-synthesis">
-                        <h3>Overall Synthesis</h3>
+                        <h3>How does this relate to our problem?</h3>
                         <p>${processCitations(result.overall_synthesis, result.grounded_sources)}</p>
                     </div>
                 </div>
