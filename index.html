@@ -1,655 +1,845 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analogical Scenarios Explorer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Avenir:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #7c3aed;
-            --secondary-color: #5b21b6;
-            --background-color: #f5f3ff;
-            --card-background: #ffffff;
-            --text-primary: #1e1b4b;
-            --text-secondary: #4c1d95;
-            --border-color: #e9d8fd;
-            --hover-color: #f3e8ff;
-            --shadow-sm: 0 1px 2px 0 rgb(124, 58, 237, 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(124, 58, 237, 0.1);
-            --radius-sm: 0.375rem;
-            --radius-md: 0.5rem;
-            --radius-lg: 0.75rem;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analogical Scenarios Explorer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Avenir:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary-color: #7c3aed;
+      --secondary-color: #5b21b6;
+      --background-color: #f5f3ff;
+      --card-background: #ffffff;
+      --text-primary: #1e1b4b;
+      --text-secondary: #4c1d95;
+      --border-color: #e9d8fd;
+      --hover-color: #f3e8ff;
+      --shadow-sm: 0 1px 2px 0 rgb(124, 58, 237, 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(124, 58, 237, 0.1);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Avenir', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-primary);
-            line-height: 1.5;
-            height: 100vh;
-            overflow: hidden;
-        }
+    html, body {
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
 
-        .context-section {
-            padding: 1.5rem;
-            background-color: var(--card-background);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-        }
+    body {
+      font-family: "Avenir", sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+      line-height: 1.5;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .context-section h1 {
-            color: var(--primary-color);
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-            font-family: 'Raleway', sans-serif;
-        }
+    .context-section {
+      padding: 1.5rem;
+      background-color: var(--card-background);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
 
-        .context-section .instructions {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
+    .context-section h1 {
+      color: var(--primary-color);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      font-family: "Raleway", sans-serif;
+    }
 
-        .context-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
+    .context-section .instructions {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
 
-        .context-column {
-            background: var(--background-color);
-            padding: 1.25rem;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border-color);
-        }
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
 
-        .context-column h2 {
-            color: var(--text-primary);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-            font-family: 'Raleway', sans-serif;
-        }
+    .context-column {
+      background: var(--background-color);
+      padding: 1.25rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
 
-        .context-column p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
+    .context-column h2 {
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+    }
 
-        .context-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
+    .context-column h3 {
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+    }
 
-        .context-column li {
-            margin-bottom: 0;
-            padding-left: 0;
-            position: relative;
-            color: var(--text-secondary);
-            display: inline;
-        }
+    .context-column p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
 
-        .context-column li:not(:last-child)::after {
-            content: ",";
-            margin-right: 0.5rem;
-        }
+    /* For the problem selector */
+    .problem-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
 
-        .context-column li:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
+    .problem-selector label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+      color: var(--text-primary);
+    }
 
-        .app-container {
-            display: grid;
-            grid-template-columns: 300px 300px 300px 1fr;
-            height: calc(100vh - 300px); /* Adjust height to account for context section */
-            overflow: hidden;
-            background-color: var(--background-color);
-        }
+    .problem-dropdown {
+      padding: 0.6rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-family: "Avenir", sans-serif;
+      background-color: var(--card-background);
+      transition: all 0.2s;
+      width: 100%;
+      color: var(--text-primary);
+    }
 
-        .column {
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-            background-color: var(--card-background);
-        }
+    .problem-dropdown:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
 
-        .column-header {
-            padding: 1rem;
-            background-color: var(--card-background);
-            border-bottom: 1px solid var(--border-color);
-            font-weight: 600;
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            letter-spacing: -0.025em;
-            font-family: 'Raleway', sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    .app-container {
+      display: grid;
+      grid-template-columns: 300px 300px 300px 1fr;
+      flex: 1;
+      min-height: 0;
+      background-color: var(--background-color);
+      overflow: hidden;
+    }
 
-        .column-header .badge {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
+    .column {
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      background-color: var(--card-background);
+      overflow: hidden;
+    }
 
-        .column-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 0.75rem;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) var(--background-color);
-        }
+    .column-header {
+      padding: 1rem;
+      background-color: var(--card-background);
+      border-bottom: 1px solid var(--border-color);
+      font-weight: 600;
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      letter-spacing: -0.025em;
+      font-family: "Raleway", sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
 
-        .column-content::-webkit-scrollbar {
-            width: 6px;
-        }
+    .column-header .badge {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
 
-        .column-content::-webkit-scrollbar-track {
-            background: var(--background-color);
-        }
+    .search-container {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--card-background);
+      flex-shrink: 0;
+    }
 
-        .column-content::-webkit-scrollbar-thumb {
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      transition: all 0.2s;
+      background-color: var(--card-background);
+      font-family: "Avenir", sans-serif;
+    }
 
-        .search-container {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--card-background);
-        }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
 
-        .search-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            font-size: 0.875rem;
-            transition: all 0.2s;
-            background-color: var(--background-color);
-            font-family: 'Avenir', sans-serif;
-        }
+    .domain-item,
+    .category-item,
+    .scenario-item {
+      padding: 0.875rem;
+      margin-bottom: 0.75rem; /* Increased margin between items */
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: var(--card-background);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
 
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
-        }
+    .domain-item:hover,
+    .category-item:hover,
+    .scenario-item:hover {
+      background-color: var(--hover-color);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
 
-        .domain-item,
-        .category-item,
-        .scenario-item {
-            padding: 0.875rem;
-            margin-bottom: 0.5rem;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background-color: var(--card-background);
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-        }
+    .domain-item.selected,
+    .category-item.selected,
+    .scenario-item.selected {
+      background-color: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2);
+    }
 
-        .domain-item:hover,
-        .category-item:hover,
-        .scenario-item:hover {
-            background-color: var(--hover-color);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
+    .domain-item.selected h3,
+    .category-item.selected h3,
+    .scenario-item.selected h3 {
+      color: white;
+    }
 
-        .domain-item.selected,
-        .category-item.selected,
-        .scenario-item.selected {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-            box-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.2);
-        }
+    .domain-item.selected p,
+    .category-item.selected p,
+    .scenario-item.selected p {
+      color: rgba(255, 255, 255, 0.9);
+    }
 
-        .domain-item.selected h3,
-        .category-item.selected h3,
-        .scenario-item.selected h3 {
-            color: white;
-        }
+    .domain-item h3,
+    .category-item h3,
+    .scenario-item h3 {
+      font-size: 1rem;
+      margin-bottom: 0.375rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      font-family: "Raleway", sans-serif;
+    }
 
-        .domain-item.selected p,
-        .category-item.selected p,
-        .scenario-item.selected p {
-            color: rgba(255, 255, 255, 0.9);
-        }
+    .domain-item p,
+    .category-item p,
+    .scenario-item p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
 
-        .domain-item h3,
-        .category-item h3,
-        .scenario-item h3 {
-            font-size: 1rem;
-            margin-bottom: 0.375rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            letter-spacing: -0.025em;
-            font-family: 'Raleway', sans-serif;
-        }
+    .scenario-details {
+      padding: 1rem;
+      padding-bottom: 2rem;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-color) var(--background-color);
+    }
 
-        .domain-item p,
-        .category-item p,
-        .scenario-item p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin: 0;
-            line-height: 1.5;
-        }
+    .scenario-details::-webkit-scrollbar {
+      width: 6px;
+    }
 
-        .scenario-details {
-            padding: 1rem;
-        }
+    .scenario-details::-webkit-scrollbar-track {
+      background: var(--background-color);
+    }
 
-        .scenario-details h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-            font-family: 'Raleway', sans-serif;
-        }
+    .scenario-details::-webkit-scrollbar-thumb {
+      background-color: var(--primary-color);
+      border-radius: 3px;
+    }
 
-        .scenario-details h3 {
-            color: var(--text-primary);
-            margin: 0.75rem 0 0.75rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.025em;
-            font-family: 'Raleway', sans-serif;
-        }
+    .active-ingredients,
+    .overall-synthesis {
+      background: var(--background-color);
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      margin: 1rem 0;
+      margin-bottom: 1.5rem; /* Add more space between sections */
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+    }
 
-        .scenario-details p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-            color: var(--text-primary);
-        }
+    .active-ingredients ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        .active-ingredients,
-        .overall-synthesis {
-            background: var(--background-color);
-            padding: 1rem;
-            border-radius: var(--radius-lg);
-            margin: 1rem 0;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
+    .active-ingredients li {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
 
-        .active-ingredients ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .active-ingredients li:before {
+      content: "•";
+      color: var(--primary-color);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
 
-        .active-ingredients li {
-            margin-bottom: 0.75rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
+    .active-ingredients strong {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
 
-        .active-ingredients li:before {
-            content: "•";
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
+    .citation {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.85rem;
+      vertical-align: baseline;
+      line-height: 1;
+      padding: 0.1em 0.3em;
+      border-radius: 0.2em;
+      transition: all 0.2s;
+    }
 
-        .active-ingredients strong {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
+    .citation:hover {
+      background-color: rgba(124, 58, 237, 0.1);
+      text-decoration: none;
+    }
 
-        .citation {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.85rem;
-            vertical-align: baseline;
-            line-height: 1;
-            padding: 0.1em 0.3em;
-            border-radius: 0.2em;
-            transition: all 0.2s;
-        }
+    .domain-item.selected .citation,
+    .category-item.selected .citation,
+    .scenario-item.selected .citation {
+      color: rgba(255, 255, 255, 0.9);
+    }
 
-        .citation:hover {
-            background-color: rgba(124, 58, 237, 0.1);
-            text-decoration: none;
-        }
+    .domain-item.selected .citation:hover,
+    .category-item.selected .citation:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
-        .domain-item.selected .citation,
-        .category-item.selected .citation,
-        .scenario-item.selected .citation {
-            color: rgba(255, 255, 255, 0.9);
-        }
+    .ingredients-content {
+      white-space: pre-line;
+      font-family: inherit;
+      line-height: 1.5;
+    }
 
-        .domain-item.selected .citation:hover,
-        .category-item.selected .citation:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
+    .ingredients-content strong {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
 
-        .active-ingredients {
-            background: var(--background-color);
-            padding: 1rem;
-            border-radius: var(--radius-lg);
-            margin: 1rem 0;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-        }
+    .column-content {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 0.75rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary-color) var(--background-color);
+    }
 
-        .ingredients-content {
-            white-space: pre-line;
-            font-family: inherit;
-            line-height: 1.5;
-        }
+    .column-content::-webkit-scrollbar {
+      width: 6px;
+    }
 
-        .ingredients-content strong {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
+    .column-content::-webkit-scrollbar-track {
+      background: var(--background-color);
+    }
 
-        @media (max-width: 1400px) {
-            .app-container {
-                grid-template-columns: 280px 280px 280px 1fr;
-            }
-        }
+    .column-content::-webkit-scrollbar-thumb {
+      background-color: var(--primary-color);
+      border-radius: 3px;
+    }
 
-        @media (max-width: 1200px) {
-            .app-container {
-                grid-template-columns: 250px 250px 250px 1fr;
-            }
-        }
-    </style>
+    /* Add extra spacing at the bottom of scrollable content */
+    .domain-item:last-child,
+    .category-item:last-child,
+    .scenario-item:last-child {
+      margin-bottom: 3rem;
+    }
+
+    /* Also add bottom padding to the scenario details content */
+    #scenarioDetails .scenario-details {
+      margin-bottom: 3rem;
+    }
+
+    /* Render the scenario details properly */
+    .scenario-details h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      font-family: "Raleway", sans-serif;
+    }
+
+    .scenario-details h3 {
+      color: var(--text-primary);
+      margin: 0.75rem 0 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      font-family: "Raleway", sans-serif;
+    }
+
+    .scenario-details p {
+      margin-bottom: 1rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 1400px) {
+      .app-container {
+        grid-template-columns: 280px 280px 280px 1fr;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .app-container {
+        grid-template-columns: 250px 250px 250px 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="context-section">
-        <h1>Analogical Scenarios Explorer</h1>
-        <p class="instructions">Start by selecting a domain from the leftmost column to explore different contexts, choose a category within that domain to focus on specific aspects of the problem, browse through scenarios to find relevant analogies and solutions, click on any scenario to view detailed information about its active ingredients and overall synthesis, and use the search boxes in each column to filter and find specific content.</p>
-        <div class="context-grid">
-            <div class="context-column">
-                <h2>Design Problem</h2>
-                <p id="problemText"></p>
-            </div>
-            <div class="context-column">
-                <h2>Problem Abstraction</h2>
-                <p id="abstractionSummary"></p>
-                <h3>Key Entities</h3>
-                <p id="keyEntities"></p>
-                <h3>System Constraints</h3>
-                <p id="systemConstraints"></p>
-            </div>
+  <div class="context-section">
+    <h1>Analogical Scenarios Explorer</h1>
+    <p class="instructions">
+      Pick a <strong>design problem</strong> from the dropdown below, then select a
+      <strong>domain</strong>, <strong>category</strong>, and <strong>scenario</strong> to
+      see detailed information and active ingredients.
+    </p>
+
+    <div class="context-grid">
+      <!-- Problem Selector -->
+      <div class="context-column">
+        <div class="problem-selector">
+          <label for="problemDropdown">Choose Problem:</label>
+          <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
+            <option value="">--Select--</option>
+          </select>
         </div>
+      </div>
+
+      <!-- Design Problem -->
+      <div class="context-column">
+        <h2>Design Problem</h2>
+        <p id="problemText"></p>
+      </div>
+
+      <!-- Problem Abstraction -->
+      <div class="context-column">
+        <h2>Problem Abstraction</h2>
+        <p id="abstractionSummary"></p>
+      </div>
+
+      <!-- Key Entities and Constraints -->
+      <div class="context-column">
+        <h2>Key Elements</h2>
+        <h3>Key Entities</h3>
+        <p id="keyEntities"></p>
+        <h3>System Constraints</h3>
+        <p id="systemConstraints"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <!-- DOMAINS -->
+    <div class="column">
+      <div class="column-header">
+        Domains
+        <span class="badge" id="domainCount">0</span>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search domains..."
+          id="domainSearch"
+        />
+      </div>
+      <div class="column-content" id="domainsList"></div>
     </div>
 
-    <div class="app-container">
-        <div class="column">
-            <div class="column-header">
-                Domains
-                <span class="badge" id="domainCount">0</span>
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search domains..." id="domainSearch">
-            </div>
-            <div class="column-content" id="domainsList">
-                <!-- Domains will be populated here -->
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="column-header">
-                Categories
-                <span class="badge" id="categoryCount">0</span>
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search categories..." id="categorySearch">
-            </div>
-            <div class="column-content" id="categoriesList">
-                <!-- Categories will be populated here -->
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="column-header">
-                Scenarios
-                <span class="badge" id="scenarioCount">0</span>
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search scenarios..." id="scenarioSearch">
-            </div>
-            <div class="column-content" id="scenariosList">
-                <!-- Scenarios will be populated here -->
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="column-header">Scenario Details</div>
-            <div class="column-content" id="scenarioDetails">
-                <!-- Scenario details will be populated here -->
-            </div>
-        </div>
+    <!-- CATEGORIES -->
+    <div class="column">
+      <div class="column-header">
+        Categories
+        <span class="badge" id="categoryCount">0</span>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search categories..."
+          id="categorySearch"
+        />
+      </div>
+      <div class="column-content" id="categoriesList"></div>
     </div>
 
-    <script src="data.js"></script>
-    <script>
-        let data = analogicalData;
-        let selectedDomain = null;
-        let selectedCategory = null;
-        let selectedScenario = null;
+    <!-- SCENARIOS -->
+    <div class="column">
+      <div class="column-header">
+        Scenarios
+        <span class="badge" id="scenarioCount">0</span>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search scenarios..."
+          id="scenarioSearch"
+        />
+      </div>
+      <div class="column-content" id="scenariosList"></div>
+    </div>
 
-        // Update the initialize function to populate the context section
-        function initialize() {
-            // Populate context section
-            document.getElementById('problemText').textContent = data.problem.problem_text;
-            document.getElementById('abstractionSummary').textContent = data.problem_abstraction.text_summary;
-            
-            // Populate key entities and system constraints as plain text
-            document.getElementById('keyEntities').textContent = data.problem_abstraction.key_entities;
-            document.getElementById('systemConstraints').textContent = data.problem_abstraction.system_constraints;
+    <!-- SCENARIO DETAILS -->
+    <div class="column">
+      <div class="column-header">Scenario Details</div>
+      <div class="column-content" id="scenarioDetails"></div>
+    </div>
+  </div>
 
-            // Initialize the rest of the interface
-            filterDomains('');
-            setupEventListeners();
-        }
+  <!-- Load external data files -->
+  <script src="problem.js"></script>
+  <script src="data/data_problem_1.js"></script>
+  <script src="data/data_problem_2.js"></script>
 
-        // Setup event listeners
-        function setupEventListeners() {
-            document.getElementById('domainSearch').addEventListener('input', (e) => {
-                filterDomains(e.target.value);
-            });
+  <!-- Main logic (previously "data.js" but now inline) -->
+  <script>
+    let data = null; // whichever problem's data is currently selected
+    let selectedDomain = null;
+    let selectedCategory = null;
+    let selectedScenario = null;
 
-            document.getElementById('categorySearch').addEventListener('input', (e) => {
-                filterCategories(e.target.value);
-            });
+    // On load, populate the problem dropdown and set default selection
+    window.addEventListener("DOMContentLoaded", () => {
+      const problemDropdown = document.getElementById("problemDropdown");
+      // Add options from problemsData
+      for (const [key, value] of Object.entries(problemsData)) {
+        const option = document.createElement("option");
+        option.value = key; // "problem_1" or "problem_2"
+        option.textContent = value.title;
+        problemDropdown.appendChild(option);
+      }
+      
+      // Set default selection to first problem
+      if (Object.keys(problemsData).length > 0) {
+        const firstProblemKey = Object.keys(problemsData)[0];
+        problemDropdown.value = firstProblemKey;
+        handleProblemChange(); // Trigger the change to load initial data
+      }
+    });
 
-            document.getElementById('scenarioSearch').addEventListener('input', (e) => {
-                filterScenarios(e.target.value);
-            });
-        }
+    function clearUI() {
+      // Clear context section
+      document.getElementById("problemText").textContent = "";
+      document.getElementById("abstractionSummary").textContent = "";
+      document.getElementById("keyEntities").textContent = "";
+      document.getElementById("systemConstraints").textContent = "";
+      
+      // Clear all columns
+      document.getElementById("domainsList").innerHTML = "";
+      document.getElementById("categoriesList").innerHTML = "";
+      document.getElementById("scenariosList").innerHTML = "";
+      document.getElementById("scenarioDetails").innerHTML = "";
+      
+      // Reset counts
+      document.getElementById("domainCount").textContent = "0";
+      document.getElementById("categoryCount").textContent = "0";
+      document.getElementById("scenarioCount").textContent = "0";
+      
+      // Reset search inputs
+      document.getElementById("domainSearch").value = "";
+      document.getElementById("categorySearch").value = "";
+      document.getElementById("scenarioSearch").value = "";
+    }
 
-        // Process text to convert citation numbers into clickable links
-        function processCitations(text, sources) {
-            if (!text || !sources) return text;
-            
-            // Replace citation numbers like [1, 2] or [1] with clickable links
-            return text.replace(/\[(\d+(?:,\s*\d+)*)\]/g, (match, numbers) => {
-                const citationNumbers = numbers.split(',').map(n => n.trim());
-                return citationNumbers.map(num => {
-                    const source = sources.find(s => s.citation_number === parseInt(num));
-                    if (source) {
-                        return `<a href="${source.url}" class="citation" target="_blank">[${num}]</a>`;
-                    }
-                    return `[${num}]`;
-                }).join(', ');
-            });
-        }
+    function handleProblemChange() {
+      const problemKey = document.getElementById("problemDropdown").value;
+      if (!problemKey) {
+        data = null;
+        clearUI();
+        return;
+      }
+      // Load the chosen data
+      if (problemKey === "problem_1") {
+        data = analogicalData_problem_1;
+      } else if (problemKey === "problem_2") {
+        data = analogicalData_problem_2;
+      }
+      // Reset selections
+      selectedDomain = null;
+      selectedCategory = null;
+      selectedScenario = null;
+      clearUI(); // Clear UI first
+      initialize(); // Then initialize with new data
+    }
 
-        // Filter and render domains
-        function filterDomains(searchTerm) {
-            const domainsList = document.getElementById('domainsList');
-            const filteredDomains = data.domains.filter(domain => 
-                domain.domain_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                domain.domain_rationale.toLowerCase().includes(searchTerm.toLowerCase())
+    function initialize() {
+      if (!data) return;
+
+      // Populate context section
+      document.getElementById("problemText").textContent =
+        data.problem.problem_text;
+      document.getElementById("abstractionSummary").textContent =
+        data.problem_abstraction.text_summary;
+      document.getElementById("keyEntities").textContent =
+        data.problem_abstraction.key_entities;
+      document.getElementById("systemConstraints").textContent =
+        data.problem_abstraction.system_constraints;
+
+      // Filter domains with an empty search
+      filterDomains("");
+      setupEventListeners();
+    }
+
+    function setupEventListeners() {
+      document
+        .getElementById("domainSearch")
+        .addEventListener("input", (e) => filterDomains(e.target.value));
+      document
+        .getElementById("categorySearch")
+        .addEventListener("input", (e) => filterCategories(e.target.value));
+      document
+        .getElementById("scenarioSearch")
+        .addEventListener("input", (e) => filterScenarios(e.target.value));
+    }
+
+    // Convert citations like [1,2] to clickable links
+    function processCitations(text, sources) {
+      if (!text || !sources) return text;
+      return text.replace(/\[(\d+(?:,\s*\d+)*)\]/g, (match, numbers) => {
+        const citationNumbers = numbers.split(",").map((n) => n.trim());
+        return citationNumbers
+          .map((num) => {
+            const source = sources.find(
+              (s) => s.citation_number === parseInt(num, 10)
             );
-            
-            // Update domain count
-            document.getElementById('domainCount').textContent = filteredDomains.length;
-            
-            domainsList.innerHTML = filteredDomains.map(domain => `
-                <div class="domain-item ${selectedDomain === domain.domain_name ? 'selected' : ''}" 
-                     onclick="selectDomain('${domain.domain_name}')">
-                    <h3>${domain.domain_name}</h3>
-                    <p>${domain.domain_rationale}</p>
-                </div>
-            `).join('');
-        }
-
-        // Select domain and render categories
-        function selectDomain(domainName) {
-            selectedDomain = domainName;
-            selectedCategory = null;
-            selectedScenario = null;
-            filterDomains(document.getElementById('domainSearch').value);
-            filterCategories('');
-            document.getElementById('scenariosList').innerHTML = '';
-            document.getElementById('scenarioDetails').innerHTML = '';
-        }
-
-        // Filter and render categories
-        function filterCategories(searchTerm) {
-            if (!selectedDomain) {
-                document.getElementById('categoriesList').innerHTML = '';
-                document.getElementById('categoryCount').textContent = '0';
-                return;
+            if (source) {
+              return `<a href="${source.url}" class="citation" target="_blank">[${num}]</a>`;
             }
-            
-            const categoriesList = document.getElementById('categoriesList');
-            const domain = data.domains.find(d => d.domain_name === selectedDomain);
-            const filteredCategories = domain.categories.filter(category =>
-                category.category_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                category.category_overview.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            
-            // Update category count
-            document.getElementById('categoryCount').textContent = filteredCategories.length;
-            
-            categoriesList.innerHTML = filteredCategories.map(category => `
-                <div class="category-item ${selectedCategory === category.category_name ? 'selected' : ''}"
-                     onclick="selectCategory('${category.category_name}')">
-                    <h3>${category.category_name}</h3>
-                    <p>${category.category_overview}</p>
-                </div>
-            `).join('');
-        }
+            return `[${num}]`;
+          })
+          .join(", ");
+      });
+    }
 
-        // Select category and render scenarios
-        function selectCategory(categoryName) {
-            selectedCategory = categoryName;
-            selectedScenario = null;
-            filterCategories(document.getElementById('categorySearch').value);
-            filterScenarios('');
-            document.getElementById('scenarioDetails').innerHTML = '';
-        }
+    // Domains
+    function filterDomains(searchTerm) {
+      if (!data) return;
+      const domainsList = document.getElementById("domainsList");
+      const filteredDomains = data.domains.filter(
+        (domain) =>
+          domain.domain_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          domain.domain_rationale
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase())
+      );
+      document.getElementById("domainCount").textContent = filteredDomains.length;
+      domainsList.innerHTML = filteredDomains
+        .map(
+          (domain) => `
+            <div
+              class="domain-item ${
+                selectedDomain === domain.domain_name ? "selected" : ""
+              }"
+              onclick="selectDomain('${domain.domain_name}')"
+            >
+              <h3>${domain.domain_name}</h3>
+              <p>${domain.domain_rationale}</p>
+            </div>
+          `
+        )
+        .join("");
+    }
 
-        // Filter and render scenarios
-        function filterScenarios(searchTerm) {
-            if (!selectedDomain || !selectedCategory) {
-                document.getElementById('scenariosList').innerHTML = '';
-                document.getElementById('scenarioCount').textContent = '0';
-                return;
-            }
-            
-            const scenariosList = document.getElementById('scenariosList');
-            const domain = data.domains.find(d => d.domain_name === selectedDomain);
-            const category = domain.categories.find(c => c.category_name === selectedCategory);
-            const filteredScenarios = category.scenarios.filter(scenario =>
-                scenario.scenario_name.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-            
-            // Update scenario count
-            document.getElementById('scenarioCount').textContent = filteredScenarios.length;
-            
-            scenariosList.innerHTML = filteredScenarios.map(scenario => `
-                <div class="scenario-item ${selectedScenario === scenario.scenario_name ? 'selected' : ''}"
-                     onclick="selectScenario('${scenario.scenario_name}')">
-                    <h3>${scenario.scenario_name}</h3>
-                    <p>${scenario.search_results[0].result.scenario_description}</p>
-                </div>
-            `).join('');
-        }
+    function selectDomain(domainName) {
+      selectedDomain = domainName;
+      selectedCategory = null;
+      selectedScenario = null;
+      filterDomains(document.getElementById("domainSearch").value);
+      filterCategories("");
+      document.getElementById("scenariosList").innerHTML = "";
+      document.getElementById("scenarioDetails").innerHTML = "";
+    }
 
-        // Select scenario and render details
-        function selectScenario(scenarioName) {
-            selectedScenario = scenarioName;
-            filterScenarios(document.getElementById('scenarioSearch').value);
-            renderScenarioDetails(selectedDomain, selectedCategory, scenarioName);
-        }
+    // Categories
+    function filterCategories(searchTerm) {
+      if (!data || !selectedDomain) {
+        document.getElementById("categoriesList").innerHTML = "";
+        document.getElementById("categoryCount").textContent = "0";
+        return;
+      }
+      const categoriesList = document.getElementById("categoriesList");
+      const domain = data.domains.find(
+        (d) => d.domain_name === selectedDomain
+      );
+      if (!domain) return;
 
-        // Render scenario details
-        function renderScenarioDetails(domainName, categoryName, scenarioName) {
-            const scenarioDetails = document.getElementById('scenarioDetails');
-            const domain = data.domains.find(d => d.domain_name === domainName);
-            const category = domain.categories.find(c => c.category_name === categoryName);
-            const scenario = category.scenarios.find(s => s.scenario_name === scenarioName);
-            const result = scenario.search_results[0].result;
-            
-            // Process active ingredients to handle markdown-style formatting
-            const activeIngredients = result.active_ingredients
-                .split('\n')
-                .map(line => {
-                    // Convert markdown bold to HTML strong
-                    line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    // Process citations
-                    line = processCitations(line, result.grounded_sources);
-                    return line;
-                })
-                .join('\n');
-            
-            scenarioDetails.innerHTML = `
-                <div class="scenario-details">
-                    <h2>${scenario.scenario_name}</h2>
-                    <p>${processCitations(result.scenario_description, result.grounded_sources)}</p>
-                    
-                    <div class="active-ingredients">
-                        <h3>Active Ingredients</h3>
-                        <div class="ingredients-content">${activeIngredients}</div>
-                    </div>
-                    
-                    <div class="overall-synthesis">
-                        <h3>How does this relate to our problem?</h3>
-                        <p>${processCitations(result.overall_synthesis, result.grounded_sources)}</p>
-                    </div>
-                </div>
-            `;
-        }
+      const filteredCategories = domain.categories.filter(
+        (category) =>
+          category.category_name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          category.category_overview
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase())
+      );
 
-        // Initialize
-        initialize();
-    </script>
+      document.getElementById("categoryCount").textContent =
+        filteredCategories.length;
+
+      categoriesList.innerHTML = filteredCategories
+        .map(
+          (category) => `
+            <div
+              class="category-item ${
+                selectedCategory === category.category_name ? "selected" : ""
+              }"
+              onclick="selectCategory('${category.category_name}')"
+            >
+              <h3>${category.category_name}</h3>
+              <p>${category.category_overview}</p>
+            </div>
+          `
+        )
+        .join("");
+    }
+
+    function selectCategory(categoryName) {
+      selectedCategory = categoryName;
+      selectedScenario = null;
+      filterCategories(document.getElementById("categorySearch").value);
+      filterScenarios("");
+      document.getElementById("scenarioDetails").innerHTML = "";
+    }
+
+    // Scenarios
+    function filterScenarios(searchTerm) {
+      if (!data || !selectedDomain || !selectedCategory) {
+        document.getElementById("scenariosList").innerHTML = "";
+        document.getElementById("scenarioCount").textContent = "0";
+        return;
+      }
+      const scenariosList = document.getElementById("scenariosList");
+      const domain = data.domains.find((d) => d.domain_name === selectedDomain);
+      const category = domain.categories.find(
+        (c) => c.category_name === selectedCategory
+      );
+      if (!category) return;
+
+      const filteredScenarios = category.scenarios.filter((scenario) =>
+        scenario.scenario_name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+      document.getElementById("scenarioCount").textContent =
+        filteredScenarios.length;
+
+      scenariosList.innerHTML = filteredScenarios
+        .map(
+          (scenario) => `
+            <div
+              class="scenario-item ${
+                selectedScenario === scenario.scenario_name ? "selected" : ""
+              }"
+              onclick="selectScenario('${scenario.scenario_name}')"
+            >
+              <h3>${scenario.scenario_name}</h3>
+              <p>${scenario.search_results[0].result.scenario_description}</p>
+            </div>
+          `
+        )
+        .join("");
+    }
+
+    function selectScenario(scenarioName) {
+      selectedScenario = scenarioName;
+      filterScenarios(document.getElementById("scenarioSearch").value);
+      renderScenarioDetails(selectedDomain, selectedCategory, scenarioName);
+    }
+
+    // Scenario Details
+    function renderScenarioDetails(domainName, categoryName, scenarioName) {
+      if (!data) return;
+      const scenarioDetailsDiv = document.getElementById("scenarioDetails");
+
+      const domain = data.domains.find((d) => d.domain_name === domainName);
+      const category = domain.categories.find(
+        (c) => c.category_name === categoryName
+      );
+      const scenario = category.scenarios.find(
+        (s) => s.scenario_name === scenarioName
+      );
+      if (!scenario) return;
+
+      const result = scenario.search_results[0].result;
+
+      // Convert markdown-style bold to HTML <strong> and fix citations
+      const activeIngredients = result.active_ingredients
+        .split("\n")
+        .map((line) => {
+          line = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+          return processCitations(line, result.grounded_sources);
+        })
+        .join("\n");
+
+      scenarioDetailsDiv.innerHTML = `
+        <div class="scenario-details">
+          <h2>${scenario.scenario_name}</h2>
+          <p>${processCitations(result.scenario_description, result.grounded_sources)}</p>
+          
+          <div class="active-ingredients">
+            <h3>Active Ingredients</h3>
+            <div class="ingredients-content">${activeIngredients}</div>
+          </div>
+          
+          <div class="overall-synthesis">
+            <h3>How does this relate to our problem?</h3>
+            <p>${processCitations(result.overall_synthesis, result.grounded_sources)}</p>
+          </div>
+          
+          <!-- Extra space at bottom for scrolling -->
+          <div style="height: 30px;"></div>
+        </div>
+      `;
+    }
+  </script>
 </body>
-</html> 
+</html>
