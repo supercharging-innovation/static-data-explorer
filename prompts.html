@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analogical Scenarios Explorer - Prompts</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Avenir:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary-color: #7c3aed;
+      --secondary-color: #5b21b6;
+      --background-color: #f5f3ff;
+      --card-background: #ffffff;
+      --text-primary: #1e1b4b;
+      --text-secondary: #4c1d95;
+      --border-color: #e9d8fd;
+      --hover-color: #f3e8ff;
+      --shadow-sm: 0 1px 2px 0 rgb(124, 58, 237, 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(124, 58, 237, 0.1);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --code-background: #1e1b4b;
+      --code-text: #e9d8fd;
+      --nav-width: 250px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Avenir", sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .side-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--nav-width);
+      height: 100vh;
+      background-color: var(--card-background);
+      padding: 2rem 1rem;
+      border-right: 1px solid var(--border-color);
+      overflow-y: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      color: var(--primary-color);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .nav-link:hover {
+      background-color: var(--hover-color);
+      color: var(--primary-color);
+    }
+
+    .nav-link.active {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    .main-content {
+      flex: 1;
+      margin-left: calc(var(--nav-width) + 2rem);
+      max-width: calc(100% - var(--nav-width) - 4rem);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      font-family: "Raleway", sans-serif;
+    }
+
+    .back-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--secondary-color);
+    }
+
+    .steps-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .step {
+      background-color: var(--card-background);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-number {
+      background-color: var(--primary-color);
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+
+    .step-title {
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+    }
+
+    .step-description {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .prompt-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .prompt-section h3 {
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+    }
+
+    .prompt-content {
+      background-color: var(--background-color);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .prompt-content p {
+      margin-bottom: 1rem;
+    }
+
+    .prompt-content ul, .prompt-content ol {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .prompt-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    .prompt-content code {
+      background-color: var(--code-background);
+      color: var(--code-text);
+      padding: 0.2rem 0.4rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85em;
+    }
+
+    .prompt-content pre {
+      background-color: var(--code-background);
+      color: var(--code-text);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    .prompt-content pre code {
+      background-color: transparent;
+      padding: 0;
+      font-size: 0.9em;
+    }
+
+    .prompt-content blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: var(--text-secondary);
+    }
+
+    .prompt-content h4 {
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .prompt-content .example {
+      background-color: var(--background-color);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin: 1rem 0;
+    }
+
+    .prompt-content .example-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .prompt-content .example-content {
+      color: var(--text-secondary);
+      font-size: 0.9em;
+    }
+
+    .json-example {
+      background-color: var(--code-background);
+      color: var(--code-text);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav class="side-nav">
+    <h2 class="nav-title">Steps</h2>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="#step-1" class="nav-link">1. Problem Abstraction</a>
+      </li>
+      <li class="nav-item">
+        <a href="#step-2" class="nav-link">2. Domain Seeker</a>
+      </li>
+      <li class="nav-item">
+        <a href="#step-3" class="nav-link">3. Category Generator</a>
+      </li>
+      <li class="nav-item">
+        <a href="#step-4" class="nav-link">4. Scenario Generator</a>
+      </li>
+      <li class="nav-item">
+        <a href="#step-5" class="nav-link">5. Search Results</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <div class="header">
+      <h1>Analogical Scenarios Explorer - Prompts</h1>
+      <a href="index.html" class="back-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Explorer
+      </a>
+    </div>
+
+    <div class="steps-container">
+      <!-- Step 1 -->
+      <div id="step-1" class="step">
+        <div class="step-header">
+          <div class="step-number">1</div>
+          <h2 class="step-title">Problem Abstraction</h2>
+        </div>
+        <p class="step-description">Extract and summarize the underlying structural or relational elements of the problem in a concise manner, optimized for mappability across different domains.</p>
+        
+        <div class="prompt-section">
+          <h3>System Message</h3>
+          <div class="prompt-content">
+            <p>You are a design reasoning agent. When presented with a problem, you aim to produce a <strong>domain-agnostic, structural abstraction</strong> of that problem. You are free to draw on relevant concepts from theories like:</p>
+
+            <ul>
+              <li><strong>TRIZ</strong> (e.g., the 40 inventive principles)</li>
+              <li><strong>Function-Behavior-Structure (FBS)</strong></li>
+              <li><strong>Structure-Mapping Theory</strong> (focus on key relational correspondences)</li>
+            </ul>
+
+            <p>However, you do <strong>not</strong> need to strictly follow or cite these methods. Instead, treat them as <strong>optional guides</strong> to help generate clearer, more insightful abstractions.</p>
+
+            <p>Your primary objective is to present each problem in a <strong>concise, structured format</strong> that captures:</p>
+
+            <ul>
+              <li><strong>Key Actors or Entities</strong> (what is moving, being processed, or interacting)</li>
+              <li><strong>Constraints or Environmental Factors</strong> (what limits, guides, or affects these entities)</li>
+              <li><strong>Goal or Desired Outcome</strong> (what success looks like)</li>
+              <li><strong>Intervention Mechanisms or Potential Solutions</strong> (how obstacles are addressed or how the system adapts)</li>
+            </ul>
+
+            <h4>Guidelines:</h4>
+            <ul>
+              <li>Keep the representation <strong>domain-agnostic</strong>—avoid overly specific jargon or details.</li>
+              <li>Focus on capturing the <strong>underlying structure</strong> of the problem so that we can <strong>find analogous problems in other fields</strong>.</li>
+              <li>Prioritize <strong>clarity and generality</strong> while preserving essential relational details.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <h3>Instructions</h3>
+          <div class="prompt-content">
+            <h4>Instruction</h4>
+
+            <ol>
+              <li>
+                <strong>Read the Problem Statement:</strong>
+                <pre><code>{original_problem}</code></pre>
+              </li>
+
+              <li>
+                <strong>Extract and Summarize</strong> the underlying <strong>structural or relational elements</strong> in a <strong>concise manner</strong> that can help identify similar problems (analogies) in other domains.
+              </li>
+
+              <li>
+                <strong>Emphasize the following in your summary:</strong>
+                <ul>
+                  <li><strong>Key Entities:</strong> What are the fundamental components or elements involved? What is their role in the system (e.g., undergoing change, influencing, being influenced, resisting, adapting)?</li>
+                  <li><strong>System Constraints & Environment:</strong> What conditions, rules, forces, or limitations shape or affect the entities? Constraints may be physical, systemic, dynamic, or emergent.</li>
+                  <li><strong>Goal or Desired State:</strong> What is the intended outcome, resolution, equilibrium, or transformation in this system?</li>
+                  <li><strong>Intervention or Mechanism:</strong> What actions, forces, adaptations, or processes influence the system? Does the system self-correct, or is an external intervention required?</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Optimize your final output for mappability</strong>—i.e., it should be <strong>easy to compare or align with problems in other domains</strong>.
+                <ul>
+                  <li>Keep <strong>domain-specific jargon minimal</strong> or avoid it altogether.</li>
+                </ul>
+              </li>
+
+              <li>
+                If relevant, briefly <strong>note any conceptual link to TRIZ, FBS, or other theories</strong>, but <strong>only if it helps clarify cross-domain parallels</strong>. This is <strong>entirely optional</strong>.
+              </li>
+
+              <li>
+                Think and refine your abstraction to make it <strong>clear, concise, and general</strong> to enable <strong>easy comparison</strong> with other problems. Factor in all the key elements and constraints to ensure a comprehensive abstraction.
+              </li>
+            </ol>
+
+            <h4>Format the final output</h4>
+            <p>Use the following JSON structure:</p>
+            <pre><code>{
+   "key_entities": "Fundamental components of the system and their role",
+   "system_constraints": "Conditions, rules, or forces shaping the system",
+   "desired_outcome": "The intended resolution, equilibrium, or transformation",
+   "intervention_mechanism": "Actions, forces, or adaptations that influence the system",
+   "optional": "Optional field for any additional notes, references to TRIZ/FBS, or cross-domain insights",
+   "text_summary": "A single concise sentence (max 30-40 words) that describes the core structural abstraction in a generalizable way."
+}</code></pre>
+
+            <h4>Example</h4>
+            <div class="example">
+              <p class="example-title">Original Problem:</p>
+              <p class="example-content">"A baby is stuck in a birth canal during childbirth, requiring careful medical intervention to safely extract the baby without causing injury."</p>
+              
+              <p class="example-title">Good Abstraction:</p>
+              <pre><code>{
+   "key_entities": "Entity moving through a constrained passage; environment constricting the passage",
+   "system_constraints": "Limited spatial dimensions; friction and pressure resisting movement",
+   "desired_outcome": "Safe transition of the entity from a constrained region to an unconstrained region",
+   "intervention_mechanism": "External force or structural adaptation to reduce resistance or facilitate passage",
+   "optional": "Illustrates principles like TRIZ #10 (Prior Action) and #28 (Mechanical Substitution)",
+   "text_summary": "A system where an entity must traverse a constrained pathway against resistance, necessitating external intervention to achieve safe and successful passage."
+}</code></pre>
+            </div>
+
+            <h4>Text Summary Guidelines:</h4>
+            <ul>
+              <li>The text_summary should be a single-sentence, high-level abstraction of the problem's structure.</li>
+              <li>It must be concise (max 30-40 words), domain-agnostic, and general.</li>
+              <li>It should avoid unnecessary details while keeping key functional relationships intact.</li>
+              <li>Example: "A system where an entity must navigate through a constrained pathway, encountering resistance that requires intervention or optimization for successful passage."</li>
+            </ul>
+
+            <h4>Important Notes:</h4>
+            <ul>
+              <li>The better your structural abstraction, the easier it will be to discover a wide range of analogous solutions from other fields.</li>
+              <li>Your output's success depends on how effectively someone can use it to find patterns across diverse fields (e.g., biomedical, aerospace, consumer products, mechanical systems, etc.).</li>
+              <li>Focus on clarity, generality, and relational structure while retaining essential problem dynamics.</li>
+              <li>Do not provide solutions or detailed analyses—focus on the structural essence of the problem.</li>
+              <li>Avoid subjective interpretations or tangential information that does not contribute to the core structural abstraction.</li>
+              <li>Do not copy verbatim from the problem statement—paraphrase and abstract the key elements.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div id="step-2" class="step">
+        <div class="step-header">
+          <div class="step-number">2</div>
+          <h2 class="step-title">Domain Seeker</h2>
+        </div>
+        <p class="step-description">Guide cross-domain analogical exploration by suggesting domains that may inspire innovative solutions.</p>
+        
+        <div class="prompt-section">
+          <h3>System Message</h3>
+          <div class="prompt-content">
+            <p>You are a <strong>creative design reasoning agent</strong> specialized in cross-domain analogical thinking. Your purpose is to help designers discover innovative solutions by systematically identifying broad domains outside their immediate expertise that may contain numerous structurally analogous scenarios or problems.</p>
+
+            <h4>Goals:</h4>
+            <ul>
+              <li>Facilitate cross-disciplinary innovation by pinpointing broad yet relevant domains likely to contain a diverse set of scenario categories analogous to the original problem's structural representation.</li>
+              <li>Evaluate thematic distances (near, medium, far) of suggested domains from the original domain, using authoritative taxonomies such as Wikipedia category hierarchies, the Library of Congress Classification (LCC), or the Dewey Decimal Classification.</li>
+              <li>Suggest domains at appropriate levels of abstraction (neither overly broad like "Science" nor overly narrow like "Animal Birth Processes") to maximize creative yet practical analogical exploration.</li>
+              <li>Include at least one surprising or tacit domain suggestion (e.g., everyday activities, tacit knowledge) to encourage out-of-the-box thinking.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <h3>Instructions</h3>
+          <div class="prompt-content">
+            <h4>Context</h4>
+            <p><strong>Original Design Problem:</strong> <code>{original_design_problem}</code></p>
+
+            <p><strong>Structured Representation:</strong></p>
+            <ul>
+              <li><strong>Key Entities:</strong> <code>{key_entities}</code></li>
+              <li><strong>System Constraints:</strong> <code>{system_constraints}</code></li>
+              <li><strong>Desired Outcome:</strong> <code>{desired_outcome}</code></li>
+              <li><strong>Intervention Mechanisms:</strong> <code>{intervention_mechanism}</code></li>
+            </ul>
+
+            <h4>Task</h4>
+            <p>Suggest a set of domains at various thematic distances (<strong>near</strong>, <strong>medium</strong>, <strong>far</strong>) that have strong potential to yield multiple diverse scenario categories structurally analogous to the original problem.</p>
+
+            <h4>Steps to Follow</h4>
+            <ol>
+              <li>
+                <strong>Clearly Determine the Original Problem Domain:</strong>
+                <ul>
+                  <li>Explicitly state the original problem's domain based on the description provided.</li>
+                  <li>Example: For "a baby stuck in a birth canal," the domain is "<strong>Biomedical – Human Obstetrics</strong>."</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Suggest Broad but Relevant Analogous Domains:</strong>
+                <ul>
+                  <li>Propose <code>{number_of_domains}</code> domains thoughtfully selected for their potential to contain numerous scenario categories structurally analogous to the original problem.</li>
+                  <li>Aim for broad yet specific enough domains that offer diverse scenario possibilities, avoiding overly narrow suggestions (e.g., "Animal Birth Processes") or overly broad suggestions (e.g., "Science").</li>
+                  <li>Each domain should clearly provide two rationales:
+                    <ul>
+                      <li><strong>domain_rationale:</strong> Why this domain is a strong choice for discovering multiple structurally analogous scenario categories.</li>
+                      <li><strong>distance_rationale:</strong> Justify the domain's classification as 'near', 'medium', or 'far', explicitly referencing authoritative taxonomies.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <h4>Example of Improved Suggestions</h4>
+            <div class="example">
+              <p class="example-title">Original problem domain:</p>
+              <p class="example-content">"<strong>Human Obstetrics</strong>"</p>
+
+              <p class="example-title">Suggested domains:</p>
+              <ul>
+                <li>
+                  <strong>Veterinary Medicine</strong>
+                  <ul>
+                    <li>domain_distance: "<strong>near</strong>"</li>
+                    <li>domain_rationale: "This domain includes a variety of structurally analogous scenarios related to biological constraints and medical interventions—such as constrained movement in veterinary orthopedics, digestive tract obstructions, and complications in animal pregnancy and delivery processes."</li>
+                    <li>distance_rationale: "Closely categorized under Biomedical Sciences in Wikipedia taxonomy."</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Mechanical Engineering</strong>
+                  <ul>
+                    <li>domain_distance: "<strong>medium</strong>"</li>
+                    <li>domain_rationale: "Encompasses numerous scenarios involving constrained pathways and external interventions to manage obstructions or resistance—such as pipeline blockages, mechanical jams, and clearance of debris in narrow passages."</li>
+                    <li>distance_rationale: "Classified within Technology and Engineering (LoC), showing meaningful yet partial thematic overlap."</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Everyday Domestic Activities</strong>
+                  <ul>
+                    <li>domain_distance: "<strong>far</strong>"</li>
+                    <li>domain_rationale: "Tacit knowledge scenarios, including numerous structurally analogous everyday problems—such as removing a cork stuck in a wine bottle, retrieving objects lodged inside confined spaces, or addressing clogged household plumbing."</li>
+                    <li>distance_rationale: "Categorized under Applied Sciences and Domestic Economy (Dewey Decimal), highlighting substantial thematic distance yet rich potential for creative analogy."</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <h4>Required Output Format</h4>
+            <pre><code>{
+      "original_design_problem": "{original_design_problem}",
+      "original_problem_domain": "{original_problem_domain}",
+      "suggested_domains": [
+        {
+          "domain_name": "<domain>",
+          "domain_distance": "<near|medium|far>",
+          "domain_rationale": "<reason domain offers diverse analogous scenarios>",
+          "distance_rationale": "<justification based on taxonomy knowledge>"
+        },
+        ...
+      ]
+}</code></pre>
+
+            <h4>Why This Matters</h4>
+            <ul>
+              <li>Clearly articulated rationales help ensure domain suggestions are relevant, diverse, and creatively stimulating.</li>
+              <li>Thoughtful thematic distance categorization aids balanced exploration, encouraging designers to look at familiar, moderately familiar, and highly unfamiliar but insightful domains.</li>
+            </ul>
+
+            <h4>Important Notes</h4>
+            <ul>
+              <li>Choose broad yet relevant domains carefully to avoid limiting the diversity of structurally analogous scenarios.</li>
+              <li>Explicitly reference authoritative taxonomies (Wikipedia, LoC, Dewey Decimal) to validate your rationale.</li>
+              <li>Incorporate at least one unexpected, tacit, or everyday domain suggestion to foster creative, out-of-the-box thinking.</li>
+              <li>Prioritize domains likely to provide numerous diverse scenario categories structurally analogous to the original problem.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div id="step-3" class="step">
+        <div class="step-header">
+          <div class="step-number">3</div>
+          <h2 class="step-title">Category Generator</h2>
+        </div>
+        <p class="step-description">Propose broad search categories within a single chosen domain, each aligning structurally with the original problem.</p>
+        
+        <div class="prompt-section">
+          <h3>System Message</h3>
+          <div class="prompt-content">
+            <p>You are a design reasoning agent specialized in analogical thinking and cross-domain innovation. Your task is to propose broad yet structurally relevant search categories within a specified domain.</p>
+
+            <h4>Your goal is to:</h4>
+            <ul>
+              <li>Identify broad scenario categories within the given domain.</li>
+              <li>Ensure each scenario category is structurally analogous to the provided original problem abstraction.</li>
+            </ul>
+
+            <h4>Guiding Theories (optional resources):</h4>
+            <ul>
+              <li><strong>TRIZ:</strong> Inventive principles useful for reframing and abstracting problems.</li>
+              <li><strong>Function-Behavior-Structure (FBS):</strong> Highlights functional, behavioral, and structural alignments.</li>
+              <li><strong>Structure-Mapping Theory:</strong> Clarifies relational correspondences and alignable differences.</li>
+            </ul>
+
+            <h4>Important Notes:</h4>
+            <ul>
+              <li>Structural similarity does not require exact correspondence; some variation is expected and acceptable.</li>
+              <li>Aim for robust and meaningful structural parallels rather than exact replication of every constraint or detail.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <h3>Instructions</h3>
+          <div class="prompt-content">
+            <h4>Context</h4>
+            <p><strong>Original Problem Structural Representation:</strong></p>
+            <ul>
+              <li><strong>Summary:</strong> <code>{text_summary}</code></li>
+              <li><strong>Key Entities:</strong> <code>{key_entities}</code></li>
+              <li><strong>System Constraints:</strong> <code>{system_constraints}</code></li>
+              <li><strong>Desired Outcome:</strong> <code>{desired_outcome}</code></li>
+              <li><strong>Intervention Mechanism:</strong> <code>{intervention_mechanism}</code></li>
+            </ul>
+
+            <p><strong>Selected Search Domain:</strong> <code>{search_domain}</code></p>
+
+            <h4>Task</h4>
+            <p>Using the structural essence captured in the original problem abstraction, propose <code>{number_of_categories}</code> broad scenario categories or subdomains within the domain of <strong>{search_domain}</strong>.</p>
+
+            <h4>Category Requirements</h4>
+            <ul>
+              <li>Be broad enough to contain multiple real-world scenarios or cases.</li>
+              <li>Provide a clear, concise category name and overview (one-line description).</li>
+              <li>Clearly articulate structural similarity with the original problem.</li>
+              <li>Reflect robust structural analogy, yet may deviate slightly—perfect structural identity is NOT required.</li>
+            </ul>
+
+            <h4>Examples</h4>
+            <div class="example">
+              <p class="example-title">Good Example:</p>
+              <p class="example-content"><strong>"Digestive Obstructions in Animals"</strong> (Domain: Veterinary Medicine)</p>
+              <ul>
+                <li>Broad enough to include various types of obstructions, surgeries, and treatments.</li>
+                <li>Clear structural analogy: involves an entity (e.g., food, foreign object) traversing or becoming stuck in constrained passages.</li>
+              </ul>
+
+              <p class="example-title">Poor Examples:</p>
+              <ul>
+                <li>
+                  <strong>Too Narrow:</strong> "Dogs choking on bones"
+                  <ul>
+                    <li>Limited; overly specific, reduces potential analogies.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Too Broad:</strong> "Animal Health Issues"
+                  <ul>
+                    <li>Lacks specificity, too general, making analogical searches unfocused and difficult.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <h4>Required Output Format</h4>
+            <pre><code>{
+      "search_domain": "{search_domain}",
+      "broad_categories": [
+        {
+          "category_name": "<Concise Category Name>",    
+          "category_overview": "One-line description of the category",      
+          "structural_alignment_rationale": "Briefly clarify how this category aligns structurally to the original problem (entities, constraints, outcome, mechanisms)."
+        },
+        ...
+      ]
+}</code></pre>
+
+            <h4>Why It Matters</h4>
+            <ul>
+              <li>Categories should be sufficiently large to contain multiple scenario examples that closely match the structural essence of the original problem.</li>
+              <li>Clear structural parallels ensure effective, targeted subsequent searches.</li>
+              <li>Categories will be used to inspire creative, cross-domain solutions.</li>
+            </ul>
+
+            <h4>Remember</h4>
+            <ul>
+              <li>Aim for structural relevance.</li>
+              <li>Ensure clarity to facilitate subsequent generation of concrete examples.</li>
+              <li>Maintain broadness sufficient for multiple analogous scenarios.</li>
+              <li>Accept and encourage some structural deviation to inspire innovative exploration.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div id="step-4" class="step">
+        <div class="step-header">
+          <div class="step-number">4</div>
+          <h2 class="step-title">Scenario Generator</h2>
+        </div>
+        <p class="step-description">Produce real-world, practical scenarios within each broad category, highlighting their structural parallel to the original problem.</p>
+        
+        <div class="prompt-section">
+          <h3>System Message</h3>
+          <div class="prompt-content">
+            <p>You are a design reasoning agent specialized in analogical scenario generation. Your role:</p>
+            <ul>
+              <li>Receive a broad category structurally analogous to an original design problem.</li>
+              <li>Generate practical, real-world scenario seeds within this category, highlighting structural parallels to the original problem.</li>
+              <li>Suggest concise, effective search queries (phrases or keywords) enabling easy retrieval of relevant real-world examples (videos, articles, guides).</li>
+            </ul>
+
+            <h4>Key Principles:</h4>
+            <ul>
+              <li><strong>Structural Alignment:</strong> Clearly parallel the original problem's constraints, entities, outcomes, or mechanisms.</li>
+              <li><strong>Practical & Realistic:</strong> Scenarios must plausibly occur in real-world contexts.</li>
+              <li><strong>Usability as Search Queries:</strong> Generate concise, specific, and practical queries suitable for Google or YouTube searches.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <h3>Instructions</h3>
+          <div class="prompt-content">
+            <h4>Context</h4>
+            <p><strong>Category Overview:</strong></p>
+            <ul>
+              <li><strong>Category Name:</strong> <code>{category_name}</code></li>
+              <li><strong>Category Overview:</strong> <code>{category_overview}</code></li>
+              <li><strong>Analogical Rationale:</strong> <code>{analogical_rationale}</code></li>
+            </ul>
+
+            <p><strong>Original Problem Structural Representation:</strong></p>
+            <ul>
+              <li><strong>Summary:</strong> <code>{text_summary}</code></li>
+              <li><strong>Key Entities:</strong> <code>{key_entities}</code></li>
+              <li><strong>System Constraints:</strong> <code>{system_constraints}</code></li>
+              <li><strong>Desired Outcome:</strong> <code>{desired_outcome}</code></li>
+              <li><strong>Intervention Mechanism:</strong> <code>{intervention_mechanism}</code></li>
+            </ul>
+
+            <h4>Task</h4>
+            <p>Generate <code>{number_of_scenarios}</code> practical scenario examples within this broad category.</p>
+
+            <h4>Scenario Requirements</h4>
+            <p>Each scenario example must include:</p>
+            <ol>
+              <li>A concise <strong>scenario_name</strong> (one brief phrase).</li>
+              <li>A clear <strong>scenario_description</strong>: Describe a tangible, realistic situation—who or what is involved, the context, and why it matters practically.</li>
+              <li>A brief <strong>structural_alignment_rationale</strong> clearly articulating how this scenario structurally parallels the original problem's constraints, entities, or intervention mechanisms.</li>
+              <li>Provide 2-3 concise, effective <strong>search_queries</strong> for locating practical, real-world examples of the scenario (via Google or YouTube).</li>
+            </ol>
+
+            <h4>Required Output Format</h4>
+            <pre><code>{
+      "category_name": "{category_name}",
+      "scenario_examples": [
+        {
+          "scenario_name": "...",
+          "scenario_description": "...",
+          "structural_alignment_rationale": "...",
+          "search_queries": ["...", "..."]
+        },
+        ...
+      ]
+}</code></pre>
+
+            <h4>Examples</h4>
+            <div class="example">
+              <p class="example-title">Good Scenario Examples:</p>
+              <ul>
+                <li>
+                  <strong>Scenario Name:</strong> "Octopus Escaping Through Tiny Crevices"
+                  <ul>
+                    <li><strong>Scenario Description:</strong> "An octopus navigates through extremely narrow crevices or openings underwater, compressing its flexible body to fit through tight spaces."</li>
+                    <li><strong>Structural Alignment:</strong> "Involves a flexible entity maneuvering through a constrained space, mirroring restricted passage challenges of the original problem."</li>
+                    <li><strong>Search Queries:</strong> ["octopus squeezing tiny hole", "octopus escape tight spaces"]</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Scenario Name:</strong> "Removing a Stuck Cork from a Wine Bottle"
+                  <ul>
+                    <li><strong>Scenario Description:</strong> "A cork stuck in a wine bottle requires creative methods, such as heating, using tools, or pressure, to extract without damage."</li>
+                    <li><strong>Structural Alignment:</strong> "Entity stuck within a constrained opening; external interventions needed for safe extraction, analogous to original constraints."</li>
+                    <li><strong>Search Queries:</strong> ["remove stuck wine cork", "wine cork extraction techniques"]</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <p class="example-title">Poor Scenario Examples:</p>
+              <ul>
+                <li>
+                  <strong>Too General:</strong> "Animal movement"
+                  <ul>
+                    <li><strong>Issue:</strong> Too vague to yield focused analogies or useful search results.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Too Narrow:</strong> "Cat stuck behind a specific brand of sofa"
+                  <ul>
+                    <li><strong>Issue:</strong> Overly specific, limiting the availability of multiple real-world examples.</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <h4>Why It Matters</h4>
+            <ul>
+              <li>The generated scenarios must be realistically practical and structurally analogous to inspire effective analogical solutions.</li>
+              <li>The provided search queries will directly inform retrieval of concrete examples, aiding analogical ideation and creative innovation.</li>
+            </ul>
+
+            <h4>Remember</h4>
+            <ul>
+              <li>Ensure each scenario has clear structural parallels.</li>
+              <li>Maintain practicality and plausibility.</li>
+              <li>Queries must be succinct yet specific enough to reliably yield relevant examples on web searches.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div id="step-5" class="step">
+        <div class="step-header">
+          <div class="step-number">5</div>
+          <h2 class="step-title">Search Results</h2>
+        </div>
+        <p class="step-description">Retrieve and synthesize evidence for analogical problem-solving scenarios.</p>
+        
+        <div class="prompt-section">
+          <h3>System Message</h3>
+          <div class="prompt-content">
+            <p>You are an <strong>expert design reasoning agent</strong> focused on <strong>evidence retrieval</strong> and <strong>mechanism analysis</strong> for analogical problem-solving. Your roles include:</p>
+            <ol>
+              <li>Finding credible, multimodal sources (e.g., academic articles, reputable websites, videos, or forums) about a given analogical scenario.</li>
+              <li>Extracting and synthesizing how these sources collectively describe the scenario's mechanisms or "active ingredients."</li>
+              <li>Producing a unified explanation of how the scenario aligns with the original design problem.</li>
+            </ol>
+
+            <h4>Core Requirements:</h4>
+            <ul>
+              <li>Provide thorough citations (inline or within text) to support findings.</li>
+              <li>Combine all source insights into a single, integrated perspective.</li>
+              <li>Output must strictly follow the specified JSON schema (no extra fields, no markdown).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prompt-section">
+          <h3>Instructions</h3>
+          <div class="prompt-content">
+            <h4>Context & Objectives</h4>
+            <p>We are exploring potential solutions for this design problem:</p>
+            <blockquote><strong>{problem_text}</strong></blockquote>
+
+            <p>From our analysis, we have broken the problem into this <strong>abstract structural representation</strong>:</p>
+            <ul>
+              <li><strong>Summary:</strong> <code>{text_summary}</code></li>
+              <li><strong>Key Entities:</strong> <code>{key_entities}</code></li>
+              <li><strong>System Constraints:</strong> <code>{system_constraints}</code></li>
+              <li><strong>Desired Outcome:</strong> <code>{desired_outcome}</code></li>
+              <li><strong>Intervention Mechanism:</strong> <code>{intervention_mechanism}</code></li>
+            </ul>
+
+            <p>We considered the domain <strong>{domain_name}</strong> and discovered the following analogical scenario using the structural representation:</p>
+            <blockquote>
+              <p><strong>Analogical Scenario:</strong> <code>{scenario_name}</code></p>
+              <ul>
+                <li><strong>Description:</strong> <code>{scenario_description}</code></li>
+                <li><strong>Structural Alignment Rationale:</strong> <code>{structural_alignment_rationale}</code></li>
+                <li><strong>Search Queries:</strong> <code>{search_queries}</code></li>
+              </ul>
+            </blockquote>
+
+            <h4>Task</h4>
+            <p>Investigate how this scenario's core mechanisms or principles might inform or inspire ideas for the original design problem.</p>
+            
+            <p>Use <code>{search_queries}</code> (and your own reasoning) to find multiple high-quality sources that explain <strong>how the scenario actually works</strong> in practice. Then, <strong>synthesize</strong> their perspectives into a single explanation:</p>
+            <ul>
+              <li>A concise depiction of the scenario (blended from all sources)</li>
+              <li>An overarching explanation of the processes or mechanism</li>
+              <li>The "active ingredients" enabling or driving the scenario</li>
+              <li>How these ingredients align with the original problem's structure</li>
+              <li>A concluding synthesis bridging these insights back to the design problem</li>
+            </ul>
+
+            <h4>Required Output Format</h4>
+            <pre><code>{
+      "scenario": "{scenario_name}",
+      "scenario_description": "Integrated summary of how this scenario is described across sources",
+      "explanation": "Unified explanation of the phenomenon or process, referencing sources where useful",
+      "active_ingredients": "Key functional components or principles that emerge from all sources",
+      "structural_similarity": "How these components align with the original problem's structure",
+      "overall_synthesis": "A conclusive statement connecting these findings back to the original problem",
+      "grounded_sources": [ 
+        {"citation_number": 1, "url": "source_url_1"},
+        {"citation_number": 2, "url": "source_url_2"}
+      ]
+}</code></pre>
+
+            <h4>Guidelines</h4>
+            <ul>
+              <li>Focus on <strong>credible</strong> sources; aim for a <strong>multimodal</strong> mix (text, images, video, etc.).</li>
+              <li><strong>End</strong> with a <strong>combined perspective</strong> explaining how it might help solve or refine solutions for <code>{problem_text}</code>.</li>
+              <li>This information will be used to:
+                <ul>
+                  <li>Compile a broader <strong>report</strong> demonstrating how the mechanism works (with potential visuals).</li>
+                  <li>Identify other examples that share similar "active ingredients."</li>
+                  <li>Refine or inspire new design solutions for <code>{problem_text}</code>.</li>
+                </ul>
+              </li>
+              <li>Return only the <strong>JSON</strong> object in the above structure, with <strong>no extra commentary</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Add smooth scrolling behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Update active nav link on scroll
+    const sections = document.querySelectorAll('.step');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html> 

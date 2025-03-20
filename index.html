@@ -52,6 +52,9 @@
       border-bottom: 1px solid var(--border-color);
       box-shadow: var(--shadow-sm);
       flex-shrink: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .context-section h1 {
@@ -68,6 +71,24 @@
       font-size: 0.875rem;
       margin-bottom: 1.5rem;
       line-height: 1.5;
+    }
+
+    .prompts-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      background-color: var(--background-color);
+    }
+
+    .prompts-link:hover {
+      color: var(--secondary-color);
+      background-color: var(--hover-color);
     }
 
     .context-grid {
@@ -436,44 +457,48 @@
 </head>
 <body>
   <div class="context-section">
-    <h1>Analogical Scenarios Explorer</h1>
-    <p class="instructions">
-      Pick a <strong>design problem</strong> from the dropdown below, then select a
-      <strong>domain</strong>, <strong>category</strong>, and <strong>scenario</strong> to
-      see detailed information and active ingredients.
-    </p>
+    <div>
+      <h1>Analogical Scenarios Explorer</h1>
+      <p class="instructions">Explore analogical scenarios across different domains to inspire innovative solutions.</p>
+    </div>
+    <a href="prompts.html" class="prompts-link">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+      </svg>
+      View Prompts
+    </a>
+  </div>
 
-    <div class="context-grid">
-      <!-- Problem Selector -->
-      <div class="context-column">
-        <div class="problem-selector">
-          <label for="problemDropdown">Choose Problem:</label>
-          <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
-            <option value="">--Select--</option>
-          </select>
-        </div>
+  <div class="context-grid">
+    <!-- Problem Selector -->
+    <div class="context-column">
+      <div class="problem-selector">
+        <label for="problemDropdown">Choose Problem:</label>
+        <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
+          <option value="">--Select--</option>
+        </select>
       </div>
+    </div>
 
-      <!-- Design Problem -->
-      <div class="context-column">
-        <h2>Design Problem</h2>
-        <p id="problemText"></p>
-      </div>
+    <!-- Design Problem -->
+    <div class="context-column">
+      <h2>Design Problem</h2>
+      <p id="problemText"></p>
+    </div>
 
-      <!-- Problem Abstraction -->
-      <div class="context-column">
-        <h2>Problem Abstraction</h2>
-        <p id="abstractionSummary"></p>
-      </div>
+    <!-- Problem Abstraction -->
+    <div class="context-column">
+      <h2>Problem Abstraction</h2>
+      <p id="abstractionSummary"></p>
+    </div>
 
-      <!-- Key Entities and Constraints -->
-      <div class="context-column">
-        <h2>Key Elements</h2>
-        <h3>Key Entities</h3>
-        <p id="keyEntities"></p>
-        <h3>System Constraints</h3>
-        <p id="systemConstraints"></p>
-      </div>
+    <!-- Key Entities and Constraints -->
+    <div class="context-column">
+      <h2>Key Elements</h2>
+      <h3>Key Entities</h3>
+      <p id="keyEntities"></p>
+      <h3>System Constraints</h3>
+      <p id="systemConstraints"></p>
     </div>
   </div>
 
