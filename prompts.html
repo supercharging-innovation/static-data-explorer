@@ -297,7 +297,7 @@
         <a href="#step-4" class="nav-link">4. Scenario Generator</a>
       </li>
       <li class="nav-item">
-        <a href="#step-5" class="nav-link">5. Search Results</a>
+        <a href="#step-5" class="nav-link">5. Scenario Details and Active Ingredients</a>
       </li>
     </ul>
   </nav>
@@ -822,9 +822,9 @@
       <div id="step-5" class="step">
         <div class="step-header">
           <div class="step-number">5</div>
-          <h2 class="step-title">Search Results</h2>
+          <h2 class="step-title">Scenario Details and Active Ingredients</h2>
         </div>
-        <p class="step-description">Retrieve and synthesize evidence for analogical problem-solving scenarios.</p>
+        <p class="step-description">Retrieve and synthesize evidence for analogical problem-solving scenarios, focusing on core mechanisms and active ingredients.</p>
         
         <div class="prompt-section">
           <h3>System Message</h3>
@@ -838,8 +838,8 @@
 
             <h4>Core Requirements:</h4>
             <ul>
-              <li>Provide thorough citations (inline or within text) to support findings.</li>
-              <li>Combine all source insights into a single, integrated perspective.</li>
+              <li>Provide thorough citations (inline or within text) to support findings. You MUST provide only real, accurate citations. Please avoid providing URLs that are broken or fake. DO not hallucinate URLs. Accuracy matters!</li>
+              <li>Combine source insights into a single integrated perspective.</li>
               <li>Output must strictly follow the specified JSON schema (no extra fields, no markdown).</li>
             </ul>
           </div>
@@ -852,7 +852,7 @@
             <p>We are exploring potential solutions for this design problem:</p>
             <blockquote><strong>{problem_text}</strong></blockquote>
 
-            <p>From our analysis, we have broken the problem into this <strong>abstract structural representation</strong>:</p>
+            <p>From our analysis, we've developed this <strong>abstract structural representation</strong>:</p>
             <ul>
               <li><strong>Summary:</strong> <code>{text_summary}</code></li>
               <li><strong>Key Entities:</strong> <code>{key_entities}</code></li>
@@ -861,7 +861,7 @@
               <li><strong>Intervention Mechanism:</strong> <code>{intervention_mechanism}</code></li>
             </ul>
 
-            <p>We considered the domain <strong>{domain_name}</strong> and discovered the following analogical scenario using the structural representation:</p>
+            <p>We've identified an analogous scenario from the domain <strong>{domain_name}</strong>:</p>
             <blockquote>
               <p><strong>Analogical Scenario:</strong> <code>{scenario_name}</code></p>
               <ul>
@@ -871,27 +871,29 @@
               </ul>
             </blockquote>
 
-            <h4>Task</h4>
+            <h4>Your Task</h4>
             <p>Investigate how this scenario's core mechanisms or principles might inform or inspire ideas for the original design problem.</p>
             
-            <p>Use <code>{search_queries}</code> (and your own reasoning) to find multiple high-quality sources that explain <strong>how the scenario actually works</strong> in practice. Then, <strong>synthesize</strong> their perspectives into a single explanation:</p>
-            <ul>
-              <li>A concise depiction of the scenario (blended from all sources)</li>
-              <li>An overarching explanation of the processes or mechanism</li>
-              <li>The "active ingredients" enabling or driving the scenario</li>
-              <li>How these ingredients align with the original problem's structure</li>
-              <li>A concluding synthesis bridging these insights back to the design problem</li>
-            </ul>
+            <p>Use <code>{search_queries}</code> (and your own reasoning) to find multiple high-quality sources explaining <strong>how the scenario actually works</strong> in practice. Then, <strong>synthesize</strong> these sources into one cohesive explanation:</p>
 
-            <h4>Required Output Format</h4>
+            <h4>Clarifying "Active Ingredients"</h4>
+            <p>"Active ingredients" are the <strong>core functional elements or principles</strong> enabling the analogical scenario to work effectively. They include:</p>
+            <ul>
+              <li><strong>Key forces, interactions, or processes</strong> driving the scenario's success.</li>
+              <li><strong>Repeatable mechanisms</strong> that can be abstracted and potentially applied to other domains.</li>
+              <li><strong>Causal factors</strong> or essential system behaviors that, if removed, would cause the scenario to fail.</li>
+            </ul>
+            <p>Example: In pollination by bees, active ingredients include <em>mutualistic interaction</em>, <em>distributed task allocation among bees</em>, and <em>response triggered by environmental signals (flower scent)</em>.</p>
+
+            <h4>Required JSON Output</h4>
             <pre><code>{
       "scenario": "{scenario_name}",
-      "scenario_description": "Integrated summary of how this scenario is described across sources",
-      "explanation": "Unified explanation of the phenomenon or process, referencing sources where useful",
-      "active_ingredients": "Key functional components or principles that emerge from all sources",
-      "structural_similarity": "How these components align with the original problem's structure",
-      "overall_synthesis": "A conclusive statement connecting these findings back to the original problem",
-      "grounded_sources": [ 
+      "scenario_description": "Integrated summary from sources about how the scenario unfolds and operates in practice.",
+      "explanation": "Unified explanation of the phenomenon or process, referencing sources where useful.",
+      "active_ingredients": "Clearly identify and list the core functional components, mechanisms, or principles that enable the scenario's effectiveness.",
+      "structural_similarity": "Explanation of how these active ingredients align with the original problem's structure.",
+      "overall_synthesis": "A concise, conclusive synthesis connecting these insights explicitly back to the original design problem.",
+      "grounded_sources": [
         {"citation_number": 1, "url": "source_url_1"},
         {"citation_number": 2, "url": "source_url_2"}
       ]
@@ -899,16 +901,11 @@
 
             <h4>Guidelines</h4>
             <ul>
-              <li>Focus on <strong>credible</strong> sources; aim for a <strong>multimodal</strong> mix (text, images, video, etc.).</li>
-              <li><strong>End</strong> with a <strong>combined perspective</strong> explaining how it might help solve or refine solutions for <code>{problem_text}</code>.</li>
-              <li>This information will be used to:
-                <ul>
-                  <li>Compile a broader <strong>report</strong> demonstrating how the mechanism works (with potential visuals).</li>
-                  <li>Identify other examples that share similar "active ingredients."</li>
-                  <li>Refine or inspire new design solutions for <code>{problem_text}</code>.</li>
-                </ul>
-              </li>
-              <li>Return only the <strong>JSON</strong> object in the above structure, with <strong>no extra commentary</strong>.</li>
+              <li>Focus on <strong>credible</strong>, ideally multimodal sources (text, images, videos).</li>
+              <li>You MUST provide only real, accurate citations. Please avoid providing URLs that are broken or fake. DO not hallucinate URLs. Accuracy matters!</li>
+              <li>Clearly identify "active ingredients" as described above.</li>
+              <li>The explanation should help clarify the scenario's transferability and inspire new or refined solutions for the original design problem.</li>
+              <li>Return <strong>only</strong> the JSON object as specified, with <strong>no extra commentary</strong>.</li>
             </ul>
           </div>
         </div>

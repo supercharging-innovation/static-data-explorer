@@ -57,6 +57,47 @@
       align-items: center;
     }
 
+    .context-section .header-content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .context-section .toggle-button {
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      cursor: pointer;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+
+    .context-section .toggle-button.collapsed {
+      transform: rotate(-90deg);
+    }
+
+    .context-section .toggle-button svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .context-content {
+      transition: max-height 0.3s ease-out;
+      overflow: hidden;
+    }
+
+    .context-content.collapsed {
+      max-height: 0;
+    }
+
+    .context-content.expanded {
+      max-height: 500px; /* Adjust this value based on your content */
+    }
+
     .context-section h1 {
       color: var(--primary-color);
       font-size: 1.75rem;
@@ -458,9 +499,16 @@
 </head>
 <body>
   <div class="context-section">
-    <div>
-      <h1>Analogical Scenarios Explorer</h1>
-      <p class="instructions">Explore analogical scenarios across different domains to inspire innovative solutions.</p>
+    <div class="header-content">
+      <button class="toggle-button" onclick="toggleContext()" title="Toggle context section">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+      <div>
+        <h1>Analogical Scenarios Explorer</h1>
+        <p class="instructions">Explore analogical scenarios across different domains to inspire innovative solutions.</p>
+      </div>
     </div>
     <a href="prompts.html" class="prompts-link">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -470,36 +518,38 @@
     </a>
   </div>
 
-  <div class="context-grid">
-    <!-- Problem Selector -->
-    <div class="context-column">
-      <div class="problem-selector">
-        <label for="problemDropdown">Choose Problem:</label>
-        <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
-          <option value="">--Select--</option>
-        </select>
+  <div class="context-content expanded">
+    <div class="context-grid">
+      <!-- Problem Selector -->
+      <div class="context-column">
+        <div class="problem-selector">
+          <label for="problemDropdown">Choose Problem:</label>
+          <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
+            <option value="">--Select--</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <!-- Design Problem -->
-    <div class="context-column">
-      <h2>Design Problem</h2>
-      <p id="problemText"></p>
-    </div>
+      <!-- Design Problem -->
+      <div class="context-column">
+        <h2>Design Problem</h2>
+        <p id="problemText"></p>
+      </div>
 
-    <!-- Problem Abstraction -->
-    <div class="context-column">
-      <h2>Problem Abstraction</h2>
-      <p id="abstractionSummary"></p>
-    </div>
+      <!-- Problem Abstraction -->
+      <div class="context-column">
+        <h2>Problem Abstraction</h2>
+        <p id="abstractionSummary"></p>
+      </div>
 
-    <!-- Key Entities and Constraints -->
-    <div class="context-column">
-      <h2>Key Elements</h2>
-      <h3>Key Entities</h3>
-      <p id="keyEntities"></p>
-      <h3>System Constraints</h3>
-      <p id="systemConstraints"></p>
+      <!-- Key Entities and Constraints -->
+      <div class="context-column">
+        <h2>Key Elements</h2>
+        <h3>Key Entities</h3>
+        <p id="keyEntities"></p>
+        <h3>System Constraints</h3>
+        <p id="systemConstraints"></p>
+      </div>
     </div>
   </div>
 
@@ -865,6 +915,22 @@
           <div style="height: 30px;"></div>
         </div>
       `;
+    }
+
+    function toggleContext() {
+      const content = document.querySelector('.context-content');
+      const button = document.querySelector('.toggle-button');
+      const isCollapsed = content.classList.contains('collapsed');
+      
+      content.classList.remove('expanded', 'collapsed');
+      button.classList.remove('collapsed');
+      
+      if (isCollapsed) {
+        content.classList.add('expanded');
+      } else {
+        content.classList.add('collapsed');
+        button.classList.add('collapsed');
+      }
     }
   </script>
 </body>
