@@ -44,74 +44,54 @@
       line-height: 1.5;
       display: flex;
       flex-direction: column;
-    }
-
-    .context-section {
-      padding: 1.5rem;
-      background-color: var(--card-background);
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-      flex-shrink: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .context-section .header-content {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .context-section .toggle-button {
-      background: none;
-      border: none;
-      color: var(--primary-color);
-      cursor: pointer;
-      padding: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-    }
-
-    .context-section .toggle-button.collapsed {
-      transform: rotate(-90deg);
-    }
-
-    .context-section .toggle-button svg {
-      width: 24px;
-      height: 24px;
-      transition: transform 0.3s ease;
-    }
-
-    .context-content {
-      transition: max-height 0.3s ease-out;
+      height: 100vh;
       overflow: hidden;
     }
 
-    .context-content.collapsed {
-      max-height: 0;
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .context-content.expanded {
-      max-height: 500px; /* Adjust this value based on your content */
+    .view-container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    .context-section h1 {
+    .problem-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--card-background);
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      transition: transform 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .problem-view.hidden {
+      transform: translateX(-100%);
+    }
+
+    .problem-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .problem-header h1 {
       color: var(--primary-color);
       font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      font-family: "Raleway", sans-serif;
-    }
-
-    .context-section .instructions {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
+      margin: 0;
     }
 
     .prompts-link {
@@ -121,86 +101,190 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: color 0.2s;
       padding: 0.5rem 1rem;
       border-radius: var(--radius-md);
       background-color: var(--background-color);
+      transition: all 0.2s ease;
     }
 
     .prompts-link:hover {
-      color: var(--secondary-color);
       background-color: var(--hover-color);
+      transform: translateY(-1px);
     }
 
-    .context-grid {
+    .problem-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .problem-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .problem-column {
+      background-color: var(--card-background);
+      padding: 0.75rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      height: fit-content;
+    }
+
+    .problem-column h2 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .problem-column h3 {
+      color: var(--text-primary);
+      margin: 0.5rem 0 0.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .problem-column p {
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .problem-column p:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem-selector {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       margin-bottom: 2rem;
     }
 
-    .context-column {
-      background: var(--background-color);
-      padding: 1.25rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
-    }
-
-    .context-column h2 {
-      color: var(--text-primary);
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      font-family: "Raleway", sans-serif;
-    }
-
-    .context-column h3 {
-      color: var(--text-primary);
-      font-size: 0.9rem;
-      margin-top: 0.75rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      font-family: "Raleway", sans-serif;
-    }
-
-    .context-column p {
-      color: var(--text-secondary);
-      font-size: 0.875rem;
-      line-height: 1.5;
-      margin-bottom: 0.5rem;
-    }
-
-    /* For the problem selector */
-    .problem-selector {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
     .problem-selector label {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      font-family: "Raleway", sans-serif;
       color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .top-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .problem-dropdown-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+      margin-right: 1rem;
     }
 
     .problem-dropdown {
-      padding: 0.6rem;
+      flex: 1;
+      padding: 0.5rem;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       font-size: 0.9rem;
       font-family: "Avenir", sans-serif;
       background-color: var(--card-background);
       transition: all 0.2s;
-      width: 100%;
       color: var(--text-primary);
+      max-width: 400px;
     }
 
     .problem-dropdown:focus {
       outline: none;
       border-color: var(--primary-color);
       box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    .explore-button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .explore-button:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .explore-button svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .scenarios-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--background-color);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .scenarios-view.hidden {
+      transform: translateX(100%);
+    }
+
+    .back-button {
+      position: fixed;
+      bottom: 2rem; /* Changed from top to bottom */
+      right: 2rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      z-index: 1000;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Remove the old expand/collapse styles */
+    .back-button span {
+      display: inline;
     }
 
     .app-container {
@@ -498,126 +582,142 @@
   </style>
 </head>
 <body>
-  <div class="context-section">
-    <div class="header-content">
-      <button class="toggle-button" onclick="toggleContext()" title="Toggle context section">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 18l6-6-6-6"/>
-        </svg>
-      </button>
-      <div>
-        <h1>Analogical Scenarios Explorer</h1>
-        <p class="instructions">Explore analogical scenarios across different domains to inspire innovative solutions.</p>
-      </div>
-    </div>
-    <a href="prompts.html" class="prompts-link">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-      </svg>
-      View Prompts
-    </a>
-  </div>
+  <div class="main-container">
+    <div class="view-container">
+      <!-- Problem View -->
+      <div class="problem-view" id="problemView">
+        <div class="problem-header">
+          <h1>Analogical Scenarios Explorer</h1>
+          <a href="prompts.html" class="prompts-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+            View Prompts
+          </a>
+        </div>
 
-  <div class="context-content expanded">
-    <div class="context-grid">
-      <!-- Problem Selector -->
-      <div class="context-column">
-        <div class="problem-selector">
-          <label for="problemDropdown">Choose Problem:</label>
-          <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
-            <option value="">--Select--</option>
-          </select>
+        <div class="problem-content">
+          <div class="top-controls">
+            <div class="problem-dropdown-container">
+              <label for="problemDropdown">Choose Problem:</label>
+              <select id="problemDropdown" class="problem-dropdown" onchange="handleProblemChange()">
+                <option value="">--Select--</option>
+              </select>
+            </div>
+
+            <button class="explore-button" onclick="toggleViews()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+              Explore Analogical Scenarios
+            </button>
+          </div>
+
+          <div class="problem-grid">
+            <div class="problem-column">
+              <h2>Design Problem</h2>
+              <p id="problemText"></p>
+            </div>
+
+            <div class="problem-column">
+              <h2>Problem Abstraction</h2>
+              <p id="abstractionSummary"></p>
+            </div>
+
+            <div class="problem-column">
+              <h2>Key Elements</h2>
+              <h3>Key Entities</h3>
+              <p id="keyEntities"></p>
+              <h3>System Constraints</h3>
+              <p id="systemConstraints"></p>
+            </div>
+
+            <div class="problem-column">
+              <h2>Original Problem Domain</h2>
+              <p id="originalDomain"></p>
+              <h2>Notes</h2>
+              <p id="problemNotes"></p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Design Problem -->
-      <div class="context-column">
-        <h2>Design Problem</h2>
-        <p id="problemText"></p>
-      </div>
+      <!-- Scenarios View -->
+      <div class="scenarios-view hidden" id="scenariosView">
+        <button class="back-button" onclick="toggleViews()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+          Back to Problem
+        </button>
 
-      <!-- Problem Abstraction -->
-      <div class="context-column">
-        <h2>Problem Abstraction</h2>
-        <p id="abstractionSummary"></p>
-      </div>
+        <div class="app-container">
+          <!-- DOMAINS -->
+          <div class="column">
+            <div class="column-header">
+              Domains
+              <span class="badge" id="domainCount">0</span>
+            </div>
+            <div class="search-container">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search domains..."
+                id="domainSearch"
+              />
+            </div>
+            <div class="column-content" id="domainsList"></div>
+          </div>
 
-      <!-- Key Entities and Constraints -->
-      <div class="context-column">
-        <h2>Key Elements</h2>
-        <h3>Key Entities</h3>
-        <p id="keyEntities"></p>
-        <h3>System Constraints</h3>
-        <p id="systemConstraints"></p>
-      </div>
-    </div>
-  </div>
+          <!-- CATEGORIES -->
+          <div class="column">
+            <div class="column-header">
+              Categories
+              <span class="badge" id="categoryCount">0</span>
+            </div>
+            <div class="search-container">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search categories..."
+                id="categorySearch"
+              />
+            </div>
+            <div class="column-content" id="categoriesList"></div>
+          </div>
 
-  <div class="app-container">
-    <!-- DOMAINS -->
-    <div class="column">
-      <div class="column-header">
-        Domains
-        <span class="badge" id="domainCount">0</span>
-      </div>
-      <div class="search-container">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search domains..."
-          id="domainSearch"
-        />
-      </div>
-      <div class="column-content" id="domainsList"></div>
-    </div>
+          <!-- SCENARIOS -->
+          <div class="column">
+            <div class="column-header">
+              Scenarios
+              <span class="badge" id="scenarioCount">0</span>
+            </div>
+            <div class="search-container">
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search scenarios..."
+                id="scenarioSearch"
+              />
+            </div>
+            <div class="column-content" id="scenariosList"></div>
+          </div>
 
-    <!-- CATEGORIES -->
-    <div class="column">
-      <div class="column-header">
-        Categories
-        <span class="badge" id="categoryCount">0</span>
+          <!-- SCENARIO DETAILS -->
+          <div class="column">
+            <div class="column-header">Scenario Details</div>
+            <div class="column-content" id="scenarioDetails"></div>
+          </div>
+        </div>
       </div>
-      <div class="search-container">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search categories..."
-          id="categorySearch"
-        />
-      </div>
-      <div class="column-content" id="categoriesList"></div>
-    </div>
-
-    <!-- SCENARIOS -->
-    <div class="column">
-      <div class="column-header">
-        Scenarios
-        <span class="badge" id="scenarioCount">0</span>
-      </div>
-      <div class="search-container">
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Search scenarios..."
-          id="scenarioSearch"
-        />
-      </div>
-      <div class="column-content" id="scenariosList"></div>
-    </div>
-
-    <!-- SCENARIO DETAILS -->
-    <div class="column">
-      <div class="column-header">Scenario Details</div>
-      <div class="column-content" id="scenarioDetails"></div>
     </div>
   </div>
 
   <!-- Load external data files -->
   <script src="problem.js"></script>
   <script src="data/data_problem_1.js"></script>
-  <script src="data/data_problem_2.js"></script>
 
-  <!-- Main logic (previously "data.js" but now inline) -->
+  <!-- Main logic -->
   <script>
     let data = null; // whichever problem's data is currently selected
     let selectedDomain = null;
@@ -691,15 +791,19 @@
     function initialize() {
       if (!data) return;
 
-      // Populate context section
-      document.getElementById("problemText").textContent =
-        data.problem.problem_text;
-      document.getElementById("abstractionSummary").textContent =
-        data.problem_abstraction.text_summary;
-      document.getElementById("keyEntities").textContent =
-        data.problem_abstraction.key_entities;
-      document.getElementById("systemConstraints").textContent =
-        data.problem_abstraction.system_constraints;
+      // Populate context section with formatted text
+      document.getElementById("problemText").innerHTML = 
+        formatMarkdown(data.problem.problem_text);
+      document.getElementById("abstractionSummary").innerHTML = 
+        formatMarkdown(data.problem_abstraction.text_summary);
+      document.getElementById("keyEntities").innerHTML = 
+        formatMarkdown(data.problem_abstraction.key_entities);
+      document.getElementById("systemConstraints").innerHTML = 
+        formatMarkdown(data.problem_abstraction.system_constraints);
+      document.getElementById("originalDomain").innerHTML = 
+        formatMarkdown(data.problem.original_problem_domain);
+      document.getElementById("problemNotes").innerHTML = 
+        formatMarkdown(data.problem.notes);
 
       // Filter domains with an empty search
       filterDomains("");
@@ -858,7 +962,7 @@
               onclick="selectScenario('${scenario.scenario_name}')"
             >
               <h3>${scenario.scenario_name}</h3>
-              <p>${scenario.search_results[0].result.scenario_description}</p>
+              <p>${scenario.scenario_description}</p>
             </div>
           `
         )
@@ -885,52 +989,106 @@
       );
       if (!scenario) return;
 
-      const result = scenario.search_results[0].result;
+      const searchResults = scenario.search_results;
 
-      // Convert markdown-style bold to HTML <strong> and fix citations
-      const activeIngredients = result.active_ingredients
-        .split("\n")
-        .map((line) => {
-          line = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-          return processCitations(line, result.grounded_sources);
+      // Process active ingredients with citations and markdown
+      const activeIngredients = searchResults.active_ingredients
+        .map((ingredient) => {
+          const support = searchResults.grounding_support.find(s => 
+            s.segment.text.includes(ingredient)
+          );
+          
+          if (support) {
+            const citations = support.grounding_chunk_indices.map(index => {
+              const citation = searchResults.grounded_citations.find(c => c.number === index);
+              return citation ? `<a href="${citation.url}" class="citation" target="_blank">[${citation.number}]</a>` : '';
+            }).filter(Boolean).join(', ');
+            
+            return `<li>${formatMarkdown(ingredient)} ${citations}</li>`;
+          }
+          return `<li>${formatMarkdown(ingredient)}</li>`;
         })
-        .join("\n");
+        .join('');
 
       scenarioDetailsDiv.innerHTML = `
         <div class="scenario-details">
           <h2>${scenario.scenario_name}</h2>
-          <p>${processCitations(result.scenario_description, result.grounded_sources)}</p>
+          <p>${formatMarkdown(searchResults.scenario_description)}</p>
           
           <div class="active-ingredients">
             <h3>Active Ingredients</h3>
-            <div class="ingredients-content">${activeIngredients}</div>
+            <ul class="markdown-list">${activeIngredients}</ul>
           </div>
           
           <div class="overall-synthesis">
-            <h3>How does this relate to our problem?</h3>
-            <p>${processCitations(result.overall_synthesis, result.grounded_sources)}</p>
+            <h3>Structural Alignment</h3>
+            <p>${formatMarkdown(searchResults.alignment_with_structure)}</p>
+            
+            <h3>Design Problem Connection</h3>
+            <p>${formatMarkdown(searchResults.design_problem_connection)}</p>
+          </div>
+
+          <div class="references-section">
+            <h3>References</h3>
+            ${searchResults.grounded_citations
+              .map(citation => `
+                <div class="reference-item">
+                  <a href="${citation.url}" target="_blank">[${citation.number}] ${citation.title}</a>
+                </div>
+              `)
+              .join('')}
           </div>
           
-          <!-- Extra space at bottom for scrolling -->
           <div style="height: 30px;"></div>
         </div>
       `;
     }
 
-    function toggleContext() {
-      const content = document.querySelector('.context-content');
-      const button = document.querySelector('.toggle-button');
-      const isCollapsed = content.classList.contains('collapsed');
+    function toggleViews() {
+      const problemView = document.getElementById('problemView');
+      const scenariosView = document.getElementById('scenariosView');
       
-      content.classList.remove('expanded', 'collapsed');
-      button.classList.remove('collapsed');
+      problemView.classList.toggle('hidden');
+      scenariosView.classList.toggle('hidden');
+    }
+
+    function formatMarkdown(text) {
+      if (!text) return '';
       
-      if (isCollapsed) {
-        content.classList.add('expanded');
-      } else {
-        content.classList.add('collapsed');
-        button.classList.add('collapsed');
+      // Replace **text** with <strong>text</strong>
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      
+      // Handle bullet points - look for "* text" pattern
+      // Split by newlines, process each line, then rejoin
+      const lines = text.split('\n');
+      const formattedLines = lines.map(line => {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('* ')) {
+          return `<li>${trimmed.substring(2)}</li>`;
+        }
+        return `<p>${line}</p>`;
+      });
+      
+      // If we have any bullet points, wrap them in a ul
+      let inList = false;
+      let result = '';
+      
+      formattedLines.forEach(line => {
+        if (line.startsWith('<li>') && !inList) {
+          result += '<ul class="markdown-list">';
+          inList = true;
+        } else if (!line.startsWith('<li>') && inList) {
+          result += '</ul>';
+          inList = false;
+        }
+        result += line;
+      });
+      
+      if (inList) {
+        result += '</ul>';
       }
+      
+      return result;
     }
   </script>
 </body>

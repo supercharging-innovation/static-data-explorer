@@ -1,49 +1,65 @@
 const scenarioData = {
-  "_id": {
-    "$oid": "67f6654b0939189d1ce80f38"
-  },
-  "uuid": "b4da32ac-f2b7-4c04-a236-849e3e05fd79",
-  "problem_uuid": "e7ded26a-060c-4f99-8efa-c74ad615c144",
-  "scenario_uuid": "8192b9b3-5d29-4b64-9f94-da93971f3497",
-  "search_type": "general_scenario_search",
-  "created_at": {
-    "$date": "2025-04-09T12:17:15.207Z"
-  },
   "result": {
-    "scenario": "Laser Rust Removal for Car Restoration",
-    "scenario_description": "Laser rust removal, often used in automotive restoration, employs focused laser beams to eliminate rust (iron oxides) and other contaminants like paint or coatings from metal surfaces, particularly car body panels. The process relies on directing high-intensity, often pulsed, laser light onto the rusted area. The energy from the laser is absorbed strongly by the rust layer but reflected by the underlying metal substrate. This differential absorption causes the rust to heat up extremely rapidly, leading to its vaporization or ablation (forceful ejection as plasma or fine particles), effectively cleaning the surface without significant contact or the use of abrasive materials or chemicals.",
-    "explanation": "The core mechanism involves laser ablation, driven by the selective absorption of specific laser wavelengths and intensities by the contaminant (rust) compared to the substrate (metal) [1, 2]. When the high-energy laser pulse strikes the surface, the rust layer absorbs the energy, causing its temperature to rise dramatically in nanoseconds. This intense heating leads to the sublimation (direct transition from solid to gas) or vaporization of the rust and any binding agents, creating a micro-plasma explosion that expels the material away from the surface [3]. The underlying metal, being more reflective at the laser wavelength and having higher thermal conductivity, absorbs less energy and dissipates heat quickly, thus remaining largely unaffected, especially when using pulsed lasers which minimize heat transfer [1, 4]. Parameters like laser power, pulse frequency, pulse duration, and scanning speed are carefully controlled to optimize rust removal while preventing damage to the delicate metal substrate, crucial in classic car restoration [2, 5]. This method avoids harsh chemicals or abrasive blasting, preserving the integrity of the original material and surrounding areas.",
-    "active_ingredients": [
-      "**Selective Energy Absorption**: The contaminant (rust) has significantly different optical absorption properties at the laser wavelength compared to the substrate (metal), allowing targeted energy deposition.",
-      "**High-Intensity Focused Energy Delivery**: Concentrated laser energy (often pulsed) provides the high power density needed to rapidly heat and ablate the contaminant layer.",
-      "**Ablation/Vaporization Mechanism**: Rapid heating causes the contaminant to vaporize or sublimate, creating a plasma plume and ejecting the material from the surface.",
-      "**Non-Contact Process**: Energy is delivered via light, eliminating physical contact, mechanical force, or the need for liquid/chemical carriers.",
-      "**Minimal Substrate Interaction**: Due to reflectivity, thermal conductivity, and controlled laser parameters (e.g., short pulses), heat transfer to the substrate is minimized, preventing damage.",
-      "**Precise Control**: Laser scanning systems allow for accurate targeting and control over the cleaned area and depth of removal."
-    ],
-    "structural_similarity": "The 'active ingredients' of laser rust removal align with the original problem's structure: The laser energy acts as the 'alternative purification process,' replacing the 'primary resource' (abrasives, chemicals, analogous to water). The rust represents the 'contaminants,' and the car panel is the 'substrate.' The 'system constraint' of needing precision to avoid damaging the delicate substrate mirrors the need to clean clothing without damage. The 'desired outcome' is achieved by selectively targeting and removing the contaminant (rust/dirt) using focused energy (laser/alternative energy) while minimizing impact on the substrate (metal/fabric) and avoiding the undesirable resource (chemicals/water). Key principles like selective absorption and controlled energy application are directly relevant.",
-    "overall_synthesis": "Laser rust removal demonstrates how a targeted energy source can replace a bulk resource (like water, chemicals, or abrasives) for cleaning by exploiting differences in physical properties between the contaminant and the substrate. For the waterless clothing cleaning problem, this suggests exploring energy-based methods (like specific light frequencies, plasma, or potentially ultrasonic energy) that contaminants (dirt, oils, microbes) might absorb differently than textile fibers. The goal would be to find an energy form and application method that can effectively ablate, vaporize, or break down contaminants with minimal energy input into the fabric itself, achieving hygiene standards without water. The principles of selective absorption, controlled energy delivery, and non-contact application are key transferable concepts for developing resource-efficient cleaning technologies.",
-    "grounded_sources": [
+    "scenario_name": "Home Air Purifier Ionizer",
+    "domain_name": "Industrial Cleaning & Surface Treatment",
+    "grounded_citations": [
       {
-        "citation_number": 1,
-        "url": "https://www.rp-photonics.com/laser_cleaning.html"
+        "number": 1,
+        "title": "healthline.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAJyHUgdFfra6cTfoBkoSOv-BwqL4iNbr_42mV-4RSzLLyhNYAw2uCz8JIl5txkvOAbfOg-upFZVDX8PFI_sO4qzxFY7Ap2r-0DvsfD-HI_nfPyWj2z9LPZ4m5OUAcU_3e_LFlh3rLv08FBrl1YK-sz_7NaSsA=="
       },
       {
-        "citation_number": 2,
-        "url": "https://www.laserax.com/blog/laser-rust-removal"
+        "number": 2,
+        "title": "simpurelife.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAKXbnHABzoiHTJWtQEHn5W1OUlnR6BeEQ0aFPcbdXJypOxGnp9WeD2WG3JEsbeFFdl3RB3dIg3MTi7NZ8eYBAFD11CFJ308C7cf5YKodJ4ul7oxu652eJgYIbDBhJvbzCjYceaCKGpmOfeS7i8dmkVriclvWLtLMHMaygDq0-FxE-CYcpJxRVjt_Y9D6g=="
       },
       {
-        "citation_number": 3,
-        "url": "https://www.ipgphotonics.com/en/applications/cleaning-and-ablation"
+        "number": 3,
+        "title": "aeno.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAKhjkHieYEnzfm0MUefzKUxRHvCWgIUpM2GlDtH4d5S_OHGnrQXC9TfJFmK8c-7nmznEOIARr5Le0p9ARjhvs_1mZvcGy_Gc1ERoXFn52CiUnP-Jw-fcoKa_cwSawrPzxxTKcilNorz2zCx2Z6L3j4IberUtLGjD368cH9JQQ1Q_xHLcvl9Z0Ut2TEmHQ=="
       },
       {
-        "citation_number": 4,
-        "url": "https://cleanlaser.de/en/laser-cleaning/functional-principle/"
+        "number": 4,
+        "title": "rabbitair.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAJGgrXOSBUjeBETPm4FvGER_2cvVwkPYhGRWiH_SFhZzURdF_Ay6yYZv9dlELob9wx5blzteM72DKfoIPUqvxGajg38CxL96HpEmANrTd0KYyUlf2xFhlmaAqD8h1yKJ8L05UUJUMZf4obsN-hbFkVWn5WpMjVybWBor3NggZ44qf-Mggv9MGw="
       },
       {
-        "citation_number": 5,
-        "url": "https://www.youtube.com/watch?v=QHqpEB3PREE"
+        "number": 5,
+        "title": "livescience.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAI_Ha58kHdkPNsE12C-9bOvfZgkjWdIOyqvf_64ScTPH4M4EcG_MVdIiM_2s-BlXXjAYiggFWuB1UsxIvzsxhXzY9JLHYNr5q_AZgVcCOroqAQoik2rnL-nsr_DpVhhkIAlQO_JmVi_HUe4kRpa3AEd"
+      },
+      {
+        "number": 6,
+        "title": "epa.gov",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAKhSTy9NX8zc-KEVcOjeUDbnV6m_sW_m8__thwLfxNNmCwwBSmy3OI4mu4hXOcyk5Y45t-mrYq6jXXKLZccWGgj-pfxZC2QQgLPMEjIqw4xv831QB3CYLNElWBwxZBji8O_BzpJLfQFJ1cVh2ipOYX7vKSnIc86BoOLao1Ls2Kaw1Aa4GAcAZo5n29fCjKODKTKeJmVZVAV64sa4hs5fKk="
+      },
+      {
+        "number": 7,
+        "title": "nirvanabeing.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqAILUGxl5n0ANlLqOyDFdgRud09FG5ZhiX-K-dN0-DXUSj3B-C7kWYctdeOmfn11d0cjjmacARyQApu1oT8HW8mXKQM7VDO3UMo0f499D8JzqZrzfowlt6WaHE8hiLAtwODAscbmMlDVcYaR9YQqAb2bJ9XxsFgOW858L2m8XrnhBjugQItiVjgNhaNoilEkM__UPwqAQYSFHajYMSwNAVwfKryHbrX0pWXnUtVa"
+      },
+      {
+        "number": 8,
+        "title": "oransi.com",
+        "url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AWQVqALDHyrvITMP7p3LmiA3QC0R9KnKUgolxms7Rlv_y-JC9mr-qbHvDwYgjDszHmeglm3kDxVjVGSxh4p05yLKLQSkJpr2oWL2mT8P6yk8ztL2cq3v1Z2OVbW_5q3htRfM9Ai8rpqCvVurn0q5NUThzdjzN6OV"
       }
-    ]
+    ],
+    "web_search_queries": [
+      "electrostatic vs HEPA air purifier",
+      "how do electrostatic precipitators work?",
+      "negative ion air purifier mechanism",
+      "electrostatic air purifier review",
+      "do ionizers remove allergens effectively?",
+      "ionizer air cleaner how it works"
+    ],
+    "active_ingredients": [
+      "Electrostatic Charging: Applying an electrical charge (typically negative) to contaminant particles using high voltage and ion emission [4, 5, 11, 14, 16, 19].",
+      "Electrostatic Attraction/Precipitation: Using the imparted charge to attract particles either to grounded surfaces (walls, floors) or oppositely charged collector plates within the device [3, 4, 5, 10, 16, 17].",
+      "Particle Agglomeration: Charged particles attracting each other (especially in bipolar systems), forming larger, heavier clumps that settle out of the air more easily [1, 11, 14, 15].",
+      "Filter-Free (or Reduced Filter) Operation: Relying primarily on electrostatic forces rather than physical sieving (like HEPA filters) to remove contaminants, reducing the need for filter replacement [3, 6, 11, 15, 18, 25]."
+    ],
+    "alignment_with_structure": "Structural Alignment:\n    *   Substrate: Room air (analogous to clothing).\n    *   Contaminants: Airborne particles like dust, allergens, pollen (analogous to dirt, oils, microbes on fabric).\n    *   Primary Resource Constraint: Desire to avoid costly/noisy HEPA filters (analogous to water scarcity).\n    *   Purification Threshold: Allergy relief/improved air quality (analogous to standard hygiene levels for clothing).\n    *   Alternative Mechanism: Using electrostatic forces (charging, attraction, agglomeration) to remove contaminants instead of physical filtration (analogous to seeking non-water-based cleaning methods).",
+    "design_problem_connection": "Relation to Original Design Problem:\nThe active ingredients of electrostatic precipitation offer a potential pathway for low-water clothing cleaning. Instead of using water as the primary medium to suspend and wash away dirt, this analogy suggests exploring how electrostatic forces could be applied directly to fabric:\n    *   Could contaminants on clothing be electrically charged?\n    *   Could charged contaminants then be attracted and lifted off the fabric onto a charged collection surface, perhaps using minimal or no water?\n    *   Could this process effectively remove various types of soil (particulates, potentially even some oily substances if their properties allow charging) to meet hygiene standards?\nThis points towards investigating methods like applying static charges to clothes and using oppositely charged surfaces or fields to \"pull\" contaminants away, drastically reducing or eliminating water usage. However, the analogy also highlights potential drawbacks, such as ozone production [1, 3, 9, 22] and varying effectiveness depending on particle type [1, 3, 13], which would need careful consideration in a clothing context.",
+    "scenario_description": "Scenario Operation:\nIonizing air purifiers (also known as electrostatic precipitators or ion generators) work by emitting electrically charged molecules (usually negative ions) into the air [1, 4, 11, 15]. These ions attach themselves to airborne particles like dust, pollen, smoke, and other allergens [1, 3, 11, 15]. This charging process causes the particles to clump together [1, 11, 14, 15]. Being heavier and charged, these clumps are then attracted to and settle onto nearby surfaces like walls, floors, or dedicated collection plates within the device [1, 3, 4, 10, 11, 15]. Some models use bipolar ionization (both positive and negative ions) to make particles attract each other directly, causing them to fall out of the air more quickly [2, 14]. This process removes fine particles from the air without relying on traditional physical filters like HEPA, although some units combine ionization with filters [1, 11]."
   }
 }

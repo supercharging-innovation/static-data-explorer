@@ -5,24 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Scenario Viewer</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Avenir:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <style>
     :root {
-      --primary-color: #7c3aed;
-      --secondary-color: #5b21b6;
-      --background-color: #f5f3ff;
-      --card-background: #ffffff;
-      --text-primary: #1e1b4b;
-      --text-secondary: #4c1d95;
-      --border-color: #e9d8fd;
-      --hover-color: #f3e8ff;
-      --shadow-sm: 0 1px 2px 0 rgb(124, 58, 237, 0.05);
-      --shadow-md: 0 4px 6px -1px rgb(124, 58, 237, 0.1);
-      --radius-sm: 0.375rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --text: #1f2937;
+      --text-light: #4b5563;
+      --background: #f3f4f6;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
     }
 
     * {
@@ -32,10 +26,10 @@
     }
 
     body {
-      font-family: "Avenir", sans-serif;
-      background-color: var(--background-color);
-      color: var(--text-primary);
-      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--background);
       padding: 2rem;
     }
 
@@ -44,79 +38,53 @@
       margin: 0 auto;
     }
 
-    .header {
-      margin-bottom: 2rem;
-    }
-
-    .header h1 {
-      color: var(--primary-color);
-      font-family: "Raleway", sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
     .scenario-card {
-      background: var(--card-background);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
+      background: var(--card-bg);
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
       padding: 2rem;
       margin-bottom: 2rem;
     }
 
+    .scenario-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
     .scenario-title {
-      color: var(--primary-color);
-      font-family: "Raleway", sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .domain-name {
+      color: var(--text-light);
+      font-size: 1.125rem;
     }
 
     .section {
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .section-title {
-      color: var(--text-primary);
-      font-family: "Raleway", sans-serif;
       font-size: 1.25rem;
-      margin-bottom: 0.75rem;
       font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
     }
 
     .section-content {
-      color: var(--text-secondary);
+      color: var(--text);
       line-height: 1.7;
     }
 
-    .active-ingredients {
-      list-style: none;
-    }
-
-    .active-ingredients li {
-      margin-bottom: 0.75rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .active-ingredients li:before {
-      content: "•";
-      color: var(--primary-color);
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    .active-ingredients strong {
-      color: var(--primary-color);
-      font-weight: 600;
-    }
-
     .citation {
-      color: var(--primary-color);
+      color: var(--primary);
       text-decoration: none;
-      font-size: 0.85rem;
-      vertical-align: baseline;
+      font-size: 0.875rem;
+      vertical-align: super;
       line-height: 1;
       padding: 0.1em 0.3em;
       border-radius: 0.2em;
@@ -126,8 +94,7 @@
     }
 
     .citation:hover {
-      background-color: rgba(124, 58, 237, 0.1);
-      text-decoration: none;
+      background-color: rgba(37, 99, 235, 0.1);
     }
 
     .citation-tooltip {
@@ -135,28 +102,16 @@
       bottom: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background-color: var(--text-primary);
+      background-color: var(--text);
       color: white;
       padding: 0.5rem;
-      border-radius: var(--radius-sm);
+      border-radius: 0.25rem;
       font-size: 0.75rem;
       white-space: nowrap;
       opacity: 0;
       visibility: hidden;
       transition: all 0.2s ease;
       z-index: 1000;
-      box-shadow: var(--shadow-md);
-    }
-
-    .citation-tooltip:after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 5px;
-      border-style: solid;
-      border-color: var(--text-primary) transparent transparent transparent;
     }
 
     .citation:hover .citation-tooltip {
@@ -165,184 +120,164 @@
       bottom: calc(100% + 5px);
     }
 
+    .active-ingredients {
+      list-style: none;
+    }
+
+    .active-ingredients li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .active-ingredients li:before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .search-queries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .search-query {
+      background-color: rgba(37, 99, 235, 0.1);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+    }
+
     .sources {
       margin-top: 2rem;
       padding-top: 1rem;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid var(--border);
     }
 
     .sources h3 {
-      color: var(--text-primary);
-      font-family: "Raleway", sans-serif;
-      font-size: 1.1rem;
+      color: var(--text);
+      font-size: 1.125rem;
       margin-bottom: 1rem;
     }
 
     .source-item {
       margin-bottom: 0.5rem;
+      font-size: 0.875rem;
     }
 
     .source-item a {
-      color: var(--primary-color);
+      color: var(--primary);
       text-decoration: none;
     }
 
     .source-item a:hover {
       text-decoration: underline;
     }
-
-    .metadata {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-    }
-
-    .metadata-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .metadata-item svg {
-      width: 16px;
-      height: 16px;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <h1>Scenario Viewer</h1>
-      <p>View and analyze scenario data in a readable format</p>
-    </div>
-
     <div id="scenarioContainer"></div>
   </div>
 
-  <!-- Load the scenario data first -->
   <script src="scenario-data.js"></script>
-  
-  <!-- Then load the viewer logic -->
   <script>
-    function processCitations(text, sources) {
-      if (!text || !sources) return text;
+    function processCitations(text, citations) {
+      if (!text || !citations) return text;
       
-      // First handle citations in parentheses
-      text = text.replace(/\((\d+(?:,\s*\d+)*)\)/g, (match, numbers) => {
-        const citationNumbers = numbers.split(",").map((n) => n.trim());
-        const citations = citationNumbers
-          .map((num) => {
-            const source = sources.find(
-              (s) => s.citation_number === parseInt(num, 10)
-            );
-            if (source) {
-              const domain = new URL(source.url).hostname;
-              return `<a href="${source.url}" class="citation" target="_blank" rel="noopener noreferrer">
-                ${num}
-                <span class="citation-tooltip">${domain}</span>
-              </a>`;
-            }
-            return num;
-          })
-          .join(", ");
-        return `(${citations})`;
+      // Handle citations in square brackets
+      return text.replace(/\[(\d+)\]/g, (match, number) => {
+        const citation = citations.find(c => c.number === parseInt(number));
+        if (citation) {
+          const domain = new URL(citation.url).hostname;
+          return `<a href="${citation.url}" class="citation" target="_blank" rel="noopener noreferrer">
+            [${number}]
+            <span class="citation-tooltip">${domain}</span>
+          </a>`;
+        }
+        return match;
       });
+    }
 
-      // Then handle citations in square brackets (keeping this for backward compatibility)
-      text = text.replace(/\[(\d+(?:,\s*\d+)*)\]/g, (match, numbers) => {
-        const citationNumbers = numbers.split(",").map((n) => n.trim());
-        return citationNumbers
-          .map((num) => {
-            const source = sources.find(
-              (s) => s.citation_number === parseInt(num, 10)
-            );
-            if (source) {
-              const domain = new URL(source.url).hostname;
-              return `<a href="${source.url}" class="citation" target="_blank" rel="noopener noreferrer">
-                [${num}]
-                <span class="citation-tooltip">${domain}</span>
-              </a>`;
-            }
-            return `[${num}]`;
-          })
-          .join(", ");
-      });
-
+    function processMarkdown(text) {
+      if (!text) return '';
+      
+      // Process bold text
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      
+      // Process bullet points
+      text = text.replace(/^\*\s+(.*)$/gm, '<li>$1</li>');
+      
+      // Process paragraphs
+      text = text.split('\n\n').map(paragraph => {
+        if (paragraph.startsWith('<li>')) {
+          return `<ul>${paragraph}</ul>`;
+        }
+        return `<p>${paragraph}</p>`;
+      }).join('');
+      
       return text;
     }
 
     function renderScenario(data) {
       const container = document.getElementById('scenarioContainer');
-      const result = data.result;
-
-      // Convert markdown-style bold to HTML <strong>
-      const activeIngredients = result.active_ingredients.map(ingredient => {
-        return ingredient.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-      });
+      const scenario = data.result;
 
       container.innerHTML = `
         <div class="scenario-card">
-          <div class="metadata">
-            <div class="metadata-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              ${new Date(data.created_at.$date).toLocaleDateString()}
-            </div>
-            <div class="metadata-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              ${data.search_type.replace(/_/g, ' ')}
-            </div>
+          <div class="scenario-header">
+            <h1 class="scenario-title">${scenario.scenario_name}</h1>
+            <div class="domain-name">${scenario.domain_name}</div>
           </div>
 
-          <h2 class="scenario-title">${result.scenario}</h2>
-
           <div class="section">
-            <h3 class="section-title">Scenario Description</h3>
+            <h2 class="section-title">Scenario Description</h2>
             <div class="section-content">
-              ${processCitations(result.scenario_description, result.grounded_sources)}
+              ${processMarkdown(processCitations(scenario.scenario_description, scenario.grounded_citations))}
             </div>
           </div>
 
           <div class="section">
-            <h3 class="section-title">Explanation</h3>
-            <div class="section-content">
-              ${processCitations(result.explanation, result.grounded_sources)}
-            </div>
-          </div>
-
-          <div class="section">
-            <h3 class="section-title">Active Ingredients</h3>
+            <h2 class="section-title">Active Ingredients</h2>
             <ul class="active-ingredients">
-              ${activeIngredients.map(ingredient => `
-                <li>${processCitations(ingredient, result.grounded_sources)}</li>
+              ${scenario.active_ingredients.map(ingredient => `
+                <li>${processMarkdown(processCitations(ingredient, scenario.grounded_citations))}</li>
               `).join('')}
             </ul>
           </div>
 
           <div class="section">
-            <h3 class="section-title">Structural Similarity</h3>
+            <h2 class="section-title">Alignment with Structure</h2>
             <div class="section-content">
-              ${processCitations(result.structural_similarity, result.grounded_sources)}
+              ${processMarkdown(processCitations(scenario.alignment_with_structure, scenario.grounded_citations))}
             </div>
           </div>
 
           <div class="section">
-            <h3 class="section-title">Overall Synthesis</h3>
+            <h2 class="section-title">Design Problem Connection</h2>
             <div class="section-content">
-              ${processCitations(result.overall_synthesis, result.grounded_sources)}
+              ${processMarkdown(processCitations(scenario.design_problem_connection, scenario.grounded_citations))}
+            </div>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">Web Search Queries</h2>
+            <div class="search-queries">
+              ${scenario.web_search_queries.map(query => `
+                <div class="search-query">${query}</div>
+              `).join('')}
             </div>
           </div>
 
           <div class="sources">
             <h3>Sources</h3>
-            ${result.grounded_sources.map(source => `
+            ${scenario.grounded_citations.map(source => `
               <div class="source-item">
-                [${source.citation_number}] <a href="${source.url}" target="_blank">${source.url}</a>
+                [${source.number}] <a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.title}</a>
               </div>
             `).join('')}
           </div>
