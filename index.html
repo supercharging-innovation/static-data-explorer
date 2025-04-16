@@ -435,13 +435,12 @@
       border-radius: 3px;
     }
 
-    .active-ingredients,
-    .overall-synthesis {
+    .active-ingredients {
       background: var(--background-color);
       padding: 1rem;
       border-radius: var(--radius-lg);
       margin: 1rem 0;
-      margin-bottom: 1.5rem; /* Add more space between sections */
+      margin-bottom: 1.5rem;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--border-color);
     }
@@ -469,6 +468,213 @@
     .active-ingredients strong {
       color: var(--primary-color);
       font-weight: 600;
+    }
+
+    /* Accordion styles */
+    .accordion {
+      margin-top: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .accordion-item {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .accordion-item:last-child {
+      border-bottom: none;
+    }
+
+    .accordion-header {
+      padding: 1rem 1.25rem;
+      background-color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .accordion-header:hover {
+      background-color: #f8fafc;
+    }
+
+    .accordion-header h4 {
+      margin: 0;
+      color: #1e40af;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    .accordion-content {
+      padding: 1.25rem;
+      background-color: #f8fafc;
+      display: none;
+    }
+
+    .accordion-content.active {
+      display: block;
+    }
+
+    /* Nested accordion styles */
+    .nested-accordion {
+      margin-top: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+    .nested-accordion .accordion-header {
+      padding: 0.875rem 1rem;
+      background-color: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nested-accordion .accordion-header:hover {
+      background-color: #f1f5f9;
+    }
+
+    .nested-accordion .accordion-header h4 {
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+
+    .nested-accordion .accordion-content {
+      padding: 1rem;
+      background-color: #ffffff;
+    }
+
+    /* Evaluation styles with distinct color palette */
+    .evaluation-dimension {
+      margin-bottom: 1rem;
+      padding: 1.25rem;
+      background-color: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .evaluation-dimension h5 {
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    .evaluation-question {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      font-family: "Raleway", sans-serif;
+      color: #1e293b;
+      padding: 0.75rem;
+      background-color: #f1f5f9;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid #3b82f6;
+    }
+
+    .evaluation-rating {
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-right: 0.5rem;
+      font-family: "Raleway", sans-serif;
+    }
+
+    .rating-1 {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: rgb(16, 185, 129);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .rating-0 {
+      background-color: rgba(245, 158, 11, 0.1);
+      color: rgb(245, 158, 11);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .rating--1 {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: rgb(239, 68, 68);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .evaluation-rationale {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+      font-family: "Avenir", sans-serif;
+    }
+
+    .overall-summary {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background-color: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid #e2e8f0;
+    }
+
+    .overall-summary h5 {
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    .overall-summary p {
+      color: #1e293b;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-family: "Avenir", sans-serif;
+    }
+
+    .interestingness {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background-color: #f8fafc;
+      border-radius: var(--radius-md);
+      border: 1px solid #e2e8f0;
+    }
+
+    .interestingness h5 {
+      color: #1e40af;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: "Raleway", sans-serif;
+      letter-spacing: -0.025em;
+    }
+
+    .interestingness-score {
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: #1e40af;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      font-family: "Raleway", sans-serif;
+    }
+
+    .interestingness-rationale {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+      font-family: "Avenir", sans-serif;
     }
 
     .citation {
@@ -993,20 +1199,91 @@
 
       // Process active ingredients with citations and markdown
       const activeIngredients = searchResults.active_ingredients
-        .map((ingredient) => {
+        .map((ingredient, index) => {
           const support = searchResults.grounding_support.find(s => 
-            s.segment.text.includes(ingredient)
+            s.segment.text.includes(ingredient.text || ingredient)
           );
           
+          let citations = '';
           if (support) {
-            const citations = support.grounding_chunk_indices.map(index => {
+            citations = support.grounding_chunk_indices.map(index => {
               const citation = searchResults.grounded_citations.find(c => c.number === index);
               return citation ? `<a href="${citation.url}" class="citation" target="_blank">[${citation.number}]</a>` : '';
             }).filter(Boolean).join(', ');
-            
-            return `<li>${formatMarkdown(ingredient)} ${citations}</li>`;
           }
-          return `<li>${formatMarkdown(ingredient)}</li>`;
+
+          const ingredientText = ingredient.text || ingredient;
+          const evaluation = ingredient.evaluation;
+          
+          let evaluationContent = '';
+          if (evaluation) {
+            const dimensions = evaluation.dimensions.map(dimension => `
+              <div class="evaluation-dimension">
+                <h5>${dimension.dimension_name}</h5>
+                ${dimension.questions.map(question => `
+                  <div class="evaluation-question">
+                    <div class="question-text">${question.question}</div>
+                    <div class="evaluation-rating rating-${question.rating}">${question.rating}</div>
+                    <div class="evaluation-rationale">${question.rationale}</div>
+                  </div>
+                `).join('')}
+              </div>
+            `).join('');
+
+            evaluationContent = `
+              <div class="accordion">
+                <div class="accordion-item">
+                  <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>Evaluation</h4>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </div>
+                  <div class="accordion-content">
+                    ${dimensions}
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion">
+                <div class="accordion-item">
+                  <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>Overall Summary</h4>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </div>
+                  <div class="accordion-content">
+                    <p>${evaluation.overall_summary}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion">
+                <div class="accordion-item">
+                  <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <h4>Interestingness</h4>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </div>
+                  <div class="accordion-content">
+                    <div class="interestingness-score">Score: ${evaluation.interestingness.score}</div>
+                    <div class="interestingness-rationale">${evaluation.interestingness.rationale}</div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+
+          return `
+            <li>
+              <div class="ingredient-content">
+                ${formatMarkdown(ingredientText)} ${citations}
+                ${evaluationContent}
+              </div>
+            </li>
+          `;
         })
         .join('');
 
@@ -1042,6 +1319,21 @@
           <div style="height: 30px;"></div>
         </div>
       `;
+    }
+
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const isActive = content.classList.contains('active');
+      
+      // Close all accordions first
+      document.querySelectorAll('.accordion-content').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Toggle the clicked one
+      if (!isActive) {
+        content.classList.add('active');
+      }
     }
 
     function toggleViews() {
