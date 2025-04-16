@@ -5674,7 +5674,135 @@ const analogicalData_problem_1 = {
                                     },
                                     {
                                         "text": "Penetration: The gas and plasma can penetrate complex geometries and potentially porous materials (though limitations exist for very long, narrow lumens).",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Penetration itself doesn't remove contaminants; it enables access for the active agent (plasma/gas) to reach contaminants within the substrate (fabric structure). It's a facilitator, not the removal mechanism."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 0,
+                                                            "rationale": "Similar to the first point, penetration enables the purification process (plasma sterilization/cleaning) but isn't the purification action itself. It ensures the purifying agent reaches the target areas."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of ensuring a cleaning agent (gas, plasma, vapor) penetrates the entire fabric structure is directly relevant and crucial for designing effective low-water or waterless cleaning processes."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Penetration, as a concept related to gas/plasma movement, is independent of water. The plasma process it enables is inherently low-water, making the principle compatible with the constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "While penetration itself doesn't consume resources, the underlying plasma technology it enables requires significant electrical energy, vacuum equipment, and potentially precursor chemicals (like H2O2), which can be costly or unavailable."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the process enabled by penetration (plasma treatment) uses gases or vapors, not liquid water, thus adhering to the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 0,
+                                                            "rationale": "Ensuring penetration is a general requirement for many cleaning methods. However, applying it in the context of plasma cleaning for clothing offers a novel approach compared to most existing low-water techniques."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Using plasma, enabled by penetration, for general clothing cleaning is highly novel. While plasma exists in industrial surface treatment, its application to consumer laundry in sustainable tech is not established."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "It might overcome limitations related to distributing liquid cleaning agents effectively without bulk water. However, plasma itself has limitations regarding particulate soil removal and penetration depth in dense materials."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "Scaling plasma reactors from small medical devices to bulky laundry loads poses significant challenges in chamber size, vacuum efficiency, uniform plasma distribution, and ensuring penetration throughout the load."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Implementation would likely be very complex and costly, requiring vacuum chambers, RF/microwave power supplies, control systems, and potentially precursor gas handling, making it impractical for typical non-industrial settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma systems demand reliable electricity, specialized equipment, and potentially trained maintenance personnel, which are often lacking in resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "The principle of ensuring penetration is beneficial for any gas/vapor phase cleaning. Plasma treatment itself could potentially be combined with other methods, e.g., for sterilization after particulate removal."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Plasma (enabled by penetration) excels at sterilizing and breaking down thin organic films but is poor at removing particulate matter (dirt, dust) or heavy stains. Complementary processes would be essential."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Integrating a plasma step would add significant complexity, likely requiring a dedicated chamber and process cycle, complicating the overall system design compared to simpler methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 0,
+                                                            "rationale": "Failure of penetration itself leads to incomplete cleaning, not damage. However, failure or improper control of the *plasma process* it enables could potentially damage sensitive fabrics through heat or chemical reactions."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure of penetration directly leads to ineffective purification, as the cleaning/sterilizing agent doesn't reach all areas. This means hygiene standards might not be met."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Underperformance means clothes remain soiled or unhygienic. If it fails against expected targets (microbes, organics), it's a failure of the primary function; if against unsuitable targets (particulates), it's an expected limitation."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The principle of 'Penetration' is vital for enabling gas/plasma-based cleaning and aligns well with water scarcity. However, the associated plasma technology faces significant scalability, cost, and complexity challenges for laundry, and wouldn't address all soil types, limiting its direct applicability despite its novelty.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma sterilization principles, specifically ensuring penetration, to everyday laundry cleaning is a highly novel concept sourced from a distant domain (medical tech). While facing major feasibility challenges, it fundamentally challenges conventional water-based cleaning assumptions and could spark genuinely new thinking in low-water hygiene technology."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "*   Substrate: Heat-sensitive medical devices (plastics, electronics, implants) = Substrate requiring purification (clothing).\n*   Contaminants: Microorganisms (bacteria, viruses, spores), organic residues = Contaminants adhered to the substrate (dirt, microbes, oils on clothing).\n*   Primary Resource & Constraint: Heat (damaging) or toxic chemicals (hazardous/residues) = Primary resource typically used (water) under severe scarcity.\n*   Required Outcome: Sterility (elimination of microbial life) = Standard hygiene levels (effective removal of contaminants).\n*   Intervention Mechanism: Using low-temperature plasma with reactive species = Developing an alternative purification process or modifying the existing one.",
@@ -5843,27 +5971,795 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Plasma Generation: Using RF or microwave energy to ionize a specific gas (e.g., O\u2082) in a low-pressure environment. This creates the necessary reactive species.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma ashing removes organic photoresist (contaminant) from a silicon wafer (substrate). This maps well to removing organic soils from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is to chemically react with and remove unwanted material, which is fundamentally a purification process."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using energized gas radicals to break down contaminants could theoretically replace water/detergent action in clothing cleaning."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma ashing is a dry process that uses gas and energy, inherently avoiding liquid water consumption."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires significant electrical energy, specific gases, vacuum equipment, and RF/microwave generators, which are likely costly and potentially unavailable or unreliable in resource-constrained areas."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism itself does not consume water; water vapor is a potential reaction byproduct, not an input."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma radicals represents a distinct chemical pathway compared to methods relying on concentrated detergents, steam, sonics, or CO2."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used elsewhere in sustainable tech, its application to general laundry cleaning is highly novel and not established."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It overcomes water usage limitations but introduces significant new challenges like energy cost, material compatibility, and limited soil type removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but with extreme difficulty. Scaling vacuum plasma processing from small, flat wafers to large volumes of porous, non-uniform textiles presents major engineering hurdles."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Requires vacuum chambers, high-power energy sources (RF/microwave), gas handling, and control systems, far exceeding current appliance standards."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, potential need for specific gas supplies, and maintenance of complex equipment (vacuum pumps, power supplies) are likely impractical in many target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could target organic soils, potentially complementing a method for particulate removal, but integration would likely be very complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma is primarily effective on organic materials. It would likely be ineffective against inorganic dirt, dust, and certain stains, requiring complementary processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the overall system due to the specialized equipment and processing environment (vacuum, plasma) required."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reactive plasma species could potentially damage delicate fabrics, dyes, or synthetic materials through oxidation or chemical alteration, especially if not perfectly controlled."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure likely means ineffective cleaning (hygiene risk). Depending on the process, it could potentially leave chemical residues or alter fabric properties."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance, particularly against non-organic soils or embedded contaminants, would result in clothes that are not perceived as clean, potentially leading to hygiene issues and user rejection."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Plasma generation offers a conceptually novel, water-free approach to removing organic contaminants. However, its high energy requirements, complexity, cost, potential for fabric damage, and limited effectiveness on diverse soil types present major obstacles for practical application in clothing cleaning, especially in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma generation from semiconductor manufacturing to laundry is highly unexpected and challenges conventional cleaning paradigms. Despite significant practical hurdles, its origin in a distant domain and fundamentally different approach make it very interesting for stimulating novel ideas."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Chemical Reaction (Oxidation/Combustion): Highly reactive species (like oxygen radicals) selectively react with the organic contaminant (photoresist), breaking down its molecular structure. This is akin to a controlled, low-pressure burning process.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism removes photoresist (contaminant) from a silicon wafer (substrate). This maps well to removing organic soils (contaminants) from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma ashing process is explicitly designed to clean the wafer surface by chemically breaking down and removing unwanted material, aligning with the goal of purification/cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using reactive species (like oxygen radicals) to chemically break down organic contaminants could theoretically be adapted for cleaning clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma ashing is a dry process, fundamentally operating without liquid water, which directly addresses the primary resource constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires significant electrical energy to generate plasma, specific gases (like oxygen), and vacuum systems, which could be costly or unavailable in water-scarce, resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core chemical reaction mechanism itself is water-free, aligning perfectly with the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma-generated reactive species for bulk clothing cleaning is fundamentally different from water-based washing, CO2 cleaning, or ultrasonic methods."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used for textile surface modification, its application for bulk cleaning of soiled garments represents a novel approach within sustainable cleaning technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water usage and potentially harsh liquid chemicals, but introduces significant energy costs, potential fiber damage, and complexity, which are also major limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling vacuum plasma chambers for bulky, porous laundry loads presents significant engineering challenges compared to treating flat wafers, potentially affecting efficiency and throughput."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Requires specialized equipment (vacuum chamber, RF/microwave generator, gas handling) not suitable for typical household or low-resource community settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, supply of specific gases, and maintenance expertise for vacuum and plasma systems are likely impractical in many resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target organic soils, while other methods (e.g., mechanical agitation, minimal rinse) handle particulates or inorganic stains, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it primarily targets organic materials via oxidation. It would likely be ineffective against inorganic dirt, dust, or certain types of stains, necessitating complementary cleaning steps."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. Adding a complex, energy-intensive plasma treatment step would significantly increase the overall complexity of any low-water system."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, uncontrolled or overly aggressive plasma treatment (oxidation) can degrade textile fibers, fade dyes, and damage finishes, potentially ruining clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure likely means ineffective removal of organic contaminants and associated odors/bacteria (hygiene failure). Incomplete reactions could potentially create undesirable chemical byproducts on the fabric."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would lead to visibly dirty or stained clothes (especially inorganic dirt), persistent odors, potential skin irritation from residues, and inadequate hygiene."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The plasma oxidation mechanism offers a highly novel, water-free approach to removing organic contaminants, fitting the problem's core need. However, its practicality is severely limited by high energy needs, complexity, scalability issues, potential for clothing damage, and unsuitability for resource-constrained environments.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using plasma oxidation for clothing cleaning is highly novel and derived from an unexpected domain (semiconductors), challenging conventional water/solvent-based approaches and potentially sparking innovative research directions despite implementation hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Phase Conversion & Removal: The reaction converts the solid/liquid contaminant into volatile gaseous byproducts (CO\u2082, H\u2082O vapor).",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism removes photoresist (contaminant) from a wafer (substrate), which directly parallels removing soil from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the function is to remove unwanted material to achieve a clean surface, aligning with the goal of purification/cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of chemically converting contaminants into removable volatile products could theoretically be applied to clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma ashing is fundamentally a dry process, directly addressing the core constraint of minimal water usage."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires significant electrical energy for plasma generation, vacuum systems, and potentially specific gases, which could be costly or unavailable in resource-constrained areas."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism itself operates without water, fully respecting the primary resource constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma to chemically convert soil into gas is fundamentally different from methods relying on solvents, steam, or mechanical action."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used for textile surface modification, its application for bulk cleaning via soil gasification is novel in this context."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could avoid issues like detergent residues or water-based damage, but likely struggles with inorganic soils and introduces risks like fabric damage from plasma."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scaling vacuum plasma systems from flat wafers to bulky, porous laundry loads presents immense technical challenges regarding uniformity, efficiency, and chamber size."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity (vacuum, RF/microwave power, controls) and associated cost would likely be prohibitively high for typical consumer or community applications."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the need for reliable power, vacuum pumps, potential gas supplies, and specialized maintenance makes it likely impractical for many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but the vacuum/plasma environment is harsh and might be incompatible with many other processes. It could potentially follow a dry particulate removal step."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma ashing primarily targets organic materials and would likely be ineffective against inorganic soils (dirt, salts), necessitating complementary cleaning methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system due to the need for vacuum chambers, plasma generation, and potentially pre/post-treatment steps for different soil types."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, uncontrolled plasma exposure (duration, power, gas mix) can easily damage or degrade textile fibers, causing weakening or discoloration."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure likely means ineffective purification. Depending on the process, incomplete reactions could potentially leave harmful residues or fail to neutralize microbes."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance means clothes remain visibly dirty (if inorganic soil isn't removed) or unhygienic (if organic matter/microbes persist), failing the primary cleaning objective."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "This active ingredient (Phase Conversion & Removal via plasma) offers a conceptually novel, water-free cleaning mechanism fitting the structural problem. However, its high energy needs, complexity, cost, scalability issues, limited contaminant scope, and risk of fabric damage present major obstacles to practical implementation, especially in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma-based phase conversion from semiconductor cleaning to laundry is a highly novel and unexpected concept in the target domain. While practical challenges are immense, the fundamental mechanism offers a radically different, water-free approach that challenges core assumptions about clothing cleaning, making it very interesting despite feasibility concerns."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Vacuum System: Essential for maintaining low pressure for plasma generation and for efficiently removing the gaseous byproducts, preventing re-contamination.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "The vacuum system removes gaseous byproducts (volatilized contaminants), but it doesn't perform the primary contaminant breakdown. It facilitates removal rather than directly cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, its function (removing byproducts, maintaining low pressure) is crucial for the overall success and efficiency of the plasma purification process it supports."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using a vacuum to remove gaseous waste products or enable a specific low-pressure cleaning environment (like plasma) could be applied to clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, vacuum systems themselves do not consume water, making them compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Vacuum systems require significant electrical energy, which can be a major constraint in resource-scarce settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the operation of a vacuum system is independent of water usage."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using a vacuum system to enable a low-pressure cleaning process (like plasma) and remove gaseous byproducts is fundamentally different from typical low-water methods (spraying, CO2, etc.)."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "While vacuum tech exists, its application as a core component of a *clothing cleaning* system (beyond drying) is novel in this context."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Efficient byproduct removal could enhance certain dry cleaning methods, potentially improving effectiveness or reducing cycle times, but it doesn't inherently solve issues like particulate soil removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Scaling vacuum chambers for laundry loads is possible, but achieving and maintaining the necessary low pressures for processes like plasma would be complex and energy-intensive at that scale."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity and cost would likely be very high, requiring robust vacuum chambers, pumps, seals, and significant energy infrastructure, far exceeding conventional washing machines."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the need for reliable electricity and specialized maintenance for vacuum pumps and seals makes it likely impractical for many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the vacuum system is inherently a supporting mechanism. It would need to be combined with a primary cleaning agent (plasma, ozone, vaporized solvent) whose effectiveness it enhances."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "It only removes gaseous byproducts created by another process; it does not address non-volatile contaminants like particulate matter or inorganic stains, requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the overall system by requiring a sealed environment, pump-down/venting cycles, and integration with the primary cleaning mechanism."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure of the vacuum system itself (e.g., leak, pump failure) is unlikely to directly damage clothing, though failure of the *process it enables* might."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure (e.g., inability to maintain vacuum or remove byproducts) would lead to ineffective purification and potential re-contamination by residues."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance means gaseous byproducts are not efficiently removed, potentially leading to redeposition, lingering odors, and incomplete cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The vacuum system offers a novel, water-free approach by enabling low-pressure cleaning processes and removing volatile byproducts. While conceptually interesting and structurally relevant as a supporting mechanism, its high energy requirements, cost, and implementation complexity present significant practical barriers for typical clothing cleaning contexts.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying a vacuum system, inspired by semiconductor manufacturing, to enable a low-pressure clothing cleaning process is highly novel and unexpected in the laundry domain. It challenges fundamental assumptions about using water or high-pressure systems, making it a potentially disruptive, though technologically challenging, concept."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Selectivity: The plasma chemistry is chosen to react strongly with the organic contaminant (photoresist) while minimally affecting the inorganic substrate (silicon wafer).",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, selectivity directly addresses targeting specific 'contaminants' (photoresist) for removal from a 'substrate' (wafer), which is analogous to removing dirt/stains from clothing fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is to selectively remove unwanted material, thereby purifying the substrate surface, aligning directly with the goal of cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using highly selective chemistry could be mapped onto developing cleaning agents or processes that target specific soils on clothes while ignoring the fabric itself."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While the plasma context is dry, the principle of 'selectivity' itself doesn't dictate water usage. Selective chemistry could be applied in wet or dry systems; compatibility depends on the specific implementation."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "No (meaning it *does* rely heavily). Plasma ashing requires significant electrical energy, specific precursor gases, and vacuum systems, which are likely costly and resource-intensive alternatives in water-scarce settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of selectivity itself is water-agnostic. A cleaning method based on high selectivity could theoretically be designed as a dry or ultra-low-water process, like the plasma example."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While detergents aim for some selectivity (dirt vs. fabric), the *degree* and *type* of chemical selectivity seen in plasma etching is much higher and chemically different from typical surfactants or solvents used in low-water methods."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying plasma-level chemical selectivity principles (even if not plasma itself) to general clothing cleaning appears novel compared to current sustainable approaches focusing on water reduction, efficient detergents, or mechanical action."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. High selectivity could potentially target specific, stubborn stains or sanitize effectively without the bulk water or harsh chemicals sometimes required, but achieving this across diverse soils and fabrics is a major challenge."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scaling plasma reactors for bulk laundry processing seems highly impractical due to size, energy consumption, vacuum requirements, and batch processing limitations compared to washing machines."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost for plasma-based systems. Implementing the *principle* via other chemical means would depend heavily on the chosen method, but achieving high selectivity safely might still be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma systems require reliable electricity, precursor gases, vacuum pumps, and specialized maintenance, all likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, a highly selective process could act as a pre-treatment for specific stains or contaminants (e.g., oils, proteins, bacteria) before a general low-water wash or cleaning step."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma selectivity is typically optimized for specific organic compounds. Clothing contains a wide mix of organic and inorganic soils, requiring broader or complementary cleaning methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Likely complicate. Adding a highly specific, potentially energy-intensive step increases overall system complexity, even if it targets difficult stains effectively."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, imperfect selectivity or overly aggressive chemistry (like plasma radicals) could easily damage delicate textile fibers, dyes, or functional finishes on clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, failure primarily means ineffective cleaning. Depending on the specific selective chemistry used, failure could also potentially leave chemical residues or fail to neutralize pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Underperformance would lead to incomplete cleaning, leaving specific stains or types of soil behind. This could result in user dissatisfaction and potentially require re-cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The principle of 'selectivity' from plasma ashing offers a conceptually novel and potentially powerful approach for targeted contaminant removal in low-water cleaning. However, direct application of plasma technology is impractical due to scalability, cost, and risk of fabric damage. The value lies in exploring how this principle of high chemical specificity could be achieved through other, more clothing-compatible methods.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying the principle of high chemical selectivity, inspired by a distant domain like semiconductor manufacturing, to clothing care is very interesting. It challenges the conventional reliance on broad detergency and suggests a novel pathway focused on targeted molecular breakdown, potentially leading to highly efficient and gentle cleaning, although practical implementation faces significant hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Dry Process: Operating without liquids avoids issues like surface tension damage to delicate structures and eliminates hazardous liquid chemical waste.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma ashing removes photoresist ('contaminants') from a silicon wafer ('substrate'), which structurally mirrors removing soil/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is surface cleaning by removing unwanted material, aligning directly with the goal of purification."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using a dry, reactive gas phase process instead of liquid is directly mappable as an alternative cleaning mechanism for clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, being a 'dry process', it inherently avoids water consumption, directly addressing the primary resource scarcity constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation is energy-intensive and may require specific gases and vacuum equipment, which could be costly or unavailable alternative resources."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the process itself is fundamentally waterless, ensuring compliance with the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma for cleaning is radically different from methods focused on reducing water volume, using efficient detergents, or ultrasonic cleaning in liquid."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying plasma technology, common in microelectronics, to bulk clothing cleaning is highly novel within sustainable consumer technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It overcomes water usage limitations but might introduce new challenges like fabric compatibility, energy cost, and effectiveness on non-organic stains."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling plasma treatment from flat wafers to bulky, porous laundry loads presents significant engineering challenges regarding uniformity, cycle time, and cost-effectiveness."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost are likely due to requirements for vacuum systems, RF/microwave power, gas handling, and sophisticated controls, far exceeding conventional washers."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the need for reliable electricity, potentially specific gases, vacuum pumps, and specialized maintenance makes it likely impractical for many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but integration seems complex. It might require pre/post-treatments, potentially complicating rather than synergizing with simpler low-water methods."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma ashing excels at removing organic material but likely struggles with inorganic dirt, particulates, and set-in stains, necessitating complementary cleaning steps."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system by adding a complex, specialized step requiring vacuum and plasma generation, unlike simpler integrated systems."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, improperly controlled plasma (power, duration, gas) could potentially damage fabric fibers through chemical etching or heat."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure likely means ineffective cleaning (residual soil/odor). Depending on the failure mode, it might also leave chemical residues or fail to neutralize pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Underperformance would primarily result in clothes remaining dirty or unhygienic for specific soil types (e.g., inorganic grit), similar to other ineffective cleaning methods."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The 'Dry Process' (plasma ashing) offers a highly novel, waterless cleaning approach perfectly matching the primary constraint. However, significant hurdles exist regarding energy requirements, scalability to bulk fabrics, implementation cost/complexity, and effectiveness on diverse clothing soils, making practical application challenging.",
+                                            "interestingness": {
+                                                "score": 5,
+                                                "rationale": "This concept is extremely interesting due to its radical departure from conventional cleaning methods. Applying plasma physics, typically used in high-tech manufacturing, to everyday laundry is highly novel and challenges fundamental assumptions about how clothing can be cleaned, potentially sparking entirely new research directions despite significant feasibility hurdles."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "*   Substrate: Silicon Wafer (analogous to Clothing Fabric).\n*   Contaminants: Photoresist (analogous to Dirt, Oils, Microbes on clothing).\n*   Primary Resource Constraint: Wet chemicals are undesirable due to potential damage, residue, and hazardous waste (analogous to Water Scarcity).\n*   Desired Outcome: High purity wafer surface (analogous to Hygienically Clean Clothing).\n*   Intervention Mechanism: Using plasma-generated reactive species to break down and remove contaminants via gas-phase reactions (analogous to developing an alternative, water-less cleaning method).",
@@ -6069,23 +6965,663 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Energy Transfer via Ionized Gas: Applying high energy to a gas (often air) creates plasma, a reactive state of matter containing ions, electrons, and radicals. This plasma acts as the medium to transfer energy to the substrate surface.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma activation inherently involves removing surface contaminants (like organic residues) via energetic particle bombardment, which is analogous to cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma process cleans and chemically modifies surfaces, aligning well with the concept of purification, especially regarding sterilization and removal of organic films."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using energized gas to treat a surface could conceptually be applied to fabrics for cleaning purposes, replacing water-based methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma generation itself is a dry process and does not fundamentally require water, directly addressing the primary resource constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Plasma generation requires significant electrical energy, which might be scarce or expensive. While air can often be used, some processes benefit from specific gases, adding potential cost/logistics."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma treatment process itself is water-free, aligning perfectly with the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma is fundamentally different from methods like ultrasonic cleaning, CO2 cleaning, or simply reduced-water washing machines."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used in some sustainable tech applications (e.g., material treatment, sterilization), its use for bulk low-water laundry cleaning appears highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could overcome limitations related to water consumption and potentially chemical residues, but might introduce new limitations regarding fabric compatibility, deep cleaning, and energy use."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scaling atmospheric plasma to uniformly treat bulk, tumbling textiles presents significant engineering challenges compared to surface treatment or small items. Uniformity and penetration would be difficult."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Plasma reactors require specialized power supplies, control systems, and potentially gas handling, making household implementation currently impractical and community-level challenging."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity (potentially high load), specialized equipment maintenance, and possibly controlled environments, which may be unavailable or unsustainable in target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma could potentially provide surface sterilization and break down organic films, complementing mechanical agitation or minimal rinsing for particle removal."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Plasma excels at surface organics and sterilization but might be less effective on inorganic particles (dirt) or deeply penetrated stains, likely requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "It could simplify drying (being a dry process) but might complicate stain removal if plasma 'sets' certain stains or damages fabrics. Overall system integration adds complexity."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, improperly controlled plasma (too high energy, wrong type) can etch, weaken, discolor, or chemically alter fabrics, causing irreversible damage."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure likely means ineffective cleaning (hygiene risk). Depending on the plasma type and conditions, it could also potentially generate ozone or other reactive species residues."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance leads to clothing not meeting hygiene standards (health risks), remaining soiled (aesthetic/functional issues), or potentially having odors persist."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Energy transfer via ionized gas (plasma) offers a fundamentally novel, water-free approach for surface cleaning and sterilization, fitting the core problem constraints. However, significant challenges regarding scalability, cost, implementation complexity, fabric compatibility, and effectiveness on diverse contaminants make its direct application to bulk laundry difficult without major innovation.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept is very interesting because applying plasma physics to bulk laundry is highly novel and unexpected compared to conventional cleaning methods. It challenges the fundamental assumption that a liquid solvent is needed and comes from a distant scientific domain, sparking potentially transformative ideas despite practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Surface Cleaning (Micro-Ablation/Etching): Energetic plasma particles bombard the surface, physically removing (ablating or etching) weakly bound layers and organic contaminants at a microscopic level.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma micro-ablation removes surface contaminants (organic residues) from a substrate (materials like plastic), which is analogous to removing dirt/oils from clothing fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of unwanted surface layers and contaminants via ablation/etching is a form of purification or cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using energetic plasma particles to remove surface contaminants could conceptually be applied to clothing fabrics."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, atmospheric plasma generation typically uses air and electricity, requiring little to no water, aligning well with the primary constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It relies heavily on electricity, which could be scarce, unreliable, or expensive in some water-scarce regions. While it can use air, specific applications might require other gases."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma cleaning process itself is fundamentally a dry process, directly addressing the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma ablation is fundamentally different from water-based washing, solvent-based dry cleaning, or even ultrasonic cleaning methods commonly discussed for low-water scenarios."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used in textile finishing for surface modification, its application specifically for bulk *cleaning* of garments as a primary low-water method is novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water use and potentially chemical residues from solvents, but it might introduce limitations related to energy consumption, fabric damage, and effectiveness on non-surface or inorganic contaminants."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling plasma treatment uniformly and efficiently for bulky, porous items like clothing presents significant challenges compared to surface treatment of flat materials. Achieving penetration and consistent cleaning might be difficult."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Plasma generation requires specialized, potentially expensive equipment and controls, likely impractical for typical household or even community settings without significant infrastructure."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, specialized equipment, potential safety enclosures, and technical maintenance are significant hurdles in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, it could potentially serve as a pre-treatment for organic stains or a post-treatment for sterilization, complementing methods like ultrasonic agitation or minimal water misting."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma ablation is most effective on surface organic contaminants. It would likely struggle with inorganic particles (grit, mud), deeply penetrated stains, or heavy soil loads, requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. Adding a plasma treatment step introduces significant complexity in terms of equipment, energy, control, and potential pre/post handling compared to simpler low-water approaches."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma treatment can be aggressive. Incorrect parameters (power, duration, gas) could easily lead to fabric damage, discoloration, or weakening of fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, failure primarily means ineffective cleaning. Depending on the plasma conditions and contaminants, incomplete reactions could potentially create undesirable chemical species or fail to adequately remove pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would lead to visibly unclean clothes (e.g., remaining inorganic dirt, stains) and potentially unhygienic garments if biological contaminants are not adequately addressed."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Plasma micro-ablation offers a structurally fitting and highly novel water-free cleaning mechanism. However, significant challenges in scalability, implementation cost/complexity, reliance on stable electricity, potential for fabric damage, and limited effectiveness on diverse contaminants make it currently impractical for widespread low-water clothing cleaning, especially in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Very interesting (4/5): Applying plasma ablation, a concept from materials surface science, to bulk clothing cleaning is highly novel and unexpected in the context of laundry. It challenges the dominant water/solvent-based paradigms and could spark genuinely new research directions, despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Surface Chemical Functionalization: Reactive species in the plasma break chemical bonds on the substrate surface and introduce new chemical groups (e.g., oxygen-containing polar groups like -OH, -COOH when using air plasma). This changes the surface's chemical nature.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Plasma can remove some surface contaminants (e.g., organic residues), but its primary function here is chemically modifying the surface, not broad-spectrum soil removal like traditional washing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 0,
+                                                            "rationale": "The mechanism modifies surface chemistry rather than directly washing away contaminants. This modification *might* aid purification but isn't purification itself."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of altering the substrate's (clothing fiber's) surface chemistry could be part of a novel cleaning process, potentially making contaminants less adherent or easier to remove."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma processes typically use gas (like air) and electricity, directly avoiding the need for significant amounts of liquid water."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "It relies heavily on electricity and specialized plasma generation equipment, which could be costly and potentially unavailable or unreliable in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core plasma functionalization process is intrinsically dry, aligning perfectly with the minimal water usage requirement."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, altering the fiber's surface chemistry represents a paradigm shift from mechanical/solvent-based cleaning methods (water-based or low-water alternatives)."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "While plasma is used in textile finishing, its specific application as a primary mechanism for routine, low-water *cleaning* of garments appears novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Potentially, by altering fiber-soil interactions, it might address issues like poor stain release or hygiene in some low-water methods, but this is speculative and unproven for laundry."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "Uniformly treating the complex 3D structure and bulk of a laundry load poses significant scalability challenges compared to treating flat surfaces or individual items."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost due to specialized plasma generation equipment, control systems, and safety requirements, making it difficult for typical consumer contexts."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, specialized equipment, and potentially trained maintenance personnel are required, which may be impractical in many resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, surface functionalization could act as a pre-treatment, potentially making contaminants easier to remove via subsequent low-water methods like air washing or misting."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "It primarily addresses surface chemistry and thin organic layers; it's unlikely to remove particulates or heavy/embedded stains effectively alone, requiring complementary processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the overall system by adding a distinct, technologically complex step, even if it potentially simplifies a subsequent removal stage."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, improperly controlled plasma (power, duration, gas) is energetic and could potentially damage delicate fibers, alter colors, or change fabric texture."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean both ineffective functionalization (leading to poor cleaning) and potentially introducing risks like unwanted chemical residues or surface damage."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would mean the intended benefit (e.g., easier soil release) isn't realized, resulting in inadequate cleaning, particularly for contaminants strongly bound to unmodified surfaces."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Surface chemical functionalization via plasma offers a novel, water-free approach potentially synergistic with other methods, but faces significant hurdles in scalability, implementation complexity/cost, and addressing diverse laundry soils alone. It is more plausible as a pre-treatment step within a larger system rather than a standalone cleaning solution.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma-induced surface chemical functionalization to clothing cleaning is a highly unconventional idea derived from materials science, challenging core assumptions about water/detergent-based cleaning. While facing practical hurdles, its fundamental novelty and potential to alter substrate properties for easier cleaning make it very interesting for stimulating new research directions."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Surface Energy Modification: The combination of cleaning and chemical functionalization significantly increases the surface energy of typically low-energy materials (like plastics), particularly the polar component of that energy.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma process explicitly includes surface cleaning by removing contaminants like organic residues, which aligns with removing soils from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, removing surface contaminants and modifying surface chemistry are forms of purification relevant to cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While plasma treats surfaces, adapting it from rigid materials to effectively and uniformly treat flexible, porous, bulk textiles like clothing presents significant conceptual and engineering challenges."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma treatment typically uses gas (like air) and electricity, not liquid water, making it inherently compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation requires significant electrical energy and potentially specialized equipment (vacuum systems, specific gases) which might be costly or unavailable in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core plasma process is dry, directly fulfilling the minimal water usage requirement."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma for surface energy modification and cleaning is fundamentally different from water immersion, agitation, solvent cleaning, or simple air washing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used in other sustainable applications, applying it to routine, large-scale clothing cleaning is highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially offer waterless sterilization and removal of certain organic films, but its efficacy on the wide range of soils found on clothing is unknown and might not surpass other methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Industrial plasma treatment exists, but scaling it down/adapting it for safe, affordable, and effective treatment of bulky, non-uniform laundry loads is a major challenge."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost are likely due to the need for plasma generation equipment, power supplies, control systems, and safety measures."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity is crucial, and the potentially complex equipment may require specialized maintenance, making it impractical in settings with weak infrastructure."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma could serve as a pre-treatment, post-treatment (e.g., for sterilization), or integrated step with other methods like air washing or minimal misting."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma is primarily a surface treatment effective on organic films and microbes; it likely wouldn't remove embedded particulate matter or many types of stains effectively without complementary mechanical or chemical action."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. Adding a plasma treatment step introduces significant complexity in terms of equipment, process control, and safety compared to simpler low-water methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, uncontrolled or overly aggressive plasma treatment can degrade fibers, alter colors, or change the texture of fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean both ineffective cleaning (hygiene risk) and potentially fabric damage or undesirable chemical modifications to the fabric surface."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would lead to clothes remaining soiled with certain contaminants (e.g., particulates, grease), failing hygiene standards and potentially requiring additional cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Surface energy modification via plasma offers a novel, water-free approach potentially addressing the core constraint, particularly for sterilization and light organic removal. However, significant hurdles exist in scalability, cost, effectiveness on diverse soils, and potential fabric damage, suggesting it might be more viable as a complementary technology rather than a standalone cleaning solution.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma surface modification, typically used for industrial material treatment, to household clothing cleaning is a highly novel and unexpected concept from a distant domain. While facing significant implementation challenges, its potential for waterless cleaning/sterilization challenges fundamental assumptions in laundry care, making it very interesting."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Enhanced Wettability & Adhesion: Increased surface energy improves the surface's wettability, allowing liquids (adhesives, inks, coatings) to spread effectively and form stronger physical and chemical bonds with the modified surface.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "The ingredient (enhanced wettability) facilitates the action of cleaning agents but doesn't directly remove contaminants itself. The underlying plasma process *can* clean, but the focus here is the resulting surface property."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 0,
+                                                            "rationale": "Indirectly. Enhanced wettability can improve the efficiency of cleaning agents by allowing better contact and penetration, thus contributing to purification, but it's an enabler, not the core cleaning action."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, modifying the fabric surface to improve interaction with (potentially minimal) cleaning liquids is a plausible way to alter the clothing cleaning process."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the state of enhanced wettability itself requires no water, and the plasma process typically used to achieve it is dry, aligning with water scarcity constraints."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "The plasma process needed to create this state requires significant electrical energy and specialized equipment, which can be major constraints in resource-limited settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism aims to make *minimal* water (or other cleaning fluids) *more* effective, directly supporting the goal of reducing water consumption."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, modifying the fabric's intrinsic surface properties to aid cleaning is fundamentally different from typical approaches focusing on solvents, mechanics, or optimized water use."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "While plasma is used in textile finishing, its specific application to enhance the efficiency of low-water *cleaning* appears novel within sustainable laundry contexts."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 1,
+                                                            "rationale": "It could potentially improve the uniformity and effectiveness of cleaning agents applied in very low volumes, addressing limitations related to wetting and penetration."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Scaling plasma treatment for individual garments in households is highly challenging; industrial pre-treatment or community-level facilities might be possible but complex."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Plasma equipment is specialized, energy-intensive, and requires safety measures, making it difficult for non-industrial deployment."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, specialized equipment, and maintenance expertise are significant requirements, likely impractical in many target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, enhanced wettability is synergistic, potentially boosting the effectiveness of various low-water methods like misting, foaming, or ultrasonic cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "It only aids the delivery of cleaning agents; the effectiveness against different contaminants depends entirely on the complementary cleaning chemistry used."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "It adds significant complexity upfront (plasma treatment) but might slightly simplify the cleaning step itself. Overall system impact is likely increased complexity."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the plasma process itself, if improperly controlled, can damage delicate fabrics through etching, chemical modification, or thermal effects."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 0,
+                                                            "rationale": "Failure primarily means the enhancement doesn't occur, leading to potentially ineffective low-water cleaning. Process byproducts (e.g., ozone) are a separate risk to manage."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance means the low-water cleaning method it supports may be ineffective, resulting in poor hygiene and dissatisfaction."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Enhanced wettability via plasma offers a novel, synergistic approach to potentially boost low-water cleaning efficiency. However, the practical implementation faces major hurdles regarding cost, complexity, energy requirements, scalability, and potential fabric damage, especially in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma surface modification principles to enhance low-water *cleaning* effectiveness is a highly novel and unexpected approach, bridging distant domains (plasma physics and laundry). It challenges conventional thinking by focusing on modifying the fabric itself, potentially sparking significant new research directions despite implementation hurdles."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "*   Substrate: Polymer surface (e.g., polypropylene) aligns with Clothing/Fabric.\n*   Contaminants: Low surface energy (inherent property hindering adhesion) and organic surface contaminants align with Dirt, Oils, Microbes on clothing.\n*   Primary Resource: Traditional solvents/primers or flame treatment align with Water used in conventional washing.\n*   System Constraints: Environmental concerns (VOCs from solvents), control issues (flame treatment) align with Water Scarcity and Hygiene Standards.\n*   Desired Outcome: Strong adhesion of paint/glue aligns with Effective Cleaning to Hygiene Standards.\n*   Intervention Mechanism: Plasma treatment aligns with Developing an Alternative Purification Process (low-water cleaning method).",
@@ -6199,23 +7735,663 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Gas-Phase Chemical Reaction: The core mechanism involves using energized gas species (ions, radicals) to selectively react with and break down contaminants (like organic matter or oxides) into volatile byproducts (e.g., CO2, H2O). This process avoids bulk liquids.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma cleaning targets surface contaminants (organic matter, residues) on a substrate (artifacts), which is analogous to removing dirt/oils/sweat from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism uses reactive gas species to break down and remove unwanted surface layers, which is fundamentally a purification or cleaning process."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using energized gas to react with and remove contaminants can conceptually be applied to clothing fibers and the soils attached to them."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core mechanism uses gas plasma and avoids bulk liquid water, directly aligning with the primary constraint of water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation is energy-intensive and requires specialized equipment (power supplies, possibly vacuum systems, specific gases), which could be costly and demanding infrastructure-wise."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma process itself is dry. While auxiliary systems might use minimal water, the core cleaning action does not rely on water as a medium."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma for consumer-level clothing cleaning is fundamentally different from wet washing, solvent-based methods (like CO2), or ozone treatments, representing a novel approach."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used in industrial textile surface treatment, its application specifically for routine, low-water *cleaning* of garments at a consumer or community scale is novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially break down stubborn organic matter without water but might introduce new challenges like high energy use, fabric damage potential, and ineffectiveness against particulate soils."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling plasma treatment from delicate single artifacts or industrial surface treatment to safely and effectively handle bulk, mixed laundry loads presents significant engineering and cost challenges."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Plasma requires specialized, potentially expensive equipment (power sources, reactors/jets, control systems) and significant energy input, making household implementation difficult."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the high energy requirement, need for potentially complex equipment, and specialized maintenance are likely impractical in settings with broad resource constraints, not just water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma could target organic breakdown, potentially synergizing with mechanical action (e.g., vibration, airflow) or minimal fluid flushing to remove particulates or reaction byproducts."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma is most effective on organic materials and surface layers. It would likely struggle with inorganic particulates (dirt, dust) and deeply set stains, requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the overall system significantly due to its complexity, energy needs, and safety considerations, even if it potentially reduces drying requirements compared to water washing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, improper control of plasma (energy, exposure time, gas chemistry) can easily damage textile fibers, causing degradation, color changes, or altering fabric properties."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure could mean both ineffective cleaning (leaving contaminants and microbes) and potentially introducing risks like fabric damage or harmful chemical byproducts from incomplete reactions."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would lead to clothes remaining soiled (visually or microscopically), potentially harbouring odors and bacteria, failing the primary goal of hygienic cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Gas-phase chemical reaction via plasma offers a fundamentally novel, water-free mechanism for breaking down organic contaminants, fitting the core problem structure. However, significant practical hurdles exist regarding energy cost, scalability, implementation complexity, potential fabric damage, and incomplete soil removal, making it challenging but potentially interesting for specialized applications or hybrid systems.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma physics, typically used in high-tech industrial or conservation settings, to everyday clothing cleaning is a highly novel and unexpected concept. It challenges conventional water- or solvent-based cleaning paradigms, sparking new thinking despite significant implementation hurdles. The distance of the source domain enhances its intriguing potential."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Non-Contact Energy Transfer: Energy is delivered to the surface via the plasma stream without direct physical contact or abrasion, preserving delicate structures.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma cleaning removes surface contaminants (residues, soot) from substrates (artifacts). This maps well to removing dirt/oils (contaminants) from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function of plasma cleaning is purification by breaking down and removing unwanted surface materials."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using non-contact energy (plasma) to interact with and remove contaminants could conceptually be applied to clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma cleaning itself is a dry process and does not inherently require water, aligning perfectly with the primary constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation is energy-intensive. This high energy demand could be a significant constraint in resource-scarce settings, replacing water scarcity with energy scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental plasma cleaning process operates without water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma is fundamentally different from water immersion, solvent-based dry cleaning, ultrasonic agitation, or UV irradiation commonly considered for clothing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma exists in sustainable tech (e.g., water treatment, surface functionalization), its application to bulk consumer laundry cleaning is highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water and potentially harsh chemicals, but introduces challenges like energy cost, potential fabric damage, and throughput limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but challenging. Plasma cleaning is often surface-specific and can be slow; scaling it efficiently for bulk, porous textiles in a typical laundry load volume is uncertain."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Likely very high complexity and cost. Plasma generation equipment, potentially requiring vacuum or specific gas handling, is expensive and complex for non-industrial settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the high energy requirement and specialized equipment/maintenance are likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a pre-treatment or post-treatment (e.g., sterilization) alongside other methods, but integration might be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Unlikely to address the full spectrum. Plasma is effective on surface organics but may struggle with deeply embedded soils, inorganic stains, or heavy liquid saturation without significant time/energy. Complementary processes would likely be needed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Likely complicates the overall system due to its specialized nature, energy demands, and potential need for pre/post-processing steps. It doesn't inherently simplify other steps like drying or stain removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma can be aggressive. Incorrect parameters (power, duration, gas type) could easily damage delicate fabrics through etching, discoloration, or fiber degradation."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure primarily means ineffective cleaning (hygiene standards not met). Depending on the plasma chemistry and contaminants, incomplete reactions could potentially leave undesirable residues."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Clothes would remain soiled or stained, potentially unevenly cleaned, failing to meet user expectations and hygiene requirements."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Non-contact energy transfer via plasma offers a conceptually strong, water-free, and novel approach to clothing cleaning. However, severe practical challenges related to energy consumption, scalability, cost, complexity, and potential fabric damage make its direct application in resource-constrained settings highly questionable despite its high novelty.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma, typically used for specialized surface treatment, to bulk clothing cleaning is highly novel and unexpected in the laundry domain. While practical challenges are significant, the core concept represents a fundamentally different, water-free approach, challenging existing assumptions and making it very interesting."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Selective Removal: The plasma process can be tuned (gas type, power, time) to preferentially react with the contaminant layer rather than the underlying artifact material. This relies on differences in chemical composition and bond energies between the contaminant and the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma cleaning removes surface contaminants (residues, soot) from a substrate (artifact), which directly maps to removing dirt/oils from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is to clean the surface by breaking down and removing unwanted materials, achieving purification."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using tuned plasma for selective contaminant removal could theoretically be adapted into a clothing cleaning process."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma cleaning is fundamentally a dry process and does not require water as a solvent or transport medium."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation is energy-intensive, and specific precursor gases might be needed, potentially posing cost and availability issues in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core plasma cleaning mechanism operates without water, directly addressing the primary constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma is fundamentally different from water-based washing, solvent-based dry cleaning, or other methods like UV or ozone treatment currently explored."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying plasma technology specifically for routine, low-water clothing cleaning appears novel within sustainable household technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water use and potentially harsh chemicals, but introduces significant energy costs and challenges regarding fabric compatibility and deep cleaning effectiveness."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling plasma treatment from single artifacts or industrial surface treatments to handle bulk laundry loads presents significant technical challenges regarding uniformity and throughput."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High. Plasma generation requires specialized, potentially expensive equipment (power supplies, vacuum systems or controlled gas flow) and controls, making household implementation complex and costly."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity is crucial, specific gases might be needed, and maintenance of plasma equipment could be challenging in low-resource environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma could potentially be used for surface refreshment or pre-treatment combined with other methods like minimal steaming or targeted stain removal."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Plasma excels at surface organics but might struggle with deeply embedded soils, heavy grease, or inorganic salts, likely requiring complementary cleaning steps."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the overall system due to its specialized nature, energy demands, and control requirements, even if it potentially simplifies drying."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect plasma parameters (energy, duration, gas type) could easily damage delicate fabrics, alter colors, or weaken fibers due to poor selectivity."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, failure could mean ineffective cleaning (hygiene risk). Additionally, incomplete reactions could potentially leave undesirable chemical residues on the fabric."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance leads to clothes remaining dirty, stained, or potentially harboring odors and microorganisms, failing the core purpose of cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Selective plasma removal offers a conceptually novel, water-free approach aligned with the problem's core need. However, its high energy demands, scalability issues, implementation complexity, and risk of fabric damage present major obstacles for practical application in low-resource clothing cleaning scenarios.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Using plasma for laundry is highly novel and unexpected, drawing from materials science rather than typical appliance or chemical cleaning domains. It challenges assumptions about using water or solvents, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Dry Process: The cleaning occurs in a gaseous environment, eliminating the need for water or solvents and leaving the artifact dry.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the 'Dry Process' via plasma aims to remove surface contaminants (residues, soot) from a substrate (artifacts), which directly parallels removing dirt/soils from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the explicit purpose of plasma cleaning is to purify the surface of the artifact by removing unwanted materials, aligning with the goal of cleaning clothing."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core principle of using a gaseous medium (plasma) instead of a liquid (water) for cleaning is directly transferable as an alternative clothing cleaning process."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the 'Dry Process' fundamentally eliminates the need for water, directly addressing the primary resource constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation requires substantial electrical energy and potentially specific gases or vacuum systems, which could be scarce or costly, especially in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the defining characteristic of this active ingredient is its operation without water, fully respecting the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using energized gas (plasma) is fundamentally different from water-based methods, solvent-based dry cleaning, or even CO2 cleaning, offering a novel physical/chemical interaction mechanism."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying plasma technology specifically for consumer-level clothing cleaning as a sustainable, water-saving method appears highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Plasma offers potential for sterilization and breaking down organic compounds without water, but its effectiveness on the wide range of soils and stains on clothing is uncertain and might introduce new limitations (e.g., fabric damage)."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling plasma treatment from surface/small item processing to effectively and uniformly treat entire laundry loads presents significant engineering challenges."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High. Plasma generation equipment is complex, energy-intensive, and likely expensive to manufacture, operate, and maintain compared to conventional washing machines."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, specialized equipment, potential gas supplies, and skilled maintenance are significant hurdles in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a sterilization or finishing step, but integration complexity would be high, and synergistic benefits are uncertain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Unlikely. Plasma is effective on surface organics/residues but may struggle with particulate matter, deeply embedded stains, or inorganic soils, likely requiring complementary cleaning steps."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Likely complicate. It adds a technologically distinct and demanding process, although it might reduce the need for a separate drying step."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, improperly controlled plasma (energy, duration, chemistry) can easily damage delicate fabrics, alter dyes, or degrade material integrity."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Both are possible. Failure could mean incomplete cleaning/sterilization. Incorrect plasma conditions might also potentially generate undesirable chemical byproducts on the fabric."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would mean clothes remain visibly dirty (if stains aren't removed) or unhygienic (if sterilization is incomplete), failing the primary purpose."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The 'Dry Process' (plasma cleaning) perfectly matches the water scarcity constraint and offers high novelty. However, significant concerns about energy needs, scalability, cost, implementation complexity, fabric safety, and effectiveness on diverse laundry soils make its direct application challenging, particularly in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using plasma, a dry gaseous process from artifact cleaning, for laundry is highly novel and unexpected in the context of sustainable clothing care. It fundamentally challenges the reliance on water or solvents. While practical viability is questionable due to energy, cost, scalability, and fabric safety concerns, its conceptual departure makes it very interesting (4/5) for stimulating new research directions."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Physical Ablation (Micro-Sandblasting): In some cases (e.g., using Argon plasma), energetic ions physically dislodge contaminant particles at a microscopic level, acting like a molecular sandblast.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, physical ablation directly targets the removal of surface contaminants (particles) from a substrate (artifact surface), which is analogous to removing dirt particles from clothing fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of unwanted surface material (contaminants) via physical dislodgement is a form of purification or cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using energetic particles to physically knock contaminants off surfaces could conceptually be applied to clothing fibers."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma processes, including physical ablation mechanisms within them, are typically dry processes and do not require water."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, generating plasma requires significant electrical energy and often specific gases (like Argon), which can be costly or unavailable, especially in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism itself is water-free. Its operation aligns with the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, physical ablation at a microscopic level is fundamentally different from water-based washing, solvent cleaning, or even methods like ozone or UV treatment."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma-induced physical ablation specifically for cleaning clothing appears novel compared to typical sustainable cleaning approaches focused on water reduction or biodegradable detergents."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might be effective against particulate matter that other methods struggle with, but it likely introduces new limitations, such as potential fabric damage and ineffectiveness against absorbed stains."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but likely difficult. Scaling plasma treatment, especially for uniform ablation across bulk, unevenly distributed textiles in a laundry load, presents significant technical and energy challenges."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Plasma generation requires specialized equipment (power sources, vacuum or controlled atmosphere, gas handling) not suitable for typical household/community settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, potential need for specific gases, and maintenance of complex plasma equipment are likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, it could potentially target particulate matter, while other methods (e.g., ozone, UV, minimal solvent) handle organic stains or sterilization."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it primarily addresses particulate matter. It would be ineffective against absorbed oils, biological fluids, dyes, or chemical stains, requiring complementary processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system by adding a complex, potentially damaging, and energy-intensive step without simplifying others like drying or specific stain removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, physical ablation, even at micro-scale, carries a significant risk of damaging delicate textile fibers, altering texture, or causing wear over time."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure likely means ineffective purification (particles remain). Improper operation could also damage fabric, potentially making it harder to clean later or altering its properties."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance means clothes remain soiled with non-particulate contaminants (oils, sweat residues, stains), failing hygiene standards and potentially leading to odor or discoloration."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Physical ablation via plasma offers a conceptually novel, water-free approach to removing particulate contaminants from clothing. However, its practical application faces major challenges regarding energy requirements, cost, scalability, potential fabric damage, and suitability for resource-constrained environments, limiting its direct feasibility.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using physical ablation (micro-sandblasting via plasma) for cleaning clothes is highly novel and unexpected, originating from artifact restoration. It fundamentally challenges typical water/chemical-based cleaning paradigms, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "The *artifact* acts as the sensitive *substrate* (like clothing fabric). *Contaminants* (soot, oxidation, organic layers) align with dirt, oils, and microbes on clothing. The constraint is the need to avoid *damaging liquids or abrasives*, analogous to the *severe water scarcity* constraint. The *desired outcome* is cleaning the artifact without damage, matching the goal of cleaning clothes to hygiene standards while minimizing resource use. The *intervention mechanism* is the application of plasma, an alternative purification process substituting traditional wet/abrasive methods. The *active ingredients* (Gas-Phase Reaction, Non-Contact Energy, Selective Removal, Dry Process, Physical Ablation) directly enable contaminant removal under the constraint, mirroring the requirements of the original problem.",
@@ -6343,23 +8519,663 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Plasma Generation: Creating a controlled state of ionized gas (plasma) using electrical energy, often at atmospheric pressure to avoid costly vacuum systems.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Plasma treatment is explicitly mentioned as having a cleaning effect (removing contaminants/sizing) on textile surfaces, which directly maps to the problem's need."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 0,
+                                                            "rationale": "The core function is generating plasma (ionized gas). While the *effects* of plasma can include cleaning and sterilization (purification), the generation itself is an enabling step, not the purification action directly."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma treatment is presented as an alternative to traditional wet finishing/cleaning processes, indicating its principle can be mapped onto modifying or replacing existing clothing cleaning methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Plasma treatment is described as a primarily dry process, significantly reducing or eliminating the need for water, aligning perfectly with the core constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Plasma generation requires significant electrical energy and may require specific precursor gases. The availability and cost of reliable electricity or specific gases could be problematic in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental plasma generation and treatment process does not require water as a medium, making it inherently suitable for minimal water usage scenarios."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using ionized gas to interact with and remove contaminants from fabric surfaces is fundamentally different from water/solvent washing, ultrasonic agitation, or UV sterilization."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "While plasma exists in sustainable tech (e.g., water treatment, surface coating), its specific application for routine, low-water *clothing cleaning* at a consumer or community level appears highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Plasma might offer superior sterilization or odor removal compared to some low-water methods, but it's unclear if it overcomes limitations related to stain removal or particulate matter without potentially introducing its own limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Scaling atmospheric plasma for uniform treatment of bulky, non-uniform items like laundry loads presents significant engineering challenges compared to industrial roll-to-roll textile treatment. Feasibility at household scale is uncertain."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Plasma generation requires specialized high-voltage equipment, potential gas handling, and safety controls, suggesting high complexity and cost unsuitable for typical low-resource settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity is crucial, and maintenance of plasma equipment can be specialized. These requirements might be impractical where basic resources like water are already scarce."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Plasma could synergize well, perhaps used for sterilization/odor after minimal mechanical cleaning, or as a pre-treatment to alter surface properties for better low-water cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Plasma is primarily a surface modification/cleaning technique. It's unlikely to effectively remove embedded particulates, heavy soiling, or certain stains without complementary mechanical or chemical action."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "It would likely complicate the system by adding a technologically advanced step, but could potentially simplify drying (as it's dry) or reduce reliance on certain chemicals. The net effect is unclear."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect plasma parameters (power, duration, gas type) can easily cause etching, discoloration, or material degradation (damage) to textiles."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure primarily means ineffective cleaning/sterilization. However, poorly controlled plasma could potentially create unintended chemical byproducts or surface modifications, introducing other risks."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance leads to clothes remaining soiled, potentially harboring odors, allergens, or pathogens, thus failing to meet basic hygiene requirements expected from cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Plasma generation offers a conceptually novel, water-free approach to surface cleaning and sterilization of clothing, fitting the core constraint. However, its effectiveness on diverse laundry soils, high implementation complexity, cost, scalability issues, and potential for fabric damage present major challenges for practical application in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using energized gas (plasma) for routine clothing cleaning is highly novel compared to conventional methods, drawing from distant industrial domains. It fundamentally challenges the reliance on water or solvents, potentially sparking significant innovation in low-resource cleaning, despite practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Surface Interaction: Direct interaction of energetic plasma species (ions, electrons, radicals, UV photons) with the outermost layers of the textile fibers.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma treatment is known for surface cleaning/sterilization by removing organic contaminants and microbes through energetic species interaction."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of surface contaminants and potential sterilization directly aligns with the goal of purification or cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of applying plasma to a textile surface to alter it (including cleaning) is directly mappable to the idea of cleaning clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma treatment is fundamentally a dry process, directly addressing the core constraint of water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It requires significant electrical energy and potentially specific gases, which could be costly or unavailable in resource-constrained settings, replacing water scarcity with energy scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma interaction itself is dry. Ancillary systems might require minimal water (e.g., cooling), but the core cleaning mechanism avoids water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma is distinct from methods like concentrated detergents, ozone, CO2, or ultrasonic cleaning, relying on direct energetic species interaction."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used for textile *finishing*, its application for routine *cleaning* of soiled laundry represents a novel direction."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might excel at sterilization and removing certain surface films, but likely shares limitations with other methods regarding deep stains or particulate removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling atmospheric plasma for uniform treatment of bulk, tumbling clothes is a significant engineering challenge compared to treating flat webs of fabric."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost. Plasma generation requires specialized, potentially expensive equipment and control systems unsuitable for typical consumer appliances."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, potential need for specific gases, and specialized maintenance make it potentially impractical for many resource-constrained contexts."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma could serve as a pre-treatment (loosening contaminants) or post-treatment (sterilization) step combined with other low-water methods."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it primarily affects surfaces. It likely wouldn't effectively remove embedded dirt, particulates, or heavy/greasy stains, necessitating complementary cleaning methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "It would likely add complexity due to the specialized equipment and process step. It doesn't inherently simplify drying or stain removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, improper plasma parameters (power, duration, gas type) can cause etching, discoloration, or degradation of textile fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure primarily means ineffective cleaning. However, incorrect operation could potentially generate harmful byproducts (like excess ozone) or leave reactive species on the fabric."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would mean clothes remain soiled or unhygienic, leading to odors, potential skin irritation, or persistence of pathogens."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Plasma surface interaction presents a fundamentally waterless, novel approach to cleaning/sterilizing textiles, directly fitting the problem structure. However, significant challenges regarding scalability, cost, complexity, effectiveness on diverse soil types, and potential fabric damage make it unlikely as a standalone solution, though potentially interesting as a complementary step.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma technology, typically used for industrial surface functionalization, to routine consumer laundry cleaning is highly novel and unexpected. It challenges the fundamental water/detergent paradigm and comes from a distant domain (plasma physics/materials science), making it very interesting despite practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Surface Modification Mechanisms: Employing specific plasma effects like:\n        *   *Cleaning/Etching:* Physical removal or chemical breakdown of surface contaminants (like sizing agents, waxes) and slight roughening of the fiber surface.\n        *   *Functionalization:* Introduction of specific chemical groups (e.g., oxygen-containing groups for hydrophilicity, fluorine-containing groups for hydrophobicity, nitrogen groups for dye sites) onto the fiber surface via reactions with plasma species.\n        *   *Coating/Deposition:* Using precursor chemicals (monomers) in the plasma to deposit thin, functional nano-coatings (e.g., hydrophobic, antimicrobial) onto the fabric.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the 'Cleaning/Etching' aspect of plasma treatment explicitly involves removing surface contaminants like organic residues or sizing agents from textiles (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma cleaning aims to purify the surface by removing unwanted materials, aligning with the goal of cleaning clothes."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying plasma treatment represents a distinct process modification or alternative method for cleaning textiles (clothing)."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma treatment is fundamentally a dry process, directly addressing the core constraint of water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, plasma generation requires significant electrical energy and potentially specific precursor gases, which could be costly or unavailable in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the plasma treatment process itself does not require water, adhering strictly to the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using plasma is fundamentally different from methods relying on minimal water with detergents, ultrasonic agitation, CO2, or ozone gas, as it acts via ionized gas surface interaction."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, while plasma is used in textile *finishing*, applying it specifically for routine *cleaning* of soiled garments as a primary low-water method appears highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Plasma offers potential for sterilization and breaking down certain organic films/odors without water, but its effectiveness on particulate soil or heavy stains, common limitations, is uncertain."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Industrial plasma treatment exists, but developing affordable, safe, and efficient household or community-scale units for bulky, non-uniform laundry loads poses significant engineering challenges."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "High complexity and cost are likely due to the need for specialized equipment (plasma generator, power supply, gas handling, potentially vacuum chamber), exceeding typical appliance costs."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it demands reliable and potentially high electricity supply, possibly specific gases, and specialized maintenance, which may be impractical in many resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, plasma could potentially be used for sterilization or odor removal alongside methods that address bulk soil removal (e.g., minimal rinse, CO2 cleaning)."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, plasma is primarily a surface treatment and may struggle with deeply embedded soils, particulates, or heavy liquid stains, likely requiring complementary cleaning processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system by adding a distinct, technologically complex step, without necessarily simplifying subsequent steps like drying or targeted stain removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, improper plasma conditions (power, time, gas) can cause etching, material degradation, discoloration, or textural changes to fabrics, especially delicate ones."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean both ineffective cleaning (leaving soils and pathogens) and potentially introducing risks if the process alters fabric chemistry undesirably or fails mid-sterilization."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would mean clothes remain soiled, potentially unhygienic, stained, or odorous, failing the core purpose of cleaning and potentially setting stains."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Plasma surface modification offers a fundamentally novel, water-free approach to cleaning/sterilizing clothing, fitting the problem structure well. However, significant challenges exist regarding its effectiveness on diverse soils, scalability, cost, energy needs, and potential fabric damage, making implementation complex, especially in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying plasma, typically used for industrial surface modification/sterilization, to routine consumer garment cleaning is highly novel and unexpected. It challenges the fundamental reliance on water or solvents for cleaning, suggesting a potentially disruptive 'dry' cleaning paradigm, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Dry Processing: Conducting the modification primarily in a gaseous environment, minimizing or eliminating water and chemical solvent usage.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Plasma treatment is explicitly mentioned as having a cleaning effect (removing contaminants/sizing) on textile surfaces (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "The description notes plasma can clean and sterilize materials, directly aligning with the goal of purification for hygiene."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "The principle of using an energized gas (plasma) instead of water for surface treatment/cleaning can be conceptually mapped onto a clothing cleaning process."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "The active ingredient is defined as a dry process, directly addressing and being compatible with the severe water scarcity constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Plasma generation is energy-intensive, and specific precursor gases might be needed, potentially posing alternative resource constraints (cost, availability) in the target context."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "By definition, this dry processing approach operates with minimal or no water, fully adhering to the core constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Plasma treatment represents a distinct physical/chemical mechanism compared to conventional washing, solvent-based dry cleaning, or other low-water methods like UV or ozone."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "While plasma exists in sustainable tech, its application specifically for routine, low-water *clothing cleaning* at a consumer level appears novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "It could potentially offer sterilization and surface cleaning without water/chemicals, but its effectiveness on bulk soils/stains compared to other methods needs investigation."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "While industrial-scale plasma treatment exists, creating affordable, safe, and effective units for typical laundry volumes at a household or community level presents considerable scaling challenges."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Implementing plasma technology for consumer cleaning would likely involve high initial costs, complex equipment (power supplies, vacuum/gas handling), and specialized maintenance."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "The requirements for stable electricity, potentially specific gases, and skilled maintenance make it potentially impractical in settings with limited infrastructure and resources."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Plasma could potentially synergize with other methods, offering surface sterilization or odor control while another technique addresses bulk soil removal."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Plasma excels at surface modification and removing thin layers/microbes, but it's unlikely to effectively remove bulk soils, embedded particulates, or certain types of stains alone."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "It eliminates drying but might complicate the overall workflow by requiring separate pre-/post-treatments for stains or bulk soil removal, depending on its effectiveness."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Incorrect plasma conditions (e.g., excessive power, inappropriate gas chemistry, prolonged exposure) can lead to fiber degradation, etching, or unwanted chemical changes, damaging the clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 0,
+                                                            "rationale": "Failure likely results in incomplete cleaning. Depending on the failure mode and gases used, unintended surface modifications or chemical residues are possible, though introducing pathogens is unlikely."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would mean failure to meet hygiene standards, leaving behind potentially harmful microbes, allergens, persistent stains, or odors."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The active ingredient 'Dry Processing' via plasma offers a highly novel, water-free approach structurally aligned with cleaning. However, its significant energy requirements, implementation complexity, cost, and potential limitations in removing bulk soil pose major challenges for practical application in resource-constrained settings, despite its potential novelty and synergy.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying industrial plasma technology to everyday clothing cleaning is a highly novel and unexpected concept, originating from a distant domain. While facing significant implementation hurdles, it challenges fundamental assumptions about water/solvent use in cleaning and offers a potentially disruptive, albeit complex, approach."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Selective Modification: Altering only the surface properties of the textile while preserving its bulk characteristics (like strength, feel, breathability unless specifically targeted).",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "No. Selective modification alters surface properties (e.g., making it soil-repellent or easier to clean) but does not inherently remove existing contaminants. The plasma process *can* clean, but 'selective modification' itself is about changing the surface, not removing things from it."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While not direct removal, altering surface properties could contribute indirectly to purification by preventing contaminant adhesion, killing microbes, or making subsequent cleaning steps more effective."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. The principle of modifying the fabric surface could be integrated into a broader low-water cleaning system, perhaps as a pre-treatment to reduce soiling or a post-treatment to add protective qualities."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. The underlying plasma technology enabling selective modification is primarily a dry process, making the principle highly compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Implementing this would require significant electrical energy and potentially specific gases for the plasma. The availability and cost of reliable electricity could be a major constraint in target settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. The core principle of surface modification via plasma does not require water, fitting well within the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Modifying the fabric surface to resist soiling or enhance contaminant release is fundamentally different from methods focused solely on dissolving/removing existing dirt with minimal water."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. While plasma is used in industrial textile finishing, leveraging its selective modification principle for routine consumer low-water cleaning or maintenance appears novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially address issues like microbial control or specific stain prevention, but it's unlikely to replace the need for removing bulk soil/oils addressed by other methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Industrial plasma treatment exists, but adapting it to be safe, effective, affordable, and user-friendly for household or community laundry volumes presents significant technical hurdles."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "No. The complexity and cost are likely high. Plasma generation requires specialized equipment, high voltage, safety controls (e.g., ozone mitigation), making it currently impractical and expensive for typical consumer settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "No. It demands reliable electricity, potentially specialized gases, and skilled maintenance, all of which can be significant barriers in resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Surface modification could act synergistically, for instance, by making fabrics easier to clean using minimal water/agitation or by adding antimicrobial properties that reduce cleaning frequency."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No. Selective modification primarily affects the surface interaction properties. It wouldn't remove embedded particulate matter, oils, or heavy soiling, necessitating complementary cleaning steps."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could simplify subsequent cleaning but adds complexity by introducing an entirely new process step (surface modification) into the clothing care cycle."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While simple failure might just mean ineffective treatment, incorrect operation (wrong parameters, excessive exposure) of a plasma process *can* damage textile fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Failure would primarily mean the intended surface modification (e.g., enhanced cleanability, antimicrobial properties) is not achieved, leading to ineffective purification support. Introducing new risks seems less likely unless process byproducts are involved."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Since it's not primarily a removal mechanism, underperformance means the fabric doesn't gain the desired property (e.g., soil repellency). The consequence is simply that the fabric gets dirty as usual, requiring other cleaning methods."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Selective surface modification (inspired by plasma) offers a novel, water-free principle potentially aiding low-water cleaning by altering fabric properties. However, it's not a direct cleaning method, and faces major scalability, cost, and infrastructure hurdles for consumer use, suggesting potential primarily as a complementary technology or pre-treatment.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying selective surface modification, inspired by plasma treatment, to the problem of routine low-water clothing cleaning is a very interesting concept. It shifts focus from *removal* to *prevention* or *enhanced release*, representing a novel approach compared to typical water/detergent-based methods. While implementation challenges are high, the core idea from a relatively distant domain challenges conventional assumptions about laundry."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "*   **Substrate:** Textile fabric (analogous to clothing).\n    *   **Contaminants/Properties:** Unwanted surface properties or the lack of desired functional properties (analogous to contaminants/dirt on clothing). The goal is to modify these properties (e.g., add hydrophobicity, antimicrobial activity).\n    *   **Primary Resource:** Water and chemicals used in traditional wet finishing (analogous to water used in conventional washing).\n    *   **System Constraints:** High water/energy/chemical consumption and environmental impact of traditional methods (analogous to severe water scarcity). Need for effective functionalization (analogous to achieving standard hygiene levels).\n    *   **Desired Outcome:** Functionalized textile with desired properties (e.g., water repellency, improved dyeability, antimicrobial) (analogous to clean, hygienic clothing).\n    *   **Intervention Mechanism:** Plasma treatment process (cleaning, etching, functionalization, coating) (analogous to an alternative, low-water cleaning process).",
@@ -6579,23 +9395,663 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Selective Material Ablation/Vaporization: The laser energy is preferentially absorbed by the contaminant (rust) compared to the substrate (metal). This differential absorption causes the contaminant to reach its ablation or vaporization temperature much faster than the substrate, leading to its removal while the substrate remains intact.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser ablation removes rust (contaminant) from metal (substrate), which structurally mirrors removing dirt/stains (contaminants) from fabric (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is the selective removal of unwanted material (rust/contaminant), leading to a cleaner/purified state of the substrate."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using targeted energy for selective material removal could theoretically be mapped onto a clothing cleaning process, replacing or augmenting water/chemical methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process itself does not require water, making it inherently compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It relies heavily on electrical energy, which might be scarce or expensive in some water-scarce regions. The laser equipment itself is also costly."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism's function is based on light energy interacting with materials, not water, aligning perfectly with the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using lasers for ablation/vaporization is fundamentally different from methods relying on minimal water, specialized detergents, CO2, or ultrasonic agitation."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation to clothing cleaning is highly novel; it's typically used for industrial surface treatment, not domestic laundry or sustainable cleaning solutions."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might excel at removing specific particulate matter without water, but it's unlikely to address limitations related to oily stains, odor removal, or disinfection effectively."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, precisely scanning and ablating contaminants across entire garments, let alone full laundry loads, seems extremely slow and impractical compared to batch washing."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Laser systems are expensive, require precise control, pose safety risks (eye/skin damage, fumes), and adapting them for diverse fabrics would be challenging."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially controlled environments, and specialized maintenance, which are often lacking in resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target specific particulate soils, but integrating a complex laser system with other methods like air washing or minimal water rinsing seems difficult."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it is unlikely to effectively remove absorbed liquids, oils, biological stains, bacteria, or odors, necessitating complementary cleaning processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system, adding a high-tech, potentially hazardous step requiring specialized handling and integration."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, incorrect laser parameters (power, pulse duration, wavelength) could easily burn, melt, discolor, or otherwise damage various types of fabric fibers and dyes."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure primarily means ineffective cleaning. However, improper ablation could potentially create harmful airborne particles or aerosols from the contaminants or fabric itself."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance means clothes remain dirty. If it fails on biological contaminants or allergens, it would not meet hygiene standards, posing health risks."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Selective laser ablation offers a radically novel, water-free approach to contaminant removal that fits the structural problem. However, its practical application to clothing faces severe challenges in scalability, cost, safety, fabric compatibility, and limited effectiveness on common clothing soils, making direct implementation unlikely but conceptually stimulating.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using laser ablation for cleaning clothes is highly novel and unexpected, originating from industrial materials processing rather than typical cleaning domains. While practical implementation faces major hurdles (cost, safety, scalability, fabric damage), it fundamentally challenges the reliance on water/chemicals, making it very interesting (4/5) for stimulating radically different thinking."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Focused Energy Delivery: The laser beam concentrates energy onto a very small, precise area, allowing for targeted removal of contaminants without affecting adjacent areas or the bulk of the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser removes rust (contaminant) from metal (substrate). This maps well to removing dirt/stains (contaminants) from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process physically removes the unwanted material (rust), achieving purification of the metal surface, analogous to cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. The principle of focused energy delivery could theoretically target specific contaminants on fabric, but using actual lasers on delicate textiles presents significant challenges regarding damage."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser ablation is a dry process and does not inherently require water, aligning perfectly with the primary resource constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, lasers require significant electrical energy, which may be costly or unreliable in resource-constrained environments facing water scarcity. This shifts the resource burden."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism of laser ablation operates without water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using focused energy (like lasers) to ablate or vaporize contaminants is fundamentally different from methods involving solvents (even minimal water), ultrasonics, or chemical reactions like ozone."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation or similar focused energy principles to clothing cleaning is highly novel within sustainable textiles and cleaning technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target stubborn, localized stains without bulk water/chemical use, but introduces new limitations like energy cost, fabric damage risk, and speed."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, precisely scanning and treating entire garments with focused energy seems extremely slow and complex for typical laundry volumes compared to bulk processing methods."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high. Lasers or similar focused energy devices are expensive, require sophisticated control systems, safety measures, and maintenance, making them impractical for typical household/community settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it demands reliable electricity, potentially cooling systems, and specialized technical maintenance, which are often lacking in resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a pre-treatment for specific stains before a different low-water bulk cleaning method, but integration adds complexity."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, focused energy effectiveness depends heavily on the contaminant's absorption properties. It's unlikely to work equally well on diverse soils, oils, biological matter, etc., likely requiring other cleaning methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. It adds a distinct, potentially slow and energy-intensive step requiring precise targeting, increasing overall system complexity."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, incorrect energy levels, duration, or targeting could easily burn, melt, discolor, or otherwise damage delicate clothing fabrics, which are far less robust than metal."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Both. Failure could mean incomplete removal (ineffective cleaning). Misapplication could potentially alter contaminants chemically or damage the fabric, and equipment malfunction poses safety risks."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance means clothes remain dirty. Partial removal or heating could potentially set stains or alter fabric properties negatively."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Focused energy delivery offers a novel, water-free approach structurally aligned with contaminant removal. However, significant challenges related to energy cost, scalability, fabric damage risk, implementation complexity, and limited contaminant spectrum make its direct application for general clothing cleaning highly impractical, despite its conceptual novelty.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying focused energy delivery (like laser ablation) to clothing cleaning is highly unexpected and novel, challenging conventional water/chemical-based approaches. While direct laser use is problematic, the core principle of targeted energy for contaminant removal sparks genuinely new thinking, making it very interesting despite practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Pulsed Energy Application: Using short, high-intensity pulses (nanosecond range) maximizes the peak power delivered to the contaminant for efficient ablation while minimizing the total heat transferred into the substrate, preventing thermal damage.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism (pulsed energy causing ablation/vaporization) removes a contaminant (rust) from a substrate (metal). This maps structurally to removing dirt/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, removing the unwanted contaminant (rust) results in a purified (cleaner) substrate surface, aligning with the goal of cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. The principle of using differential energy absorption for removal could map, but applying high-energy pulses (like lasers) directly to delicate fabrics is highly problematic and requires significant adaptation."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process itself does not require water, making it inherently compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy and sophisticated, expensive laser equipment, which are likely significant constraints in resource-scarce settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core mechanism of pulsed energy ablation is fundamentally water-free."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using pulsed energy for ablation/vaporization is radically different from methods involving solvents, CO2, ozone, steam, or minimal water agitation."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying principles derived from industrial laser ablation to clothing cleaning appears highly novel in this context."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water use entirely, but introduces significant limitations related to energy, cost, material compatibility, and contaminant type specificity, potentially not overcoming practical hurdles."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scaling precise, high-energy pulsed systems to safely and effectively treat entire, non-uniform laundry loads seems extremely challenging and likely impractical."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity and cost would be very high due to the need for specialized laser or similar high-energy equipment, safety systems, and trained operation/maintenance."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires significant electrical power infrastructure and specialized, costly maintenance, likely unavailable or unsustainable in many target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might serve as a spot-treatment method for specific contaminants resistant to other low-water techniques, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it likely wouldn't address diffuse stains, oils, biological matter, or deeply embedded dirt effectively, necessitating complementary cleaning processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system due to safety requirements, precision control needs, and potential for localized fabric damage or alteration."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect application (power, duration, wavelength) could easily burn, melt, discolor, or structurally damage delicate and varied clothing fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, failure likely means ineffective cleaning. It could also create hazardous fumes or aerosols from vaporized materials or fail to neutralize pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would leave clothes dirty or stained, potentially setting stains permanently or failing to meet hygiene requirements, especially for biological contaminants."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The 'Pulsed Energy Application' offers a highly novel, water-free approach structurally analogous to cleaning. However, its direct implementation faces severe challenges in cost, scalability, safety, and fabric compatibility for general laundry, making it likely impractical despite its conceptual interest.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying pulsed energy ablation, derived from industrial rust removal, to clothing is highly novel and unexpected. While direct laser use is problematic, the core concept challenges fundamental assumptions about needing water/solvents, potentially inspiring radically different energy-based cleaning methods (e.g., acoustic, microwave). This makes it very interesting despite practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Non-Contact Process: The removal happens via light energy, eliminating mechanical contact, abrasion, and the need for chemical solvents, thus preserving the substrate's surface integrity.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser process removes rust (contaminant) from metal (substrate), which is analogous to removing dirt/stains from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is contaminant removal for the purpose of restoring the substrate to a desired state, aligning with purification/cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While the principle of non-contact energy transfer could theoretically be mapped, the specific interaction of high-energy light with delicate fabrics versus robust metal/rust is highly uncertain and potentially damaging."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process itself does not use water, making it inherently compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which can be scarce or expensive, and specialized, costly laser equipment."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism is water-free."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using directed energy (like lasers) is fundamentally different from methods involving solvents, agitation, CO2, ozone, or minimal water washing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation or similar non-contact energy processes directly to clothing cleaning is highly novel in this domain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It overcomes water usage, but it introduces significant new challenges (energy cost, fabric damage, selectivity) and doesn't clearly address limitations like stain removal effectiveness or microbial kill across different methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, laser ablation is typically a precise, relatively slow process. Scaling it to quickly and uniformly treat entire garments, let alone full laundry loads, seems highly impractical."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity and cost would likely be very high. Laser systems are expensive, require significant power, and need careful calibration and maintenance, making them unsuitable for typical household or low-resource community settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the high energy requirements, cost of equipment, and need for potentially specialized maintenance make it impractical for many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe for highly specific spot treatments, but the risk of fabric damage and the complexity might make integration difficult with broader techniques like ultrasonic or ozone cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it would almost certainly require complementary processes. Lasers act based on material absorption; diverse clothing contaminants (oils, biological matter, particulates, dyes) would react differently, and many might not be effectively removed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system significantly due to its specialized nature, potential for damage, and limited scope of effectiveness, potentially requiring specific pre- or post-treatments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, failure (e.g., incorrect power, duration, or targeting) poses a very high risk of damaging clothing through burning, melting, or discoloration, given fabrics' sensitivity compared to metal."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure primarily means ineffective cleaning. Depending on the energy interaction, it could potentially set stains, create harmful aerosols from contaminants/fabric, or fail to neutralize pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would lead to visibly dirty or stained clothes, failure to meet hygiene standards, and potential setting of stains, rendering the clothing unusable or requiring re-cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The 'Non-Contact Process' active ingredient offers a highly novel, water-free approach to cleaning. However, significant concerns regarding fabric damage, energy costs, scalability, and effectiveness across diverse contaminants make its direct application to clothing cleaning seem impractical, particularly in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using non-contact energy like lasers for clothing cleaning is highly novel and unexpected, stemming from a distant domain (industrial rust removal). While practical viability seems low due to potential fabric damage and scalability issues, it challenges fundamental assumptions about cleaning mechanisms and could spark genuinely new thinking, even if the direct application fails."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Resource Substitution: Replaces physical/chemical resources (abrasives, solvents, water for rinsing) with directed energy (light), significantly reducing waste and environmental impact.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the active ingredient (directed energy) is used to remove a contaminant (rust) from a substrate (metal), which is analogous to removing dirt/stains from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, removing rust is a form of purification for the metal surface, aligning with the goal of cleaning clothing."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. The principle of substituting physical/chemical agents with directed energy could map, but using high-power lasers on delicate fabrics is highly questionable."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core idea replaces water (and chemicals/abrasives) with energy, directly addressing the water scarcity constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which can be scarce or expensive. Laser systems themselves also represent significant capital costs."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process itself is dry and does not inherently require water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using directed energy like lasers is fundamentally different from methods relying on detergents, steam, ultrasonics, or CO2."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation or similar high-energy directed processes specifically for general clothing cleaning appears highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water and chemical residue issues, but introduces significant new challenges like fabric damage, energy cost, and incomplete cleaning of diverse soils."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scanning entire garments with lasers seems extremely slow and impractical for typical laundry volumes compared to batch washing."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Lasers are expensive, require precise control, safety measures (eye protection), and skilled operation/maintenance."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially cooling systems, and specialized maintenance, likely unavailable or unsustainable in many target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, it could potentially target specific stains before another low-water process, but integration would be complex and benefits uncertain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, laser ablation is selective based on material absorption. It's unlikely to effectively remove the diverse mix of soils, oils, sweat, and microbes on clothing."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system by adding a complex, potentially damaging, and highly specialized step."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, failure (e.g., incorrect power, duration, or targeting) could easily result in burning, melting, discoloration, or structural damage to delicate fabric fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, failure likely means ineffective cleaning. Depending on contaminants and fabric, it might also create hazardous aerosols or byproducts."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance leads to unclean clothes. Depending on the contaminant, this could mean stains, odors, or unhygienic conditions, alongside potential fabric damage from the attempt."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The active ingredient (substituting resources with directed energy) offers a conceptually novel, water-free approach. However, applying it via lasers faces severe practical hurdles in scalability, cost, complexity, fabric safety, and effectiveness on diverse clothing contaminants, making direct transfer unlikely but the core idea potentially inspiring.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using directed energy (inspired by lasers) instead of water/chemicals for cleaning clothes is highly novel and unexpected, originating from a distant domain (materials processing). While lasers themselves seem impractical, the core concept challenges fundamental assumptions about cleaning mechanisms and could spark genuinely new approaches, making it very interesting."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "*   Substrate requiring purification: Car body panel (metal).\n*   Contaminants adhered to the substrate: Rust, paint, oil, grease.\n*   Primary resource typically used (and now constrained/avoided): Abrasives (like sandblasting), chemical solvents, large amounts of water for rinsing, manual labor.\n*   System Constraints: Need for precision to avoid damaging delicate substrate or nearby original paint; desire to avoid harsh chemicals and waste.\n*   Desired Outcome: Effective removal of rust/contaminants to achieve a clean metal surface ready for restoration or further processing.\n*   Intervention Mechanism: Applying laser ablation technology (alternative purification process) using focused light energy (alternative resource).",
@@ -6794,27 +10250,795 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Selective Energy Absorption: The contaminant layer absorbs significantly more laser energy than the underlying substrate (stone), often due to differences in color or composition. This allows the laser to target the unwanted material preferentially.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism targets unwanted layers (contaminants) on a surface (substrate), which directly maps to removing dirt from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the selective energy absorption leads to the removal of contaminants, which is a form of purification or cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle suggests a non-contact, energy-based method that could potentially be adapted to target and remove dirt from clothing fibers."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core mechanism relies on laser energy, not water, making it fundamentally compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It relies heavily on electrical energy for the laser, which might be scarce or expensive in some water-scarce regions. The equipment itself is also costly."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the primary mechanism of selective absorption and ablation/vaporization does not require water, fitting the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using targeted laser energy based on differential absorption is very different from solvent-based, ultrasonic, or high-efficiency mechanical washing methods."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser cleaning is typically associated with industrial or conservation applications, not textile cleaning within sustainable technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially avoid chemical residues or mechanical wear, but it introduces significant new challenges like potential heat damage and incomplete contaminant removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, precisely scanning entire garments, especially multiple items in a load, with a laser seems extremely slow and impractical for typical laundry volumes."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high. Laser systems are expensive, require precise control, pose safety hazards, and need specialized maintenance, making them complex and costly for household/community use."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the significant energy requirements, need for safety protocols, and specialized maintenance are likely impractical in many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially be used for targeted stain removal before or after another process, but integration might be complex and add cost."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, its effectiveness relies on the contaminant absorbing significantly more energy than the fabric. This likely varies greatly for different dirt types (oils, pigments, biological matter), requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system by adding a highly specialized, potentially slow, and risky step without obviously simplifying others like drying."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect laser parameters (power, duration, wavelength) could easily burn, melt, discolor, or structurally damage delicate fabric fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure primarily means ineffective cleaning. However, partial heating could potentially alter contaminants or fabric, and vaporization could create hazardous fumes."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance means clothes remain dirty. More significantly, there's a high risk of damaging the fabric while attempting removal, or altering stains making them harder to remove later."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Selective energy absorption offers a structurally analogous, water-free, and novel approach to cleaning. However, its practical application faces major challenges in scalability, cost, implementation complexity, potential for fabric damage, and limited effectiveness across diverse contaminants.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using selective laser energy absorption for cleaning clothes is highly novel and unexpected, drawing from the distant domain of cultural heritage preservation. It challenges fundamental assumptions about using water or mechanical action for cleaning, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Controlled Ablation/Vaporization: The absorbed laser energy rapidly heats and vaporizes or physically ejects the contaminant material (photoablation, photothermal, or photomechanical effects), breaking its bond with the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism removes unwanted layers (contaminants) like grime from a surface (substrate). This directly maps to removing dirt/stains from clothing fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is the selective removal of unwanted material from a surface, which is fundamentally a cleaning or purification process."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While it represents a cleaning process, applying laser ablation to clothing would likely be a completely new process rather than a modification of existing washing methods. Significant adaptation would be needed."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core mechanism uses laser energy for ablation/vaporization, fundamentally operating without water, aligning perfectly with the water scarcity constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which can be scarce or expensive. The laser equipment itself represents significant capital cost and specialized technology."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the primary ablation/vaporization process does not require water. Any potential water mist enhancement is secondary and likely omissible to meet the constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using laser ablation/vaporization for cleaning clothes is fundamentally different from methods involving solvents, steam, ozone, UV, or minimal water washing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser cleaning techniques, typically used for industrial or conservation purposes, to general clothing care appears highly novel within this domain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water and potentially harsh chemicals, but introduces significant energy costs, potential fabric damage, and likely struggles with absorbed stains or odors."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but likely difficult. Effectively scanning entire garments, especially diverse fabrics and shapes in a typical laundry load, seems slow and complex compared to batch washing."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Laser systems require significant investment, precise control, safety measures (fumes, eye protection), and skilled operation/maintenance, making household use improbable."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially fume extraction systems, and specialized technicians for maintenance, all of which can be challenging in resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target specific surface contaminants or stains as a pre-treatment, but integration complexity and potential for fabric damage are concerns."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it's unlikely to effectively remove absorbed liquids, oils, biological contaminants, or deeply embedded dirt. Complementary processes would almost certainly be required."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system by adding a high-cost, high-risk, specialized step. While drying might be less needed, other stain removal methods would likely still be essential."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, there is a very high risk of damaging clothing (burning, melting, weakening fibers, discoloration) if laser parameters are incorrect or the fabric is unsuitable."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure could mean both ineffective cleaning (hygiene failure) and introduce risks like fabric damage or potentially harmful fumes from vaporized contaminants/fibers."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would lead to visibly dirty or unhygienic clothing. Additionally, the heat involved could potentially 'set' certain stains, making them harder to remove later."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Controlled ablation via laser offers a fundamentally novel, water-free approach to removing surface contaminants, but its application to clothing faces major challenges in scalability, cost, fabric safety, and effectiveness on diverse soil types. While direct implementation seems impractical, the core concept is highly interesting for stimulating new ideas.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying laser ablation from monument conservation to clothing cleaning is highly novel and unexpected, challenging fundamental assumptions about washing. While practical hurdles are immense, the core concept of targeted energy for waterless cleaning is very thought-provoking and could inspire genuinely new R&D directions."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Precise Energy Delivery: The laser beam can be precisely controlled in terms of location (spot size, scanning path) and energy parameters (wavelength, pulse duration, power/fluence, repetition rate) to match the specific contaminant and substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser removes unwanted layers (contaminants) like grime or paint from a surface (substrate), which directly parallels removing dirt from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the explicit purpose of laser cleaning monuments is purification by removing unwanted surface materials."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While the principle of targeted energy delivery could theoretically be applied to clothing, the practicalities of using lasers on diverse, delicate fabrics differ significantly from stone."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser cleaning mechanism itself is fundamentally dry or uses minimal water (e.g., for mist), aligning well with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, laser systems require significant electrical energy and are technologically complex and expensive, potentially posing constraints in resource-limited settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core laser ablation process does not require water, fitting the primary constraint perfectly."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using precisely targeted energy (like lasers) is fundamentally different from water-based washing, solvent cleaning (like CO2), or mechanical methods (like ultrasonics)."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser or similar precise energy delivery for the *cleaning* of textiles is highly novel; current uses are typically in manufacturing or modification."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might offer a unique way to target specific stubborn stains without water or chemicals, but its effectiveness on general soil and large areas is highly questionable."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, laser cleaning is typically a slow, surface-specific process. Scaling it to efficiently clean entire garments or laundry loads seems highly impractical in terms of time and energy."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high. Laser equipment is expensive, requires specialized knowledge for operation and maintenance, and poses significant safety concerns unsuitable for typical household use."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, potentially cooling systems, safety infrastructure, and skilled technicians are needed, which are often lacking in resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a pre-treatment for specific, difficult stains before a primary low-water cleaning process, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it would likely only target specific surface contaminants based on optical properties and struggle with absorbed oils, general grime distributed through fibers, and odors."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system by adding a costly, complex, and potentially hazardous step without obviously simplifying others like general cleaning or drying."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect laser parameters (power, wavelength, duration) could easily burn, melt, discolor, or structurally damage delicate fabric fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean both ineffective cleaning and additional risks like fabric damage or potentially harmful fumes/residues from ablated materials."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would mean clothes remain dirty. Misapplication (e.g., wrong settings) could set stains, damage fabric, or fail to address hygiene concerns."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Precise energy delivery (laser cleaning) offers a fundamentally novel, water-free cleaning approach but faces major obstacles in scalability, cost, safety, and effectiveness for general laundry. Its extreme novelty makes it interesting, potentially for niche applications like targeted stain removal, but it seems impractical as a primary low-water cleaning solution.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying precise energy delivery, inspired by laser cleaning of monuments, to clothing cleaning is a highly novel and unexpected concept in the laundry domain, challenging conventional assumptions about cleaning mechanisms. While practical hurdles are immense, the core idea is intriguing and could spark genuinely new thinking about targeted stain removal."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Threshold-Based Removal: Materials have an ablation threshold \u2013 a minimum energy intensity required for removal. By operating above the threshold for the contaminant but below the damage threshold for the substrate, selective cleaning is achieved.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism involves removing unwanted material (contaminants like grime, pollution) from a surface (substrate like stone), which directly parallels removing dirt/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is the selective removal of undesired layers to restore the substrate to a cleaner state, aligning perfectly with the goal of purification/cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using differential energy absorption thresholds between contaminant and substrate could conceptually be applied to develop a clothing cleaning process, even if not using lasers directly."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core laser cleaning process is dry. While a fine water mist is sometimes used for enhancement, the fundamental mechanism does not rely on water."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, laser-based systems require significant electrical energy and costly, specialized equipment, which are likely constraints in water-scarce environments that often face energy poverty too."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism of threshold-based ablation is water-free. Any water use (like misting) appears optional or supplementary."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using energy thresholds for selective vaporization/ablation is fundamentally different from methods like ultrasonic agitation, CO2 cleaning, ozone, or simply reduced water washing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation principles, even conceptually, to general garment cleaning appears highly novel within the typical scope of sustainable laundry solutions."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might bypass issues related to water solubility but introduces significant new challenges like fabric damage risk, energy cost, and effectiveness across diverse stain types and fabric depths."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, laser cleaning is precise and often slow. Scaling it to clean entire garments within a typical laundry load, including penetrating fibers, seems highly impractical in terms of time and complexity."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Laser systems require precision control, safety features (eye protection, fume extraction), and expensive components, making them unsuitable for typical consumer or community settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially cooling systems, fume extraction, and specialized technical maintenance, all likely challenges in resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, perhaps for targeted stain removal pre- or post-treatment with another method, but integration seems complex due to the different process requirements (e.g., energy vs. chemical)."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, its effectiveness depends on the absorption properties of contaminants versus fabric. It likely wouldn't handle embedded oils, biological matter deep in fibers, or odors well, necessitating complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system due to its specialized nature, safety needs, energy demands, and potential requirement for specific pre/post handling."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, exceeding the fabric's damage threshold, even slightly, could easily cause burns, melting, discoloration, or structural weakening. Precise control across varying fabrics is difficult."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure primarily means ineffective cleaning (contaminants remain). However, incomplete ablation or thermal effects could potentially create harmful byproducts or not eliminate pathogens, thus failing hygiene standards."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance means clothes remain soiled, potentially with specific problematic residues (oils, biological matter), leading to odors, skin irritation, or inadequate hygiene."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Threshold-Based Removal offers a conceptually novel, water-free cleaning principle but faces major practical hurdles for clothing cleaning regarding scalability, cost, energy use, fabric safety, and comprehensive contaminant removal. Its direct application is unlikely, but the core idea is stimulating for alternative energy-based approaches.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying the concept of selective material removal via energy thresholds from monument cleaning to clothing is highly unexpected and novel. While direct laser use seems impractical, the core idea challenges fundamental assumptions about laundry and could inspire radically different low-water cleaning approaches based on targeted energy delivery."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Non-Contact Process: The laser cleans without physical contact, eliminating mechanical stress and abrasion associated with traditional methods.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "The underlying laser process, characterized by being non-contact, removes unwanted material (contaminants) from a surface (substrate), which directly parallels removing dirt from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the purpose of the non-contact laser process is to purify the substrate by removing contaminants, aligning with the purification goal for clothing."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Conceptually, the principle of using energy transfer without direct physical contact (like rubbing or immersion) can be mapped to clothing cleaning as an alternative mechanism."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "The non-contact aspect itself does not require water. The source process (laser cleaning) uses minimal or no water compared to washing, making the principle compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Implementing a non-contact energy-based method (inspired by lasers) would demand significant electrical energy and expensive, specialized equipment, posing a major resource constraint."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental idea of using energy for cleaning without physical contact can operate without water, adhering to the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Using targeted energy transfer without significant liquid or mechanical tumbling appears fundamentally different from current low-water washing, ultrasonic, or CO2 methods."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Applying a non-contact, energy-ablation/vaporization principle (inspired by lasers) to routine clothing cleaning seems highly novel within sustainable textile care."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "It might overcome limitations like mechanical wear or rinsing needs, but its effectiveness on diverse stains and overall hygiene compared to existing methods is uncertain."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "Scaling a precise, non-contact energy application (like scanning) to efficiently clean entire laundry loads appears very challenging regarding speed and coverage."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Implementation would likely involve very high complexity (precision control, safety systems) and prohibitive costs for equipment, especially at the household level."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it would require reliable electricity, specialized maintenance, and safety infrastructure (fume extraction, shielding), likely impractical in many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "A non-contact energy process could potentially serve as a targeted pre-treatment, post-treatment sterilization, or spot cleaner alongside other low-water methods."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "It's unlikely a single non-contact energy method could remove all types of clothing contaminants effectively; complementary cleaning processes would almost certainly be needed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Integrating such a sophisticated technology would significantly complicate the overall system design, operation, and maintenance compared to simpler low-water methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect application of focused energy poses a high risk of burning, melting, discoloring, or otherwise damaging fabric fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean ineffective cleaning, but also potentially create hazardous aerosols or chemical byproducts from the interaction of energy with contaminants and fabric."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would leave clothing soiled or unhygienic, potentially causing odor, skin irritation, or health risks from remaining contaminants or microbes."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The 'Non-Contact Process' offers a novel, water-free cleaning principle but faces major hurdles in scalability, cost, complexity, fabric safety, and broad contaminant removal for general laundry. It might be more promising for specialized applications like spot treatment or sterilization within a larger system.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying a non-contact energy principle derived from laser monument cleaning to textiles is highly unexpected and challenges conventional washing paradigms. While practical hurdles are substantial, the core idea is novel and could stimulate genuinely new thinking in low-water fabric care, even if the final form isn't exactly laser-based."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Minimal Consumables/Waste: The process primarily uses electrical energy and generates vaporized contaminants (managed by extraction) rather than using water, chemicals, or abrasive media, reducing environmental impact and secondary waste.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "The principle focuses on minimizing consumables during the removal of contaminants (vaporized grime) from a substrate (monument surface), which is analogous to cleaning clothes by focusing on resource efficiency."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of minimizing consumables is presented as a key aspect of an effective purification (cleaning) process, aligning directly with the goal."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "The core idea of designing a cleaning process to inherently use minimal consumables (especially water) and generate less waste is directly transferable as a design goal for clothing cleaning methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the active ingredient explicitly describes a process that minimizes consumables, directly addressing the constraint of water scarcity by substituting water/chemicals with energy in the example."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": 0,
+                                                            "rationale": "The principle itself doesn't mandate high energy use, but the laser example does. Transferring this might require significant energy, which could be a constraint in some water-scarce contexts."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental aspect of this ingredient is operating with minimal consumables, specifically aiming to replace or drastically reduce traditional resources like water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 0,
+                                                            "rationale": "The *goal* of minimizing consumables is shared with other low-water methods. However, the *method* hinted at (energy-driven vaporization/ablation) is fundamentally different from most existing methods like CO2 or air washing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 0,
+                                                            "rationale": "Minimizing resource use is central to sustainability. Applying principles from artifact conservation (like energy-based surface cleaning) to everyday laundry might offer novel perspectives, but the general principle isn't new."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "It might overcome limitations related to chemical residues or water disposal. However, it could introduce new challenges like high energy consumption, fabric compatibility issues, or incomplete cleaning spectrum."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "Scaling the laser cleaning example to typical laundry volumes seems highly impractical due to time, energy requirements, cost, and potential for uneven treatment or damage."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Implementing a laser-based system, or even analogous high-energy systems (plasma, etc.), would likely be extremely complex and costly for household use compared to conventional washing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, sophisticated equipment like lasers requires stable power, controlled environments, and specialized maintenance, likely impractical in many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle could guide the development of a targeted pre-treatment step (e.g., energy-based stain removal) combined with another low-water bulk cleaning or rinsing method."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Laser cleaning is surface-specific. Clothing has embedded dirt, oils, odors, and microbes requiring different removal mechanisms; thus, complementary processes would almost certainly be needed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": 0,
+                                                            "rationale": "It might simplify by reducing rinsing needs but could complicate by requiring precise targeting or potentially altering fabric properties affecting drying or subsequent treatments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying high energy (as in the laser example) directly to fabrics carries a significant risk of thermal damage (burning, melting) or discoloration if control fails."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean incomplete cleaning (hygiene failure). It might also lead to redeposition of vaporized contaminants or insufficient heat for disinfection, potentially leaving pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would result in visually unclean clothes, persistent odors, or inadequate hygiene levels, failing the core purpose of cleaning."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The active ingredient 'Minimal Consumables/Waste' aligns well conceptually with the need for low-water cleaning. However, the specific laser-based example raises significant concerns about scalability, cost, fabric safety, and complexity for clothing care, making direct transfer difficult despite its high novelty potential.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using highly targeted energy, inspired by laser cleaning's minimal consumable approach, is a very interesting and potentially disruptive idea for low-water clothing care. It's novel because it shifts focus from bulk chemical/water processes to precise surface interaction, drawing from an unexpected domain (artifact conservation). While practical hurdles are immense, the core concept challenges conventional assumptions."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "Substrate: Stone monument surface maps to Clothing fabric.\nContaminants: Pollution, grime, biological growth maps to Dirt, stains, microbes.\nPrimary Resource (Scarce/Problematic): Water, chemicals, abrasives map to Water.\nAlternative Resource/Mechanism: Laser energy and ablation process map to a potential alternative energy-based cleaning mechanism for clothes.\nConstraints: Preservation (no damage to delicate stone), precision maps to Hygiene standards, fabric integrity, low water use.\nDesired Outcome: Clean monument surface maps to Clean clothes meeting hygiene standards.\nIntervention Mechanism: Laser ablation technology maps to the need to develop a novel, resource-efficient cleaning technology for clothes.",
@@ -6973,23 +11197,663 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "**Selective Energy Absorption & Ablation Threshold:** The process relies on the difference in how materials absorb laser energy and their specific ablation thresholds (the energy needed to vaporize/remove them). Contaminants absorb the laser energy and are removed, while the substrate (often metal) reflects more or has a higher ablation threshold, thus remaining largely unaffected.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism focuses on removing unwanted material (contaminants) from a surface (substrate) based on differential properties, which directly maps to removing dirt/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the goal of laser ablation is to achieve a clean surface by removing contaminants, aligning directly with the purification goal of clothing cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using targeted energy based on differential absorption/ablation thresholds could conceptually be applied to clothing, replacing or altering traditional cleaning methods."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser ablation is a dry process using light energy, making it inherently compatible with the constraint of minimal water usage."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy and sophisticated, costly laser equipment, which are likely significant constraints in water-scarce, potentially resource-poor settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism itself does not require water, operating purely based on light energy and material properties."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using laser energy for ablation is fundamentally different from methods like high-efficiency washing, aerosols, CO2, or ultrasonic cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying industrial laser cleaning principles to textiles for low-water cleaning appears highly novel and unconventional within this domain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It overcomes water use limitations but introduces significant new challenges like energy cost, potential fabric damage, and complexity, making it unclear if it overcomes net limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scaling laser ablation to efficiently and safely process the entire surface and volume of typical laundry loads seems highly impractical due to speed, energy, and control requirements."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity and cost of laser systems, safety features, and precise control needed are likely prohibitive for household or community use compared to conventional methods."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it demands reliable electricity, specialized equipment, safety infrastructure, and skilled maintenance, likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, it could potentially target specific stains before or after another low-water process, but integration complexity and potential material interactions (e.g., heat) are concerns."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it's unlikely to handle the diverse range of soils (embedded dirt, oils, biologicals, odors) effectively or safely on various fabrics; complementary processes would almost certainly be needed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system due to precision requirements, safety, energy management, potential heat effects, and handling of ablated material."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect laser parameters or variations in fabric could easily lead to burning, melting, discoloration, or structural damage to the clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 0,
+                                                            "rationale": "Failure primarily means ineffective cleaning. However, incomplete ablation might create airborne particulates or potentially alter material chemistry, posing secondary risks."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance results in dirty clothes, potentially with stains altered making them harder to remove later, leading to hygiene or aesthetic issues."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "The principle of selective energy absorption offers a novel, water-free cleaning concept structurally aligned with the problem. However, significant practical challenges related to fabric safety, energy cost, complexity, scalability, and contaminant range make direct application to general laundry highly improbable, though conceptually stimulating.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying laser ablation from industrial surface treatment to clothing cleaning is a highly unexpected and novel concept, challenging fundamental assumptions about textile care. While practical hurdles are immense, the core idea of selective energy deposition is intriguing and could stimulate radically different approaches to waterless cleaning. Its origin in a distant domain enhances its novelty."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**Focused Energy Delivery (Photonic Energy):** Concentrated light energy (photons) is precisely delivered to the target area, enabling localized and controlled removal. Pulsed lasers deliver high peak power in short bursts, enhancing removal efficiency via rapid heating, vaporization, sublimation, or thermal shock without significant heat transfer into the bulk material.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism (laser ablation) removes unwanted material (contaminants) from a surface (substrate). This maps directly to removing dirt/stains (contaminants) from fabric (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the explicit goal of laser surface preparation is to clean/purify the surface by removing contaminants, aligning with the goal of cleaning clothing."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using focused photonic energy to selectively remove surface material could conceptually be applied as a clothing cleaning process, replacing water/chemical action."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core mechanism uses light energy, not water, for contaminant removal, directly addressing the primary constraint of water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which can be scarce and expensive in the same contexts where water is scarce. Lasers are energy-intensive devices."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the cleaning action itself is dry (photonic energy). Ancillary systems might use water (e.g., cooling), but the fundamental process does not require water contact with the substrate."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using focused light energy (lasers) for cleaning fabric is fundamentally different from solvent-based (dry cleaning), CO2, ultrasonic, or ozone methods currently explored for low-water cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying industrial laser cleaning techniques to textile/clothing care is highly novel and not a standard approach within sustainable cleaning technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Lasers offer precision and high energy density, potentially targeting stubborn stains or offering sterilization, but they introduce significant new challenges like fabric damage and energy costs."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Scaling laser processing over complex, non-uniform 3D surfaces like clothing presents significant challenges for speed, coverage, and safety compared to flat industrial surfaces."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Lasers, control systems, safety measures (eye protection, fume extraction), and maintenance requirements are far beyond typical consumer appliance standards."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially cooling systems, fume management, and specialized technical maintenance, likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a pre-treatment for specific stains or a post-treatment for sterilization, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, laser ablation is best for surface layers. It would likely struggle with deeply embedded dirt, biological matter within fibers, or certain chemical stains without damaging delicate fabrics. Complementary processes would be essential."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. It adds a high-energy, potentially damaging step requiring precise control and likely specific pre- or post-processing considerations, increasing overall system complexity."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, there is a very high risk of damaging clothing (burning, melting, discoloration, weakening fibers) if laser parameters are not perfectly controlled for diverse and delicate fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure could mean ineffective cleaning (hygiene risk), fabric damage, or the creation of potentially harmful airborne particles/fumes from ablated materials and fibers."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would lead to incomplete cleaning (persistent stains, odors, microbes), potentially uneven appearance, and possible setting of certain stains due to heat."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Focused photonic energy offers a fundamentally novel, water-free cleaning mechanism structurally aligned with the problem. However, its high energy requirements, cost, complexity, significant risk of fabric damage, and likely need for complementary processes pose major barriers to practical implementation for clothing, especially in resource-constrained settings.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using focused light energy (lasers) from industrial surface preparation to clean clothing is highly novel and unexpected in the domain of laundry care. It challenges fundamental assumptions about cleaning mechanisms (water/solvent vs. photonic energy) and originates from a distant field, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**Non-Contact Material Removal:** The cleaning occurs without physical contact, using light energy to break molecular bonds or induce phase changes (solid/liquid to gas) in the contaminant layer, ejecting it from the surface. This avoids mechanical damage associated with abrasive methods.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism removes unwanted material (contaminants like oxides, grease) from a surface (substrate like metal), which is analogous to removing dirt/stains from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the primary purpose of laser surface preparation is to clean the substrate by removing contaminants, aligning directly with the goal of purification."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core principle of using focused energy (light) for non-contact removal of surface contaminants could conceptually be applied to clothing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process itself is dry and does not require water as a medium for cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which can be scarce or expensive. The laser equipment itself is also costly and specialized."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism of light-based ablation operates without water, adhering to the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using focused light energy for ablation is fundamentally different from water immersion, solvent cleaning, or even ultrasonic methods commonly considered for low-water cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying industrial laser cleaning principles directly to textile/clothing cleaning at a consumer or community scale is highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It eliminates water and potentially chemical use, but introduces significant challenges related to energy consumption, fabric safety, and cost, potentially not overcoming practical limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but likely with difficulty. Processing large surface areas of flexible, non-uniform materials like clothing quickly and safely presents significant scaling challenges compared to rigid industrial parts."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Complexity and cost would be very high. Laser systems are expensive, require precise control, safety measures (eye protection, fume extraction), and specialized knowledge, making household/community implementation impractical currently."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable and potentially high amounts of electricity, sophisticated equipment, fume extraction, and skilled maintenance, likely impractical in many resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target specific stubborn stains or provide surface sterilization, complementing other methods like air washing or minimal rinsing, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Unlikely. Laser parameters are typically material-specific. The wide variety of soils, stains, oils, and biological matter on clothing would likely require different settings or complementary cleaning processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system significantly due to its complexity, energy needs, safety requirements, and potential need for pre/post-processing steps."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, there is a very high risk. Incorrect laser parameters could easily burn, melt, discolor, or structurally damage delicate fabric fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure likely means ineffective cleaning. Additionally, incomplete ablation could create harmful airborne particles or surface residues, and it might not effectively neutralize all pathogens."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would result in visibly unclean clothing, potentially with localized damage where ablation was attempted but failed or was excessive. Specific stains or odors might persist."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Non-contact material removal via focused energy offers a highly novel, water-free approach structurally analogous to cleaning. However, its application faces major obstacles in energy cost, scalability, implementation complexity, fabric safety, and handling diverse contaminants, making direct transfer challenging despite its conceptual appeal.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using non-contact energy (like lasers) for clothing cleaning is highly novel and unexpected, sourced from the distant domain of industrial material processing. It challenges fundamental assumptions about requiring water or solvents for cleaning. Despite significant practical hurdles (cost, safety, fabric damage risk), its radical difference makes it very interesting for stimulating new thinking."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**Dry Process & Minimal Waste:** The primary mechanism is vaporization or particle ejection induced by the laser, eliminating the need for water, chemical solvents, or abrasive media. This results in a dry process with minimal secondary waste (mostly captured fumes/dust).",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is removing unwanted surface material (contaminants) from a substrate, which directly maps to cleaning dirt/grime from clothing fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of contaminants via vaporization or ejection is fundamentally a purification or cleaning process."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle involves substituting a standard cleaning medium (water/solvents) with a dry energy-based process (laser), which represents a modification approach."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism is fundamentally a dry process, eliminating the need for water and thus fitting the primary resource constraint perfectly."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy for the laser and sophisticated equipment, which may be scarce, unreliable, or prohibitively expensive in water-scarce settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the process itself is water-free. Its operation directly adheres to the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using laser ablation is radically different from methods involving minimal water, specialized detergents, solvents, or ultrasonic agitation."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying industrial laser cleaning techniques to textile/clothing hygiene is highly novel and not a standard approach considered in sustainable cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It overcomes reliance on water and potentially chemical residues, but introduces significant new challenges like energy consumption, fabric damage risk, and limited effectiveness on certain soil types."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but highly challenging. Uniformly treating complex, non-rigid, varied fabric surfaces in bulk safely and effectively is a major hurdle compared to treating rigid industrial parts."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost. Requires lasers, precise control systems, fume extraction, safety interlocks, and likely specialized operators/maintenance."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, potentially cooling systems, safe fume handling, and skilled technical maintenance are significant infrastructure demands often unavailable in target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, it could potentially target specific surface contaminants or act as a pre-treatment, but integration adds complexity and its specific benefits are unclear without further investigation."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it's unlikely to effectively remove absorbed liquids, deeply embedded particulate matter, biological stains within fibers, or odors without direct physical ablation of the source."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system due to its cost, complexity, safety requirements, and potential for damaging the substrate (clothing)."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, incorrect laser parameters (power, duration, wavelength) could easily burn, melt, discolor, or structurally weaken diverse and sensitive clothing fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure likely means ineffective purification. Additionally, incomplete ablation could create harmful breakdown products or aerosols, and improper fume extraction poses inhalation risks."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance leads to unhygienic clothing, potential setting of stains, persistent odors, and failure to meet the required standard of cleanliness."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "This active ingredient offers a highly novel, water-free approach to cleaning, perfectly matching the core constraint. However, its practicality is severely limited by high energy needs, complexity, cost, significant risk of fabric damage, and questionable effectiveness on typical clothing soil, making direct implementation unlikely.",
+                                            "interestingness": {
+                                                "score": 5,
+                                                "rationale": "The concept of using laser ablation for clothing cleaning is extremely novel and unexpected, sourced from a distant industrial domain. It fundamentally challenges the assumptions of water/solvent-based cleaning, potentially sparking radical new thinking despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**(Optional) Surface Modification/Texturing:** Beyond just cleaning, the laser can be precisely controlled to etch patterns (microstructuring) onto the substrate surface, increasing surface area and creating beneficial oxides or roughness for enhanced mechanical interlocking and chemical bonding.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "This ingredient focuses on modifying the substrate surface (texturing) for enhanced properties, not primarily on removing existing, diverse contaminants like dirt or stains from clothing."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": -1,
+                                                            "rationale": "The core function is altering surface characteristics (roughness, area, chemistry) for bonding or other effects, not purification in the sense of removing unwanted substances to achieve hygiene."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "While not direct cleaning, modifying fiber surfaces could potentially influence future cleanability (e.g., reduced adhesion, easier release) or stain resistance, thus indirectly modifying the overall cleaning process or requirement."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Laser surface modification is typically a dry process, making it inherently compatible with the constraint of water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "It relies heavily on electrical energy and sophisticated, expensive laser equipment, which are significant alternative resource demands potentially unavailable or too costly in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser texturing process itself does not require water to function."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Applying laser texturing to clothing fibers to alter their interaction with contaminants is fundamentally different from methods focused on dissolving or dislodging existing dirt (e.g., ultrasonic, CO2, minimal water washing)."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Laser surface treatment is known in materials science, but its application to modify textile fibers specifically for cleaning-related benefits appears highly novel within sustainable clothing care technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Potentially, if texturing could reduce soil adhesion or improve soil release, it might address issues like stubborn stains or the need for high mechanical action, but this is speculative."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "Scaling precise laser texturing across the vast surface area of fibers within bulk, non-rigid laundry items seems extremely challenging and likely very slow."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Implementation complexity and cost would be very high due to expensive equipment, need for skilled operation, safety protocols (laser, fumes), and maintenance, making it impractical for household/community use."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially cooling systems, fume extraction, safety enclosures, and specialized maintenance, often unavailable or unsustainable in resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Surface modification via texturing might potentially make fibers easier to clean using another low-water method (e.g., by reducing soil adhesion), creating a hypothetical synergy, perhaps as a manufacturing pre-treatment."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "This mechanism modifies the surface; it does not remove existing contaminants. A separate cleaning process would still be required to remove the diverse soils found on used clothing."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Integrating laser texturing, likely as an additional pre-treatment step (perhaps during manufacturing), would significantly complicate the overall clothing lifecycle and care system."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect laser parameters (power, exposure time, wavelength) could easily burn, melt, weaken, or discolor delicate textile fibers, causing irreversible damage."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 0,
+                                                            "rationale": "Failure primarily means fabric damage or lack of the intended surface modification. It doesn't directly impact purification effectiveness of existing dirt, nor inherently introduce residues or pathogens, though fume handling is a safety aspect."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "This mechanism doesn't remove contaminants. Underperformance means the desired surface texture isn't achieved, so the main negative consequence is the lack of intended benefit (e.g., improved cleanability) and the risk of damage during the attempt."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Laser surface texturing offers a highly novel, water-free approach conceptually, but focuses on modifying fiber properties rather than direct cleaning. Its potential lies perhaps in pre-treating fabrics (e.g., during manufacturing) to enhance future cleanability, though significant challenges exist regarding scalability, cost, complexity, and the risk of damaging clothing, making it impractical for direct application in resource-constrained cleaning contexts.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying laser microstructuring, a technique from industrial materials science, to textile fibers to influence cleanability represents a highly novel and unexpected approach to the clothing care problem. While practical hurdles are immense, the core concept challenges fundamental assumptions about how fabrics interact with contaminants and could spark genuinely new research directions."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "*   **Substrate:** Metal surface requiring preparation (analogous to clothing fabric).\n*   **Contaminants:** Oxides, oils, coatings, grease (analogous to dirt, oils, microbes on clothing).\n*   **Primary Resource Constraint:** Avoidance of chemicals, abrasives, and sometimes water; need for speed and automation (analogous to severe water scarcity).\n*   **Desired Outcome:** Perfectly clean surface for strong welding/bonding (analogous to hygienically clean clothing).\n*   **Intervention Mechanism:** Laser beam interaction (ablation, vaporization, thermal shock) substituting chemical/mechanical methods (analogous to developing an alternative, low-water cleaning method).",
@@ -7089,23 +11953,663 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "Selective Energy Absorption & Ablation: The laser wavelength and pulse duration are tuned so the paint layer strongly absorbs the energy while the underlying substrate (metal/composite) reflects it or has a much higher damage threshold. This absorbed energy causes the paint to rapidly heat, decompose, and vaporize/turn to plasma (ablation).",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism removes an unwanted layer (paint/contaminant) from an underlying material (metal/substrate), which is structurally analogous to removing dirt/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is ablation, which is a form of material removal intended to leave a clean underlying surface, aligning with the goal of purification/cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using targeted energy to selectively remove contaminants represents a potential alternative process for cleaning clothing, distinct from conventional washing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser ablation is fundamentally a dry process and does not require water as a primary medium, aligning perfectly with the water scarcity constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, potentially high-power lasers, and sophisticated control systems, which may be costly or unavailable in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism itself is waterless. Its operation is based on energy absorption and ablation, not water-based dissolution or transport."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using laser ablation for clothing cleaning is fundamentally different from methods like ultrasonic baths, ozone, CO2 cleaning, or minimal water washing."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation, typically used in industrial material processing, to textile cleaning is highly novel within sustainable cleaning technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target specific, stubborn contaminants or offer sterilization without chemicals/water, but it's unlikely to address general grime or odors effectively like some other methods aim to."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scanning and ablating contaminants from entire garments or laundry loads seems extremely slow, energy-intensive, and complex compared to batch processes like washing."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity and cost would likely be very high, involving lasers, robotic control, safety interlocks, and potentially effluent capture systems, making it impractical for typical users."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially specialized maintenance personnel, and controlled environments, which are often lacking in resource-constrained settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a targeted pre-treatment for specific stains or sterilization before a minimal rinse or air-based cleaning, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it would likely struggle with deeply embedded soils, oils, or general odors distributed throughout the fabric. Complementary processes would be essential for comprehensive cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the overall system due to its complexity, safety requirements, and precision needs, likely outweighing any potential simplification in targeted stain removal."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, fabrics are far more delicate and variable than aircraft substrates. Incorrect laser parameters (power, duration, wavelength) could easily burn, melt, discolor, or weaken clothing fibers."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean both ineffective cleaning (contaminants remain) and new risks like fabric damage, toxic aerosols from ablated materials, or redeposition of contaminants."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Underperformance would mean incomplete cleaning (persistent stains, odors, microbes). Repeated attempts might increase the risk of fabric damage."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Selective energy absorption/ablation offers a conceptually novel, water-free approach to contaminant removal. However, its application to clothing faces severe challenges regarding fabric damage risk, scalability, cost, complexity, and suitability for general cleaning, making direct implementation highly impractical despite its structural fit and novelty.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using laser ablation for clothing cleaning is highly unexpected, originating from the distant domain of aerospace maintenance. It fundamentally challenges the conventional liquid- or chemical-based cleaning paradigms, making it very interesting despite significant feasibility concerns. It prompts thinking about energy-based, targeted contaminant removal."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Plasma Generation & Shockwave Ejection: The rapid vaporization and plasma formation create a localized micro-explosion, generating shockwaves. These shockwaves physically dislodge and eject the decomposed/loosened paint particles from the surface.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism removes paint (contaminant) from an aircraft surface (substrate), which directly maps to removing dirt/stains from clothing fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of unwanted surface layers (paint) via plasma/shockwaves is fundamentally a purification or cleaning process."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While the principle of physical ejection via shockwaves could apply, the energy levels required and potential for fabric damage make direct mapping difficult without significant adaptation."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core laser ablation and plasma generation process does not require water as a medium, aligning perfectly with water scarcity constraints."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy to power the laser, which could be costly or unavailable in resource-constrained settings. The equipment itself is also complex and expensive."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism's operation is fundamentally water-free, directly addressing the minimal water usage constraint."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using laser-induced plasma and shockwaves is radically different from methods like ultrasonic cleaning, CO2 cleaning, or minimal water agitation/spraying."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation or plasma techniques to textile cleaning is highly novel and not a standard consideration in sustainable clothing care."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water usage entirely, but it introduces significant new challenges like potential fabric damage, high energy costs, and limited effectiveness on certain stain types."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scaling laser/plasma systems for precise treatment across entire garments or laundry loads seems extremely complex, slow, and costly compared to conventional methods."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "The complexity and cost would likely be prohibitively high, involving advanced laser/plasma generation, control systems, safety measures, and effluent capture."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, the required high-power electrical supply, sophisticated equipment, and specialized maintenance are likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target specific particulate stains as a pre-treatment, but integration complexity and potential for damage make synergy uncertain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it's likely effective mainly on surface particulates or layers. Absorbed liquids, oils, biological matter, and odors would probably require complementary chemical or solvent-based processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would almost certainly complicate the system due to its high energy requirements, potential for damage, need for precise control, and likely generation of airborne particulates requiring capture."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, uncontrolled or excessive laser energy/plasma exposure could easily burn, melt, discolor, or structurally damage delicate clothing fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure could mean both ineffective cleaning and introduction of new risks, such as fabric damage, potentially harmful airborne particles from ablated material, or thermal setting of certain stains."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would lead to incomplete cleaning, potentially leaving behind odors, stains, or allergens. It might also selectively damage fabric while leaving contaminants."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Plasma generation and shockwave ejection offer a radically novel, water-free mechanism for removing surface contaminants. However, its application to clothing faces severe challenges regarding potential fabric damage, high energy costs, implementation complexity, scalability, and limited effectiveness on diverse stains, making it likely impractical despite its high novelty.",
+                                            "interestingness": {
+                                                "score": 5,
+                                                "rationale": "Applying laser ablation/plasma shockwaves, derived from aircraft paint stripping, to clothing cleaning is extremely unexpected and originates from a very distant domain. It fundamentally challenges the water/solvent-based cleaning paradigm, making it highly novel and thought-provoking despite significant practical hurdles regarding fabric safety and scalability."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Precise Energy Delivery & Control: Using robotics, scanners, and sometimes vision systems allows for highly controlled application of laser energy only where needed, enabling selective layer removal and avoiding damage to sensitive areas or the substrate. Short pulse durations prevent excessive heat buildup in the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. Laser ablation removes paint (contaminant) from metal/composite (substrate), but the mechanism (vaporization/plasma) is very different from removing dirt/oils/biologicals from fabric. The analogy holds at a high level but breaks down physically."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. The laser *removes* material, which is a form of purification. However, typical clothing cleaning involves solubilization, suspension, and rinsing, not ablation, raising questions about effectiveness and fabric integrity."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. The principle of 'precise energy delivery and control' could theoretically be mapped to targeting specific soiled areas on clothing with *some* form of energy (not necessarily laser) to minimize resource use."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Laser ablation is fundamentally a dry process, directly addressing the constraint of water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes. High-intensity lasers, robotics, scanners, and vision systems require significant electrical energy and represent high capital costs, likely unavailable or impractical in many resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. The core mechanism of laser ablation does not require water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Using controlled laser energy for ablation is fundamentally different from methods like ultrasonic cleaning, CO2 cleaning, ozone, or steam, which are more common low-water approaches."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Applying precision laser ablation or similar controlled energy delivery to clothing cleaning appears highly novel within sustainable technologies and textiles."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It directly overcomes water usage, but it introduces significant new limitations regarding fabric compatibility, cost, complexity, and the types of soils it can handle effectively."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No. Laser ablation is precise and relatively slow; processing entire garments, let alone full laundry loads, seems impractical compared to bulk washing methods. Handling diverse garment shapes and materials robotically adds complexity."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Extremely high. The cost of lasers, robotics, control systems, safety enclosures, and effluent capture would be prohibitive for household or even typical community use."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes. High energy requirements, complex machinery requiring specialized maintenance, and safety protocols make it highly impractical for typical resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially be used for highly targeted removal of specific, stubborn surface contaminants (like paint spots?), complementing a broader, gentler low-water cleaning method, but integration would be complex."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No. Laser ablation is unlikely to effectively handle diffuse grime, body oils absorbed into fibers, biological matter, or odors, necessitating complementary cleaning processes."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. It adds a complex, potentially damaging step requiring precise handling and likely specialized pre- or post-treatment, without addressing drying or broad cleaning needs."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Incorrect laser power, focus, or duration could easily burn, melt, discolor, or otherwise damage delicate fabric substrates. Precision control failure is a major risk."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes. Failure likely means ineffective cleaning. Depending on the contaminant and process, incomplete ablation might create harmful byproducts or alter residues, though pathogen introduction seems less likely than damage."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Underperformance would mean clothes remain dirty. It might also potentially 'set' certain stains through heat or partially alter contaminants, making subsequent removal harder, alongside the risk of fabric damage."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "While the principle of precise energy delivery offers a radically novel, waterless approach, its direct application via laser ablation faces severe challenges in scalability, cost, complexity, fabric safety, and effectiveness on typical clothing soils. Its primary value might be conceptual, inspiring thought about targeted energy rather than direct implementation.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using precisely controlled energy (like lasers) for cleaning clothes is highly novel and unexpected, coming from industrial material processing. It challenges fundamental assumptions about water/solvent-based cleaning, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Non-Contact Material Removal: The process removes the contaminant (paint) without physical contact (like sanding or blasting) or chemical reactions, preserving the integrity of the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser paint stripping removes a contaminant (paint) from a substrate (aircraft skin). This is structurally analogous to removing dirt/stains (contaminants) from fabric (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is material removal to achieve a 'clean' surface, which aligns directly with the goal of purification or cleaning in the clothing context."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using directed energy for non-contact removal could conceptually be mapped onto a clothing cleaning process, even if the specific energy source (laser) poses challenges."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process itself does not use water, making it inherently compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, laser ablation requires significant electrical energy and sophisticated equipment, which are likely costly and potentially unavailable or unreliable in resource-constrained settings."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism operates without water, adhering to the core constraint, although auxiliary systems (like fume extraction) might need consideration."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using focused energy for ablation/vaporization is fundamentally different from methods relying on solvents (dry cleaning), minimal water agitation, or ultrasonic cavitation."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser or similar high-energy ablation techniques specifically for general clothing cleaning appears highly novel within sustainable cleaning technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target stubborn localized contaminants, but it's unclear if it overcomes general limitations like cleaning effectiveness on diverse soils or odor removal without introducing new problems like fabric damage."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, processing entire garments or laundry loads via precise ablation seems extremely slow and impractical compared to conventional or even other low-water methods."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost due to the need for laser sources, control systems, safety features (eye protection, fume extraction), and potentially robotics."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially specialized cooling, sophisticated fume handling, and expert maintenance, all likely impractical in many target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, it could potentially serve as a pre-treatment for specific spots before another low-water process, but integration challenges would be significant."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Unlikely to address the full spectrum. It might handle particulates but struggle with oils, biological matter, or odors embedded within fibers, thus requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would almost certainly complicate the system due to its high-tech nature, safety requirements, and likely slow speed, adding a complex step."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, there is a very high risk. Energy levels sufficient to remove contaminants could easily burn, melt, discolor, or otherwise destroy delicate fabric structures."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Failure could mean ineffective cleaning. Additionally, the ablation process itself could generate hazardous airborne particles or chemical byproducts from the contaminants or fabric."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would leave clothes dirty or stained. More critically, attempting to increase energy to compensate could lead to irreversible fabric damage."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Non-contact material removal (e.g., laser ablation) offers a conceptually novel, water-free cleaning principle but faces significant practical barriers for clothing application, including high risk of fabric damage, poor scalability, high cost/complexity, and limited contaminant scope.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using non-contact energy (like lasers) for cleaning clothes is highly novel and unexpected, drawing from a distant domain (aerospace/industrial). While practical application faces major hurdles (fabric damage, cost, complexity), it challenges fundamental assumptions about cleaning mechanisms and is thus very interesting for potentially inspiring radically different approaches."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "Waste Minimization via Phase Change: The primary \"cleaning agent\" is light (energy), which doesn't add to the physical waste stream. The contaminant is largely converted to vapor/plasma and fine particles, drastically reducing the volume of hazardous waste compared to chemical or media blasting methods. Integrated capture systems contain the removed particles.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process removes paint (contaminant) from the aircraft surface (substrate), which is structurally analogous to removing dirt/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of the unwanted layer (paint) results in a purified surface, aligning with the goal of cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. The principle of using directed energy for phase change ablation could theoretically be applied, but its effectiveness and safety on diverse fabrics and contaminants are highly uncertain."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core mechanism uses light energy, not water, making it inherently compatible with water scarcity."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which might be scarce or expensive in water-scarce regions. The required equipment (lasers, control systems) is also complex and costly."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the ablation process itself is dry. Ancillary systems (like cooling or particle capture) might use minimal water, but the primary cleaning action is water-free."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using laser ablation to vaporize contaminants is radically different from methods involving solvents, ultrasonic agitation, ozone, or UV light typically considered for low-water cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation, primarily used in industrial material processing, to textile cleaning appears highly novel within sustainable technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water use and potentially chemical residues, but likely introduces significant limitations related to fabric damage, energy consumption, and incomplete removal of diverse soil types."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but likely difficult. Scaling from precise surface treatment to processing bulk, varied textiles quickly and safely presents significant engineering challenges."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high. Lasers, control systems, safety enclosures, and particle capture systems would be far more complex and costly than conventional washing machines."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, reliable electricity, potentially sophisticated maintenance, and safety infrastructure are required, which may be unavailable or unsustainable in many resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially target specific types of contaminants or surface layers, but integration would add complexity and cost to any system."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it would likely struggle with absorbed liquids, oils, biological matter, and deeply embedded particulates without damaging the fabric. Complementary processes would almost certainly be needed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. It adds a complex, potentially hazardous step requiring careful integration and likely specific pre- or post-treatments, increasing overall system complexity."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, there is a very high risk of burning, melting, discoloring, or otherwise damaging various fabrics due to the high energy involved."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, failure likely means ineffective cleaning. Additionally, incomplete ablation could create hazardous airborne particles or aerosols from contaminants and fabric fibers."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance would mean clothes remain soiled or unhygienic. Partial damage or uneven cleaning could render garments unusable, negating the purpose."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "This active ingredient represents a highly novel, water-free cleaning concept by using energy for contaminant phase change. However, it faces major obstacles regarding fabric safety, scalability, cost, complexity, and effectiveness on diverse clothing soils, making its practical application to laundry seem unlikely.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The idea of using laser ablation for cleaning clothes is highly novel and unexpected, originating from the distant domain of aerospace maintenance. It fundamentally challenges conventional cleaning paradigms (water/solvent based) by proposing energy-based phase change, making it very interesting despite significant practical hurdles."
+                                            }
+                                        }
                                     }
                                 ],
                                 "alignment_with_structure": "Substrate: Aircraft skin (aluminum/composite) aligns with Clothing fabric. Contaminants: Old paint layers align with Dirt, oils, microbes on clothing. Primary Resource Constraint: Need to reduce/eliminate hazardous waste from chemical/media stripping aligns with Severe water scarcity constraint for clothing cleaning. Alternative Mechanism: Laser ablation aligns with the need for an alternative, resource-efficient cleaning process for clothing. Desired Outcome: Clean, undamaged aircraft surface ready for repainting aligns with Clean, hygienic clothing using minimal primary resource (water). Purification Threshold: Complete paint removal without substrate damage aligns with Cleaning to standard hygiene levels without damaging fabric.",
@@ -7312,15 +12816,399 @@ const analogicalData_problem_1 = {
                                 "active_ingredients": [
                                     {
                                         "text": "**Laser Ablation:** The core mechanism where focused laser pulses deliver high energy to the contaminant layer, causing it to vaporize or break away from the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser ablation removes contaminants (residues) from a substrate (molds). Clothing (substrate) has contaminants (dirt, stains) that need removal."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the removal of unwanted surface material via ablation is fundamentally a cleaning or purification process."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. While the principle (energy removes contaminants) maps abstractly, directly applying high-power lasers to diverse and delicate fabrics presents significant challenges compared to rigid molds."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser ablation is explicitly a dry process, using no water, which directly aligns with the primary constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which may be scarce or expensive, and requires costly, specialized laser equipment."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism of laser ablation does not require water to function."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using direct energy (laser) for ablation is fundamentally different from low-water immersion, solvent-based, or mechanical agitation methods."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser ablation, typically an industrial process, to consumer textile cleaning appears highly novel."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids water and potentially chemicals, but introduces significant new challenges like fabric damage, energy cost, and complexity, rather than clearly overcoming existing limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": -1,
+                                                            "rationale": "No, scanning entire surfaces of multiple, flexible, complex-shaped garments with a laser seems extremely slow and impractical for typical laundry volumes."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Very high complexity and cost due to expensive laser equipment, need for trained operators, safety precautions (eye safety, fume extraction), and maintenance."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable and significant electrical power, potentially cooling systems, fume extraction, and specialized maintenance personnel, often unavailable in target settings."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It could potentially serve as a targeted spot treatment before another low-water process, but integration would be complex and the benefit uncertain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it's likely ineffective against absorbed liquids, deeply embedded particulates, or biological contaminants within fibers, requiring complementary methods."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "Complicate. It adds a complex, potentially hazardous, and energy-intensive step without obviously simplifying subsequent processes like drying."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, there is a very high risk of burning, melting, discoloring, or weakening delicate and varied clothing fabrics with laser energy."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": -1,
+                                                            "rationale": "Both. Failure means incomplete cleaning. Additionally, improper ablation could generate harmful airborne particles or chemical byproducts from dyes/contaminants."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": -1,
+                                                            "rationale": "Underperformance results in clothes remaining dirty, potentially with localized heat damage or discoloration in areas where ablation was attempted."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Laser ablation offers a conceptually novel, water-free cleaning mechanism that fits the problem structure but faces severe practical limitations for clothing due to high risk of fabric damage, poor scalability, high cost, energy requirements, and implementation complexity.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using lasers for laundry is highly novel and comes from an unexpected domain (industrial manufacturing), challenging core assumptions about textile care. While practical hurdles are immense, the fundamental mechanism offers a drastically different, water-free approach that sparks new thinking, even if direct application is unlikely."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**Selective Absorption:** Contaminants absorb the laser energy much more readily than the underlying mold material. This difference in absorption thresholds allows for the removal of the contaminant layer without damaging the substrate.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of selective absorption targets the removal of unwanted material (contaminants) from a base material (substrate), which directly maps to removing dirt/stains from fabric."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is the removal of contaminants, which is synonymous with purification or cleaning in this context."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle suggests a potential clothing cleaning process based on targeting contaminants via differential energy absorption, distinct from traditional washing."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the laser ablation process described is inherently waterless, directly addressing the core constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy, which can be scarce or expensive in water-scarce regions. The required equipment (lasers) is also costly and complex."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism of selective absorption and ablation via laser does not require water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using targeted energy (like lasers) based on differential absorption is fundamentally different from methods like ultrasonic, CO2, ozone, or minimal water agitation."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying laser or highly selective energy absorption principles for general clothing cleaning is not a common or established approach in sustainable cleaning technologies."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It might address specific types of contaminants resistant to other methods, but it introduces significant new challenges like energy consumption, fabric safety, and cost."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but likely difficult. Processing entire garments, let alone full loads, efficiently and safely using laser ablation seems challenging compared to bulk methods."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Extremely high. Laser systems are expensive, require precise control, safety interlocks, and specialized knowledge, making them impractical for typical household or community settings."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable electricity, potentially cooling systems, and specialized maintenance personnel, which are often lacking in resource-constrained areas."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, it could potentially be used for targeted pre-treatment of specific stains before a less energy-intensive bulk low-water cleaning process."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "Unlikely to address all contaminants. Different materials (oils, pigments, proteins, particulates) absorb energy differently, likely requiring complementary methods for broad effectiveness."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would likely complicate the system significantly, adding a high-tech, potentially fragile step requiring careful integration and control."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, incorrect energy application (power, wavelength, duration) could easily burn, melt, bleach, or otherwise damage delicate clothing fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure primarily means ineffective cleaning. However, partial ablation could potentially alter contaminants or create harmful byproducts, and thermal damage is a risk."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would lead to incomplete cleaning, potentially leaving visible stains or odors, and failing to meet hygiene standards."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Selective absorption offers a structurally fitting and novel waterless cleaning principle. However, its reliance on high energy and complex, costly equipment makes scalability and implementation for general laundry highly challenging, especially in resource-constrained settings. Its potential might lie in specialized applications or as a complementary technique.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "The concept of using selective energy absorption (like lasers) for cleaning clothes is highly novel and unexpected in the context of domestic laundry, challenging typical chemical/mechanical approaches. While practical implementation faces major hurdles (cost, safety, energy), the core idea derived from industrial processing is intriguing and could spark genuinely new R&D directions, even if initially focused on niche applications like stain removal."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**Non-Contact Energy Transfer:** Energy is delivered via light, eliminating physical contact, mechanical abrasion, or the need for liquid/chemical carriers.",
-                                        "evaluation": null
+                                        "evaluation": {
+                                            "dimensions": [
+                                                {
+                                                    "dimension_name": "Direct Structural Fit",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does the active ingredient directly address the removal of 'contaminants' from a 'substrate' analogous to cleaning clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, laser cleaning removes contaminants (residues, oxides) from a substrate (molds), which is analogous to removing dirt/stains (contaminants) from clothing (substrate)."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism's core function align with achieving 'purification' (cleaning) of a substrate?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the core function is ablation/vaporization of unwanted material, which directly aligns with the goal of purification or cleaning."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism's principle be mapped onto modifying a process to clean clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the principle of using directed energy (light) to remove contaminants could conceptually be applied to clothing, even if practical challenges exist."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Resource Constraint Compatibility",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Is the mechanism inherently compatible with the 'system constraint' of severe 'primary resource' (water) scarcity?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the mechanism uses light energy and is inherently water-free, directly addressing the primary resource constraint."
+                                                        },
+                                                        {
+                                                            "question": "Does the active ingredient rely heavily on alternative resources (e.g., energy, specific chemicals) that might be unavailable or costly in the target context?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it relies heavily on electrical energy for high-power lasers and sophisticated equipment, which could be costly and resource-intensive, potentially conflicting with broader resource constraints."
+                                                        },
+                                                        {
+                                                            "question": "Could the mechanism operate effectively without violating the core constraint of minimal water usage?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, the fundamental mechanism of laser ablation does not require water."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Novelty Potential Innovation",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Does this mechanism offer a fundamentally different approach to 'purification' compared to existing low-water clothing cleaning methods?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, using focused light energy for ablation/vaporization is fundamentally different from solvent-based, ultrasonic, CO2, or minimal-water agitation methods."
+                                                        },
+                                                        {
+                                                            "question": "Is the application of this active ingredient to low-water cleaning novel within the 'Sustainable Technologies' domain?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, applying industrial laser cleaning principles directly to textile/clothing cleaning is highly novel within this domain."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism suggest a way to overcome known limitations of current water-saving cleaning technologies?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe. It avoids chemicals and water, but introduces significant new challenges like fabric damage potential and effectiveness across diverse stains/fabrics, making it unclear if it overcomes net limitations."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Scalability Implementation Complexity",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Can this mechanism realistically be scaled to process typical volumes of 'substrate' (laundry loads)?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, but likely difficult. Scaling laser treatment uniformly and safely across diverse, flexible fabrics in bulk presents significant challenges regarding speed, energy, control, and potential damage."
+                                                        },
+                                                        {
+                                                            "question": "What is the likely complexity and cost associated with implementing this mechanism for household or community-level clothing cleaning?",
+                                                            "rating": -1,
+                                                            "rationale": "Extremely high complexity and cost. High-power lasers, precision optics, safety systems, and fume extraction are expensive and require specialized knowledge, making household/community implementation unlikely."
+                                                        },
+                                                        {
+                                                            "question": "Does the mechanism require infrastructure or maintenance that is impractical in resource-constrained (especially water-scarce) settings?",
+                                                            "rating": -1,
+                                                            "rationale": "Yes, it requires reliable high power, sophisticated maintenance for the laser and optical systems, and safety infrastructure, likely impractical in many resource-constrained environments."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Synergy Complementary Needs",
+                                                    "questions": [
+                                                        {
+                                                            "question": "Could this active ingredient be combined with other low-water techniques to improve overall 'purification effectiveness' on clothing?",
+                                                            "rating": 0,
+                                                            "rationale": "Maybe, perhaps for targeted stain treatment, but integration would be complex and the risk of damage might outweigh benefits. Synergy isn't obvious."
+                                                        },
+                                                        {
+                                                            "question": "Does this mechanism address the full spectrum of 'contaminants' typically found on clothing, or would it require complementary processes?",
+                                                            "rating": -1,
+                                                            "rationale": "No, it likely wouldn't address all contaminants effectively (e.g., deeply embedded dirt, oils, biological matter, odors). Complementary processes would almost certainly be needed."
+                                                        },
+                                                        {
+                                                            "question": "Would integrating this mechanism simplify or complicate other potential steps in a low-water clothing care system (e.g., drying, stain removal)?",
+                                                            "rating": -1,
+                                                            "rationale": "It would significantly complicate the system due to its complexity, safety requirements, and potential for damaging the substrate (clothing)."
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "dimension_name": "Failure Modes Risk",
+                                                    "questions": [
+                                                        {
+                                                            "question": "If the mechanism fails, could it result in damage to the 'substrate' (clothing)?",
+                                                            "rating": 1,
+                                                            "rationale": "Yes, malfunction or improper application poses a very high risk of burning, melting, discoloring, or otherwise damaging clothing fabrics."
+                                                        },
+                                                        {
+                                                            "question": "Does failure mean ineffective 'purification' (not meeting hygiene standards), or could it introduce other risks (e.g., residues, pathogens)?",
+                                                            "rating": 1,
+                                                            "rationale": "Failure could mean both ineffective cleaning (contaminants remain) and introduce risks like fabric damage or potentially hazardous byproducts from incomplete ablation/vaporization."
+                                                        },
+                                                        {
+                                                            "question": "What are the potential negative consequences if the mechanism underperforms in removing specific types of 'contaminants' from clothing?",
+                                                            "rating": 1,
+                                                            "rationale": "Underperformance would lead to ineffective cleaning, potentially leaving stains, odors, or unhygienic levels of contaminants on the clothing."
+                                                        }
+                                                    ]
+                                                }
+                                            ],
+                                            "overall_summary": "Non-contact energy transfer via laser offers a structurally analogous, water-free cleaning mechanism but faces severe implementation challenges for clothing, including high cost, complexity, scalability issues, and a significant risk of fabric damage. While highly novel, its practical application appears limited without major breakthroughs.",
+                                            "interestingness": {
+                                                "score": 4,
+                                                "rationale": "Applying non-contact energy transfer (laser ablation) from industrial cleaning to clothing is highly novel and unexpected, challenging core assumptions about textile care requiring water or chemicals. Despite significant practical hurdles (damage risk, cost, scale), its radical departure from conventional methods makes it very interesting for stimulating new thinking."
+                                            }
+                                        }
                                     },
                                     {
                                         "text": "**Precise Energy Delivery:** The laser beam can be precisely controlled (intensity, pulse duration, focus) to target only the contaminant layer, even on complex geometries, ensuring the mold's integrity and fine details are preserved.",
