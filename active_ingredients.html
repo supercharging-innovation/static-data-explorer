@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Active Ingredients Explorer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Avenir:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --primary-color: #7c3aed;
+      --secondary-color: #5b21b6;
+      --background-color: #f5f3ff;
+      --card-background: #ffffff;
+      --text-primary: #1e1b4b;
+      --text-secondary: #4c1d95;
+      --border-color: #e9d8fd;
+      --hover-color: #f3e8ff;
+      --shadow-sm: 0 1px 2px 0 rgb(124, 58, 237, 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(124, 58, 237, 0.1);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Avenir", sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding: 2rem;
+    }
+
+    .header {
+      margin-bottom: 2rem;
+    }
+
+    .header h1 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .filter-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      background-color: var(--card-background);
+      transition: all 0.2s;
+    }
+
+    .filter-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .ingredient-card {
+      background-color: var(--card-background);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .ingredient-card.selected {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+    }
+
+    .ingredient-content {
+      margin-bottom: 1rem;
+    }
+
+    .ingredient-content strong {
+      color: var(--primary-color);
+    }
+
+    .evaluation-summary {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .evaluation-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .rating-1 {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: rgb(16, 185, 129);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .rating-0 {
+      background-color: rgba(245, 158, 11, 0.1);
+      color: rgb(245, 158, 11);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .rating--1 {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: rgb(239, 68, 68);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .interestingness-score {
+      display: inline-block;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      background-color: rgba(59, 130, 246, 0.1);
+      color: #1e40af;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .details-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100vh;
+      background-color: var(--card-background);
+      padding: 2rem;
+      overflow-y: auto;
+      box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .details-panel.active {
+      transform: translateX(0);
+    }
+
+    .details-panel h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .details-panel h3 {
+      color: var(--text-primary);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    .dimension-item {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background-color: var(--background-color);
+      border-radius: var(--radius-md);
+    }
+
+    .dimension-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+
+    .question-item {
+      margin-bottom: 0.75rem;
+      padding: 0.75rem;
+      background-color: var(--card-background);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--border-color);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 1.5rem;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1);
+      display: none;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Active Ingredients Explorer</h1>
+    <div class="filters">
+      <div class="filter-group">
+        <label for="searchInput">Search Ingredients</label>
+        <input type="text" id="searchInput" class="filter-input" placeholder="Search by text...">
+      </div>
+      <div class="filter-group">
+        <label for="interestingnessFilter">Interestingness Score</label>
+        <select id="interestingnessFilter" class="filter-input">
+          <option value="">All Scores</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="dimensionFilter">Dimension</label>
+        <select id="dimensionFilter" class="filter-input">
+          <option value="">All Dimensions</option>
+          <option value="Direct Structural Fit">Direct Structural Fit</option>
+          <option value="Resource Constraint Compatibility">Resource Constraint Compatibility</option>
+          <option value="Novelty Potential Innovation">Novelty Potential Innovation</option>
+          <option value="Scalability Implementation Complexity">Scalability Implementation Complexity</option>
+          <option value="Synergy Complementary Needs">Synergy Complementary Needs</option>
+          <option value="Failure Modes Risk">Failure Modes Risk</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredients-grid" id="ingredientsGrid"></div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="details-panel" id="detailsPanel">
+    <button class="close-button" onclick="closeDetails()">×</button>
+    <div id="detailsContent"></div>
+  </div>
+
+  <!-- Load external data file -->
+  <script src="data/active_ingredients.js"></script>
+
+  <script>
+    let ingredientsList = []; // Local variable to store the ingredients
+    let selectedIngredient = null;
+
+    // Function to format markdown text
+    function formatMarkdown(text) {
+      if (!text) return '';
+      
+      // Replace **text** with <strong>text</strong>
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      
+      // Replace newlines with <br>
+      text = text.replace(/\n/g, '<br>');
+      
+      return text;
+    }
+
+    // Function to validate an ingredient's structure
+    function isValidIngredient(ingredient) {
+      if (!ingredient || typeof ingredient !== 'object') {
+        return false;
+      }
+
+      // Check required top-level properties
+      const hasRequiredProps = 
+        typeof ingredient.active_ingredient_uuid === 'string' &&
+        typeof ingredient.active_ingredient_text === 'string' &&
+        typeof ingredient.evaluation === 'object';
+
+      if (!hasRequiredProps) {
+        return false;
+      }
+
+      // Check evaluation structure
+      const evaluation = ingredient.evaluation;
+      const hasValidEvaluation = 
+        Array.isArray(evaluation.dimensions) &&
+        typeof evaluation.interestingness === 'object' &&
+        typeof evaluation.interestingness.score === 'number';
+
+      return hasValidEvaluation;
+    }
+
+    // Function to render ingredient cards
+    function renderIngredients(ingredients) {
+      const grid = document.getElementById('ingredientsGrid');
+      
+      // Filter out invalid ingredients and log them
+      const validIngredients = ingredients.filter(ingredient => {
+        if (!isValidIngredient(ingredient)) {
+          console.warn('Invalid ingredient structure:', ingredient);
+          return false;
+        }
+        return true;
+      });
+
+      console.log(`Rendering ${validIngredients.length} valid ingredients out of ${ingredients.length} total`);
+
+      grid.innerHTML = validIngredients.map(ingredient => `
+        <div class="ingredient-card ${selectedIngredient === ingredient.active_ingredient_uuid ? 'selected' : ''}"
+             onclick="showDetails('${ingredient.active_ingredient_uuid}')">
+          <div class="ingredient-content">
+            ${formatMarkdown(ingredient.active_ingredient_text)}
+          </div>
+          <div class="evaluation-summary">
+            ${ingredient.evaluation.dimensions.map(dimension => `
+              <div class="evaluation-badge rating-${getAverageRating(dimension.questions)}">
+                ${dimension.dimension_name}
+              </div>
+            `).join('')}
+          </div>
+          <div class="interestingness-score">
+            Interestingness: ${ingredient.evaluation.interestingness.score}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Function to calculate average rating for a dimension
+    function getAverageRating(questions) {
+      const sum = questions.reduce((acc, q) => acc + q.rating, 0);
+      const avg = sum / questions.length;
+      return Math.round(avg);
+    }
+
+    // Function to show ingredient details
+    function showDetails(uuid) {
+      const ingredient = ingredientsList.find(i => i.active_ingredient_uuid === uuid);
+      if (!ingredient) return;
+
+      selectedIngredient = uuid;
+      const detailsContent = document.getElementById('detailsContent');
+      const detailsPanel = document.getElementById('detailsPanel');
+      const overlay = document.getElementById('overlay');
+
+      detailsContent.innerHTML = `
+        <h2>${formatMarkdown(ingredient.active_ingredient_text)}</h2>
+        
+        <h3>Evaluation</h3>
+        ${ingredient.evaluation.dimensions.map(dimension => `
+          <div class="dimension-item">
+            <h4>${dimension.dimension_name}</h4>
+            ${dimension.questions.map(question => `
+              <div class="question-item">
+                <div class="question-text">${formatMarkdown(question.question)}</div>
+                <div class="evaluation-badge rating-${question.rating}">${question.rating}</div>
+                <div class="rationale">${formatMarkdown(question.rationale)}</div>
+              </div>
+            `).join('')}
+          </div>
+        `).join('')}
+
+        <h3>Overall Summary</h3>
+        <p>${formatMarkdown(ingredient.evaluation.overall_summary)}</p>
+
+        <h3>Interestingness</h3>
+        <div class="interestingness-score">Score: ${ingredient.evaluation.interestingness.score}</div>
+        <p>${formatMarkdown(ingredient.evaluation.interestingness.rationale)}</p>
+      `;
+
+      detailsPanel.classList.add('active');
+      overlay.classList.add('active');
+      renderIngredients(ingredientsList);
+    }
+
+    // Function to close details panel
+    function closeDetails() {
+      const detailsPanel = document.getElementById('detailsPanel');
+      const overlay = document.getElementById('overlay');
+      detailsPanel.classList.remove('active');
+      overlay.classList.remove('active');
+      selectedIngredient = null;
+      renderIngredients(ingredientsList);
+    }
+
+    // Function to filter ingredients
+    function filterIngredients() {
+      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      const interestingnessScore = document.getElementById('interestingnessFilter').value;
+      const dimensionFilter = document.getElementById('dimensionFilter').value;
+
+      const filtered = ingredientsList.filter(ingredient => {
+        const matchesSearch = ingredient.active_ingredient_text.toLowerCase().includes(searchText);
+        const matchesScore = !interestingnessScore || 
+          ingredient.evaluation.interestingness.score.toString() === interestingnessScore;
+        const matchesDimension = !dimensionFilter || 
+          ingredient.evaluation.dimensions.some(d => d.dimension_name === dimensionFilter);
+
+        return matchesSearch && matchesScore && matchesDimension;
+      });
+
+      renderIngredients(filtered);
+    }
+
+    // Add event listeners for filters
+    document.getElementById('searchInput').addEventListener('input', filterIngredients);
+    document.getElementById('interestingnessFilter').addEventListener('change', filterIngredients);
+    document.getElementById('dimensionFilter').addEventListener('change', filterIngredients);
+
+    // Initialize with the data from the external file
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        // Check if the data is available
+        if (typeof activeIngredients === 'undefined') {
+          console.error('activeIngredients is not defined. Check the data file format.');
+          return;
+        }
+        
+        // Log the data to verify it's loaded correctly
+        console.log('Loaded active ingredients:', activeIngredients);
+        
+        // Ensure we have an array
+        if (!Array.isArray(activeIngredients)) {
+          console.error('activeIngredients is not an array. Check the data file format.');
+          return;
+        }
+
+        // Log the first few items to check their structure
+        console.log('First few ingredients:', activeIngredients.slice(0, 3));
+        
+        ingredientsList = activeIngredients;
+        renderIngredients(ingredientsList);
+      } catch (error) {
+        console.error('Error loading active ingredients:', error);
+      }
+    });
+  </script>
+</body>
+</html>
