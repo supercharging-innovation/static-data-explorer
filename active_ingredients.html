@@ -308,6 +308,58 @@
     .overlay.active {
       display: block;
     }
+
+    .filters {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: var(--card-background);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .filter-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      transition: all 0.2s;
+      background-color: var(--background-color);
+      font-family: "Avenir", sans-serif;
+    }
+
+    .filter-input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+
+    .filter-input::placeholder {
+      color: var(--text-secondary);
+      opacity: 0.6;
+    }
+
+    .ingredient-content {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
   </style>
 </head>
 <body>
@@ -329,18 +381,6 @@
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
-          </select>
-        </div>
-        <div class="filter-group">
-          <label for="dimensionFilter">Dimension</label>
-          <select id="dimensionFilter" class="filter-input">
-            <option value="">All Dimensions</option>
-            <option value="Direct Structural Fit">Direct Structural Fit</option>
-            <option value="Resource Constraint Compatibility">Resource Constraint Compatibility</option>
-            <option value="Novelty Potential Innovation">Novelty Potential Innovation</option>
-            <option value="Scalability Implementation Complexity">Scalability Implementation Complexity</option>
-            <option value="Synergy Complementary Needs">Synergy Complementary Needs</option>
-            <option value="Failure Modes Risk">Failure Modes Risk</option>
           </select>
         </div>
       </div>
@@ -507,9 +547,34 @@
       return 'rating--1';
     }
 
+    // Function to filter ingredients
+    function filterIngredients() {
+      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      const interestingnessScore = document.getElementById('interestingnessFilter').value;
+
+      const filtered = ingredientsList.filter(ingredient => {
+        // Check if ingredient is valid
+        if (!isValidIngredient(ingredient)) {
+          return false;
+        }
+
+        const matchesSearch = ingredient.active_ingredient_text.toLowerCase().includes(searchText);
+        
+        // Safely check interestingness score
+        const ingredientScore = ingredient.evaluation?.interestingness?.score;
+        const matchesScore = !interestingnessScore || 
+          (ingredientScore !== undefined && ingredientScore.toString() === interestingnessScore);
+
+        return matchesSearch && matchesScore;
+      });
+
+      renderIngredients(filtered);
+    }
+
     // Function to validate an ingredient's structure
     function isValidIngredient(ingredient) {
       if (!ingredient || typeof ingredient !== 'object') {
+        console.warn('Invalid ingredient: Not an object', ingredient);
         return false;
       }
 
@@ -517,9 +582,16 @@
       const hasRequiredProps = 
         typeof ingredient.active_ingredient_uuid === 'string' &&
         typeof ingredient.active_ingredient_text === 'string' &&
-        typeof ingredient.evaluation === 'object';
+        typeof ingredient.evaluation === 'object' &&
+        typeof ingredient.scenario === 'object';
 
       if (!hasRequiredProps) {
+        console.warn('Invalid ingredient: Missing required properties', {
+          uuid: typeof ingredient.active_ingredient_uuid,
+          text: typeof ingredient.active_ingredient_text,
+          evaluation: typeof ingredient.evaluation,
+          scenario: typeof ingredient.scenario
+        });
         return false;
       }
 
@@ -528,9 +600,40 @@
       const hasValidEvaluation = 
         Array.isArray(evaluation.dimensions) &&
         typeof evaluation.interestingness === 'object' &&
-        typeof evaluation.interestingness.score === 'number';
+        typeof evaluation.interestingness.score === 'number' &&
+        typeof evaluation.interestingness.rationale === 'string' &&
+        typeof evaluation.overall_summary === 'string';
 
-      return hasValidEvaluation;
+      if (!hasValidEvaluation) {
+        console.warn('Invalid ingredient: Invalid evaluation structure', {
+          dimensions: Array.isArray(evaluation.dimensions),
+          interestingness: typeof evaluation.interestingness,
+          score: typeof evaluation.interestingness?.score,
+          rationale: typeof evaluation.interestingness?.rationale,
+          summary: typeof evaluation.overall_summary
+        });
+        return false;
+      }
+
+      // Check scenario structure
+      const scenario = ingredient.scenario;
+      const hasValidScenario = 
+        typeof scenario.scenario_name === 'string' &&
+        typeof scenario.scenario_description === 'string' &&
+        typeof scenario.alignment_with_structure === 'string' &&
+        typeof scenario.design_problem_connection === 'string';
+
+      if (!hasValidScenario) {
+        console.warn('Invalid ingredient: Invalid scenario structure', {
+          name: typeof scenario.scenario_name,
+          description: typeof scenario.scenario_description,
+          alignment: typeof scenario.alignment_with_structure,
+          connection: typeof scenario.design_problem_connection
+        });
+        return false;
+      }
+
+      return true;
     }
 
     // Function to render ingredient cards
@@ -568,29 +671,9 @@
       `).join('');
     }
 
-    // Function to filter ingredients
-    function filterIngredients() {
-      const searchText = document.getElementById('searchInput').value.toLowerCase();
-      const interestingnessScore = document.getElementById('interestingnessFilter').value;
-      const dimensionFilter = document.getElementById('dimensionFilter').value;
-
-      const filtered = ingredientsList.filter(ingredient => {
-        const matchesSearch = ingredient.active_ingredient_text.toLowerCase().includes(searchText);
-        const matchesScore = !interestingnessScore || 
-          ingredient.evaluation.interestingness.score.toString() === interestingnessScore;
-        const matchesDimension = !dimensionFilter || 
-          ingredient.evaluation.dimensions.some(d => d.dimension_name === dimensionFilter);
-
-        return matchesSearch && matchesScore && matchesDimension;
-      });
-
-      renderIngredients(filtered);
-    }
-
     // Add event listeners for filters
     document.getElementById('searchInput').addEventListener('input', filterIngredients);
     document.getElementById('interestingnessFilter').addEventListener('change', filterIngredients);
-    document.getElementById('dimensionFilter').addEventListener('change', filterIngredients);
 
     // Initialize with the data from the external file
     window.addEventListener('DOMContentLoaded', () => {
@@ -616,8 +699,11 @@
         ingredientsList = activeIngredients;
         renderIngredients(ingredientsList);
 
-        // Add click handler to overlay
-        document.getElementById('overlay').addEventListener('click', closeDetails);
+        // Add click handler to overlay if it exists
+        const overlay = document.getElementById('overlay');
+        if (overlay) {
+          overlay.addEventListener('click', closeDetails);
+        }
       } catch (error) {
         console.error('Error loading active ingredients:', error);
       }
