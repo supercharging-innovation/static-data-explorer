@@ -603,7 +603,8 @@
         </div>
       `;
 
-      renderIngredients(ingredientsList);
+      // Re-apply current filters instead of showing all ingredients
+      filterIngredients();
     }
 
     // Function to format markdown text
@@ -674,6 +675,7 @@
       });
 
       renderIngredients(filtered);
+      return filtered; // Return the filtered list for reuse
     }
 
     // Function to validate an ingredient's structure
