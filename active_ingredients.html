@@ -36,68 +36,136 @@
       background-color: var(--background-color);
       color: var(--text-primary);
       line-height: 1.5;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .app-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .left-panel {
       padding: 2rem;
+      overflow-y: auto;
+      border-right: 1px solid var(--border-color);
+      background-color: var(--background-color);
     }
 
-    .header {
-      margin-bottom: 2rem;
+    .right-panel {
+      padding: 2rem;
+      overflow-y: auto;
+      background-color: var(--card-background);
     }
 
-    .header h1 {
+    .ingredient-title {
       color: var(--primary-color);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .filters {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-group {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .filter-group label {
-      display: block;
+      font-size: 1.75rem;
       margin-bottom: 0.5rem;
-      font-weight: 500;
+      font-weight: 600;
+    }
+
+    .ingredient-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: var(--background-color);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+    }
+
+    .section h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .accordion {
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 1rem;
+      background-color: var(--card-background);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .accordion-header:hover {
+      background-color: var(--hover-color);
+    }
+
+    .accordion-header h3 {
+      margin: 0;
+      font-size: 1.1rem;
       color: var(--text-primary);
     }
 
-    .filter-input {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      font-size: 0.9rem;
-      background-color: var(--card-background);
-      transition: all 0.2s;
+    .accordion-content {
+      padding: 1rem;
+      display: none;
+      background-color: var(--background-color);
+      border-top: 1px solid var(--border-color);
     }
 
-    .filter-input:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    .accordion-content.active {
+      display: block;
+    }
+
+    .scenario-info {
+      margin-top: 1rem;
+    }
+
+    .scenario-info h4 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .scenario-info p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .no-selection {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 2rem;
     }
 
     .ingredients-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
     }
 
     .ingredient-card {
       background-color: var(--card-background);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
       border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     .ingredient-card:hover {
@@ -110,14 +178,6 @@
       box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
     }
 
-    .ingredient-content {
-      margin-bottom: 1rem;
-    }
-
-    .ingredient-content strong {
-      color: var(--primary-color);
-    }
-
     .evaluation-summary {
       display: flex;
       gap: 0.5rem;
@@ -126,28 +186,40 @@
     }
 
     .evaluation-badge {
-      padding: 0.25rem 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
       border-radius: var(--radius-sm);
       font-size: 0.8rem;
       font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .dimension-score {
+      font-family: monospace;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.3rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      min-width: 2.5rem;
+      text-align: center;
     }
 
     .rating-1 {
-      background-color: rgba(16, 185, 129, 0.1);
-      color: rgb(16, 185, 129);
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      background-color: rgba(16, 185, 129, 0.15);
+      color: rgb(6, 95, 70);
     }
 
     .rating-0 {
-      background-color: rgba(245, 158, 11, 0.1);
-      color: rgb(245, 158, 11);
-      border: 1px solid rgba(245, 158, 11, 0.2);
+      background-color: rgba(245, 158, 11, 0.15);
+      color: rgb(146, 64, 14);
     }
 
     .rating--1 {
-      background-color: rgba(239, 68, 68, 0.1);
-      color: rgb(239, 68, 68);
-      border: 1px solid rgba(239, 68, 68, 0.2);
+      background-color: rgba(239, 68, 68, 0.15);
+      color: rgb(153, 27, 27);
     }
 
     .interestingness-score {
@@ -230,6 +302,7 @@
       background-color: rgba(0, 0, 0, 0.1);
       display: none;
       z-index: 999;
+      cursor: pointer;
     }
 
     .overlay.active {
@@ -238,65 +311,200 @@
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Active Ingredients Explorer</h1>
-    <div class="filters">
-      <div class="filter-group">
-        <label for="searchInput">Search Ingredients</label>
-        <input type="text" id="searchInput" class="filter-input" placeholder="Search by text...">
+  <div class="app-container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <h1>Active Ingredients Explorer</h1>
+      <div class="filters">
+        <div class="filter-group">
+          <label for="searchInput">Search Ingredients</label>
+          <input type="text" id="searchInput" class="filter-input" placeholder="Search by text...">
+        </div>
+        <div class="filter-group">
+          <label for="interestingnessFilter">Interestingness Score</label>
+          <select id="interestingnessFilter" class="filter-input">
+            <option value="">All Scores</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="dimensionFilter">Dimension</label>
+          <select id="dimensionFilter" class="filter-input">
+            <option value="">All Dimensions</option>
+            <option value="Direct Structural Fit">Direct Structural Fit</option>
+            <option value="Resource Constraint Compatibility">Resource Constraint Compatibility</option>
+            <option value="Novelty Potential Innovation">Novelty Potential Innovation</option>
+            <option value="Scalability Implementation Complexity">Scalability Implementation Complexity</option>
+            <option value="Synergy Complementary Needs">Synergy Complementary Needs</option>
+            <option value="Failure Modes Risk">Failure Modes Risk</option>
+          </select>
+        </div>
       </div>
-      <div class="filter-group">
-        <label for="interestingnessFilter">Interestingness Score</label>
-        <select id="interestingnessFilter" class="filter-input">
-          <option value="">All Scores</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label for="dimensionFilter">Dimension</label>
-        <select id="dimensionFilter" class="filter-input">
-          <option value="">All Dimensions</option>
-          <option value="Direct Structural Fit">Direct Structural Fit</option>
-          <option value="Resource Constraint Compatibility">Resource Constraint Compatibility</option>
-          <option value="Novelty Potential Innovation">Novelty Potential Innovation</option>
-          <option value="Scalability Implementation Complexity">Scalability Implementation Complexity</option>
-          <option value="Synergy Complementary Needs">Synergy Complementary Needs</option>
-          <option value="Failure Modes Risk">Failure Modes Risk</option>
-        </select>
-      </div>
+      <div class="ingredients-grid" id="ingredientsGrid"></div>
     </div>
-  </div>
 
-  <div class="ingredients-grid" id="ingredientsGrid"></div>
-
-  <div class="overlay" id="overlay"></div>
-  <div class="details-panel" id="detailsPanel">
-    <button class="close-button" onclick="closeDetails()">×</button>
-    <div id="detailsContent"></div>
+    <!-- Right Panel -->
+    <div class="right-panel" id="detailsPanel">
+      <div class="no-selection" id="noSelection">
+        Select an active ingredient to view details
+      </div>
+      <div id="detailsContent" style="display: none;"></div>
+    </div>
   </div>
 
   <!-- Load external data file -->
   <script src="data/active_ingredients.js"></script>
 
   <script>
-    let ingredientsList = []; // Local variable to store the ingredients
+    let ingredientsList = [];
     let selectedIngredient = null;
+
+    function formatIngredientTitle(text) {
+      // First try to match markdown formatted text
+      let match = text.match(/\*\*(.*?):\*\*(.*)/);
+      
+      // If no markdown match, try to split on the first colon
+      if (!match) {
+        const colonIndex = text.indexOf(':');
+        if (colonIndex !== -1) {
+          return {
+            title: text.substring(0, colonIndex).trim(),
+            description: text.substring(colonIndex + 1).trim()
+          };
+        }
+      } else {
+        return {
+          title: match[1],
+          description: match[2].trim()
+        };
+      }
+      
+      // If no colon found, return entire text as title
+      return {
+        title: text,
+        description: ''
+      };
+    }
+
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const isActive = content.classList.contains('active');
+      
+      // Close all accordions
+      document.querySelectorAll('.accordion-content').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Toggle clicked accordion
+      if (!isActive) {
+        content.classList.add('active');
+      }
+    }
+
+    function showDetails(uuid) {
+      const ingredient = ingredientsList.find(i => i.active_ingredient_uuid === uuid);
+      if (!ingredient) return;
+
+      selectedIngredient = uuid;
+      const detailsContent = document.getElementById('detailsContent');
+      const noSelection = document.getElementById('noSelection');
+      
+      noSelection.style.display = 'none';
+      detailsContent.style.display = 'block';
+
+      const { title, description } = formatIngredientTitle(ingredient.active_ingredient_text);
+
+      detailsContent.innerHTML = `
+        <div class="ingredient-title">${formatMarkdown(title)}</div>
+        <div class="ingredient-description">${formatMarkdown(description)}</div>
+
+        <div class="section">
+          <h2>Evaluation</h2>
+          ${ingredient.evaluation.dimensions.map(dimension => `
+            <div class="accordion">
+              <div class="accordion-header" onclick="toggleAccordion(this)">
+                <h3>${dimension.dimension_name}</h3>
+                <div class="dimension-score ${getScoreColorClass(dimension.questions)}">
+                  ${getDimensionScore(dimension.questions)}
+                </div>
+              </div>
+              <div class="accordion-content">
+                ${dimension.questions.map(question => `
+                  <div class="question-item">
+                    <div class="question-text">${formatMarkdown(question.question)}</div>
+                    <div class="evaluation-badge rating-${question.rating}">${question.rating}</div>
+                    <div class="rationale">${formatMarkdown(question.rationale)}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+
+          <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <h3>Overall Summary</h3>
+            </div>
+            <div class="accordion-content">
+              <p>${formatMarkdown(ingredient.evaluation.overall_summary)}</p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-header" onclick="toggleAccordion(this)">
+              <h3>Interestingness (Score: ${ingredient.evaluation.interestingness.score})</h3>
+            </div>
+            <div class="accordion-content">
+              <p>${formatMarkdown(ingredient.evaluation.interestingness.rationale)}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Scenario Information</h2>
+          <div class="scenario-info">
+            <h4>${formatMarkdown(ingredient.scenario.scenario_name)}</h4>
+            <p>${formatMarkdown(ingredient.scenario.scenario_description)}</p>
+            
+            <h4>Alignment with Structure</h4>
+            <p>${formatMarkdown(ingredient.scenario.alignment_with_structure)}</p>
+            
+            <h4>Design Problem Connection</h4>
+            <p>${formatMarkdown(ingredient.scenario.design_problem_connection)}</p>
+          </div>
+        </div>
+      `;
+
+      renderIngredients(ingredientsList);
+    }
 
     // Function to format markdown text
     function formatMarkdown(text) {
       if (!text) return '';
-      
-      // Replace **text** with <strong>text</strong>
       text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      
-      // Replace newlines with <br>
       text = text.replace(/\n/g, '<br>');
-      
       return text;
+    }
+
+    // Function to calculate dimension score
+    function getDimensionScore(questions) {
+      const sum = questions.reduce((acc, q) => acc + q.rating, 0);
+      const total = questions.length;
+      return `${sum}/${total * 1}`; // multiply by 1 since ratings are -1, 0, 1
+    }
+
+    // Function to get color class based on score
+    function getScoreColorClass(questions) {
+      const sum = questions.reduce((acc, q) => acc + q.rating, 0);
+      const total = questions.length;
+      const ratio = sum / (total * 1); // multiply by 1 since ratings are -1, 0, 1
+      
+      if (ratio >= 0.5) return 'rating-1';
+      if (ratio > -0.3) return 'rating-0';
+      return 'rating--1';
     }
 
     // Function to validate an ingredient's structure
@@ -329,7 +537,6 @@
     function renderIngredients(ingredients) {
       const grid = document.getElementById('ingredientsGrid');
       
-      // Filter out invalid ingredients and log them
       const validIngredients = ingredients.filter(ingredient => {
         if (!isValidIngredient(ingredient)) {
           console.warn('Invalid ingredient structure:', ingredient);
@@ -348,8 +555,9 @@
           </div>
           <div class="evaluation-summary">
             ${ingredient.evaluation.dimensions.map(dimension => `
-              <div class="evaluation-badge rating-${getAverageRating(dimension.questions)}">
+              <div class="evaluation-badge ${getScoreColorClass(dimension.questions)}">
                 ${dimension.dimension_name}
+                <span class="dimension-score">${getDimensionScore(dimension.questions)}</span>
               </div>
             `).join('')}
           </div>
@@ -358,63 +566,6 @@
           </div>
         </div>
       `).join('');
-    }
-
-    // Function to calculate average rating for a dimension
-    function getAverageRating(questions) {
-      const sum = questions.reduce((acc, q) => acc + q.rating, 0);
-      const avg = sum / questions.length;
-      return Math.round(avg);
-    }
-
-    // Function to show ingredient details
-    function showDetails(uuid) {
-      const ingredient = ingredientsList.find(i => i.active_ingredient_uuid === uuid);
-      if (!ingredient) return;
-
-      selectedIngredient = uuid;
-      const detailsContent = document.getElementById('detailsContent');
-      const detailsPanel = document.getElementById('detailsPanel');
-      const overlay = document.getElementById('overlay');
-
-      detailsContent.innerHTML = `
-        <h2>${formatMarkdown(ingredient.active_ingredient_text)}</h2>
-        
-        <h3>Evaluation</h3>
-        ${ingredient.evaluation.dimensions.map(dimension => `
-          <div class="dimension-item">
-            <h4>${dimension.dimension_name}</h4>
-            ${dimension.questions.map(question => `
-              <div class="question-item">
-                <div class="question-text">${formatMarkdown(question.question)}</div>
-                <div class="evaluation-badge rating-${question.rating}">${question.rating}</div>
-                <div class="rationale">${formatMarkdown(question.rationale)}</div>
-              </div>
-            `).join('')}
-          </div>
-        `).join('')}
-
-        <h3>Overall Summary</h3>
-        <p>${formatMarkdown(ingredient.evaluation.overall_summary)}</p>
-
-        <h3>Interestingness</h3>
-        <div class="interestingness-score">Score: ${ingredient.evaluation.interestingness.score}</div>
-        <p>${formatMarkdown(ingredient.evaluation.interestingness.rationale)}</p>
-      `;
-
-      detailsPanel.classList.add('active');
-      overlay.classList.add('active');
-      renderIngredients(ingredientsList);
-    }
-
-    // Function to close details panel
-    function closeDetails() {
-      const detailsPanel = document.getElementById('detailsPanel');
-      const overlay = document.getElementById('overlay');
-      detailsPanel.classList.remove('active');
-      overlay.classList.remove('active');
-      selectedIngredient = null;
-      renderIngredients(ingredientsList);
     }
 
     // Function to filter ingredients
@@ -464,6 +615,9 @@
         
         ingredientsList = activeIngredients;
         renderIngredients(ingredientsList);
+
+        // Add click handler to overlay
+        document.getElementById('overlay').addEventListener('click', closeDetails);
       } catch (error) {
         console.error('Error loading active ingredients:', error);
       }
