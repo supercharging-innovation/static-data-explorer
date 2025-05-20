@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Queries Viewer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #7c3aed;
+      --secondary-color: #5b21b6;
+      --background-color: #f5f3ff;
+      --card-background: #ffffff;
+      --text-primary: #1e1b4b;
+      --text-secondary: #4c1d95;
+      --border-color: #e9d8fd;
+      --hover-color: #f3e8ff;
+      --shadow-sm: 0 1px 2px 0 rgba(124, 58, 237, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(124, 58, 237, 0.1);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+
+      /* Search source colors */
+      --scholar-color: #1a56db;    /* Deep blue for academic */
+      --web-color: #059669;        /* Green for web */
+      --patent-color: #7c3aed;     /* Purple for patents */
+      --video-color: #dc2626;      /* Red for video */
+      --forum-color: #d97706;      /* Orange for forums */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+      line-height: 1.5;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 400px;
+      background-color: var(--card-background);
+      border-right: 1px solid var(--border-color);
+      padding: 1.5rem;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 1.5rem;
+      background-color: var(--background-color);
+    }
+
+    .header {
+      margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      color: var(--primary-color);
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .search-query-card {
+      background-color: var(--card-background);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .search-query-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .query-text {
+      font-size: 1rem;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .hook-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .vertical-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .vertical-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    .vertical-tag i {
+      font-size: 0.9rem;
+    }
+
+    /* Search source specific styles */
+    .vertical-tag.scholar {
+      background-color: var(--scholar-color);
+    }
+
+    .vertical-tag.web {
+      background-color: var(--web-color);
+    }
+
+    .vertical-tag.patent {
+      background-color: var(--patent-color);
+    }
+
+    .vertical-tag.video {
+      background-color: var(--video-color);
+    }
+
+    .vertical-tag.forum {
+      background-color: var(--forum-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="header">
+      <h1>Search Queries</h1>
+    </div>
+    <div id="search-queries-container">
+      <!-- Search queries will be inserted here -->
+    </div>
+  </div>
+  <div class="main-content">
+    <!-- Main content area -->
+  </div>
+
+  <script src="data/search_queries.js"></script>
+  <script>
+    // Map search sources to their icons
+    const verticalIcons = {
+      'scholar': 'fa-graduation-cap',    // Academic cap for scholarly articles
+      'web': 'fa-globe',                 // Globe for web search
+      'patent': 'fa-lightbulb',          // Lightbulb for patents
+      'video': 'fa-video',               // Video camera for video content
+      'forum': 'fa-comments'             // Comments for forums
+    };
+
+    function createSearchQueryCard(query) {
+      const card = document.createElement('div');
+      card.className = 'search-query-card';
+      
+      const queryText = document.createElement('div');
+      queryText.className = 'query-text';
+      queryText.textContent = query.q;
+      
+      const hookText = document.createElement('div');
+      hookText.className = 'hook-text';
+      hookText.textContent = query.hook;
+      
+      const verticalTags = document.createElement('div');
+      verticalTags.className = 'vertical-tags';
+      
+      query.vertical.forEach(vertical => {
+        const tag = document.createElement('span');
+        tag.className = `vertical-tag ${vertical}`;
+        
+        const icon = document.createElement('i');
+        icon.className = `fas ${verticalIcons[vertical]}`;
+        
+        const text = document.createTextNode(vertical);
+        
+        tag.appendChild(icon);
+        tag.appendChild(text);
+        verticalTags.appendChild(tag);
+      });
+      
+      card.appendChild(queryText);
+      card.appendChild(hookText);
+      card.appendChild(verticalTags);
+      
+      return card;
+    }
+
+    // Populate the container with search queries
+    const container = document.getElementById('search-queries-container');
+    search_queries.forEach(query => {
+      container.appendChild(createSearchQueryCard(query));
+    });
+  </script>
+</body>
+</html> 
