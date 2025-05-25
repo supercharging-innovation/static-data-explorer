@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Sparks Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .spark-card {
+            transition: all 0.3s ease;
+        }
+        .spark-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .score-badge.high {
+            background-color: #DEF7EC;
+            color: #03543F;
+        }
+        .score-badge.medium {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+        .score-badge.low {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+        .filter-button {
+            transition: all 0.2s ease;
+        }
+        .filter-button.active {
+            background-color: #2563EB;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Idea Sparks Browser</h1>
+            <p class="text-gray-600">Explore and filter idea sparks from various sources to find inspiration for your design challenge.</p>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex flex-wrap gap-4">
+                <div class="flex-1 min-w-[200px]">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Filter by Feasibility</label>
+                    <div class="flex space-x-2">
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="all">All</button>
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="high">High (4-5)</button>
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="medium">Medium (2-3)</button>
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="low">Low (0-1)</button>
+                    </div>
+                </div>
+                <div class="flex-1 min-w-[200px]">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Filter by Impact</label>
+                    <div class="flex space-x-2">
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="all">All</button>
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="high">High (4-5)</button>
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="medium">Medium (2-3)</button>
+                        <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="low">Low (0-1)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Idea Sparks Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="idea-sparks-grid">
+            <!-- Idea sparks will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Load the data -->
+    <script src="data/idea_sparks_biofilm_init.js"></script>
+    
+    <script>
+        let allSparks = [];
+        let currentFilters = {
+            feasibility: 'all',
+            impact: 'all'
+        };
+
+        try {
+            // Collect all idea sparks
+            idea_sparks.query_results.forEach(queryResult => {
+                queryResult.links.forEach(link => {
+                    if (link.idea_sparks) {
+                        link.idea_sparks.forEach(spark => {
+                            allSparks.push({
+                                ...spark,
+                                source: {
+                                    title: link.title,
+                                    url: link.url,
+                                    query: queryResult.query
+                                }
+                            });
+                        });
+                    }
+                });
+            });
+            
+            // Initial render
+            renderSparks();
+            
+            // Set up filter buttons
+            document.querySelectorAll('.filter-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.filter;
+                    const value = button.dataset.value;
+                    
+                    // Update active state
+                    document.querySelectorAll(`[data-filter="${filter}"]`).forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    
+                    // Update filters
+                    currentFilters[filter] = value;
+                    
+                    // Re-render
+                    renderSparks();
+                });
+            });
+        } catch (error) {
+            console.error('Error processing data:', error);
+            document.body.innerHTML = `
+                <div class="container mx-auto px-4 py-8">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                        Error processing data. Please check the console for details.
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSparks() {
+            const grid = document.getElementById('idea-sparks-grid');
+            grid.innerHTML = '';
+            
+            // Filter sparks
+            const filteredSparks = allSparks.filter(spark => {
+                if (currentFilters.feasibility !== 'all') {
+                    const score = spark.feasibility_score;
+                    if (currentFilters.feasibility === 'high' && score < 4) return false;
+                    if (currentFilters.feasibility === 'medium' && (score < 2 || score > 3)) return false;
+                    if (currentFilters.feasibility === 'low' && score > 1) return false;
+                }
+                
+                if (currentFilters.impact !== 'all') {
+                    const score = spark.potential_impact_score;
+                    if (currentFilters.impact === 'high' && score < 4) return false;
+                    if (currentFilters.impact === 'medium' && (score < 2 || score > 3)) return false;
+                    if (currentFilters.impact === 'low' && score > 1) return false;
+                }
+                
+                return true;
+            });
+            
+            // Render filtered sparks
+            filteredSparks.forEach(spark => {
+                const card = document.createElement('div');
+                card.className = 'spark-card bg-white rounded-lg shadow-md p-6';
+                
+                card.innerHTML = `
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${spark.idea}</h3>
+                    <p class="text-gray-600 mb-4">${spark.description}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="score-badge ${spark.feasibility_score >= 4 ? 'high' : spark.feasibility_score >= 2 ? 'medium' : 'low'}">
+                            Feasibility: ${spark.feasibility_score}/5
+                        </span>
+                        <span class="score-badge ${spark.potential_impact_score >= 4 ? 'high' : spark.potential_impact_score >= 2 ? 'medium' : 'low'}">
+                            Impact: ${spark.potential_impact_score}/5
+                        </span>
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <h4 class="font-medium text-gray-900">Key Assumptions</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            ${spark.key_assumptions.map(assumption => `
+                                <li>${assumption}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <h4 class="font-medium text-gray-900 mb-2">Source</h4>
+                        <a href="${spark.source.url}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                            ${spark.source.title}
+                        </a>
+                        <p class="text-sm text-gray-500 mt-1">From query: ${spark.source.query}</p>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <h4 class="font-medium text-gray-900 mb-2">Next Steps</h4>
+                        <ul class="list-disc list-inside text-gray-600">
+                            ${spark.key_next_steps_to_validate_or_develop.map(step => `
+                                <li>${step}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html> 

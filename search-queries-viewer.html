@@ -61,16 +61,40 @@
       flex: 1;
       padding: 1.5rem;
       background-color: var(--background-color);
+      overflow-y: auto;
     }
 
     .header {
       margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .header h1 {
       color: var(--primary-color);
       font-size: 1.75rem;
       margin-bottom: 0.5rem;
+    }
+
+    .sort-controls {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .sort-controls select {
+      padding: 0.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background-color: var(--card-background);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+    }
+
+    .sort-controls label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
     }
 
     .search-query-card {
@@ -81,11 +105,17 @@
       margin-bottom: 1rem;
       box-shadow: var(--shadow-sm);
       transition: all 0.2s ease;
+      cursor: pointer;
     }
 
     .search-query-card:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-1px);
+    }
+
+    .search-query-card.active {
+      border-color: var(--primary-color);
+      background-color: var(--hover-color);
     }
 
     .query-text {
@@ -143,6 +173,165 @@
     .vertical-tag.forum {
       background-color: var(--forum-color);
     }
+
+    /* Search Results Styles */
+    .search-result-card {
+      background-color: var(--card-background);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .result-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .result-url {
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      text-decoration: none;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .result-url:hover {
+      text-decoration: underline;
+    }
+
+    .result-content {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .result-preview {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .result-iframe {
+      width: 100%;
+      height: 300px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+    }
+
+    .result-analysis {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .score-section {
+      margin-bottom: 1rem;
+    }
+
+    .score-label {
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .score-value {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .score-rationale {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .spark-ideas {
+      margin-top: 1rem;
+    }
+
+    .spark-ideas h3 {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .spark-ideas ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .spark-ideas li {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .spark-ideas li:before {
+      content: "💡";
+      position: absolute;
+      left: 0;
+    }
+
+    .preview-container {
+      width: 100%;
+      height: 300px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--hover-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preview-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .preview-container .preview-fallback {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .preview-container .preview-fallback i {
+      font-size: 3rem;
+      color: var(--primary-color);
+    }
+
+    .preview-container .preview-fallback .preview-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .preview-container .preview-fallback .preview-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .preview-container .preview-fallback .preview-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -155,10 +344,24 @@
     </div>
   </div>
   <div class="main-content">
-    <!-- Main content area -->
+    <div class="header">
+      <h1>Search Results</h1>
+      <div class="sort-controls">
+        <label for="sort-by">Sort by:</label>
+        <select id="sort-by">
+          <option value="interestingness">Interestingness Score</option>
+          <option value="relevance">Relevance Score</option>
+          <option value="title">Title</option>
+        </select>
+      </div>
+    </div>
+    <div id="search-results-container">
+      <!-- Search results will be inserted here -->
+    </div>
   </div>
 
   <script src="data/search_queries.js"></script>
+  <script src="data/search_details.js"></script>
   <script>
     // Map search sources to their icons
     const verticalIcons = {
@@ -201,15 +404,171 @@
       card.appendChild(queryText);
       card.appendChild(hookText);
       card.appendChild(verticalTags);
+
+      // Add click handler
+      card.addEventListener('click', () => {
+        // Remove active class from all cards
+        document.querySelectorAll('.search-query-card').forEach(c => c.classList.remove('active'));
+        // Add active class to clicked card
+        card.classList.add('active');
+      });
       
       return card;
     }
 
+    function createPreviewElement(url) {
+      const container = document.createElement('div');
+      container.className = 'preview-container';
+
+      // Check if URL is a PDF or other document type
+      const isDocument = /\.(pdf|doc|docx|xls|xlsx|ppt|pptx)$/i.test(url);
+      
+      if (isDocument) {
+        // Create fallback preview for documents
+        container.innerHTML = `
+          <div class="preview-fallback">
+            <i class="fas fa-file-alt"></i>
+            <div class="preview-text">Document Preview Not Available</div>
+            <a href="${url}" class="preview-link" target="_blank">Open Document</a>
+          </div>
+        `;
+      } else {
+        // Try to create iframe for web pages
+        const iframe = document.createElement('iframe');
+        iframe.src = url;
+        iframe.sandbox = 'allow-same-origin allow-scripts';
+        
+        // Add error handling for iframe
+        iframe.onerror = () => {
+          container.innerHTML = `
+            <div class="preview-fallback">
+              <i class="fas fa-exclamation-circle"></i>
+              <div class="preview-text">Preview Not Available</div>
+              <a href="${url}" class="preview-link" target="_blank">Open Page</a>
+            </div>
+          `;
+        };
+        
+        container.appendChild(iframe);
+      }
+
+      return container;
+    }
+
+    function createSearchResultCard(result) {
+      const card = document.createElement('div');
+      card.className = 'search-result-card';
+
+      const header = document.createElement('div');
+      header.className = 'result-header';
+
+      const title = document.createElement('div');
+      title.className = 'result-title';
+      title.textContent = result.title;
+
+      const url = document.createElement('a');
+      url.className = 'result-url';
+      url.href = result.url;
+      url.textContent = result.url;
+      url.target = '_blank';
+
+      const content = document.createElement('div');
+      content.className = 'result-content';
+
+      const preview = document.createElement('div');
+      preview.className = 'result-preview';
+      preview.appendChild(createPreviewElement(result.url));
+
+      const analysis = document.createElement('div');
+      analysis.className = 'result-analysis';
+
+      // Relevance Score
+      const relevanceSection = document.createElement('div');
+      relevanceSection.className = 'score-section';
+      relevanceSection.innerHTML = `
+        <div class="score-label">Relevance Score</div>
+        <div class="score-value">${result.relevance_rating}/5</div>
+        <div class="score-rationale">${result.relevance_rationale}</div>
+      `;
+
+      // Interestingness Score
+      const interestingnessSection = document.createElement('div');
+      interestingnessSection.className = 'score-section';
+      interestingnessSection.innerHTML = `
+        <div class="score-label">Interestingness Score</div>
+        <div class="score-value">${result.interestingness_rating}/5</div>
+        <div class="score-rationale">${result.interestingness_rationale}</div>
+      `;
+
+      // Summary
+      const summarySection = document.createElement('div');
+      summarySection.className = 'score-section';
+      summarySection.innerHTML = `
+        <div class="score-label">Summary</div>
+        <div class="score-rationale">${result.summary}</div>
+      `;
+
+      // Spark Ideas
+      const sparkIdeas = document.createElement('div');
+      sparkIdeas.className = 'spark-ideas';
+      sparkIdeas.innerHTML = `
+        <h3>Spark Ideas</h3>
+        <ul>
+          ${result.spark_ideas.map(idea => `<li>${idea}</li>`).join('')}
+        </ul>
+      `;
+
+      analysis.appendChild(relevanceSection);
+      analysis.appendChild(interestingnessSection);
+      analysis.appendChild(summarySection);
+      analysis.appendChild(sparkIdeas);
+
+      content.appendChild(preview);
+      content.appendChild(analysis);
+
+      card.appendChild(header);
+      card.appendChild(url);
+      card.appendChild(content);
+
+      return card;
+    }
+
     // Populate the container with search queries
-    const container = document.getElementById('search-queries-container');
+    const queriesContainer = document.getElementById('search-queries-container');
     search_queries.forEach(query => {
-      container.appendChild(createSearchQueryCard(query));
+      queriesContainer.appendChild(createSearchQueryCard(query));
     });
+
+    // Sort and populate the container with search results
+    function displayResults(sortBy = 'interestingness') {
+      const resultsContainer = document.getElementById('search-results-container');
+      resultsContainer.innerHTML = ''; // Clear existing results
+
+      let sortedResults = [...search_details];
+      switch (sortBy) {
+        case 'interestingness':
+          sortedResults.sort((a, b) => b.interestingness_rating - a.interestingness_rating);
+          break;
+        case 'relevance':
+          sortedResults.sort((a, b) => b.relevance_rating - a.relevance_rating);
+          break;
+        case 'title':
+          sortedResults.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+      }
+
+      sortedResults.forEach(result => {
+        resultsContainer.appendChild(createSearchResultCard(result));
+      });
+    }
+
+    // Add event listener for sort control
+    document.getElementById('sort-by').addEventListener('change', (e) => {
+      displayResults(e.target.value);
+    });
+
+    // Initial display
+    displayResults();
   </script>
 </body>
 </html> 

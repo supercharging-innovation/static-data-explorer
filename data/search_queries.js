@@ -1,452 +1,368 @@
 var search_queries = [
     {
-        "q": "biofilm textile cleaning low water",
-        "vertical": [
-        "scholar",
-        "patent",
-        "web"
-        ],
-        "hook": "Biofilm on fabric for cleaning"
-    },
-    {
-        "q": "microbial consortia for laundry purification",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Cultured microbes for clothes"
-    },
-    {
-        "q": "Schmutzdecke inspired fabric decontamination",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Schmutzdecke principle on textiles"
-    },
-    {
-        "q": "self-cleaning textiles biological layer",
-        "vertical": [
+      "q": "Probiotic textile coating for odor prevention and soil resistance",
+      "vertical": [
         "patent",
         "scholar"
-        ],
-        "hook": "Fabric with living cleaning layer"
+      ],
+      "hook": "Clothes that stay cleaner longer"
     },
     {
-        "q": "bioreactor for clothes washing minimal water",
-        "vertical": [
+      "q": "Engineered biofilm for fabric anti-fouling and self-cleaning",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Surfaces that repel dirt actively"
+    },
+    {
+      "q": "Microbial consortia for competitive exclusion of pathogens on textiles",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "Beneficial microbes protecting clothes"
+    },
+    {
+      "q": "Textile finish that mimics Schmutzdecke passive contaminant capture",
+      "vertical": [
         "patent",
+        "scholar"
+      ],
+      "hook": "Fabrics that trap pollutants"
+    },
+    {
+      "q": "Self-decontaminating fabrics using immobilized enzymes from extremophiles",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Fabrics that neutralize threats"
+    },
+    {
+      "q": "Bio-integrated clothing for simultaneous cleaning and air purification",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "Clothes that clean themselves and air"
+    },
+    {
+      "q": "Microbial textile treatment for low-water cleaning and fabric conditioning",
+      "vertical": [
+        "patent",
+        "scholar"
+      ],
+      "hook": "Cleaning plus fabric care naturally"
+    },
+    {
+      "q": "Engineered microbial consortia for clothing cleaning and pleasant scent production",
+      "vertical": [
+        "scholar",
+        "patent",
+        "web"
+      ],
+      "hook": "Bio-perfumed clean clothes"
+    },
+    {
+      "q": "Textile bioreactor system for greywater recycling and laundry",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Integrated water and clothes cleaning"
+    },
+    {
+      "q": "Carbon sequestering biofilms for textile cleaning applications",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "Climate-positive laundry"
+    },
+    {
+      "q": "Smart textile with adaptive biofilm for targeted contaminant degradation",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Clothes that sense and clean spills"
+    },
+    {
+      "q": "AI controlled microbial bioreactor for personalized clothing hygiene",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "Adaptive cleaning based on need"
+    },
+    {
+      "q": "Biosensor integrated Schmutzdecke-like system for clothing cleanliness monitoring",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "System knows when clothes are clean"
+    },
+    {
+      "q": "Directed evolution of microbial communities for adaptive textile cleaning",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Biofilms that learn to clean better"
+    },
+    {
+      "q": "Responsive biomaterials for clothing that regenerate cleaning capacity",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Self-healing cleaning clothes"
+    },
+    {
+      "q": "Living textiles with embedded microbial cleaning functions",
+      "vertical": [
+        "scholar",
+        "patent",
+        "web"
+      ],
+      "hook": "Clothes that are alive and clean"
+    },
+    {
+      "q": "Bio-hybrid fibers incorporating dormant enzymes for waterless cleaning activation",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Fibers with built-in cleaning agents"
+    },
+    {
+      "q": "Self-assembling microbial mats for textile surface bioremediation",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Bio-layers that form to clean"
+    },
+    {
+      "q": "3D printed garments with integrated channels for microbial flow-through cleaning",
+      "vertical": [
+        "patent",
+        "scholar",
+        "web"
+      ],
+      "hook": "Architectures for bio-cleaning"
+    },
+    {
+      "q": "Mycelium-based textiles with inherent bioremediation properties for clothing",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "Fungal fashion that cleans"
+    },
+    {
+      "q": "Decentralized community bio-laundry systems using Schmutzdecke principles",
+      "vertical": [
         "web",
         "scholar"
-        ],
-        "hook": "Device using biofilm for laundry"
+      ],
+      "hook": "Neighborhood scale bio-cleaning hubs"
     },
     {
-        "q": "sprayable biofilm for odor removal clothes",
-        "vertical": [
-        "patent",
-        "scholar"
-        ],
-        "hook": "Microbial spray for fabric refresh"
-    },
-    {
-        "q": "encapsulated microbes textile cleaning",
-        "vertical": [
-        "patent",
-        "scholar"
-        ],
-        "hook": "Protected microbes for fabric care"
-    },
-    {
-        "q": "bio-integrated fibers for self-purification",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Fibers embedding cleaning microbes"
-    },
-    {
-        "q": "wearable bio-reactor clothing hygiene",
-        "vertical": [
-        "web",
-        "scholar"
-        ],
-        "hook": "Clothing integrated bio-cleaning system"
-    },
-    {
-        "q": "community scale biological laundry system water scarce",
-        "vertical": [
-        "web",
-        "scholar"
-        ],
-        "hook": "Centralized bio-laundry facility"
-    },
-    {
-        "q": "ultrasound enhanced biofilm activity textile",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Boosting biofilm with sound waves"
-    },
-    {
-        "q": "ozone pre-treatment biological fabric cleaning",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Ozone assisting microbial cleaning"
-    },
-    {
-        "q": "humidity controlled bioreactor textile sanitation",
-        "vertical": [
-        "patent",
-        "scholar"
-        ],
-        "hook": "Biofilm thriving in controlled humidity"
-    },
-    {
-        "q": "vapor phase bioremediation for clothing contaminants",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Gas-phase bio-cleaning of fabrics"
-    },
-    {
-        "q": "enzymatic pre-soak for biofilm based laundry",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Enzymes aiding microbial action"
-    },
-    {
-        "q": "passive biological cleaning system textiles",
-        "vertical": [
-        "scholar",
-        "patent",
-        "web"
-        ],
-        "hook": "Low energy microbial fabric care"
-    },
-    {
-        "q": "ambient temperature biofilm for pollutant degradation on clothes",
-        "vertical": [
-        "scholar"
-        ],
-        "hook": "Biofilm working without heating"
-    },
-    {
-        "q": "greywater fed biofilm for textile cleaning",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Recycling water for bio-laundry"
-    },
-    {
-        "q": "locally sourced microorganisms for fabric bioremediation",
-        "vertical": [
-        "scholar",
-        "forum"
-        ],
-        "hook": "Using local microbes for cleaning"
-    },
-    {
-        "q": "cost effective biofilm reactor design for developing countries",
-        "vertical": [
-        "web",
-        "scholar"
-        ],
-        "hook": "Affordable bio-cleaners"
-    },
-    {
-        "q": "biofilter technology adapted for textile surfaces",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Air/water biofilter for clothes"
-    },
-    {
-        "q": "soil microbiology principles for decomposing fabric stains",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Soil microbes breaking down stains"
-    },
-    {
-        "q": "composting mechanisms for organic soil removal from textiles",
-        "vertical": [
-        "scholar",
+      "q": "Subscription model for curated microbial consortia for textile care",
+      "vertical": [
         "web",
         "forum"
-        ],
-        "hook": "Compost-like process for laundry"
+      ],
+      "hook": "Microbes-as-a-service for laundry"
     },
     {
-        "q": "symbiotic cleaning organisms textile care",
-        "vertical": [
+      "q": "Circular economy models for bio-textiles with regenerative cleaning",
+      "vertical": [
         "scholar",
         "web"
-        ],
-        "hook": "Organisms that clean fabrics mutually"
+      ],
+      "hook": "Sustainable lifecycle of living clothes"
     },
     {
-        "q": "biofouling control adapted for beneficial biofilm laundry",
-        "vertical": [
+      "q": "Ethical considerations of 'living clothing' and microbial augmentation",
+      "vertical": [
         "scholar",
-        "patent"
-        ],
-        "hook": "Managing good vs bad biofilms"
-    },
-    {
-        "q": "fermentation technology for clothing hygiene",
-        "vertical": [
-        "scholar",
-        "patent",
-        "web"
-        ],
-        "hook": "Controlled fermentation to clean clothes"
-    },
-    {
-        "q": "pathogen control in laundry biofilms",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Ensuring safe microbial cleaning"
-    },
-    {
-        "q": "textile degradation by microbial cleaning agents",
-        "vertical": [
-        "scholar",
-        "forum"
-        ],
-        "hook": "Preventing fabric damage from microbes"
-    },
-    {
-        "q": "biofilm residue removal from cleaned textiles",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Getting rid of biofilm after cleaning"
-    },
-    {
-        "q": "allergenic potential of microbial textile treatments",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Health risks of bio-cleaned clothes"
-    },
-    {
-        "q": "odor generation by therapeutic biofilms on fabrics",
-        "vertical": [
-        "scholar",
-        "forum"
-        ],
-        "hook": "Preventing bad smells from biofilm"
-    },
-    {
-        "q": "containment strategies for engineered microbes in consumer products",
-        "vertical": [
-        "scholar",
-        "patent",
-        "web"
-        ],
-        "hook": "Safe use of GMOs for cleaning"
-    },
-    {
-        "q": "monitoring biofilm health for laundry applications",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Checking if biofilm is working right"
-    },
-    {
-        "q": "bio-finishing textiles with self-cleaning properties Schmutzdecke",
-        "vertical": [
-        "patent",
-        "scholar"
-        ],
-        "hook": "Manufacturing clothes that clean themselves"
-    },
-    {
-        "q": "maintenance of domestic bioreactors for clothes cleaning",
-        "vertical": [
-        "web",
         "forum",
-        "video"
-        ],
-        "hook": "Upkeep of home bio-laundry units"
-    },
-    {
-        "q": "end-of-life disposal biological laundry systems",
-        "vertical": [
-        "web",
-        "scholar"
-        ],
-        "hook": "Recycling/disposing bio-cleaners"
-    },
-    {
-        "q": "living clothing concept art speculative design",
-        "vertical": [
-        "web",
-        "video"
-        ],
-        "hook": "Artistic takes on self-cleaning clothes"
-    },
-    {
-        "q": "space station laundry system biological purification",
-        "vertical": [
-        "scholar",
         "web"
-        ],
-        "hook": "Bio-cleaning for extreme environments"
+      ],
+      "hook": "Risks and ethics of bio-clothes"
     },
     {
-        "q": "biomimetic Schmutzdecke synthetic materials",
-        "vertical": [
+      "q": "Redefining 'clean': user perception of microbially treated garments",
+      "vertical": [
         "scholar",
-        "patent"
-        ],
-        "hook": "Artificial biofilm-like structures"
+        "forum",
+        "web"
+      ],
+      "hook": "Is microbially balanced clean?"
     },
     {
-        "q": "microbial quorum sensing for controlled textile cleaning",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Smart microbial communication for cleaning"
-    },
-    {
-        "q": "extremophile microbes for durable textile cleaning biofilms",
-        "vertical": [
-        "scholar",
-        "patent"
-        ],
-        "hook": "Hardy microbes for robust bio-cleaning"
-    },
-    {
-        "q": "slow release nutrient systems for maintaining laundry biofilms",
-        "vertical": [
+      "q": "Low-water vapor phase bioreactor for textile decontamination",
+      "vertical": [
         "patent",
         "scholar"
-        ],
-        "hook": "Feeding the cleaning biofilm over time"
+      ],
+      "hook": "Cleaning with humid air and microbes"
     },
     {
-        "q": "bio-augmentation techniques for refreshing cleaning biofilms on textiles",
-        "vertical": [
+      "q": "Synthetic biology approaches to engineer Schmutzdecke for textile specificity",
+      "vertical": [
         "scholar",
         "patent"
-        ],
-        "hook": "Revitalizing the microbial cleaning layer"
+      ],
+      "hook": "Tailoring microbes for fabrics"
     },
     {
-        "q": "textile compatible biosensors for monitoring Schmutzdecke activity",
-        "vertical": [
+      "q": "Quorum sensing inhibitors to prevent unwanted biofilm on clothes during bio-cleaning",
+      "vertical": [
         "scholar",
         "patent"
-        ],
-        "hook": "Sensors to check biofilm performance"
+      ],
+      "hook": "Controlling the bio-clean process"
     },
     {
-        "q": "dry Schmutzdecke concept for waterless textile treatment",
-        "vertical": [
+      "q": "Biomimicry of skin microbiome for protective and cleansing textile finishes",
+      "vertical": [
         "scholar",
-        "web"
-        ],
-        "hook": "Biofilm activity with minimal moisture"
+        "patent"
+      ],
+      "hook": "Clothes mimicking skin's defenses"
     },
     {
-        "q": "biofilm pre-treatment for textiles followed by low-water physical cleaning methods",
-        "vertical": [
+      "q": "Anaerobic digestion principles for low-water breakdown of textile soils",
+      "vertical": [
         "scholar",
+        "patent"
+      ],
+      "hook": "Oxygen-free microbial cleaning"
+    },
+    {
+      "q": "Encapsulated microbial spores for on-demand activation on clothing",
+      "vertical": [
         "patent",
-        "web"
-        ],
-        "hook": "Sequential bio-physical cleaning for clothes."
+        "scholar"
+      ],
+      "hook": "Cleaning power unleashed when needed"
     },
     {
-        "q": "synergistic action of microbial consortia and bio-surfactants for fabric cleaning",
-        "vertical": [
+      "q": "Electrogenic biofilms for textile cleaning and microbial fuel cell synergy",
+      "vertical": [
         "scholar",
         "patent"
-        ],
-        "hook": "Biofilm plus bio-based detergents."
+      ],
+      "hook": "Clothes that clean and generate power"
     },
     {
-        "q": "switchable microbial adhesion for textile treatment controlled activation",
-        "vertical": [
+      "q": "CRISPR engineered bacteria for enhanced enzyme secretion on fabric surfaces",
+      "vertical": [
         "scholar",
         "patent"
-        ],
-        "hook": "Controlling biofilm attachment and activity."
+      ],
+      "hook": "Super-powered cleaning microbes"
     },
     {
-        "q": "spore-based biocleaning agents for textiles triggered release mechanisms",
-        "vertical": [
-        "patent",
+      "q": "Schmutzdecke inspired filtration system for laundry wastewater reuse",
+      "vertical": [
+        "web",
+        "patent"
+      ],
+      "hook": "Cleaning water from cleaning clothes"
+    },
+    {
+      "q": "Safety and allergenicity of microbial residues on bio-cleaned textiles",
+      "vertical": [
         "scholar",
-        "web"
-        ],
-        "hook": "Dormant microbes activated when needed."
-    },
-    {
-        "q": "desiccation tolerant microbial biofilms for textile applications low moisture",
-        "vertical": [
-        "scholar",
-        "web"
-        ],
-        "hook": "Biofilms that survive dry conditions on clothes."
-    },
-    {
-        "q": "user-friendly biofilm renewal systems for self-cleaning surfaces or textiles",
-        "vertical": [
-        "patent",
         "web",
         "forum"
-        ],
-        "hook": "Simple ways to maintain or refresh biofilm."
+      ],
+      "hook": "Are bio-cleaned clothes safe for all?"
     },
     {
-        "q": "sacrificial or self-dispersing biofilms for textile cleaning applications",
-        "vertical": [
+      "q": "Maintenance and regeneration strategies for textile-based biofilm cleaning systems",
+      "vertical": [
         "scholar",
         "patent"
-        ],
-        "hook": "Biofilms that are easy to remove themselves."
+      ],
+      "hook": "Keeping the bio-cleaners alive"
     },
     {
-        "q": "quorum sensing inhibitors for controlling biofilm formation on textiles after cleaning",
-        "vertical": [
+      "q": "Extremophile microorganisms for durable bio-cleaning textiles in harsh environments",
+      "vertical": [
         "scholar",
         "patent"
-        ],
-        "hook": "Preventing unwanted biofilm persistence."
+      ],
+      "hook": "Tough microbes for tough cleaning jobs"
     },
     {
-        "q": "bioluminescent indicator microbes for textile hygiene monitoring",
-        "vertical": [
-        "scholar",
+      "q": "Bio-augmentation of washing machines with Schmutzdecke-like modules",
+      "vertical": [
         "patent",
         "web"
-        ],
-        "hook": "Biofilm tells you when clothes are clean."
+      ],
+      "hook": "Upgrading current tech with bio-power"
     },
     {
-        "q": "textile embedded nutrient delivery systems for sustaining beneficial biofilms",
-        "vertical": [
+      "q": "Cultural acceptance of wearing 'living' or microbially-active clothing",
+      "vertical": [
+        "forum",
+        "scholar",
+        "web"
+      ],
+      "hook": "Would people wear bio-clothes?"
+    },
+    {
+      "q": "Developing standardized protocols for assessing 'biological clean' in textiles",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "Measuring new types of clean"
+    },
+    {
+      "q": "Slow-release nutrient systems for maintaining active biofilms on clothing",
+      "vertical": [
         "patent",
         "scholar"
-        ],
-        "hook": "Keeping good microbes alive on fabric."
+      ],
+      "hook": "Feeding cleaning microbes on fabric"
+    },
+    {
+      "q": "Bioreceptive textile materials designed to host beneficial cleaning biofilms",
+      "vertical": [
+        "scholar",
+        "patent"
+      ],
+      "hook": "Fabrics designed for microbial life"
+    },
+    {
+      "q": "Philosophical implications of symbiotic clothing: posthumanism and apparel",
+      "vertical": [
+        "scholar",
+        "web"
+      ],
+      "hook": "When clothes become companions"
+    },
+    {
+      "q": "Artistic installations exploring 'living laundry' and microbial aesthetics",
+      "vertical": [
+        "web",
+        "video"
+      ],
+      "hook": "The art of biological cleaning"
+    },
+    {
+      "q": "Impact of textile dyes and finishes on Schmutzdecke-like cleaning consortia",
+      "vertical": [
+        "scholar"
+      ],
+      "hook": "Chemical compatibility bio-cleaning"
     }
-]
+  ]
