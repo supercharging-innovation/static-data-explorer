@@ -5,21 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idea Sparks Browser</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Avenir', 'Inter', 'Nunito', sans-serif;
+            background: #f8fafc;
+            font-size: 15px;
+        }
+        .sidebar {
+            width: 320px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            border-right: 1px solid #E5E7EB;
+            background-color: #f5f3ff;
+            box-shadow: 2px 0 6px -2px rgba(124, 58, 237, 0.04);
+            padding: 2rem 1.5rem;
+            font-family: 'Avenir', 'Inter', 'Nunito', sans-serif;
+        }
+        .sidebar h1, .sidebar h2 {
+            color: #7c3aed;
+            font-family: 'Avenir', 'Inter', 'Nunito', sans-serif;
+        }
+        .sidebar h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .sidebar h2 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .main-content {
+            margin-left: 320px;
+            padding: 2rem;
+        }
         .spark-card {
-            transition: all 0.3s ease;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(124,58,237,0.06);
+            border: 1px solid #ece9f9;
+            padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+            font-size: 1rem;
+            max-width: 600px;
         }
         .spark-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 6px 24px 0 rgba(124,58,237,0.10);
+        }
+        .score-parent {
+            background: #f8f7fc;
+            border-radius: 0.75rem;
+            border: 1px solid #ece9f9;
+            padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+            margin-bottom: 1.2rem;
+            max-width: 520px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .score-row {
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+            color: #5b6472;
+            font-weight: 400;
+            line-height: 1.7;
         }
         .score-badge {
             display: inline-flex;
             align-items: center;
-            padding: 0.25rem 0.5rem;
+            padding: 0.25rem 1rem 0.25rem 0.8rem;
             border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 700;
+            min-width: 0;
+            white-space: nowrap;
+            vertical-align: middle;
+            margin-right: 0.9rem;
         }
         .score-badge.high {
             background-color: #DEF7EC;
@@ -33,38 +103,109 @@
             background-color: #FEE2E2;
             color: #991B1B;
         }
-        .filter-button {
-            transition: all 0.2s ease;
+        .score-rationale {
+            display: inline;
+            background: none;
+            border-radius: 0;
+            padding: 0;
+            margin: 0;
         }
-        .filter-button.active {
-            background-color: #2563EB;
-            color: white;
+        .source-excerpt {
+            font-size: 0.97rem;
+            color: #6B7280;
+            background: #f3f4f6;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.9rem;
+            margin: 0.7rem 0 1.1rem 0;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .source-excerpt .fa-quote-left {
+            color: #a78bfa;
+            font-size: 1.1em;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .accordion-toggle {
+            font-family: inherit;
+        }
+        .spark-card h3 {
+            font-size: 1.13rem;
+            font-weight: 700;
+            color: #22223b;
+            margin-bottom: 0.4rem;
+            display: block;
+            align-items: center;
+        }
+        .spark-card .fa-lightbulb {
+            color: #fbbf24;
+            margin-right: 0.6rem;
+            vertical-align: -0.12em;
+        }
+        .spark-card p {
+            font-size: 0.99rem;
+            color: #4B5563;
+        }
+        .spark-card .fa-tools {
+            color: #92400E;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-bolt {
+            color: #03543F;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-star {
+            color: #2563EB;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-link {
+            color: #7c3aed;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-search {
+            color: #7c3aed;
+            margin-right: 0.25rem;
+        }
+        .spark-card .accordion-toggle {
+            margin-top: 0.5rem;
+        }
+        .spark-card ul {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header Section -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">Idea Sparks Browser</h1>
-            <p class="text-gray-600">Explore and filter idea sparks from various sources to find inspiration for your design challenge.</p>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="mb-8">
+            <h1 class="text-xl font-bold text-gray-900 mb-4">Idea Sparks Browser</h1>
+            <p class="text-gray-600 text-sm">Explore and filter idea sparks from various sources to find inspiration for your design challenge.</p>
         </div>
-
-        <!-- Filters Section -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-            <div class="flex flex-wrap gap-4">
-                <div class="flex-1 min-w-[200px]">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Filter by Feasibility</label>
-                    <div class="flex space-x-2">
+        <div class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Filters</h2>
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Feasibility</label>
+                    <div class="flex flex-wrap gap-2">
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="all">All</button>
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="high">High (4-5)</button>
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="medium">Medium (2-3)</button>
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="low">Low (0-1)</button>
                     </div>
                 </div>
-                <div class="flex-1 min-w-[200px]">
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Filter by Impact</label>
-                    <div class="flex space-x-2">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Impact</label>
+                    <div class="flex flex-wrap gap-2">
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="all">All</button>
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="high">High (4-5)</button>
                         <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="medium">Medium (2-3)</button>
@@ -73,25 +214,22 @@
                 </div>
             </div>
         </div>
-
-        <!-- Idea Sparks Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="idea-sparks-grid">
+    </div>
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="idea-sparks-grid">
             <!-- Idea sparks will be dynamically inserted here -->
         </div>
     </div>
-
     <!-- Load the data -->
     <script src="data/idea_sparks_biofilm_init.js"></script>
-    
     <script>
         let allSparks = [];
         let currentFilters = {
             feasibility: 'all',
             impact: 'all'
         };
-
         try {
-            // Collect all idea sparks
             idea_sparks.query_results.forEach(queryResult => {
                 queryResult.links.forEach(link => {
                     if (link.idea_sparks) {
@@ -108,26 +246,16 @@
                     }
                 });
             });
-            
-            // Initial render
             renderSparks();
-            
-            // Set up filter buttons
             document.querySelectorAll('.filter-button').forEach(button => {
                 button.addEventListener('click', () => {
                     const filter = button.dataset.filter;
                     const value = button.dataset.value;
-                    
-                    // Update active state
                     document.querySelectorAll(`[data-filter="${filter}"]`).forEach(btn => {
                         btn.classList.remove('active');
                     });
                     button.classList.add('active');
-                    
-                    // Update filters
                     currentFilters[filter] = value;
-                    
-                    // Re-render
                     renderSparks();
                 });
             });
@@ -141,12 +269,9 @@
                 </div>
             `;
         }
-
         function renderSparks() {
             const grid = document.getElementById('idea-sparks-grid');
             grid.innerHTML = '';
-            
-            // Filter sparks
             const filteredSparks = allSparks.filter(spark => {
                 if (currentFilters.feasibility !== 'all') {
                     const score = spark.feasibility_score;
@@ -154,65 +279,94 @@
                     if (currentFilters.feasibility === 'medium' && (score < 2 || score > 3)) return false;
                     if (currentFilters.feasibility === 'low' && score > 1) return false;
                 }
-                
                 if (currentFilters.impact !== 'all') {
                     const score = spark.potential_impact_score;
                     if (currentFilters.impact === 'high' && score < 4) return false;
                     if (currentFilters.impact === 'medium' && (score < 2 || score > 3)) return false;
                     if (currentFilters.impact === 'low' && score > 1) return false;
                 }
-                
                 return true;
             });
-            
-            // Render filtered sparks
             filteredSparks.forEach(spark => {
                 const card = document.createElement('div');
-                card.className = 'spark-card bg-white rounded-lg shadow-md p-6';
-                
+                card.className = 'spark-card';
+                function scoreRationale(label, icon, score, rationale) {
+                    if (score === undefined || rationale === undefined) return '';
+                    let badgeClass = score >= 4 ? 'high' : score >= 2 ? 'medium' : 'low';
+                    return `
+                        <p class="score-row">
+                            <span class="score-badge ${badgeClass}"><i class="fas ${icon} mr-2"></i>${label}: ${score}/5</span>
+                            <span class="score-rationale">${rationale}</span>
+                        </p>
+                    `;
+                }
                 card.innerHTML = `
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">${spark.idea}</h3>
-                    <p class="text-gray-600 mb-4">${spark.description}</p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="score-badge ${spark.feasibility_score >= 4 ? 'high' : spark.feasibility_score >= 2 ? 'medium' : 'low'}">
-                            Feasibility: ${spark.feasibility_score}/5
-                        </span>
-                        <span class="score-badge ${spark.potential_impact_score >= 4 ? 'high' : spark.potential_impact_score >= 2 ? 'medium' : 'low'}">
-                            Impact: ${spark.potential_impact_score}/5
-                        </span>
+                    <h3><i class="fas fa-lightbulb"></i> ${spark.idea}</h3>
+                    <p class="mb-2">${spark.description}</p>
+                    ${spark.source_excerpt_reference ? `<div class="source-excerpt"><i class='fas fa-quote-left'></i>${spark.source_excerpt_reference}</div>` : ''}
+                    <div class="score-parent">
+                        ${scoreRationale('Feasibility', 'fa-tools', spark.feasibility_score, spark.feasibility_rationale)}
+                        ${scoreRationale('Impact', 'fa-bolt', spark.potential_impact_score, spark.potential_impact_rationale)}
+                        ${scoreRationale('Novelty', 'fa-star', spark.novelty_score, spark.novelty_rationale)}
                     </div>
-                    
-                    <div class="space-y-2 text-sm">
-                        <h4 class="font-medium text-gray-900">Key Assumptions</h4>
-                        <ul class="list-disc list-inside text-gray-600">
-                            ${spark.key_assumptions.map(assumption => `
-                                <li>${assumption}</li>
-                            `).join('')}
-                        </ul>
+                    <div class="space-y-4 w-full">
+                        <div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Key Assumptions
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Next Steps
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Challenges
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="mt-4 pt-4 border-t border-gray-200">
-                        <h4 class="font-medium text-gray-900 mb-2">Source</h4>
+                    <div class="mt-4 pt-4 border-t border-gray-200 w-full">
+                        <h4 class="font-medium text-gray-900 mb-2 flex items-center">
+                            <i class="fas fa-link"></i>Source
+                        </h4>
                         <a href="${spark.source.url}" target="_blank" class="text-blue-600 hover:text-blue-800">
                             ${spark.source.title}
                         </a>
-                        <p class="text-sm text-gray-500 mt-1">From query: ${spark.source.query}</p>
-                    </div>
-                    
-                    <div class="mt-4 pt-4 border-t border-gray-200">
-                        <h4 class="font-medium text-gray-900 mb-2">Next Steps</h4>
-                        <ul class="list-disc list-inside text-gray-600">
-                            ${spark.key_next_steps_to_validate_or_develop.map(step => `
-                                <li>${step}</li>
-                            `).join('')}
-                        </ul>
+                        <p class="text-sm text-gray-500 mt-1">
+                            <i class="fas fa-search"></i>From query: ${spark.source.query}
+                        </p>
                     </div>
                 `;
-                
+                card.querySelectorAll('.accordion-toggle').forEach(toggle => {
+                    toggle.onclick = () => {
+                        const content = toggle.nextElementSibling;
+                        content.classList.toggle('open');
+                        toggle.querySelector('i').classList.toggle('fa-chevron-down');
+                        toggle.querySelector('i').classList.toggle('fa-chevron-right');
+                    };
+                });
                 grid.appendChild(card);
             });
         }
     </script>
 </body>
-</html> 
+</html>
