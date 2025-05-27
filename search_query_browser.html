@@ -203,6 +203,7 @@
             <h2 class="text-lg font-semibold text-gray-900 mb-4">Evaluation</h2>
             <div id="evaluation-content" class="space-y-4"></div>
         </div>
+        <div id="scenario-section"></div>
     </div>
 
     <!-- Query Navigation -->
@@ -211,15 +212,16 @@
             <div class="flex items-center space-x-2 mb-2">
                 <h2 class="text-lg font-semibold text-gray-900">Search Queries</h2>
             </div>
-            <p class="text-sm text-gray-600" id="query-count"></p>
+            <div class="flex items-center text-sm text-gray-600" id="query-count-row">
+                <span id="query-count"></span>
+                <span id="reflection-info-icon" style="display:none;cursor:pointer;outline:none;" tabindex="0" aria-label="Reflection on Search Space" class="ml-2">
+                    <i class="fas fa-info-circle text-blue-400"></i>
+                </span>
+            </div>
         </div>
         
         <div id="query-list" class="space-y-2">
             <!-- Query list will be dynamically inserted here -->
-        </div>
-        <div id="reflection-card" class="reflection-card hidden">
-            <div class="font-semibold text-gray-700 mb-1" style="font-size:1rem;font-style:normal;">Reflection on Search Space</div>
-            <div id="reflection-card-body"></div>
         </div>
     </div>
 
@@ -232,6 +234,7 @@
 
     <!-- Load the data -->
     <script src="data/idea_sparks_biofilm_init.js"></script>
+    <script src="data/active_ingredients.js"></script>
     
     <script>
         try {
@@ -270,18 +273,98 @@
             
             document.getElementById('evaluation-content').innerHTML = evaluationHtml;
             
+            // Render scenario as a separate section
+            function renderScenarioSection(scenario) {
+                if (!scenario) return '';
+                return `
+                    <div class="mb-8" style="margin-top:0;">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4">Scenario</h2>
+                        <div class="p-4 rounded-lg border border-purple-200 bg-purple-50">
+                            <div class="font-semibold text-purple-800 mb-1">${scenario.scenario_name || ''}</div>
+                            <div class="text-gray-700 text-sm mb-2">${scenario.scenario_description || ''}</div>
+                            <div class="text-xs text-purple-900 font-semibold mt-2 mb-1">Alignment with Structure</div>
+                            <div class="text-gray-700 text-xs mb-2">${scenario.alignment_with_structure || ''}</div>
+                            <div class="text-xs text-purple-900 font-semibold mt-2 mb-1">Design Problem Connection</div>
+                            <div class="text-gray-700 text-xs">${scenario.design_problem_connection || ''}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Try to match the active ingredient to the one in active_ingredients.js
+            let scenarioSectionHtml = '';
+            if (typeof activeIngredients !== 'undefined' && Array.isArray(activeIngredients)) {
+                // Try to match by text (ignoring markdown)
+                const aiTextRaw = aiText.replace(/\*\*/g, '').split(':')[0].trim().toLowerCase();
+                const match = activeIngredients.find(ai => {
+                    const textRaw = (ai.active_ingredient_text || '').replace(/\*\*/g, '').split(':')[0].trim().toLowerCase();
+                    return textRaw === aiTextRaw;
+                });
+                if (match && match.scenario) {
+                    scenarioSectionHtml = renderScenarioSection(match.scenario);
+                }
+            }
+            document.getElementById('scenario-section').innerHTML = scenarioSectionHtml;
+            
             // Populate query count
             document.getElementById('query-count').textContent = `${idea_sparks.query_results.length} queries explored`;
+            // Reflection tooltip logic
+            const reflection = idea_sparks.gap_reflection && idea_sparks.gap_reflection.trim().length > 0 ? idea_sparks.gap_reflection : null;
+            const reflectionIcon = document.getElementById('reflection-info-icon');
+            if (reflection) {
+                reflectionIcon.style.display = '';
+                // Tooltip events for info icon
+                function showReflectionTooltip(e) {
+                    const tooltip = document.getElementById('global-tooltip');
+                    tooltip.innerHTML = `<div class='font-semibold mb-1' style='font-size:1rem;font-style:normal;'>Reflection on Search Space</div><div>${reflection}</div>`;
+                    tooltip.style.display = 'block';
+                    const rect = reflectionIcon.getBoundingClientRect();
+                    const scrollY = window.scrollY || window.pageYOffset;
+                    const scrollX = window.scrollX || window.pageXOffset;
+                    let left = rect.right + 10 + scrollX;
+                    let top = rect.top + rect.height/2 + scrollY - tooltip.offsetHeight/2;
+                    if (left + tooltip.offsetWidth > window.innerWidth) {
+                        left = rect.left - tooltip.offsetWidth - 10 + scrollX;
+                    }
+                    if (left < 0) left = 10;
+                    if (top < 0) top = 10;
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                }
+                function hideReflectionTooltip() {
+                    const tooltip = document.getElementById('global-tooltip');
+                    tooltip.style.display = 'none';
+                }
+                reflectionIcon.addEventListener('mouseover', showReflectionTooltip);
+                reflectionIcon.addEventListener('focus', showReflectionTooltip);
+                reflectionIcon.addEventListener('mouseout', hideReflectionTooltip);
+                reflectionIcon.addEventListener('blur', hideReflectionTooltip);
+            } else {
+                reflectionIcon.style.display = 'none';
+            }
             
             // Populate query list
             const queryList = document.getElementById('query-list');
             idea_sparks.query_results.forEach((queryResult, index) => {
                 const queryItem = document.createElement('button');
                 queryItem.className = 'w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors';
+                
+                // Check if query has analyzed links (with both snippets and idea sparks)
+                const hasAnalyzedLinks = queryResult.links.some(link => 
+                    link.extracted_snippets && 
+                    link.idea_sparks && 
+                    link.idea_sparks.length > 0
+                );
+                
                 queryItem.innerHTML = `
                     <div class="flex items-center space-x-2">
                         <i class="fas fa-search text-gray-400"></i>
                         <span class="text-sm text-gray-700">${queryResult.query}</span>
+                        ${hasAnalyzedLinks ? `
+                            <span class="ml-2 analysis-icon-wrapper">
+                                <i class="fas fa-microscope text-purple-500 analysis-icon" tabindex="0" aria-label="Analyzed"></i>
+                            </span>
+                        ` : ''}
                     </div>
                 `;
                 queryItem.onclick = () => {
@@ -470,16 +553,6 @@
             showQueryResults(0);
             document.querySelector('#query-list button').classList.add('bg-blue-50', 'text-blue-700');
             
-            // Set reflection card content
-            const reflectionCard = document.getElementById('reflection-card');
-            const reflectionBody = document.getElementById('reflection-card-body');
-            if (idea_sparks.gap_reflection && idea_sparks.gap_reflection.trim().length > 0) {
-                reflectionBody.textContent = idea_sparks.gap_reflection;
-                reflectionCard.classList.remove('hidden');
-            } else {
-                reflectionCard.classList.add('hidden');
-            }
-            
         } catch (error) {
             console.error('Error processing data:', error);
             document.body.innerHTML = `
@@ -490,6 +563,69 @@
                 </div>
             `;
         }
+    </script>
+
+    <!-- Global Tooltip for Analysis Icon -->
+    <div id="global-tooltip" style="display:none;position:absolute;z-index:9999;pointer-events:none;background:#1F2937;color:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.18);padding:16px 18px;font-size:0.95rem;line-height:1.6;white-space:normal;max-width:280px;"></div>
+    <script>
+    // Tooltip logic for analysis icon
+    document.addEventListener('mouseover', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.textContent = 'This query has analyzed results with extracted snippets and idea sparks';
+            tooltip.style.display = 'block';
+            // Position tooltip
+            const rect = icon.getBoundingClientRect();
+            const scrollY = window.scrollY || window.pageYOffset;
+            const scrollX = window.scrollX || window.pageXOffset;
+            // Prefer to the right, but if not enough space, show to the left
+            let left = rect.right + 10 + scrollX;
+            let top = rect.top + rect.height/2 + scrollY - tooltip.offsetHeight/2;
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = rect.left - tooltip.offsetWidth - 10 + scrollX;
+            }
+            if (left < 0) left = 10;
+            if (top < 0) top = 10;
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+    });
+    document.addEventListener('mouseout', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.style.display = 'none';
+        }
+    });
+    // Also support keyboard focus
+    document.addEventListener('focusin', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.textContent = 'This query has analyzed results with extracted snippets and idea sparks';
+            tooltip.style.display = 'block';
+            const rect = icon.getBoundingClientRect();
+            const scrollY = window.scrollY || window.pageYOffset;
+            const scrollX = window.scrollX || window.pageXOffset;
+            let left = rect.right + 10 + scrollX;
+            let top = rect.top + rect.height/2 + scrollY - tooltip.offsetHeight/2;
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = rect.left - tooltip.offsetWidth - 10 + scrollX;
+            }
+            if (left < 0) left = 10;
+            if (top < 0) top = 10;
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+    });
+    document.addEventListener('focusout', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.style.display = 'none';
+        }
+    });
     </script>
 </body>
 </html> 

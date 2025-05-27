@@ -419,7 +419,7 @@
                             </button>
                             <div class="accordion-content pl-6">
                                 <ul class="list-disc list-inside text-sm text-gray-600">
-                                    ${spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('')}
+                                    ${Array.isArray(spark.key_assumptions) ? spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('') : ''}
                                 </ul>
                             </div>
                         </div>
@@ -430,7 +430,7 @@
                             </button>
                             <div class="accordion-content pl-6">
                                 <ul class="list-disc list-inside text-sm text-gray-600">
-                                    ${spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('')}
+                                    ${Array.isArray(spark.key_next_steps_to_validate_or_develop) ? spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('') : ''}
                                 </ul>
                             </div>
                         </div>
@@ -441,7 +441,7 @@
                             </button>
                             <div class="accordion-content pl-6">
                                 <ul class="list-disc list-inside text-sm text-gray-600">
-                                    ${spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('')}
+                                    ${Array.isArray(spark.major_challenges_roadblocks) ? spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('') : ''}
                                 </ul>
                             </div>
                         </div>
@@ -464,6 +464,7 @@
                                 </svg>
                             </span>
                             <input type="text" value="${spark.source.query}" readonly class="bg-gray-100 border border-gray-300 rounded px-2 py-1 text-sm w-auto google-query-input" style="min-width:100px; max-width:100%;" tabindex="-1" title="${spark.source.query}" />
+                            ${spark.source_excerpt_reference ? '<i class="fas fa-chart-line text-purple-500 ml-1" title="This query has been analyzed with extracted snippets and idea sparks"></i>' : ''}
                             <button type="button" class="ml-1 p-1 rounded hover:bg-gray-200 google-search-btn" title="Search on Google" data-query="${encodeURIComponent(spark.source.query)}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"/></svg>
                             </button>
