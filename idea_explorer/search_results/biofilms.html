@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Query Browser - Biofilms</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .idea-spark {
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        .idea-spark:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .score-badge.high {
+            background-color: #DEF7EC;
+            color: #03543F;
+        }
+        .score-badge.medium {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+        .score-badge.low {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+        
+        .sidebar {
+            width: 320px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            border-right: 1px solid #E5E7EB;
+            background-color: #f5f3ff;
+            box-shadow: 2px 0 6px -2px rgba(124, 58, 237, 0.04);
+            padding: 2rem 1.5rem;
+            font-family: 'Nunito', 'Montserrat', 'Lato', 'Avenir', sans-serif;
+        }
+        .sidebar h1, .sidebar h2 {
+            color: #7c3aed;
+            font-family: 'Raleway', 'Nunito', 'Montserrat', sans-serif;
+        }
+        .sidebar h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .sidebar h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        #active-ingredient-content, #evaluation-content {
+            background: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(124,58,237,0.04);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e9d8fd;
+        }
+        
+        .main-content {
+            margin-left: 320px;
+            padding: 2rem;
+        }
+        
+        .query-nav {
+            width: 280px;
+            height: 100vh;
+            position: fixed;
+            left: 320px;
+            top: 0;
+            overflow-y: auto;
+            border-right: 1px solid #E5E7EB;
+            background-color: #F9FAFB;
+        }
+        
+        .results-content {
+            margin-left: 600px;
+            padding: 2rem;
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-content.open {
+            max-height: 1000px;
+        }
+        
+        .decision-section {
+            transition: all 0.3s ease;
+        }
+        
+        .decision-section.collapsed {
+            opacity: 0.5;
+        }
+        
+        .decision-section.collapsed .decision-content {
+            display: none;
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltip-content {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 120%;
+            transform: translateY(-50%);
+            width: 280px;
+            background: #1F2937;
+            color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            padding: 16px 18px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            z-index: 100;
+            white-space: normal;
+            margin-left: 8px;
+        }
+        .tooltip .tooltip-content::before {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px 8px 8px 0;
+            border-style: solid;
+            border-color: transparent #1F2937 transparent transparent;
+        }
+        .tooltip:hover .tooltip-content,
+        .tooltip:focus-within .tooltip-content {
+            display: block;
+        }
+        .reflection-card {
+            background: #F3F4F6;
+            border-radius: 0.5rem;
+            padding: 1rem 1.25rem;
+            margin-top: 2rem;
+            font-size: 0.92rem;
+            color: #6B7280;
+            font-style: italic;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .score-rationale {
+            font-size: 0.92rem;
+            color: #6B7280;
+            background: #F3F4F6;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .collapsed-link-snippet { max-height: 3.5em; overflow: hidden; position: relative; }
+        .collapsed-link-snippet::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 1.5em;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 90%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Left Sidebar - Active Ingredient -->
+    <div class="sidebar bg-white p-6">
+        <div class="mb-8">
+            <h1 class="text-xl font-bold text-gray-900 mb-4">Active Ingredient</h1>
+            <div class="prose max-w-none">
+                <div id="active-ingredient-content" class="text-gray-700"></div>
+            </div>
+        </div>
+        
+        <div class="mb-8">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Evaluation</h2>
+            <div id="evaluation-content" class="space-y-4"></div>
+        </div>
+        <div id="scenario-section"></div>
+    </div>
+
+    <!-- Query Navigation -->
+    <div class="query-nav p-6">
+        <div class="mb-6">
+            <div class="flex items-center space-x-2 mb-2">
+                <h2 class="text-lg font-semibold text-gray-900">Search Queries</h2>
+            </div>
+            <div class="flex items-center text-sm text-gray-600" id="query-count-row">
+                <span id="query-count"></span>
+                <span id="reflection-info-icon" style="display:none;cursor:pointer;outline:none;" tabindex="0" aria-label="Reflection on Search Space" class="ml-2">
+                    <i class="fas fa-info-circle text-blue-400"></i>
+                </span>
+            </div>
+        </div>
+        
+        <div id="query-list" class="space-y-2">
+            <!-- Query list will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="results-content">
+        <div id="query-results">
+            <!-- Query results will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Load the data -->
+    <script src="../../data/idea_sparks_biofilm_init.js"></script>
+    <script src="../../data/active_ingredients.js"></script>
+    
+    <script>
+        try {
+            // Format active ingredient content
+            const aiText = idea_sparks.active_ingredient.text;
+            const [title, ...details] = aiText.split(':');
+            document.getElementById('active-ingredient-content').innerHTML = `
+                <h3 class="font-semibold text-gray-900 mb-2">${title}</h3>
+                <p class="text-gray-600">${details.join(':').trim()}</p>
+            `;
+            
+            // Populate evaluation content
+            const evaluation = idea_sparks.active_ingredient.evaluation;
+            let evaluationHtml = `
+                <div class="mb-8">
+                    <span class="score-badge ${evaluation.interestingness?.score >= 4 ? 'high' : evaluation.interestingness?.score >= 2 ? 'medium' : 'low'} mb-2">
+                        <i class="fas fa-lightbulb mr-1"></i>
+                        Interestingness: ${evaluation.interestingness?.score}/5
+                    </span>
+                    <span class="text-gray-600 text-sm w-full block mt-2">${evaluation.interestingness?.rationale}</span>
+                </div>
+            `;
+            function scoreRationaleRow(label, icon, score, rationale) {
+                if (score === undefined || rationale === undefined) return '';
+                let badgeClass = score >= 4 ? 'high' : score >= 2 ? 'medium' : 'low';
+                return `
+                    <div class="flex items-start w-full">
+                        <div class="score-badge ${badgeClass} min-w-[170px] w-44 flex-shrink-0 mr-3">
+                            <i class="fas ${icon} mr-1"></i>
+                            ${label}: ${score}/5
+                        </div>
+                        <div class="text-gray-600 text-sm flex-1">${rationale}</div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('evaluation-content').innerHTML = evaluationHtml;
+            
+            // Render scenario as a separate section
+            function renderScenarioSection(scenario) {
+                if (!scenario) return '';
+                
+                // Configure marked options
+                marked.setOptions({
+                    breaks: true,  // Convert line breaks to <br>
+                    gfm: true,     // GitHub Flavored Markdown
+                    headerIds: false, // Don't add IDs to headers
+                    mangle: false, // Don't escape HTML
+                    sanitize: false // Allow HTML
+                });
+
+                return `
+                    <div class="mb-8" style="margin-top:0;">
+                        <h2 class="text-lg font-semibold text-gray-900 mb-4">Scenario</h2>
+                        <div class="p-4 rounded-lg border border-purple-200 bg-purple-50">
+                            <div class="font-semibold text-purple-800 mb-1">${marked.parse(scenario.scenario_name || '')}</div>
+                            <div class="text-gray-700 text-sm mb-2">${marked.parse(scenario.scenario_description || '')}</div>
+                            <div class="text-xs text-purple-900 font-semibold mt-2 mb-1">Alignment with Structure</div>
+                            <div class="text-gray-700 text-xs mb-2">${marked.parse(scenario.alignment_with_structure || '')}</div>
+                            <div class="text-xs text-purple-900 font-semibold mt-2 mb-1">Design Problem Connection</div>
+                            <div class="text-gray-700 text-xs">${marked.parse(scenario.design_problem_connection || '')}</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Try to match the active ingredient to the one in active_ingredients.js
+            let scenarioSectionHtml = '';
+            if (typeof activeIngredients !== 'undefined' && Array.isArray(activeIngredients)) {
+                // Try to match by text (ignoring markdown)
+                const aiTextRaw = aiText.replace(/\*\*/g, '').split(':')[0].trim().toLowerCase();
+                const match = activeIngredients.find(ai => {
+                    const textRaw = (ai.active_ingredient_text || '').replace(/\*\*/g, '').split(':')[0].trim().toLowerCase();
+                    return textRaw === aiTextRaw;
+                });
+                if (match && match.scenario) {
+                    scenarioSectionHtml = renderScenarioSection(match.scenario);
+                }
+            }
+            document.getElementById('scenario-section').innerHTML = scenarioSectionHtml;
+            
+            // Populate query count
+            document.getElementById('query-count').textContent = `${idea_sparks.query_results.length} queries explored`;
+            // Reflection tooltip logic
+            const reflection = idea_sparks.gap_reflection && idea_sparks.gap_reflection.trim().length > 0 ? idea_sparks.gap_reflection : null;
+            const reflectionIcon = document.getElementById('reflection-info-icon');
+            if (reflection) {
+                reflectionIcon.style.display = '';
+                // Tooltip events for info icon
+                function showReflectionTooltip(e) {
+                    const tooltip = document.getElementById('global-tooltip');
+                    tooltip.innerHTML = `<div class='font-semibold mb-1' style='font-size:1rem;font-style:normal;'>Reflection on Search Space</div><div>${reflection}</div>`;
+                    tooltip.style.display = 'block';
+                    const rect = reflectionIcon.getBoundingClientRect();
+                    const scrollY = window.scrollY || window.pageYOffset;
+                    const scrollX = window.scrollX || window.pageXOffset;
+                    let left = rect.right + 10 + scrollX;
+                    let top = rect.top + rect.height/2 + scrollY - tooltip.offsetHeight/2;
+                    if (left + tooltip.offsetWidth > window.innerWidth) {
+                        left = rect.left - tooltip.offsetWidth - 10 + scrollX;
+                    }
+                    if (left < 0) left = 10;
+                    if (top < 0) top = 10;
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                }
+                function hideReflectionTooltip() {
+                    const tooltip = document.getElementById('global-tooltip');
+                    tooltip.style.display = 'none';
+                }
+                reflectionIcon.addEventListener('mouseover', showReflectionTooltip);
+                reflectionIcon.addEventListener('focus', showReflectionTooltip);
+                reflectionIcon.addEventListener('mouseout', hideReflectionTooltip);
+                reflectionIcon.addEventListener('blur', hideReflectionTooltip);
+            } else {
+                reflectionIcon.style.display = 'none';
+            }
+            
+            // Populate query list
+            const queryList = document.getElementById('query-list');
+            idea_sparks.query_results.forEach((queryResult, index) => {
+                const queryItem = document.createElement('button');
+                queryItem.className = 'w-full text-left px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors';
+                
+                // Check if query has analyzed links (with both snippets and idea sparks)
+                const hasAnalyzedLinks = queryResult.links.some(link => 
+                    link.extracted_snippets && 
+                    link.idea_sparks && 
+                    link.idea_sparks.length > 0
+                );
+                
+                queryItem.innerHTML = `
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-search text-gray-400"></i>
+                        <span class="text-sm text-gray-700">${queryResult.query}</span>
+                        ${hasAnalyzedLinks ? `
+                            <span class="ml-2 analysis-icon-wrapper">
+                                <i class="fas fa-microscope text-purple-500 analysis-icon" tabindex="0" aria-label="Analyzed"></i>
+                            </span>
+                        ` : ''}
+                    </div>
+                `;
+                queryItem.onclick = () => {
+                    // Remove active state from all queries
+                    document.querySelectorAll('#query-list button').forEach(btn => {
+                        btn.classList.remove('bg-blue-50', 'text-blue-700');
+                    });
+                    // Add active state to clicked query
+                    queryItem.classList.add('bg-blue-50', 'text-blue-700');
+                    // Show corresponding results
+                    showQueryResults(index);
+                };
+                queryList.appendChild(queryItem);
+            });
+            
+            // Populate query results
+            function showQueryResults(index) {
+                const queryResult = idea_sparks.query_results[index];
+                const resultsContainer = document.getElementById('query-results');
+                
+                // Group links by decision
+                const yesLinks = queryResult.links.filter(link => link.decision === 'yes');
+                const maybeLinks = queryResult.links.filter(link => link.decision === 'maybe');
+                const noLinks = queryResult.links.filter(link => link.decision === 'no');
+                
+                resultsContainer.innerHTML = `
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                            <i class="fas fa-search mr-2 text-blue-500"></i> ${queryResult.query}
+                        </h2>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500">
+                            <span><i class="fas fa-check-circle text-green-500"></i> ${yesLinks.length} relevant</span>
+                            <span><i class="fas fa-question-circle text-yellow-500"></i> ${maybeLinks.length} maybe</span>
+                            <span><i class="fas fa-times-circle text-red-500"></i> ${noLinks.length} not relevant</span>
+                        </div>
+                    </div>
+                    
+                    ${renderDecisionSection('Relevant Results', yesLinks, 'yes')}
+                    ${renderDecisionSection('Maybe Relevant', maybeLinks, 'maybe')}
+                    ${renderDecisionSection('Not Relevant', noLinks, 'no', true)}
+                `;
+                
+                // Set up accordion toggles
+                document.querySelectorAll('.accordion-toggle').forEach(toggle => {
+                    toggle.onclick = () => {
+                        const content = toggle.nextElementSibling;
+                        content.classList.toggle('open');
+                        toggle.querySelector('i').classList.toggle('fa-chevron-down');
+                        toggle.querySelector('i').classList.toggle('fa-chevron-right');
+                    };
+                });
+                
+                // Set up decision section toggles
+                document.querySelectorAll('.decision-toggle').forEach(toggle => {
+                    toggle.onclick = () => {
+                        const section = toggle.closest('.decision-section');
+                        section.classList.toggle('collapsed');
+                    };
+                });
+            }
+            
+            function renderDecisionSection(title, links, decision, collapsed = false) {
+                if (links.length === 0) return '';
+                return `
+                    <div class="decision-section mb-8 ${collapsed ? 'collapsed' : ''}">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">${title}</h3>
+                            ${collapsed ? `
+                                <button class="decision-toggle text-sm text-gray-500 hover:text-gray-700">
+                                    <i class="fas fa-chevron-down"></i> Show
+                                </button>
+                            ` : ''}
+                        </div>
+                        <div class="decision-content space-y-6">
+                            ${links.map(link => renderLinkCard(link)).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            function renderLinkCard(link) {
+                function scoreRationale(label, icon, score, rationale) {
+                    if (!score || !rationale) return '';
+                    let badgeClass = score >= 4 ? 'high' : score >= 2 ? 'medium' : 'low';
+                    return `<div class="flex items-start w-full">
+                        <div class="score-badge ${badgeClass} min-w-[170px] w-44 flex-shrink-0 mr-3"><i class="fas ${icon} mr-1"></i>${label}: ${score}/5</div>
+                        <div class="text-gray-600 text-sm flex-1">${rationale}</div>
+                    </div>`;
+                }
+                return `
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2 flex items-center">
+                                <i class="fas fa-file-alt mr-2 text-purple-500"></i>
+                                <a href="${link.url}" target="_blank" class="hover:text-blue-600">${link.title}</a>
+                            </h4>
+                            <p class="text-sm text-gray-500 mb-4">${link.url}</p>
+                            <div class="flex flex-col space-y-3 mb-4">
+                                ${scoreRationale('Interestingness', 'fa-lightbulb', link.interestingness_rating, link.interestingness_rationale)}
+                                ${scoreRationale('Relevance', 'fa-bullseye', link.relevance_rating, link.relevance_rationale)}
+                            </div>
+                            ${link.page_overview ? `
+                            <div class="prose max-w-none text-sm text-gray-600 mb-4">
+                                <h5 class="font-medium text-gray-900 mb-2">Page Overview</h5>
+                                <p>${link.page_overview}</p>
+                            </div>
+                            ` : ''}
+                            ${link.idea_sparks && link.idea_sparks.length > 0 ? `
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <h5 class="font-medium text-gray-900 mb-4 flex items-center"><i class="fas fa-lightbulb text-yellow-400 mr-2"></i>Idea Sparks</h5>
+                                    ${link.summary ? `<div class='text-gray-600 text-sm mb-4'>${link.summary}</div>` : ''}
+                                    <div class="space-y-6">
+                                        ${link.idea_sparks.map((spark, idx) => renderSparkCard(spark, idx)).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            function renderSparkCard(spark, idx = 0) {
+                function scoreRationale(label, icon, score, rationale) {
+                    if (!score || !rationale) return '';
+                    let badgeClass = score >= 4 ? 'high' : score >= 2 ? 'medium' : 'low';
+                    return `<div class="flex items-start w-full">
+                        <div class="score-badge ${badgeClass} min-w-[170px] w-44 flex-shrink-0 mr-3"><i class="fas ${icon} mr-1"></i>${label}: ${score}/5</div>
+                        <div class="text-gray-600 text-sm flex-1">${rationale}</div>
+                    </div>`;
+                }
+                // Color accent for each idea
+                const accentColors = [
+                    'border-blue-400 bg-blue-50',
+                    'border-green-400 bg-green-50',
+                    'border-yellow-400 bg-yellow-50',
+                    'border-pink-400 bg-pink-50'
+                ];
+                const accent = accentColors[idx % accentColors.length];
+                return `
+                    <div class="idea-spark rounded-lg p-6 border-l-8 ${accent} mb-2">
+                        <h6 class="font-semibold text-gray-900 mb-2">Idea ${idx + 1}: ${spark.idea}</h6>
+                        <p class="text-gray-600 text-sm mb-2">${spark.description}</p>
+                        <div class="text-xs text-gray-500 mb-3">
+                            <i class="fas fa-quote-left mr-1"></i>
+                            ${spark.source_excerpt_reference}
+                        </div>
+                        <div class="flex flex-col space-y-3 mb-4">
+                            ${scoreRationale('Feasibility', 'fa-tools', spark.feasibility_score, spark.feasibility_rationale)}
+                            ${scoreRationale('Novelty', 'fa-star', spark.novelty_score, spark.novelty_rationale)}
+                            ${scoreRationale('Impact', 'fa-bolt', spark.potential_impact_score, spark.potential_impact_rationale)}
+                        </div>
+                        <div class="space-y-2 mt-3">
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Key Assumptions
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Next Steps
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Challenges
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Show first query results by default
+            showQueryResults(0);
+            document.querySelector('#query-list button').classList.add('bg-blue-50', 'text-blue-700');
+            
+        } catch (error) {
+            console.error('Error processing data:', error);
+            document.body.innerHTML = `
+                <div class="container mx-auto px-4 py-8">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                        Error processing data. Please check the console for details.
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
+    <!-- Global Tooltip for Analysis Icon -->
+    <div id="global-tooltip" style="display:none;position:absolute;z-index:9999;pointer-events:none;background:#1F2937;color:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.18);padding:16px 18px;font-size:0.95rem;line-height:1.6;white-space:normal;max-width:280px;"></div>
+    <script>
+    // Tooltip logic for analysis icon
+    document.addEventListener('mouseover', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.textContent = 'This query has analyzed results with extracted snippets and idea sparks';
+            tooltip.style.display = 'block';
+            // Position tooltip
+            const rect = icon.getBoundingClientRect();
+            const scrollY = window.scrollY || window.pageYOffset;
+            const scrollX = window.scrollX || window.pageXOffset;
+            // Prefer to the right, but if not enough space, show to the left
+            let left = rect.right + 10 + scrollX;
+            let top = rect.top + rect.height/2 + scrollY - tooltip.offsetHeight/2;
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = rect.left - tooltip.offsetWidth - 10 + scrollX;
+            }
+            if (left < 0) left = 10;
+            if (top < 0) top = 10;
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+    });
+    document.addEventListener('mouseout', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.style.display = 'none';
+        }
+    });
+    // Also support keyboard focus
+    document.addEventListener('focusin', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.textContent = 'This query has analyzed results with extracted snippets and idea sparks';
+            tooltip.style.display = 'block';
+            const rect = icon.getBoundingClientRect();
+            const scrollY = window.scrollY || window.pageYOffset;
+            const scrollX = window.scrollX || window.pageXOffset;
+            let left = rect.right + 10 + scrollX;
+            let top = rect.top + rect.height/2 + scrollY - tooltip.offsetHeight/2;
+            if (left + tooltip.offsetWidth > window.innerWidth) {
+                left = rect.left - tooltip.offsetWidth - 10 + scrollX;
+            }
+            if (left < 0) left = 10;
+            if (top < 0) top = 10;
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+        }
+    });
+    document.addEventListener('focusout', function(e) {
+        const icon = e.target.closest('.analysis-icon');
+        if (icon) {
+            const tooltip = document.getElementById('global-tooltip');
+            tooltip.style.display = 'none';
+        }
+    });
+    </script>
+</body>
+</html> 

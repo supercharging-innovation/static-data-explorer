@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Sparks Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Avenir', 'Inter', 'Nunito', sans-serif;
+            background: #f8fafc;
+            font-size: 15px;
+        }
+        .filters-section {
+            background-color: #f5f3ff;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #E5E7EB;
+            margin-bottom: 2rem;
+        }
+        .filters-section h1 {
+            color: #7c3aed;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+        .filters-section h2 {
+            color: #7c3aed;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .filter-button {
+            transition: all 0.2s ease;
+        }
+        .filter-button.active {
+            background-color: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+        .main-content {
+            padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+            max-width: 900px;
+            margin: 2.5rem auto 2.5rem auto;
+            background: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 24px 0 rgba(124,58,237,0.06);
+        }
+        @media (max-width: 1200px) {
+            .main-content {
+                max-width: 98vw;
+                padding: 1.2rem;
+                margin: 1.2rem auto;
+            }
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                margin-left: 0 !important;
+            }
+            .sidebar-filters {
+                position: static !important;
+                width: 100% !important;
+                height: auto !important;
+                border-right: none !important;
+                border-bottom: 1px solid #E5E7EB !important;
+                box-shadow: none !important;
+                padding: 1.2rem 1.2rem 0.5rem 1.2rem !important;
+            }
+        }
+        .spark-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(124,58,237,0.06);
+            border: 1px solid #ece9f9;
+            padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+            font-size: 1rem;
+            width: 100%;
+        }
+        .spark-card:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 6px 24px 0 rgba(124,58,237,0.10);
+        }
+        .score-parent {
+            background: #f8f7fc;
+            border-radius: 0.75rem;
+            border: 1px solid #ece9f9;
+            padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+            margin-bottom: 1.2rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .score-row {
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+            color: #5b6472;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+        .score-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 1rem 0.25rem 0.8rem;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 700;
+            min-width: 0;
+            white-space: nowrap;
+            vertical-align: middle;
+            margin-right: 0.9rem;
+        }
+        .score-badge.high {
+            background-color: #DEF7EC;
+            color: #03543F;
+        }
+        .score-badge.medium {
+            background-color: #FEF3C7;
+            color: #92400E;
+        }
+        .score-badge.low {
+            background-color: #FEE2E2;
+            color: #991B1B;
+        }
+        .score-rationale {
+            display: inline;
+            background: none;
+            border-radius: 0;
+            padding: 0;
+            margin: 0;
+        }
+        .source-excerpt {
+            font-size: 0.97rem;
+            color: #6B7280;
+            background: #f3f4f6;
+            border-radius: 0.375rem;
+            padding: 0.5rem 0.9rem;
+            margin: 0.7rem 0 1.1rem 0;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .source-excerpt .fa-quote-left {
+            color: #a78bfa;
+            font-size: 1.1em;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            font-size: 1.08rem;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        .accordion-toggle {
+            font-family: inherit;
+        }
+        .spark-card h3 {
+            font-size: 1.13rem;
+            font-weight: 700;
+            color: #22223b;
+            margin-bottom: 0.4rem;
+            display: block;
+            align-items: center;
+        }
+        .spark-card .fa-lightbulb {
+            color: #fbbf24;
+            margin-right: 0.6rem;
+            vertical-align: -0.12em;
+        }
+        .spark-card p {
+            font-size: 0.99rem;
+            color: #4B5563;
+        }
+        .spark-card .fa-tools {
+            color: #92400E;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-bolt {
+            color: #03543F;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-star {
+            color: #2563EB;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-link {
+            color: #7c3aed;
+            margin-right: 0.5rem;
+        }
+        .spark-card .fa-search {
+            color: #7c3aed;
+            margin-right: 0.25rem;
+        }
+        .spark-card .accordion-toggle {
+            margin-top: 0.5rem;
+        }
+        .spark-card ul {
+            margin-bottom: 0.5rem;
+        }
+        /* Source filter dropdown modern styles */
+        #sourceDropdownBtn {
+            border-radius: 0.75rem;
+            background: #f8fafc;
+            border: 1.5px solid #e5e7eb;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #4B5563;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            box-shadow: 0 1px 4px 0 rgba(124,58,237,0.04);
+        }
+        #sourceDropdownBtn:hover, #sourceDropdownBtn:focus {
+            border-color: #a78bfa;
+            box-shadow: 0 2px 8px 0 rgba(124,58,237,0.10);
+            background: #f3f4f6;
+        }
+        #sourceDropdown {
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px 0 rgba(124,58,237,0.10);
+            border: 1.5px solid #e5e7eb;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #4B5563;
+            background: #fff;
+        }
+        #sourceDropdown label {
+            border-radius: 0.5rem;
+            margin-bottom: 0.1rem;
+            font-size: 0.98rem;
+            font-family: inherit;
+        }
+        #sourceDropdown label:hover {
+            background: #f5f3ff;
+        }
+        #sourceDropdown input[type="checkbox"] {
+            accent-color: #7c3aed;
+            width: 1.1em;
+            height: 1.1em;
+            border-radius: 0.3em;
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Filters -->
+    <div class="sidebar-filters" style="position:fixed;left:0;top:0;height:100vh;width:300px;background:#f5f3ff;border-right:1px solid #E5E7EB;padding:2rem 1.5rem;z-index:10;overflow-y:auto;">
+        <h1 class="text-xl font-bold text-gray-900 mb-4">Idea Sparks Browser</h1>
+        <p class="text-gray-600 text-sm mb-6">Explore and filter idea sparks from various sources to find inspiration for your design challenge.</p>
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">Filters</h2>
+        <div class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Feasibility</label>
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="all">All</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="high">High (4-5)</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="medium">Medium (2-3)</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="feasibility" data-value="low">Low (0-1)</button>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Impact</label>
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="all">All</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="high">High (4-5)</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="medium">Medium (2-3)</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="impact" data-value="low">Low (0-1)</button>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Novelty</label>
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="novelty" data-value="all">All</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="novelty" data-value="high">High (4-5)</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="novelty" data-value="medium">Medium (2-3)</button>
+                    <button class="filter-button px-3 py-1 rounded-full border border-gray-300 text-sm" data-filter="novelty" data-value="low">Low (0-1)</button>
+                </div>
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Source</label>
+                <div class="relative">
+                    <button id="sourceDropdownBtn" class="w-full text-left px-3 py-1 rounded border border-gray-300 bg-white text-sm flex items-center justify-between">Select Sources <i class="fas fa-chevron-down ml-2"></i></button>
+                    <div id="sourceDropdown" class="absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded shadow-lg z-20 hidden max-h-60 overflow-y-auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content Area -->
+    <div class="main-content" style="margin-left:320px;">
+        <div id="idea-count" class="text-gray-600 text-base mb-4 font-medium"></div>
+        <div class="grid grid-cols-1 gap-6" id="idea-sparks-grid">
+            <!-- Idea sparks will be dynamically inserted here -->
+        </div>
+    </div>
+    <!-- Load the data -->
+    <script src="../../data/idea_sparks_dryprocess_init.js"></script>
+    <script>
+        let allSparks = [];
+        let currentFilters = {
+            feasibility: 'all',
+            impact: 'all',
+            novelty: 'all',
+            sources: [] // array of selected source titles
+        };
+        let allSources = [];
+        try {
+            idea_sparks.query_results.forEach(queryResult => {
+                queryResult.links.forEach(link => {
+                    if (link.idea_sparks) {
+                        link.idea_sparks.forEach(spark => {
+                            allSparks.push({
+                                ...spark,
+                                source: {
+                                    title: link.title,
+                                    url: link.url,
+                                    query: queryResult.query
+                                }
+                            });
+                            if (!allSources.includes(link.title)) allSources.push(link.title);
+                        });
+                    }
+                });
+            });
+            renderSourceDropdown();
+            renderSparks();
+            document.querySelectorAll('.filter-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.filter;
+                    const value = button.dataset.value;
+                    
+                    // Remove active class from all buttons in this filter group
+                    document.querySelectorAll(`[data-filter="${filter}"]`).forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    currentFilters[filter] = value;
+                    renderSparks();
+                });
+            });
+            
+            // Set initial active states
+            document.querySelectorAll('[data-filter="feasibility"][data-value="all"]').forEach(btn => btn.classList.add('active'));
+            document.querySelectorAll('[data-filter="impact"][data-value="all"]').forEach(btn => btn.classList.add('active'));
+            document.querySelectorAll('[data-filter="novelty"][data-value="all"]').forEach(btn => btn.classList.add('active'));
+        } catch (error) {
+            console.error('Error processing data:', error);
+            document.body.innerHTML = `
+                <div class="container mx-auto px-4 py-8">
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                        Error processing data. Please check the console for details.
+                    </div>
+                </div>
+            `;
+        }
+        function renderSparks() {
+            const grid = document.getElementById('idea-sparks-grid');
+            grid.innerHTML = '';
+            const filteredSparks = allSparks.filter(spark => {
+                if (currentFilters.feasibility !== 'all') {
+                    const score = spark.feasibility_score;
+                    if (currentFilters.feasibility === 'high' && score < 4) return false;
+                    if (currentFilters.feasibility === 'medium' && (score < 2 || score > 3)) return false;
+                    if (currentFilters.feasibility === 'low' && score > 1) return false;
+                }
+                if (currentFilters.impact !== 'all') {
+                    const score = spark.potential_impact_score;
+                    if (currentFilters.impact === 'high' && score < 4) return false;
+                    if (currentFilters.impact === 'medium' && (score < 2 || score > 3)) return false;
+                    if (currentFilters.impact === 'low' && score > 1) return false;
+                }
+                if (currentFilters.novelty !== 'all') {
+                    const score = spark.novelty_score;
+                    if (currentFilters.novelty === 'high' && score < 4) return false;
+                    if (currentFilters.novelty === 'medium' && (score < 2 || score > 3)) return false;
+                    if (currentFilters.novelty === 'low' && score > 1) return false;
+                }
+                if (currentFilters.sources.length > 0 && !currentFilters.sources.includes(spark.source.title)) {
+                    return false;
+                }
+                return true;
+            });
+            filteredSparks.forEach(spark => {
+                const card = document.createElement('div');
+                card.className = 'spark-card';
+                function scoreRationale(label, icon, score, rationale) {
+                    if (score === undefined || rationale === undefined) return '';
+                    let badgeClass = score >= 4 ? 'high' : score >= 2 ? 'medium' : 'low';
+                    return `
+                        <p class="score-row">
+                            <span class="score-badge ${badgeClass}"><i class="fas ${icon} mr-2"></i>${label}: ${score}/5</span>
+                            <span class="score-rationale">${rationale}</span>
+                        </p>
+                    `;
+                }
+                card.innerHTML = `
+                    <h3><i class="fas fa-lightbulb"></i> ${spark.idea}</h3>
+                    <p class="mb-2">${spark.description}</p>
+                    ${spark.source_excerpt_reference ? `<div class="source-excerpt"><i class='fas fa-quote-left'></i>${spark.source_excerpt_reference}</div>` : ''}
+                    <div class="score-parent">
+                        ${scoreRationale('Feasibility', 'fa-tools', spark.feasibility_score, spark.feasibility_rationale)}
+                        ${scoreRationale('Impact', 'fa-bolt', spark.potential_impact_score, spark.potential_impact_rationale)}
+                        ${scoreRationale('Novelty', 'fa-star', spark.novelty_score, spark.novelty_rationale)}
+                    </div>
+                    <div class="space-y-4 w-full">
+                        <div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Key Assumptions
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${Array.isArray(spark.key_assumptions) ? spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('') : ''}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Next Steps
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${Array.isArray(spark.key_next_steps_to_validate_or_develop) ? spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('') : ''}
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Challenges
+                            </button>
+                            <div class="accordion-content pl-6">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${Array.isArray(spark.major_challenges_roadblocks) ? spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('') : ''}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200 w-full">
+                        <h4 class="font-medium text-gray-900 mb-2 flex items-center">
+                            <i class="fas fa-link"></i>Source
+                        </h4>
+                        <a href="${spark.source.url}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                            ${spark.source.title}
+                        </a>
+                        <div style="height: 0.7rem;"></div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <span style="display:inline-flex;align-items:center;">
+                                <svg width="22px" height="22px" viewBox="-3 0 262 262" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" style="display:inline-block;vertical-align:middle;">
+                                    <path d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" fill="#4285F4"/>
+                                    <path d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" fill="#34A853"/>
+                                    <path d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782" fill="#FBBC05"/>
+                                    <path d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251" fill="#EB4335"/>
+                                </svg>
+                            </span>
+                            <input type="text" value="${spark.source.query}" readonly class="bg-gray-100 border border-gray-300 rounded px-2 py-1 text-sm w-auto google-query-input" style="min-width:100px; max-width:100%;" tabindex="-1" title="${spark.source.query}" />
+                            ${spark.source_excerpt_reference ? '<i class="fas fa-chart-line text-purple-500 ml-1" title="This query has been analyzed with extracted snippets and idea sparks"></i>' : ''}
+                            <button type="button" class="ml-1 p-1 rounded hover:bg-gray-200 google-search-btn" title="Search on Google" data-query="${encodeURIComponent(spark.source.query)}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                card.querySelectorAll('.accordion-toggle').forEach(toggle => {
+                    toggle.onclick = () => {
+                        const content = toggle.nextElementSibling;
+                        content.classList.toggle('open');
+                        toggle.querySelector('i').classList.toggle('fa-chevron-down');
+                        toggle.querySelector('i').classList.toggle('fa-chevron-right');
+                    };
+                });
+                grid.appendChild(card);
+            });
+            // Add event listeners for all google search buttons
+            document.querySelectorAll('.google-search-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const query = decodeURIComponent(this.getAttribute('data-query'));
+                    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+                });
+            });
+            // Auto-expand input width to fit content
+            document.querySelectorAll('.google-query-input').forEach(input => {
+                // Create a temporary span to measure text width
+                const span = document.createElement('span');
+                span.style.visibility = 'hidden';
+                span.style.position = 'absolute';
+                span.style.whiteSpace = 'pre';
+                span.style.font = window.getComputedStyle(input).font;
+                span.textContent = input.value;
+                document.body.appendChild(span);
+                input.style.width = (span.offsetWidth + 24) + 'px'; // add some padding
+                document.body.removeChild(span);
+            });
+            // Show number of ideas
+            const ideaCount = document.getElementById('idea-count');
+            ideaCount.textContent = `${filteredSparks.length} idea${filteredSparks.length === 1 ? '' : 's'} found`;
+        }
+        function renderSourceDropdown() {
+            const dropdown = document.getElementById('sourceDropdown');
+            dropdown.innerHTML = allSources.map(title => `
+                <label class="flex items-center px-3 py-2 hover:bg-gray-100 cursor-pointer">
+                    <input type="checkbox" class="source-checkbox mr-2" value="${title.replace(/"/g, '&quot;')}" ${currentFilters.sources.length === 0 || currentFilters.sources.includes(title) ? 'checked' : ''}>
+                    <span class="text-sm">${title}</span>
+                </label>
+            `).join('');
+            // Dropdown show/hide logic
+            const btn = document.getElementById('sourceDropdownBtn');
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('hidden');
+            };
+            document.addEventListener('click', (e) => {
+                if (!dropdown.classList.contains('hidden')) dropdown.classList.add('hidden');
+            });
+            dropdown.onclick = e => e.stopPropagation();
+            // Checkbox logic
+            dropdown.querySelectorAll('.source-checkbox').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const checked = Array.from(dropdown.querySelectorAll('.source-checkbox:checked')).map(cb => cb.value);
+                    currentFilters.sources = checked.length === allSources.length ? [] : checked;
+                    renderSparks();
+                });
+            });
+        }
+    </script>
+</body>
+</html>
