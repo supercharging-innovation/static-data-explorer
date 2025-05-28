@@ -534,7 +534,7 @@
                             </button>
                             <div class="accordion-content pl-6">
                                 <ul class="list-disc list-inside text-sm text-gray-600">
-                                    ${spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('')}
+                                    ${Array.isArray(spark.key_assumptions) ? spark.key_assumptions.map(assumption => `<li>${assumption}</li>`).join('') : ''}
                                 </ul>
                             </div>
                             <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -543,7 +543,7 @@
                             </button>
                             <div class="accordion-content pl-6">
                                 <ul class="list-disc list-inside text-sm text-gray-600">
-                                    ${spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('')}
+                                    ${Array.isArray(spark.key_next_steps_to_validate_or_develop) ? spark.key_next_steps_to_validate_or_develop.map(step => `<li>${step}</li>`).join('') : ''}
                                 </ul>
                             </div>
                             <button class="accordion-toggle w-full text-left text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -552,7 +552,7 @@
                             </button>
                             <div class="accordion-content pl-6">
                                 <ul class="list-disc list-inside text-sm text-gray-600">
-                                    ${spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('')}
+                                    ${Array.isArray(spark.major_challenges_roadblocks) ? spark.major_challenges_roadblocks.map(challenge => `<li>${challenge}</li>`).join('') : ''}
                                 </ul>
                             </div>
                         </div>
