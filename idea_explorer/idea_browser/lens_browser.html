@@ -179,6 +179,12 @@
                 border-bottom: 1px solid #ece9f9;
             }
         }
+        .current-lens-card {
+            box-shadow: 0 4px 16px 0 rgba(124,58,237,0.10);
+        }
+        .current-lens-card .fa-lightbulb {
+            color: #facc15;
+        }
     </style>
 </head>
 <body>
@@ -196,6 +202,9 @@
 
         <!-- Right Sidebar - Ideas -->
         <div class="ideas-sidebar">
+            <div id="idea-sparks-header" class="mb-6">
+                <h2 class="text-3xl font-bold text-gray-900 flex items-center mb-2">Idea Sparks <span class="ml-2 text-yellow-400 text-2xl">💡</span></h2>
+            </div>
             <div id="lens-content">
                 <!-- Lens content will be dynamically inserted here -->
             </div>
@@ -251,34 +260,38 @@
         function renderLensContent(lens) {
             const content = document.getElementById('lens-content');
             content.innerHTML = `
-                <div class="lens-card">
-                    <div class="lens-header">
-                        <h3 class="lens-title">${lens.lens}</h3>
-                        <span class="lens-count">${lens.idea_sparks.length} ideas</span>
+                <div class="current-lens-card bg-white rounded-2xl shadow-lg border border-purple-200 p-6 mb-8 flex flex-col gap-2 relative">
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">${lens.lens}</h3>
+                        <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full border border-purple-200">Current Lens</span>
+                        <span class="ml-auto flex items-center bg-yellow-100 text-yellow-700 font-semibold text-sm px-3 py-1 rounded-full border border-yellow-200">
+                            <i class="fas fa-lightbulb mr-1"></i> ${lens.idea_sparks.length} Idea Spark${lens.idea_sparks.length === 1 ? '' : 's'}
+                        </span>
                     </div>
-                    <div class="space-y-4">
-                        ${lens.idea_sparks.map(spark => {
-                            const relatedLenses = ideaToLenses.get(spark.uuid)
-                                .filter(relatedLens => relatedLens !== lens.lens);
-                            return `
-                                <div class="idea-card">
-                                    <h4 class="idea-title">${spark.idea}</h4>
-                                    <p class="idea-description mb-3">${spark.description}</p>
-                                    ${relatedLenses.length > 0 ? `
-                                        <div class="accordion-header" onclick="toggleAccordion(this)">
-                                            <span>${relatedLenses.length} other lens${relatedLenses.length === 1 ? '' : 'es'}</span>
-                                            <i class="fas fa-chevron-down accordion-toggle"></i>
-                                        </div>
-                                        <div class="accordion-content">
-                                            ${relatedLenses.map(relatedLens => `
-                                                <span class="related-lens">${relatedLens}</span>
-                                            `).join('')}
-                                        </div>
-                                    ` : ''}
-                                </div>
-                            `;
-                        }).join('')}
-                    </div>
+                    <div class="text-gray-600 text-base mb-1">${lens.description || ''}</div>
+                </div>
+                <div class="space-y-5">
+                    ${lens.idea_sparks.map(spark => {
+                        const relatedLenses = ideaToLenses.get(spark.uuid)
+                            .filter(relatedLens => relatedLens !== lens.lens);
+                        return `
+                            <div class="idea-card">
+                                <h4 class="idea-title">${spark.idea}</h4>
+                                <p class="idea-description mb-3">${spark.description}</p>
+                                ${relatedLenses.length > 0 ? `
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>${relatedLenses.length} other lens${relatedLenses.length === 1 ? '' : 'es'}</span>
+                                        <i class="fas fa-chevron-down accordion-toggle"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        ${relatedLenses.map(relatedLens => `
+                                            <span class="related-lens">${relatedLens}</span>
+                                        `).join('')}
+                                    </div>
+                                ` : ''}
+                            </div>
+                        `;
+                    }).join('')}
                 </div>
             `;
         }

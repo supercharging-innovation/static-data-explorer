@@ -8,80 +8,166 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir'), local('Avenir Next'), local('AvenirNext-Regular');
+            font-weight: 400;
+        }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Avenir', 'Inter', sans-serif;
             background: #f8fafc;
             color: #1f2937;
+            height: 100vh;
+            overflow: hidden;
         }
-
-        .hierarchy-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
-
-        .lens-node {
+        .active-ingredient-bar {
+            background: linear-gradient(90deg, #ede9fe 0%, #f3f4f6 100%);
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        .active-ingredient-card {
             background: white;
-            border-radius: 1rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            margin: 0.5rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .lens-header {
-            padding: 1.25rem;
-            cursor: pointer;
+            border-radius: 1.25rem;
+            box-shadow: 0 2px 12px 0 rgba(124,58,237,0.08);
+            margin: 1.5rem 0;
+            width: 96vw;
+            max-width: 1600px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 1.5rem 2.5rem;
+            gap: 2rem;
+        }
+        .active-ingredient-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #7c3aed;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+            min-width: 180px;
+            text-align: left;
+        }
+        .active-ingredient-text {
+            font-size: 1.08rem;
+            color: #1f2937;
+            font-weight: 500;
+            text-align: left;
+        }
+        @media (max-width: 900px) {
+            .active-ingredient-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.2rem 1rem;
+            }
+            .active-ingredient-header {
+                margin-bottom: 0.5rem;
+            }
+        }
+        .content-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .lens-sidebar {
+            width: 50%;
+            min-width: 0;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            overflow-y: auto;
+            padding: 2rem 2rem 2rem 2.5rem;
+        }
+        .ideas-panel {
+            width: 50%;
+            min-width: 0;
+            background: #f8fafc;
+            overflow-y: auto;
+            padding: 2rem 2.5rem 2rem 2rem;
+        }
+        .lens-node {
+            background: white;
             border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .lens-header {
+            padding: 1.25rem 1.25rem 0.75rem 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-radius: 1rem 1rem 0 0;
             transition: background-color 0.2s ease;
         }
-
-        .lens-header:hover {
-            background-color: #f8fafc;
+        .lens-header:hover, .lens-header.selected {
+            background-color: #ede9fe;
         }
-
         .lens-content {
             padding: 0 1.25rem 1.25rem;
             color: #4b5563;
             font-size: 0.95rem;
             line-height: 1.6;
         }
-
         .lens-children {
             margin-left: 2rem;
             border-left: 2px solid #e5e7eb;
             padding-left: 1rem;
             transition: all 0.3s ease;
         }
-
         .toggle-icon {
             transition: transform 0.3s ease;
             color: #6b7280;
+            margin-left: 0.75rem;
+            font-size: 1.1rem;
         }
-
         .toggle-icon.open {
             transform: rotate(180deg);
         }
-
         .lens-name {
             font-weight: 600;
             color: #1f2937;
             font-size: 1.1rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
         }
-
         .lens-description {
             color: #6b7280;
-            font-size: 0.9rem;
+            font-size: 0.93rem;
             margin-top: 0.5rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
         }
-
+        .lens-badges-row {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            margin-top: 0.7rem;
+            margin-bottom: 0.1rem;
+        }
+        .lens-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #f3f0ff;
+            color: #7c3aed;
+            font-size: 0.93rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.18rem 0.85rem 0.18rem 0.7rem;
+            box-shadow: 0 1px 2px rgba(124,58,237,0.04);
+        }
+        .lens-badge i {
+            font-size: 1.05em;
+        }
         .search-container {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
-
         .search-input {
             width: 100%;
             padding: 0.75rem 1rem;
@@ -89,91 +175,214 @@
             border-radius: 0.75rem;
             font-size: 1rem;
             transition: all 0.2s ease;
+            font-family: 'Avenir', 'Inter', sans-serif;
         }
-
         .search-input:focus {
             outline: none;
             border-color: #7c3aed;
             box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
         }
-
-        .stats-bar {
-            background: white;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            gap: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        .idea-card {
+            background: #f7f6fd;
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+            margin-bottom: 2.1rem;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.06);
+            border-left: 6px solid #FFD700;
+            position: relative;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            font-family: 'Avenir', 'Inter', sans-serif;
         }
-
-        .stat-item {
+        .idea-card:hover {
+            box-shadow: 0 4px 16px rgba(124,58,237,0.13);
+            border-left: 6px solid #fbbf24;
+        }
+        .idea-title {
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 1.13rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .idea-description {
+            color: #4b5563;
+            font-size: 0.99rem;
+            line-height: 1.6;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .no-ideas-message {
+            text-align: center;
+            color: #6b7280;
+            padding: 2rem;
+            font-size: 1.1rem;
+        }
+        .idea-sparks-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
         }
-
-        .stat-value {
+        .idea-sparks-header .fa-lightbulb {
+            color: #FFD700;
+            font-size: 1.7rem;
+            margin-left: 0.5rem;
+        }
+        .lens-header-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #7c3aed;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.01em;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .current-lens-info {
+            background: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 6px rgba(124,58,237,0.06);
+            padding: 1.1rem 1.5rem 1.1rem 1.5rem;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #7c3aed;
+        }
+        .current-lens-title {
+            font-size: 1.08rem;
             font-weight: 600;
             color: #7c3aed;
+            margin-bottom: 0.2rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
         }
-
-        .stat-label {
-            color: #6b7280;
-            font-size: 0.9rem;
+        .current-lens-desc {
+            color: #4b5563;
+            font-size: 0.97rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+            margin-bottom: 0.7rem;
+        }
+        .current-lens-ideas-count {
+            color: #7c3aed;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.2rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        @media (max-width: 900px) {
+            .content-container { flex-direction: column; }
+            .lens-sidebar, .ideas-panel { width: 100%; min-width: 0; padding: 1rem; }
+        }
+        .current-lens-card {
+            box-shadow: 0 4px 16px 0 rgba(124,58,237,0.10);
+            position: relative;
+            overflow: visible;
+        }
+        .current-lens-card .fa-lightbulb {
+            color: #facc15;
+        }
+        .current-lens-badge {
+            position: absolute;
+            top: -1.2rem;
+            left: 1.5rem;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.10);
+            pointer-events: none;
+        }
+        .empty-bulb {
+            min-height: 300px;
+            color: #facc15;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <div class="hierarchy-container">
-        <h1 class="text-3xl font-bold mb-2">Lens Hierarchy Browser</h1>
-        <p class="text-gray-600 mb-6">Explore the hierarchical structure of idea lenses</p>
-
-        <div class="search-container">
-            <input type="text" id="search" class="search-input" placeholder="Search lenses..." />
-        </div>
-
-        <div class="stats-bar">
-            <div class="stat-item">
-                <i class="fas fa-layer-group text-purple-600"></i>
-                <span class="stat-value" id="total-lenses">0</span>
-                <span class="stat-label">Total Lenses</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-sitemap text-purple-600"></i>
-                <span class="stat-value" id="max-depth">0</span>
-                <span class="stat-label">Max Depth</span>
+    <div class="main-container">
+        <!-- Active Ingredient Bar -->
+        <div class="active-ingredient-bar">
+            <div class="active-ingredient-card">
+                <div class="active-ingredient-header">Active Ingredient</div>
+                <div class="active-ingredient-text" id="active-ingredient-text">Loading active ingredient...</div>
             </div>
         </div>
-
-        <div id="hierarchy-tree">
-            <!-- Hierarchy will be rendered here -->
+        <div class="content-container">
+            <!-- Left Sidebar - Lenses -->
+            <div class="lens-sidebar">
+                <h1 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Avenir', 'Inter', sans-serif;">Lens Hierarchy</h1>
+                <p class="text-gray-600 text-sm mb-4">Browse and explore the lens taxonomy</p>
+                <div class="search-container">
+                    <input type="text" id="search" class="search-input" placeholder="Search lenses..." />
+                </div>
+                <div id="hierarchy-tree"></div>
+            </div>
+            <!-- Right Panel - Ideas -->
+            <div class="ideas-panel">
+                <div id="idea-sparks-header" class="mb-7 flex items-center justify-between">
+                    <h2 class="text-3xl font-bold text-gray-900" style="font-family: 'Avenir', 'Inter', sans-serif;">Idea Sparks</h2>
+                    <span id="idea-sparks-count-badge" class="bg-yellow-100 text-yellow-700 font-semibold text-base px-4 py-1 rounded-full border border-yellow-200 shadow-sm flex items-center gap-2">
+                        <i class="fas fa-lightbulb text-yellow-400"></i>
+                        <span id="idea-sparks-count-text"></span>
+                    </span>
+                </div>
+                <div id="current-lens-card"></div>
+                <div id="ideas-container"></div>
+            </div>
         </div>
     </div>
-
-    <script src="../../data/idea_lenses_biofilm_hierarchy.js"></script>
+    <script src="../../data/idea_lenses_biofilm_hierarchy_v2.js"></script>
     <script>
+        // --- Helper: Aggregate unique idea counts and sub-lens/depth for all nodes ---
+        function collectAllUniqueIdeaUuids(lens, seen = new Set()) {
+            if (lens.idea_spark_uuids && Array.isArray(lens.idea_spark_uuids)) {
+                lens.idea_spark_uuids.forEach(uuid => seen.add(uuid));
+            }
+            if (lens.children && lens.children.length > 0) {
+                lens.children.forEach(child => collectAllUniqueIdeaUuids(child, seen));
+            }
+            return seen;
+        }
+        function aggregateLensStats(node, depth = 1) {
+            const uniqueIdeas = collectAllUniqueIdeaUuids(node);
+            let subLensCount = 0;
+            let maxDepth = depth;
+            if (node.children && node.children.length > 0) {
+                subLensCount += node.children.length;
+                node.children.forEach(child => {
+                    const childStats = aggregateLensStats(child, depth + 1);
+                    subLensCount += childStats.subLensCount;
+                    if (childStats.maxDepth > maxDepth) maxDepth = childStats.maxDepth;
+                });
+            }
+            node._unique_idea_count = uniqueIdeas.size;
+            node._total_sub_lens_count = subLensCount;
+            node._max_depth = maxDepth - depth + 1;
+            return { uniqueIdeas, subLensCount, maxDepth };
+        }
+        idea_lenses_hierarchy.taxonomy.forEach(root => aggregateLensStats(root));
+        let selectedLensNode = null;
         function createLensNode(lens, depth = 0) {
             const hasChildren = lens.children && lens.children.length > 0;
             const node = document.createElement('div');
             node.className = 'lens-node';
             node.dataset.uuid = lens.uuid;
             node.dataset.depth = depth;
-
+            // Header
             const header = document.createElement('div');
             header.className = 'lens-header';
             header.innerHTML = `
-                <div>
+                <div style="flex:1;min-width:0;">
                     <div class="lens-name">${lens.name}</div>
                     <div class="lens-description">${lens.description}</div>
+                    <div class="lens-badges-row">
+                        <span class="lens-badge"><i class="fas fa-lightbulb"></i> Ideas: ${lens._unique_idea_count}</span>
+                        <span class="lens-badge"><i class="fas fa-layer-group"></i> Sub-lenses: ${lens._total_sub_lens_count}</span>
+                        <span class="lens-badge"><i class="fas fa-sitemap"></i> Depth: ${lens._max_depth}</span>
+                    </div>
                 </div>
-                ${hasChildren ? '<i class="fas fa-chevron-down toggle-icon"></i>' : ''}
+                <div class="flex items-center" style="margin-left:1rem;">
+                    ${hasChildren ? '<i class="fas fa-chevron-down toggle-icon"></i>' : ''}
+                </div>
             `;
-
+            // Content (children)
             const content = document.createElement('div');
             content.className = 'lens-content';
             content.style.display = 'none';
-
             if (hasChildren) {
                 const childrenContainer = document.createElement('div');
                 childrenContainer.className = 'lens-children';
@@ -182,107 +391,123 @@
                 });
                 content.appendChild(childrenContainer);
             }
-
             node.appendChild(header);
             node.appendChild(content);
-
+            // Expand/collapse
             if (hasChildren) {
-                header.addEventListener('click', () => {
-                    const isOpen = content.style.display !== 'none';
-                    content.style.display = isOpen ? 'none' : 'block';
-                    header.querySelector('.toggle-icon').classList.toggle('open');
+                header.addEventListener('click', e => {
+                    if (e.target.classList.contains('toggle-icon')) {
+                        const isOpen = content.style.display !== 'none';
+                        content.style.display = isOpen ? 'none' : 'block';
+                        header.querySelector('.toggle-icon').classList.toggle('open');
+                        return;
+                    }
+                    selectLens(lens, header);
                 });
+            } else {
+                header.addEventListener('click', () => selectLens(lens, header));
             }
-
             return node;
         }
-
+        function selectLens(lens, headerEl) {
+            document.querySelectorAll('.lens-header').forEach(h => h.classList.remove('selected'));
+            headerEl.classList.add('selected');
+            selectedLensNode = lens;
+            renderIdeas(lens);
+        }
+        function renderIdeas(lens) {
+            const container = document.getElementById('ideas-container');
+            const lensCard = document.getElementById('current-lens-card');
+            const sparksBadge = document.getElementById('idea-sparks-count-badge');
+            const sparksCountText = document.getElementById('idea-sparks-count-text');
+            container.innerHTML = '';
+            // Show current lens info in a prominent card
+            if (!lens) {
+                lensCard.innerHTML = '';
+                if (sparksCountText) sparksCountText.textContent = '';
+                container.innerHTML = `<div class="empty-bulb flex flex-col items-center justify-center h-full w-full" style="min-height: 300px;">
+                    <i class="fas fa-lightbulb text-yellow-300" style="font-size: 4rem;"></i>
+                </div>`;
+                return;
+            }
+            const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
+            lensCard.innerHTML = `
+                <div class="current-lens-card bg-white rounded-2xl shadow-lg border border-purple-200 p-6 mb-8 flex flex-col gap-2 relative">
+                    <span class="current-lens-badge absolute -top-4 left-6 bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full border border-purple-200 shadow" style="z-index:2;">Current Lens</span>
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">${lens.name}</h3>
+                    </div>
+                    <div class="text-gray-600 text-base mb-1">${lens.description || ''}</div>
+                </div>
+            `;
+            // Set the idea sparks count badge in the header
+            if (sparksCountText) {
+                sparksCountText.textContent = `${uniqueUuids.length} Idea Spark${uniqueUuids.length === 1 ? '' : 's'}`;
+            }
+            // Collect all unique idea_spark_uuids in this node's subtree
+            if (!uniqueUuids.length) {
+                container.innerHTML = `<div class="no-ideas-message">No ideas associated with this lens</div>`;
+                return;
+            }
+            uniqueUuids.forEach(uuid => {
+                const idea = idea_lenses_hierarchy.idea_spark_lookup[uuid];
+                if (!idea) return;
+                const ideaCard = document.createElement('div');
+                ideaCard.className = 'idea-card';
+                ideaCard.innerHTML = `
+                    <div class="idea-title">${idea.idea}</div>
+                    <div class="idea-description">${idea.description}</div>
+                `;
+                container.appendChild(ideaCard);
+            });
+        }
         function renderHierarchy() {
             const container = document.getElementById('hierarchy-tree');
             container.innerHTML = '';
-            
-            idea_lenses_hierarchy.forEach(lens => {
+            idea_lenses_hierarchy.taxonomy.forEach(lens => {
                 container.appendChild(createLensNode(lens));
             });
-
-            updateStats();
         }
-
-        function updateStats() {
-            const totalLenses = document.querySelectorAll('.lens-node').length;
-            const maxDepth = Math.max(...Array.from(document.querySelectorAll('.lens-node'))
-                .map(node => parseInt(node.dataset.depth)));
-
-            document.getElementById('total-lenses').textContent = totalLenses;
-            document.getElementById('max-depth').textContent = maxDepth;
-        }
-
         function filterLenses(query) {
             const searchTerm = query.toLowerCase();
             const nodes = document.querySelectorAll('.lens-node');
-            
-            // First, hide all nodes
             nodes.forEach(node => {
                 node.style.display = 'none';
                 const content = node.querySelector('.lens-content');
-                if (content) {
-                    content.style.display = 'none';
-                }
+                if (content) content.style.display = 'none';
                 const toggleIcon = node.querySelector('.toggle-icon');
-                if (toggleIcon) {
-                    toggleIcon.classList.remove('open');
-                }
+                if (toggleIcon) toggleIcon.classList.remove('open');
             });
-
-            // Then, show matching nodes and their parents
             nodes.forEach(node => {
                 const name = node.querySelector('.lens-name').textContent.toLowerCase();
                 const description = node.querySelector('.lens-description').textContent.toLowerCase();
                 const matches = name.includes(searchTerm) || description.includes(searchTerm);
-
                 if (matches) {
-                    // Show this node
                     node.style.display = 'block';
-                    
-                    // Show all parent nodes and their content
                     let parent = node.parentElement;
                     while (parent && parent.classList.contains('lens-children')) {
                         const parentNode = parent.parentElement;
                         parentNode.style.display = 'block';
-                        
                         const parentContent = parentNode.querySelector('.lens-content');
-                        if (parentContent) {
-                            parentContent.style.display = 'block';
-                        }
-                        
+                        if (parentContent) parentContent.style.display = 'block';
                         const parentToggle = parentNode.querySelector('.toggle-icon');
-                        if (parentToggle) {
-                            parentToggle.classList.add('open');
-                        }
-                        
+                        if (parentToggle) parentToggle.classList.add('open');
                         parent = parent.parentElement;
                     }
                 }
             });
-
-            // If search is empty, show all nodes
             if (!searchTerm) {
-                nodes.forEach(node => {
-                    node.style.display = 'block';
-                });
+                nodes.forEach(node => { node.style.display = 'block'; });
             }
         }
-
-        // Initialize
+        document.getElementById('active-ingredient-text').textContent = idea_lenses_hierarchy.active_ingredient.active_ingredient_text;
         renderHierarchy();
-
-        // Search functionality with debounce
         let searchTimeout;
         document.getElementById('search').addEventListener('input', (e) => {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
                 filterLenses(e.target.value);
-            }, 300); // Debounce for 300ms
+            }, 300);
         });
     </script>
 </body>
