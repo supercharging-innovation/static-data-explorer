@@ -27,8 +27,28 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
@@ -85,7 +105,10 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -105,6 +128,16 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
@@ -152,7 +185,10 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -163,6 +199,11 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "e7b829c0-381d-41e7-ba10-0603032f5c04",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "429d6018-af9c-44a9-b829-5229468fc234",
                 "a08cf1a6-4436-4921-b12b-31be7acd3d64",
                 "9ced186f-efc8-4af2-a430-9f78249c2169",
@@ -188,6 +229,14 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
@@ -227,7 +276,9 @@ var idea_lenses_hierarchy = {
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -236,9 +287,11 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize adaptive microbial consortia capable of dynamically adjusting their activity, composition, switching metabolic/enzymatic programs, or evolving their functional capabilities on the textile over time in response to new environmental inputs or encountered contaminants.",
               "children": [],
               "idea_spark_uuids": [
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "9f5353a7-deb5-4543-9676-f00d966f7360",
                 "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
-                "7fd4339e-23cf-4a39-9e35-c9598636d5df"
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -255,6 +308,10 @@ var idea_lenses_hierarchy = {
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "33ef9218-4603-41ce-9b2b-34acaa6835b2",
@@ -269,7 +326,8 @@ var idea_lenses_hierarchy = {
                 "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
                 "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
                 "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
-                "48303506-045c-49ee-a37c-1b1ff587018c"
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -278,7 +336,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize prebiotic agents to specifically support, nourish, or shift the textile microbiome towards a beneficial or health-promoting state.",
               "children": [],
               "idea_spark_uuids": [
-                "43167db2-2865-41a0-901d-759e3be23ee8"
+                "43167db2-2865-41a0-901d-759e3be23ee8",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06"
               ]
             },
             {
@@ -297,6 +356,8 @@ var idea_lenses_hierarchy = {
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "33ef9218-4603-41ce-9b2b-34acaa6835b2",
                 "e7a75522-05f1-401d-85f7-cd16e2073e39",
                 "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
@@ -306,7 +367,8 @@ var idea_lenses_hierarchy = {
                 "7fc18d09-eb62-4640-b2b6-005782ff94fa",
                 "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
                 "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
-                "177839a0-f385-4fed-b2bd-295d5fca38d7"
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -316,6 +378,11 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "579de866-fa5d-4130-b472-53c5f30b9227",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
                 "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
                 "f41467cf-c70f-4be2-9f10-f2021da7c985",
@@ -364,8 +431,31 @@ var idea_lenses_hierarchy = {
                 "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -417,6 +507,10 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
                 "33ef9218-4603-41ce-9b2b-34acaa6835b2",
                 "be96f4dd-d185-4851-bcde-e9eef865cc4e",
                 "64aa8f47-3e4f-442f-bb28-9c6154e5829a",
@@ -463,6 +557,22 @@ var idea_lenses_hierarchy = {
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -496,9 +606,22 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize fungi (e.g., living cultures, mycelium as structural/functional material, spores, derived enzymes) for purification, cleaning, textile coatings, or as components in cleaning products/implements.",
               "children": [],
               "idea_spark_uuids": [
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
-                "83f8d33e-3492-4faf-8b8c-848997a969cd"
+                "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188"
               ]
             },
             {
@@ -547,6 +670,33 @@ var idea_lenses_hierarchy = {
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -623,7 +773,9 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -632,7 +784,9 @@ var idea_lenses_hierarchy = {
               "description": "Solutions where the functional output or intensity of a biological cleaning agent (e.g., enzyme production, microbial activity) can be actively 'tuned' or adjusted by the user or an automated system at the time of application.",
               "children": [],
               "idea_spark_uuids": [
-                "7fd4339e-23cf-4a39-9e35-c9598636d5df"
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -654,6 +808,25 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
@@ -708,7 +881,10 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -729,6 +905,12 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
                 "772618db-b2d4-4a2c-85a9-c444229602b2",
                 "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
@@ -757,6 +939,9 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
@@ -780,7 +965,10 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
                 "772618db-b2d4-4a2c-85a9-c444229602b2",
                 "f41467cf-c70f-4be2-9f10-f2021da7c985",
                 "429d6018-af9c-44a9-b829-5229468fc234",
@@ -800,6 +988,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
                 "8f6c96bc-b641-4258-919d-5fe0a57434bd",
                 "772618db-b2d4-4a2c-85a9-c444229602b2",
@@ -857,6 +1047,9 @@ var idea_lenses_hierarchy = {
                 "e7b829c0-381d-41e7-ba10-0603032f5c04",
                 "579de866-fa5d-4130-b472-53c5f30b9227",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
@@ -907,7 +1100,20 @@ var idea_lenses_hierarchy = {
                 "46902a24-f11e-420f-86d3-ccc31201f827",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -971,7 +1177,10 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -982,6 +1191,8 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "82b00701-2084-468d-9b15-047240656fb9",
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
                 "36d2f881-b209-46b1-9632-6d65743c4f34",
@@ -989,7 +1200,9 @@ var idea_lenses_hierarchy = {
                 "48d83e2a-c65a-466c-a05b-d2ece365bc72",
                 "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
                 "9f5353a7-deb5-4543-9676-f00d966f7360",
-                "f75b59cf-5bea-422c-9c4f-75fbd75333ed"
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -1098,7 +1311,26 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
@@ -1175,7 +1407,8 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -1258,7 +1491,30 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "61b20690-9a91-462a-8c11-fbe62ca0c6f2",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
@@ -1359,7 +1615,9 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -1424,6 +1682,13 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -1508,7 +1773,13 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "4e92387f-5536-48b0-b873-87699faeae87",
@@ -1548,7 +1819,8 @@ var idea_lenses_hierarchy = {
                 "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
                 "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
                 "177839a0-f385-4fed-b2bd-295d5fca38d7",
-                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -1623,7 +1895,22 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -1692,7 +1979,8 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -1722,6 +2010,21 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -1788,7 +2091,9 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -1799,6 +2104,11 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "82d7cdc2-810b-4df3-a82b-bd809b36b22b",
                 "0f3723bd-eca6-4770-92ef-a59c8af5afd6",
                 "36d2f881-b209-46b1-9632-6d65743c4f34",
@@ -1819,6 +2129,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
@@ -1911,6 +2223,15 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
@@ -1988,6 +2309,8 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                 "3f0aa6eb-34b2-4b2d-b934-e7874e7d45e6",
@@ -2048,6 +2371,7 @@ var idea_lenses_hierarchy = {
                 "cca2576e-b3e5-4bce-9841-cb4317c3f880",
                 "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                 "3f0aa6eb-34b2-4b2d-b934-e7874e7d45e6",
@@ -2064,7 +2388,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
-                "f56e92c6-cae3-45d6-807d-8e9853d11699"
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af"
               ]
             },
             {
@@ -2133,6 +2458,16 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "4e92387f-5536-48b0-b873-87699faeae87",
@@ -2230,6 +2565,12 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
                 "3f0aa6eb-34b2-4b2d-b934-e7874e7d45e6",
@@ -2259,6 +2600,7 @@ var idea_lenses_hierarchy = {
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "2e267f0c-f660-4604-b135-b3e106d6ab01",
                 "6257318a-9081-4e67-8fdd-435706ab6479",
@@ -2319,6 +2661,7 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                 "a2e6282a-d211-416d-981b-1f8a69637963",
@@ -2360,6 +2703,8 @@ var idea_lenses_hierarchy = {
                     "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
                     "ebc1a408-c56a-4825-94ff-0451f7970845",
                     "03720dbc-49e2-43fc-b059-e4077750e593",
+                    "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                    "69f44031-8fff-417d-a904-ad56155e0e0a",
                     "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                     "a2e6282a-d211-416d-981b-1f8a69637963",
                     "7e58cf55-e697-49e1-a2e9-c13d3ae701e4",
@@ -2444,6 +2789,15 @@ var idea_lenses_hierarchy = {
                     "ebc1a408-c56a-4825-94ff-0451f7970845",
                     "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                     "03720dbc-49e2-43fc-b059-e4077750e593",
+                    "140b329c-8169-42d9-9499-60e8b732ee22",
+                    "8b98419f-1e77-457a-950a-42909dd45df6",
+                    "30c9d0ce-9617-47c5-958b-b37502632635",
+                    "de3698cb-6013-4eeb-8753-768b00d4109f",
+                    "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                    "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                    "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                    "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                    "24c0bce9-a266-4106-9719-c59facf1d188",
                     "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                     "3f0aa6eb-34b2-4b2d-b934-e7874e7d45e6",
                     "a2e6282a-d211-416d-981b-1f8a69637963",
@@ -2531,6 +2885,13 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "4e92387f-5536-48b0-b873-87699faeae87",
@@ -2607,6 +2968,7 @@ var idea_lenses_hierarchy = {
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
                 "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
                 "d31b519b-daa3-4c64-a824-72b0adf12d28",
                 "7e58cf55-e697-49e1-a2e9-c13d3ae701e4",
                 "4e3d99ad-6c51-4ed5-a7dc-b178ad07026d",
@@ -2642,6 +3004,7 @@ var idea_lenses_hierarchy = {
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "6257318a-9081-4e67-8fdd-435706ab6479",
                 "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
@@ -2667,7 +3030,14 @@ var idea_lenses_hierarchy = {
                 "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "ddcb4f13-3889-439c-af65-29a456833b98",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "429d6018-af9c-44a9-b829-5229468fc234",
                 "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
                 "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
@@ -2697,7 +3067,14 @@ var idea_lenses_hierarchy = {
                 "435414a6-8c62-478a-aec8-9b376205b478",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
@@ -2734,7 +3111,8 @@ var idea_lenses_hierarchy = {
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -2820,7 +3198,24 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
@@ -2894,7 +3289,8 @@ var idea_lenses_hierarchy = {
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -2961,7 +3357,22 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
@@ -2992,7 +3403,8 @@ var idea_lenses_hierarchy = {
                 "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
                 "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
-                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -3030,7 +3442,22 @@ var idea_lenses_hierarchy = {
                 "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
@@ -3080,6 +3507,7 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize nano/microbubbles in a liquid medium to enhance cleaning, treatment processes, or agent delivery for textiles.",
               "children": [],
               "idea_spark_uuids": [
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
                 "be96f4dd-d185-4851-bcde-e9eef865cc4e"
               ]
             },
@@ -3099,6 +3527,13 @@ var idea_lenses_hierarchy = {
                 "50a1765f-3298-4f4f-9403-219ebc9c8d61",
                 "46902a24-f11e-420f-86d3-ccc31201f827",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a",
                 "d31b519b-daa3-4c64-a824-72b0adf12d28",
                 "153b1abb-dcd0-4b5a-bec5-c32356cc173b",
@@ -3145,6 +3580,19 @@ var idea_lenses_hierarchy = {
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "435414a6-8c62-478a-aec8-9b376205b478",
                 "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
@@ -3198,6 +3646,8 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
                 "d31b519b-daa3-4c64-a824-72b0adf12d28",
                 "b59cd096-91aa-4241-8275-785b838590cc",
@@ -3224,6 +3674,8 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
                 "d31b519b-daa3-4c64-a824-72b0adf12d28",
                 "b59cd096-91aa-4241-8275-785b838590cc",
@@ -3237,6 +3689,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a"
               ]
             },
@@ -3252,6 +3706,15 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a",
                 "153b1abb-dcd0-4b5a-bec5-c32356cc173b",
                 "92447bee-0714-4f71-8fdd-10700120ae5c",
@@ -3302,6 +3765,25 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
@@ -3349,7 +3831,18 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "c72d4199-79f8-4f33-9f1d-3598619830fc",
                 "7ca93efe-3902-4e91-a555-54622dd530e0",
@@ -3385,6 +3878,11 @@ var idea_lenses_hierarchy = {
                 "124ae77d-5740-4551-8473-329161027d5b",
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "0f3723bd-eca6-4770-92ef-a59c8af5afd6",
                 "6257318a-9081-4e67-8fdd-435706ab6479",
@@ -3404,6 +3902,8 @@ var idea_lenses_hierarchy = {
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "f41467cf-c70f-4be2-9f10-f2021da7c985",
                 "fff75219-e008-4b41-acc2-a3ab6d9e2739"
@@ -3423,6 +3923,11 @@ var idea_lenses_hierarchy = {
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a",
                 "d31b519b-daa3-4c64-a824-72b0adf12d28",
                 "36d2f881-b209-46b1-9632-6d65743c4f34",
@@ -3444,7 +3949,15 @@ var idea_lenses_hierarchy = {
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
                 "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "82d7cdc2-810b-4df3-a82b-bd809b36b22b",
@@ -3471,7 +3984,18 @@ var idea_lenses_hierarchy = {
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
                 "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
@@ -3557,8 +4081,20 @@ var idea_lenses_hierarchy = {
                 "46902a24-f11e-420f-86d3-ccc31201f827",
                 "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
@@ -3611,7 +4147,8 @@ var idea_lenses_hierarchy = {
                 "177839a0-f385-4fed-b2bd-295d5fca38d7",
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
-                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -3657,8 +4194,33 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -3708,7 +4270,8 @@ var idea_lenses_hierarchy = {
                 "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
                 "177839a0-f385-4fed-b2bd-295d5fca38d7",
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
-                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -3746,6 +4309,15 @@ var idea_lenses_hierarchy = {
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
                 "33ef9218-4603-41ce-9b2b-34acaa6835b2",
@@ -3765,7 +4337,8 @@ var idea_lenses_hierarchy = {
                 "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
                 "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
                 "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
-                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -3781,6 +4354,10 @@ var idea_lenses_hierarchy = {
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
@@ -3805,7 +4382,8 @@ var idea_lenses_hierarchy = {
                 "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
                 "177839a0-f385-4fed-b2bd-295d5fca38d7",
                 "48303506-045c-49ee-a37c-1b1ff587018c",
-                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             }
           ]
@@ -3852,7 +4430,30 @@ var idea_lenses_hierarchy = {
                 "a17d37f6-4dc5-4648-b574-296605a3b815",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
@@ -3895,7 +4496,9 @@ var idea_lenses_hierarchy = {
                 "48303506-045c-49ee-a37c-1b1ff587018c",
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             }
           ]
@@ -3944,7 +4547,18 @@ var idea_lenses_hierarchy = {
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
@@ -3980,7 +4594,8 @@ var idea_lenses_hierarchy = {
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -3993,6 +4608,14 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
                 "eb67360c-c586-407b-88a7-c249460805dd",
@@ -4011,7 +4634,8 @@ var idea_lenses_hierarchy = {
                 "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
-                "f3148425-fe91-4568-b6ee-3dab8e42c753"
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -4039,6 +4663,15 @@ var idea_lenses_hierarchy = {
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
                 "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
                 "1242a672-11d6-4241-9c8b-29e5a0c5f614",
                 "be96f4dd-d185-4851-bcde-e9eef865cc4e",
                 "64aa8f47-3e4f-442f-bb28-9c6154e5829a",
@@ -4094,7 +4727,39 @@ var idea_lenses_hierarchy = {
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
@@ -4164,7 +4829,9 @@ var idea_lenses_hierarchy = {
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -4183,7 +4850,23 @@ var idea_lenses_hierarchy = {
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -4215,7 +4898,9 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize foam as the primary cleaning medium",
               "description": "Solutions that utilize foam as the primary active medium or carrier for delivering cleaning agents or facilitating cleaning action on textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "de3698cb-6013-4eeb-8753-768b00d4109f"
+              ]
             },
             {
               "uuid": "d9716242-aad6-47b0-ac9e-4e81d99aad2a",
@@ -4225,6 +4910,8 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "cd6cf74d-de99-402b-b7ae-08845b699387",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
                 "92447bee-0714-4f71-8fdd-10700120ae5c",
                 "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
                 "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
@@ -4232,7 +4919,8 @@ var idea_lenses_hierarchy = {
                 "569ba423-dbab-473a-b684-50fe0a562976",
                 "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
                 "7fd4339e-23cf-4a39-9e35-c9598636d5df",
-                "1de383ce-7967-4b9f-9d45-713749649aab"
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "104ee243-3065-4d21-ab23-84d729f07a44"
               ]
             },
             {
@@ -4241,6 +4929,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that employ reusable particulate or bead-like cleaning elements, which may have capabilities for regeneration or recharging of their activity.",
               "children": [],
               "idea_spark_uuids": [
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
                 "632db2c0-ec41-4577-9b8b-57edd43e092e",
                 "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
                 "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
@@ -4274,6 +4964,24 @@ var idea_lenses_hierarchy = {
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -4325,7 +5033,8 @@ var idea_lenses_hierarchy = {
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -4345,6 +5054,20 @@ var idea_lenses_hierarchy = {
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "eb67360c-c586-407b-88a7-c249460805dd",
                 "772618db-b2d4-4a2c-85a9-c444229602b2",
                 "f41467cf-c70f-4be2-9f10-f2021da7c985",
@@ -4396,7 +5119,25 @@ var idea_lenses_hierarchy = {
                 "50a1765f-3298-4f4f-9403-219ebc9c8d61",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -4459,7 +5200,8 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -4472,6 +5214,17 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
                 "eb67360c-c586-407b-88a7-c249460805dd",
@@ -4494,7 +5247,8 @@ var idea_lenses_hierarchy = {
                 "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
-                "f3148425-fe91-4568-b6ee-3dab8e42c753"
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -4523,6 +5277,21 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
@@ -4571,7 +5340,9 @@ var idea_lenses_hierarchy = {
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -4585,6 +5356,15 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
@@ -4617,7 +5397,17 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
@@ -4637,7 +5427,8 @@ var idea_lenses_hierarchy = {
                 "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
-                "f3148425-fe91-4568-b6ee-3dab8e42c753"
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -4665,6 +5456,9 @@ var idea_lenses_hierarchy = {
                 "ddcb4f13-3889-439c-af65-29a456833b98",
                 "435414a6-8c62-478a-aec8-9b376205b478",
                 "46902a24-f11e-420f-86d3-ccc31201f827",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "b59cd096-91aa-4241-8275-785b838590cc",
                 "aecc3487-b761-46d9-ac07-2b4cf1357584",
@@ -4679,6 +5473,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "772618db-b2d4-4a2c-85a9-c444229602b2",
                 "f41467cf-c70f-4be2-9f10-f2021da7c985",
@@ -4794,9 +5590,64 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -4929,7 +5780,10 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -5022,8 +5876,57 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -5139,7 +6042,10 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -5226,7 +6132,47 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -5334,7 +6280,9 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -5346,6 +6294,9 @@ var idea_lenses_hierarchy = {
                 "579de866-fa5d-4130-b472-53c5f30b9227",
                 "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
                 "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
                 "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
                 "876da5a4-b68e-45c4-9d62-aca22f991137",
@@ -5368,7 +6319,11 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize dedicated biofilm reactors or Membrane Bioreactors (MBRs) for treating or purifying water that will then be used for cleaning or laundry purposes, aiming to improve water quality or enable water recycling, potentially in compact units. This includes biological agents immobilized in devices for fluid purification.",
               "children": [],
               "idea_spark_uuids": [
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "265ec284-da4f-400e-8585-70861d560365",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "632db2c0-ec41-4577-9b8b-57edd43e092e",
                 "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
                 "9910bd22-729f-458e-9410-1e448f2487dd",
@@ -5382,7 +6337,11 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that enable the recycling and reuse of wash water (including greywater for initial use) for subsequent laundry cycles, often involving a purification system (e.g., membrane separation, self-contained loops, hybrid bio-physical) integrated with or auxiliary to a cleaning appliance.",
               "children": [],
               "idea_spark_uuids": [
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "265ec284-da4f-400e-8585-70861d560365",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
                 "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
                 "8db70e3c-0907-4731-88c8-4e0396669ebc",
                 "9910bd22-729f-458e-9410-1e448f2487dd",
@@ -5408,6 +6367,9 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that optimize the selection or formulation of cleaning agents (e.g., specific enzymes, biodegradable surfactants) specifically to improve the efficiency, feasibility, or environmental impact of downstream water recycling or purification processes.",
               "children": [],
               "idea_spark_uuids": [
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
                 "9910bd22-729f-458e-9410-1e448f2487dd",
                 "c6fe245d-e60b-4cd0-b0eb-da527d227d92"
@@ -5438,7 +6400,31 @@ var idea_lenses_hierarchy = {
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
                 "26c38a07-c98a-4c79-8e02-96e23eb2f95e",
@@ -5482,7 +6468,8 @@ var idea_lenses_hierarchy = {
                 "1de383ce-7967-4b9f-9d45-713749649aab",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
-                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -5495,6 +6482,14 @@ var idea_lenses_hierarchy = {
                 "140b6d60-686a-44c8-9bff-905c9582ddbf",
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "1242a672-11d6-4241-9c8b-29e5a0c5f614",
                 "3f0aa6eb-34b2-4b2d-b934-e7874e7d45e6",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a",
@@ -5512,6 +6507,7 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
                 "0b2657bf-6f23-4022-82ef-f7429e58edff",
                 "48d83e2a-c65a-466c-a05b-d2ece365bc72",
@@ -5524,7 +6520,14 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that feature devices with internal, living biological systems (e.g., biofilms, microbial consortia, mycelial systems) that continuously regenerate or maintain the efficacy of their operational medium, such as water, air, or cleaning solutions. This may include systems that improve performance through maturation/adaptation over time.",
               "children": [],
               "idea_spark_uuids": [
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "632db2c0-ec41-4577-9b8b-57edd43e092e",
                 "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
                 "48d83e2a-c65a-466c-a05b-d2ece365bc72",
@@ -5549,6 +6552,24 @@ var idea_lenses_hierarchy = {
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
@@ -5577,6 +6598,14 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that involve a system or device for the on-demand local production or activation of biological cleaning agents (e.g., enzymes from cell-free systems or microbes from cartridges) for immediate application to textiles.",
               "children": [],
               "idea_spark_uuids": [
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "64aa8f47-3e4f-442f-bb28-9c6154e5829a",
@@ -5595,7 +6624,8 @@ var idea_lenses_hierarchy = {
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -5679,8 +6709,44 @@ var idea_lenses_hierarchy = {
                 "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -5780,7 +6846,9 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -5792,6 +6860,16 @@ var idea_lenses_hierarchy = {
                 "3f6d285c-9578-4772-bd59-4ecc9964454f",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "26c38a07-c98a-4c79-8e02-96e23eb2f95e",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
@@ -5825,7 +6903,9 @@ var idea_lenses_hierarchy = {
                 "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
-                "f3148425-fe91-4568-b6ee-3dab8e42c753"
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -5871,6 +6951,14 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "4e92387f-5536-48b0-b873-87699faeae87",
@@ -5912,7 +7000,22 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "1242a672-11d6-4241-9c8b-29e5a0c5f614",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a",
@@ -5939,7 +7042,16 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "57b7c749-f945-4258-bc62-71cdaaf6c531",
                 "632db2c0-ec41-4577-9b8b-57edd43e092e",
@@ -5957,7 +7069,8 @@ var idea_lenses_hierarchy = {
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
-                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -5966,6 +7079,7 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that employ a closed-loop system specifically for recycling and reusing a gaseous or vapor-phase cleaning agent, potentially utilizing vacuum technology for recovery.",
               "children": [],
               "idea_spark_uuids": [
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
                 "153b1abb-dcd0-4b5a-bec5-c32356cc173b",
                 "c6fe245d-e60b-4cd0-b0eb-da527d227d92"
               ]
@@ -5977,6 +7091,10 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
                 "153b1abb-dcd0-4b5a-bec5-c32356cc173b",
                 "c538de4b-3d8e-458e-890e-a028231b458a",
                 "627fa246-349e-4f76-8fec-9776fb055a1c"
@@ -5988,6 +7106,9 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize controlled, cyclical pressure variations (e.g., vacuum pulsing) to facilitate both deep impregnation of textiles with cleaning agents and their subsequent removal or recovery.",
               "children": [],
               "idea_spark_uuids": [
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
                 "153b1abb-dcd0-4b5a-bec5-c32356cc173b"
               ]
             },
@@ -5998,6 +7119,17 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "c538de4b-3d8e-458e-890e-a028231b458a"
               ]
             },
@@ -6007,6 +7139,12 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that employ a sequential application of different fluid phases (e.g., liquid solvent then gas jet, or other combinations) or microbial treatment phases (anaerobic/aerobic) for textile cleaning or treatment.",
               "children": [],
               "idea_spark_uuids": [
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
                 "1242a672-11d6-4241-9c8b-29e5a0c5f614",
                 "48d83e2a-c65a-466c-a05b-d2ece365bc72",
                 "9910bd22-729f-458e-9410-1e448f2487dd",
@@ -6053,7 +7191,8 @@ var idea_lenses_hierarchy = {
                 "c485d817-50d8-4977-a27d-22e9ecd0df7b",
                 "8ae80d72-cf14-42be-b190-a6d98e854eb1",
                 "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
-                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4"
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -6104,6 +7243,15 @@ var idea_lenses_hierarchy = {
                 "cca2576e-b3e5-4bce-9841-cb4317c3f880",
                 "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -6147,7 +7295,8 @@ var idea_lenses_hierarchy = {
                 "177839a0-f385-4fed-b2bd-295d5fca38d7",
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -6170,6 +7319,10 @@ var idea_lenses_hierarchy = {
                 "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "87992b37-2836-4ad9-a83c-fc935fae06b1",
                 "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "61b20690-9a91-462a-8c11-fbe62ca0c6f2",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "26c38a07-c98a-4c79-8e02-96e23eb2f95e",
@@ -6250,6 +7403,35 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -6332,7 +7514,10 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             }
           ]
@@ -6379,6 +7564,22 @@ var idea_lenses_hierarchy = {
                 "a17d37f6-4dc5-4648-b574-296605a3b815",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
@@ -6430,7 +7631,8 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -6452,6 +7654,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
                 "6257318a-9081-4e67-8fdd-435706ab6479",
                 "7fc18d09-eb62-4640-b2b6-005782ff94fa",
                 "6e579fd9-6ca9-4452-9ff8-bb5693e70442"
@@ -6470,6 +7674,14 @@ var idea_lenses_hierarchy = {
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
@@ -6494,6 +7706,9 @@ var idea_lenses_hierarchy = {
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
                 "53dc38a2-edc2-42cd-b761-d0259aa441cb",
                 "56c28a08-25b8-4e6a-b205-aa9201a07dcf",
                 "876da5a4-b68e-45c4-9d62-aca22f991137",
@@ -6549,6 +7764,16 @@ var idea_lenses_hierarchy = {
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -6588,7 +7813,8 @@ var idea_lenses_hierarchy = {
                 "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
                 "1763548c-fbe3-4ae9-8457-218a93635925",
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -6618,6 +7844,17 @@ var idea_lenses_hierarchy = {
                 "a17d37f6-4dc5-4648-b574-296605a3b815",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
@@ -6646,7 +7883,8 @@ var idea_lenses_hierarchy = {
                 "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
                 "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
                 "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -6677,7 +7915,16 @@ var idea_lenses_hierarchy = {
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "26c38a07-c98a-4c79-8e02-96e23eb2f95e",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
@@ -6716,7 +7963,10 @@ var idea_lenses_hierarchy = {
                 "48303506-045c-49ee-a37c-1b1ff587018c",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -6743,7 +7993,15 @@ var idea_lenses_hierarchy = {
                 "50a1765f-3298-4f4f-9403-219ebc9c8d61",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
                 "61b20690-9a91-462a-8c11-fbe62ca0c6f2",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -6793,7 +8051,9 @@ var idea_lenses_hierarchy = {
                 "48303506-045c-49ee-a37c-1b1ff587018c",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -6808,6 +8068,8 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "3f959d56-f854-4a5e-b976-d4bbac73c69f",
                 "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
                 "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
@@ -6830,7 +8092,10 @@ var idea_lenses_hierarchy = {
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
                 "48303506-045c-49ee-a37c-1b1ff587018c",
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             }
           ]
@@ -6847,6 +8112,7 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
                 "f41467cf-c70f-4be2-9f10-f2021da7c985",
                 "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
@@ -6927,9 +8193,45 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -7026,7 +8328,10 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -7075,6 +8380,15 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                 "c2e1d8c1-0a42-40d9-b6b7-1038ce9c5b87",
@@ -7121,6 +8435,10 @@ var idea_lenses_hierarchy = {
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "4e92387f-5536-48b0-b873-87699faeae87",
                 "c72d4199-79f8-4f33-9f1d-3598619830fc",
                 "993fb638-a5ca-4b7f-9377-716bff7d0a11",
@@ -7147,7 +8465,9 @@ var idea_lenses_hierarchy = {
                 "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
                 "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
                 "7fd4339e-23cf-4a39-9e35-c9598636d5df",
-                "177839a0-f385-4fed-b2bd-295d5fca38d7"
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -7241,9 +8561,60 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -7369,7 +8740,10 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -7390,8 +8764,27 @@ var idea_lenses_hierarchy = {
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "435414a6-8c62-478a-aec8-9b376205b478",
                 "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "cc8dc4f6-3ca9-4bdf-8261-33a69b7d1f48",
                 "993fb638-a5ca-4b7f-9377-716bff7d0a11",
@@ -7477,7 +8870,36 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -7557,7 +8979,9 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -7618,7 +9042,31 @@ var idea_lenses_hierarchy = {
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
@@ -7695,7 +9143,8 @@ var idea_lenses_hierarchy = {
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -7706,7 +9155,21 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
                 "1242a672-11d6-4241-9c8b-29e5a0c5f614",
                 "d486e214-bf3c-4afc-92b1-b67e4c26b20a",
@@ -7771,6 +9234,28 @@ var idea_lenses_hierarchy = {
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "61b20690-9a91-462a-8c11-fbe62ca0c6f2",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
@@ -7853,7 +9338,9 @@ var idea_lenses_hierarchy = {
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -7921,7 +9408,46 @@ var idea_lenses_hierarchy = {
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "61b20690-9a91-462a-8c11-fbe62ca0c6f2",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
@@ -8016,7 +9542,9 @@ var idea_lenses_hierarchy = {
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -8057,7 +9585,33 @@ var idea_lenses_hierarchy = {
                 "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
                 "46902a24-f11e-420f-86d3-ccc31201f827",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "fe00feba-618e-4a8a-b6be-0748d57f00af",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "30a3d950-5d55-4e8d-977a-f5770c65aa7b",
                 "d2d0b5f5-3d15-4f4d-ac39-096adfc4b8c5",
@@ -8123,7 +9677,10 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -8157,6 +9714,19 @@ var idea_lenses_hierarchy = {
                 "20c87ae2-f690-4f6a-9742-06030888d727",
                 "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "07f7c0a2-1690-44bd-b95a-db66aa036716",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
@@ -8206,7 +9776,8 @@ var idea_lenses_hierarchy = {
                 "f3148425-fe91-4568-b6ee-3dab8e42c753",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -8215,6 +9786,7 @@ var idea_lenses_hierarchy = {
               "description": "Solutions specifically designed to be effective across a wide range of different fabric types or material compositions, offering versatility in application.",
               "children": [],
               "idea_spark_uuids": [
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
               ]
             },
@@ -8224,9 +9796,11 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that offer a tunable spectrum of cleaning intensity, from light refreshing to deep cleaning, using a single core biological agent or system, allowing for customized care based on need.",
               "children": [],
               "idea_spark_uuids": [
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
                 "993fb638-a5ca-4b7f-9377-716bff7d0a11",
                 "7fd4339e-23cf-4a39-9e35-c9598636d5df",
-                "a148b803-bff8-45a7-b913-05e6f6bd9319"
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -8308,7 +9882,26 @@ var idea_lenses_hierarchy = {
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
@@ -8395,7 +9988,8 @@ var idea_lenses_hierarchy = {
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             }
           ]
@@ -8483,7 +10077,20 @@ var idea_lenses_hierarchy = {
                 "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
                 "03720dbc-49e2-43fc-b059-e4077750e593",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "140b329c-8169-42d9-9499-60e8b732ee22",
+                "60a4f214-e859-414d-99c4-e8e07bbccf39",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "30c9d0ce-9617-47c5-958b-b37502632635",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "4e92387f-5536-48b0-b873-87699faeae87",
@@ -8545,7 +10152,8 @@ var idea_lenses_hierarchy = {
                 "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
                 "48303506-045c-49ee-a37c-1b1ff587018c",
                 "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
-                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             }
           ]
@@ -8594,9 +10202,43 @@ var idea_lenses_hierarchy = {
                 "a17d37f6-4dc5-4648-b574-296605a3b815",
                 "ebc1a408-c56a-4825-94ff-0451f7970845",
                 "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -8678,7 +10320,10 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -8708,8 +10353,34 @@ var idea_lenses_hierarchy = {
                 "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "bb98e70a-f129-4306-b803-0a89a7a8e682",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
@@ -8776,7 +10447,9 @@ var idea_lenses_hierarchy = {
                 "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
                 "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -8820,8 +10493,46 @@ var idea_lenses_hierarchy = {
                 "e589e0ff-118d-4f31-80da-a1961c20377e",
                 "20c87ae2-f690-4f6a-9742-06030888d727",
                 "425f83e1-fcad-4738-a251-663f255b2d72",
+                "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+                "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+                "bfdec52c-3565-44b0-a6bb-41418a736737",
+                "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+                "69507f20-0c7b-46ea-8341-73215ff42113",
+                "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+                "bb39d25b-4905-4070-baad-0f0a7b881119",
+                "356108cf-8432-4ca9-99ef-4744cb73cedd",
+                "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+                "8b98419f-1e77-457a-950a-42909dd45df6",
+                "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "88c29a86-db80-48cc-aacc-2fbd39e66902",
+                "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+                "de3698cb-6013-4eeb-8753-768b00d4109f",
+                "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+                "771ad16f-597a-44ae-84b1-a683dc140dc3",
+                "69f44031-8fff-417d-a904-ad56155e0e0a",
+                "ba2299da-731d-4f89-ab68-0b6300cd7126",
+                "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+                "225d8603-5158-44dc-a531-d9c54b1d74ed",
+                "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+                "bfa0affc-438f-4c41-b3b6-833171e15253",
+                "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+                "265ec284-da4f-400e-8585-70861d560365",
+                "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+                "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+                "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+                "82d9c2be-1612-42a2-b305-92d65bba16de",
+                "97884f72-775e-4016-bffb-2dab88050e8f",
+                "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+                "280a927f-fcda-4c97-b60f-184074e5bdeb",
+                "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
                 "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
                 "83f8d33e-3492-4faf-8b8c-848997a969cd",
+                "5dfbab29-3143-450e-85d8-716add1ce6e3",
+                "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+                "f2d13061-b933-4ce7-b227-9c8792b53b40",
+                "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+                "24c0bce9-a266-4106-9719-c59facf1d188",
                 "758cb068-a76a-46b5-84a4-a2ca07b94e6f",
                 "fb2acc66-f044-4289-a67e-ad7c773837f2",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
@@ -8902,7 +10613,8 @@ var idea_lenses_hierarchy = {
                 "a148b803-bff8-45a7-b913-05e6f6bd9319",
                 "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
                 "95f220ae-c63b-4ac2-ab23-351abce2ac13",
-                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+                "104ee243-3065-4d21-ab23-84d729f07a44"
               ]
             },
             {
@@ -8926,6 +10638,10 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "59af1042-eed0-496f-a451-024cba15e8b4",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "714c2332-1bcf-4da6-8083-514377b2f793",
+                "721a8509-ef17-41f5-a4bb-05b005c341ef",
+                "e99d90ce-212a-4afc-86fd-18dfe86e313e",
                 "c06a7dcd-76b6-4608-9c37-8516acd4d28f",
                 "15d75362-9c07-430a-b484-ccee3c69ae13",
                 "e52f916e-321f-42a5-b86f-013488b2b5b7",
@@ -8970,7 +10686,8 @@ var idea_lenses_hierarchy = {
                 "ade5182a-9bdf-4027-8b20-80133469b7eb",
                 "c485d817-50d8-4977-a27d-22e9ecd0df7b",
                 "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
-                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4"
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             },
             {
@@ -8979,7 +10696,9 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that design microbial community structures or interaction dynamics by drawing inspiration from principles observed in non-biological complex systems (e.g., economic models, social network theory, distributed intelligent agents).",
               "children": [],
               "idea_spark_uuids": [
-                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "104ee243-3065-4d21-ab23-84d729f07a44",
+                "f9669261-81fd-4803-a1af-90cc908fe020"
               ]
             }
           ]
@@ -9011,6 +10730,11 @@ var idea_lenses_hierarchy = {
                 "e589e0ff-118d-4f31-80da-a1961c20377e",
                 "cca2576e-b3e5-4bce-9841-cb4317c3f880",
                 "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+                "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+                "d53051e0-6326-4c28-8bea-04f132cefdd3",
+                "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+                "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
                 "5780f1f6-570a-4682-a28a-0b7573b679d6",
                 "cf7b0ded-106c-4120-9fb0-bbdeb377bfeb",
                 "3f0aa6eb-34b2-4b2d-b934-e7874e7d45e6",
@@ -9025,7 +10749,8 @@ var idea_lenses_hierarchy = {
                 "627fa246-349e-4f76-8fec-9776fb055a1c",
                 "92447bee-0714-4f71-8fdd-10700120ae5c",
                 "a08cf1a6-4436-4921-b12b-31be7acd3d64",
-                "9159993a-1adf-4a09-9f55-45d6f7491cec"
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "15ece50d-8aa3-43ef-97d1-bb66b910d993"
               ]
             },
             {
@@ -11303,6 +13028,1202 @@ var idea_lenses_hierarchy = {
         "Scalability and cost of manufacturing such advanced textile fibers."
       ]
     },
+    "6b4d9586-267b-4bab-a6e9-30634c9a40ac": {
+      "uuid": "6b4d9586-267b-4bab-a6e9-30634c9a40ac",
+      "idea": "Encapsulated bio-agents in fabric for targeted, low-water cleaning.",
+      "description": "This idea proposes embedding microcapsules containing cleaning microorganisms and their nutrients into clothing fibers. These capsules would activate with minimal moisture (e.g., a light spray or humidity), releasing agents to break down dirt and pathogens, directly addressing the need for low-water cleaning. It's inspired by the 'co-encapsulating bacteria and nutrients in carbonated RMC' for concrete repair, adapting the protection and release concept.",
+      "feasibility_rationale": "While microencapsulation is an established technology, developing stable, effective, and skin-safe bio-agents that activate reliably in fabric with minimal moisture presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Adapting microencapsulation from construction materials for self-activating biological cleaning in textiles is a highly inventive approach to low-water garment care.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could enable clothing to be cleaned to hygienic standards with drastically reduced water consumption, offering a transformative solution for water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Bio-agents can be found or engineered that effectively break down common soil and pathogens on clothes.",
+        "Microcapsules can protect bio-agents during normal wear, and release them effectively with minimal moisture.",
+        "The byproducts of biological cleaning are non-harmful and do not leave undesirable residues on clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen candidate microorganisms/enzymes for efficacy against common clothing stains/pathogens and for skin safety.",
+        "Develop and test microencapsulation methods suitable for textile integration, focusing on trigger mechanisms (minimal moisture).",
+        "Conduct small-scale trials on fabric swatches to assess cleaning effectiveness, material compatibility, and potential residues."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and stability of encapsulated bio-agents within fabric through wear and storage.",
+        "Controlling the release mechanism effectively with minimal, targeted moisture without premature activation.",
+        "Consumer acceptance regarding wearing clothes with embedded microorganisms and the feel/durability of such textiles."
+      ]
+    },
+    "6fb1f9fe-0055-46a9-bd87-9056c4ea449b": {
+      "uuid": "6fb1f9fe-0055-46a9-bd87-9056c4ea449b",
+      "idea": "Core-shell fibers releasing cleaning enzymes upon contact for waterless cleaning.",
+      "description": "Develop fabric fibers with a protective outer shell and an inner core containing cleaning enzymes or dormant microbes. Contact with moisture or specific soiling compounds would rupture or make permeable the shell, releasing the cleaning agents locally. This addresses low-water cleaning by targeting only affected areas. The concept is drawn from the 'core-shell structure' of RMC capsules designed to protect bacteria.",
+      "feasibility_rationale": "Manufacturing functional core-shell fibers with stable, encapsulated cleaning agents at scale for textiles presents substantial technical hurdles in materials science and bio-engineering.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating cleaning agents directly into the fiber structure with a core-shell design for controlled release is a highly inventive and sophisticated approach to waterless textile cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This method could lead to significantly reduced water usage by enabling highly localized cleaning, potentially even waterless spot treatment, thus having a major impact on water conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Core-shell fiber manufacturing processes can be adapted to encapsulate active cleaning agents without denaturing them.",
+        "The shell can be designed to rupture or become permeable reliably upon contact with specific triggers without premature release.",
+        "Released agents are sufficient to clean effectively without requiring significant mechanical action or rinsing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research existing core-shell fiber production techniques and their compatibility with encapsulating delicate biologicals or enzymes.",
+        "Investigate trigger mechanisms for shell rupture/permeability suitable for textile applications (e.g., chemical interactions with soil, pH changes).",
+        "Develop prototype core-shell fibers with inert payloads to test mechanical properties and release mechanisms."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining the activity of enzymes/microbes during the fiber spinning/manufacturing process.",
+        "Achieving a robust yet trigger-sensitive shell material for the fibers that withstands wear but releases agents when needed.",
+        "Ensuring even distribution and efficacy of cleaning agents released from fibers across a soiled area."
+      ]
+    },
+    "bfdec52c-3565-44b0-a6bb-41418a736737": {
+      "uuid": "bfdec52c-3565-44b0-a6bb-41418a736737",
+      "idea": "Bio-active clothing patches with nutrients for self-cleaning spots.",
+      "description": "Create adhesive patches containing specialized bacteria and encapsulated nutrients, designed to 'digest' specific stains or odors on clothing with minimal water. This offers a targeted, water-efficient cleaning solution. It's inspired by the use of 'Bacillus cohnii...oxidizing organic carbon' and the methods for supplying 'nutrients for self-healing process' discussed for concrete.",
+      "feasibility_rationale": "Creating effective, stable, and fabric-safe bio-active patches is moderately feasible, but challenges include broad stain efficacy, adhesion, and preventing undesirable residues.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of a 'living' adhesive patch with bacteria and nutrients for spot cleaning is moderately novel, offering a biological twist on existing targeted stain removal products.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Bio-active patches could offer a noticeable improvement in water efficiency by enabling effective spot cleaning, thereby reducing the frequency of full garment washes.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Bacteria can be selected/engineered to effectively digest a range of common stains and odors within a reasonable timeframe.",
+        "The patch delivery system (adhesive, nutrient release) can be made effective, user-friendly, and non-damaging to fabrics.",
+        "Biological activity can be contained within the patch and its effects localized to the treated area."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify bacterial strains effective against specific common stains (e.g., food, oil, sweat) and test their performance in a patch-like matrix.",
+        "Develop prototype patch materials and adhesive systems, evaluating fabric compatibility and ease of residue-free removal.",
+        "Explore methods for encapsulating nutrients for controlled release within the patch environment upon application."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving efficacy across a wide variety of stain types and fabric materials.",
+        "Ensuring the patch adheres sufficiently to treat the stain but can be removed cleanly without leaving residue or damaging the fabric.",
+        "Maintaining the viability of bacteria and nutrients in a packaged patch format with adequate shelf-life."
+      ]
+    },
+    "c8734bab-eaf1-4183-b6d2-1e54631d2fdb": {
+      "uuid": "c8734bab-eaf1-4183-b6d2-1e54631d2fdb",
+      "idea": "Encapsulate bio-enzymes/microbes for low-water textile cleaning.",
+      "description": "Develop clothing treated with microcapsules containing cleaning enzymes or beneficial microbes. These activate with minimal moisture (e.g., mist, humidity) to break down dirt, directly addressing the low-water cleaning challenge. This adapts the principle of stabilizing biological agents for a new application.",
+      "feasibility_rationale": "Technology for microencapsulation exists, but optimizing for textile adherence, controlled release with minimal moisture, and demonstrating cleaning efficacy will require significant R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While enzyme use in detergents is common, their direct encapsulation and application to textiles for low-moisture activation presents a fresh approach to water-scarce cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could drastically reduce water consumption for laundry, offering a viable solution for water-scarce environments or for extending wear between full washes.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Encapsulated enzymes/microbes can remain stable and viable on textiles for extended periods.",
+        "Minimal moisture (mist/humidity) is sufficient to activate the encapsulated agents effectively.",
+        "Activated agents can achieve a satisfactory level of cleaning/hygiene without copious water for rinsing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test candidate enzymes/microbes suitable for textile cleaning and encapsulation.",
+        "Develop and test encapsulation methods for stability on fabric and controlled release with low moisture.",
+        "Conduct small-scale efficacy tests on common stains/soils with minimal moisture activation."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term stability and shelf-life of encapsulated biologicals on fabrics.",
+        "Achieving effective cleaning action and removal of byproducts without significant water rinsing.",
+        "Consumer acceptance of microbe-treated clothing and potential for skin sensitization or residue."
+      ]
+    },
+    "69507f20-0c7b-46ea-8341-73215ff42113": {
+      "uuid": "69507f20-0c7b-46ea-8341-73215ff42113",
+      "idea": "Develop a spray-dried powder of encapsulated cleaners for dry application.",
+      "description": "Create a powder of encapsulated cleaning agents (e.g., enzymes, absorbents) that can be sprayed onto clothes. The powder adheres, cleans via absorption or localized reaction, and is then brushed/shaken off, minimizing water use. This leverages the spray-drying technique for a waterless cleaning method.",
+      "feasibility_rationale": "Spray-drying and encapsulation are established, but ensuring powder adherence, effective cleaning action, and complete removal without residue presents considerable technical hurdles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "This concept offers a truly waterless cleaning paradigm by adapting spray-drying for direct-to-garment powder application, differing significantly from traditional wet or even damp cleaning methods.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Offers a potential zero-water cleaning solution, which would be revolutionary for extreme water scarcity or specific applications like outerwear or delicate items.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The spray-dried powder can effectively adhere to textile surfaces and release cleaning agents.",
+        "Cleaning action (e.g., absorption, enzymatic breakdown) can occur in a dry or near-dry state.",
+        "The powder and any reacted soil can be effectively removed by brushing/shaking without leaving harmful residues or damaging fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Formulate and test prototype encapsulated cleaning powders (e.g., with enzymes, absorbents).",
+        "Evaluate adhesion characteristics on various fabrics and methods for effective removal.",
+        "Assess cleaning performance on standardized stains in a dry environment."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving sufficient cleaning efficacy (especially for hygiene, not just visible stains) with a dry powder.",
+        "Ensuring complete removal of the powder and trapped soil to avoid residue buildup or skin irritation.",
+        "Potential for powder inhalation during application or wear, and managing static electricity issues."
+      ]
+    },
+    "3ece97d1-0637-4a09-9f35-0110c8b7b547": {
+      "uuid": "3ece97d1-0637-4a09-9f35-0110c8b7b547",
+      "idea": "Embed stabilized biocatalysts within fabric fibers for continuous, low-water cleaning.",
+      "description": "Integrate encapsulated, stabilized enzymes or microbes directly into textile fibers during manufacturing. These agents would remain dormant until activated by body moisture or a light mist, offering continuous hygiene with minimal water, similar to a persistent biological purification layer.",
+      "feasibility_rationale": "While fiber modification is an active research area, embedding stable, activatable biocatalysts for continuous cleaning throughout the fabric's lifespan presents substantial material science and manufacturing challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating biocatalysts directly into fabric fibers for continuous, self-cleaning activated by ambient moisture is a paradigm shift from episodic cleaning.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "Could fundamentally change clothing hygiene and drastically reduce the need for any conventional washing, offering unparalleled water savings and convenience.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Biocatalysts can be successfully integrated into textile fibers during manufacturing without losing activity or compromising fabric integrity.",
+        "Embedded agents remain stable and active through multiple wear cycles and potential light refresh cycles.",
+        "Activation by body moisture or minimal mist is sufficient for meaningful continuous cleaning/hygiene maintenance."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research existing methods for incorporating active agents into textile fibers and assess their suitability for encapsulated biocatalysts.",
+        "Conduct proof-of-concept studies on embedding inert microcapsules into fibers to understand manufacturing challenges and material compatibility.",
+        "Evaluate the stability of candidate biocatalysts under simulated fiber manufacturing conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing methods to embed functional microcapsules within textile fibers during manufacturing processes (e.g., melt spinning, coating) without damaging agents or fabric properties.",
+        "Ensuring durability of the embedded system through wear, abrasion, and potential minimal washing/refreshing.",
+        "Managing potential long-term skin contact issues, allergenicity, and the fate of breakdown byproducts within the fabric."
+      ]
+    },
+    "64dae333-c333-4c7b-afdc-1bd08cf175ab": {
+      "uuid": "64dae333-c333-4c7b-afdc-1bd08cf175ab",
+      "idea": "On-demand enzyme spray for waterless clothing hygiene.",
+      "description": "A device synthesizes and applies targeted enzymes to clothes, drastically reducing water for hygiene. This adapts the snippet's on-demand biomanufacturing to produce cleaning agents as needed, differing from a persistent biological cleaning layer.",
+      "feasibility_rationale": "Synthesizing specific enzymes on-demand in a portable device is challenging, requiring stable cell-free systems or robust engineered microbes, miniaturization, and consistent enzyme activity. While enzyme technology exists, on-demand synthesis in a consumer device is a significant R&D hurdle.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying on-demand enzyme synthesis directly to clothing hygiene is highly inventive, moving beyond traditional pre-manufactured detergents. It combines biotech with appliance design for a specific low-water cleaning application.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could significantly reduce water usage for laundry by targeting stains and odors specifically, offering a major improvement for water-scarce environments.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A broad spectrum of enzymes effective against common clothing soils and odors can be synthesized on-demand.",
+        "The on-demand synthesis process can be made sufficiently fast, reliable, and cost-effective for a consumer device.",
+        "Enzyme application can achieve hygiene levels with minimal or no water for rinsing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test a core set of enzymes effective against a wide range of common clothing soils and odors.",
+        "Develop and prototype a bench-scale on-demand synthesis module for one or two key enzymes.",
+        "Investigate the efficacy of enzyme-only treatment for achieving hygiene standards and user acceptance (e.g., feel of clothes, skin sensitivity)."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a stable, efficient, and miniaturized on-demand enzyme synthesis system (CFPS or cellular).",
+        "Ensuring enzyme stability and activity under varying environmental conditions and on diverse fabric types.",
+        "Addressing potential issues of enzyme residues on clothes, skin sensitivity, and achieving true hygiene vs. just stain removal."
+      ]
+    },
+    "2290d384-7e64-4fc6-aa79-74b6d6854aff": {
+      "uuid": "2290d384-7e64-4fc6-aa79-74b6d6854aff",
+      "idea": "Self-cleaning clothes with embedded, activatable engineered microbes.",
+      "description": "Textiles imbued with dormant engineered microbes that activate with minimal moisture to degrade soil and odors, reducing wash frequency. This applies the 'engineered microorganisms' concept for portable, on-demand cleaning, integrating the solution into the garment.",
+      "feasibility_rationale": "Embedding living (or dormant then activatable) microbes safely and durably into textiles, ensuring their survival, controlled activation, and effective cleaning action presents very significant scientific and engineering challenges. Long-term stability, safety, and preventing unwanted microbial activity are major hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating engineered, activatable microbes directly into textiles for self-cleaning is a breakthrough concept for clothing hygiene, fundamentally changing the paradigm from external washing to inherent garment properties.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If feasible and safe, this could revolutionize clothing care, drastically reducing water consumption and laundry effort, potentially solving the design challenge for many applications.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be engineered to safely and effectively degrade a wide range of soils and odor-causing compounds on textiles.",
+        "These engineered microbes can be embedded into fabrics, remain dormant until needed, and be activated reliably with minimal moisture.",
+        "The presence and activity of these microbes on clothing will be safe for human skin and the environment."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify microbial candidates capable of degrading common clothing soils and surviving in textile environments.",
+        "Investigate methods for embedding and maintaining dormant microbes in fabric swatches, and test activation mechanisms.",
+        "Conduct preliminary safety assessments (e.g., cytotoxicity, allergenicity) of candidate microbes and their byproducts."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and containment of engineered microbes in textiles through wear and tear.",
+        "Controlling microbial activity to prevent fabric damage or unwanted byproducts, and ensuring user safety (allergenic, pathogenic risks).",
+        "Public acceptance and regulatory approval for wearing clothes with live, genetically engineered organisms."
+      ]
+    },
+    "bb39d25b-4905-4070-baad-0f0a7b881119": {
+      "uuid": "bb39d25b-4905-4070-baad-0f0a7b881119",
+      "idea": "Portable device for on-demand synthesis of concentrated cleaning agents.",
+      "description": "A compact appliance creates potent, water-minimal cleaning compounds on-site for targeted garment care. This leverages cell-free synthesis for localized production of cleaning agents, enhancing resource efficiency for the design challenge.",
+      "feasibility_rationale": "Cell-free synthesis of specific small molecule cleaning agents (e.g., surfactants, oxidizers) in a portable device is complex, requiring stable precursors, efficient reaction pathways, and purification. It's more plausible than on-demand enzyme synthesis for a broad range of enzymes, but still a significant R&D effort.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While on-demand synthesis of chemicals is an active research area, applying it to produce concentrated cleaning agents for clothing in a portable device is moderately novel. It's an extension of localized production, not a complete paradigm shift for cleaning itself.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could offer a moderate impact by reducing the transport of water in detergents and allowing for customized, potent cleaning solutions, thereby saving some water in targeted applications.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Effective, concentrated cleaning agents (not necessarily enzymes) can be synthesized on-demand from stable, safe precursors.",
+        "The synthesis process can be miniaturized, made cost-effective, and user-friendly for a portable device.",
+        "These concentrated agents can be applied in a way that significantly reduces overall water consumption for cleaning."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify target cleaning molecules (e.g., specific surfactants, mild bleaching agents) suitable for on-demand synthesis via CFPS or engineered microbes.",
+        "Proof-of-concept for synthesizing one or two target cleaning agents using a lab-scale cell-free system.",
+        "Evaluate the cleaning efficacy and water-saving potential of the synthesized concentrated agents on fabric swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing robust and efficient CFPS or microbial chassis for producing a range of cleaning compounds (not just proteins/enzymes).",
+        "Managing precursor supply, reaction conditions, and potential byproducts in a small, portable device.",
+        "Ensuring the synthesized agents are effective for cleaning and safe for fabrics and users without excessive rinsing."
+      ]
+    },
+    "356108cf-8432-4ca9-99ef-4744cb73cedd": {
+      "uuid": "356108cf-8432-4ca9-99ef-4744cb73cedd",
+      "idea": "Encapsulated bio-agents in pods for low-water clothes cleaning.",
+      "description": "Develop shelf-stable pods containing encapsulated engineered microbes or enzymes that, when activated with minimal water, release agents to break down dirt and pathogens on clothes. This significantly reduces water usage for hygiene. This approach leverages the idea of contained biological activity, similar to the primary purification mechanism initially considered, but in a portable format.",
+      "feasibility_rationale": "Encapsulation and enzyme/microbe engineering are established fields, but ensuring long-term stability, controlled release with minimal water, and broad cleaning efficacy requires significant R&D. Safety and containment of engineered organisms are also critical.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While laundry pods are common, using encapsulated engineered microbes/enzymes specifically for on-demand, minimal-water cleaning is a novel application of synthetic biology in this context. It adapts existing delivery mechanisms for a new active agent type to address water scarcity.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could drastically reduce water consumption for laundry, offering a practical solution for water-scarce environments and potentially changing laundry habits for specific items or situations.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Engineered microbes or enzymes can be made shelf-stable for extended periods in a pod format.",
+        "Minimal water (e.g., a damp cloth or spray) is sufficient to activate the agents and facilitate effective cleaning action on fabric.",
+        "The bio-agents can effectively break down a wide range of common soils and neutralize pathogens without damaging clothes or posing user risks."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and engineer/select robust enzymes or microbes with broad cleaning capabilities suitable for encapsulation and minimal water activation.",
+        "Develop and test encapsulation methods for stability, controlled release with minimal water, and compatibility with cleaning agents.",
+        "Conduct small-scale efficacy tests on common stains (e.g., sebum, food, dirt) and representative fabrics using minimal water activation protocols."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term shelf stability and viability of encapsulated biological agents under varying environmental conditions.",
+        "Ensuring efficacy across diverse fabric types, soil types, and pathogen loads with extremely low water input.",
+        "Consumer acceptance and safety concerns regarding genetically engineered organisms in laundry products, even if contained."
+      ]
+    },
+    "140b329c-8169-42d9-9499-60e8b732ee22": {
+      "uuid": "140b329c-8169-42d9-9499-60e8b732ee22",
+      "idea": "Develop antimicrobial fabric coatings to repel contaminants.",
+      "description": "This idea proposes treating clothes with coatings that prevent microbes and dirt from adhering, thereby reducing cleaning frequency and water usage. This preventative surface treatment offers an alternative to methods focused on active biological degradation of contaminants.",
+      "feasibility_rationale": "Technology for antimicrobial coatings is established, but achieving durable, safe, and broadly effective coatings for diverse clothing applications will require focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While antimicrobial fabrics exist, their systematic application to broadly reduce general clothing cleaning frequency and water use for hygiene in water-scarce areas is a moderately novel focus for this specific design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effective contaminant-repellent coatings could substantially decrease washing frequency, leading to significant water savings, though not a complete replacement for all cleaning needs.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Coatings can be developed that are effective against a wide range of common clothing contaminants (dirt, oils, microbes).",
+        "Coatings will be durable enough to last through a reasonable number of wear cycles and infrequent (low-water) cleaning cycles.",
+        "The coatings are safe for prolonged skin contact and environmentally benign."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify promising existing or novel coating technologies suitable for various fabric types, focusing on broad-spectrum repellency and antimicrobial action.",
+        "Conduct lab tests on coated fabric swatches for efficacy against common soiling agents and microbes, and assess durability through simulated wear and wash cycles.",
+        "Evaluate the safety (cytotoxicity, skin irritation) and environmental impact of candidate coatings."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the coating without compromising fabric feel or breathability.",
+        "Ensuring broad-spectrum efficacy against diverse contaminants (not just bacteria, but also dirt, oils, etc.) and preventing odor buildup.",
+        "Public acceptance and cost-effectiveness for widespread adoption."
+      ]
+    },
+    "037c8f2a-00a9-40f7-b3b9-9a1204037651": {
+      "uuid": "037c8f2a-00a9-40f7-b3b9-9a1204037651",
+      "idea": "Use electrostatic forces to lift dry particulates from clothing.",
+      "description": "This suggests a waterless cleaning method by applying electrostatic principles to remove dry soil and microbes from fabrics, inspired by aerosol manipulation techniques. It directly addresses low-water cleaning.",
+      "feasibility_rationale": "While principles are known, developing a practical, safe, and effective device for various fabrics and soil types presents significant engineering challenges, especially for embedded particles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying electrostatic principles directly to clothing for waterless removal of dry soil and microbes is a fresh and inventive approach for this design challenge, departing significantly from wet washing.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Could significantly reduce water use for removing dry particulates, extending wear between wet washes, but less effective for stains, oils, or deeply absorbed odors.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "A significant portion of clothing \"dirtiness\" in target environments is due to dry, electrostatically removable particulates.",
+        "Electrostatic forces can be generated and controlled effectively and safely on diverse fabric types without damaging them.",
+        "A practical and user-friendly device for applying this method can be developed."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop proof-of-concept prototypes to test the efficacy of electrostatic removal on various fabric types with different dry particulate soils.",
+        "Investigate optimal electrode configurations, field strengths, and safety measures for a clothing application.",
+        "Assess the limitations, particularly concerning non-particulate soiling (e.g., oils, sweat residues) and odor removal."
+      ],
+      "major_challenges_roadblocks": [
+        "Effectiveness on varying fabric types and deeply embedded or adhered (non-dry) particulates.",
+        "Managing collected particulates and preventing re-deposition.",
+        "Ensuring user safety (e.g., static discharge, ozone generation if corona discharge is used) and device cost/portability."
+      ]
+    },
+    "7e2063d6-c346-4933-9706-276ed7ad5d1b": {
+      "uuid": "7e2063d6-c346-4933-9706-276ed7ad5d1b",
+      "idea": "Cycle fabric through controlled humidity/temperature to neutralize pathogens.",
+      "description": "This concept aims to clean clothes by exposing them to controlled micro-atmospheric changes (humidity, temperature) to deactivate pathogens, using minimal water. It's inspired by how environmental conditions affect bioaerosol viability.",
+      "feasibility_rationale": "Creating controlled environments is possible, but identifying effective, fabric-safe, and energy-efficient cycles for broad pathogen neutralization requires significant research and optimization.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Leveraging insights from bioaerosol desiccation/rehydration stress to neutralize pathogens on clothes with controlled, potentially low-energy, humidity/temperature cycling is a highly inventive approach for low-water hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If effective, this method could achieve high levels of hygiene with minimal water, directly addressing a core aspect of the design challenge, though physical dirt removal might still be needed.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Pathogens on clothing are susceptible to inactivation through achievable cycles of humidity and temperature without damaging common fabrics.",
+        "These cycles can be implemented in a device that is energy-efficient and practical for household or communal use.",
+        "The process achieves a level of pathogen reduction deemed \"hygienically clean\" and is effective against common clothing-borne pathogens."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct literature review and lab studies to identify ranges of humidity/temperature cycling known to affect pathogen viability, focusing on those relevant to clothing.",
+        "Test candidate cycles on various fabric types inoculated with representative pathogens to assess efficacy and fabric integrity.",
+        "Develop a prototype chamber to precisely control humidity and temperature cycles for testing on actual garments."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying specific temperature/humidity profiles and cycle durations that are effective against a broad spectrum of relevant pathogens (bacteria, viruses, fungi) without damaging fabrics or being too energy-intensive.",
+        "Managing odors, which may not be neutralized by pathogen inactivation alone.",
+        "Scaling the technology into a consumer-friendly, affordable, and efficient appliance."
+      ]
+    },
+    "8b98419f-1e77-457a-950a-42909dd45df6": {
+      "uuid": "8b98419f-1e77-457a-950a-42909dd45df6",
+      "idea": "Regenerable adsorbent clothing captures soil, cleaned with minimal water/heat.",
+      "description": "Clothing incorporates micro-adsorbents to trap soil/oils. Cleaning involves a low-water/energy process to regenerate these adsorbents, drastically reducing water consumption. This uses physical/chemical adsorption, an alternative to the initial biological purification concept.",
+      "feasibility_rationale": "The core concept is plausible, but developing durable, efficient, and broadly effective adsorbents integrated into textiles, along with a practical low-water regeneration method, requires significant R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While adsorbent materials are known, their specific application as an integrated, regenerable cleaning system within clothing for water-scarce hygiene offers a moderately new perspective.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This idea has the potential for significant impact by directly minimizing water use for cleaning and maintaining hygiene, particularly valuable in water-scarce regions.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Adsorbents can be developed that capture a broad spectrum of common clothing soils (oils, particulates, sweat components).",
+        "A low-water/low-energy regeneration process can effectively restore adsorbent capacity without degrading the textile or adsorbent.",
+        "The integrated adsorbents will be comfortable, non-toxic, and durable through wear and regeneration cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate micro-adsorbent materials suitable for textile integration and broad soil capture.",
+        "Develop and test lab-scale prototypes of adsorbent-integrated textiles to assess soil capture efficiency and regeneration effectiveness with minimal water/heat.",
+        "Evaluate the material properties (durability, comfort, toxicity) of promising adsorbent-textile composites."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing adsorbents with high capacity for diverse soils and efficient, non-damaging regeneration.",
+        "Ensuring long-term durability and performance of the adsorbent-textile composite through wear, tear, and multiple regeneration cycles.",
+        "Consumer acceptance regarding feel, performance, and the regeneration process."
+      ]
+    },
+    "60a4f214-e859-414d-99c4-e8e07bbccf39": {
+      "uuid": "60a4f214-e859-414d-99c4-e8e07bbccf39",
+      "idea": "Smart fabrics release cleaning agents on demand with minimal moisture.",
+      "description": "Textiles release minute cleaning/antimicrobial compounds when triggered by sweat or mist, offering localized, water-efficient hygiene. This provides a targeted chemical action, distinct from the broader biological activity of the primary principle explored.",
+      "feasibility_rationale": "While stimuli-responsive materials exist, ensuring controlled release of safe and effective cleaning agents, sufficient payload, and long-term stability in clothing presents moderate technical challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying stimuli-responsive polymer technology for on-demand release of cleaning agents in textiles triggered by minimal moisture is a highly inventive approach to the challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could moderately impact water usage by extending the time between full washes, maintaining hygiene locally, though it might not replace deep cleaning entirely.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Cleaning/antimicrobial agents can be effectively encapsulated and released in controlled, sufficient quantities by stimuli-responsive polymers integrated into textiles.",
+        "The released agents are effective at neutralizing odors/microbes with minimal moisture and without harming the skin or fabric.",
+        "The system can be \"recharged\" or has a sufficient lifespan for practical use."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify suitable stimuli-responsive polymers and compatible, safe cleaning/antimicrobial agents for textile application.",
+        "Develop lab-scale prototypes demonstrating triggered release of agents from textile swatches using minimal moisture (e.g., simulated sweat).",
+        "Assess the efficacy of released agents in neutralizing common odor-causing bacteria or breaking down light soiling in a controlled environment."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing safe, effective, and stable cleaning/antimicrobial agents suitable for encapsulation and controlled release.",
+        "Ensuring the stimuli-responsive mechanism is reliable, durable, and doesn't trigger prematurely or fail to activate.",
+        "Limited capacity of released agents; may only offer temporary freshening rather than deep cleaning."
+      ]
+    },
+    "a30336c2-446a-4e57-aa4b-bf4c10810db5": {
+      "uuid": "a30336c2-446a-4e57-aa4b-bf4c10810db5",
+      "idea": "Light-activated self-cleaning clothes break down dirt and kill microbes.",
+      "description": "Clothing treated with photocatalytic compounds (e.g., ZnO) actively degrades dirt and neutralizes microbes upon light exposure. This uses abiotic light energy for purification, differing from the biotic processes of the original reference methodology.",
+      "feasibility_rationale": "Achieving effective and rapid breakdown of diverse soils and microbes under typical ambient light conditions (not just strong UV), while ensuring material durability and safety, presents low feasibility with current widespread technology; significant R&D is needed.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While photocatalysis is an established field, its application for comprehensive, light-activated self-cleaning of clothing to achieve hygienic standards represents a highly inventive approach to the design challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This has transformative potential, as it could drastically reduce or even eliminate the need for water-based washing for certain types of soiling and microbial control, directly addressing the challenge.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Photocatalytic coatings can be durably applied to textiles and remain effective after multiple wear/exposure cycles.",
+        "Ambient light (including indoor light or diffuse daylight) provides sufficient energy to activate the photocatalysts effectively.",
+        "The photocatalytic process can fully degrade common soils and microbes to a hygienic level without producing harmful byproducts or damaging the fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and identify highly efficient photocatalysts (e.g., doped ZnO, TiO2 variants) that show activity under visible/ambient light and can be safely integrated into textiles.",
+        "Conduct controlled experiments on textile swatches treated with candidate photocatalysts to measure the degradation rate of common organic soils and inactivation of microbes under realistic light conditions.",
+        "Evaluate the long-term stability of the photocatalytic coating and the integrity of the textile fibers after prolonged exposure and simulated wear."
+      ],
+      "major_challenges_roadblocks": [
+        "Efficiency of photocatalysts under variable ambient light conditions (intensity, spectrum).",
+        "Durability of the photocatalytic coating on flexible textiles subjected to wear, abrasion, and potential (infrequent) washing.",
+        "Potential for fabric degradation over time due to oxidative processes and incomplete breakdown of complex stains."
+      ]
+    },
+    "4f068d23-bae6-4d7c-80b6-c082830d0dfb": {
+      "uuid": "4f068d23-bae6-4d7c-80b6-c082830d0dfb",
+      "idea": "Bio-active fabric finish inhibits microbes, reducing wash frequency.",
+      "description": "Apply bio-actives, inspired by Sclareance's fungal inhibition, to fabrics to prevent microbial growth. This reduces the need for frequent water-intensive washing, addressing the challenge of hygiene with less water.",
+      "feasibility_rationale": "Developing a durable, safe, and broadly effective bio-active fabric finish presents significant R&D challenges regarding wash resistance and broad-spectrum efficacy, but the underlying principle is plausible.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While antimicrobial fabrics exist, the specific application of cosmetic-inspired bio-actives to inhibit general microbial growth on clothing for water reduction is a moderately novel approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effectively reducing wash frequency through microbial inhibition would directly address the core challenge of water scarcity while maintaining hygiene standards.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A bio-active compound can be durably bound to fabric fibers and remain active.",
+        "The bio-active will be effective against a wide range of common odor-causing and hygiene-relevant microbes on clothing.",
+        "The bio-active finish is safe for prolonged skin contact and environmentally benign after disposal."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen candidate bio-actives (inspired by Sclareance or others) for efficacy against common textile microbes (bacteria, fungi).",
+        "Investigate methods for durably applying these bio-actives to common fabric types (e.g., cotton, polyester) and test wash fastness.",
+        "Conduct initial skin sensitivity (e.g., RIPT) and cytotoxicity tests for promising candidates on fabric swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-lasting durability of the bio-active finish through multiple (even if infrequent) washes and daily wear.",
+        "Ensuring broad-spectrum antimicrobial efficacy without promoting the development of resistant microbial strains.",
+        "Consumer acceptance regarding safety and potential allergenic reactions to 'bio-active' clothing."
+      ]
+    },
+    "7331f577-2e1a-49e7-abfb-be3c0b571e06": {
+      "uuid": "7331f577-2e1a-49e7-abfb-be3c0b571e06",
+      "idea": "Microbiome-balancing spray for clothes to neutralize odor, delay washing.",
+      "description": "Develop a fabric spray using principles of microbiome balance, like Lipigenine for skin, to manage odor-causing bacteria without harsh chemicals. This extends wear time, significantly cutting water use for cleaning.",
+      "feasibility_rationale": "The science of fabric microbiomes and how to effectively and safely balance them using a spray is still in its nascent stages, requiring substantial foundational research and technological breakthroughs.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying the sophisticated concept of microbiome balancing, drawn from advanced skincare, to clothing via a spray for odor control and wash reduction is a highly inventive and fresh perspective.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "A successful microbiome-balancing spray could fundamentally change clothing care habits, offering a sustainable, hygiene-maintaining solution that drastically cuts water consumption.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A 'balanced' or 'healthy' fabric microbiome that inhibits odor can be defined and actively promoted or restored.",
+        "It's possible to develop a spray formulation that delivers and sustains beneficial microbial communities or selectively targets odor-causing bacteria without biocidal action.",
+        "Consumers will understand and accept spraying 'living' or 'balancing' treatments onto their clothes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct foundational research to characterize the microbiome of worn clothing and identify key odor-causing versus neutral/beneficial microbes.",
+        "Explore potential mechanisms (e.g., fabric prebiotics, specific non-pathogenic competitive colonizers, bacteriophage cocktails) for influencing the fabric microbiome.",
+        "Develop prototype formulations and test their effect on odor development and microbial composition on fabric swatches in controlled laboratory conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying and cultivating stable, safe, and effective beneficial fabric microbes or specific balancing agents.",
+        "Ensuring the spray does not inadvertently lead to unwanted microbial growth, staining, or skin irritation for users.",
+        "Achieving noticeable and lasting odor reduction purely through microbiome balancing rather than masking or broad-spectrum killing of microbes."
+      ]
+    },
+    "714c2332-1bcf-4da6-8083-514377b2f793": {
+      "uuid": "714c2332-1bcf-4da6-8083-514377b2f793",
+      "idea": "Concentrated natural extract soak for low-water fabric detoxification.",
+      "description": "Create a potent, low-volume soaking solution with natural detoxifying extracts, similar to Oleanoline for skin, to effectively clean clothes using minimal water. This offers an alternative to high-water conventional washing.",
+      "feasibility_rationale": "Identifying natural extracts that can effectively clean and sanitize diverse fabrics to standard hygiene levels in a very low-water soak requires significant formulation and validation effort.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While natural cleaning agents are known, formulating them into a potent, low-volume 'detoxifying' soak specifically for clothing hygiene, emphasizing minimal water use, offers a moderately novel approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "A successful low-water soak using natural extracts could provide a viable alternative for specific cleaning needs, contributing moderately to water saving and appealing to eco-conscious consumers.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Natural extracts can be concentrated enough to effectively clean and sanitize clothing (remove soils, oils, and microbes) in very low water volumes.",
+        "The 'detoxification' action of these extracts translates to achieving recognized hygiene standards for clothing.",
+        "The extracts are color-safe for a wide range of common fabrics and do not leave undesirable residues or overpowering scents."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen various natural extracts for antimicrobial efficacy (bactericidal, virucidal) and cleaning properties (surfactancy, soil lifting) relevant to laundry.",
+        "Develop prototype concentrated soak formulations and test their cleaning efficacy, hygiene achievement (e.g., microbial load reduction), and water usage compared to standard methods on common stains and fabrics.",
+        "Evaluate fabric compatibility, focusing on colorfastness, material integrity, and potential for residue buildup after repeated low-water soaks."
+      ],
+      "major_challenges_roadblocks": [
+        "Demonstrating that natural extracts can achieve hygiene levels comparable to conventional detergents, especially against resilient bacteria and viruses, in a low-water, low-agitation scenario.",
+        "Ensuring the extracts are effective on a broad spectrum of common stains (e.g., protein, oil, pigment) and not just ill-defined 'toxins'.",
+        "The potential high cost and variable supply chain for sourcing and processing effective quantities of potent natural extracts."
+      ]
+    },
+    "30c9d0ce-9617-47c5-958b-b37502632635": {
+      "uuid": "30c9d0ce-9617-47c5-958b-b37502632635",
+      "idea": "Lotus-inspired fabrics repel dirt, minimizing water for cleaning.",
+      "description": "Develop textiles with hierarchical micro/nano structures mimicking lotus leaves to achieve superhydrophobicity and self-cleaning, drastically reducing water needed for hygiene by preventing soil adhesion.",
+      "feasibility_rationale": "Creating durable and cost-effective lotus-effect textiles that withstand wear and washing cycles presents significant engineering challenges, though the basic science is established.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While lotus-effect surfaces are known in material science, their specific and optimized application for drastically reducing water in clothing hygiene to meet defined standards offers a moderately novel focus.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective and durable, this could dramatically reduce soil accumulation on clothing, thereby lessening the frequency and water intensity of washing needed to maintain hygiene.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Hierarchical micro/nano structures can be durably integrated into common clothing fibers while maintaining comfort.",
+        "Superhydrophobicity will effectively prevent adhesion of a wide range of common soils and microbes encountered on clothing.",
+        "The self-cleaning effect is sufficient to meet standard hygiene levels or significantly reduce the water needed for supplementary cleaning."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and compare existing durable superhydrophobic textile coatings/treatments for efficacy against diverse clothing soils.",
+        "Develop prototype fabrics and conduct rigorous testing for durability (abrasion, laundering) and sustained self-cleaning performance.",
+        "Quantify the actual reduction in water usage and assess achieved hygiene levels (e.g., microbial load, odor reduction) compared to conventional fabrics."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the micro/nano structures against mechanical wear, abrasion, and repeated laundering cycles.",
+        "Cost-effective and scalable manufacturing processes for applying these structures to mass-market textiles.",
+        "Ensuring the 'self-cleaning' addresses not just particulate matter but also oily soils, bacteria, and odor to meet hygiene standards."
+      ]
+    },
+    "99df04ce-b639-437e-b8c0-150ee2e7cef3": {
+      "uuid": "99df04ce-b639-437e-b8c0-150ee2e7cef3",
+      "idea": "Carnivorous plant-mimicking fibers actively degrade clothing soils.",
+      "description": "Integrate bio-inspired enzyme-releasing mechanisms within clothing fibers, analogous to carnivorous plants, to break down organic contaminants, thus achieving hygiene with significantly less water.",
+      "feasibility_rationale": "Significant scientific and engineering breakthroughs are needed for enzyme stabilization within fibers, controlled release, ensuring biocompatibility, and long-term activity without damaging the fabric.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating active, controlled enzyme-releasing mechanisms directly within clothing fibers for in-situ soil degradation is a highly inventive approach to achieving hygiene with minimal water.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could lead to garments that actively break down organic soils, potentially achieving hygiene with minimal to no external water, which would be transformative for water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Enzymes can be stably embedded or generated within textile fibers and remain active for a practical garment lifespan.",
+        "Enzyme release can be controlled (e.g., triggered by soil or moisture) to prevent premature depletion or fabric degradation.",
+        "The enzymatic degradation products are benign and easily removed, or the degradation process itself achieves the required hygiene levels."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify robust enzymes effective against a broad spectrum of common clothing soils (proteins, lipids, carbohydrates) that are suitable for fiber integration.",
+        "Explore and test methods for enzyme immobilization or encapsulation within fiber structures, focusing on stability and controlled release mechanisms.",
+        "Conduct initial biocompatibility studies (skin contact) and fabric compatibility tests for candidate enzyme systems and treated fibers."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term stabilization and sustained activity of enzymes within textile fibers under various environmental conditions.",
+        "Developing a reliable and controllable mechanism for enzyme release that responds appropriately to soiling.",
+        "Ensuring enzymes do not degrade the textile material itself, cause skin irritation or allergic reactions, or produce undesirable byproducts."
+      ]
+    },
+    "fe00feba-618e-4a8a-b6be-0748d57f00af": {
+      "uuid": "fe00feba-618e-4a8a-b6be-0748d57f00af",
+      "idea": "Namib beetle-inspired textiles harvest air moisture for spot cleaning.",
+      "description": "Design clothing with patterned wettability like the Namib beetle's elytra to capture atmospheric water vapor and direct it for localized cleaning, minimizing reliance on external water sources.",
+      "feasibility_rationale": "While patterned wettability for water harvesting is known, collecting a sufficient quantity of water from typical ambient air (outside of consistent fog conditions) for effective spot cleaning on clothing presents a major technical challenge regarding volume and rate.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying the Namib beetle's atmospheric water harvesting mechanism specifically to clothing for on-demand, localized spot cleaning using harvested moisture is a highly inventive concept.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could offer a minor benefit for treating very small, fresh spots in humid conditions, but it is unlikely to address overall garment hygiene or significant soiling effectively.",
+      "potential_impact_score": 2,
+      "key_assumptions": [
+        "A functionally significant amount of water can be harvested from ambient air humidity (not just dense fog) in diverse user environments.",
+        "The harvested water can be effectively collected, directed, and utilized for a meaningful cleaning action on localized spots.",
+        "Textiles incorporating such water-harvesting structures can be made comfortable, durable, and cost-effective for everyday clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Model and experimentally quantify potential water harvesting rates on textile surfaces under various realistic ambient humidity and temperature conditions.",
+        "Investigate mechanisms to channel and apply harvested micro-volumes of water for effective spot cleaning (e.g., combining with pre-deposited cleaning agents or micro-agitation).",
+        "Develop and test prototype fabric swatches for water collection efficiency, user comfort, and durability of the patterned wettability."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving sufficient water harvesting rates in environments without consistent high humidity or fog to provide enough water for cleaning.",
+        "Effectively channeling and utilizing micro-droplets of collected water to perform a cleaning action beyond simple wetting of a spot.",
+        "Maintaining the delicate surface structures required for patterned wettability through wear, washing, and ensuring garment comfort."
+      ]
+    },
+    "88c29a86-db80-48cc-aacc-2fbd39e66902": {
+      "uuid": "88c29a86-db80-48cc-aacc-2fbd39e66902",
+      "idea": "Vapor-Phase Clothing Sanitizer Appliance",
+      "description": "Develop a device that uses hydrogen peroxide vapor to sanitize clothes, minimizing water use. This directly addresses the design challenge for hygienic, low-water cleaning by applying a proven, water-efficient sterilization method to garments.",
+      "feasibility_rationale": "The technology for generating and containing HPV exists. Engineering a consumer-grade appliance would require design for safety, material compatibility, and user-friendliness, which is likely feasible with focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Using vaporized hydrogen peroxide for sterilization isn't new (used in medical settings), but its application as a dedicated consumer appliance for clothing sanitization is moderately novel. It's a logical extension rather than a breakthrough.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If successful and widely adopted, this could significantly reduce water usage for clothes hygiene, especially for items needing sanitization rather than heavy soil removal. It directly addresses the core of the design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "HPV can effectively sanitize common clothing materials without significant degradation over repeated cycles.",
+        "A consumer-safe and cost-effective appliance can be designed and manufactured.",
+        "Users will accept a sanitization process that doesn't involve traditional 'washing' for certain garments or situations."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct material compatibility tests with various common fabrics and dyes exposed to HPV.",
+        "Develop and test a prototype for HPV generation, exposure chamber, and aeration/neutralization cycle.",
+        "Research efficacy of HPV against common clothing-borne microbes and odor-causing bacteria at achievable concentrations and exposure times."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring complete HPV removal/neutralization from clothes to avoid skin irritation or fabric damage.",
+        "Material compatibility: some fabrics or dyes might be sensitive to HPV.",
+        "Consumer perception and adoption of a waterless sanitization method (may not remove stains/odors as effectively as washing)."
+      ]
+    },
+    "d53051e0-6326-4c28-8bea-04f132cefdd3": {
+      "uuid": "d53051e0-6326-4c28-8bea-04f132cefdd3",
+      "idea": "Catalytic Self-Neutralizing HPV Garment Treatment",
+      "description": "Design a clothing cleaning process where HPV treatment is followed by catalyzed decomposition, leaving only water/oxygen. This solves the design challenge by providing hygienic cleaning with minimal water and no harmful residues, ensuring fabric safety and environmental friendliness.",
+      "feasibility_rationale": "Identifying and integrating an effective, safe, and durable catalyst within a garment treatment system or appliance presents significant R&D challenges. The chemistry is plausible, but engineering it into a reliable process is moderately complex.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While HPV naturally decomposes, actively catalyzing this decomposition specifically for garment treatment to ensure rapid and complete neutralization is a highly inventive step. This addresses a key safety and material integrity concern.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could be transformative by providing a fast, safe, and residue-free sanitization method, potentially overcoming major hurdles of HPV application to clothing (safety, material degradation). This makes the core HPV idea much more viable and appealing.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A suitable catalyst can be found that efficiently breaks down HPV to safe levels without damaging fabrics or leaving harmful residues itself.",
+        "The catalytic process can be integrated seamlessly into a cleaning cycle, making it user-friendly and fast.",
+        "The catalyst remains effective over many cycles or can be easily regenerated/replaced."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Literature review and experimental screening for potential catalysts (e.g., metal oxides, enzymes) for HPV decomposition compatible with textiles.",
+        "Test selected catalysts for efficiency, fabric compatibility, and longevity under simulated use conditions.",
+        "Design a small-scale reactor or chamber incorporating the catalyst to assess process parameters (flow rate, temperature, HPV concentration)."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing or identifying a catalyst that is effective at ambient or slightly elevated temperatures, safe for fabrics, and cost-effective.",
+        "Ensuring the catalytic process is rapid and complete enough to prevent user exposure or prolonged cycle times.",
+        "Potential for catalyst deactivation over time or by contaminants from clothing."
+      ]
+    },
+    "20cb4704-867f-430a-9ef4-aa5c8a2d739d": {
+      "uuid": "20cb4704-867f-430a-9ef4-aa5c8a2d739d",
+      "idea": "Automated HPV Micro-Condensation Cleaning Pods",
+      "description": "Create compact, automated pods using controlled HPV micro-condensation for targeted fabric cleaning. This addresses the design challenge by enabling efficient, low-volume hygienic cleaning, offering a precise and resource-sparing alternative to bulk water washing.",
+      "feasibility_rationale": "Precisely controlling micro-condensation of HPV on flexible, non-uniform fabric surfaces within a compact pod presents significant technical challenges. Maintaining uniformity, ensuring penetration, and managing the very small liquid volumes reliably is difficult, requiring substantial scientific breakthroughs in application technology.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of using controlled micro-condensation of HPV for targeted cleaning within compact pods is highly inventive for clothing. It implies a higher level of precision and potentially efficiency than bulk vapor exposure.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If feasible, this could offer a highly efficient, localized sanitization method, minimizing both water and HPV usage. It could be ideal for small items or targeted areas, providing a significant impact on resource conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Micro-condensation of HPV can be precisely controlled and targeted onto diverse fabric surfaces effectively.",
+        "The micro-condensation layer is sufficient for effective sanitization without oversaturation or damage.",
+        "Such pods can be made cost-effective, user-friendly, and reliable for everyday use."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and model the physics of HPV micro-condensation on various textile surfaces and geometries.",
+        "Experiment with techniques to induce and control localized micro-condensation (e.g., temperature differentials, electrostatic fields).",
+        "Evaluate the sanitization efficacy of HPV applied via micro-condensation versus vapor phase on fabric swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving uniform and controlled micro-condensation on complex 3D textile geometries.",
+        "Ensuring sufficient contact time and concentration of HPV in the micro-condensate for effective sanitization.",
+        "Scaling down the technology to compact, affordable, and automated pods for consumer use; managing the HPV source and delivery."
+      ]
+    },
+    "de3698cb-6013-4eeb-8753-768b00d4109f": {
+      "uuid": "de3698cb-6013-4eeb-8753-768b00d4109f",
+      "idea": "Use contaminant-lifting foam for water-minimal clothing hygiene.",
+      "description": "This idea proposes a cleaning method where a specialized foam lifts and separates contaminants from fabric, achieving hygiene with significantly reduced water usage, inspired by industrial foam fractionation for water treatment. This offers an alternative to bulk water washing for the design challenge.",
+      "feasibility_rationale": "Surfactant and foam technology is mature. The primary challenge lies in formulating a foam that achieves hygienic cleanliness and can be removed with minimal or no water, which seems plausible with focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While foam cleaning isn't new, optimizing it for hygienic cleaning of clothes with extreme water minimization, drawing from industrial separation principles, offers a fresh angle for this specific challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could drastically reduce water consumption for clothing hygiene, directly addressing the core design challenge, especially in water-scarce environments.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A foam formulation can be developed to effectively lift and sequester a broad range of contaminants to achieve hygienic standards.",
+        "The foam and lifted contaminants can be removed from fabric with significantly less water than traditional washing, or even mechanically.",
+        "The process will not damage common clothing fabrics or leave undesirable residues."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop prototype foam formulations targeting specific contaminants (e.g., sebum, common bacteria) and test their lifting efficacy on fabric swatches.",
+        "Investigate low-water/mechanical methods for foam application and removal (e.g., vacuum, scraping, blotting) and assess fabric integrity.",
+        "Define \"hygiene levels\" quantitatively and test if foam methods can achieve them."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving true hygienic cleaning (microbial reduction) with foam alone, without substantial water rinsing or antimicrobial agents that might leave residues.",
+        "Developing methods for efficiently applying and removing the foam and encapsulated contaminants from diverse fabric types.",
+        "Ensuring the chemical agents in the foam are safe, environmentally benign, and affordable for target users."
+      ]
+    },
+    "070ff9bc-5b6d-4763-a03e-bf38a811364e": {
+      "uuid": "070ff9bc-5b6d-4763-a03e-bf38a811364e",
+      "idea": "Vacuum-pulsed agent delivery for deep, low-water fabric cleaning.",
+      "description": "This idea uses vacuum pulses to drive minimal cleaning agents deep into clothing fibers and then extract them, aiming for effective hygiene with very little water. This mechanical approach offers an alternative to slower, biologically-based cleaning principles.",
+      "feasibility_rationale": "Core vacuum technology is mature, but optimizing agent delivery, ensuring fabric safety, and achieving consistent cleaning with minimal water requires significant R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Adapting sterilization vacuum pulsing specifically for cleaning agent delivery and extraction in fabrics is a moderately novel approach to low-water garment care, moving beyond simple vacuum extraction.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This idea could drastically reduce water consumption for effective clothing hygiene and cleaning, offering a significant improvement over conventional washing methods in water-scarce settings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Vacuum pulses can effectively deliver minimal cleaning agents deep into diverse fabric matrices and then extract them along with soil.",
+        "Low-volume, pulse-delivered agents can achieve standard hygiene levels and noticeable cleaning.",
+        "The mechanical action of vacuum pulsing will not damage common clothing fabrics over repeated cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct proof-of-concept tests on various fabric swatches to verify agent penetration depth and soil removal efficacy using vacuum pulses with a model cleaning solution.",
+        "Research and identify/develop suitable low-water, high-efficacy cleaning agents that are compatible with vacuum-pulsed delivery and extraction.",
+        "Develop a lab-scale prototype to assess cleaning performance on standardized soiled fabrics and evaluate potential fabric wear."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing cleaning agent formulations that are highly effective in ultra-low water volumes and can be efficiently delivered/extracted via pulses.",
+        "Engineering a device that achieves uniform agent distribution and extraction across various garment types, sizes, and fabric densities.",
+        "Ensuring the process is sufficiently gentle for a wide range of fabrics, including delicates, to prevent damage or premature wear."
+      ]
+    },
+    "771ad16f-597a-44ae-84b1-a683dc140dc3": {
+      "uuid": "771ad16f-597a-44ae-84b1-a683dc140dc3",
+      "idea": "Develop clothing cleaning pods with bio-active, regenerable filter media.",
+      "description": "This concept involves small, contained units where clothing is exposed to biologically active agents (akin to the initial biological purification concept) and regenerable filter media that capture and break down dirt, minimizing water and waste to address the design challenge. This directly applies insights on bioreactors and reusable treatment media.",
+      "feasibility_rationale": "Maintaining a viable and effective microbial ecosystem within a small, intermittently used pod is a significant biological and engineering challenge. Effective regeneration of both biological and filter components in a closed system adds further complexity.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of miniaturized, self-contained bioreactors with regenerable filter media specifically for individual garment cleaning is a highly inventive approach, distinct from traditional washing or existing dry cleaning methods.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could offer a nearly waterless, highly sustainable, and decentralized clothing hygiene solution, fundamentally changing how clothes are cleaned in water-scarce contexts.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A stable and effective microbial consortium can be maintained within a small, portable pod environment.",
+        "The biological agents can effectively break down a wide range of clothing soils within a reasonable timeframe without damaging fabrics.",
+        "The filter media can be efficiently regenerated in situ or easily replaced/regenerated externally with minimal resource input."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research microbial consortia capable of degrading common clothing soils in low-water conditions and test their efficacy and safety.",
+        "Develop and test prototype regenerable filter materials suitable for capturing particulate and microbial matter from clothes.",
+        "Create a proof-of-concept design for a pod that could house the bio-active agents and filter, considering mass transfer and environmental control."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing and maintaining a robust, fast-acting microbial community effective against diverse clothing soils in a small, closed system.",
+        "Ensuring no harmful byproducts, odors, or microbial transfer to clothes or users.",
+        "Engineering a compact, user-friendly pod system that integrates biological action, filtration, and regeneration effectively and affordably."
+      ]
+    },
+    "69f44031-8fff-417d-a904-ad56155e0e0a": {
+      "uuid": "69f44031-8fff-417d-a904-ad56155e0e0a",
+      "idea": "Targeted steam bursts with rapid vacuum drying for hygienic clothing care.",
+      "description": "Applies minimal, high-temperature steam for sanitization on specific clothing areas, followed by immediate vacuum drying, to effectively clean clothes while reducing overall water usage. This offers a fast, physical sterilization method for garments.",
+      "feasibility_rationale": "Steam generation and vacuum systems are established technologies, but achieving effective cleaning (beyond just sanitization) and ensuring fabric safety with targeted high-temperature steam presents moderate challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While steam and vacuum are individually used in garment care, systematically combining targeted high-temperature steam bursts for sanitization with immediate rapid vacuum drying for minimal moisture retention is a moderately novel system for low-water hygienic clothing care.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Offers a rapid method for sanitizing and refreshing garments with very little water, potentially extending the period between full washes and reducing overall water usage for laundry.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Targeted steam bursts can achieve required hygiene levels (sanitization) on common clothing materials without causing damage or color fading.",
+        "Rapid vacuum drying can effectively remove resultant moisture to prevent recontamination, odor, or fabric degradation.",
+        "The process can address light soiling or odor removal sufficiently to be considered a 'cleaning' or 'refreshing' action by users."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Evaluate sanitization efficacy (e.g., microbial load reduction) and fabric integrity (colorfastness, shrinkage, damage) across various materials subjected to defined targeted steam and vacuum cycles.",
+        "Investigate methods for incorporating minimal, safe cleaning agents or enhancers with the steam to improve soil and stain removal capabilities.",
+        "Develop a functional prototype for controlled steam application and vacuum drying on representative garment sections to test usability and effectiveness."
+      ],
+      "major_challenges_roadblocks": [
+        "Balancing steam parameters (temperature, duration, pressure, distance) for effective sanitization versus the inherent risk of fabric damage, particularly for delicate materials or colored textiles.",
+        "Achieving meaningful soil and stain removal with steam alone or with minimal additives, as steam is primarily a sanitizer.",
+        "Designing a practical, safe, and user-friendly appliance for precise targeted application on diverse garments and soiled areas."
+      ]
+    },
+    "07f7c0a2-1690-44bd-b95a-db66aa036716": {
+      "uuid": "07f7c0a2-1690-44bd-b95a-db66aa036716",
+      "idea": "Create regenerable 'dirt-magnet' textiles for dry-contact clothes cleaning.",
+      "description": "Imagine textiles or sheets embedded with regenerable adsorbent materials that, when agitated with soiled clothes, attract and bind dirt. These 'dirt-magnets' are then regenerated using a low-water process, offering a dry or near-dry cleaning solution for the design challenge. This leverages the resource efficiency of regenerable media.",
+      "feasibility_rationale": "While adsorbent materials exist, developing one that is highly effective for a broad range of clothing soils via simple mechanical contact, is durable as a textile, and can be easily regenerated with low water poses significant material science and engineering challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Using specialized textiles with regenerable adsorbent properties for direct, dry-contact cleaning is a highly inventive approach, moving away from water or solvent-based methods entirely.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This offers the potential for truly dry cleaning, which would have a significant impact on water conservation and convenience, especially in settings entirely without water access for cleaning.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Adsorbent materials can be integrated into a flexible textile format that effectively binds a wide range of soil types through simple physical contact.",
+        "These 'dirt-magnet' textiles can be efficiently regenerated using a very low-water or dry process without degrading the textile.",
+        "The cleaning process (agitation with the magnet textile) will not damage delicate clothing fabrics."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Survey and test existing or novel adsorbent materials for their affinity to common clothing soils and their potential for incorporation into textile structures.",
+        "Develop prototype 'dirt-magnet' textile swatches and test their cleaning efficacy on stained fabrics through various agitation methods.",
+        "Investigate and prototype low-water/dry regeneration methods for the most promising adsorbent textile candidates."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing adsorbent materials with high capacity and selectivity for diverse clothing soils that can be integrated into a durable textile.",
+        "Ensuring the 'dirt-magnet' textile doesn't abrade or damage clothes during the agitation/contact cleaning process.",
+        "Designing an efficient, low-energy, low-water regeneration process for the 'dirt-magnet' textile."
+      ]
+    },
+    "ba2299da-731d-4f89-ab68-0b6300cd7126": {
+      "uuid": "ba2299da-731d-4f89-ab68-0b6300cd7126",
+      "idea": "Closed-loop vapor cleaning system with efficient water-saving vacuum technology.",
+      "description": "This concept proposes recycling a specialized cleaning vapor within a closed system using highly efficient vacuum pumps, inspired by water-saving industrial pumps, to drastically cut water consumption for clothing hygiene. It directly addresses water scarcity by focusing on resource conservation.",
+      "feasibility_rationale": "This concept requires significant breakthroughs in developing a suitable cleaning vapor, its effective and efficient recycling, and a compact, affordable closed-loop system, making current technical feasibility low.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Designing a closed-loop system using a specialized, recyclable cleaning vapor (beyond simple water steam or traditional dry-cleaning solvents) coupled with advanced vacuum technology for clothing hygiene is a highly inventive and potentially transformative approach for achieving near-zero net water usage.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this idea could be transformative by enabling effective clothes cleaning with virtually no net water consumption, fundamentally redefining garment care, especially in severely water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "An effective cleaning vapor (distinct from just water steam) can be developed that is safe for users and fabrics, cleans effectively, and is readily condensable/recyclable.",
+        "Contaminants (soil, microbes, odors) can be efficiently and economically filtered and removed from the condensed vapor during the recycling process to maintain cleaning efficacy.",
+        "A miniaturized, energy-efficient, and cost-effective closed-loop system utilizing advanced vacuum technology can be manufactured for consumer or small-scale applications."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct a comprehensive literature review and theoretical screening of potential chemical compounds or mixtures for suitability as recyclable cleaning vapors, considering efficacy, safety, and phase change properties.",
+        "Design and simulate a small-scale conceptual closed-loop vapor generation, cleaning chamber, condensation, and purification cycle to identify key engineering challenges.",
+        "Perform a preliminary techno-economic analysis to estimate system cost, energy requirements, and potential water savings compared to existing and emerging low-water cleaning technologies."
+      ],
+      "major_challenges_roadblocks": [
+        "Identification or creation of a cleaning vapor with appropriate thermodynamic properties for vaporization/condensation, high cleaning efficacy across diverse soils, and long-term stability through recycling.",
+        "Development of a robust, compact, and highly efficient vapor purification and recycling technology capable of removing a wide array of contaminants without significant loss of the cleaning agent.",
+        "High initial R&D investment, potential system complexity, and the challenge of achieving a consumer-acceptable cost and operational energy efficiency."
+      ]
+    },
+    "42ac75c9-ccdf-4865-bade-beaaf21a2a1c": {
+      "uuid": "42ac75c9-ccdf-4865-bade-beaaf21a2a1c",
+      "idea": "Gas-phase clothing purification with controlled humidity and active aeration.",
+      "description": "Develop a system using a sterilizing gas on clothes in a chamber, controlling humidity and using air washes/aeration to remove residues, drastically cutting water. This is inspired by ETO's process parameters, offering a chemical alternative to the initial purification concept.",
+      "feasibility_rationale": "While gas sterilization principles are established, adapting them for safe, effective, and affordable consumer clothing care presents challenges in gas selection, residue management, and device engineering.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying gas-phase sterilization, common in medical settings, to everyday clothing for water-scarce environments is a novel application context, though the core technology isn't new. The focus on active aeration for consumer use is a key adaptation.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If successful, this could offer a true waterless or near-waterless method for achieving high hygiene levels in clothing, directly addressing the core challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A safe and effective sterilizing gas for common fabrics can be identified that leaves no harmful residues after aeration.",
+        "A compact, affordable, and user-friendly device can be developed for household use.",
+        "Consumers will accept gas-based cleaning methods for their clothes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate sterilizing gases suitable for consumer applications (e.g., ozone, vaporized hydrogen peroxide, or novel compounds), evaluating efficacy, material compatibility, and safety.",
+        "Conduct small-scale lab tests to assess gas penetration, sterilization efficacy on common clothing microbes, and residue levels on different fabric types post-aeration.",
+        "Develop a prototype chamber and aeration system to test cycle parameters (concentration, humidity, temperature, time, aeration)."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying a gaseous agent that is effective, safe for fabrics, non-toxic to users after aeration, and environmentally benign.",
+        "Ensuring complete removal of gas residues from various fabrics to prevent skin irritation or toxicity.",
+        "Consumer perception and safety concerns regarding chemical gas treatment of clothing."
+      ]
+    },
+    "225d8603-5158-44dc-a531-d9c54b1d74ed": {
+      "uuid": "225d8603-5158-44dc-a531-d9c54b1d74ed",
+      "idea": "Unit-dose 'dry-clean' cartridges for low-water clothing hygiene.",
+      "description": "Create single-use cartridges with a cleaning/sterilizing agent for a compact, waterless appliance, making hygienic cleaning accessible in water-scarce areas. This stems from the ETO unit-dose concept, focusing on resource management.",
+      "feasibility_rationale": "The feasibility hinges on developing a stable, effective agent in a unit-dose format and a reliable, safe appliance to activate and disperse it. This is an engineering challenge but leverages existing precedents.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While unit-dose delivery is not new, its application for a waterless or near-waterless clothing *hygiene* system using potentially gaseous or vapor-phase agents in a dedicated appliance is a fairly fresh approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly lower barriers to adoption for waterless cleaning by simplifying the process, ensuring correct agent usage, and potentially enabling smaller, more affordable devices.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A cleaning/sterilizing agent can be packaged safely and stably in a unit-dose cartridge.",
+        "The agent can be effectively dispersed from the cartridge within an appliance to treat clothing.",
+        "The cost per cycle using cartridges will be acceptable to users in water-scarce settings."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify candidate cleaning/sterilizing agents (solid, liquid, or encapsulated gas) suitable for unit-dose packaging and effective for fabric hygiene.",
+        "Design and prototype a simple mechanism for cartridge activation and agent dispersal within a test chamber.",
+        "Evaluate the stability of potential agents in prototype cartridges over time and under various environmental conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a potent cleaning/sterilizing agent that is stable in cartridge form and effective in small, single-use quantities.",
+        "Designing a safe, affordable, and reliable appliance that can properly activate and utilize the cartridges without leaks or user exposure.",
+        "Cost of cartridges and potential for plastic waste if not designed for recyclability/biodegradability."
+      ]
+    },
+    "26935a4a-315c-4bdc-b9d2-89950222a5a5": {
+      "uuid": "26935a4a-315c-4bdc-b9d2-89950222a5a5",
+      "idea": "Reactive oxygen species (ROS) vapor cycle for fabric sanitization.",
+      "description": "Use controlled exposure to reactive oxygen species (e.g., ozone) in a humidified chamber to sanitize clothes, then aerate to remove residues, achieving hygiene with minimal water. This adapts the ETO gas-phase process with alternative agents.",
+      "feasibility_rationale": "Generating ROS is feasible, but controlling concentration, ensuring fabric compatibility, achieving uniform sanitization, and managing potential oxidative damage or harmful byproducts are significant R&D hurdles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While ROS are used in other sterilization contexts, a dedicated vapor cycle system for clothing, optimizing humidity and aeration for fabrics, represents a significant and inventive adaptation for this challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "ROS can provide powerful, broad-spectrum sanitization without bulk water and potentially with byproducts that are less harmful (e.g., oxygen from ozone), making it a strong contender.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "ROS can effectively sanitize common clothing pathogens without significantly degrading fabric integrity over repeated cycles.",
+        "A device can safely generate and contain ROS at effective concentrations and then effectively remove or neutralize them.",
+        "The process is energy-efficient and completed within a reasonable timeframe for consumer convenience."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Literature review and testing of different ROS (ozone, VHP, etc.) for efficacy against target microbes on various fabric types and assess material degradation over multiple exposure cycles.",
+        "Develop a lab-scale prototype chamber with controlled ROS generation, humidity, and aeration/neutralization capabilities.",
+        "Investigate sensor technologies for monitoring ROS concentrations and ensuring safety interlocks."
+      ],
+      "major_challenges_roadblocks": [
+        "Material compatibility: ROS can be oxidative and may damage or discolor certain fabrics or dyes over time.",
+        "Safety: Ensuring that no harmful levels of ROS (e.g., ozone) or byproducts are released or remain on clothes.",
+        "Uniformity of treatment: Achieving consistent ROS exposure and penetration throughout a load of clothes."
+      ]
+    },
+    "bfa0affc-438f-4c41-b3b6-833171e15253": {
+      "uuid": "bfa0affc-438f-4c41-b3b6-833171e15253",
+      "idea": "Concentrated bio-active soak for ultra-low water laundry.",
+      "description": "Develop a washing system using a highly concentrated, reusable microbial solution to clean clothes with minimal water. This leverages a dense biological cleaning agent, similar to the initial bio-purification concept but in a managed, high-density form, to achieve hygiene with drastically less water.",
+      "feasibility_rationale": "Requires significant R&D to identify/engineer suitable microbial consortia, ensure fabric compatibility, user safety (odor, skin), and maintain solution stability and efficacy over multiple reuse cycles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying a managed, highly concentrated, and reusable microbial ecosystem to laundry is a significant departure from standard enzyme detergents and directly inspired by MBRs for a novel low-water cleaning approach.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Could revolutionize laundry by enabling effective cleaning with minimal water, directly solving the core design challenge of water scarcity.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A microbial consortium can be developed that effectively breaks down common laundry soils (oils, proteins, dirt) across various fabric types.",
+        "The microbial solution can be maintained in a concentrated, active, and reusable state without becoming foul or harmful.",
+        "The process will be safe for users (no skin irritation, no pathogenic outgrowth) and clothes (no damage or persistent odor)."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Literature review and expert consultation on existing bio-augmentation for waste treatment and enzyme technology for cleaning to identify candidate microbial species or metabolic pathways.",
+        "Proof-of-concept lab experiments with selected microbes on common stains and fabric swatches in a low-water \"soak\" environment.",
+        "Develop protocols for maintaining microbial culture viability and activity, and for assessing cleaning efficacy and potential fabric damage/odor."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying or engineering a robust, effective, and safe microbial consortium for diverse stains and fabrics.",
+        "Preventing malodor, biofilm buildup on clothes, or pathogenic contamination in the reusable solution.",
+        "Ensuring long-term stability and activity of the concentrated microbial soak, and managing its \"end-of-life.\""
+      ]
+    },
+    "b202cb62-26ff-40eb-87ce-2c26949a8c45": {
+      "uuid": "b202cb62-26ff-40eb-87ce-2c26949a8c45",
+      "idea": "Air-pulse agitation system for water-minimal fabric cleaning.",
+      "description": "Create a clothes cleaning device using pulsed air and minimal cleaning fluid to dislodge dirt from fabrics. This mimics the MBR's air scouring for fouling control, offering a mechanical alternative to water-intensive agitation for the design challenge.",
+      "feasibility_rationale": "Mechanically achievable, but optimizing air pulse parameters (pressure, frequency, nozzle design) for effective soil removal across fabric types without damage, using very little fluid, requires significant engineering and testing.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While air-based cleaning exists, applying MBR-inspired air-pulsing for physical dislodgement with *minimal* cleaning fluid, as opposed to traditional water agitation, offers a distinct approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective, this could drastically reduce the water needed for mechanical cleaning action, contributing significantly to the design challenge's goal.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Air pulses, potentially with a small amount of cleaning fluid mist, can effectively dislodge a wide range of soils from common fabric types.",
+        "The system can be designed to avoid fabric damage from focused air jets.",
+        "The dislodged soil can be effectively removed from the system with minimal water."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop a small-scale prototype to test air-pulse cleaning on stained fabric swatches with varying air pressures, pulse frequencies, and nozzle configurations.",
+        "Investigate the minimum amount of cleaning fluid (e.g., as a mist) needed to enhance air-pulse efficacy.",
+        "Assess fabric wear and tear under different air-pulsing conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving thorough and even cleaning across entire garments and different fabric densities/types.",
+        "Potential for fabric wear or damage due to high-velocity air or localized stress.",
+        "Managing and removing aerosolized dirt particles and moisture effectively from the cleaning chamber."
+      ]
+    },
+    "265ec284-da4f-400e-8585-70861d560365": {
+      "uuid": "265ec284-da4f-400e-8585-70861d560365",
+      "idea": "Compact MBR for laundry greywater reuse and cleaning.",
+      "description": "Integrate a small MBR to treat household greywater for laundry use, then recycle laundry effluent, significantly reducing net water consumption. This applies the MBR's combined biological treatment and filtration to create a sustainable water source for cleaning.",
+      "feasibility_rationale": "MBR technology is proven, but miniaturization for household cost, footprint, energy use, and maintenance, along with handling laundry-specific contaminants (surfactants, lint, dyes), presents engineering challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While MBRs for wastewater are established, developing a compact, household-scale MBR specifically for a closed-loop laundry greywater recycling system is a novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could enable near closed-loop water recycling for laundry, drastically reducing net water consumption and addressing water scarcity effectively.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "MBR technology can be sufficiently miniaturized to be practical and affordable for household installation.",
+        "The MBR can effectively treat laundry effluent (containing detergents, soils, lint, dyes) to a quality suitable for reuse in washing clothes without issues like odor, discoloration, or residue buildup.",
+        "The system can be designed for low maintenance by typical users."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify existing compact MBR designs or membrane technologies suitable for small-scale, variable-load applications.",
+        "Conduct lab-scale trials treating synthetic or real laundry effluent with a benchtop MBR setup to assess treatment efficacy, membrane fouling rates, and identify problematic constituents.",
+        "Model the energy and cost implications of such a system for household use."
+      ],
+      "major_challenges_roadblocks": [
+        "Membrane fouling from detergents, lint, and other laundry-specific contaminants, requiring effective pre-treatment or robust membrane cleaning protocols.",
+        "Cost, size, and energy consumption of a miniaturized MBR system suitable for domestic settings.",
+        "Ensuring consistent treated water quality suitable for laundry reuse (e.g., preventing buildup of salts, dyes, or recalcitrant compounds over cycles)."
+      ]
+    },
+    "ebdf7462-731f-4775-81dc-6bb99a7584c7": {
+      "uuid": "ebdf7462-731f-4775-81dc-6bb99a7584c7",
+      "idea": "\"Living fabric\" with embedded biofilm cleans clothes with minimal misting.",
+      "description": "Develop textiles with an integrated, dormant biofilm that activates with minimal moisture to metabolize soil and odors, achieving hygiene with very little water. This directly applies a biological purification principle to clothing.",
+      "feasibility_rationale": "Significant R&D is needed to ensure biofilm stability, safety for skin contact, efficacy against common clothing soils, and controlled activation/deactivation without damaging the textile. Long-term viability and preventing unwanted microbial growth are major concerns.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating a dormant, activatable biofilm directly into fabric for cleaning is a significant departure from conventional laundry methods and most smart textile concepts. It directly adapts the \"Schmutzdecke\" principle to a wearable context.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could provide a near-waterless, self-cleaning clothing solution, profoundly impacting hygiene in water-scarce regions and reducing laundry's environmental footprint.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A safe and effective biofilm can be developed that targets common clothing soils and odors.",
+        "The biofilm can remain dormant on fabric for extended periods and be reliably activated with minimal misting.",
+        "Biofilm byproducts are non-harmful and do not degrade the fabric or cause skin irritation."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify microbial consortia capable of degrading common clothing soils and surviving in a dormant state on textile fibers.",
+        "Develop methods for embedding or attaching biofilms to fabric fibers while maintaining viability and preventing uncontrolled growth.",
+        "Conduct initial safety and efficacy tests on treated fabric swatches (skin irritation, soil degradation with misting)."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring biofilm stability, longevity, and safety (non-pathogenic, non-allergenic) on textiles during wear and storage.",
+        "Achieving effective cleaning (soil removal, odor neutralization, sanitization) across a range of common stains and microbes with minimal water.",
+        "Consumer acceptance of wearing \"living\" fabrics and managing their lifecycle (e.g., disposal)."
+      ]
+    },
+    "c7da2fb6-2365-4b9c-810a-8439337c68ac": {
+      "uuid": "c7da2fb6-2365-4b9c-810a-8439337c68ac",
+      "idea": "Regenerable adsorbent fibers in clothes capture dirt for water-light cleaning.",
+      "description": "Create clothing from fibers with high adsorption capacity (e.g., modified chitosan) that bind contaminants. Clothes are cleaned by regenerating the adsorbent, minimizing water usage. This offers an alternative physical removal method.",
+      "feasibility_rationale": "Technology for creating adsorbent fibers exists (e.g., chitosan-based). The main challenge lies in optimizing adsorption capacity for diverse soils and developing an efficient, low-water regeneration process that doesn't degrade the fabric.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While adsorbent materials are established, their integration into clothing fibers for broad-spectrum soil capture and subsequent low-water regeneration is a clever application for this specific challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could lead to clothing that requires significantly less water for cleaning, focusing on contaminant removal and adsorbent regeneration rather than full water immersion.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Adsorbent fibers can be developed with sufficient capacity and selectivity for a wide range of common clothing soils.",
+        "An efficient, low-water regeneration process can be developed that restores adsorbent capacity without damaging the fabric.",
+        "The adsorbent material remains stable and effective through multiple wear and regeneration cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen and modify existing adsorbent materials (e.g., chitosan, zeolites) for optimal binding of common clothing soils and their suitability for fiber integration.",
+        "Develop and test low-water regeneration methods for soiled adsorbent fabric swatches, measuring soil removal and adsorbent capacity recovery.",
+        "Evaluate the mechanical properties, comfort, and durability of prototype adsorbent fabrics."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high adsorption capacity for diverse types of soil (oily, particulate, biological) within textile fibers.",
+        "Developing a practical, low-water, and non-damaging method for regenerating the adsorbent fibers (e.g., mild solvent rinse, thermal desorption, pH shift).",
+        "Ensuring the feel, durability, and comfort of the adsorbent clothing are acceptable to consumers."
+      ]
+    },
+    "af51eb12-48fc-4c83-b1d0-271712ae6d66": {
+      "uuid": "af51eb12-48fc-4c83-b1d0-271712ae6d66",
+      "idea": "Portable UV/AOP pod sanitizes clothes using light and activated air.",
+      "description": "A compact device uses UV light with photocatalysts or activated oxygen species (AOPs) to oxidize bacteria and organic soils on clothes, requiring minimal water. This is a chemical approach to low-water hygiene.",
+      "feasibility_rationale": "UV-C and AOP technologies are well-established. Engineering a compact, safe, and effective device for clothing treatment is achievable, focusing on light penetration, air circulation, and material compatibility.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While UV sanitizers and AOPs are known technologies, their combination in a dedicated, portable pod for clothing sanitization is a specific application refinement rather than a wholly new concept.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "This could offer a very effective waterless sanitization and deodorization method, extending wear time between washes, but its impact on visible soil removal might be limited without additional mechanisms.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "UV/AOP treatment can effectively sanitize and deodorize fabrics without damaging them or leaving harmful residues.",
+        "A portable device can be designed to ensure sufficient exposure of all garment surfaces to the treatment.",
+        "The process is effective against a broad range of microbes and odor-causing compounds typically found on clothes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Design and prototype a small-scale pod, optimizing UV source, photocatalyst (if used), and airflow for uniform treatment of a single garment.",
+        "Test efficacy against common bacteria, fungi, and odor compounds on various fabric types, evaluating sanitization levels and potential material degradation.",
+        "Assess energy consumption and treatment time for practical usability."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring complete sanitization of all fabric surfaces, including shadowed or layered areas, within a compact device.",
+        "Potential for material degradation (e.g., color fading, fiber damage) with repeated UV/AOP exposure.",
+        "Managing byproducts of oxidation (e.g., ozone off-gassing) and ensuring user safety."
+      ]
+    },
+    "82d9c2be-1612-42a2-b305-92d65bba16de": {
+      "uuid": "82d9c2be-1612-42a2-b305-92d65bba16de",
+      "idea": "Microbial spray/fog for waterless clothing stain removal.",
+      "description": "Apply a concentrated mist of specialized dye and soil-degrading microbes to clothes, breaking down contaminants with minimal water. This leverages the observed high efficiency of microbial degradation as an alternative to water-intensive washing.",
+      "feasibility_rationale": "Developing stable, effective microbial consortia for fabric application without adverse effects (odor, damage, safety) presents significant R&D challenges, though basic spray technology is mature.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While microbial cleaners exist, a targeted, waterless spray/fog using specialized consortia for textile stain removal offers a moderately novel application of the source material for this specific challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This idea could drastically reduce water usage for common stain removal and garment refreshing, directly addressing a key aspect of the design challenge for everyday clothing care.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microbes can effectively degrade common clothing stains (food, sweat, dirt) in a low-moisture environment on fabric surfaces.",
+        "Microbial consortia can be formulated into a stable, safe, and easy-to-apply spray/fog.",
+        "The process will not leave undesirable residues, odors, or damage textiles over time."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Isolate and screen microbial strains/consortia for efficacy against common clothing stains (e.g., oils, proteins, pigments) on various fabric swatches under low-moisture conditions.",
+        "Develop and test prototype spray formulations for microbial viability, shelf-life, application evenness, and required contact time.",
+        "Conduct initial safety assessments (e.g., skin irritation potential, material compatibility) of promising microbial consortia and their byproducts."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring microbial viability, stability, and activity in a spray formulation and on dry/semi-dry fabric surfaces.",
+        "Addressing user safety concerns, including preventing skin irritation, inhalation risks, or pathogenic contamination from the product.",
+        "Preventing fabric damage, discoloration, or undesirable odors resulting from microbial activity or residual byproducts."
+      ]
+    },
+    "97884f72-775e-4016-bffb-2dab88050e8f": {
+      "uuid": "97884f72-775e-4016-bffb-2dab88050e8f",
+      "idea": "Sequential anaerobic-aerobic microbial pod for deep cleaning clothes.",
+      "description": "A low-water system where clothes first undergo anaerobic microbial breakdown of tough soils, then an aerobic phase for complete purification. This mimics the highly effective multi-stage biological wastewater treatment for clothing hygiene with significantly reduced water.",
+      "feasibility_rationale": "Engineering a compact, reliable, and user-friendly device that manages distinct anaerobic and aerobic microbial environments for textiles with minimal water is technically very challenging.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Adapting industrial-scale sequential biological wastewater treatment principles to a small, contained 'pod' system for individual clothing items is a highly inventive approach for the design challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could achieve a high level of hygiene and deep cleaning for clothing with exceptionally low water usage, potentially replacing some conventional washing cycles.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Effective anaerobic and aerobic microbial consortia can be maintained and function sequentially in a small, low-water pod system on various textiles.",
+        "The complete cleaning cycle duration will be acceptable and convenient for users compared to alternatives.",
+        "The system can be made safe, manage any gaseous byproducts or leachates, and prevent microbial escape or cross-contamination."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct proof-of-concept lab experiments to demonstrate sequential anaerobic/aerobic degradation of diverse soils on fabric swatches within a simulated closed system.",
+        "Identify and cultivate robust microbial consortia suitable for both phases, compatible with common textiles, and effective at low water activity.",
+        "Develop initial conceptual designs for a pod system, focusing on water/moisture management, phase separation, environmental control (e.g., oxygen levels), and textile handling."
+      ],
+      "major_challenges_roadblocks": [
+        "Engineering a compact, sealed pod system capable of maintaining distinct anaerobic and aerobic conditions sequentially with minimal water and effective mass transfer to clothes.",
+        "Achieving thorough cleaning, hygiene, and odor removal within a reasonable timeframe without causing fabric damage or requiring complex user intervention.",
+        "Managing potential odors, microbial containment, long-term stability of consortia, and overall user safety in a household appliance."
+      ]
+    },
+    "721a8509-ef17-41f5-a4bb-05b005c341ef": {
+      "uuid": "721a8509-ef17-41f5-a4bb-05b005c341ef",
+      "idea": "Fabric 'inoculation' for continuous, low-water self-cleaning.",
+      "description": "Develop textiles that culture beneficial microbes adapted from clothing soils, enabling continuous self-purification with minimal moisture. This creates a 'living fabric' analogous to a persistent biological purification layer, reducing cleaning frequency and water.",
+      "feasibility_rationale": "Maintaining a viable, effective, safe, and aesthetically acceptable microbial ecosystem directly on wearable fabric through numerous use-cycles presents profound scientific and materials engineering challenges.",
+      "feasibility_score": 1,
+      "novelty_rationale": "The concept of a textile that actively cultivates beneficial, self-cleaning microbes, drawing inspiration from natural biological layers, represents a potential paradigm shift for clothing care and hygiene.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If achievable, this would be transformative, drastically reducing or even eliminating the need for conventional washing, leading to massive water savings and convenience.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial microbes can be durably integrated into or colonize textile fibers and remain viable and active through wear, washing, and environmental changes.",
+        "These microbes can effectively break down sweat, body oils, and odor-causing compounds using only ambient moisture or minimal added water without harming the fabric or user.",
+        "The 'living fabric' will be consistently safe for prolonged skin contact, aesthetically acceptable (no unwanted slime, odor, or texture), and durable."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research the viability and activity of candidate beneficial microbes (e.g., probiotic strains, extremophiles) on various textile fiber types under simulated wear conditions (moisture, nutrients from sweat, friction).",
+        "Explore and evaluate methods for immobilizing microbes or encouraging stable biofilm formation of desired microbes on fabric surfaces that can withstand gentle wear/refresh cycles.",
+        "Conduct extensive safety profiling (toxicological, allergenic) of candidate microbes and their metabolic byproducts for prolonged skin contact and inhalation."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying or engineering microbes that are safe, effective cleaners, and can robustly thrive and persist on textiles under variable conditions (temperature, humidity, UV exposure, mechanical stress).",
+        "Developing scalable methods to integrate or 'inoculate' fabrics to establish and maintain the desired microbial community without compromising textile properties.",
+        "Ensuring long-term safety, preventing uncontrolled microbial growth, pathogenic shifts in the fabric's microbiome, allergenicity, or negative aesthetic changes."
+      ]
+    },
+    "30a1e1a1-401d-4694-a941-70b17bbfe1e4": {
+      "uuid": "30a1e1a1-401d-4694-a941-70b17bbfe1e4",
+      "idea": "Fungal enzyme mist for waterless clothing sanitation.",
+      "description": "A concentrated mist of fungal-derived enzymes (lipases, proteases) is applied to clothes, breaking down dirt and microbes with minimal water, addressing the challenge of hygiene with low water use. This is inspired by how fungi externally digest materials.",
+      "feasibility_rationale": "Enzyme production and aerosolization are established, but achieving effective sanitation, residue management, and long-term fabric compatibility without significant water use presents R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While enzymes are used in laundry, a dedicated fungal enzyme mist for waterless sanitation and broad hygiene is a clever application of existing biological mechanisms in a new format for this specific challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could offer a substantial reduction in water consumption for clothing hygiene, directly addressing the core challenge, especially in water-scarce environments.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Fungal enzymes can be potent enough in a mist form to break down common soiling and neutralize a broad spectrum of microbes effectively.",
+        "Enzyme activity can be controlled to prevent damage to fabric fibers over time.",
+        "Residues from the mist (enzymes, broken-down soil) will not cause skin irritation or attract more dirt without a water rinse."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test specific fungal enzymes for efficacy against common clothing soils and microbes in a low-water/mist application.",
+        "Investigate fabric compatibility and potential for enzyme-induced damage across various textile types.",
+        "Research methods for enzyme deactivation or residue management on fabric post-treatment."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring broad-spectrum antimicrobial efficacy comparable to traditional washing.",
+        "Managing potential allergenic reactions to fungal enzymes or residues on clothing.",
+        "Developing a system to remove or neutralize the enzymes and digested soil from the fabric without water, or ensuring they are benign."
+      ]
+    },
+    "280a927f-fcda-4c97-b60f-184074e5bdeb": {
+      "uuid": "280a927f-fcda-4c97-b60f-184074e5bdeb",
+      "idea": "Reusable mycelial mats for biological clothes cleaning.",
+      "description": "Develop a living, reusable mycelial mat that clothes are pressed against. The mat secretes enzymes and absorbs/decomposes soil and microbes, offering a low-water biological purification method for fabrics, similar to the initial inspirational concept.",
+      "feasibility_rationale": "While mycelial growth is understood, creating a robust, effective, and hygienic cleaning mat that doesn't damage fabric, transfer fungal material, or require complex maintenance poses substantial biological and engineering challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of a living, self-regenerating mycelial mat for direct contact cleaning of clothes is highly original and directly analogous to the inspirational Schmutzdecke, applied to a completely different domain.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "A truly waterless, biological, and potentially self-sustaining clothes cleaning system would fundamentally redefine clothing care and hygiene in water-scarce contexts.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Mycelial mats can secrete a sufficient concentration and variety of enzymes to effectively clean diverse stains and sanitize clothing upon contact.",
+        "The physical structure of the mat can withstand repeated use and effectively interact with fabric surfaces without causing damage or leaving fungal residues.",
+        "The mat itself can be maintained in a healthy, hygienic state without significant water or complex inputs, and won't develop unpleasant odors or become a source of contamination."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen fungal species for their ability to form durable mats and secrete relevant cleaning enzymes under conditions suitable for fabric contact.",
+        "Conduct proof-of-concept experiments on fabric swatches to assess cleaning efficacy and potential for fabric damage or fungal transfer.",
+        "Investigate methods for maintaining mat health and hygiene with minimal resource input."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving effective soil removal and sanitation across various fabric types and soil loads by mere contact.",
+        "Preventing transfer of fungal material (spores, hyphae) to clothes or causing allergic reactions.",
+        "Maintaining the viability, cleanliness, and odor control of the living mycelial mat over time with minimal water."
+      ]
+    },
+    "d1a41da4-89af-4e48-adc7-a7893f44c5e1": {
+      "uuid": "d1a41da4-89af-4e48-adc7-a7893f44c5e1",
+      "idea": "Fungal bioremediation for specific clothing contaminants.",
+      "description": "Utilize selected or engineered fungi, known for degrading tough pollutants, to specifically target and break down persistent stains or contaminants on clothing, reducing overall water and harsh chemical needs for achieving hygiene.",
+      "feasibility_rationale": "Fungal bioremediation of specific compounds is plausible, but developing safe, targeted, and efficient application methods for diverse fabrics and stains, without damaging the garment, presents considerable R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While bioremediation is an established field, its application to target specific, stubborn clothing contaminants using fungi as a precise cleaning agent is a novel approach to textile care.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly improve the removal of stubborn stains that typically require water-intensive or harsh chemical treatments, thus extending garment life and reducing chemical use, complementing a low-water hygiene system.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Specific fungi can be identified or engineered to effectively degrade common persistent clothing stains (e.g., oil, ink, grass) without damaging textile fibers.",
+        "The process can be controlled to act only on the stain and not affect the garment's integrity, color, or wearability.",
+        "Application and removal/neutralization of the fungi can be achieved with minimal water and without leaving harmful residues."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify common, persistent clothing stains that are difficult to remove with low-water methods.",
+        "Screen existing fungal strains or explore literature for candidates known to degrade components of these target stains.",
+        "Conduct lab-scale tests on stained fabric swatches to assess degradation efficacy, fabric compatibility, and treatment time/conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying/engineering fungi with high specificity and efficiency for a wide range of common persistent stains.",
+        "Ensuring the process is safe for various fabric types and dyes, and doesn't leave residues or cause discoloration.",
+        "Developing a practical application method (e.g., patch, localized spray) and ensuring fungal containment and deactivation post-treatment."
+      ]
+    },
     "b0b055b8-aa80-4a6a-99ff-894fc6d31af2": {
       "uuid": "b0b055b8-aa80-4a6a-99ff-894fc6d31af2",
       "idea": "Self-Sanitizing Mycelial Fibers for Clothing.",
@@ -11379,6 +14300,240 @@ var idea_lenses_hierarchy = {
         "Identifying/engineering fungal strains tolerant to and effective at degrading modern detergent chemicals, dyes, and diverse soil types within short timeframes.",
         "Designing a compact, efficient, low-maintenance, and cost-effective bioreactor system suitable for home or community laundry settings.",
         "Ensuring consistent water quality output, preventing pathogen buildup or release of harmful fungal byproducts/mycotoxins into the recycled water."
+      ]
+    },
+    "5dfbab29-3143-450e-85d8-716add1ce6e3": {
+      "uuid": "5dfbab29-3143-450e-85d8-716add1ce6e3",
+      "idea": "Enzyme-infused cleaning sheets for near-waterless stain and odor removal.",
+      "description": "Develop dry sheets embedded with fungal enzymes. When moistened slightly, they release enzymes to break down common clothing soils and odors, achieving cleaning with minimal water. This applies biological degradation principles to a low-resource context.",
+      "feasibility_rationale": "Requires significant R&D in enzyme stabilization, selection for broad efficacy on diverse soils/odors, and controlled release with minimal moisture, but builds on existing enzyme technology.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While cleaning wipes exist, applying potent fungal-derived enzymes in a dry, activatable sheet format for comprehensive clothing cleaning is a highly inventive approach to water-scarce hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Could significantly reduce water usage for light cleaning and odor removal, extending wear between full washes, thus having a major impact on water conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Fungal enzymes can be stabilized in a dry sheet format and remain active upon slight moistening.",
+        "A cocktail of enzymes can be developed to effectively break down a wide range of common clothing soils and odor-causing compounds.",
+        "The enzyme action will not damage common textile fibers or leave undesirable residues."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen fungal enzymes for efficacy against common clothing soils (oils, proteins, carbohydrates) and odor precursors.",
+        "Develop and test methods for enzyme immobilization and stabilization within a sheet matrix.",
+        "Conduct small-scale tests on various fabric swatches with common stains, evaluating cleaning efficacy and fabric integrity."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term stability and shelf-life of enzymes in the sheet.",
+        "Ensuring efficacy across diverse fabric types, soil types, and water hardness (if any water is used for activation).",
+        "Consumer acceptance and perception of 'cleanliness' without traditional washing."
+      ]
+    },
+    "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7": {
+      "uuid": "a80bd2cd-b2b0-4522-9564-d2c2c1032aa7",
+      "idea": "Textiles with integrated fungal spores for self-deodorizing/cleaning.",
+      "description": "Engineer fabrics with harmless, immobilized fungal components that activate with minimal moisture to break down sweat and odors, reducing wash frequency and water use. This directly applies the concept of a persistent, purifying biological layer to clothing.",
+      "feasibility_rationale": "Faces substantial hurdles in ensuring spore viability, controlled activation, safety (non-pathogenic, non-allergenic), specificity of action (not degrading fabric), and durability through wear and occasional cleaning.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating dormant, activatable fungal spores into textiles for persistent self-cleaning is a breakthrough concept, directly analogous to the Schmutzdecke but on clothing.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "Could revolutionize clothing care by making garments largely self-maintaining, drastically reducing water and energy consumption for laundry, a transformative impact.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Harmless fungal spores can be safely and durably integrated into textile fibers.",
+        "These spores can be activated by minimal moisture (e.g., sweat) to metabolize soil and odor compounds effectively.",
+        "The fungal activity will be highly specific, not damaging the textile material or producing harmful byproducts."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify fungal species/strains that are non-pathogenic, produce relevant enzymes for soil/odor degradation, and can form durable spores.",
+        "Investigate methods for immobilizing or integrating spores into textile fibers while maintaining viability.",
+        "Conduct controlled experiments to assess spore activation, targeted degradation activity, and any impact on fabric integrity or safety in a lab setting."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and controlled activation of fungal spores within the fabric structure through manufacturing, wear, and tear.",
+        "Guaranteeing safety: non-pathogenicity, non-allergenicity, and no harmful metabolite production.",
+        "Achieving effective cleaning/deodorizing without damaging the textile material or altering its properties (e.g., feel, color)."
+      ]
+    },
+    "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b": {
+      "uuid": "f7aaef9d-8a3c-4262-aa0d-6f06c154e71b",
+      "idea": "Compact fungal bioreactor for in-home laundry water recycling.",
+      "description": "Create a compact bioreactor using immobilized fungi to treat and recycle laundry water in-home, drastically cutting water usage for clothes cleaning. This scales down industrial biological purification for household efficiency.",
+      "feasibility_rationale": "Miniaturization, maintaining a stable fungal culture with variable influent (detergents, soils), and ensuring consistent hygienic output quality present significant engineering challenges for a consumer device.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While industrial bioreactors for textile wastewater exist, adapting and miniaturizing fungal bioreactor technology for efficient in-home laundry water recycling is a moderately novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Directly addresses the challenge by enabling substantial reuse of laundry water, leading to significant water savings in households.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A fungal bioreactor can be designed to be compact, affordable, and user-friendly for home use.",
+        "Fungal cultures can effectively and consistently degrade a wide range of detergents, soils, and potential pathogens found in domestic laundry water to a safe level for reuse.",
+        "The system can operate reliably with intermittent feeding and minimal maintenance by an average user."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and cultivate robust fungal consortia capable of degrading common laundry wastewater components, including surfactants and soils.",
+        "Design and prototype a lab-scale bioreactor to test treatment efficacy, processing time, and resilience to variable inputs.",
+        "Evaluate the quality of treated water for key hygiene indicators (e.g., microbial load, residual chemicals) and its suitability for reuse in washing machines."
+      ],
+      "major_challenges_roadblocks": [
+        "Dealing with the variability and complexity of laundry wastewater (detergents, bleach, softeners, dyes, microfibers, pathogens).",
+        "Achieving a high enough purification standard for reused water to meet hygiene requirements and prevent clothes/machine damage.",
+        "Consumer adoption: concerns about complexity, maintenance, cost, and safety/hygiene of recycled water."
+      ]
+    },
+    "e99d90ce-212a-4afc-86fd-18dfe86e313e": {
+      "uuid": "e99d90ce-212a-4afc-86fd-18dfe86e313e",
+      "idea": "Mycelium-derived cleaning patches for waterless stain removal.",
+      "description": "Develop disposable or reusable mycelium patches that absorb stains and oils directly from fabric, minimizing water. This uses mycelium's natural absorbency and potentially enzymatic action for a dry cleaning approach.",
+      "feasibility_rationale": "Growing mycelium into a functional patch form with effective stain absorption and enzymatic action presents moderate R&D challenges, particularly regarding material properties and enzyme stability/activity on fabric.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of a bio-active, absorbent patch for direct stain removal on textiles is highly inventive, moving beyond simple absorbency to potentially include enzymatic cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could offer a moderate impact by reducing the frequency of full washes through effective spot treatment, directly addressing water scarcity for minor soiling.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Mycelium can be processed into a patch that is safe for fabrics and effective at stain/oil absorption without leaving residue.",
+        "Enzymes within or secreted by the mycelium can remain active and target common stains effectively in a dry/semi-dry patch format.",
+        "The patches can be produced cost-effectively and are either disposable or easily reusable/rechargeable."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop prototype mycelium materials and test their absorbency for common stains (e.g., oil, coffee) and interaction with various fabrics.",
+        "Investigate methods to incorporate or stimulate specific enzyme production in mycelium relevant to stain degradation and test their efficacy in a patch-like application.",
+        "Assess the lifecycle of such patches: disposability, reusability, or regeneration potential."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving desired mechanical properties (flexibility, durability, non-abrasiveness) for the mycelium patch.",
+        "Ensuring targeted enzyme activity and stability in a patch format, and preventing unwanted fabric degradation.",
+        "Consumer acceptance and usability (e.g., application time, effectiveness across diverse stains/fabrics)."
+      ]
+    },
+    "f2d13061-b933-4ce7-b227-9c8792b53b40": {
+      "uuid": "f2d13061-b933-4ce7-b227-9c8792b53b40",
+      "idea": "Enzyme-secreting mycelial inserts for low-water washing machines.",
+      "description": "Create 'cartridges' of immobilized, enzyme-producing mycelium for washing machines, enabling potent cleaning with minimal water by biologically degrading soils. This is a contained biological purification system for clothes.",
+      "feasibility_rationale": "Maintaining a viable, enzyme-secreting mycelial culture within the harsh and variable environment of a washing machine presents very significant technical challenges, especially regarding culture stability and consistent enzyme output.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating a living, enzyme-secreting mycelial system directly into a washing machine for continuous biological cleaning is a breakthrough concept, distinct from traditional detergent enzymes.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successful, this could revolutionize clothes washing by enabling highly effective cleaning with minimal water and potentially reduced detergent use, offering a transformative impact on water conservation.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Mycelial cultures can be maintained alive and active within a washing machine environment over many cycles.",
+        "The mycelium can consistently produce sufficient quantities of effective cleaning enzymes under low-water conditions.",
+        "The system can be designed to prevent unwanted microbial contamination of clothes or the machine, and manage byproducts."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify mycelium strains capable of producing broad-spectrum cleaning enzymes and surviving in simulated low-water washing conditions.",
+        "Develop and test methods for immobilizing mycelium in a cartridge form, assessing its enzyme production rates and longevity under stress.",
+        "Conduct a thorough risk assessment regarding biosafety, including potential for allergenicity or contamination."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining viability and consistent enzyme production of mycelium in a dynamic, non-sterile washing machine environment (temperature fluctuations, mechanical stress, presence of other chemicals).",
+        "Ensuring safety: preventing release of spores, allergens, or unwanted microbial growth into the wash or onto clothes.",
+        "Designing a practical 'cartridge' system that allows for nutrient supply, waste removal, and easy replacement/maintenance."
+      ]
+    },
+    "1b587b7b-9a7b-47b2-9a79-28bdbbc856de": {
+      "uuid": "1b587b7b-9a7b-47b2-9a79-28bdbbc856de",
+      "idea": "Hydrophobic & antimicrobial mycelial coatings for self-freshening clothes.",
+      "description": "Apply a thin, breathable mycelial-derived coating to textiles to repel water/stains and inhibit odor-causing bacteria, reducing wash frequency. This focuses on prevention and extending wear time.",
+      "feasibility_rationale": "The feasibility is likely, as fungal derivatives with hydrophobic and antimicrobial properties are known. The primary challenge lies in creating a durable, comfortable, and breathable textile coating that maintains these properties through wear and tear.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Using mycelium derivatives for a combined hydrophobic and antimicrobial textile coating is moderately novel, particularly if it offers enhanced breathability or sustainability compared to existing synthetic treatments.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could have a significant impact by reducing the need for frequent washing, thereby saving substantial amounts of water and energy, and prolonging garment lifespan.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A mycelial-derived coating can be applied to textiles without negatively impacting their breathability, feel, or appearance.",
+        "The hydrophobic and antimicrobial properties of the coating are durable enough to withstand regular wear and a reasonable number of washes (when eventually needed).",
+        "The coating is safe for prolonged skin contact and environmentally benign throughout its lifecycle."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test application methods for mycelial-derived coatings on various fabric types, evaluating adhesion, uniformity, and effect on fabric hand-feel.",
+        "Assess the durability of the hydrophobic and antimicrobial properties after simulated wear, abrasion, and laundering cycles.",
+        "Evaluate the breathability and comfort of coated fabrics through standardized textile testing methods."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the coating through wear, abrasion, and occasional washing.",
+        "Maintaining fabric breathability and comfort (avoiding a 'plastic' feel).",
+        "Scalable and cost-effective application methods for textile finishing processes."
+      ]
+    },
+    "406c74b6-5e59-4adf-a7e3-14cdd2f3440d": {
+      "uuid": "406c74b6-5e59-4adf-a7e3-14cdd2f3440d",
+      "idea": "Mycelium-derived hydrophobic coating for clothes to repel dirt and water.",
+      "description": "Develop a biocompatible coating from mycelium to make clothing hydrophobic, reducing soiling and wash frequency for low-water hygiene. This preventative approach contrasts with active biological purification by minimizing contaminant adhesion.",
+      "feasibility_rationale": "Developing a durable, flexible, breathable, and launder-resistant mycelium-based coating for textiles will require significant R&D. Adhesion to various fabrics and long-term stability are key challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While hydrophobic coatings for textiles are established, using mycelium as the source material is an innovative approach, particularly for its potential biocompatibility and sustainability.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water consumption by decreasing the frequency of washing needed to maintain cleanliness and appearance, directly addressing the core design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A mycelium-derived coating can be made sufficiently hydrophobic and durable for everyday clothing use.",
+        "The coating will not negatively impact fabric breathability, comfort, or aesthetics to an unacceptable degree.",
+        "The coating can be applied to textiles in a scalable and cost-effective manner."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify mycelium species and treatment methods that yield optimal hydrophobic properties for textile coatings.",
+        "Develop and test application techniques for applying thin, even mycelium coatings onto various fabric types, assessing adhesion and durability through standardized wash and wear tests.",
+        "Evaluate the impact of the coating on key fabric performance characteristics such as air permeability (breathability), moisture vapor transmission, and tactile feel."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability and wash-resistance of the mycelium coating on flexible textiles.",
+        "Ensuring the coating maintains fabric breathability and comfort, and does not develop an undesirable odor or texture over time.",
+        "Scaling up production of consistent mycelium-based coating material and its application process for clothing."
+      ]
+    },
+    "5b8eb56d-7100-4c09-afd4-4ed171cec3c0": {
+      "uuid": "5b8eb56d-7100-4c09-afd4-4ed171cec3c0",
+      "idea": "Portable UV-C device for waterless clothing sanitization.",
+      "description": "Design a compact, low-energy UV-C emitting device for sanitizing clothing items without water, effectively neutralizing microbes to achieve hygiene standards. This directly addresses water scarcity by offering a waterless cleaning method, an alternative to biological purification principles.",
+      "feasibility_rationale": "The core UV-C technology is mature and readily available. Engineering a portable, safe, and effective device for clothing is highly plausible, focusing on dosage, coverage, and safety interlocks.",
+      "feasibility_score": 4,
+      "novelty_rationale": "UV-C sterilization is a known technology; applying it via a dedicated portable device for clothing sanitization is a practical extension rather than a breakthrough concept, though not yet mainstream.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "Provides a waterless method for sanitization, which is a key aspect of hygiene, potentially reducing wash frequency driven by microbial concerns, though it doesn't address physical soiling.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "UV-C exposure at achievable portable device levels can effectively sanitize common clothing items to a satisfactory hygiene standard without requiring excessive time.",
+        "A device can be designed to ensure adequate UV-C exposure to all critical surfaces of a garment, including folds and inner layers.",
+        "Users can be educated to use such a device safely and effectively, respecting UV-C exposure risks."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Prototype a portable UV-C device with features for even light distribution across garment surfaces (e.g., internal reflective surfaces, multiple emitters).",
+        "Conduct microbiological efficacy testing on various fabric types inoculated with common skin flora or indicator organisms to determine required dosage and exposure times.",
+        "Investigate potential long-term degradation effects (e.g., color fading, material weakening) of repeated UV-C exposure on diverse textile materials."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring comprehensive sanitization coverage, as UV-C is line-of-sight and may not penetrate dense fabric layers or reach shadowed areas effectively.",
+        "Potential for long-term material degradation (e.g., brittleness, color fading) of certain fabrics or dyes with repeated UV-C exposure.",
+        "User safety and compliance, ensuring users avoid direct skin/eye exposure and understand the limitations (e.g., doesn't remove physical dirt)."
+      ]
+    },
+    "24c0bce9-a266-4106-9719-c59facf1d188": {
+      "uuid": "24c0bce9-a266-4106-9719-c59facf1d188",
+      "idea": "Sacrificial mycelial layer on clothes traps dirt, then sheds.",
+      "description": "Create a temporary, thin mycelial layer grown/applied to clothing to trap contaminants, then shed or biodegrade with them, minimizing water use. This adapts the trapping function of a biological purification system with a renewal mechanism.",
+      "feasibility_rationale": "Significant scientific and engineering breakthroughs would be needed to grow/apply a functional, controlled, shedding mycelial layer on clothing that effectively traps dirt and sheds cleanly without damaging the garment or leaving residue.",
+      "feasibility_score": 1,
+      "novelty_rationale": "This concept is highly original and inventive, applying a biological 'sacrificial layer' directly to clothing for cleaning, which is a paradigm shift from traditional washing or repellent methods.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If technically achievable, this offers a revolutionary approach to clothing hygiene by physically removing contaminants with minimal water, potentially transforming how clothes are 'cleaned'.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A thin, coherent mycelial layer can be successfully and temporarily cultured or applied onto diverse textile surfaces.",
+        "This mycelial layer possesses or can be engineered to have significant affinity for trapping particulate and microbial contaminants from clothing.",
+        "The layer can be induced to shed completely and cleanly from the garment on demand, or biodegrade rapidly without negative side-effects."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct foundational research into methods for culturing thin, adherent mycelial films on various textile swatches and assess their ability to trap particulate matter.",
+        "Investigate biological or chemical triggers that could induce controlled detachment or rapid, contained biodegradation of a mycelial layer from a fabric substrate.",
+        "Explore the lifecycle management of such a layer: application, growth (if any on-garment), shedding, and disposal/recycling of the shed material."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving controlled, uniform growth or application of a mycelial layer on flexible and varied textile topographies.",
+        "Ensuring the layer effectively traps a broad range of dirt and microbes and then sheds cleanly without leaving residues or damaging the fabric.",
+        "User acceptance and practicality of managing clothing with a 'living' or periodically renewed biological layer, including potential aesthetic or comfort issues."
       ]
     },
     "61b20690-9a91-462a-8c11-fbe62ca0c6f2": {
@@ -14889,6 +18044,84 @@ var idea_lenses_hierarchy = {
         "Developing robust methods to embed and sustain viable, complex microbial consortia within fabric structures throughout the garment's lifecycle, including wear and tear.",
         "Ensuring the consortia effectively and specifically target a broad range of common stains without damaging diverse fabric types or posing risks to the wearer.",
         "Maintaining the efficacy of the microbial system through multiple cycles of soiling and potential mild (non-sterilizing) cleaning or refreshment processes."
+      ]
+    },
+    "104ee243-3065-4d21-ab23-84d729f07a44": {
+      "uuid": "104ee243-3065-4d21-ab23-84d729f07a44",
+      "idea": "Microbial Guilds for clothes: specialized consortia targeting soils, minimizing water.",
+      "description": "This idea proposes creating distinct microbial teams, each optimized to break down specific types of clothing soil (oils, proteins). This specialization allows for highly efficient cleaning with minimal water, addressing the water scarcity challenge. It draws inspiration from economic/corporate models of microbial interaction, extending the initial concept of using biological processes for purification.",
+      "feasibility_rationale": "Identifying/engineering microbes for specific soil types is plausible, but ensuring their coordinated action, stability on fabric, and safety for skin contact presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying the concept of specialized microbial guilds directly to clothing cleaning is highly inventive. While bioremediation exists, tailoring consortia for diverse fabric soils with minimal water use offers a fresh perspective beyond general enzyme cleaners.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could significantly reduce water use for laundry, offering a major improvement in water-scarce regions and potentially reducing detergent use.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microbial consortia can be engineered to effectively degrade a wide range of common clothing soils.",
+        "These consortia can function optimally with very low water input and remain viable on fabric surfaces.",
+        "The byproducts of microbial action are non-toxic, non-allergenic, and do not damage fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and characterize microbial strains capable of degrading specific common clothing soils (e.g., lipids, proteins, carbohydrates) under low-moisture conditions.",
+        "Conduct proof-of-concept studies on fabric swatches to assess cleaning efficacy and fabric integrity.",
+        "Investigate methods for delivering and containing microbial consortia on clothing (e.g., sprays, impregnated materials)."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring microbial safety for human skin contact and preventing uncontrolled microbial growth.",
+        "Achieving broad-spectrum soil degradation efficacy comparable to traditional detergents.",
+        "Maintaining the viability and activity of the microbial guilds during storage and application."
+      ]
+    },
+    "f9669261-81fd-4803-a1af-90cc908fe020": {
+      "uuid": "f9669261-81fd-4803-a1af-90cc908fe020",
+      "idea": "Smart microbial patches sense dirt, activate targeted low-water cleaning programs.",
+      "description": "This involves embedding microbial consortia in responsive patches. These consortia would 'sense' dirt types and activate specific microbial cleaning pathways, using water very precisely, addressing the low-water cleaning challenge. The 'distributed computing networks' metaphor inspires this intelligent, targeted approach to microbial action.",
+      "feasibility_rationale": "Engineering microbes to reliably sense diverse soil types, communicate, and activate specific cleaning pathways with precision on fabric is highly complex and requires substantial breakthroughs in synthetic biology and biosensor technology.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of microbial consortia acting as biosensors and targeted cleaning activators directly on clothing is a breakthrough idea, pushing beyond simple biological cleaning to intelligent, responsive systems.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If realized, this could revolutionize clothing care, offering ultra-efficient, targeted cleaning with minimal resource use, fundamentally redefining hygiene standards.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be engineered to reliably detect specific soil molecules on fabric surfaces.",
+        "These engineered microbes can trigger specific, localized cleaning actions (e.g., enzyme release) in response to detection.",
+        "The \"patch\" delivery system can maintain microbial viability and functionality, and be user-friendly."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop proof-of-concept microbial biosensors for one or two key clothing soil indicators.",
+        "Explore mechanisms for inducible enzyme production or release by engineered microbes in response to sensor activation.",
+        "Investigate biocompatible materials and fabrication methods for creating a \"smart patch\" to house and sustain the microbes."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing reliable and specific microbial biosensors for a wide range of common soils.",
+        "Engineering controllable and targeted activation of cleaning mechanisms by the microbes.",
+        "Ensuring long-term stability and safety of such complex microbial systems in a wearable patch."
+      ]
+    },
+    "15ece50d-8aa3-43ef-97d1-bb66b910d993": {
+      "uuid": "15ece50d-8aa3-43ef-97d1-bb66b910d993",
+      "idea": "Embed 'ecosystem engineer' microbes in fabric to self-clean/condition with minimal moisture.",
+      "description": "This concept envisions microbes integrated into fabric, acting as 'ecosystem engineers' to continuously maintain hygiene and fabric properties using minimal moisture. It addresses the challenge by aiming for persistent, low-water self-cleaning, inspired by how microbes modify their environment and the importance of spatial structure.",
+      "feasibility_rationale": "Embedding living microbes durably within fabric textiles while ensuring their long-term viability, controlled activity, and safety is a major technical hurdle. Preventing unwanted effects on fabric or skin over time is also critical.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating microbes directly into fabric for continuous self-cleaning and conditioning is a highly inventive approach, moving beyond episodic cleaning to a persistent state of hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could drastically reduce the need for washing, offering significant water savings and convenience, especially for items not heavily soiled. It could also extend garment life.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microbes can be durably integrated into fabric structures without compromising fabric properties or microbial viability.",
+        "These embedded microbes can actively maintain a hygienic state and/or condition the fabric using ambient moisture or minimal added water.",
+        "The microbial ecosystem within the fabric is stable, safe for prolonged skin contact, and does not produce undesirable odors or degradation."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen for microbes that naturally inhibit pathogenic growth or break down odor-causing compounds under very low moisture conditions and are compatible with textile materials.",
+        "Experiment with techniques for immobilizing or encapsulating microbes within fabric fibers or coatings.",
+        "Conduct long-term studies on treated fabric swatches to assess self-cleaning efficacy, fabric durability, and microbial persistence/safety."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing methods to embed and sustain living microbes within textile fibers or weaves through multiple wear and potential light rinse cycles.",
+        "Ensuring the \"ecosystem\" is balanced, safe, and does not lead to fabric degradation or adverse health effects.",
+        "Controlling microbial activity to prevent over-activity or dormancy, and managing potential odor production."
       ]
     }
   },
