@@ -24,7 +24,51 @@ var idea_lenses_hierarchy = {
                 "cd6cf74d-de99-402b-b7ae-08845b699387",
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -41,7 +85,45 @@ var idea_lenses_hierarchy = {
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -50,7 +132,16 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that specifically utilize genetically or synthetically engineered microorganisms (GEMs) to achieve enhanced or novel cleaning, hygiene, agent production, or persistent functionalities in textiles or consumable products. This includes GEMs acting as autonomous micro-devices, inspired by natural biofilm capabilities, or for enhanced secretion/co-production of agents.",
               "children": [],
               "idea_spark_uuids": [
-                "e7b829c0-381d-41e7-ba10-0603032f5c04"
+                "e7b829c0-381d-41e7-ba10-0603032f5c04",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c"
               ]
             },
             {
@@ -64,7 +155,40 @@ var idea_lenses_hierarchy = {
                 "cd6cf74d-de99-402b-b7ae-08845b699387",
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -72,7 +196,11 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use adaptive or evolving microbial consortia that dynamically target contaminants or switch functions",
               "description": "Solutions that utilize adaptive microbial consortia capable of dynamically adjusting their activity, composition, switching metabolic/enzymatic programs, or evolving their functional capabilities on the textile over time in response to new environmental inputs or encountered contaminants.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df"
+              ]
             },
             {
               "uuid": "563d2095-9897-405c-88c2-07ddcaec0065",
@@ -87,7 +215,17 @@ var idea_lenses_hierarchy = {
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "48303506-045c-49ee-a37c-1b1ff587018c"
               ]
             },
             {
@@ -114,7 +252,14 @@ var idea_lenses_hierarchy = {
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7"
               ]
             },
             {
@@ -123,7 +268,20 @@ var idea_lenses_hierarchy = {
               "description": "Solutions where an applied cleaning product or integrated system establishes and maintains Solid-State Fermentation (SSF) conditions for in-situ microbial action on textiles.",
               "children": [],
               "idea_spark_uuids": [
-                "579de866-fa5d-4130-b472-53c5f30b9227"
+                "579de866-fa5d-4130-b472-53c5f30b9227",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             }
           ]
@@ -150,7 +308,30 @@ var idea_lenses_hierarchy = {
                 "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
-                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a"
+                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -164,7 +345,12 @@ var idea_lenses_hierarchy = {
                 "f1e395c9-e9a8-4db4-858d-2f600c947930",
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
-                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a"
+                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05"
               ]
             },
             {
@@ -172,7 +358,13 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize bacteriocins or microbially-derived antimicrobial peptides for hygiene",
               "description": "Solutions that utilize bacteriocins or other microbially-derived antimicrobial peptides as the primary active hygiene agent on textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "bacb7271-a8f7-433b-9d20-948864b01b00"
+              ]
             },
             {
               "uuid": "d47472ce-a3a6-464e-bfbd-987e0c0dd961",
@@ -190,7 +382,22 @@ var idea_lenses_hierarchy = {
                 "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
-                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a"
+                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "97a40f71-3da7-49df-8963-3685e6a1e009"
               ]
             },
             {
@@ -205,7 +412,9 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize algae or algal-derived components for cleaning or material functions",
               "description": "Solutions that utilize algae or algal-derived components as the primary functional material or active agent for cleaning, purification, or textile treatment.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "bacb7271-a8f7-433b-9d20-948864b01b00"
+              ]
             }
           ]
         },
@@ -239,7 +448,67 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -247,7 +516,9 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that allow user-tunable output of biological cleaning agents",
               "description": "Solutions where the functional output or intensity of a biological cleaning agent (e.g., enzyme production, microbial activity) can be actively 'tuned' or adjusted by the user or an automated system at the time of application.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df"
+              ]
             },
             {
               "uuid": "0250c1db-e12f-42d6-837c-14ba2ee80e1f",
@@ -265,7 +536,50 @@ var idea_lenses_hierarchy = {
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -273,35 +587,84 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use metabolically pre-conditioned biological agents for enhanced performance",
               "description": "Solutions that utilize biological agents which are metabolically pre-conditioned (e.g., starved) or specially prepared to enhance their activation speed, functional intensity, or overall performance upon application.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+              ]
             },
             {
               "uuid": "8f8b6030-fa91-43ec-a0e1-bf7532c572d3",
               "name": "Ideas that use biofilms within reusable cleaning implements or on discrete elements",
               "description": "Solutions that incorporate a functional biofilm within a separate, reusable cleaning implement such as a pad, sponge (potentially textile-based or with engineered porosity), or cloth, or on discrete non-textile elements, for direct application or contaminant transfer. The implement itself could be a cultivated living structure or a miniaturized Schmutzdecke-like system.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+              ]
             },
             {
               "uuid": "05d68292-452b-4db2-bab6-a4912767abef",
               "name": "Ideas that translate static biological purification into dynamic mobile cleaning elements",
               "description": "Solutions that translate a static, surface-based biological purification mechanism into a system of dynamic, mobile cleaning elements, potentially reusable and contained.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+              ]
             },
             {
               "uuid": "fe7b2bd2-5123-4bd8-99fe-35f0684f940a",
               "name": "Ideas that use cleaning tools/implements from functional biocomposite materials",
               "description": "Solutions that employ cleaning tools or implements fabricated from biocomposite materials (e.g., textile-polymer blends with biological components) to enhance specific cleaning-related functions like water management, agent delivery, or microbial support.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+              ]
             },
             {
               "uuid": "68868a61-90a6-4163-b337-73a7187374ee",
               "name": "Ideas that use intermittent/cyclical application to sustain biological processes",
               "description": "Solutions that employ an intermittent or cyclical application schedule for a treatment agent to effectively enable, sustain, or optimize a biological cleaning or hygiene process on garments.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
+              ]
             }
           ]
         },
@@ -315,14 +678,20 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use electrical current/potential to enhance biological cleaning processes",
               "description": "Solutions that utilize an electrical current or potential (including precisely controlled or low-intensity fields) to directly power, enhance, or control biological cleaning or decontamination processes on textiles, such as stimulating microbial activity, leveraging electrogenic activity, enhancing performance in electrical fields, or using electro-catalytic mechanisms.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             },
             {
               "uuid": "abda9f78-30d0-43bd-b3bf-6d9875699496",
               "name": "Ideas that adapt Microbial Electrochemical Systems (MES) for garment hygiene",
               "description": "Solutions that directly apply or adapt principles from Microbial Electrochemical Systems (MES), such as microbial fuel cells or electrolysis cells, for garment cleaning, hygiene, or water treatment in a laundry context.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             }
           ]
         },
@@ -340,7 +709,19 @@ var idea_lenses_hierarchy = {
                 "928b8410-c67c-4abc-bf13-0f7c3f611609",
                 "e7b829c0-381d-41e7-ba10-0603032f5c04",
                 "579de866-fa5d-4130-b472-53c5f30b9227",
-                "8adb8097-53ac-4559-bf42-c1ba375a8e5a"
+                "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
               ]
             },
             {
@@ -363,7 +744,58 @@ var idea_lenses_hierarchy = {
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -372,7 +804,13 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that feature materials with distinct, embedded biological zones or spatially organized biocatalysts that perform sequential stages of contaminant degradation or synergistic functions.",
               "children": [],
               "idea_spark_uuids": [
-                "82b00701-2084-468d-9b15-047240656fb9"
+                "82b00701-2084-468d-9b15-047240656fb9",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed"
               ]
             },
             {
@@ -380,7 +818,10 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that integrate biological agents with conductive pathways in textiles for hybrid bio-electronic functions",
               "description": "Solutions that combine active biological agents with electrically conductive pathways integrated within the fabric structure, potentially leveraging microbial electrogenic activity for enhanced cleaning.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             }
           ]
         }
@@ -428,9 +869,26 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -439,7 +897,68 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -475,10 +994,27 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -486,7 +1022,82 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -509,8 +1120,23 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -518,7 +1144,35 @@ var idea_lenses_hierarchy = {
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8"
               ]
             },
             {
@@ -539,15 +1193,55 @@ var idea_lenses_hierarchy = {
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
               ]
             },
             {
@@ -579,15 +1273,84 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -608,9 +1371,58 @@ var idea_lenses_hierarchy = {
                 "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -619,7 +1431,15 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize textiles primarily as engineered physical filters for contaminants from liquids or air, based on their material structure (e.g., nanofibers, micro-scale filtration membranes) or by mimicking biological filtration mechanisms.",
               "children": [],
               "idea_spark_uuids": [
-                "4a5406b0-1fa1-49f4-8407-7187eabd7d0f"
+                "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -627,7 +1447,13 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize textile-integrated microfluidic systems",
               "description": "Solutions that utilize textile-integrated microfluidic systems for the precise delivery and management of cleaning agents, biological agents, contaminant extraction, or for creating controlled reaction environments (e.g., hosting biofilms) directly within the fabric.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed"
+              ]
             }
           ]
         },
@@ -665,17 +1491,71 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -691,10 +1571,26 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec"
               ]
             },
             {
@@ -708,8 +1604,12 @@ var idea_lenses_hierarchy = {
                 "2f8b9566-65b2-4988-8ff4-283f4a055275",
                 "3db094d6-6a9c-4bed-ac79-a9b6aa886269",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec"
               ]
             },
             {
@@ -727,9 +1627,20 @@ var idea_lenses_hierarchy = {
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec"
               ]
             },
             {
@@ -738,7 +1649,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize coatings or surface treatments designed to be simultaneously oleophobic (oil-repellent) for preventing oily stains and hydrophilic (water-attracting) to aid in wash-off cleaning of particulate soil.",
               "children": [],
               "idea_spark_uuids": [
-                "79df045b-68ba-4973-93b7-262d9d5fc90b"
+                "79df045b-68ba-4973-93b7-262d9d5fc90b",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699"
               ]
             },
             {
@@ -765,9 +1677,25 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -775,7 +1703,45 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -792,14 +1758,48 @@ var idea_lenses_hierarchy = {
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442"
               ]
             },
             {
@@ -808,8 +1808,13 @@ var idea_lenses_hierarchy = {
               "description": "Solutions where a material's surface micro-architecture can change its shape or conformation, often triggered by minimal stimuli, to actively dislodge or expel adhered contaminants.",
               "children": [],
               "idea_spark_uuids": [
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9"
               ]
             },
             {
@@ -818,7 +1823,10 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that create a dynamic, low-adhesion surface using a porous material structure infused with a functional liquid (e.g., SLIPs), which may be replenishable or biomimetic.",
               "children": [],
               "idea_spark_uuids": [
-                "50774bdf-8d58-4477-ac81-f228d6644562"
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "50774bdf-8d58-4477-ac81-f228d6644562",
+                "03720dbc-49e2-43fc-b059-e4077750e593"
               ]
             },
             {
@@ -827,7 +1835,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that employ a self-lubricating surface mechanism on textiles, distinct from bulk liquid infusion, to minimize contaminant adhesion and facilitate easy cleaning.",
               "children": [],
               "idea_spark_uuids": [
-                "f6ff8691-5f10-48bb-b269-5818c02080c7"
+                "f6ff8691-5f10-48bb-b269-5818c02080c7",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c"
               ]
             },
             {
@@ -841,11 +1850,24 @@ var idea_lenses_hierarchy = {
                 "3db094d6-6a9c-4bed-ac79-a9b6aa886269",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "03720dbc-49e2-43fc-b059-e4077750e593"
               ]
             },
             {
@@ -862,11 +1884,32 @@ var idea_lenses_hierarchy = {
                     "f6ff8691-5f10-48bb-b269-5818c02080c7",
                     "40335f99-6070-44b0-81bd-b3c387d5300d",
                     "444d081b-9521-468b-83b1-1513b46cddf3",
+                    "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                     "86ca888a-789c-494b-9191-23fe9e526f38",
                     "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                    "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                    "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                    "386084eb-656f-478c-9f52-3b34364ef867",
+                    "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                    "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                    "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                    "4d82158e-55e5-4bdb-9253-d78278b501fa",
                     "26b6e382-2081-4598-89ca-c48dab95e399",
                     "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                    "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                    "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                    "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                    "e589e0ff-118d-4f31-80da-a1961c20377e",
+                    "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                    "46902a24-f11e-420f-86d3-ccc31201f827",
+                    "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                    "ebc1a408-c56a-4825-94ff-0451f7970845",
+                    "03720dbc-49e2-43fc-b059-e4077750e593",
+                    "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                    "c538de4b-3d8e-458e-890e-a028231b458a",
+                    "a704b584-51f0-489f-b1fd-079035259451",
+                    "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                    "4010ee79-81ba-405a-ada6-8c62e9545309",
+                    "9159993a-1adf-4a09-9f55-45d6f7491cec"
                   ]
                 },
                 {
@@ -877,8 +1920,14 @@ var idea_lenses_hierarchy = {
                   "idea_spark_uuids": [
                     "40335f99-6070-44b0-81bd-b3c387d5300d",
                     "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                    "386084eb-656f-478c-9f52-3b34364ef867",
+                    "4d82158e-55e5-4bdb-9253-d78278b501fa",
                     "26b6e382-2081-4598-89ca-c48dab95e399",
-                    "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                    "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                    "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                    "ebc1a408-c56a-4825-94ff-0451f7970845",
+                    "a704b584-51f0-489f-b1fd-079035259451",
+                    "4010ee79-81ba-405a-ada6-8c62e9545309"
                   ]
                 },
                 {
@@ -897,13 +1946,45 @@ var idea_lenses_hierarchy = {
                     "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                     "444d081b-9521-468b-83b1-1513b46cddf3",
                     "86ca888a-789c-494b-9191-23fe9e526f38",
+                    "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                     "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                    "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                    "386084eb-656f-478c-9f52-3b34364ef867",
+                    "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                    "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                    "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                    "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                    "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                    "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                    "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                    "ddcb4f13-3889-439c-af65-29a456833b98",
                     "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                     "50774bdf-8d58-4477-ac81-f228d6644562",
                     "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                     "26b6e382-2081-4598-89ca-c48dab95e399",
                     "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                    "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                    "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                    "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                    "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                    "e589e0ff-118d-4f31-80da-a1961c20377e",
+                    "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                    "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                    "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                    "46902a24-f11e-420f-86d3-ccc31201f827",
+                    "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                    "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                    "ebc1a408-c56a-4825-94ff-0451f7970845",
+                    "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                    "03720dbc-49e2-43fc-b059-e4077750e593",
+                    "a704b584-51f0-489f-b1fd-079035259451",
+                    "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                    "6257318a-9081-4e67-8fdd-435706ab6479",
+                    "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                    "4010ee79-81ba-405a-ada6-8c62e9545309",
+                    "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                    "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                    "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                    "9c557fbc-de54-4ebf-933d-dbc1dbe013d9"
                   ]
                 }
               ]
@@ -933,14 +2014,58 @@ var idea_lenses_hierarchy = {
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f"
               ]
             },
             {
@@ -948,7 +2073,12 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize carbon-based nanomaterials (nanotubes, graphene) for functional textiles",
               "description": "Solutions that specifically utilize carbon-based nanomaterials, such as carbon nanotubes (CNTs) or graphene and its derivatives, to impart functional properties like conductivity, strength, or antimicrobial effects to textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "48303506-045c-49ee-a37c-1b1ff587018c"
+              ]
             }
           ]
         },
@@ -963,7 +2093,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize halogen-releasing compounds (e.g., N-halamines) integrated into textiles to provide a renewable or rechargeable antimicrobial functionality, often activated by exposure to bleach or light.",
               "children": [],
               "idea_spark_uuids": [
-                "75122e51-f7fc-47b9-8f9a-805526b42992"
+                "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "435414a6-8c62-478a-aec8-9b376205b478"
               ]
             },
             {
@@ -973,7 +2104,11 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "8c6bf09b-cd0b-490a-9449-6a42ed66ae13",
-                "22bf12b9-3d7e-4234-820b-e71d855da029"
+                "22bf12b9-3d7e-4234-820b-e71d855da029",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46"
               ]
             },
             {
@@ -981,7 +2116,10 @@ var idea_lenses_hierarchy = {
               "name": "Ideas where the textile material acts as an electrode in an electrochemical system",
               "description": "Solutions where the textile material itself is designed to function as an active electrode (anode or cathode) within an electrochemical system for cleaning, disinfection, or contaminant degradation.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             },
             {
               "uuid": "d4dc0d02-bb94-4148-84db-0a62b96efb44",
@@ -989,8 +2127,13 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that use actively actuated textile-integrated micro-elements (e.g., MEMS, responsive polymers) for direct physical disruption, manipulation, or removal of contaminants at the micro-scale.",
               "children": [],
               "idea_spark_uuids": [
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9"
               ]
             }
           ]
@@ -1007,7 +2150,16 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "73a55221-1db2-4baa-a301-9887a6df8464",
-                "4a5406b0-1fa1-49f4-8407-7187eabd7d0f"
+                "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1025,8 +2177,35 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -1066,10 +2245,27 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -1077,7 +2273,63 @@ var idea_lenses_hierarchy = {
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -1085,7 +2337,10 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that develop treatments optimized for natural fibers",
               "description": "Solutions that focus on developing functional treatments (e.g., for repellency, antimicrobial activity, easy-care) that are specifically formulated or optimized for use on natural textile fibers like cotton, wool, or silk.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "ddcb4f13-3889-439c-af65-29a456833b98",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7"
+              ]
             }
           ]
         }
@@ -1116,12 +2371,43 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1136,11 +2422,49 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f"
               ]
             },
             {
@@ -1157,9 +2481,22 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "40335f99-6070-44b0-81bd-b3c387d5300d",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62"
               ]
             }
           ]
@@ -1186,7 +2523,24 @@ var idea_lenses_hierarchy = {
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f"
               ]
             },
             {
@@ -1199,7 +2553,16 @@ var idea_lenses_hierarchy = {
                 "b7bddb4d-aa18-47e5-b235-5ec27c1e8327",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72"
               ]
             },
             {
@@ -1212,7 +2575,16 @@ var idea_lenses_hierarchy = {
                 "b7bddb4d-aa18-47e5-b235-5ec27c1e8327",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72"
               ]
             },
             {
@@ -1220,7 +2592,9 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize UV-C radiation for antimicrobial treatment",
               "description": "Solutions that specifically utilize UV-C radiation for antimicrobial treatment or sanitization of textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1"
+              ]
             },
             {
               "uuid": "91732e3f-623e-4d96-aace-d3ca04660c10",
@@ -1232,7 +2606,10 @@ var idea_lenses_hierarchy = {
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "bacb7271-a8f7-433b-9d20-948864b01b00"
               ]
             },
             {
@@ -1240,7 +2617,10 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use integrated electrochemical systems for in-situ agent generation or direct hygiene",
               "description": "Solutions that utilize integrated electrochemical systems or arrays of miniaturized units within a material for in-situ generation of cleaning agents (e.g., oxidative species) or for direct, non-biological hygiene effects.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             },
             {
               "uuid": "cffef564-cbff-4f56-88fa-8e1c2b60b5c8",
@@ -1256,11 +2636,31 @@ var idea_lenses_hierarchy = {
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
               ]
             }
           ]
@@ -1279,7 +2679,24 @@ var idea_lenses_hierarchy = {
                 "124ae77d-5740-4551-8473-329161027d5b",
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1290,7 +2707,13 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "124ae77d-5740-4551-8473-329161027d5b",
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1300,7 +2723,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
-                "a379f1c0-1f69-43e0-9079-dd4196a37e15"
+                "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0"
               ]
             },
             {
@@ -1312,7 +2736,15 @@ var idea_lenses_hierarchy = {
                 "b7bddb4d-aa18-47e5-b235-5ec27c1e8327",
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
               ]
             },
             {
@@ -1323,7 +2755,14 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "124ae77d-5740-4551-8473-329161027d5b",
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
-                "a379f1c0-1f69-43e0-9079-dd4196a37e15"
+                "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1333,7 +2772,17 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
-                "a379f1c0-1f69-43e0-9079-dd4196a37e15"
+                "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1341,7 +2790,12 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize osmotic, dialysis, or membrane-based separation for contaminant extraction",
               "description": "Solutions that utilize osmotic, dialysis-based, or related separation principles (e.g., adapted from microdialysis, chromatography) with semipermeable membranes for contaminant extraction from textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92"
+              ]
             }
           ]
         },
@@ -1372,13 +2826,59 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
               ]
             },
             {
@@ -1405,9 +2905,52 @@ var idea_lenses_hierarchy = {
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
               ]
             },
             {
@@ -1430,12 +2973,31 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf"
               ]
             },
             {
@@ -1449,7 +3011,25 @@ var idea_lenses_hierarchy = {
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
               ]
             }
           ]
@@ -1483,8 +3063,45 @@ var idea_lenses_hierarchy = {
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             }
           ]
@@ -1528,7 +3145,30 @@ var idea_lenses_hierarchy = {
                 "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
-                "4a346fdd-7ea7-416b-9b52-e8639fe91f4b"
+                "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -1538,7 +3178,21 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "3f6d285c-9578-4772-bd59-4ecc9964454f",
-                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a"
+                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             }
           ]
@@ -1563,7 +3217,20 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
-                "75122e51-f7fc-47b9-8f9a-805526b42992"
+                "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "1de383ce-7967-4b9f-9d45-713749649aab"
               ]
             }
           ]
@@ -1593,9 +3260,57 @@ var idea_lenses_hierarchy = {
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -1611,8 +3326,24 @@ var idea_lenses_hierarchy = {
                 "a379f1c0-1f69-43e0-9079-dd4196a37e15",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -1629,7 +3360,15 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "cd6cf74d-de99-402b-b7ae-08845b699387",
-                "b98366d6-1c21-478f-96b9-7b9accb3309b"
+                "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "1de383ce-7967-4b9f-9d45-713749649aab"
               ]
             },
             {
@@ -1637,7 +3376,11 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that employ reusable particulate or bead-like cleaning elements",
               "description": "Solutions that employ reusable particulate or bead-like cleaning elements, which may have capabilities for regeneration or recharging of their activity.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "1763548c-fbe3-4ae9-8457-218a93635925"
+              ]
             }
           ]
         },
@@ -1661,8 +3404,44 @@ var idea_lenses_hierarchy = {
                 "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -1677,7 +3456,24 @@ var idea_lenses_hierarchy = {
                 "cd6cf74d-de99-402b-b7ae-08845b699387",
                 "f1e395c9-e9a8-4db4-858d-2f600c947930",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
-                "75122e51-f7fc-47b9-8f9a-805526b42992"
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
               ]
             },
             {
@@ -1701,9 +3497,57 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -1713,7 +3557,22 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "3f6d285c-9578-4772-bd59-4ecc9964454f",
-                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a"
+                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             },
             {
@@ -1736,9 +3595,46 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -1749,7 +3645,14 @@ var idea_lenses_hierarchy = {
               "idea_spark_uuids": [
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "f1e395c9-e9a8-4db4-858d-2f600c947930",
-                "f12a628d-eb02-4c0f-9805-f371f9790063"
+                "f12a628d-eb02-4c0f-9805-f371f9790063",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f"
               ]
             },
             {
@@ -1766,7 +3669,21 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "3f6d285c-9578-4772-bd59-4ecc9964454f",
-                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a"
+                "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             }
           ]
@@ -1790,7 +3707,13 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
-                "2e32780c-e96c-4313-9b20-b6e89aa39a1c"
+                "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec"
               ]
             },
             {
@@ -1798,7 +3721,10 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use peel-off sacrificial (bio)layers for contaminant removal",
               "description": "Solutions that employ a sacrificial layer applied to a textile, which is subsequently peeled off (potentially via leveraging biofilm cohesive strength) along with adhered contaminants for cleaning. This layer may be biodegradable.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca"
+              ]
             }
           ]
         }
@@ -1857,10 +3783,29 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -1869,7 +3814,102 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -1915,16 +3955,123 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -1965,9 +4112,27 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -1975,7 +4140,88 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -1985,7 +4231,14 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "579de866-fa5d-4130-b472-53c5f30b9227",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "48303506-045c-49ee-a37c-1b1ff587018c"
               ]
             }
           ]
@@ -2000,28 +4253,48 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use (membrane) biofilm reactors or immobilized bio-agents in devices to treat/purify process fluids",
               "description": "Solutions that utilize dedicated biofilm reactors or Membrane Bioreactors (MBRs) for treating or purifying water that will then be used for cleaning or laundry purposes, aiming to improve water quality or enable water recycling, potentially in compact units. This includes biological agents immobilized in devices for fluid purification.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e"
+              ]
             },
             {
               "uuid": "98813a43-e5f6-4001-ac95-113eab023c3d",
               "name": "Ideas that enable recycling and reuse of wash water (including greywater)",
               "description": "Solutions that enable the recycling and reuse of wash water (including greywater for initial use) for subsequent laundry cycles, often involving a purification system (e.g., membrane separation, self-contained loops, hybrid bio-physical) integrated with or auxiliary to a cleaning appliance.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e"
+              ]
             },
             {
               "uuid": "346febd3-4f03-4ff1-a78a-fdbba8232084",
               "name": "Ideas that use pre-treatment to enhance downstream water purification/recycling",
               "description": "Solutions that involve pre-treatment of contaminants (e.g., enzymatic breakdown) on textiles or in wastewater to enhance the efficiency, compactness, or effectiveness of subsequent (biological) water purification or recycling stages.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92"
+              ]
             },
             {
               "uuid": "4f5cb0f2-da13-411f-a79a-210f2aab27ae",
               "name": "Ideas that optimize cleaning agents for enhanced water recyclability",
               "description": "Solutions that optimize the selection or formulation of cleaning agents (e.g., specific enzymes, biodegradable surfactants) specifically to improve the efficiency, feasibility, or environmental impact of downstream water recycling or purification processes.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92"
+              ]
             }
           ]
         },
@@ -2041,9 +4314,36 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
-                "5e2f5b1d-0738-4688-baeb-5bb256720d36"
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "5e2f5b1d-0738-4688-baeb-5bb256720d36",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
               ]
             },
             {
@@ -2052,7 +4352,13 @@ var idea_lenses_hierarchy = {
               "description": "Solutions involving devices that use precisely controlled or patterned delivery of energy (e.g., light, acoustic) to enhance the cleaning, disinfection, or treatment effect on garments.",
               "children": [],
               "idea_spark_uuids": [
-                "b98366d6-1c21-478f-96b9-7b9accb3309b"
+                "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319"
               ]
             },
             {
@@ -2061,7 +4367,10 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize cleaning methods involving active pressing, rolling, or passing of textiles through or against a dedicated multi-functional cleaning device, surface, or implement.",
               "children": [],
               "idea_spark_uuids": [
-                "2e32780c-e96c-4313-9b20-b6e89aa39a1c"
+                "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
               ]
             },
             {
@@ -2069,7 +4378,17 @@ var idea_lenses_hierarchy = {
               "name": "Ideas for devices with self-regenerating biological systems for operational medium maintenance",
               "description": "Solutions that feature devices with internal, living biological systems (e.g., biofilms, microbial consortia, mycelial systems) that continuously regenerate or maintain the efficacy of their operational medium, such as water, air, or cleaning solutions. This may include systems that improve performance through maturation/adaptation over time.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+              ]
             },
             {
               "uuid": "31800ae5-6205-4117-ab8a-a4decfab7d6e",
@@ -2080,7 +4399,17 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
-                "2e32780c-e96c-4313-9b20-b6e89aa39a1c"
+                "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             },
             {
@@ -2088,7 +4417,23 @@ var idea_lenses_hierarchy = {
               "name": "Ideas for on-demand local production or activation of biological cleaning agents",
               "description": "Solutions that involve a system or device for the on-demand local production or activation of biological cleaning agents (e.g., enzymes from cell-free systems or microbes from cartridges) for immediate application to textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+              ]
             }
           ]
         },
@@ -2135,16 +4480,100 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2153,7 +4582,27 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that break down the cleaning process or garment care into distinct modules, components, or sequenced layers within a device, potentially allowing for customized or targeted treatments. This includes product systems with multiple distinct formulations.",
               "children": [],
               "idea_spark_uuids": [
-                "3f6d285c-9578-4772-bd59-4ecc9964454f"
+                "3f6d285c-9578-4772-bd59-4ecc9964454f",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             },
             {
@@ -2177,10 +4626,43 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13"
               ]
             },
             {
@@ -2189,7 +4671,15 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that specifically address the clean and complete separation or removal of applied cleaning agents, particularly biological elements, from textiles after the treatment process.",
               "children": [],
               "idea_spark_uuids": [
-                "a379f1c0-1f69-43e0-9079-dd4196a37e15"
+                "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             },
             {
@@ -2197,14 +4687,32 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use self-contained filter units (potentially bio-active/regenerable) for direct item/fluid cleaning",
               "description": "Solutions that employ a compact, self-contained unit (e.g., pod, cartridge) housing a dedicated filter medium (potentially biologically active and/or regenerable in-situ) for direct cleaning or purification of items or process fluids.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8"
+              ]
             },
             {
               "uuid": "e15cb450-3cd2-419a-bf6b-15234f35d733",
               "name": "Ideas that use closed-loop recycling for gaseous/vapor-phase cleaning agents",
               "description": "Solutions that employ a closed-loop system specifically for recycling and reusing a gaseous or vapor-phase cleaning agent, potentially utilizing vacuum technology for recovery.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92"
+              ]
             },
             {
               "uuid": "be42b6e3-bdc4-42e2-a758-5410e79fc3dc",
@@ -2212,7 +4720,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize vacuum technology for purposes such as recovering/recycling cleaning agents, enhancing overall cleaning process efficiency, rapid moisture removal/drying, or facilitating cyclical pressure variations.",
               "children": [],
               "idea_spark_uuids": [
-                "a379f1c0-1f69-43e0-9079-dd4196a37e15"
+                "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "c538de4b-3d8e-458e-890e-a028231b458a"
               ]
             },
             {
@@ -2228,7 +4737,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that utilize precisely controlled cycling of atmospheric conditions (e.g., humidity, temperature, gas composition) within an enclosure as the primary mechanism for textile hygiene or contaminant removal.",
               "children": [],
               "idea_spark_uuids": [
-                "b98366d6-1c21-478f-96b9-7b9accb3309b"
+                "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "c538de4b-3d8e-458e-890e-a028231b458a"
               ]
             },
             {
@@ -2236,14 +4746,22 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that employ sequential multi-phase fluid or microbial treatment application for cleaning",
               "description": "Solutions that employ a sequential application of different fluid phases (e.g., liquid solvent then gas jet, or other combinations) or microbial treatment phases (anaerobic/aerobic) for textile cleaning or treatment.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "1de383ce-7967-4b9f-9d45-713749649aab"
+              ]
             },
             {
               "uuid": "be2d16df-2840-4688-84a8-86ec980ab74a",
               "name": "Ideas that utilize slow percolation or gravity-fed infusion for liquid treatment",
               "description": "Solutions that utilize slow percolation or gravity-fed infusion methods for applying a liquid treatment to textiles, often to maximize contact time with minimal liquid.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72"
+              ]
             }
           ]
         },
@@ -2257,14 +4775,25 @@ var idea_lenses_hierarchy = {
               "name": "Ideas for hygiene level assessment, verification, or monitoring",
               "description": "Solutions that focus on methods and technologies for assessing, verifying, or monitoring garment hygiene levels, including embedded sensors (e.g., for pathogens, chemical/biological markers, VOCs, chemoresistive, electrochemical), rapid diagnostics, indicators, AI/ML for data interpretation, or separate dedicated sensing devices. This can trigger alerts or cleaning decisions and validate process efficacy.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4"
+              ]
             },
             {
               "uuid": "484054cb-4421-438a-86ff-4131344d619e",
               "name": "Ideas that focus on developing standards or validation methods for low-water textile hygiene",
               "description": "Solutions that focus on developing standards, guidelines, informational frameworks, or methods for validating the efficacy of (emerging/unconventional) low-water textile hygiene processes.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1"
+              ]
             }
           ]
         },
@@ -2286,11 +4815,40 @@ var idea_lenses_hierarchy = {
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2308,7 +4866,27 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "86ca888a-789c-494b-9191-23fe9e526f38"
+                "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             },
             {
@@ -2335,11 +4913,83 @@ var idea_lenses_hierarchy = {
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             }
           ]
@@ -2372,11 +5022,57 @@ var idea_lenses_hierarchy = {
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2386,7 +5082,8 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "30fa2001-2ec4-494c-b806-028ead1cb264",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9"
               ]
             },
             {
@@ -2394,7 +5091,12 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that use temperature changes to activate/modulate material functions or properties",
               "description": "Solutions where an integrated material's cleaning, hygiene, or agent-release function is activated, modulated, or triggered by changes in ambient or applied temperature, or by temperature-responsive polymer properties.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442"
+              ]
             },
             {
               "uuid": "a3e8f599-bf81-4320-96ab-bef7cbf36765",
@@ -2406,8 +5108,19 @@ var idea_lenses_hierarchy = {
                 "579de866-fa5d-4130-b472-53c5f30b9227",
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "43167db2-2865-41a0-901d-759e3be23ee8",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -2417,7 +5130,17 @@ var idea_lenses_hierarchy = {
               "children": [],
               "idea_spark_uuids": [
                 "43167db2-2865-41a0-901d-759e3be23ee8",
-                "b98366d6-1c21-478f-96b9-7b9accb3309b"
+                "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -2426,7 +5149,8 @@ var idea_lenses_hierarchy = {
               "description": "Solutions where a material's cleaning, contaminant release, or other functions are specifically triggered by exposure to carbon dioxide (CO2) or other targeted gaseous chemical triggers.",
               "children": [],
               "idea_spark_uuids": [
-                "4a5406b0-1fa1-49f4-8407-7187eabd7d0f"
+                "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9"
               ]
             },
             {
@@ -2444,11 +5168,40 @@ var idea_lenses_hierarchy = {
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -2466,9 +5219,38 @@ var idea_lenses_hierarchy = {
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             }
           ]
@@ -2494,7 +5276,37 @@ var idea_lenses_hierarchy = {
                 "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2513,8 +5325,46 @@ var idea_lenses_hierarchy = {
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2527,7 +5377,29 @@ var idea_lenses_hierarchy = {
                 "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "86ca888a-789c-494b-9191-23fe9e526f38"
+                "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             }
           ]
@@ -2542,7 +5414,11 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that utilize responsive hydrogels for textile hygiene or cleaning",
               "description": "Solutions that employ responsive hydrogels (polymer networks that swell in water) as the primary functional component for textile hygiene, cleaning, or controlled release of active agents.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
+              ]
             }
           ]
         }
@@ -2590,12 +5466,100 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
-                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299"
+                "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2615,13 +5579,43 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9"
               ]
             },
             {
@@ -2641,7 +5635,30 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7"
               ]
             }
           ]
@@ -2692,16 +5709,122 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2716,8 +5839,38 @@ var idea_lenses_hierarchy = {
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
-                "75122e51-f7fc-47b9-8f9a-805526b42992"
+                "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -2749,9 +5902,81 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "26b6e382-2081-4598-89ca-c48dab95e399",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2784,13 +6009,79 @@ var idea_lenses_hierarchy = {
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2799,7 +6090,15 @@ var idea_lenses_hierarchy = {
               "description": "Solutions that incorporate post-treatment steps or mechanisms for the neutralization, deactivation, active removal, or dissipation of residual primary cleaning/treatment agents from the textile or system.",
               "children": [],
               "idea_spark_uuids": [
-                "a379f1c0-1f69-43e0-9079-dd4196a37e15"
+                "a379f1c0-1f69-43e0-9079-dd4196a37e15",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             }
           ]
@@ -2836,7 +6135,69 @@ var idea_lenses_hierarchy = {
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "86ca888a-789c-494b-9191-23fe9e526f38"
+                "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2869,15 +6230,94 @@ var idea_lenses_hierarchy = {
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             },
             {
@@ -2902,10 +6342,66 @@ var idea_lenses_hierarchy = {
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2924,11 +6420,57 @@ var idea_lenses_hierarchy = {
                 "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
-                "5e2f5b1d-0738-4688-baeb-5bb256720d36"
+                "5e2f5b1d-0738-4688-baeb-5bb256720d36",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -2936,14 +6478,19 @@ var idea_lenses_hierarchy = {
               "name": "Ideas designed for effectiveness across diverse fabric types",
               "description": "Solutions specifically designed to be effective across a wide range of different fabric types or material compositions, offering versatility in application.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             },
             {
               "uuid": "c566da1d-1128-4432-b0fd-97b2e1ce3de1",
               "name": "Ideas that offer tunable cleaning intensity with a single core (biological) system",
               "description": "Solutions that offer a tunable spectrum of cleaning intensity, from light refreshing to deep cleaning, using a single core biological agent or system, allowing for customized care based on need.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319"
+              ]
             },
             {
               "uuid": "e97af3df-0de8-4505-83fc-e619261bbb34",
@@ -2979,10 +6526,27 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -2990,7 +6554,73 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "6257318a-9081-4e67-8fdd-435706ab6479",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "6836b111-e126-4387-86fc-ac0c4d5525c8",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             }
           ]
@@ -3035,9 +6665,25 @@ var idea_lenses_hierarchy = {
                 "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
                 "444d081b-9521-468b-83b1-1513b46cddf3",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
+                "140b6d60-686a-44c8-9bff-905c9582ddbf",
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "386084eb-656f-478c-9f52-3b34364ef867",
+                "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+                "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+                "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+                "f56e92c6-cae3-45d6-807d-8e9853d11699",
+                "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+                "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+                "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "ddcb4f13-3889-439c-af65-29a456833b98",
                 "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
                 "50774bdf-8d58-4477-ac81-f228d6644562",
                 "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
@@ -3045,7 +6691,55 @@ var idea_lenses_hierarchy = {
                 "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
                 "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
                 "3cd87d47-88de-453c-998f-3bea38cd0704",
-                "7a11e09e-eb0d-4095-87c8-453ea8a521a9"
+                "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
+                "435414a6-8c62-478a-aec8-9b376205b478",
+                "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+                "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "46902a24-f11e-420f-86d3-ccc31201f827",
+                "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "03720dbc-49e2-43fc-b059-e4077750e593",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "ab553fb3-75cc-49a7-af87-262210f2e843",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "a704b584-51f0-489f-b1fd-079035259451",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "4010ee79-81ba-405a-ada6-8c62e9545309",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9"
               ]
             }
           ]
@@ -3083,7 +6777,76 @@ var idea_lenses_hierarchy = {
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b"
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+                "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
+                "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "a17d37f6-4dc5-4648-b574-296605a3b815",
+                "ebc1a408-c56a-4825-94ff-0451f7970845",
+                "6c281e75-bda6-4d41-8481-99a424cf5369",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -3108,7 +6871,61 @@ var idea_lenses_hierarchy = {
                 "f12a628d-eb02-4c0f-9805-f371f9790063",
                 "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
-                "6ccaaf09-17b5-4808-bc52-f2aca3011e61"
+                "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+                "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+                "a822aa31-e916-42b0-99b9-4c989a2bee76",
+                "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+                "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "9ced186f-efc8-4af2-a430-9f78249c2169",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+                "97a40f71-3da7-49df-8963-3685e6a1e009",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "b50048a6-f6fc-41d4-becd-639a376d37d1",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753",
+                "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+                "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+                "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             }
           ]
@@ -3138,11 +6955,67 @@ var idea_lenses_hierarchy = {
                 "22bf12b9-3d7e-4234-820b-e71d855da029",
                 "b98366d6-1c21-478f-96b9-7b9accb3309b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
+                "59af1042-eed0-496f-a451-024cba15e8b4",
                 "75122e51-f7fc-47b9-8f9a-805526b42992",
                 "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
+                "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+                "889070b8-aeca-4ec8-8a66-672c76a7258a",
+                "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
                 "5e2f5b1d-0738-4688-baeb-5bb256720d36",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "20c87ae2-f690-4f6a-9742-06030888d727",
+                "425f83e1-fcad-4738-a251-663f255b2d72",
+                "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "c538de4b-3d8e-458e-890e-a028231b458a",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "634718a3-21d7-4347-b885-4b58a0af1ebf",
+                "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+                "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+                "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+                "8db70e3c-0907-4731-88c8-4e0396669ebc",
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+                "760d7717-d6ec-47a3-a018-631fbd97c241",
+                "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+                "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+                "9910bd22-729f-458e-9410-1e448f2487dd",
+                "bacb7271-a8f7-433b-9d20-948864b01b00",
+                "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+                "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+                "9f5353a7-deb5-4543-9676-f00d966f7360",
+                "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+                "569ba423-dbab-473a-b684-50fe0a562976",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+                "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+                "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+                "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+                "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+                "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+                "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+                "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "1de383ce-7967-4b9f-9d45-713749649aab",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "1763548c-fbe3-4ae9-8457-218a93635925",
+                "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+                "48303506-045c-49ee-a37c-1b1ff587018c",
+                "a148b803-bff8-45a7-b913-05e6f6bd9319",
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+                "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+                "36f2f2d2-45b0-4644-9053-e97d371ca5cd"
               ]
             },
             {
@@ -3164,7 +7037,23 @@ var idea_lenses_hierarchy = {
                 "43167db2-2865-41a0-901d-759e3be23ee8",
                 "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
-                "3cd87d47-88de-453c-998f-3bea38cd0704"
+                "59af1042-eed0-496f-a451-024cba15e8b4",
+                "3cd87d47-88de-453c-998f-3bea38cd0704",
+                "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+                "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+                "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+                "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+                "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+                "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+                "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+                "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+                "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+                "177839a0-f385-4fed-b2bd-295d5fca38d7",
+                "f3148425-fe91-4568-b6ee-3dab8e42c753"
               ]
             },
             {
@@ -3172,14 +7061,21 @@ var idea_lenses_hierarchy = {
               "name": "Ideas that apply information science principles to optimize or guide physical cleaning tasks",
               "description": "Solutions that apply information science principles, such as data indexing, efficient retrieval, or digital mapping of soil, to optimize or guide physical cleaning tasks on textiles.",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "ade5182a-9bdf-4027-8b20-80133469b7eb",
+                "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+                "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+                "d1370fbd-b8a9-4326-8fdb-dd654feb43d4"
+              ]
             },
             {
               "uuid": "46c74d7e-4672-4922-b368-2ec8aab95368",
               "name": "Ideas that design microbial community dynamics inspired by non-biological complex systems",
               "description": "Solutions that design microbial community structures or interaction dynamics by drawing inspiration from principles observed in non-biological complex systems (e.g., economic models, social network theory, distributed intelligent agents).",
               "children": [],
-              "idea_spark_uuids": []
+              "idea_spark_uuids": [
+                "872c1c0f-7c20-4e06-b351-fbb61c5d9495"
+              ]
             }
           ]
         },
@@ -3201,9 +7097,19 @@ var idea_lenses_hierarchy = {
                 "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
                 "79df045b-68ba-4973-93b7-262d9d5fc90b",
                 "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
+                "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
                 "86ca888a-789c-494b-9191-23fe9e526f38",
                 "4219e593-8d4d-412f-bc04-0c845cc52d0e",
-                "26b6e382-2081-4598-89ca-c48dab95e399"
+                "87992b37-2836-4ad9-a83c-fc935fae06b1",
+                "4d82158e-55e5-4bdb-9253-d78278b501fa",
+                "26b6e382-2081-4598-89ca-c48dab95e399",
+                "e589e0ff-118d-4f31-80da-a1961c20377e",
+                "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+                "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+                "aecc3487-b761-46d9-ac07-2b4cf1357584",
+                "92447bee-0714-4f71-8fdd-10700120ae5c",
+                "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+                "9159993a-1adf-4a09-9f55-45d6f7491cec"
               ]
             },
             {
@@ -3222,252 +7128,4292 @@ var idea_lenses_hierarchy = {
     "30fa2001-2ec4-494c-b806-028ead1cb264": {
       "uuid": "30fa2001-2ec4-494c-b806-028ead1cb264",
       "idea": "pH-activated antimicrobial fabric coating for waterless refresh.",
-      "description": "Develop textiles with a built-in antimicrobial coating that can be reactivated by a pH-adjusting mist, eliminating water-based washing for hygiene. This directly addresses severe water scarcity by offering a non-aqueous cleaning method."
+      "description": "Develop textiles with a built-in antimicrobial coating that can be reactivated by a pH-adjusting mist, eliminating water-based washing for hygiene. This directly addresses severe water scarcity by offering a non-aqueous cleaning method.",
+      "feasibility_rationale": "The underlying chemistry for pH-activated antimicrobial agents exists. Key challenges will be achieving durable fabric integration, ensuring user safety with pH-adjusting mists, and effectiveness against a broad range of microbes.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While antimicrobial coatings are known, the pH-activated regeneration via a mist for waterless clothing refresh presents a practical and somewhat novel application to the specific water scarcity challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If successful, this could significantly extend the time between water-intensive washes, directly addressing the core challenge of reducing water consumption for clothing hygiene.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The pH-activated coating can be made durable enough for regular wear and multiple reactivation cycles.",
+        "A simple, safe, and effective pH-adjusting mist can be developed for consumer use.",
+        "The reactivated antimicrobial effect is sufficient to meet \"standard hygiene levels\" for clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop durable polymeric amine (or similar) coatings on common textile types.",
+        "Test the efficacy and longevity of antimicrobial activity after repeated pH reactivation cycles.",
+        "Investigate safe and effective pH-adjusting mist formulations and delivery systems."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term coating durability against abrasion and body chemistry.",
+        "Developing a non-irritating, non-damaging pH misting solution and application method.",
+        "Consumer acceptance and understanding of a chemical mist-based \"cleaning\" process."
+      ]
     },
     "73a55221-1db2-4baa-a301-9887a6df8464": {
       "uuid": "73a55221-1db2-4baa-a301-9887a6df8464",
       "idea": "Slow-release natural biocide textiles for extended hygiene.",
-      "description": "Create clothing from fibers infused with slow-releasing natural biocides like tea catechins to continuously suppress microbial growth, extending wearability and drastically reducing wash frequency to save water."
+      "description": "Create clothing from fibers infused with slow-releasing natural biocides like tea catechins to continuously suppress microbial growth, extending wearability and drastically reducing wash frequency to save water.",
+      "feasibility_rationale": "Incorporating natural biocides is feasible, but achieving a durable, effective slow-release mechanism that withstands wear and maintains potency is a significant R&D challenge.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While antimicrobial textiles using natural compounds are explored, engineering a truly effective slow-release mechanism for prolonged hygiene presents a moderately novel approach to reducing wash frequency.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effectively suppressing microbial growth for extended periods would directly reduce the need for frequent washing, leading to substantial water savings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Natural biocides can be effectively embedded or infused into textile fibers for a controlled, slow release.",
+        "The released biocides are potent enough to maintain hygiene standards over extended wear periods.",
+        "The biocides are non-toxic, non-allergenic, and do not negatively affect fabric properties over time."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test promising natural biocides (e.g., catechins) for their efficacy and stability when incorporated into fibers.",
+        "Explore micro-encapsulation or other slow-release technologies compatible with textile manufacturing.",
+        "Conduct wearer trials to assess hygiene effectiveness, skin compatibility, and fabric durability."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a reliable and durable slow-release mechanism for natural compounds within textile fibers.",
+        "Ensuring sufficient biocide concentration and efficacy over multiple wear cycles and against a range of microbes.",
+        "Potential for skin sensitization or allergic reactions to concentrated natural extracts over prolonged contact."
+      ]
     },
     "403174b2-8543-4250-bdff-516a952d7784": {
       "uuid": "403174b2-8543-4250-bdff-516a952d7784",
       "idea": "Synergistic natural extract 'hygiene mists' for clothing refresh.",
-      "description": "Formulate a low-volume mist from a synergistic blend of plant extracts to neutralize hygiene-compromising microbes on clothing, offering a targeted refresh that significantly cuts water consumption compared to full washes."
+      "description": "Formulate a low-volume mist from a synergistic blend of plant extracts to neutralize hygiene-compromising microbes on clothing, offering a targeted refresh that significantly cuts water consumption compared to full washes.",
+      "feasibility_rationale": "Identifying effective synergistic natural extracts and formulating them into a stable, non-staining, and safe mist is plausible with current biochemical and formulation expertise.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Focus on synergistic natural extracts for actual microbial neutralization, rather than just odor masking, offers a moderately novel approach to low-water clothing refresh.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This offers a practical way to extend wear between washes for light microbial load and odor control, contributing to water savings, though not a complete wash replacement.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "A synergistic blend of natural extracts can achieve significant microbial reduction on textiles with a low-volume mist.",
+        "The mist can be formulated to be non-staining, non-allergenic, and leave no undesirable residue on clothing.",
+        "Users will perceive misting as a sufficient hygiene step for certain situations, reducing full washes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen various natural extracts and their combinations for synergistic antimicrobial activity against common textile microbes.",
+        "Develop prototype mist formulations and test for efficacy, fabric compatibility, and skin safety.",
+        "Conduct user perception studies on the concept of a \"hygiene mist\" for clothing refresh."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying truly synergistic and potent natural extract combinations effective against a broad spectrum of clothing-relevant microbes.",
+        "Ensuring the mist formulation is stable, has a pleasant or neutral scent, and doesn't damage fabrics or cause skin irritation.",
+        "Achieving sufficient microbial kill-rate to meet \"standard hygiene levels\" with a simple mist application."
+      ]
     },
     "8c6bf09b-cd0b-490a-9449-6a42ed66ae13": {
       "uuid": "8c6bf09b-cd0b-490a-9449-6a42ed66ae13",
       "idea": "UV-activated self-cleaning clothes via grafted ZnO.",
-      "description": "Graft ZnO nanoparticles onto fabric that, when exposed to sunlight (UV), catalytically decompose dirt and microbes, reducing the need for water-based washing. This offers an active, low-water cleaning mechanism."
+      "description": "Graft ZnO nanoparticles onto fabric that, when exposed to sunlight (UV), catalytically decompose dirt and microbes, reducing the need for water-based washing. This offers an active, low-water cleaning mechanism.",
+      "feasibility_rationale": "Grafting ZnO is established, but achieving durable, effective, and safe self-cleaning on diverse fabrics and soil types under real-world UV conditions presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While photocatalysis is known, its robust application for comprehensive clothing hygiene to significantly reduce water use is a clever twist on existing concepts.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If successfully implemented, this could drastically reduce water consumption for laundry by actively breaking down soils and microbes, directly addressing the core challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "ZnO can be durably grafted to common textile fibers without compromising fabric properties (feel, breathability).",
+        "Ambient UV exposure (e.g., sunlight) is sufficient to activate ZnO effectively for cleaning within a reasonable timeframe.",
+        "The photocatalytic action is effective against a broad spectrum of common soils, stains, and microorganisms found on clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct lab tests to optimize ZnO grafting methods for common fabrics (cotton, polyester) and assess durability (abrasion, minimal washing).",
+        "Evaluate the cleaning efficacy of ZnO-grafted fabrics against a standardized set of common soils and representative microbes under controlled UV conditions.",
+        "Perform initial safety assessments regarding nanoparticle leaching, skin sensitization, and inhalation risks from abraded particles."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term durability of the ZnO grafting through multiple wear and potential minimal-rinse cycles.",
+        "Achieving sufficient cleaning efficacy across various soil types and microbial loads, especially in areas not directly exposed to UV light.",
+        "Potential human health (skin contact, inhalation) and environmental concerns (nanoparticle shedding)."
+      ]
     },
     "0cb6518d-105d-4bac-a2fe-7404bf4b47bb": {
       "uuid": "0cb6518d-105d-4bac-a2fe-7404bf4b47bb",
       "idea": "Graft stain-repellent coatings for ultra-low water cleaning.",
-      "description": "Engineer textiles with grafted superhydrophobic/oleophobic coatings that prevent soil adhesion, allowing dirt to be wiped/brushed off or rinsed with minimal water. This focuses on preventing soiling and easing cleaning."
+      "description": "Engineer textiles with grafted superhydrophobic/oleophobic coatings that prevent soil adhesion, allowing dirt to be wiped/brushed off or rinsed with minimal water. This focuses on preventing soiling and easing cleaning.",
+      "feasibility_rationale": "Technologies for hydrophobic/oleophobic coatings exist; the primary challenges are achieving long-term durability and maintaining fabric comfort/breathability without compromising repellency.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While superhydrophobic/oleophobic coatings are advanced, the fundamental concept of stain repellency to reduce washing intensity is a known strategy for textiles.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "This approach can significantly reduce the frequency and intensity of washing for certain types of soiling, leading to water savings, but may not fully address microbial hygiene or deeply embedded dirt without some water.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Coatings can be made durable enough to withstand normal wear, abrasion, and occasional minimal water rinsing over the garment's lifespan.",
+        "The repellency is effective against a wide range of common particulates and sticky substances, not just liquids.",
+        "The coatings do not negatively impact fabric comfort, breathability, or aesthetics to an unacceptable degree."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and compare different grafting chemistries for superhydrophobicity/oleophobicity on target fabrics, focusing on durability and tactile properties.",
+        "Test the soil release capabilities with various common solid and semi-solid soils (mud, food pastes) using mechanical removal (brushing, wiping) and minimal water rinsing.",
+        "Evaluate the impact of long-term wear and simulated minimal cleaning cycles on coating performance and fabric properties (e.g., breathability)."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving robust durability of the superhydrophobic/oleophobic properties against mechanical wear, abrasion, and even minimal washing.",
+        "Maintaining fabric breathability and tactile comfort, as many such coatings can create a 'plasticky' feel or seal the fabric.",
+        "Limited effectiveness against ground-in particulate soils or soils pressed into the fabric, and it doesn't inherently address microbial contamination for hygiene."
+      ]
     },
     "fa4f3f71-6c6b-4a70-a902-05278e44246e": {
       "uuid": "fa4f3f71-6c6b-4a70-a902-05278e44246e",
       "idea": "Clothes with grafted bio-enzymes for waterless soil digestion.",
-      "description": "Graft stable enzymes onto fibers that actively digest common soils and microbes without substantial water, achieving hygiene through a biological action. This is a direct application of bio-active surfaces for cleaning."
+      "description": "Graft stable enzymes onto fibers that actively digest common soils and microbes without substantial water, achieving hygiene through a biological action. This is a direct application of bio-active surfaces for cleaning.",
+      "feasibility_rationale": "While enzyme immobilization is studied, achieving stable, active, and broad-spectrum enzymatic activity directly on textiles for extended periods without significant water presents major scientific hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying immobilized enzymes directly onto textiles for continuous, waterless digestion of soil and microbes is a very fresh and inventive approach to clothing hygiene, echoing the bio-inspiration.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could revolutionize clothes cleaning by enabling garments to self-digest soils and microbes, potentially eliminating the need for water-based washing for many hygiene purposes.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Enzymes can be developed/selected that are active against a broad range of common soils (proteins, lipids, carbohydrates) and microbes in low-water conditions.",
+        "These enzymes can be durably grafted onto textile fibers while retaining their activity through wear and over extended time periods.",
+        "The byproducts of enzymatic digestion are innocuous and do not lead to odor or residue buildup on the fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Literature review and expert consultation to identify candidate enzymes (e.g., proteases, lipases, amylases, antimicrobial enzymes) with potential for stability and activity in low-water conditions on fabric.",
+        "Conduct proof-of-concept experiments for immobilizing selected enzymes onto textile swatches and test their activity against specific target soils under controlled humidity and temperature.",
+        "Investigate the stability and longevity of immobilized enzyme activity after simulated wear and exposure to environmental factors."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying or engineering enzymes that are stable and highly active in the low-water, variable-temperature environment of clothing, and effective against a diverse range of soils.",
+        "Developing methods to durably graft enzymes to various textile fibers without denaturing them or rendering them inactive, and ensuring longevity of activity.",
+        "Managing enzyme specificity (a cocktail of enzymes might be needed), potential allergenicity of enzymes or byproducts, and cost-effectiveness of such treatments."
+      ]
     },
     "a007fa4a-bce6-4753-a63d-ff86150ffe4c": {
       "uuid": "a007fa4a-bce6-4753-a63d-ff86150ffe4c",
       "idea": "Enzyme-activated fabric coatings for waterless stain and pathogen breakdown.",
-      "description": "This idea proposes embedding enzymes into fabric fibers that activate with minimal moisture to break down contaminants, achieving hygiene with very little water. This uses biological agents in a targeted way, distinct from a complex living biofilm."
+      "description": "This idea proposes embedding enzymes into fabric fibers that activate with minimal moisture to break down contaminants, achieving hygiene with very little water. This uses biological agents in a targeted way, distinct from a complex living biofilm.",
+      "feasibility_rationale": "Requires breakthroughs in enzyme stabilization within fabric matrices and ensuring their activity over time and through wear. Scalable manufacturing of such coated fabrics is also a hurdle.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Embedding active enzymes directly into fabric for continuous or on-demand cleaning with minimal water activation is a significant departure from traditional washing or topical enzyme sprays for general apparel.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Could dramatically reduce water usage for laundry, making clothing \"self-cleaning\" or \"low-moisture refreshable,\" fundamentally changing hygiene practices in water-scarce areas.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Enzymes can be stably embedded in fabric coatings without losing activity over time and through wear.",
+        "Minimal ambient moisture or a very small amount of applied water is sufficient to activate the enzymes effectively against common stains and pathogens.",
+        "The enzyme action will be broad-spectrum enough to handle typical hygiene needs or specific enzyme cocktails can be developed."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify robust enzymes or enzyme stabilization techniques suitable for fabric integration.",
+        "Develop and test prototype fabric coatings for enzyme activity and longevity under simulated wear and minimal moisture conditions.",
+        "Evaluate the efficacy of enzyme-coated fabrics against common stains and a representative panel of skin/clothing-relevant microbes."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining enzyme stability and activity through washing (if any), wear, and environmental exposure (UV, temperature).",
+        "Achieving effective pathogen breakdown (not just stain removal) to meet hygiene standards.",
+        "Ensuring the coating is non-toxic, non-allergenic, and does not negatively affect fabric feel or durability."
+      ]
     },
     "f6ff8691-5f10-48bb-b269-5818c02080c7": {
       "uuid": "f6ff8691-5f10-48bb-b269-5818c02080c7",
       "idea": "Develop ultra-smooth, contaminant-repellent fibers for easy, low-water cleaning.",
-      "description": "This proposes creating clothing from advanced synthetic fibers designed for minimal adhesion of dirt and microbes, thereby reducing water needed for cleaning. This material science approach contrasts with biological purification methods."
+      "description": "This proposes creating clothing from advanced synthetic fibers designed for minimal adhesion of dirt and microbes, thereby reducing water needed for cleaning. This material science approach contrasts with biological purification methods.",
+      "feasibility_rationale": "Leverages existing polymer science and surface engineering. The challenge lies in optimizing for broad-spectrum repellency, durability, and wearer comfort at an acceptable cost.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Builds on existing concepts of stain-resistant fabrics but pushes towards enhanced particulate and microbial repellency specifically through fiber structure for low-water cleaning, rather than just chemical coatings.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could drastically reduce the frequency and intensity of washing needed, leading to substantial water savings and easier maintenance of clothing cleanliness.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Fiber surface properties (smoothness, surface energy) can be engineered to significantly reduce adhesion of both particulate and microbial contaminants.",
+        "Such fibers can be produced economically and possess desirable textile properties (comfort, durability, breathability).",
+        "Reduced adhesion translates directly to effective cleaning with significantly less water and mechanical action."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and model the relationship between fiber morphology/surface chemistry and the adhesion of relevant contaminants (dirt, bacteria).",
+        "Develop and synthesize prototype fibers with optimized surface characteristics.",
+        "Test prototype fabrics for contaminant repellency, ease of cleaning with minimal water, durability, and comfort."
+      ],
+      "major_challenges_roadblocks": [
+        "Balancing contaminant repellency with fabric comfort, breathability, and dyeability.",
+        "Ensuring durability of the repellent properties over the garment's lifespan (wear, abrasion, minimal washing).",
+        "Achieving repellency against a diverse range of soil types (oily, particulate, biological) and microbes."
+      ]
     },
     "3f6d285c-9578-4772-bd59-4ecc9964454f": {
       "uuid": "3f6d285c-9578-4772-bd59-4ecc9964454f",
       "idea": "Modular, targeted cleaning 'patches' using enzymes for localized, water-minimal hygiene.",
-      "description": "This idea involves small, concentrated enzyme patches applied to soiled areas, requiring minimal water for activation, directly targeting water scarcity. It's an applied, localized use of the enzymatic cleaning principle."
+      "description": "This idea involves small, concentrated enzyme patches applied to soiled areas, requiring minimal water for activation, directly targeting water scarcity. It's an applied, localized use of the enzymatic cleaning principle.",
+      "feasibility_rationale": "Builds on existing technologies for transdermal patches and enzyme formulations. Key challenges are enzyme stability in the patch, effective transfer and activation on fabric, and user-friendliness.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Evolves spot treatment into a more controlled, efficient delivery system for enzymes, offering potentially better performance with less water than typical enzyme sprays for localized hygiene.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Provides a practical method for localized cleaning, extending garment wear time and reducing the need for full washes, thus saving water for specific problem areas.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Enzymes can be concentrated and stabilized in a patch format for targeted application.",
+        "A very small amount of moisture is sufficient to activate the enzymes from the patch effectively on the fabric.",
+        "The patch can deliver sufficient cleaning power for common localized soiling and potentially some level of sanitization."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop prototype enzyme patches with various enzyme cocktails and matrix materials.",
+        "Test patch efficacy on common stains (e.g., food, sweat) on different fabric types with minimal water activation.",
+        "Assess user experience aspects: ease of application, removal, any residue, and perceived cleanliness."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the patch adheres well enough to deliver enzymes but is easily removable without residue or fabric damage.",
+        "Formulating enzymes that are effective across a range of stain types and temperatures with minimal water.",
+        "Consumer adoption and usability – ensuring patches are convenient and perceived as effective for targeted cleaning."
+      ]
     },
     "b573fa12-f56e-4e55-bb80-6a4ef62dd9be": {
       "uuid": "b573fa12-f56e-4e55-bb80-6a4ef62dd9be",
       "idea": "Probiotic fabric spray for continuous low-water cleaning.",
-      "description": "This involves a sprayable probiotic solution that continuously cleans fabrics, reducing water needs by maintaining hygiene between washes. It's inspired by persistent 'microscopic cleaners' and directly applies the principle of using biological agents for ongoing purification."
+      "description": "This involves a sprayable probiotic solution that continuously cleans fabrics, reducing water needs by maintaining hygiene between washes. It's inspired by persistent 'microscopic cleaners' and directly applies the principle of using biological agents for ongoing purification.",
+      "feasibility_rationale": "The core technology (probiotic solutions) exists. Formulation for fabric safety, long-term efficacy on textiles, and ensuring non-pathogenicity and skin compatibility will require focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While probiotic cleaners are emerging, their application for continuous fabric hygiene to drastically reduce water-based washing is a moderately novel extension. It leverages an existing concept in a specific and impactful way for the design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective, this could dramatically reduce the frequency of water-intensive washing, directly addressing the core design challenge of water scarcity by maintaining hygiene between washes.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Probiotics can survive and remain active on fabric surfaces for an extended period.",
+        "The selected probiotics will effectively break down common sources of soiling and odor on clothing without damaging fabrics or causing skin irritation.",
+        "A spray application can deliver a sufficient and evenly distributed dose of probiotics for effective action."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen probiotic strains for efficacy against common fabric soil/odor compounds and compatibility with various textiles.",
+        "Develop prototype formulations and test for shelf-life, fabric interaction (staining, degradation), and skin sensitivity.",
+        "Conduct controlled lab tests to measure the reduction in microbial load and odor on treated fabric swatches over time compared to untreated controls."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term stability and viability of probiotics in a spray format and on diverse fabric types.",
+        "Demonstrating actual hygiene improvement to a 'standard hygiene level' without traditional washing.",
+        "Consumer acceptance and education regarding spraying microbes on clothing."
+      ]
     },
     "928b8410-c67c-4abc-bf13-0f7c3f611609": {
       "uuid": "928b8410-c67c-4abc-bf13-0f7c3f611609",
       "idea": "Clothing with beneficial microbes for self-cleaning and hygiene.",
-      "description": "Develop fabrics embedded with beneficial microorganisms that actively break down dirt/odor, providing self-cleaning and hygienic properties. This mirrors the concept of a living, purifying layer directly on the material, akin to the initial biological purification idea."
+      "description": "Develop fabrics embedded with beneficial microorganisms that actively break down dirt/odor, providing self-cleaning and hygienic properties. This mirrors the concept of a living, purifying layer directly on the material, akin to the initial biological purification idea.",
+      "feasibility_rationale": "Embedding and maintaining viable, active microbial ecosystems within fabric structures through manufacturing, wear, and potential light cleaning cycles presents significant technical hurdles. Current textile manufacturing processes are often harsh.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Embedding living, beneficial microbes directly into fabric for active, continuous self-cleaning is a highly inventive approach, moving beyond passive antimicrobial treatments.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If realized, this could revolutionize clothing care by creating garments that largely maintain their own hygiene, offering a transformative solution to water-intensive cleaning.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be successfully integrated into fabric fibers or coatings and remain viable and active through the garment's lifecycle.",
+        "These embedded microbes will effectively neutralize odors and break down soil without harming the fabric or the wearer.",
+        "The microbial ecosystem on the fabric will be stable and not shift towards pathogenic or undesirable strains."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research methods for bio-functionalization of textiles, such as microencapsulation of spores or extremophilic bacteria, or surface coatings that support microbial adhesion and viability.",
+        "Identify robust microbial strains with desired cleaning properties (odor/stain degradation) that can survive harsh conditions.",
+        "Conduct proof-of-concept studies on treated fabric swatches to assess microbial survival, activity, and cleaning efficacy over simulated wear cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing methods to embed or attach microbes to fabric that withstand wear, tear, and occasional (even if minimal) cleaning.",
+        "Ensuring the long-term viability, activity, and safety (non-pathogenic, non-allergenic) of the embedded microbial community.",
+        "Controlling the microbial activity to prevent fabric degradation or unwanted byproducts."
+      ]
     },
     "82b00701-2084-468d-9b15-047240656fb9": {
       "uuid": "82b00701-2084-468d-9b15-047240656fb9",
       "idea": "Targeted probiotic treatment for clothing odor hotspots.",
-      "description": "Apply concentrated probiotics to specific odor-prone areas on garments, minimizing water usage while ensuring freshness. This localizes the biological cleaning action, like a targeted purifying zone, rather than a full-surface active biological layer."
+      "description": "Apply concentrated probiotics to specific odor-prone areas on garments, minimizing water usage while ensuring freshness. This localizes the biological cleaning action, like a targeted purifying zone, rather than a full-surface active biological layer.",
+      "feasibility_rationale": "Technically similar to the general probiotic spray but potentially simpler due to localized application, allowing for more concentrated or specialized formulations.",
+      "feasibility_score": 4,
+      "novelty_rationale": "This is a more focused application of probiotic cleaning, a slight variation on existing spot treatments or the general probiotic spray idea rather than a fundamentally new concept.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "Offers a practical way to reduce odor and extend wear time between full washes, providing a moderate impact on water reduction by addressing specific problem areas.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Probiotics can effectively neutralize odors and their sources when applied in a concentrated manner to specific fabric areas.",
+        "Targeted application is sufficient to maintain an acceptable level of freshness and hygiene for the entire garment between washes.",
+        "Users can easily and accurately apply the treatment to 'hotspot' areas."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify key odor-causing compounds and microbial culprits in clothing 'hotspots' (e.g., axillary regions).",
+        "Develop and test concentrated probiotic formulations for efficacy against these specific targets and for fabric compatibility.",
+        "Design and evaluate simple applicator prototypes (e.g., roll-on, targeted spritzer) for user-friendliness and effective delivery."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the concentrated probiotic treatment doesn't cause localized fabric discoloration or damage.",
+        "Determining the optimal concentration and reapplication frequency for sustained effectiveness.",
+        "User compliance and correct identification/application to all relevant hotspots."
+      ]
     },
     "e7b829c0-381d-41e7-ba10-0603032f5c04": {
       "uuid": "e7b829c0-381d-41e7-ba10-0603032f5c04",
       "idea": "Engineered bio-fabrics self-clean via beneficial microbes.",
-      "description": "Develop textiles with a programmed microbiome to break down soils, drastically cutting water needs for cleaning. This adapts the principle of biological purification for direct fabric application, moving beyond simple antibacterial approaches."
+      "description": "Develop textiles with a programmed microbiome to break down soils, drastically cutting water needs for cleaning. This adapts the principle of biological purification for direct fabric application, moving beyond simple antibacterial approaches.",
+      "feasibility_rationale": "Requires major breakthroughs in synthetic biology and material science to create stable, safe, and effective self-cleaning bio-fabrics. Controlling microbial activity and ensuring long-term viability on clothing presents monumental challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Adapting the Schmutzdecke concept to textiles for active, broad-spectrum soil degradation is a significant departure from typical fabric treatments. It envisions a dynamic, living system integrated into clothing for cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Successfully engineered bio-fabrics could nearly eliminate the need for water-based washing, fundamentally solving the design challenge for a wide range of garments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial microbes can be engineered or selected to effectively break down common clothing soils without damaging textile fibers.",
+        "A stable and safe microbiome can be maintained on clothing through multiple wear cycles and varying environmental conditions.",
+        "The byproducts of microbial action are non-toxic, non-odorous, and do not negatively impact the wearer or fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify microbial consortia or engineered strains capable of degrading common clothing soils (e.g., sebum, sweat components) in a textile-compatible environment.",
+        "Develop methods for immobilizing or integrating these microbes into/onto textile fibers while maintaining their viability and activity.",
+        "Conduct initial safety and efficacy studies on small fabric swatches, assessing soil removal, odor reduction, fabric integrity, and potential for skin irritation."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability, stability, and controlled activity of the microbiome on diverse fabric types and under various wear conditions.",
+        "Preventing unintended consequences, such as skin sensitization, allergic reactions, or pathogenic contamination from the microbes.",
+        "Achieving a broad enough spectrum of soil degradation to be genuinely useful for general clothing hygiene."
+      ]
     },
     "124ae77d-5740-4551-8473-329161027d5b": {
       "uuid": "124ae77d-5740-4551-8473-329161027d5b",
       "idea": "Adsorbent clothing: traps dirt for waterless mechanical removal.",
-      "description": "Integrate adsorbent materials into fabrics to capture particulate and oily soil, enabling cleaning via brushing or vacuuming, thus eliminating water use for these contaminants and addressing the low-water challenge."
+      "description": "Integrate adsorbent materials into fabrics to capture particulate and oily soil, enabling cleaning via brushing or vacuuming, thus eliminating water use for these contaminants and addressing the low-water challenge.",
+      "feasibility_rationale": "Integrating effective adsorbents into textiles is plausible, but achieving high soil capture capacity without compromising fabric properties and ensuring efficient mechanical soil release presents engineering challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While adsorbent materials are known, their systematic integration into everyday textiles for broad soil capture and subsequent waterless mechanical cleaning is a clever application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could significantly reduce water use for removing particulate and some oily soils, but may not address all cleaning needs (e.g., biological contaminants, set-in stains) as comprehensively.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Adsorbent materials can be effectively integrated into textile structures without compromising comfort, aesthetics, or durability.",
+        "A significant portion of common clothing soil can be effectively trapped by these materials and then removed by simple mechanical means.",
+        "The adsorbent capacity is sufficient for typical wear periods, or materials can be easily regenerated."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test various adsorbent materials (e.g., zeolites, activated carbon fibers) for their efficacy in capturing common clothing soils when incorporated into fabric swatches.",
+        "Develop and evaluate prototypes of fabric constructions integrating these adsorbents, focusing on soil uptake and release via mechanical methods.",
+        "Assess the durability of the adsorbent function and fabric integrity over simulated wear and cleaning cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high adsorption capacity for diverse soil types while maintaining desirable fabric properties (feel, breathability, flexibility).",
+        "Ensuring efficient and near-complete release of trapped soil through simple mechanical action without damaging the fabric.",
+        "Addressing the issue of adsorbent saturation and the need for regeneration or disposal of the adsorbent material."
+      ]
     },
     "b7bddb4d-aa18-47e5-b235-5ec27c1e8327": {
       "uuid": "b7bddb4d-aa18-47e5-b235-5ec27c1e8327",
       "idea": "Light-activated photocatalytic clothes degrade stains/odors without water.",
-      "description": "Utilize photocatalytic textiles that use light to decompose organic matter and microbes on clothing, offering a water-free method to maintain hygiene and cleanliness, directly addressing the water scarcity aspect of the challenge."
+      "description": "Utilize photocatalytic textiles that use light to decompose organic matter and microbes on clothing, offering a water-free method to maintain hygiene and cleanliness, directly addressing the water scarcity aspect of the challenge.",
+      "feasibility_rationale": "Photocatalytic coatings on textiles exist, but achieving high efficiency for broad stain/odor removal with safe light sources and ensuring durability presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While photocatalysis is an established principle, engineering textiles for efficient, light-activated degradation of a broad range of stains and microbes on clothing presents a fresh approach to waterless cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If effective and safe, this could offer a powerful water-free solution for maintaining hygiene and removing odors/stains, significantly impacting water consumption for laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Photocatalytic materials can be durably and safely incorporated into or onto textile fibers.",
+        "Sufficient activation energy (e.g., from ambient light or a safe, dedicated light source) is available to drive effective degradation.",
+        "The degradation process is complete and does not produce harmful or undesirable byproducts on the fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and optimize photocatalyst formulations for enhanced visible light activity and effective degradation of target clothing contaminants.",
+        "Develop and test methods for applying or integrating these photocatalysts onto various fabric types, assessing coating durability and impact on fabric properties.",
+        "Conduct controlled experiments to evaluate the degradation efficiency of common stains and odor-causing compounds on treated fabric swatches under different light conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high photocatalytic efficiency under safe and practical light conditions for a wide range of organic soils and microorganisms.",
+        "Ensuring the durability of the photocatalytic coating against abrasion and prolonged light exposure without damaging the textile.",
+        "Preventing the formation of harmful intermediate byproducts during the degradation process and ensuring skin safety."
+      ]
     },
     "579de866-fa5d-4130-b472-53c5f30b9227": {
       "uuid": "579de866-fa5d-4130-b472-53c5f30b9227",
       "idea": "Probiotic textiles actively degrade soils, reducing water-based washing.",
-      "description": "Clothes embedded with beneficial, dormant microbes that activate with minimal moisture (e.g., from humidity or a light mist) to break down sweat, oils, and light soiling, significantly lowering the need for water-intensive cleaning and potentially reaching hygiene standards. This directly applies biological purification principles to clothing."
+      "description": "Clothes embedded with beneficial, dormant microbes that activate with minimal moisture (e.g., from humidity or a light mist) to break down sweat, oils, and light soiling, significantly lowering the need for water-intensive cleaning and potentially reaching hygiene standards. This directly applies biological purification principles to clothing.",
+      "feasibility_rationale": "While microencapsulation of bacteria is established, ensuring their long-term viability, controlled activation, effectiveness against diverse soils, and safety on skin contact within a textile matrix presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying microbial consortia for active soil degradation directly within textile fibers for reduced washing is a highly inventive step beyond simple anti-odor treatments. It mimics natural ecosystems in a novel context.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce washing frequency for many garments by addressing light soiling and odors, leading to substantial water savings and potentially improving garment longevity.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Dormant microbes can be effectively embedded in textiles and remain viable through manufacturing and wear.",
+        "Microbes can be activated with minimal moisture and effectively degrade common clothing soils (sweat, oils, skin cells) to a hygienic level.",
+        "The probiotic system is safe for prolonged skin contact and does not produce undesirable byproducts or odors."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify robust, safe bacterial strains capable of degrading common clothing soils and surviving textile integration.",
+        "Develop and test microencapsulation techniques for these strains that allow for controlled activation and sustained release within textile fibers.",
+        "Conduct small-scale trials on treated fabric swatches to assess soil degradation efficacy, odor reduction, and material integrity."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and efficacy of microbes through multiple wear/activation cycles and varying environmental conditions.",
+        "Achieving effective degradation of a broad range of soils without damaging the textile fibers or causing discoloration.",
+        "Consumer acceptance and regulatory approval for clothing containing live microorganisms."
+      ]
     },
     "40335f99-6070-44b0-81bd-b3c387d5300d": {
       "uuid": "40335f99-6070-44b0-81bd-b3c387d5300d",
       "idea": "Insect-inspired nanostructured fibers physically destroy bacteria on contact.",
-      "description": "Textiles featuring bio-inspired nanotopography that mechanically ruptures bacteria upon contact, offering a continuous, waterless, chemical-free method to maintain hygiene levels on clothing and reduce overall washing frequency."
+      "description": "Textiles featuring bio-inspired nanotopography that mechanically ruptures bacteria upon contact, offering a continuous, waterless, chemical-free method to maintain hygiene levels on clothing and reduce overall washing frequency.",
+      "feasibility_rationale": "Fabricating and maintaining precise nanostructures on flexible textiles that are durable enough for regular wear and washing is extremely challenging with current manufacturing technologies. Long-term efficacy and scalability are major hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While antimicrobial nanostructures are researched, creating durable, flexible, and cost-effective textiles that maintain these precise topographies for continuous bacterial destruction is highly inventive for clothing.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If manufacturable and durable, this could provide continuous, chemical-free bacterial control, significantly enhancing hygiene and reducing the need for washes aimed at disinfection.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanostructures effective for bacterial lysis can be durably and economically applied to common textile materials.",
+        "These nanostructures remain effective after repeated wear, flexing, and potential light cleaning.",
+        "The nanostructures are specific to bacterial cells and do not cause irritation or damage to human skin cells."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and model optimal nanostructure geometries for broad-spectrum bactericidal activity on relevant textile fiber types.",
+        "Investigate and prototype scalable manufacturing techniques (e.g., nanoimprint lithography on fibers, self-assembly) for creating these structures on textiles.",
+        "Test the durability and sustained antimicrobial efficacy of prototype nanostructured textiles under simulated wear and cleaning conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Scalable and cost-effective manufacturing of precise nanostructures on large areas of flexible textile.",
+        "Ensuring durability of the nanostructures against mechanical wear, abrasion, and washing.",
+        "Potential for the nanostructures to shed or break, leading to loss of efficacy or unforeseen environmental/health impacts."
+      ]
     },
     "4a5406b0-1fa1-49f4-8407-7187eabd7d0f": {
       "uuid": "4a5406b0-1fa1-49f4-8407-7187eabd7d0f",
       "idea": "Smart fibers chelate odors and contaminants, extending wear between washes.",
-      "description": "Clothing incorporating fibers or finishes with molecules like cyclodextrins that actively trap and neutralize odor molecules and certain contaminants, making garments feel cleaner for longer, thereby reducing the frequency of water-based cleaning."
+      "description": "Clothing incorporating fibers or finishes with molecules like cyclodextrins that actively trap and neutralize odor molecules and certain contaminants, making garments feel cleaner for longer, thereby reducing the frequency of water-based cleaning.",
+      "feasibility_rationale": "Incorporating molecules like cyclodextrins into fibers or as durable finishes is achievable with existing textile chemistry. Ensuring sufficient capacity and durability through wear and some washing is the primary focus.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While cyclodextrins are known for odor capture, integrating them durably into textile fibers for prolonged efficacy across multiple wear cycles offers a slight novelty over topical applications.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "Effectively addresses odor, a key driver for washing, thereby extending wear intervals and reducing water use. Its impact is moderate as it doesn't address visible soiling or microbial hygiene directly.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Chelating agents can be integrated into textiles with high capacity and durability.",
+        "The trapped odors/contaminants are effectively neutralized or retained, and do not re-release under normal wear conditions.",
+        "The chelating capacity is sufficient to last through several wear cycles or can be easily regenerated."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Evaluate different methods for incorporating chelating agents (e.g., cyclodextrins, calixarenes) into common textile fibers for optimal loading and durability.",
+        "Test the odor and contaminant absorption capacity and retention of treated fabrics over simulated wear cycles.",
+        "Assess the impact of moisture and temperature on the performance and stability of the chelating agents in textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving a high enough concentration and binding efficiency of chelating agents in the textile to be effective for extended periods.",
+        "Ensuring the durability of the treatment through wear and potential light cleaning without losing efficacy.",
+        "Limited scope: primarily addresses odors and some chemical contaminants, not physical dirt or broad antimicrobial action."
+      ]
     },
     "cd6cf74d-de99-402b-b7ae-08845b699387": {
       "uuid": "cd6cf74d-de99-402b-b7ae-08845b699387",
       "idea": "Probiotic clothing sprays to digest soil/odors with minimal moisture.",
-      "description": "This idea proposes applying beneficial microbes directly to clothes to break down dirt and smells, requiring little to no water, addressing the challenge of cleaning with significantly less water. It's an alternative to initial considerations of complex biofilm systems, suggesting a more direct application of biological agents."
+      "description": "This idea proposes applying beneficial microbes directly to clothes to break down dirt and smells, requiring little to no water, addressing the challenge of cleaning with significantly less water. It's an alternative to initial considerations of complex biofilm systems, suggesting a more direct application of biological agents.",
+      "feasibility_rationale": "While probiotic cleaning agents exist, adapting them for broad fabric compatibility, effective soil/odor digestion with minimal water, and ensuring user safety/comfort on clothing presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying probiotic sprays as a primary method for digesting soil and odors on clothing is a significant departure from traditional washing, offering a fresh biological approach to the design challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This method could drastically reduce water consumption for laundry, directly addressing the core design challenge of water scarcity and potentially reducing energy use.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Probiotic bacteria can effectively break down a wide range of common clothing soils and odor-causing compounds in a low-moisture environment.",
+        "The probiotic solution and its byproducts are safe for prolonged skin contact and do not damage common clothing fabrics or leave undesirable residues.",
+        "The 'digestion' process is sufficiently rapid and complete to be practical for users."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen and test various probiotic strains for their efficacy in breaking down common clothing soils (e.g., sebum, food stains) on fabric swatches with minimal water.",
+        "Evaluate the safety of promising probiotic formulations, including skin irritation/sensitization tests and fabric compatibility studies.",
+        "Investigate the persistence and activity of probiotics on fabric over time and their impact on odor reduction."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring broad-spectrum efficacy against diverse soils (oils, particulates, pigments) and odor sources on various fabric types.",
+        "Addressing potential issues of skin sensitization, allergic reactions, or microbial imbalance on the skin from residual probiotics.",
+        "Achieving a shelf-stable probiotic formulation that remains active and effective when applied to clothing."
+      ]
     },
     "a379f1c0-1f69-43e0-9079-dd4196a37e15": {
       "uuid": "a379f1c0-1f69-43e0-9079-dd4196a37e15",
       "idea": "Dry powder cleansers that encapsulate soil for brush-off/vacuum removal from clothes.",
-      "description": "This idea leverages encapsulation technology so dirt on clothes can be lifted and removed mechanically (e.g., brushing, vacuuming), drastically reducing water usage for cleaning. This presents a physical removal method, contrasting with biological approaches."
+      "description": "This idea leverages encapsulation technology so dirt on clothes can be lifted and removed mechanically (e.g., brushing, vacuuming), drastically reducing water usage for cleaning. This presents a physical removal method, contrasting with biological approaches.",
+      "feasibility_rationale": "Encapsulation chemistry is established, but achieving effective soil lifting from diverse fabric structures and thorough powder removal without specialized equipment or fabric damage presents moderate technical hurdles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While dry encapsulation cleaning exists for carpets, its adaptation as a primary method for cleaning a wide range of clothing items with mechanical removal is a moderately novel approach to the design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This method could virtually eliminate water use for certain cleaning cycles, offering a substantial solution to water scarcity for laundry if broadly applicable and effective.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Encapsulating powders can effectively bind to a wide variety of soils commonly found on clothing items.",
+        "Mechanical removal (e.g., brushing, localized vacuuming) can effectively remove the encapsulated soil from common clothing fabrics without leaving significant residue or damaging the fabric.",
+        "The process can achieve acceptable levels of hygiene and cleanliness for everyday apparel."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype dry powder formulations on various fabric types and soil types to assess encapsulation efficiency and ease of removal.",
+        "Evaluate the cleaning efficacy (soil removal, hygiene levels achieved) compared to traditional low-water washing methods for different garments.",
+        "Investigate and design user-friendly methods for powder application and removal from clothing, considering convenience and potential for integration into existing routines."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving thorough soil removal from within fabric fibers and complex garment constructions, not just surface dirt.",
+        "User adoption and convenience, as the process might be perceived as more laborious than conventional methods.",
+        "Potential for fine powder residues affecting fabric feel, appearance, or causing respiratory irritation if not fully removed."
+      ]
     },
     "2f8b9566-65b2-4988-8ff4-283f4a055275": {
       "uuid": "2f8b9566-65b2-4988-8ff4-283f4a055275",
       "idea": "Fabric finish that actively repels soil, minimizing cleaning frequency and water.",
-      "description": "This proposes a preventative approach where clothing is treated to resist soiling, thus requiring less frequent and less intensive cleaning, directly contributing to water reduction. This shifts focus from reactive cleaning methods to material science for prevention."
+      "description": "This proposes a preventative approach where clothing is treated to resist soiling, thus requiring less frequent and less intensive cleaning, directly contributing to water reduction. This shifts focus from reactive cleaning methods to material science for prevention.",
+      "feasibility_rationale": "Creating highly durable, comfortable, breathable, and environmentally sound fabric finishes with broad-spectrum soil repellency requires significant material science R&D, though foundational technologies exist.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While soil-repellent finishes are known, developing highly durable, breathable, and widely applicable treatments that drastically reduce cleaning frequency for everyday clothing represents a moderately novel approach to the water scarcity challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If broadly successful, this preventative approach could fundamentally reduce the overall need for clothes cleaning, leading to transformative water and energy savings, and potentially longer garment lifespans.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A fabric finish can be developed that effectively repels a wide range of common soils and stains without compromising fabric comfort, breathability, or appearance.",
+        "The finish is durable enough to withstand normal wear and significantly extend the time between necessary cleanings, leading to substantial water savings.",
+        "The finish, its application process, and its end-of-life are safe for prolonged skin contact and environmentally benign."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify promising existing or novel material technologies (e.g., nanocoatings, bio-inspired surfaces, sacrificial layers) for broad-spectrum soil repellency applicable to common clothing textiles.",
+        "Conduct durability testing (simulated wear, abrasion, washing cycles if applicable) and comprehensive safety assessments (skin contact, environmental impact) of candidate finishes.",
+        "Evaluate the actual reduction in cleaning frequency and associated water savings through controlled user trials or simulated wear conditions with standardized soiling."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-lasting repellency against diverse substances (oily, aqueous, particulate) without negatively impacting fabric hand-feel, breathability, or dye integrity.",
+        "Ensuring the environmental safety and biodegradability of the finishing chemicals and their potential shedding during wear or eventual disposal.",
+        "Overcoming consumer skepticism regarding treated fabrics, potential cost implications, and ensuring perceived comfort is maintained."
+      ]
     },
     "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a": {
       "uuid": "2a1fd758-a606-4e4b-82e0-7a36c77f7b6a",
       "idea": "Probiotic fabric finish for self-cleaning, low-water garment care.",
-      "description": "Embed probiotic technology in clothing to continuously break down soils and odors, drastically reducing water needed for hygiene. This extends the shoe insole concept, aligning with biological purification principles."
+      "description": "Embed probiotic technology in clothing to continuously break down soils and odors, drastically reducing water needed for hygiene. This extends the shoe insole concept, aligning with biological purification principles.",
+      "feasibility_rationale": "Ensuring long-term viability, broad-spectrum soil degradation efficacy, and safety of live microorganisms on clothing presents substantial scientific and engineering challenges. Durability through wear and occasional light cleaning is also a major hurdle.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying probiotic technology beyond odor control to actively break down diverse soils on clothing is a highly inventive approach to reducing water for cleaning. It significantly departs from conventional washing or simple odor masking.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could fundamentally change how clothes are maintained, drastically reducing or eliminating water-intensive washing, thus having a transformative impact on water conservation.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Probiotics can be engineered or selected to effectively break down a wide range of common clothing soils, not just odor-causing bacteria.",
+        "Probiotic cultures can remain viable, active, and safe on fabric surfaces for extended periods of wear and storage.",
+        "The 'self-cleaning' process will be sufficient to meet hygiene standards without requiring frequent water-based washing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen probiotic strains for efficacy against a broad spectrum of common clothing soils and their ability to survive on textile substrates.",
+        "Develop methods for embedding or adhering probiotics to fabrics in a durable and safe manner, ensuring their long-term viability.",
+        "Conduct initial safety assessments (e.g., skin sensitivity, allergenicity) of candidate probiotic strains on fabric."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining probiotic viability and activity through washing, wear, and environmental changes (temperature, humidity).",
+        "Ensuring the safety of prolonged skin contact with active probiotic cultures and their byproducts.",
+        "Achieving effective breakdown of diverse and complex soils (e.g., grease, pigments, particulate matter) beyond just sweat components."
+      ]
     },
     "3db094d6-6a9c-4bed-ac79-a9b6aa886269": {
       "uuid": "3db094d6-6a9c-4bed-ac79-a9b6aa886269",
       "idea": "Dirt-repellent, easy-release fabric coatings for minimal water cleaning.",
-      "description": "Develop advanced fabric coatings that actively repel dirt and allow easy wipe-down cleaning, minimizing full washes and water usage. This adapts the DWR principle for broader soil resistance."
+      "description": "Develop advanced fabric coatings that actively repel dirt and allow easy wipe-down cleaning, minimizing full washes and water usage. This adapts the DWR principle for broader soil resistance.",
+      "feasibility_rationale": "Building on existing DWR and stain-resistant technologies, developing coatings with broader soil repellency and easy-release properties is likely feasible with focused material science R&D. Maintaining fabric hand-feel and breathability are key considerations.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While repellent coatings are known, developing highly effective, durable, breathable, and eco-friendly coatings for broad soil types on clothing, specifically enabling wipe-down cleaning, is a moderately novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effectively repelling most dirt and allowing easy removal of adhered soils would significantly reduce the need for full, water-intensive washes, leading to substantial water savings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A single coating or a multi-layer coating system can be developed to effectively repel a wide variety of common soils (both hydrophobic and hydrophilic).",
+        "The coating will be durable enough to withstand normal wear and tear and occasional light cleaning without losing its repellent/easy-release properties.",
+        "The coating will not negatively impact fabric breathability, comfort, or aesthetics to an unacceptable degree."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify promising non-PFC coating technologies that demonstrate both oleophobic and hydrophobic properties, as well as particulate repellency.",
+        "Develop test protocols to evaluate soil repellency and ease of cleaning for various common stain types on coated fabric swatches.",
+        "Assess the impact of candidate coatings on fabric properties like breathability, hand-feel, and durability through standardized textile tests."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving broad-spectrum repellency (oils, dust, food particles, etc.) without using harmful PFCs or compromising fabric breathability and comfort.",
+        "Ensuring durability of the coating to withstand abrasion, UV exposure, and multiple light cleaning cycles.",
+        "Consumer acceptance of potentially altered fabric texture or the need for specific care instructions."
+      ]
     },
     "f1e395c9-e9a8-4db4-858d-2f600c947930": {
       "uuid": "f1e395c9-e9a8-4db4-858d-2f600c947930",
       "idea": "Eco-friendly, enzyme-based sprays for waterless garment refreshing.",
-      "description": "Create low-water or waterless cleaning sprays using environmentally safe enzymes, inspired by the probiotic odor control, to refresh clothes and maintain hygiene without full washing cycles."
+      "description": "Create low-water or waterless cleaning sprays using environmentally safe enzymes, inspired by the probiotic odor control, to refresh clothes and maintain hygiene without full washing cycles.",
+      "feasibility_rationale": "Developing stable enzyme formulations for spray application is technically achievable, leveraging existing knowledge from detergent industries. The challenge is ensuring efficacy on diverse light soils and odors without fabric damage or leaving residues.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Enzyme-based sprays for odor control are not new, but formulating them for broader light cleaning and hygiene maintenance as a truly waterless alternative to washing presents a moderately novel refinement.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effective enzyme sprays can significantly reduce wash frequency for lightly worn or odorous garments, offering a moderate but valuable contribution to water saving.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Enzymes can be formulated into a stable, safe, and effective spray that breaks down common light soils and odor compounds on fabrics.",
+        "The spray application will not leave undesirable residues or damage a wide range of fabric types.",
+        "Consumers will perceive this method as sufficiently 'hygienic' for extending the wear of garments between full washes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test combinations of enzymes effective against common organic residues (sweat, sebum, light food stains) found on clothing.",
+        "Develop stable, non-aqueous or low-water spray formulations for selected enzymes and evaluate their performance on various fabric types.",
+        "Conduct consumer perception studies to understand acceptance criteria for 'refreshed' vs. 'washed' garments and hygiene expectations."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring enzyme stability and activity in a spray formulation over shelf life and upon application.",
+        "Achieving effective breakdown of a range of light soils and odor molecules without causing fabric discoloration, damage, or leaving sticky residues.",
+        "Consumer perception of 'cleanliness' and hygiene from a spray treatment versus traditional washing."
+      ]
     },
     "8adb8097-53ac-4559-bf42-c1ba375a8e5a": {
       "uuid": "8adb8097-53ac-4559-bf42-c1ba375a8e5a",
       "idea": "Biofilm-Enhanced Self-Cleaning Textiles for Low-Water Hygiene.",
-      "description": "This idea proposes textiles that cultivate a beneficial biofilm to actively break down dirt and odors, directly addressing the need for hygiene with less water. It's inspired by how textiles can alter microbial communities, aiming to apply biological purification principles to the fabric itself."
+      "description": "This idea proposes textiles that cultivate a beneficial biofilm to actively break down dirt and odors, directly addressing the need for hygiene with less water. It's inspired by how textiles can alter microbial communities, aiming to apply biological purification principles to the fabric itself.",
+      "feasibility_rationale": "Cultivating and maintaining a stable, effective, and safe beneficial biofilm on dynamic textile surfaces presents substantial biological and engineering challenges. This would require breakthroughs in synthetic biology and material science.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of a 'living' Schmutzdecke-like biofilm on clothing for self-cleaning is highly original and a paradigm shift from traditional antimicrobial or repellent textile treatments. It directly applies ecological principles to personal hygiene in a novel way.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successful, this could revolutionize clothing hygiene in water-scarce regions by creating garments that largely clean themselves, drastically reducing water consumption. It offers a truly sustainable and regenerative approach to cleanliness.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A beneficial, stable, and skin-safe biofilm can be engineered to thrive on common textiles.",
+        "This biofilm can effectively degrade a wide range of common soils and odor-causing compounds found on clothing.",
+        "Users will accept wearing garments with a living biological layer."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and isolate microorganisms or microbial consortia with proven efficacy in degrading target soils (sebum, sweat) and that are non-pathogenic and non-irritating.",
+        "Conduct proof-of-concept studies on textile swatches to assess biofilm formation, stability, and cleaning efficacy under controlled conditions.",
+        "Evaluate the safety profile of candidate biofilms, including skin sensitization and inhalation risks."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the long-term stability and viability of the biofilm through wear, washing (even low-water), and environmental fluctuations.",
+        "Controlling the biofilm's activity to prevent fabric degradation or unwanted byproducts.",
+        "Overcoming potential user aversion to 'living' clothing and ensuring aesthetic acceptability."
+      ]
     },
     "43167db2-2865-41a0-901d-759e3be23ee8": {
       "uuid": "43167db2-2865-41a0-901d-759e3be23ee8",
       "idea": "Metabolome-Modulating Garments for Reduced Soiling and Easier Cleaning.",
-      "description": "This concept involves textiles that actively change surface chemistry to repel dirt or neutralize odor precursors, thus reducing the need for water-intensive cleaning. It's based on findings that textiles can alter skin/textile metabolomes, offering an alternative to direct microbial killing for hygiene."
+      "description": "This concept involves textiles that actively change surface chemistry to repel dirt or neutralize odor precursors, thus reducing the need for water-intensive cleaning. It's based on findings that textiles can alter skin/textile metabolomes, offering an alternative to direct microbial killing for hygiene.",
+      "feasibility_rationale": "Altering skin/textile metabolome is complex; identifying specific, safe, and effective modulators and integrating them durably into textiles poses significant R&D challenges. However, leveraging textile chemistry to influence surface properties is an existing area of research.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Using textiles to actively modulate the skin's chemical environment (metabolome) to prevent soiling or odor formation is a fresh approach. It moves beyond passive repellency or broad antimicrobial action to a more nuanced biological/chemical interaction.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce the frequency and intensity of washing needed by making clothes inherently less prone to getting dirty or smelly. This directly addresses the need for less water usage in clothing care.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Specific changes in the skin or textile surface metabolome can significantly reduce soil adhesion or neutralize odor precursors.",
+        "Textiles can be engineered to induce these specific metabolomic changes safely and persistently without adverse skin effects.",
+        "The resulting reduction in soiling or odor is substantial enough to meaningfully decrease the need for water-intensive cleaning."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct research to identify key metabolites at the skin-textile interface that correlate with soiling or odor, and investigate how textile properties can influence them.",
+        "Screen for active ingredients or textile finishes that can modulate these target metabolites in a beneficial way (e.g., by promoting certain skin bacteria or altering local pH).",
+        "Develop prototype textiles and test their efficacy in reducing soiling/odor in simulated wear conditions, alongside rigorous skin safety testing."
+      ],
+      "major_challenges_roadblocks": [
+        "Understanding the complex interactions between textiles, skin microbiome, and skin metabolome to achieve predictable outcomes.",
+        "Ensuring the long-term stability and activity of metabolome-modulating agents in textiles through wear and washing.",
+        "Potential for unintended side effects on skin health or individual variations in response."
+      ]
     },
     "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4": {
       "uuid": "b3b0c8fb-37f2-4bea-945f-e6297aaddcc4",
       "idea": "Targeted Bio-Solubilizing Fibers for Water-Efficient Grime Breakdown.",
-      "description": "This suggests fibers releasing compounds analogous to bile acids to break down grime (e.g., lipids) on contact, making cleaning possible with minimal water. Inspired by the solubilizing function of bile acids, this targets the molecular breakdown of soils for easier removal."
+      "description": "This suggests fibers releasing compounds analogous to bile acids to break down grime (e.g., lipids) on contact, making cleaning possible with minimal water. Inspired by the solubilizing function of bile acids, this targets the molecular breakdown of soils for easier removal.",
+      "feasibility_rationale": "Incorporating active agents like enzymes or bio-inspired solubilizers into fibers for controlled release or catalytic activity is an established area, suggesting good foundational feasibility. The primary challenge is identifying/developing suitable, stable, and skin-safe agents.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While enzyme detergents are common, integrating targeted bio-solubilizers directly into textile fibers for continuous, on-contact grime breakdown is a more advanced and proactive approach to reducing cleaning effort. It's a clever application of biochemical principles to material science.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce the water, energy, and mechanical action needed for cleaning by pre-degrading soils on the fabric itself. This offers a practical route to lower-water laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Effective and skin-safe bio-solubilizers (e.g., enzymes, synthetic surfactants) can be identified or developed that target common clothing soils.",
+        "These solubilizers can be stably integrated into textile fibers for sustained activity or release upon contact with soil/moisture.",
+        "The on-fabric breakdown of grime significantly simplifies removal with minimal water."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or synthesize potent bio-solubilizing agents (e.g., lipases, proteases, bile acid analogs) effective against common clothing soils (lipids, proteins) and confirm their skin safety.",
+        "Investigate methods for incorporating these agents into fibers (e.g., encapsulation, covalent attachment, core-sheath spinning) to ensure stability and controlled activity.",
+        "Test prototype fabrics for their ability to break down standardized soils and facilitate easy removal with minimal water rinsing."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the stability and activity of bio-solubilizers within the fiber matrix and during garment use over time.",
+        "Preventing premature release or deactivation of the active agents.",
+        "Managing the breakdown products to ensure they are not sticky, odorous, or irritating to the skin."
+      ]
     },
     "f12a628d-eb02-4c0f-9805-f371f9790063": {
       "uuid": "f12a628d-eb02-4c0f-9805-f371f9790063",
       "idea": "Enzyme misting for waterless garment sanitization.",
-      "description": "A system mists concentrated enzymes onto clothes, breaking down bio-contaminants with minimal water. This directly addresses the design challenge's water scarcity and hygiene needs, inspired by the snippet's potent enzyme use, offering targeted biochemical action as an alternative to broader biological processes."
+      "description": "A system mists concentrated enzymes onto clothes, breaking down bio-contaminants with minimal water. This directly addresses the design challenge's water scarcity and hygiene needs, inspired by the snippet's potent enzyme use, offering targeted biochemical action as an alternative to broader biological processes.",
+      "feasibility_rationale": "Enzyme technology is well-developed and misting systems are common. The main challenges lie in formulating stable, effective enzymes for misting and ensuring adequate fabric penetration for sanitization.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While enzymes are used in cleaning, a dedicated misting system for near-waterless garment sanitization offers a distinct application beyond typical detergents or soaks. It applies known technology in a targeted, low-water context relevant to the challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could offer a substantial reduction in water use for regular garment refreshing and sanitization, directly addressing the core design challenge. It may be particularly useful for lightly soiled items or to extend time between full washes.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Enzymes can be effectively aerosolized and retain activity upon contact with fabric.",
+        "Misted enzymes can sufficiently penetrate fabric fibers to neutralize odors and achieve target hygiene levels.",
+        "Enzyme residues post-treatment are minimal, benign, and do not cause skin irritation or fabric damage."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and screen enzymes for stability in aerosolized form and efficacy against common clothing contaminants (bacteria, sebum).",
+        "Develop prototype misting applicators and test enzyme deposition, penetration, and sanitization effectiveness on various fabric types.",
+        "Conduct initial safety assessments for dermal contact with enzyme-treated fabrics and evaluate any potential long-term fabric effects."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring enzyme stability and activity throughout the misting process and on the fabric surface.",
+        "Achieving consistent and adequate coverage and penetration into diverse fabric structures for effective sanitization.",
+        "Consumer acceptance of a misting method for cleaning and addressing potential allergenic concerns related to aerosolized enzymes."
+      ]
     },
     "d0eb0642-e66d-4b2d-9a44-8e419165d4e0": {
       "uuid": "d0eb0642-e66d-4b2d-9a44-8e419165d4e0",
       "idea": "Enzyme-active textiles for continuous low-water cleaning.",
-      "description": "Textiles embedded with stabilized enzymes activate with minimal moisture to continuously degrade soils. This dramatically cuts water use for the design challenge, achieving hygiene via persistent enzymatic action, a material-based approach differing from a dynamic biological system."
+      "description": "Textiles embedded with stabilized enzymes activate with minimal moisture to continuously degrade soils. This dramatically cuts water use for the design challenge, achieving hygiene via persistent enzymatic action, a material-based approach differing from a dynamic biological system.",
+      "feasibility_rationale": "Embedding enzymes for long-term, stable, and activatable functionality within textile fibers presents major scientific hurdles, especially regarding enzyme denaturation, leaching, and sustained activity through wear and ambient conditions.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating enzymes directly into textile fibers for continuous, low-moisture cleaning represents a truly novel and potentially paradigm-shifting approach to garment hygiene. This moves well beyond periodic cleaning applications.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "Successfully realized, this could lead to garments that require significantly less frequent washing or are partially self-sanitizing, offering a transformative solution to the design challenge by fundamentally altering clothing care.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Enzymes can be durably embedded or bonded into textile fibers while retaining their catalytic activity over extended periods and through wear cycles.",
+        "Embedded enzymes can be effectively activated by minimal ambient moisture or perspiration to degrade soils and microbes.",
+        "The enzymatic action is sufficient to maintain required hygiene standards without causing skin irritation or compromising fabric integrity."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and evaluate various enzyme immobilization techniques (e.g., encapsulation, covalent bonding, physical adsorption) for different textile fibers.",
+        "Test the activity, stability, and longevity of immobilized enzymes under simulated conditions of wear, light exposure, and minimal moisture activation.",
+        "Conduct preliminary biocompatibility and safety testing of enzyme-active textile prototypes."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term stability and sustained activity of enzymes integrated into textile matrices, preventing denaturation or leaching.",
+        "Developing cost-effective and scalable manufacturing processes for enzyme-active textiles.",
+        "Ensuring consumer safety, particularly regarding potential allergenic reactions to enzymes in constant contact with skin, and managing enzyme deactivation at end-of-life."
+      ]
     },
     "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a": {
       "uuid": "d3a676c3-dba5-4989-ab3e-6fb5d141fb6a",
       "idea": "Targeted enzyme 'patches' for near-zero water spot hygiene.",
-      "description": "Concentrated enzymes in patches or sprays treat soiled areas with virtually no water. This meets the design challenge by localizing cleaning for hygiene and extreme water saving, drawing from the snippet's examples of enzymes tackling tough, specific biological residues, a focused application rather than relying on a complex, self-sustaining cleaning system."
+      "description": "Concentrated enzymes in patches or sprays treat soiled areas with virtually no water. This meets the design challenge by localizing cleaning for hygiene and extreme water saving, drawing from the snippet's examples of enzymes tackling tough, specific biological residues, a focused application rather than relying on a complex, self-sustaining cleaning system.",
+      "feasibility_rationale": "Technology for enzyme-based cleaners is mature. Developing concentrated forms for patches or targeted sprays is plausible, with primary challenges in ensuring stability, effective delivery, and managing residues without requiring a rinse.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While enzyme spot treatments exist, the concept of a patch for sustained contact or a highly concentrated spray focused on near-zero water *hygienic* cleaning is a nuanced application. It emphasizes water-scarce sanitization over simple stain removal.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "This offers a practical solution for addressing localized soiling and hygiene concerns with extremely low water use, potentially extending garment wear time between full washes. Its impact is moderate as it's a supplementary rather than a complete cleaning solution.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Enzymes can be formulated into stable, highly concentrated patches or sprays that remain active upon application.",
+        "The targeted application can achieve sufficient sanitization of localized soiled areas with minimal or no water.",
+        "Any residues from the treatment are non-irritating, non-damaging to fabric, and do not attract further soiling."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test stable, high-concentration enzyme formulations for patch or spray delivery systems.",
+        "Evaluate the sanitization efficacy (e.g., microbial reduction) and soil removal capabilities of prototypes on various fabric types and common stains.",
+        "Assess fabric compatibility, potential for residues, and skin safety of the proposed targeted treatments."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the targeted treatment provides genuine sanitization rather than just superficial cleaning or odor masking.",
+        "Preventing localized fabric discoloration, damage, or undesirable texture changes due to high enzyme concentrations.",
+        "Managing any residues to ensure they are not sticky, visible, or cause discomfort, and do not require subsequent water rinsing."
+      ]
     },
     "22bf12b9-3d7e-4234-820b-e71d855da029": {
       "uuid": "22bf12b9-3d7e-4234-820b-e71d855da029",
       "idea": "Photocatalytic nanoparticle-coated clothing that self-cleans with light, minimizing water washes.",
-      "description": "Clothes embedded with photocatalytic nanoparticles (like ZnO) would break down dirt and microbes when exposed to light, achieving hygiene with little to no water. This offers a chemical/physical self-cleaning alternative to the initial biological purification concept."
+      "description": "Clothes embedded with photocatalytic nanoparticles (like ZnO) would break down dirt and microbes when exposed to light, achieving hygiene with little to no water. This offers a chemical/physical self-cleaning alternative to the initial biological purification concept.",
+      "feasibility_rationale": "The basic science for photocatalytic nanoparticles exists, but achieving durable, effective coatings that work efficiently with ambient light on diverse clothing types and withstand wear presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While photocatalysis is a known phenomenon, its dedicated application to everyday clothing for comprehensive hygiene and significant water reduction in resource-limited settings is a highly inventive approach to the challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could fundamentally change how clothes are kept hygienic, drastically reducing water consumption for laundry in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Photocatalytic action is effective against a broad range of common soiling agents and microbes found on clothing using ambient light.",
+        "Nanoparticle coatings can be made durable enough to withstand the typical wear and tear of clothing, including occasional minimal washing.",
+        "Sufficient ambient light (e.g., sunlight) can activate the nanoparticles effectively without requiring specialized external light sources."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test efficacy of existing photocatalytic coatings (e.g., ZnO, TiO2) on various fabric types against common stains and bacterial loads under realistic ambient light conditions.",
+        "Investigate methods to enhance coating adhesion and durability on flexible textile substrates subjected to simulated wear.",
+        "Conduct preliminary safety assessments regarding skin contact compatibility and potential nanoparticle shedding during wear and light exposure."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term coating durability and adhesion through multiple wear cycles and potential infrequent, gentle cleaning.",
+        "Achieving sufficient photocatalytic efficiency across diverse fabric types and colors under variable ambient light conditions (intensity, spectrum).",
+        "Addressing potential long-term human safety (skin contact, inhalation of shed particles) and environmental impacts of widespread nanoparticle use in clothing."
+      ]
     },
     "b98366d6-1c21-478f-96b9-7b9accb3309b": {
       "uuid": "b98366d6-1c21-478f-96b9-7b9accb3309b",
       "idea": "Create a 'dry' cleaning chamber using nanoparticle-generated ROS and minimal mist.",
-      "description": "A contained system could activate nanoparticles on clothes using UV/light and a tiny amount of water mist to generate reactive oxygen species for deep cleaning, drastically reducing water usage. This leverages NP antimicrobial power in a controlled, low-water environment."
+      "description": "A contained system could activate nanoparticles on clothes using UV/light and a tiny amount of water mist to generate reactive oxygen species for deep cleaning, drastically reducing water usage. This leverages NP antimicrobial power in a controlled, low-water environment.",
+      "feasibility_rationale": "Generating ROS with nanoparticles and light is scientifically established; however, engineering a safe, effective, and user-friendly chamber that ensures uniform cleaning without damaging diverse textiles presents notable technical hurdles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of a dedicated 'dry' cleaning chamber leveraging nanoparticle-generated ROS and minimal mist for textile hygiene is a novel system-level approach, distinct from passive self-cleaning fabrics or traditional washing.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could offer a highly effective deep-cleaning method that drastically reduces water usage compared to conventional washing, particularly for items requiring thorough sanitization.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Reactive Oxygen Species (ROS) can effectively neutralize a wide range of soils and microbes on textiles within a practical timeframe without damaging fabric integrity or color.",
+        "A minimal amount of water mist is sufficient to facilitate the ROS generation and cleaning process effectively.",
+        "A chamber can be designed to provide uniform light exposure and ROS distribution for consistent cleaning of entire garments, including folds and layers."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop a lab-scale prototype chamber to test ROS generation efficacy on various nanoparticle-treated fabric swatches under controlled conditions.",
+        "Evaluate cleaning performance (stain removal, microbial reduction) and assess fabric integrity (strength, colorfastness) after repeated exposure cycles in the prototype.",
+        "Determine optimal operational parameters: light intensity/wavelength, misting volume/frequency, nanoparticle type/concentration, and treatment duration for various fabrics."
+      ],
+      "major_challenges_roadblocks": [
+        "Potential for fabric degradation (e.g., loss of tensile strength, color fading) due to prolonged or repeated ROS exposure.",
+        "Ensuring uniform cleaning throughout multi-layered or densely packed garments within a chamber, avoiding shadowed or untreated areas.",
+        "Consumer adoption challenges related to the cost, size, and energy consumption of a dedicated cleaning chamber device."
+      ]
     },
     "79df045b-68ba-4973-93b7-262d9d5fc90b": {
       "uuid": "79df045b-68ba-4973-93b7-262d9d5fc90b",
       "idea": "Clothes with layered hydrophobic/hydrophilic nanocoatings to repel dirt and enable spot-cleaning.",
-      "description": "Clothing with structured nanocoatings featuring hydrophobic outer layers to repel dirt/moisture, minimizing soiling and allowing targeted, low-water spot cleaning. This contrasts with a trapping mechanism by focusing on repellency."
+      "description": "Clothing with structured nanocoatings featuring hydrophobic outer layers to repel dirt/moisture, minimizing soiling and allowing targeted, low-water spot cleaning. This contrasts with a trapping mechanism by focusing on repellency.",
+      "feasibility_rationale": "Creating hydrophobic coatings is feasible, but achieving durable, breathable, and comfortable multi-layered nanocoatings that maintain their distinct properties after wear and allow effective spot cleaning is technically challenging.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While hydrophobic treatments for textiles exist, the specific concept of strategically layered hydrophobic/hydrophilic nanocoatings for combined soil repellency and enhanced low-water spot-cleaning offers a moderately novel approach to the challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This approach could significantly reduce the frequency of full water-intensive washes by preventing soiling and making localized cleaning highly effective, leading to substantial water savings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Layered nanocoatings can provide effective repellency against a wide range of common soiling agents while maintaining essential fabric properties like breathability and comfort.",
+        "Targeted spot cleaning with minimal water on such coated fabrics will be sufficient to maintain acceptable hygiene levels for extended wear periods.",
+        "These complex layered coatings can be applied cost-effectively and durably to common clothing materials at scale."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop methods for applying durable, layered hydrophobic/hydrophilic nanocoatings to common textile types, focusing on maintaining breathability.",
+        "Evaluate the soil repellency (e.g., contact angle, roll-off angle for various liquids) and ease of spot-cleaning for diverse stain types on coated fabrics using minimal water.",
+        "Assess the impact of coatings on fabric hand-feel, comfort, and durability through standardized textile testing methods (e.g., Martindale abrasion)."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining fabric breathability and tactile comfort, which can be compromised by dense or poorly designed coatings.",
+        "Ensuring the durability of the layered nanostructure to mechanical abrasion, flexing, and even infrequent, gentle washing cycles.",
+        "Limited effectiveness against oily or deeply penetrating stains, where simple repellency might not suffice and spot cleaning could be difficult."
+      ]
     },
     "ae6ea2a3-0c8c-40d7-a5b4-e94465467019": {
       "uuid": "ae6ea2a3-0c8c-40d7-a5b4-e94465467019",
       "idea": "Fabric pre-treatment for inherent soil repellency and easy, low-water release.",
-      "description": "This idea proposes coating fabrics with polymers that prevent soil adhesion and redeposition, significantly reducing the water and agitation needed for effective cleaning. This is a material science approach focused on making the fabric itself easier to clean, distinct from biological purification methods."
+      "description": "This idea proposes coating fabrics with polymers that prevent soil adhesion and redeposition, significantly reducing the water and agitation needed for effective cleaning. This is a material science approach focused on making the fabric itself easier to clean, distinct from biological purification methods.",
+      "feasibility_rationale": "The core technology (polymers for soil release) exists, but optimizing for diverse fabrics, durability, breathability, and effective low-water hygiene cleaning requires focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While soil-repellent fabrics are known, optimizing them specifically for minimal water cleaning to hygiene standards and preventing redeposition represents a moderately novel application for this challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective and durable, this could noticeably reduce water consumption for routine cleaning of lightly soiled items, offering a moderate contribution to the design challenge.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "The polymer coating can be durable enough for regular wear and multiple low-water cleaning cycles.",
+        "The coating will not negatively impact fabric feel, breathability, or skin compatibility.",
+        "Easy soil release with the coating translates to significantly less water and energy for achieving hygienic cleanliness."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test existing soil-release polymers on various common fabric types for efficacy with minimal water application (e.g., misting, wiping).",
+        "Evaluate the durability of effective coatings under simulated wear and repeated low-water cleaning conditions.",
+        "Assess the level of hygiene achieved (e.g., microbial load reduction) with treated fabrics vs. untreated, using minimal water methods."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the coating through multiple wear and low-water wash cycles while maintaining performance.",
+        "Ensuring the treatment is effective against a wide range of soils and achieves actual hygiene standards, not just visual cleanliness.",
+        "Consumer acceptance regarding fabric feel, potential cost increase, and environmental impact of the polymers used."
+      ]
     },
     "6ccaaf09-17b5-4808-bc52-f2aca3011e61": {
       "uuid": "6ccaaf09-17b5-4808-bc52-f2aca3011e61",
       "idea": "Engineer clothing with a beneficial, self-sustaining microbiome for odor and soil control.",
-      "description": "This suggests developing textiles that host a beneficial microbial layer to preemptively combat odor and break down light soiling, reducing the frequency and intensity of water-based washing. This approach is analogous to the initial inspirational concept of using a living biofilm for purification."
+      "description": "This suggests developing textiles that host a beneficial microbial layer to preemptively combat odor and break down light soiling, reducing the frequency and intensity of water-based washing. This approach is analogous to the initial inspirational concept of using a living biofilm for purification.",
+      "feasibility_rationale": "This requires substantial breakthroughs in textile bio-engineering, microbe selection for safety and efficacy, and ensuring long-term viability of a living microbiome on clothing through wear and cleaning.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying the concept of a beneficial, self-sustaining microbiome directly to textiles for cleaning and odor control is highly inventive and directly analogous to the inspirational Schmutzdecke concept.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could fundamentally change clothing care paradigms by making clothes partially self-cleaning and highly odor-resistant, drastically reducing water needs.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial microbes can be identified that actively and safely break down common soils and odor compounds on textiles.",
+        "These microbes can be embedded or encouraged to colonize fabric in a stable, self-sustaining, and controlled manner.",
+        "The engineered microbiome is safe for prolonged human skin contact and does not produce undesirable byproducts or allergens."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct a comprehensive literature review and consult with microbiologists and textile scientists on candidate microorganisms for textile applications.",
+        "Perform proof-of-concept lab studies to assess if selected microbes can survive on fabric swatches and demonstrate desired activity (e.g., odor reduction, breakdown of simple organic compounds).",
+        "Investigate various methods for inoculating and maintaining microbial communities on textiles (e.g., micro-encapsulation, nutrient-releasing fibers, specific fabric structures)."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying and cultivating robust, safe, and effective microbes that thrive on textiles and degrade a broad range of common soils/odors without negative side effects.",
+        "Ensuring the stability, longevity, and controlled activity of the microbiome through wear, environmental changes, and occasional minimal cleaning interventions.",
+        "Overcoming public perception, safety concerns, and regulatory hurdles associated with wearing clothing embedded with living organisms."
+      ]
     },
     "4a346fdd-7ea7-416b-9b52-e8639fe91f4b": {
       "uuid": "4a346fdd-7ea7-416b-9b52-e8639fe91f4b",
       "idea": "Develop a targeted vapor/mist cleaning system using potent, low-volume cleaning agents.",
-      "description": "This involves creating a device that applies a minimal amount of highly effective cleaning solution (as vapor or mist) to clothes, leveraging strong solvency and wetting to lift dirt with drastically less water. This is a process innovation, differing from surface treatments or biological methods."
+      "description": "This involves creating a device that applies a minimal amount of highly effective cleaning solution (as vapor or mist) to clothes, leveraging strong solvency and wetting to lift dirt with drastically less water. This is a process innovation, differing from surface treatments or biological methods.",
+      "feasibility_rationale": "The main challenge lies in formulating cleaning agents that are highly effective in low volumes as vapor/mist, safe for users and fabrics, and leave minimal residue. The application device itself is likely buildable using existing technologies.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While steam cleaners exist, the focus on highly potent, specialized low-volume chemical agents delivered via targeted vapor/mist for comprehensive fabric cleaning is a moderately novel refinement.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water for many cleaning scenarios, especially for refreshing garments, spot treatment, or cleaning delicate items, offering a major improvement in water conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Cleaning agents can be developed that are highly effective in vapor/mist form at low concentrations and leave minimal or no harmful residue.",
+        "A device can effectively and evenly deliver the vapor/mist to penetrate fabric structures and mobilize soil without requiring subsequent rinsing.",
+        "The process, including any chemical agents used, is safe for a wide variety of fabrics and for users (regarding inhalation and skin contact with any residues)."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen candidate solvents, surfactants, and other cleaning agents for high efficacy at low concentrations and suitability for vapor/mist delivery.",
+        "Prototype a simple vapor/mist generation and targeted application device for testing on fabric swatches with standardized soils.",
+        "Assess cleaning efficacy, fabric compatibility, and residue levels of promising agent/delivery combinations on various common textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Formulating cleaning agents that are potent as a vapor/mist, safe for inhalation/skin contact, compatible with diverse materials, and don't require extensive rinsing or leave problematic residues.",
+        "Designing a cost-effective and user-friendly device that ensures even and deep penetration of the cleaning agent into various fabric types and weights.",
+        "Managing potential volatile organic compounds (VOCs) or chemical residues from potent cleaning agents in an enclosed or personal use environment."
+      ]
     },
     "444d081b-9521-468b-83b1-1513b46cddf3": {
       "uuid": "444d081b-9521-468b-83b1-1513b46cddf3",
       "idea": "Develop textiles that repel dirt and microbes, minimizing water for cleaning.",
-      "description": "Utilize superhydrophobic and anti-fouling coatings to create clothing that inherently stays cleaner, drastically reducing the frequency and intensity of water-based washing, thus conserving water. This offers a preventative materials-based approach to cleanliness, differing from biological purification mechanisms."
+      "description": "Utilize superhydrophobic and anti-fouling coatings to create clothing that inherently stays cleaner, drastically reducing the frequency and intensity of water-based washing, thus conserving water. This offers a preventative materials-based approach to cleanliness, differing from biological purification mechanisms.",
+      "feasibility_rationale": "Likely feasible as underlying technologies for superhydrophobic and antimicrobial coatings exist, though integrating them durably and cost-effectively into everyday textiles presents R&D challenges.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Applying superhydrophobic and anti-fouling coatings to textiles for water reduction in cleaning is moderately novel; the core tech exists, but the specific challenge focus and potential hygiene benefits offer a fresh angle.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This idea offers significant impact by directly reducing soiling and microbial load, thereby decreasing the frequency and water intensity of washing, directly addressing the design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Coatings can be made durable enough for regular wear and tear of clothing.",
+        "The repellent properties will be effective against a wide range of common dirt and microbial contaminants found on clothing.",
+        "The coated textiles will remain comfortable (e.g., breathable) for the wearer."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test existing superhydrophobic/antimicrobial textile coatings for durability and effectiveness against common clothing soilants and microbes under simulated wear conditions.",
+        "Evaluate the impact of such coatings on fabric comfort properties like breathability and tactile feel.",
+        "Investigate cost-benefit analysis for producing such textiles at scale."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the coatings through multiple wear and potential (though infrequent) washing cycles.",
+        "Ensuring the coatings do not negatively impact fabric breathability, feel, or recyclability.",
+        "Scaling up production cost-effectively for widespread adoption."
+      ]
+    },
+    "c32a30fa-d531-4a04-bcd2-c01d7a0955f1": {
+      "uuid": "c32a30fa-d531-4a04-bcd2-c01d7a0955f1",
+      "idea": "Biofilm-coated textiles that actively repel dirt and microbes, minimizing wash frequency.",
+      "description": "This idea proposes clothing materials treated with a biofilm-derived coating that makes them inherently resistant to soiling and microbial growth. This directly addresses the design challenge by reducing the need for frequent and intensive washing, thereby saving significant water. It leverages the antifouling properties highlighted in the snippets.",
+      "feasibility_rationale": "Significant R&D is needed to create stable, durable, and skin-safe biofilm coatings on textiles that maintain efficacy through wear and varying environmental conditions.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying biofilm-derived coatings for active dirt and microbe repellency directly on textiles is a highly inventive approach to reducing wash frequency, distinct from conventional chemical treatments or passive material properties.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce wash frequency by keeping clothes cleaner for longer, leading to substantial water savings and potentially improved garment longevity.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A biofilm-derived coating can be made durable enough for regular clothing wear and laundering.",
+        "The coating will be safe for prolonged skin contact and not cause irritation, allergic reactions, or alter fabric breathability negatively.",
+        "The repellent properties will be effective against a broad spectrum of common soiling agents and microbes relevant to clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research methods to create stable, thin, and flexible biofilm-derived layers or to transfer their repellent properties to textile-compatible coatings.",
+        "Conduct initial biocompatibility, cytotoxicity, and skin sensitization tests of candidate biofilm materials or derived coatings.",
+        "Evaluate the anti-fouling/repellent efficacy of prototype coatings against common clothing soils (e.g., sebum, food particles) and representative microbes."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining biofilm viability/functionality or the stability of its derived repellent properties on a flexible, wearable substrate under mechanical stress and washing.",
+        "Ensuring long-term safety, comfort (breathability, feel), and non-toxicity of the coating, including preventing undesirable microbial growth within the coating itself.",
+        "Achieving cost-effective and scalable application processes for textile manufacturing."
+      ]
     },
     "86ca888a-789c-494b-9191-23fe9e526f38": {
       "uuid": "86ca888a-789c-494b-9191-23fe9e526f38",
       "idea": "Integrate self-healing, antibacterial coatings for lasting fabric hygiene with less washing.",
-      "description": "Combine self-healing properties with antibacterial superhydrophobic coatings to ensure sustained hygiene and reduce water usage by making clothes resistant to damage and microbial growth. This directly addresses the design challenge's hygiene standard by actively inhibiting bacterial presence using advanced material properties."
+      "description": "Combine self-healing properties with antibacterial superhydrophobic coatings to ensure sustained hygiene and reduce water usage by making clothes resistant to damage and microbial growth. This directly addresses the design challenge's hygiene standard by actively inhibiting bacterial presence using advanced material properties.",
+      "feasibility_rationale": "Moderately feasible as self-healing textile coatings are an emerging research area; combining this effectively with robust, long-lasting antibacterial and hydrophobic properties presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Highly inventive due to the integration of self-healing mechanisms with antibacterial and repellent properties, aiming for enhanced durability and prolonged hygiene which is a significant step beyond simpler coatings.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Transformative impact potential, as self-healing extends the coating's lifespan and effectiveness, leading to dramatically reduced washing needs and sustained hygiene over time.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Self-healing mechanisms can be effectively incorporated into textile coatings without compromising other desired properties (e.g., feel, breathability).",
+        "The self-healing function will be robust enough to repair common micro-damages that would otherwise compromise the antibacterial/hydrophobic layers.",
+        "The combined multi-functional coating (self-healing, antibacterial, hydrophobic) can be manufactured at a viable cost."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Survey and evaluate current research on self-healing textile coatings, focusing on mechanisms compatible with antibacterial and hydrophobic agents.",
+        "Conduct proof-of-concept experiments to integrate a promising self-healing mechanism with an existing antibacterial/superhydrophobic coating on a fabric swatch.",
+        "Assess the longevity and effectiveness of the combined coating after simulated wear, damage, and healing cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing truly effective and durable self-healing mechanisms for flexible textile substrates that also integrate other functionalities.",
+        "Ensuring the self-healing process doesn't release harmful chemicals or byproducts.",
+        "Complexity of manufacturing and scaling up production of such multi-functional advanced materials."
+      ]
+    },
+    "62cced3a-c26e-49a5-9c9e-8ef52e25e859": {
+      "uuid": "62cced3a-c26e-49a5-9c9e-8ef52e25e859",
+      "idea": "Smart clothing with biofilm \"reservoirs\" releasing targeted enzymes for stain removal.",
+      "description": "Envision garments embedded with microscopic biofilm structures that act as reservoirs, releasing specific enzymes or cleaning agents when a stain is detected. This allows for highly localized, water-efficient cleaning, directly tackling the challenge of hygiene with minimal water. It adapts the concept of engineered functionality from the snippets.",
+      "feasibility_rationale": "This concept requires substantial scientific breakthroughs in areas like stable enzyme encapsulation in dynamic biofilm structures, controlled multi-analyte responsive release mechanisms within textile fibers, and miniaturized, integrated sensor technology.",
+      "feasibility_score": 1,
+      "novelty_rationale": "This is a breakthrough concept, envisioning clothing as a dynamic system with embedded biological micro-factories for on-demand, precision cleaning.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If realized, this could offer a transformative solution for stain management, potentially making many washing cycles obsolete and dramatically reducing water, energy, and detergent consumption.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Biofilm structures can be engineered to stably encapsulate a variety of enzymes and then release them in a highly targeted manner upon detection of specific stains.",
+        "A reliable, miniaturized, and energy-efficient trigger mechanism (e.g., integrated chemical sensors for stains) can be embedded within textile fibers without compromising wearability.",
+        "The released enzymes will be effective on common stains rapidly, without damaging the fabric or causing skin irritation, and the system can be replenished or has a long active life."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate fundamental methods for creating stimuli-responsive biofilm-like matrices capable of encapsulating and releasing active enzymes.",
+        "Explore proof-of-concept for miniaturized sensors that can detect common stain components and could theoretically be integrated with such matrices.",
+        "Identify and characterize highly potent, fabric-safe enzymes that could function effectively in micro-doses if released locally."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing stable, long-lasting enzyme-laden biofilm reservoirs that can be intricately integrated into textile fibers at scale.",
+        "Creating a reliable, multi-stain specific, miniaturized, and energy-efficient trigger mechanism for enzyme release that avoids false positives/negatives and endures garment life.",
+        "Ensuring the complexity of the system doesn't make the clothing prohibitively expensive, difficult to care for, or environmentally problematic at end-of-life."
+      ]
+    },
+    "17a2bc0a-c5ba-4ed9-93af-4feb45829c89": {
+      "uuid": "17a2bc0a-c5ba-4ed9-93af-4feb45829c89",
+      "idea": "Use eco-friendly, biomaterial-based superhydrophobic coatings for sustainable low-water cleaning.",
+      "description": "Focus on sustainable, 'green' superhydrophobic coatings, potentially derived from biomaterials, ensuring that water-saving clothing solutions are also environmentally benign. This tackles the water scarcity challenge with an emphasis on ecological responsibility in material choice.",
+      "feasibility_rationale": "Moderately feasible, as developing biomaterial-based coatings with performance and durability comparable to synthetic superhydrophobic materials requires significant R&D, particularly for textile applications.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Moderately novel; while eco-friendly coatings are a general trend, specifically targeting biomaterial-based superhydrophobic coatings for water-saving clothing brings a fresh emphasis on sustainability to the specific design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Significant impact, as it addresses the primary design challenge of water reduction while also ensuring the solution is environmentally sustainable, which is crucial for long-term adoption and ecological health.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Biomaterials can be sourced or engineered to provide effective and durable superhydrophobic properties suitable for textiles.",
+        "The production process for these biomaterial-based coatings is itself eco-friendly and scalable.",
+        "The end-of-life (e.g., biodegradability, recyclability) of these coated textiles is superior to conventional or synthetic-coated alternatives."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and evaluate promising biomaterials (e.g., cellulose, chitosan, plant waxes) for their potential to form superhydrophobic surfaces on textiles.",
+        "Develop and test fabrication methods for applying these biomaterials as durable coatings on common fabric types.",
+        "Conduct life cycle assessments (LCAs) for promising biomaterial-based coatings to verify their overall eco-friendliness compared to alternatives."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high durability and repellent performance with biomaterials that can withstand wear and washing.",
+        "Ensuring the sustainable sourcing and processing of biomaterials at scale without negative environmental trade-offs.",
+        "Potential higher cost or more complex fabrication processes compared to established synthetic coatings."
+      ]
+    },
+    "59af1042-eed0-496f-a451-024cba15e8b4": {
+      "uuid": "59af1042-eed0-496f-a451-024cba15e8b4",
+      "idea": "Flexible biofilm \"cleaning patches\" that absorb and neutralize odors and light soiling.",
+      "description": "Develop reusable, flexible patches made from or incorporating biofilm materials. These patches could be applied to specific areas of clothing to absorb odors and break down light soiling through biological action, offering a waterless refresh. This addresses the design challenge by providing an alternative to full washing for lightly used garments, drawing from the adaptive and functional nature of biofilms described.",
+      "feasibility_rationale": "Developing flexible patches with immobilized active biological agents is moderately feasible, leveraging existing knowledge in enzyme/microbe immobilization, but challenges remain in efficacy, stability, and user acceptance.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While cleaning/freshening patches exist, using biofilm-derived or biologically active patches for combined absorption and *in-situ* neutralization of odors and light soiling offers a moderately novel approach to waterless garment care.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Offers a moderate impact by providing a targeted, waterless method to refresh garments and treat light soiling/odors, potentially extending wear time and reducing the frequency of full washes.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Biofilm-derived materials or immobilized microorganisms/enzymes can be formulated into flexible, user-friendly patches.",
+        "These patches can effectively absorb common odors and/or biologically neutralize light soiling within a practical timeframe (e.g., overnight).",
+        "The patches can be easily applied, removed without residue, and either be reusable (e.g., self-regenerating or washable) or very low-cost and biodegradable."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen microorganisms or enzymes effective against common odor-causing compounds (e.g., VOCs from sweat) and light soils, suitable for immobilization in a patch format.",
+        "Develop prototype patch materials (e.g., hydrogels, porous polymers, fibrous mats) incorporating these biological agents and test their absorption and neutralization capabilities on relevant substrates.",
+        "Assess the stability of the biological activity in patches over time, user-friendliness (application/removal), and potential for skin irritation or material damage."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the biological agents in the patch remain active, effective, and contained over multiple uses or extended storage, without drying out or becoming contaminated.",
+        "Achieving a noticeable cleaning/deodorizing effect that is superior or more convenient than existing spot cleaners or fresheners, and managing user expectations.",
+        "Developing a method for patch regeneration or ensuring patches are cost-effective and environmentally sound if disposable."
+      ]
     },
     "4219e593-8d4d-412f-bc04-0c845cc52d0e": {
       "uuid": "4219e593-8d4d-412f-bc04-0c845cc52d0e",
       "idea": "Develop 'stay-clean' surfaced clothing, reducing wash frequency significantly.",
-      "description": "This fabric technology repels contaminants, meaning clothes stay cleaner longer, drastically cutting water use by needing fewer washes to maintain hygiene. This contrasts with approaches that utilize biological processes for cleaning, by instead preventing microbial buildup."
+      "description": "This fabric technology repels contaminants, meaning clothes stay cleaner longer, drastically cutting water use by needing fewer washes to maintain hygiene. This contrasts with approaches that utilize biological processes for cleaning, by instead preventing microbial buildup.",
+      "feasibility_rationale": "The core technology (hydrophobic/antibacterial coatings) is demonstrated at a lab scale. Challenges lie in durability, wearer comfort, cost-effective manufacturing, and long-term performance under real-world clothing use conditions.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While self-cleaning materials exist, applying them effectively to everyday clothing to drastically reduce wash frequency for hygiene purposes presents a novel application context for this specific design challenge. It shifts focus from 'cleaning after soiling' to 'preventing soiling and microbial growth'.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Significantly reducing wash frequency directly addresses the core of the design challenge, potentially leading to massive water savings if widely adopted and effective.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The 'stay-clean' surface effectively repels a wide range of common soils and microorganisms encountered in daily wear.",
+        "The properties can be maintained through multiple wear cycles and over the garment's lifespan without significant degradation.",
+        "The treated fabric remains comfortable, breathable, and safe for prolonged skin contact."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct rigorous testing of coated fabric samples for durability under simulated wear conditions (e.g., abrasion, washing, exposure to sweat).",
+        "Evaluate the range of contaminants (oily, particulate, microbial) the surface can effectively repel over time and assess odor control.",
+        "Assess fabric breathability, skin sensitivity, and overall comfort of the treated materials through wearer trials."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the hydrophobic and anti-fouling properties against mechanical abrasion, sweat, and body oils.",
+        "Ensuring the fabric remains comfortable (breathability, feel) and non-toxic after treatment.",
+        "Consumer acceptance of wearing clothes for extended periods without traditional washing, even if they appear clean and are hygienically sound."
+      ]
     },
     "75122e51-f7fc-47b9-8f9a-805526b42992": {
       "uuid": "75122e51-f7fc-47b9-8f9a-805526b42992",
       "idea": "Create 'rechargeable hygiene' clothes needing minimal water refresh cycles.",
-      "description": "Instead of full washes, clothes could be 'recharged' (e.g., with a minimal water/re-chlorination mist) to restore antibacterial properties, achieving hygiene with very little water. This offers an alternative to concepts relying on active biological layers for purification."
+      "description": "Instead of full washes, clothes could be 'recharged' (e.g., with a minimal water/re-chlorination mist) to restore antibacterial properties, achieving hygiene with very little water. This offers an alternative to concepts relying on active biological layers for purification.",
+      "feasibility_rationale": "The underlying chemistry for rechlorination of N-halamine compounds is established. Challenges include developing a safe, convenient, and effective consumer-level recharging process and ensuring material integrity over many recharge cycles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "This concept introduces a novel user interaction model for clothing hygiene, moving beyond passive antimicrobial properties to an active, low-resource 'recharge' cycle. It's a fresh take on maintaining hygiene without full laundering.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If the recharge effectively restores hygiene and allows for greatly extended wear between full washes, the water and energy savings could be substantial, directly impacting the design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The 'recharge' process (e.g., re-chlorination mist) effectively restores hygiene to acceptable levels with minimal water and without leaving harmful residues.",
+        "Users can safely and easily perform the recharge process at home or via a readily accessible service.",
+        "The fabric can withstand numerous recharge cycles without degradation of its primary function or other desirable properties (color, texture, strength)."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype consumer-friendly rechlorination methods (e.g., spray application, vapor exposure) for efficacy, safety, and ease of use.",
+        "Evaluate the antimicrobial efficacy (kill rates, spectrum against relevant microbes) after multiple recharge cycles.",
+        "Assess material integrity (strength, colorfastness, texture) and potential for skin sensitization of the fabric after repeated recharge cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a safe, simple, and effective consumer-operated 'recharge' mechanism and chemistry.",
+        "Ensuring the recharged antibacterial effect is sufficient to meet hygiene standards, control odor, and provide confidence to the user.",
+        "Potential for fabric damage, discoloration, or release of chlorine-related odors/byproducts from repeated rechlorination."
+      ]
     },
     "2e32780c-e96c-4313-9b20-b6e89aa39a1c": {
       "uuid": "2e32780c-e96c-4313-9b20-b6e89aa39a1c",
       "idea": "Adapt 'pad-dry-cure' for ultra-low-water cleaning agent reapplication.",
-      "description": "Adapt the manufacturing 'pad-dry-cure' technique for an ultra-low-water cleaning cycle, where a minimal amount of cleaning/disinfecting solution is applied and cured on the garment. This is a process innovation for cleaning, distinct from methods that rely on biological activity."
+      "description": "Adapt the manufacturing 'pad-dry-cure' technique for an ultra-low-water cleaning cycle, where a minimal amount of cleaning/disinfecting solution is applied and cured on the garment. This is a process innovation for cleaning, distinct from methods that rely on biological activity.",
+      "feasibility_rationale": "Pad-dry-cure is an industrial process requiring controlled conditions (chemical dosage, pressure, temperature, curing time). Adapting this for safe, effective, and convenient consumer use presents significant engineering and safety challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Repurposing an industrial textile finishing process (pad-dry-cure) for consumer-level, ultra-low-water garment cleaning/refreshing is a creative leap. It suggests a new appliance or service model for garment care.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If achievable, this could provide a highly efficient method for reapplying functional finishes or cleaning agents, thereby reducing the need for full washes. However, its impact is contingent on overcoming significant feasibility hurdles.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "The 'pad-dry-cure' process can be significantly simplified and miniaturized for safe application on individual garments in a non-industrial setting.",
+        "Suitable cleaning/disinfecting agents exist that can be effectively applied and cured this way using minimal water and energy, without damaging the garment.",
+        "The process effectively cleans or restores hygiene to the garment, not just reapplies a topical finish without removing existing soil."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct a thorough technical assessment of the minimum requirements for a pad-dry-cure like process to be effective for cleaning/disinfection.",
+        "Identify and screen potential low-water cleaning/disinfecting chemistries compatible with such an application method and safe for consumer use.",
+        "Develop conceptual designs for a miniaturized/adapted system, focusing on safety, ease of use, and cost."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a compact, safe, and user-friendly device or system to perform a pad-dry-cure like process on individual garments.",
+        "Formulating cleaning/hygiene agents compatible with this application method that are effective at low volumes and safe for skin contact post-treatment.",
+        "Ensuring even application, proper curing without specialized industrial equipment, and managing any emissions or waste products."
+      ]
+    },
+    "140b6d60-686a-44c8-9bff-905c9582ddbf": {
+      "uuid": "140b6d60-686a-44c8-9bff-905c9582ddbf",
+      "idea": "Light-activated fabric coating sheds dirt and microbes, reducing water for cleaning.",
+      "description": "Develop clothing with a surface treatment that, when exposed to specific light, releases soil and kills bacteria, drastically cutting water needs for laundry. This leverages light-induced cleaning as an alternative to water-intensive washing, a different approach from biological surface purification.",
+      "feasibility_rationale": "While the underlying technology (light-responsive coatings) exists for some applications, adapting it for durable, effective, and safe use on clothing fabrics presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying light-activated self-cleaning and antimicrobial properties directly to fabric offers a highly inventive approach to reducing water in laundry, significantly departing from traditional washing methods.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This idea has transformative potential, potentially making frequent water-based washing unnecessary for many garments, thus drastically cutting water usage for hygiene.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A durable fabric coating can be developed that effectively sheds a wide range of common soils and kills microbes upon light exposure.",
+        "The light activation process is safe for users, fabrics, and the environment, with minimal energy consumption.",
+        "The coating remains effective after multiple wear and light-activation cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate light-responsive chemical compounds suitable for textile application focusing on durability, safety, and efficacy.",
+        "Develop and test prototype fabric swatches with candidate coatings for soil release and antimicrobial efficacy under various light conditions.",
+        "Evaluate the durability of coated fabrics through simulated wear and (infrequent) wash cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a coating that is robust enough for clothing (wear, tear, abrasion, flexibility) while maintaining effectiveness.",
+        "Ensuring the light source required for activation is accessible, safe, and energy-efficient for consumer use.",
+        "Achieving effectiveness against a diverse range of soil types and microbes typically found on clothing."
+      ]
+    },
+    "0969c48d-be62-4de4-9de5-e93ba270cbe1": {
+      "uuid": "0969c48d-be62-4de4-9de5-e93ba270cbe1",
+      "idea": "Compact light-based \"freshening chamber\" for waterless clothing disinfection.",
+      "description": "Design a device that uses targeted light to activate cleaning/disinfection on clothes, offering a water-free method for daily freshening and hygiene maintenance. This is distinct from biological cleaning mechanisms and inspired by light-activated foulant removal.",
+      "feasibility_rationale": "Building a chamber that emits specific light wavelengths (e.g., UV-C for disinfection) is technically feasible using existing technologies. Integrating features for odor removal or activating specific fabric treatments adds complexity but seems plausible.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While UV sanitization devices exist, a dedicated chamber leveraging targeted light for comprehensive clothing freshening (potentially involving activated coatings or specific odor/microbe targeting beyond simple UV-C) is a moderately novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Such a device could significantly reduce the frequency of water-intensive washing for many garments by providing effective interim hygiene maintenance, thus having a substantial impact on water conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Light exposure within a chamber can effectively disinfect and deodorize clothing to a satisfactory level for users.",
+        "The process does not significantly damage common clothing fabrics or dyes over repeated exposures.",
+        "Consumers would adopt a \"freshening chamber\" into their clothing care routine if effective and convenient."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate the efficacy of different light spectra (e.g., UV-C, specific visible light) for disinfection and deodorization of common clothing materials and relevant microbes/odor compounds.",
+        "Prototype a small-scale chamber to test light penetration, coverage, and effectiveness on various garment types and thicknesses.",
+        "Conduct material testing to assess the long-term effects of selected light exposure on fabric integrity, colorfastness, and potential off-gassing."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving deep sanitation and odor removal throughout multi-layered or densely woven garments, not just easily exposed surfaces.",
+        "Ensuring user safety (e.g., UV light containment, ozone management if applicable) and managing potential material degradation from prolonged/repeated light exposure.",
+        "Consumer acceptance and cost-effectiveness of such a device compared to traditional washing or existing freshening products."
+      ]
+    },
+    "87992b37-2836-4ad9-a83c-fc935fae06b1": {
+      "uuid": "87992b37-2836-4ad9-a83c-fc935fae06b1",
+      "idea": "Light-activated antimicrobial wardrobe liners prolong clothing freshness, reducing washes.",
+      "description": "Use materials with light-activated antimicrobial properties inside clothing storage to prevent microbial growth, extending wear time and thus lowering washing frequency and water use. This preventative hygiene maintenance contrasts with active biological decontamination methods.",
+      "feasibility_rationale": "Developing light-activated antimicrobial materials for liners is plausible, but ensuring effective and practical light exposure for activation/regeneration within a typical wardrobe setting presents a moderate challenge.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While antimicrobial materials are known, the concept of light-activated antimicrobial wardrobe liners that can be periodically 'recharged' or enhanced by light offers a moderately novel preventative approach to clothing hygiene.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could offer a minor improvement by inhibiting microbial growth in stored clothes, potentially extending wear time slightly for some items, but its overall impact on significantly reducing water for cleaning is likely limited.",
+      "potential_impact_score": 2,
+      "key_assumptions": [
+        "Light-activated antimicrobial activity from liners can significantly inhibit microbial growth on clothes stored in proximity, not just via direct contact.",
+        "A practical and user-friendly mechanism for exposing liners to activating light (e.g., ambient light, occasional removal, integrated low-power lighting) is feasible and effective.",
+        "The antimicrobial effect is potent and persistent enough to make a noticeable difference in clothing freshness and thereby reduce washing frequency."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or develop light-activated antimicrobial materials suitable for flexible liners and test their efficacy in inhibiting common odor-causing bacteria in simulated storage conditions.",
+        "Design and test prototype wardrobe liner systems, exploring different light activation mechanisms (e.g., periodic removal for sun exposure, low-intensity integrated LED).",
+        "Conduct user studies or sensory panel tests to assess perceived freshness of clothing stored with activated liners versus controls over time."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring sufficient, uniform, and convenient light exposure to the liners for effective activation/regeneration, especially within dark or cluttered wardrobes.",
+        "Effectiveness of the antimicrobial action in a passive, potentially non-contact manner (i.e., liners preventing growth on clothes not touching them directly or only partially).",
+        "Demonstrating a significant enough extension of clothing freshness to genuinely impact user washing habits and justify adoption."
+      ]
+    },
+    "889070b8-aeca-4ec8-8a66-672c76a7258a": {
+      "uuid": "889070b8-aeca-4ec8-8a66-672c76a7258a",
+      "idea": "Nanomaterial-coated clothes for antimicrobial self-hygiene.",
+      "description": "Develop clothing fabrics with embedded functionalized carbon nanomaterials that provide inherent antimicrobial and self-cleaning characteristics. This reduces the need for frequent, water-intensive washing by keeping garments hygienic longer, offering a material-science-based approach to hygiene.",
+      "feasibility_rationale": "The core technology of antimicrobial nanomaterials exists, but ensuring durability on textiles, user safety (skin contact, particle shedding), and cost-effective large-scale manufacturing for clothing presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While antimicrobial nanomaterials are known, their specific application to create self-hygienic clothing aimed at drastically reducing water-intensive washing for water scarcity contexts is moderately novel.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could substantially decrease water consumption for laundry by extending the hygienic wearability of clothes between washes, directly addressing the core design challenge in water-scarce settings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanomaterial coatings can be made durable enough to withstand typical clothing wear and infrequent, gentle cleaning.",
+        "The antimicrobial and self-cleaning properties will be sufficiently effective to maintain acceptable hygiene standards for extended wear periods.",
+        "The chosen nanomaterials and their application method will be safe for prolonged skin contact and environmentally benign throughout the garment's lifecycle."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and benchmark existing durable nanomaterial-textile integration methods for efficacy against relevant microbes and common soiling agents.",
+        "Conduct preliminary toxicological and skin sensitization assessments of candidate nanomaterial-coated fabric swatches.",
+        "Evaluate the practical 'self-cleaning' efficacy and hygiene maintenance under simulated realistic wear conditions, beyond simple lab tests."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term stability and adhesion of nanomaterials to fabric fibers through daily wear, abrasion, and occasional low-water cleaning cycles.",
+        "Addressing potential health concerns (e.g., skin irritation, inhalation of shed nanoparticles) and environmental impacts (e.g., nanoparticle pollution from washing or disposal).",
+        "Scaling up production to be cost-effective for consumer apparel and ensuring consumer acceptance."
+      ]
+    },
+    "bb6404c2-98d9-4e24-b1e4-863ce055b9c2": {
+      "uuid": "bb6404c2-98d9-4e24-b1e4-863ce055b9c2",
+      "idea": "Photocatalytic fabrics for light-activated clothes hygiene.",
+      "description": "Incorporate graphene-based photocatalysts into textile fibers; these would actively degrade organic contaminants and neutralize microbes on clothing when exposed to light. This enables a waterless or significantly reduced-water method for maintaining garment hygiene using light-activated chemical reactions.",
+      "feasibility_rationale": "While photocatalysis is a proven phenomenon, achieving efficient and rapid degradation of diverse soils and microbes on flexible, wearable textiles using only ambient light presents substantial technical hurdles regarding material stability, light penetration, and overall effectiveness.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Using light to actively clean clothes via embedded photocatalysts is a highly inventive approach to garment hygiene, moving beyond passive resistance towards active, potentially waterless decontamination.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could offer a near-waterless, energy-efficient method for maintaining garment hygiene, fundamentally transforming clothing care practices, especially in water-stressed regions.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Sufficient ambient light (e.g., sunlight or common indoor lighting) can effectively activate the photocatalysts integrated into textile fibers.",
+        "The photocatalytic action will be potent and quick enough to break down common organic soils and neutralize a broad spectrum of microbes within a practical timeframe for users.",
+        "Photocatalytic materials can be integrated into fabrics without compromising comfort, durability, colorfastness, or safety, and without degrading the fabric itself over time."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test the efficacy of candidate photocatalytic textiles against a range of common stains and microbial loads under realistic ambient light conditions (varying intensity, duration, and wavelength).",
+        "Assess the durability of photocatalytic coatings or fibers and their impact on textile properties (e.g., tensile strength, colorfastness, feel) after repeated light exposure and simulated wear cycles.",
+        "Investigate the potential formation of any harmful intermediate or degradation byproducts from the photocatalytic breakdown of soils or microbes on the fabric."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high photocatalytic efficiency using only readily available light sources (e.g., diffuse sunlight, typical indoor lighting) on complex textile surfaces.",
+        "Ensuring the photocatalyst does not degrade the textile fibers themselves or release harmful volatile organic compounds (VOCs) or byproducts during the cleaning process.",
+        "Limited effectiveness against inorganic soils, deeply penetrated stains, or in situations with insufficient light exposure (e.g., heavily soiled areas, nighttime)."
+      ]
+    },
+    "386084eb-656f-478c-9f52-3b34364ef867": {
+      "uuid": "386084eb-656f-478c-9f52-3b34364ef867",
+      "idea": "Biomimetic foul-release textile surfaces for easy cleaning.",
+      "description": "Design clothing using biomimetic surfaces that prevent dirt and microbial adhesion, allowing contaminants to be removed with minimal water or gentle agitation. This addresses the challenge by making clothes inherently easier to clean, focusing on preventing soiling and easing release.",
+      "feasibility_rationale": "Creating durable, comfortable, and cost-effective textile surfaces with effective and broad-spectrum foul-release properties presents material science challenges, though existing hydrophobic/oleophobic coatings offer a foundational technology.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While biomimetic foul-release surfaces are explored in marine and medical fields, their specific adaptation to everyday textiles to significantly reduce water for cleaning by preventing adhesion and easing soil release is a moderately novel approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This approach could drastically reduce the amount of water, energy, and detergent needed for laundering by making contaminants very easy to remove, significantly impacting water usage.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Biomimetic surface structures (micro/nano-topographies or chemistries) can be durably applied to or integrated into common textile types without sacrificing comfort.",
+        "These surfaces will effectively prevent or significantly reduce the adhesion of a wide range of common soils, oils, and microbes relevant to clothing.",
+        "Adhered contaminants can be easily removed with minimal water (e.g., a quick wipe, light rinse) or gentle mechanical action to achieve required hygiene levels."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and adapt promising biomimetic surface structures or chemical treatments known from other anti-fouling applications for use on flexible textile substrates.",
+        "Develop and test prototype textiles for their ability to repel common stains (e.g., oil, food, dirt) and facilitate easy removal with minimal water and effort.",
+        "Evaluate the durability of these foul-release surfaces under simulated wear conditions, including abrasion, flexing, and gentle cleaning cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining the delicate surface topography or chemical properties responsible for foul-release throughout the garment's lifecycle (withstanding wear, abrasion, and even minimal washing).",
+        "Ensuring the textile remains breathable, comfortable against the skin, and retains other desirable fabric properties (e.g., drape, feel).",
+        "Achieving broad-spectrum effectiveness against diverse types of soiling (e.g., oily, particulate, biological stains) commonly encountered on clothing."
+      ]
+    },
+    "0a9ed3b5-43c6-4b0f-8ee6-e75244750397": {
+      "uuid": "0a9ed3b5-43c6-4b0f-8ee6-e75244750397",
+      "idea": "Self-cleaning clothes via advanced water/oil repellent surfaces.",
+      "description": "Develop clothing with superhydrophobic/oleophobic coatings to repel dirt, microbes, and liquids, drastically reducing the frequency and water volume needed for hygiene. This contrasts with biological purification by preventing contamination.",
+      "feasibility_rationale": "While the basic science of repellent coatings is established, achieving durable, breathable, and cost-effective coatings for clothing that maintain efficacy after wear and tear presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying advanced repellent surfaces to achieve comprehensive hygiene standards in clothing by actively repelling microbes and dirt, thereby minimizing cleaning needs, is a highly inventive step beyond simple water repellency.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could revolutionize clothing hygiene by drastically preventing soiling and microbial adhesion, leading to a transformative reduction in water and energy consumption for laundry.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Coatings can be made durable enough for regular wear and maintain breathability.",
+        "Coatings can effectively repel a broad spectrum of dirt, oils, and microbes relevant to hygiene standards.",
+        "The 'self-cleaning' effect significantly reduces the need for any water-based cleaning to meet hygiene levels."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and test durable, breathable superhydrophobic/oleophobic coatings on various textile types.",
+        "Evaluate the antimicrobial and anti-adhesion efficacy of candidate coatings against common clothing contaminants and pathogens under simulated wear conditions.",
+        "Assess the lifecycle (durability, reapplication needs, disposal) and comfort factors of treated textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability and adhesion of coatings on flexible, stretchable textiles subjected to abrasion and washing.",
+        "Maintaining fabric breathability, comfort, and feel.",
+        "Ensuring coatings are non-toxic, environmentally sustainable, and cost-effective for mass production."
+      ]
+    },
+    "f60334f4-1b97-4cb9-a6e6-33852bc1d63c": {
+      "uuid": "f60334f4-1b97-4cb9-a6e6-33852bc1d63c",
+      "idea": "Easy-shed clothing surfaces for low-effort, low-water cleaning.",
+      "description": "Design textiles with 'fouling release' properties, allowing adhered contaminants and microbes to be easily dislodged with minimal water or mechanical action, thus achieving hygiene with less resource. This is an alternative to active biological breakdown.",
+      "feasibility_rationale": "Achieving durable and effective fouling-release surfaces on textiles that allow contaminant removal with genuinely minimal water/mechanical action is moderately feasible but requires significant material science development and testing.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While fouling release coatings are established in other domains like marine applications, their specific adaptation to everyday textiles for easy, low-water removal of diverse contaminants to achieve hygiene is moderately novel.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If contaminants and microbes can be easily dislodged with very little water (e.g., a quick spray or wipe), this would significantly reduce water consumption for clothing hygiene.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A wide range of common clothing contaminants and microbes will adhere weakly enough to be dislodged with minimal water or simple mechanical action.",
+        "The fouling release property will remain effective over the garment's lifespan and multiple minimal cleaning cycles.",
+        "Minimal cleaning action (e.g., light rinse, brushing) is sufficient to restore clothing to acceptable hygiene levels."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or adapt fouling-release coating technologies suitable for textile application, focusing on broad-spectrum contaminant release.",
+        "Develop standardized test methods to quantify 'ease of shedding' and hygiene efficacy using minimal water for various soil types.",
+        "Conduct wear trials to assess durability, comfort, and real-world performance of treated textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring broad-spectrum fouling release for diverse types of soil, oils, and microbial biofilms typically found on clothing.",
+        "Maintaining coating integrity and release properties after repeated wear, flexing, and minimal cleaning cycles.",
+        "Consumer acceptance and education regarding the effectiveness of 'easy-shed' and minimal cleaning for hygiene."
+      ]
+    },
+    "37f37211-c7cb-4d9b-8371-bd5878722bd0": {
+      "uuid": "37f37211-c7cb-4d9b-8371-bd5878722bd0",
+      "idea": "Smart hydrogel fibers for targeted, minimal-water clothing sanitation.",
+      "description": "Integrate smart hydrogels (e.g., thermosensitive, antimicrobial) into fabric fibers that activate with minimal moisture to trap/neutralize contaminants or release sanitizers, achieving targeted hygiene. This offers a material-based active cleaning approach.",
+      "feasibility_rationale": "This concept is at an early research stage; significant breakthroughs are needed in stable hydrogel-fiber integration, controlled and sustained activation/release, and ensuring sufficient capacity for practical sanitation.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Embedding responsive smart hydrogels directly within clothing fibers for targeted, moisture-activated sanitation represents a breakthrough approach to low-water hygiene, distinct from surface treatments.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successfully developed, this could enable highly efficient, targeted clothing sanitation using minimal water, offering a significant improvement especially for critical hygiene needs or spot treatment.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Smart hydrogels can be effectively integrated into textile fibers without compromising fabric feel, durability, or breathability.",
+        "The hydrogels can be activated reliably with minimal moisture and possess sufficient capacity to neutralize/trap contaminants or release sanitizers effectively over multiple uses.",
+        "The hydrogels and their byproducts are biocompatible and safe for prolonged skin contact."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct proof-of-concept studies on integrating promising smart hydrogels (e.g., antimicrobial, pollutant-absorbing) into common textile fibers.",
+        "Investigate activation mechanisms (e.g., moisture, temperature) and regeneration potential of hydrogels within the fabric matrix.",
+        "Evaluate the sanitation efficacy of prototype hydrogel-integrated textiles against target microorganisms and contaminants with minimal water."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing scalable manufacturing processes for integrating hydrogels into fibers while maintaining textile properties.",
+        "Ensuring long-term stability, efficacy, and controlled release/activity of hydrogels through wear and regeneration cycles.",
+        "Addressing biocompatibility, potential for skin sensitization, and end-of-life environmental impact of hydrogel-laden textiles."
+      ]
+    },
+    "f56e92c6-cae3-45d6-807d-8e9853d11699": {
+      "uuid": "f56e92c6-cae3-45d6-807d-8e9853d11699",
+      "idea": "Develop hydrophilic textile coatings for detergent-free, low-water rinsing.",
+      "description": "Clothing treated with hydrophilic/oleophobic coatings could release dirt with minimal water rinsing, addressing low water usage and hygiene by preventing strong soil adhesion. This approach focuses on preventing adhesion and easing removal, differing from methods that might rely on biological degradation.",
+      "feasibility_rationale": "Creating durable, effective hydrophilic/oleophobic coatings that maintain performance after repeated wear and minimal water rinses presents significant material science and engineering challenges. Effectiveness against diverse soil types also needs thorough validation.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While hydrophilic coatings exist, their specific optimization for detergent-free, low-water cleaning of clothing by promoting autonomous soil release is a moderately novel application. It shifts the paradigm from active chemical cleaning to passive surface-facilitated release.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If successfully developed, this could significantly reduce domestic water and detergent consumption, offering a substantial improvement in sustainable clothing care, particularly impactful in water-scarce regions.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Hydrophilic/oleophobic coatings can be made sufficiently durable for everyday clothing and repeated low-water rinsing.",
+        "These coatings can effectively release a broad spectrum of common clothing soils, not just oils, with minimal water.",
+        "The coatings are non-toxic, comfortable against the skin, and do not negatively impact fabric breathability or feel."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and synthesize candidate hydrophilic/oleophobic coating formulations suitable for common textile substrates (cotton, polyester, blends).",
+        "Conduct standardized lab tests on coated fabric swatches to evaluate soil release efficacy (various stains like sebum, food, dirt) using minimal water and no detergent.",
+        "Evaluate the durability of promising coatings through a series of simulated wear, abrasion, and low-water laundering cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the coating to withstand mechanical wear, abrasion, and repeated (even if minimal) washing.",
+        "Ensuring broad-spectrum efficacy against diverse types of soil (particulate, oily, protein-based, pigmented) beyond just simple oil stains.",
+        "Scaling up a cost-effective and environmentally sound manufacturing process for applying these coatings to textiles."
+      ]
+    },
+    "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f": {
+      "uuid": "b714ee2e-7931-4ca9-8b84-d0e1e2d5560f",
+      "idea": "Design clothing with superhydrophobic surfaces for 'roll-off' self-cleaning.",
+      "description": "Imparting superhydrophobicity to fabrics could allow contaminants to be carried away by small amounts of water (e.g., mist), significantly reducing water consumption for cleaning. This is a physical removal mechanism, unlike approaches that might use biological agents for cleaning.",
+      "feasibility_rationale": "Achieving robust and durable superhydrophobicity on flexible textiles that also maintain breathability and comfort is a major technical hurdle. Current superhydrophobic surfaces are often mechanically fragile.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of superhydrophobic self-cleaning is inspired by nature (lotus effect) and known in material science, but its practical, durable, and comfortable application to everyday apparel for broad hygiene remains a challenging and moderately novel pursuit.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If fully realized, this could dramatically reduce the need for water in cleaning, especially for particulate or light soiling, thus having a significant impact on water conservation for laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Superhydrophobic surface structures can be engineered to be durable enough for regular clothing wear and tear.",
+        "The 'roll-off' self-cleaning mechanism is effective for a practical range of common clothing contaminants, including sticky or oily substances.",
+        "Textiles can be made superhydrophobic without significantly compromising their breathability, comfort, or tactile properties."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Survey and evaluate emerging durable superhydrophobic coating technologies or textile treatments for their potential application to clothing.",
+        "Test the self-cleaning efficacy of candidate superhydrophobic fabrics against a diverse panel of dry and semi-liquid contaminants beyond just water droplets.",
+        "Assess the impact of superhydrophobic treatments on key fabric properties like air permeability (breathability), flexibility, and tactile feel."
+      ],
+      "major_challenges_roadblocks": [
+        "The mechanical fragility of most superhydrophobic micro/nanostructures, leading to loss of performance with abrasion or washing.",
+        "Maintaining fabric breathability and comfort, as many superhydrophobic treatments can create impermeable layers.",
+        "Limited effectiveness against oily or greasy stains that can wet the surface and foul the superhydrophobic structures."
+      ]
+    },
+    "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8": {
+      "uuid": "1a0db16c-eee3-43b8-9e99-ebb5b490bfe8",
+      "idea": "Create clothing with self-lubricating surfaces to repel dirt and enable easy rinsing.",
+      "description": "Clothing with SLIPS-like properties could prevent dirt adhesion and allow for easy cleaning with very little water, mimicking natural lubrication for hygiene and low water use. This concept aims to prevent contaminant adhesion through a physical, slippery barrier, offering an alternative to the initial inspirational concept of biological purification.",
+      "feasibility_rationale": "Creating and maintaining a stable, replenishable liquid lubricating layer on a flexible, porous textile surface through wear and washing cycles is extremely challenging. Ensuring the lubricant is non-toxic, non-staining, and comfortable is also a major hurdle.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying SLIPS (Slippery Liquid-Infused Porous Surfaces) technology, inspired by pitcher plants, to textiles for broad dirt repellency and easy cleaning is a highly inventive and relatively new approach for this specific challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If the significant technical challenges are overcome, SLIPS-enabled clothing could offer exceptional resistance to a wide array of contaminants, enabling cleaning with minimal water and having a transformative impact on hygiene and water use.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A stable and long-lasting liquid lubricating layer can be effectively integrated and retained within a textile structure.",
+        "The chosen lubricant is entirely non-toxic, skin-safe, environmentally benign, and does not cause undesirable fabric aesthetics (e.g., greasiness, odor).",
+        "The SLIPS mechanism will be effective against a wide variety of common clothing soils and can be maintained with very little or no water."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop micro/nanostructured textile architectures capable of securely hosting and wicking a lubricating fluid.",
+        "Identify and screen potential biocompatible, non-toxic, and environmentally safe lubricants for their effectiveness in repelling diverse soil types and their compatibility with textiles.",
+        "Conduct proof-of-concept studies on SLIPS-treated fabric swatches to assess initial soil repellency and the stability of the lubricant layer under simulated use conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Long-term retention and stability of the liquid lubricant within the textile structure during use, especially through abrasion and washing.",
+        "Ensuring the lubricant is completely non-toxic, non-allergenic, non-staining, odorless, and does not impart a greasy or uncomfortable feel to the clothing.",
+        "Potential complexity and cost associated with manufacturing SLIPS textiles and replenishing the lubricant if needed."
+      ]
+    },
+    "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2": {
+      "uuid": "6e4d5f1f-a03e-4243-8152-afcd4a0c10b2",
+      "idea": "Superhydrophobic clothing for mechanical self-cleaning with minimal water.",
+      "description": "Engineer clothing with superhydrophobic surfaces where minimal water (e.g., misting, dew) lifts and removes particulate and some microbial contaminants, drastically reducing water needed for hygiene. This offers a physical self-cleaning alternative to the initial biological purification concept.",
+      "feasibility_rationale": "Creating superhydrophobic textiles is demonstrated, but achieving durable, effective hygienic cleaning (beyond just dust) with only misting presents significant R&D challenges regarding contaminant types and coating longevity.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While superhydrophobicity is known, its specific application for clothing hygiene using minimal water (misting/dew) as the primary cleaning mechanism is a moderately fresh approach for water conservation.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective for maintaining hygiene, this could drastically reduce water consumption for laundry, directly addressing the core design challenge in water-scarce regions.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Minimal water application (e.g., misting) is sufficient to dislodge and remove a broad range of hygienically relevant contaminants, not just loose dust.",
+        "Superhydrophobic properties can be maintained on clothing through typical wear, tear, and body contact for a practical garment lifespan.",
+        "The achieved level of 'self-cleaning' meets accepted standards for hygiene and odor control."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test efficacy of mist-based cleaning on various superhydrophobic textiles against standardized soils (particulate, oily, microbial).",
+        "Evaluate durability of superhydrophobic coatings under simulated wear, abrasion, and exposure to sweat/sebum.",
+        "Define quantifiable hygiene metrics and assess if mist-cleaning meets these targets."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability of the superhydrophobic effect against mechanical abrasion, chemical exposure (sweat, detergents), and repeated flexing.",
+        "Effectiveness against oily or sticky contaminants and embedded microbial biofilms, which may not be easily lifted by water droplets alone.",
+        "Scalability of manufacturing processes for durable, cost-effective superhydrophobic clothing."
+      ]
+    },
+    "4d82158e-55e5-4bdb-9253-d78278b501fa": {
+      "uuid": "4d82158e-55e5-4bdb-9253-d78278b501fa",
+      "idea": "Anti-fouling, antibacterial textiles to reduce cleaning frequency.",
+      "description": "Develop clothing fabrics with inherent superhydrophobic and antibacterial properties to prevent microbial colonization and soiling, thereby maintaining hygiene and reducing the need for frequent, water-intensive washing for the design challenge.",
+      "feasibility_rationale": "Technologies for antibacterial and anti-fouling textiles exist, but achieving long-term, broad-spectrum efficacy, durability (especially for superhydrophobic aspect), and user safety (skin compatibility, no resistance development) in a single fabric is challenging.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Combining inherent anti-fouling (via superhydrophobicity) with active antibacterial properties specifically to reduce cleaning frequency for hygiene maintenance is a moderately novel approach to the water-saving challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "By significantly reducing the frequency of washing needed to maintain hygiene, this approach could lead to substantial water savings and improved clothing utility in water-scarce environments.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The combined anti-fouling (superhydrophobic) and antibacterial properties synergistically prevent soiling and microbial growth to a degree that significantly extends wear time between washes.",
+        "The treatments are durable enough to withstand daily wear and occasional minimal cleaning processes for the garment's lifespan.",
+        "Antibacterial agents used are safe for prolonged skin contact and do not contribute to the development of resistant microbial strains."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype fabrics combining durable superhydrophobic coatings with safe, broad-spectrum antibacterial agents.",
+        "Conduct wear trials to quantify the extension of garment usability (hygiene, odor, appearance) before washing is needed.",
+        "Assess the long-term stability, safety (skin irritation, leaching), and potential for antimicrobial resistance of the integrated treatments."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining the efficacy and durability of both superhydrophobic (anti-fouling) and antibacterial properties through wear, sweat, and body oils.",
+        "Ensuring broad-spectrum antibacterial activity that is long-lasting without causing skin irritation or promoting antibiotic resistance.",
+        "Addressing non-microbial soiling (e.g., ingrained dirt, stains from food/environment) that may still necessitate some form of cleaning."
+      ]
+    },
+    "ddcb4f13-3889-439c-af65-29a456833b98": {
+      "uuid": "ddcb4f13-3889-439c-af65-29a456833b98",
+      "idea": "Bio-inspired durable fabric treatments for waterless particle removal.",
+      "description": "Create clothing using sustainable, durable superhydrophobic treatments on natural fibers (e.g., cotton) that allow dirt/dust to be dislodged without water (e.g., via agitation/air flow), for water-scarce cleaning. This leverages physical mechanisms for the design challenge.",
+      "feasibility_rationale": "Achieving highly durable superhydrophobic treatments on natural fibers that allow effective particle removal solely by agitation/air (without any water) for hygienic purposes is technically very challenging.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of completely waterless cleaning for clothing using superhydrophobic treatments on natural fibers, relying solely on agitation or air, is a highly inventive and distinct approach.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If fully realized for a broad range of soiling, this could offer a transformative solution for clothing care in extreme water scarcity, though its applicability for comprehensive hygiene is a concern.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Superhydrophobic treatments on natural fibers can be made exceptionally durable to withstand repeated mechanical agitation and wear.",
+        "A significant portion of clothing soil relevant to hygiene consists of dry particulates that can be effectively dislodged by air or agitation alone from these surfaces.",
+        "Truly waterless cleaning (agitation/air only) can achieve a satisfactory level of hygiene for clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop highly durable and sustainable superhydrophobic treatments specifically for natural textile fibers like cotton.",
+        "Quantify the efficacy of waterless particle removal (e.g., via shaking, air jet) for various soil types on treated natural fabrics.",
+        "Assess the limitations of this method regarding non-particulate soiling (oils, sweat, microbial films) and its overall impact on achieving standard hygiene levels."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving sufficient durability of superhydrophobic treatments on natural fibers, which are often more susceptible to abrasion and swelling than synthetics.",
+        "Limited effectiveness of purely mechanical (agitation/air) cleaning for removing anything beyond loose surface dust, especially for oily stains, embedded grime, or microbial biofilms critical for hygiene.",
+        "Ensuring the sustainability claims of treatments are valid throughout the lifecycle and do not compromise performance or introduce new environmental issues."
+      ]
     },
     "655d9c36-60f0-4640-bd9b-ddd48b12dcad": {
       "uuid": "655d9c36-60f0-4640-bd9b-ddd48b12dcad",
       "idea": "Active Repellent Textiles: Dynamic microstructures eject dirt with minimal water.",
-      "description": "Create textiles with responsive micro-textures inspired by sharklet's contaminant release or gecko-like structures that can change conformation with minimal moisture or mechanical action to actively shed dirt, drastically reducing water needed for cleaning. This offers a mechanical release mechanism, contrasting with the initial focus on biological consumption of contaminants."
+      "description": "Create textiles with responsive micro-textures inspired by sharklet's contaminant release or gecko-like structures that can change conformation with minimal moisture or mechanical action to actively shed dirt, drastically reducing water needed for cleaning. This offers a mechanical release mechanism, contrasting with the initial focus on biological consumption of contaminants.",
+      "feasibility_rationale": "Requires sophisticated micro-fabrication on flexible, durable textiles and reliable actuation mechanisms for dirt ejection, which are currently beyond established manufacturing capabilities for widespread application.",
+      "feasibility_score": 2,
+      "novelty_rationale": "This idea moves beyond passive repellency to active, mechanical dirt ejection at the micro-scale on textiles, which is a significant departure from current self-cleaning fabric concepts for clothing.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Successfully implementing active dirt ejection could nearly eliminate the need for water in many cleaning scenarios for lightly soiled clothes, fundamentally changing garment care in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Micro-actuation mechanisms can be durably and cost-effectively integrated into textile fibers or surfaces.",
+        "The energy input required for active dirt ejection is minimal and can be practically supplied (e.g., via body movement, minimal moisture, or small embedded power).",
+        "The dynamic structures can effectively dislodge a wide variety of common soil types relevant to clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and model potential micro-actuation mechanisms (e.g., stimuli-responsive polymers, piezoelectric materials) suitable for textile integration and active particle ejection.",
+        "Develop and test proof-of-concept dynamic surfaces on small, flexible substrates, assessing particle release efficacy with standardized test soils.",
+        "Evaluate the durability and energy requirements of prototype active surfaces under simulated wear and flex conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing scalable and cost-effective manufacturing processes for creating active micro-textures on large areas of fabric.",
+        "Ensuring the long-term durability and functionality of these delicate microstructures and their actuation mechanisms through repeated wear, flexing, and potential minimal cleaning cycles.",
+        "Achieving effective ejection of diverse soil types (particulate, oily, sticky) and not just loose dust, without damaging the fabric."
+      ]
     },
     "50774bdf-8d58-4477-ac81-f228d6644562": {
       "uuid": "50774bdf-8d58-4477-ac81-f228d6644562",
       "idea": "Lubricated Anti-Stain Clothing: Integrated, replenishable lubricant layers prevent soiling.",
-      "description": "Imbue fabrics with Slippery Liquid-Infused Porous Surfaces (SLIPS) to create a self-lubricating, ultra-smooth surface that prevents soil adhesion, allowing cleaning with a simple wipe or minimal water rinse. This barrier approach is an alternative to biological breakdown of dirt."
+      "description": "Imbue fabrics with Slippery Liquid-Infused Porous Surfaces (SLIPS) to create a self-lubricating, ultra-smooth surface that prevents soil adhesion, allowing cleaning with a simple wipe or minimal water rinse. This barrier approach is an alternative to biological breakdown of dirt.",
+      "feasibility_rationale": "SLIPS on rigid surfaces is established, but adapting it for flexible, washable, and breathable textiles, ensuring lubricant longevity and safe replenishment, presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While SLIPS technology itself is not new, its practical and durable integration into everyday clothing textiles, including a viable replenishment strategy, presents a moderately novel application for water-saving garment care.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effective SLIPS on clothing could drastically reduce the adherence of many types of soils and stains, allowing for cleaning with a simple wipe or minimal water rinse, significantly impacting water consumption for laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A biocompatible, non-staining, and durable lubricant can be identified that effectively prevents soil adhesion on textiles.",
+        "The porous textile structure can retain the lubricant sufficiently through normal wear, flexing, and occasional minimal-water rinsing/wiping.",
+        "A practical and user-friendly method for replenishing the lubricant in clothing can be developed and adopted by consumers."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen candidate lubricants and porous textile substrates for biocompatibility, lubricant retention, and anti-fouling efficacy against common stains.",
+        "Develop and optimize methods for creating durable SLIPS coatings on various fabric types, focusing on maintaining fabric breathability and feel.",
+        "Evaluate the anti-soiling performance and lubricant durability of SLIPS-treated textiles under simulated wear, wiping, and minimal water exposure."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the durability of the SLIPS layer and adequate lubricant retention through mechanical abrasion, flexing during wear, and even gentle cleaning processes.",
+        "Maintaining desirable textile properties such as breathability, tactile comfort (non-greasy feel), and appearance after SLIPS treatment.",
+        "Developing a simple, cost-effective, and environmentally sound system for consumers to replenish the lubricant layer as needed."
+      ]
     },
     "b6e657b1-7c22-4d8c-aff6-af68ba964a3b": {
       "uuid": "b6e657b1-7c22-4d8c-aff6-af68ba964a3b",
       "idea": "Develop clothing that repels dirt, reducing wash frequency.",
-      "description": "Create garments from durable superhydrophobic and antifouling fabrics. This directly addresses the design challenge by minimizing soiling, thereby drastically reducing the need for water-intensive washing. This approach focuses on prevention, an alternative to the contaminant degradation principle of the initial inspirational concept."
+      "description": "Create garments from durable superhydrophobic and antifouling fabrics. This directly addresses the design challenge by minimizing soiling, thereby drastically reducing the need for water-intensive washing. This approach focuses on prevention, an alternative to the contaminant degradation principle of the initial inspirational concept.",
+      "feasibility_rationale": "The technology for superhydrophobic and antifouling surfaces on fabrics is advancing, as indicated by the source. Scaling production and ensuring long-term durability, breathability, and comfort in everyday garments are key R&D areas.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While dirt-repellent fabrics exist, the focus on achieving standard hygiene levels with drastically reduced washing in water-scarce contexts using advanced, durable materials offers a moderately novel application of these technologies.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "By preventing clothes from getting dirty in the first place, this idea could dramatically reduce water usage for laundry, making a significant impact on water conservation in arid regions.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Superhydrophobic/antifouling properties can be maintained effectively throughout the practical lifespan of a garment despite wear, abrasion, and body oils.",
+        "The fabrics will be comfortable, breathable, and safe for prolonged skin contact.",
+        "Repelling dirt sufficiently addresses hygiene concerns beyond just visible cleanliness, including microbial load reduction to acceptable levels."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test existing superhydrophobic/antifouling fabric samples for durability under simulated wear conditions (e.g., extended abrasion, flexing, exposure to artificial sweat).",
+        "Evaluate the breathability, tactile properties (feel), and potential skin sensitization of candidate materials.",
+        "Investigate the actual reduction in microbial load and odor on these fabrics compared to conventional ones after periods of wear without washing."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of superhydrophobic properties against mechanical abrasion, body oils, and sweat.",
+        "Maintaining fabric breathability and comfort, as many superhydrophobic coatings can impair these.",
+        "Ensuring that repelling visible dirt also translates to adequate microbial hygiene without washing."
+      ]
     },
     "26b6e382-2081-4598-89ca-c48dab95e399": {
       "uuid": "26b6e382-2081-4598-89ca-c48dab95e399",
       "idea": "Mechanobactericidal Clothing: Nanostructured fibers kill bacteria, reducing wash frequency.",
-      "description": "Incorporate cicada-wing-inspired nanopillar arrays directly into clothing fibers to achieve contact-based bacterial kill, maintaining hygiene with less frequent water-intensive washing. This physical antimicrobial method differs from a biological purification approach."
+      "description": "Incorporate cicada-wing-inspired nanopillar arrays directly into clothing fibers to achieve contact-based bacterial kill, maintaining hygiene with less frequent water-intensive washing. This physical antimicrobial method differs from a biological purification approach.",
+      "feasibility_rationale": "Fabricating precise, durable bactericidal nanostructures uniformly across large, flexible textile surfaces at scale, and ensuring their effectiveness through wear, poses extreme manufacturing and materials science challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying physical, contact-based mechanobactericidal nanopatterns directly onto textile fibers for clothing offers a highly inventive alternative to traditional chemical antimicrobial treatments.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly improve garment hygiene and reduce wash frequency driven by bacterial growth and odor, thereby saving water, although it doesn't directly address particulate or chemical soiling.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Nanopillar structures with effective mechanobactericidal properties can be consistently and economically fabricated directly onto or integrated into common textile fibers.",
+        "These nanostructures will remain physically intact and retain their bactericidal efficacy through normal garment wear, flexing, and abrasion.",
+        "The reduction in bacterial load achieved will be significant enough to demonstrably reduce odor and the perceived need for washing, leading to user acceptance."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and develop scalable fabrication techniques (e.g., nanoimprint lithography on fibers, self-assembly) for creating cicada-wing-like nanostructures on representative textile swatches.",
+        "Conduct rigorous testing of the bactericidal efficacy of these nanostructured textiles against a range of relevant bacteria under conditions simulating skin contact.",
+        "Evaluate the durability of the nanostructures and their bactericidal performance after simulated wear, abrasion, and potential gentle cleaning methods."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing scalable, cost-effective, and reproducible manufacturing processes for creating precise nanopillar arrays on diverse textile materials.",
+        "Ensuring the mechanical durability of these nanostructures to withstand the abrasion, stretching, and flexing inherent in clothing use and care.",
+        "Verifying long-term safety, including absence of skin irritation from the nanostructures or shedding of potentially harmful nanoparticles."
+      ]
     },
     "5e2f5b1d-0738-4688-baeb-5bb256720d36": {
       "uuid": "5e2f5b1d-0738-4688-baeb-5bb256720d36",
       "idea": "Durable fabrics enabling infrequent, intense, low-water cleaning.",
-      "description": "Engineer highly robust clothing materials that can withstand novel, very low-water (e.g., sonic, vapor-phase) cleaning processes. This tackles the challenge by allowing for effective hygiene with minimal water, a strategy focused on material resilience rather than the biological breakdown mechanism of the initial inspirational concept."
+      "description": "Engineer highly robust clothing materials that can withstand novel, very low-water (e.g., sonic, vapor-phase) cleaning processes. This tackles the challenge by allowing for effective hygiene with minimal water, a strategy focused on material resilience rather than the biological breakdown mechanism of the initial inspirational concept.",
+      "feasibility_rationale": "Fabric durability itself is achievable. However, the feasibility depends heavily on the parallel development and viability of effective, intense, low-water cleaning technologies, which pose significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The idea of durable fabrics is not new, but engineering them specifically to withstand novel, intense, low-water cleaning methods is a moderately novel approach to the design challenge, focusing on system co-design.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could enable very infrequent but thorough cleaning cycles using minimal water, offering a substantial reduction in overall water consumption while maintaining hygiene standards.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Effective, low-water, high-intensity cleaning methods (e.g., sonic, vapor-phase, plasma) can be developed and made accessible/affordable for consumer use.",
+        "Fabrics can be engineered to withstand such intense cleaning methods over many cycles without degradation of performance, comfort, or appearance.",
+        "Consumers will accept infrequent but intense cleaning regimens and any associated specialized cleaning devices or services."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and evaluate promising low-water/no-water intense cleaning technologies for their efficacy on common soiling and microbial loads on textiles.",
+        "Test the resilience of existing highly durable textile materials against selected intense cleaning methods, assessing material degradation.",
+        "Define target 'hygiene levels' and develop metrics to assess the effectiveness of infrequent, intense cleaning compared to conventional washing."
+      ],
+      "major_challenges_roadblocks": [
+        "Development and validation of novel low-water cleaning technologies that are effective, energy-efficient, and safe for fabrics and users.",
+        "Ensuring the long-term integrity, comfort, and aesthetic properties of fabrics subjected to repeated intense cleaning processes.",
+        "Potential high cost, complexity, or accessibility issues of specialized cleaning equipment or processes for end-users."
+      ]
     },
     "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b": {
       "uuid": "be981290-4a51-48a0-8d6b-fd4a0b1b0d5b",
       "idea": "Photocatalytic self-cleaning fabrics activated by light.",
-      "description": "Embed photocatalytic agents into superhydrophobic textiles to actively decompose organic matter and odors using light. This offers a water-free cleaning mechanism, providing an active, chemical-based degradation approach that is an alternative to the biologically-based purification of the initial inspirational concept, directly addressing the design challenge."
+      "description": "Embed photocatalytic agents into superhydrophobic textiles to actively decompose organic matter and odors using light. This offers a water-free cleaning mechanism, providing an active, chemical-based degradation approach that is an alternative to the biologically-based purification of the initial inspirational concept, directly addressing the design challenge.",
+      "feasibility_rationale": "While photocatalytic materials exist, achieving sufficient cleaning efficacy on textiles under real-world light conditions (including indoor light), ensuring durability, and addressing potential fiber degradation or harmful byproducts are significant R&D hurdles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While photocatalysis for self-cleaning is a known concept, creating effective, durable, and safe photocatalytic clothing that significantly reduces water use for hygiene is highly inventive and not yet mainstream.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If fully realized, this could offer a near water-free solution for maintaining clothing hygiene, fundamentally changing laundry practices and having a transformative impact on water conservation.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Photocatalytic action can effectively decompose a broad range of common soiling agents, odor-causing compounds, and microbes on fabric surfaces using ambient light.",
+        "The photocatalytic agents and any byproducts of the decomposition process are non-toxic and do not harm the wearer or the environment.",
+        "The photocatalytic coating can be durably integrated into textiles without negatively affecting comfort, appearance, or fabric integrity over the garment's lifespan."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Evaluate the efficacy of existing photocatalytic textile treatments in breaking down common stains, body oils, and odor-causing bacteria under realistic light conditions (e.g., indirect sunlight, typical indoor lighting).",
+        "Assess the durability of photocatalytic coatings on various fabric types after simulated wear, exposure to sweat, and any minimal (e.g., rinsing) cleaning cycles.",
+        "Investigate potential long-term effects on fabric integrity and the formation of any harmful byproducts during the photocatalytic process on textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high photocatalytic efficiency with typical light exposure (intensity, duration, spectrum) for clothing to meet hygiene standards.",
+        "Ensuring the durability of the photocatalytic coating against washing (if any still needed for heavy soil), abrasion, and UV degradation.",
+        "Potential for photocatalytic materials to degrade the textile fibers themselves over time or produce harmful volatile organic compounds (VOCs)."
+      ]
     },
     "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299": {
       "uuid": "7be0ca4f-26de-4d7a-a7f7-0dbb5ef19299",
       "idea": "Self-cleaning fabric via bio-inspired microtextures.",
-      "description": "Create clothing fibers with micro/nanostructures mimicking lotus leaves or shark skin. These textures would repel dirt and microbes, making them easy to remove with very little water, thus addressing the design challenge of low-water cleaning. This contrasts with the initial concept of a purifying biofilm by instead preventing contaminant adhesion."
+      "description": "Create clothing fibers with micro/nanostructures mimicking lotus leaves or shark skin. These textures would repel dirt and microbes, making them easy to remove with very little water, thus addressing the design challenge of low-water cleaning. This contrasts with the initial concept of a purifying biofilm by instead preventing contaminant adhesion.",
+      "feasibility_rationale": "While micro/nanotexturing is established in material science, achieving durable, flexible, and cost-effective application on textile fibers at scale presents significant engineering challenges. Maintaining efficacy after repeated wear and minimal washing is key.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While inspired by known natural phenomena and explored in other material contexts, its comprehensive application to everyday clothing for broad hygiene with ultra-low water use presents a fresh angle for this design challenge. It cleverly shifts from active purification to passive prevention.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce the frequency and intensity of washing, directly addressing the low-water hygiene challenge and potentially leading to longer garment lifespans.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microtextures can be made durable enough to withstand regular wear and tear on clothing.",
+        "The self-cleaning effect is potent enough to maintain hygiene standards with minimal water rinsing.",
+        "Manufacturing such fabrics can be scaled cost-effectively for consumer clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype fabric samples with various microtextures for durability and self-cleaning efficacy against common clothing soils.",
+        "Evaluate the antimicrobial properties of the textured surfaces and their ability to reduce microbial load with minimal water.",
+        "Investigate scalable manufacturing techniques for incorporating these microtextures into common clothing fibers."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability of microtextures on flexible fabric through wear, abrasion, and even minimal washing cycles.",
+        "Maintaining anti-fouling properties against a wide range of soiling types (oily, particulate, biological).",
+        "Cost-effective and scalable manufacturing processes for such textiles."
+      ]
     },
     "3cd87d47-88de-453c-998f-3bea38cd0704": {
       "uuid": "3cd87d47-88de-453c-998f-3bea38cd0704",
       "idea": "Moisture-activated sanitizing fabric using NO-releasing agents.",
-      "description": "Embed nitric oxide (NO) releasing agents within clothing fibers. These agents would activate with minimal moisture (e.g., body humidity or a light mist), sanitizing the fabric by dispersing microbial contaminants, directly achieving hygiene with significantly less water. This offers a chemical self-cleaning alternative to biological purification."
+      "description": "Embed nitric oxide (NO) releasing agents within clothing fibers. These agents would activate with minimal moisture (e.g., body humidity or a light mist), sanitizing the fabric by dispersing microbial contaminants, directly achieving hygiene with significantly less water. This offers a chemical self-cleaning alternative to biological purification.",
+      "feasibility_rationale": "Requires precise control of NO release to ensure efficacy without toxicity, long-term stability of the releasing agents in fabric, and rechargeability or sufficient lifespan of the effect. Significant R&D is needed for safe consumer application.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While NO-releasing materials exist, particularly for medical devices, their integration into everyday clothing for broad, low-water sanitization activated by ambient moisture is a highly inventive application for this challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could offer a paradigm shift in clothing hygiene, enabling sanitization with minimal to no water, potentially transforming personal hygiene in water-scarce environments if safety and efficacy are proven.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "NO can be released at concentrations effective for sanitization yet safe for prolonged skin contact and inhalation.",
+        "NO-releasing agents can be durably incorporated into fabrics and maintain efficacy over the garment's lifespan or be easily replenished.",
+        "The moisture-activation mechanism is reliable and doesn't lead to premature depletion of NO or unsafe buildup."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify safe and stable NO-releasing compounds suitable for textile integration and controlled moisture-activated release.",
+        "Conduct in-vitro studies to determine the minimum effective NO concentration for sanitizing common fabric-borne microbes and assess cytotoxicity for skin contact.",
+        "Develop methods for incorporating NO-releasing agents into textile fibers and evaluate their release kinetics, durability, and safety profiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring safety: controlling NO release to be antimicrobial without being toxic to the wearer or environment.",
+        "Stability and longevity of NO-releasing compounds in fabric through wear, light exposure, and time.",
+        "Consumer acceptance and regulatory approval for a chemically active garment."
+      ]
     },
     "7a11e09e-eb0d-4095-87c8-453ea8a521a9": {
       "uuid": "7a11e09e-eb0d-4095-87c8-453ea8a521a9",
       "idea": "Switchable polymer coating for easy contaminant release.",
-      "description": "Develop clothing with a switchable polymer coating. The coating could initially repel contaminants, then be triggered (e.g., by a pH change or specific solution) to release adhered dirt and microbes with minimal water, offering efficient cleaning. This approach focuses on material engineering for contaminant management, contrasting with the original biological purification idea."
+      "description": "Develop clothing with a switchable polymer coating. The coating could initially repel contaminants, then be triggered (e.g., by a pH change or specific solution) to release adhered dirt and microbes with minimal water, offering efficient cleaning. This approach focuses on material engineering for contaminant management, contrasting with the original biological purification idea.",
+      "feasibility_rationale": "Requires development of robust switchable polymers that adhere well to textiles, withstand wear, and can be reliably triggered by a safe, simple, and low-resource stimulus. Ensuring complete release of diverse soil types is also crucial.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of switchable polymers is known in materials science, but its specific application to clothing for triggered, wholesale contaminant release with minimal water is a clever adaptation for this challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective, this would allow for near-complete removal of contaminants with very little water and a simple trigger, offering a significant improvement in cleaning efficiency and water conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A polymer coating can be developed that effectively repels or binds and then releases a wide range of common clothing contaminants.",
+        "The switching mechanism is reliable, durable over many cycles, and can be activated by a safe and readily available low-resource trigger.",
+        "The polymer coating itself is durable, comfortable, and doesn't negatively affect fabric breathability or feel."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or develop switchable polymers that can be applied as coatings to common textile materials and test their adhesion and durability.",
+        "Test the efficacy of contaminant adhesion and triggered release using standardized soils and microbial loads on coated fabric swatches with various triggers.",
+        "Evaluate the durability of the coating and its switching mechanism through simulated wear and wash cycles, and assess the safety and practicality of the trigger mechanism."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability of the polymer coating and its switching mechanism on flexible textiles under mechanical stress and minimal washing.",
+        "Effectiveness of contaminant release for diverse types of soils (oily, particulate, biological) and ensuring no residue that impairs hygiene.",
+        "Identifying a universally practical, safe, and low-resource trigger for the switching mechanism suitable for water-scarce settings."
+      ]
+    },
+    "435414a6-8c62-478a-aec8-9b376205b478": {
+      "uuid": "435414a6-8c62-478a-aec8-9b376205b478",
+      "idea": "Rechargeable antimicrobial clothing via N-halamine fabric treatment.",
+      "description": "Develop N-halamine treated fibers that kill bacteria on contact and can be 'recharged' with minimal water, reducing laundry needs. This chemical approach is an alternative to biological purification for maintaining hygiene.",
+      "feasibility_rationale": "N-halamine chemistry is established for textiles, and 'rechargeability' with chlorine is documented. Scalability for clothing and ensuring long-term stability, user comfort, and defining minimal water recharge protocols are key R&D areas.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While N-halamine antimicrobial treatments exist, their specific application as a 'rechargeable' system to drastically reduce water usage for everyday clothing hygiene in water-scarce contexts offers a moderately novel approach. It reframes the problem from frequent full washing to periodic in-situ antimicrobial reactivation.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effectively implemented, this could drastically cut down water consumption for laundry by extending the wear time between full washes for hygiene purposes, significantly impacting water conservation in scarcity scenarios.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The N-halamine treatment remains effective and non-toxic over many wear/recharge cycles typical for clothing.",
+        "The 'recharging' process (e.g., with a dilute, safe chlorine-based solution) uses significantly less water than a full wash and is practical for users in water-scarce settings.",
+        "The treated fabric maintains acceptable comfort, breathability, and durability for everyday wear."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct lab tests on various N-halamine treated fabrics to assess antimicrobial efficacy and durability after simulated wear and multiple low-water recharge cycles.",
+        "Investigate optimal minimal water and reagent concentrations for effective 'recharging' while assessing fabric integrity and potential for skin irritation.",
+        "Develop prototype garments for wear trials focused on comfort, perceived hygiene, and user acceptance of the recharge process."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term durability of the N-halamine coating to withstand regular wear, abrasion, sweat, and multiple recharge cycles without significant loss of efficacy or fabric degradation.",
+        "User acceptance and safety: addressing potential skin irritation, material yellowing, chlorine odor, or damage to non-target fabrics during recharge.",
+        "Developing a simple, accessible, and effective recharging method that truly minimizes water use and is suitable for diverse user environments with limited resources."
+      ]
+    },
+    "282a4c9e-f035-42ef-8d6d-e686e88b8904": {
+      "uuid": "282a4c9e-f035-42ef-8d6d-e686e88b8904",
+      "idea": "Self-cleaning clothing using superhydrophobic nano-textured fibers.",
+      "description": "Create clothing with nano-textured superhydrophobic surfaces that repel contaminants, minimizing cleaning and enabling low-water rinsing. This physical barrier contrasts with biological methods by preventing initial soiling.",
+      "feasibility_rationale": "Achieving durable, robust, and breathable superhydrophobicity on flexible, wearable textiles that can withstand mechanical abrasion and maintain comfort is a major technical hurdle. Many current solutions lack long-term stability for clothing applications.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Superhydrophobic coatings for textiles are an active research area. Applying this concept specifically for 'self-cleaning' clothing to drastically reduce water consumption for hygiene is a logical, moderately novel extension for this particular design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Truly effective and durable superhydrophobic clothing could revolutionize cleaning by repelling most contaminants, making washing a rare event and thus having a transformative impact on water conservation for laundry.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Superhydrophobic nano-textures can be engineered to be sufficiently durable for everyday clothing use, resisting abrasion and laundering.",
+        "The fabric will maintain essential properties like breathability, comfort, and feel, despite the surface modification.",
+        "The 'self-cleaning' or easy-rinsing property effectively repels a wide range of common soils and microbes, significantly reducing the need for water-intensive washing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Survey and evaluate existing durable superhydrophobic textile technologies for their suitability in clothing, focusing on abrasion resistance, flexibility, and breathability metrics.",
+        "Develop prototype fabric swatches and test their repellency against a spectrum of relevant contaminants (e.g., dust, mud, food simulants, microbial suspensions) and assess cleaning efficacy with minimal water.",
+        "Conduct wearability assessments (e.g., skin feel, thermal comfort, noise) on the most promising superhydrophobic fabric candidates."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability: Nano-textures are highly susceptible to damage from abrasion, stretching, washing (even if infrequent), and general wear, leading to loss of superhydrophobicity.",
+        "Breathability and Comfort: Many superhydrophobic coatings can impair fabric breathability, alter the drape and feel, or create undesirable noise during movement.",
+        "Manufacturing scalability and cost: Applying uniform and robust nano-textures to large fabric yardage cost-effectively remains a challenge for mass-market clothing."
+      ]
+    },
+    "50a1765f-3298-4f4f-9403-219ebc9c8d61": {
+      "uuid": "50a1765f-3298-4f4f-9403-219ebc9c8d61",
+      "idea": "Bacteria-killing clothing with fabric-integrated nanoneedle structures.",
+      "description": "Design clothing fibers with inherent nanoneedle topography to physically rupture bacteria on contact, providing continuous, water-free sanitization as an alternative to biological processes.",
+      "feasibility_rationale": "Manufacturing precise, durable nanoneedle structures uniformly on flexible textile fibers at scale is exceptionally difficult with current technology. Ensuring biocompatibility with skin cells and preventing fouling of the nanostructures are also major unresolved challenges.",
+      "feasibility_score": 1,
+      "novelty_rationale": "While bactericidal nanostructured surfaces are known from nature and explored in material science, integrating these directly and durably into clothing fibers for continuous, water-free sanitization is a highly inventive and biomimetic approach to the design challenge. It departs significantly from chemical or repellent strategies.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If technically achievable and safe, this could provide continuous, passive antimicrobial action without water or chemicals, fundamentally improving hygiene. However, it would not address physical soiling, which still requires cleaning.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanoneedle structures can be durably and cost-effectively integrated into or onto textile fibers without compromising overall fabric integrity or comfort.",
+        "These nanostructures are selectively bactericidal, effectively killing a broad range of relevant bacteria without damaging human skin cells or causing irritation/sensitization.",
+        "The bactericidal nanoneedles remain effective over extended periods of wear, resisting fouling from sweat, skin cells, and environmental debris."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct an exhaustive literature review and expert consultation on fabrication methods for bactericidal nanostructures on flexible substrates, focusing on scalability, durability, and cost.",
+        "Initiate proof-of-concept studies for creating such structures on single fibers or small textile swatches using promising techniques, and assess their mechanical stability.",
+        "Perform initial in-vitro tests to assess both bactericidal efficacy against relevant microbes and cytotoxicity against human skin cell models for any successfully prototyped surfaces."
+      ],
+      "major_challenges_roadblocks": [
+        "Manufacturing: Creating and maintaining precise, sharp nanostructures on flexible, dynamic textile fibers at an industrial scale and acceptable cost is a formidable challenge.",
+        "Biocompatibility and Safety: Ensuring the nanoneedles do not cause mechanical damage to human skin cells, elicit an immune response, or cause irritation or allergic reactions over prolonged contact.",
+        "Long-term efficacy and fouling: Nanostructures can become clogged or covered by organic debris (sweat, skin cells, oils), rendering them ineffective; durability against physical wear is also critical."
+      ]
+    },
+    "e589e0ff-118d-4f31-80da-a1961c20377e": {
+      "uuid": "e589e0ff-118d-4f31-80da-a1961c20377e",
+      "idea": "Develop clothing with inherent anti-microbial and dirt-repellent surfaces.",
+      "description": "This involves creating textiles that actively resist microbial growth and soiling, reducing the frequency and intensity of washing, thereby saving significant water. It's inspired by the antifouling properties of the described coating, offering a materials-based prevention strategy.",
+      "feasibility_rationale": "Applying such coatings to fabrics while maintaining comfort, durability, and breathability poses significant R&D challenges, though the base technology (SLIC) is described as applicable.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While anti-microbial/dirt-repellent fabrics exist, applying advanced, durable coatings like SLIC specifically to minimize water use in hygiene presents a moderately novel approach to the design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effectively preventing soiling and microbial growth would directly reduce washing frequency, leading to significant water savings and improved hygiene in water-scarce areas.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "The coating can be applied to common clothing textiles without negatively impacting comfort, breathability, or feel.",
+        "The anti-microbial and dirt-repellent properties are durable enough for practical clothing lifetimes.",
+        "The coating is safe for prolonged skin contact and environmentally benign throughout its lifecycle."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test application of SLIC-like coatings on various textile samples (cotton, polyester, blends) and evaluate initial repellency and anti-microbial efficacy.",
+        "Conduct durability testing (e.g., abrasion, limited wash cycles, flex testing) and assess impact on fabric properties like breathability and tactile feel.",
+        "Investigate the range of microbes and types of dirt the coating can effectively repel or neutralize in a clothing context."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the coating on flexible, stretchable fabrics subjected to wear and environmental exposure.",
+        "Ensuring fabric breathability and comfort are not compromised by the coating.",
+        "Scalability and cost-effectiveness of manufacturing these advanced textiles."
+      ]
+    },
+    "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9": {
+      "uuid": "e7c70d14-e4e1-445c-aa2b-9ec97aa64de9",
+      "idea": "Design fabrics that enable 'roll-off' cleaning with minimal water.",
+      "description": "By making fabrics extremely water-repellent, contaminants could be dislodged and carried away by a very small amount of water (e.g., misting), drastically cutting water usage. This leverages the superhydrophobic nature of the described composite for efficient cleaning.",
+      "feasibility_rationale": "While superhydrophobic coatings are known, ensuring effective dislodgement of various soil types (not just water rolling over dirt) and maintaining this property on flexible fabrics presents moderate technical hurdles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying superhydrophobicity to enable 'roll-off' cleaning of particulate and liquid contaminants from clothing with minimal water (misting) is a highly inventive approach to the design challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could enable cleaning with extremely small amounts of water, potentially offering a transformative solution for water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Contaminants (dirt, microbes, oils) will adhere more strongly to the water droplets than to the superhydrophobic fabric surface, allowing for removal.",
+        "The superhydrophobic property can be maintained through typical wear and environmental exposure for clothing.",
+        "A minimal amount of water (e.g., mist) is sufficient to carry away a broad range of common clothing soils to a hygienic level."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop prototype fabric samples with stable superhydrophobic coatings derived from or inspired by SLIC.",
+        "Conduct experiments applying various common soils (dust, mud, food stains, oily substances) and test removal efficiency with minimal water application (e.g., spray/mist).",
+        "Evaluate the durability of the superhydrophobic effect and cleaning efficacy after simulated wear and tear (e.g., abrasion, flexing)."
+      ],
+      "major_challenges_roadblocks": [
+        "Effectiveness against various types of soil, especially oily or sticky substances that might not easily 'roll off' with water.",
+        "Durability of the superhydrophobic effect under mechanical stress (stretching, rubbing) and exposure to body oils or sweat.",
+        "Ensuring complete removal of contaminants to meet hygiene standards, not just superficial cleaning."
+      ]
+    },
+    "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb": {
+      "uuid": "4bf01fda-faa2-46b2-89d7-2ec4c8b8d1fb",
+      "idea": "Create self-cleaning textiles that require little to no external water.",
+      "description": "This aims for clothing that actively sheds dirt and neutralizes odors without external water input, inspired by the 'self-cleaning' applications of the described coating technology. This directly addresses the challenge of minimizing water use for hygiene.",
+      "feasibility_rationale": "Achieving true, passive self-cleaning for a wide variety of soils and odors on textiles likely requires significant scientific advancements beyond current material capabilities. The mechanism implied by SLIC needs clarification.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of textiles that autonomously shed diverse soils and neutralize odors without external water or significant energy input is a breakthrough idea for clothing hygiene.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "Successfully realizing self-cleaning textiles would offer the ultimate solution to the design challenge, potentially obviating the need for water-based cleaning altogether.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A mechanism exists or can be developed (inspired by SLIC) that actively breaks down or sheds a wide range of soils and odor-causing compounds without external water or significant energy.",
+        "This self-cleaning action is effective enough to maintain hygiene standards for clothing over time.",
+        "The self-cleaning materials are safe, durable, comfortable, and manufacturable at scale for clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Deeply investigate the specific 'self-cleaning' mechanism(s) associated with SLIC or similar technologies applicable to fabrics, beyond mere repellency.",
+        "Conduct proof-of-concept experiments on fabric swatches to demonstrate any inherent soil-releasing or odor-neutralizing properties under passive conditions (no water, no light activation unless specified by SLIC).",
+        "Define the scope of 'self-cleaning': what types of dirt/stains/odors can be addressed, to what level of cleanliness, and over what timeframe?"
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying and developing a truly effective, broad-spectrum self-cleaning mechanism (e.g., catalytic, structural) that works passively on textiles for common clothing soils and odors.",
+        "Ensuring the self-cleaning process doesn't degrade the fabric itself or produce harmful byproducts.",
+        "Maintaining effectiveness over the garment's lifespan and across diverse environmental conditions (humidity, temperature)."
+      ]
+    },
+    "f3c263f7-44d9-4aec-8fa5-31745315b0fb": {
+      "uuid": "f3c263f7-44d9-4aec-8fa5-31745315b0fb",
+      "idea": "Enzyme-photocatalyst hybrid textiles for waterless, light-activated cleaning.",
+      "description": "Textiles incorporate enzymes for targeted breakdown and photocatalysts for broad organic degradation, activated by ambient light, achieving hygienic cleaning without water. This offers an active, on-fabric purification method.",
+      "feasibility_rationale": "While both enzyme encapsulation and photocatalytic coatings on textiles are individually researched, their stable and effective co-integration, ensuring long-term activity and compatibility under ambient light, poses significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The combination of targeted enzymatic action with broad-spectrum photocatalytic degradation in a single textile system for waterless cleaning is a highly inventive approach. It moves beyond passive repellency to active, on-fabric purification.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This technology could offer a true waterless cleaning solution, fundamentally changing how hygiene is maintained in water-scarce regions and dramatically reducing water consumption for laundry.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Enzymes and photocatalysts can be co-stabilized and remain active on/in textile fibers for a practical garment lifespan.",
+        "Ambient light is sufficient to activate the photocatalytic process effectively for cleaning.",
+        "The combined action can achieve 'standard hygiene levels' without water rinsing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop methods for co-immobilization of compatible enzymes and photocatalysts on textile substrates, testing their stability and activity.",
+        "Conduct efficacy studies against common soiling agents and microorganisms under varying ambient light conditions.",
+        "Investigate potential degradation of textile fibers or enzyme components by photocatalytic activity over time."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term stability and activity of both enzymes and photocatalysts through wear, light exposure, and interaction with each other.",
+        "Ensuring the breakdown products are non-harmful and do not accumulate negatively on the fabric.",
+        "Scaling up production of such hybrid textiles affordably."
+      ]
+    },
+    "cca2576e-b3e5-4bce-9841-cb4317c3f880": {
+      "uuid": "cca2576e-b3e5-4bce-9841-cb4317c3f880",
+      "idea": "Bio-inspired 'always clean' fabric surfaces that repel all common soiling agents.",
+      "description": "Clothing surfaces engineered with extreme omniphobic properties (repelling water, oils, dirt) to drastically reduce soiling frequency, thus minimizing water-intensive washing. This tackles the challenge by preventing dirt accumulation.",
+      "feasibility_rationale": "Creating highly repellent surfaces is known, but achieving robust omniphobicity that withstands wear, maintains fabric breathability, and is cost-effective for clothing presents considerable engineering challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While inspired by known phenomena like the Lotus Effect, achieving durable, truly omniphobic surfaces on flexible textiles that repel a wide range of common soiling agents effectively is a significant step beyond current repellent fabrics.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "By drastically minimizing soiling, this approach would significantly reduce washing frequency, leading to substantial water savings and maintaining cleaner garments for longer.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A textile surface can be engineered to effectively repel a broad spectrum of common soiling agents (dust, dirt, oils, food stains, sweat components).",
+        "These repellent properties can be made durable enough for practical clothing lifetimes, withstanding wear and tear.",
+        "The repellent surface does not negatively impact fabric comfort, breathability, or cause skin irritation."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test novel omniphobic coatings for textiles, focusing on durability under simulated wear conditions.",
+        "Evaluate the breathability, comfort, and skin-compatibility of treated fabrics.",
+        "Assess the repellency against a standardized wide range of common soiling agents encountered in daily life."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving extreme durability of the omniphobic surface against mechanical abrasion, chemical exposure (detergents if ever washed), and UV degradation.",
+        "Ensuring the treatment doesn't significantly alter desirable fabric properties like breathability, feel, and drape.",
+        "Cost-effective and scalable manufacturing processes for applying such advanced nanocoatings."
+      ]
+    },
+    "20c87ae2-f690-4f6a-9742-06030888d727": {
+      "uuid": "20c87ae2-f690-4f6a-9742-06030888d727",
+      "idea": "Textile-integrated enzymatic 'bio-filters' for continuous decomposition of odor/bacteria.",
+      "description": "Fabrics containing stabilized enzyme systems that continuously break down odor-causing bacteria and organic residues, maintaining hygiene with minimal water. This mirrors a persistent, active biological-like purification process on the textile itself.",
+      "feasibility_rationale": "Ensuring long-term stability, activity, and cost-effectiveness of diverse enzyme systems integrated directly into textiles for continuous, broad-spectrum hygiene is a substantial scientific and engineering hurdle.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Adapting the concept of a continuous biological filter (like Schmutzdecke) into a textile matrix using stabilized enzymes for ongoing odor and bacteria control is a highly inventive approach to wearable hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could continuously maintain garment hygiene and reduce odor, significantly extending wear duration between washes and thereby decreasing water usage for laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Enzymes can be effectively stabilized and integrated into textile fibers to remain active for the garment's lifespan.",
+        "A sufficient range of enzymes can be incorporated to target common odor-causing bacteria and organic residues effectively.",
+        "The enzymatic action is sufficient to maintain 'standard hygiene levels' and does not produce undesirable byproducts."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test robust enzyme immobilization techniques suitable for textile integration, focusing on long-term stability and activity.",
+        "Screen enzyme candidates or combinations for efficacy against key odor-causing bacteria and common organic residues found on clothing.",
+        "Evaluate the safety and biocompatibility of the enzyme-treated textiles, including potential for allergic reactions or skin irritation."
+      ],
+      "major_challenges_roadblocks": [
+        "Enzyme stability and longevity in textiles under real-world conditions (wear, moisture, temperature fluctuations, UV exposure).",
+        "Ensuring broad-spectrum efficacy against diverse bacteria and odor compounds without requiring a complex cocktail of delicate enzymes.",
+        "Cost of producing and integrating stable, effective enzyme systems into mass-market textiles."
+      ]
+    },
+    "46902a24-f11e-420f-86d3-ccc31201f827": {
+      "uuid": "46902a24-f11e-420f-86d3-ccc31201f827",
+      "idea": "Develop clothing fibers with inherent self-cleaning, antimicrobial nanocoatings.",
+      "description": "Clothing made from these fibers would repel dirt and kill microbes with minimal or no water, addressing water scarcity in cleaning. This leverages nanotechnology for textile treatment, diverging from the initial focus on biological purification mechanisms.",
+      "feasibility_rationale": "Technology for nanocoatings on textiles exists but requires significant R&D for durability, broad-spectrum efficacy against diverse soils/microbes, long-term safety, and cost-effectiveness in clothing applications.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While nanocoatings on textiles exist for specific properties like water repellency, developing them for comprehensive, durable self-cleaning to standard hygiene levels with minimal or no water is a moderately novel application focus for this challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If successful, this could significantly reduce or even eliminate the need for water-based laundry for many garments, directly addressing water scarcity and offering a major improvement in clothing care.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanocoatings can be made durable enough to withstand regular wear and maintain efficacy over the garment's lifespan.",
+        "The 'self-cleaning' mechanism is effective against a broad range of common soils (organic, inorganic, particulate) and microbes relevant to clothing hygiene.",
+        "The nanocoatings and any byproducts of their action are non-toxic, non-irritant, and safe for prolonged skin contact and environmental release."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and synthesize candidate nanocoating formulations with proven antimicrobial and soil-repellent properties suitable for common textile types.",
+        "Conduct standardized lab-scale tests on treated fabric swatches to evaluate cleaning efficacy against diverse stains/microbes and durability (abrasion, simulated wear, UV exposure).",
+        "Perform comprehensive biocompatibility and cytotoxicity testing for leading candidate coatings according to relevant textile safety standards."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving robust durability of nanocoatings through multiple cycles of wear, flexing, and potential minimal (low-water) cleaning/refreshing processes.",
+        "Ensuring broad-spectrum antimicrobial and soil-release/repellent efficacy without relying on leachable biocides or environmentally persistent chemicals.",
+        "Scaling up manufacturing processes to apply coatings uniformly and cost-effectively to garments while maintaining fabric comfort and breathability."
+      ]
+    },
+    "c3114699-70e0-4810-b8ea-2ad8d25bbc9b": {
+      "uuid": "c3114699-70e0-4810-b8ea-2ad8d25bbc9b",
+      "idea": "Create clothing with biomimetic micro/nano textures that repel dirt and microbes.",
+      "description": "This idea proposes mimicking natural surfaces (like rice leaves) on textiles to make them inherently stay cleaner, thus reducing water-intensive washing. It's an alternative to biological purification by preventing fouling.",
+      "feasibility_rationale": "Creating precise, durable, and comfortable micro/nano textures on flexible, wearable fabrics at scale is a very significant engineering challenge with current technology.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While biomimetic surfaces are a known research area, successfully applying complex, durable, multi-functional (dirt and microbe repellent) micro/nano textures to flexible clothing fibers is a highly inventive and challenging approach.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If realized effectively, clothing could remain clean for extended periods, drastically reducing washing frequency and water consumption, potentially transforming clothing hygiene practices.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Biomimetic micro/nano textures can be durably integrated into or onto textile fibers without significantly compromising fabric comfort, feel, or breathability.",
+        "These textures can effectively repel a wide spectrum of common clothing soils (liquids, particulates, oils) and prevent microbial adhesion/growth.",
+        "The complex textured surfaces can be manufactured cost-effectively at scale suitable for mass-market clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify specific biomimetic surface architectures (e.g., from lotus leaf, pitcher plant, springtail cuticle) known for robust repellency and investigate their applicability to textile fibers.",
+        "Explore and compare fabrication techniques (e.g., nanoimprint lithography, etching, coating with structured particles) for creating these textures on representative fabric samples.",
+        "Test the repellency efficacy (contact angle, roll-off angle, particle adhesion) and durability (abrasion resistance, wash stability) of the most promising textured fabric samples."
+      ],
+      "major_challenges_roadblocks": [
+        "Manufacturing complexity and high cost associated with creating and applying precise and durable micro/nano textures uniformly across textile surfaces.",
+        "Maintaining the integrity and functionality of delicate textures against mechanical abrasion, stretching, creasing during wear, and any necessary cleaning processes.",
+        "Ensuring that the textures do not negatively impact fabric properties such as feel (haptics), drape, air permeability, and overall wearer comfort."
+      ]
+    },
+    "a17d37f6-4dc5-4648-b574-296605a3b815": {
+      "uuid": "a17d37f6-4dc5-4648-b574-296605a3b815",
+      "idea": "Imbue clothes with photocatalytic materials activated by light to decompose soils/odors.",
+      "description": "Clothes treated with photocatalysts (e.g., TiO2) could be 'cleaned' by light, breaking down organic matter/microbes, significantly reducing water use. This chemical self-cleaning approach offers a different pathway than the initially considered biological methods.",
+      "feasibility_rationale": "Integrating photocatalysts like TiO2 into textiles is feasible, but ensuring sufficient light activation for effective cleaning throughout a garment and managing potential long-term fabric degradation are moderate R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Photocatalysis for self-cleaning surfaces is established in rigid materials; its application to flexible textiles for comprehensive decomposition of soils and odors to achieve hygiene standards is a moderately novel extension.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could provide a waterless or very low-water method for decomposing organic soils and odors, significantly reducing laundry water needs, especially for items prone to such contamination.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Sufficient ambient light (intensity, spectrum, duration) can penetrate all parts of a garment to effectively activate the photocatalytic materials.",
+        "Photocatalytic action can decompose a broad range of common organic soils, stains, and odor-causing compounds on clothing to a satisfactory hygiene level.",
+        "The photocatalytic process and materials do not significantly degrade the textile fibers, alter colors, or produce harmful byproducts over the garment's lifespan."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Evaluate the efficacy of different photocatalytic materials (e.g., TiO2, ZnO, doped variants) embedded in various textile types for degrading common organic stains and odors under realistic light conditions (sunlight, typical indoor light).",
+        "Assess the long-term effects of repeated photocatalytic cycles on fabric integrity, tensile strength, colorfastness, and potential nanoparticle release.",
+        "Investigate the decomposition pathways and identify any volatile organic compounds (VOCs) or other byproducts generated during the photocatalytic cleaning of soiled textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring adequate light exposure and penetration throughout the entire garment, including inner layers, folds, or in low-light environments/seasons.",
+        "Limited effectiveness against inorganic soils, greasy stains, or deeply embedded particulate matter that may not be fully decomposed by photocatalysis.",
+        "Potential for photocatalytic materials to induce oxidative degradation of textile fibers or dyes over time, reducing garment lifespan or altering appearance."
+      ]
+    },
+    "5738f163-6e6b-423b-9c1b-1f0d8535bff1": {
+      "uuid": "5738f163-6e6b-423b-9c1b-1f0d8535bff1",
+      "idea": "Clothing with bio-inspired superhydrophobic, self-cleaning surfaces.",
+      "description": "Create textiles that mimic natural self-cleaning surfaces (like lotus leaves) to repel dirt and water, drastically reducing water needed for cleaning. This approach uses material science for low-water cleaning, offering an alternative to systems relying on biological activity for purification.",
+      "feasibility_rationale": "Technology for superhydrophobic coatings exists, but achieving sufficient durability, breathability, and cost-effectiveness for widespread clothing application requires significant R&D. Maintaining the delicate nano/microstructures during wear and tear is a major challenge.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While the concept of superhydrophobic surfaces is known, its dedicated application to general apparel for substantial water reduction in cleaning presents a novel focus. It shifts the paradigm from washing away dirt to actively preventing its adherence and accumulation.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could drastically reduce water usage for laundering by repelling most common liquid and particulate soiling, directly addressing the core challenge. The impact depends on the effectiveness against a wide range of contaminants and the durability of the treatment.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Superhydrophobic properties can be maintained on flexible textiles throughout the garment's lifecycle (wear, abrasion, occasional minimal washing).",
+        "The 'self-cleaning' effect is sufficient to significantly reduce the frequency and water intensity of traditional washing for hygiene.",
+        "Such materials can be produced cost-effectively and offer acceptable comfort and breathability for clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and prototype durable superhydrophobic coatings suitable for common textile fibers, focusing on resistance to abrasion and laundering.",
+        "Test the efficacy of these surfaces against a range of common soiling agents (liquid, particulate, oily) under realistic use conditions.",
+        "Evaluate fabric comfort, breathability, and skin compatibility of treated textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability of nano/micro-scale surface structures against mechanical abrasion, chemical degradation (sweat, detergents), and repeated flexing.",
+        "Maintaining fabric breathability and comfort while achieving effective superhydrophobicity.",
+        "Ensuring the 'self-cleaning' adequately addresses not just visible dirt but also odor-causing bacteria and invisible biological contaminants to a satisfactory hygienic level."
+      ]
+    },
+    "ebc1a408-c56a-4825-94ff-0451f7970845": {
+      "uuid": "ebc1a408-c56a-4825-94ff-0451f7970845",
+      "idea": "Integrate bactericidal nano-structures into clothing fibers for waterless hygiene.",
+      "description": "Design clothing with inherent bactericidal properties using nano-structures (e.g., TiO2 nanopillars) that physically disrupt or kill microbes, maintaining hygiene without water. This offers a water-free hygiene solution by making the fabric itself antimicrobial, contrasting with concepts that might use beneficial microbial layers for cleaning.",
+      "feasibility_rationale": "Creating effective, durable, and safe bactericidal nano-structures directly integrated into textile fibers is technically complex. Ensuring long-term efficacy without cytotoxicity or harmful particle shedding presents significant R&D hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While antimicrobial agents in textiles exist, the concept of using precisely engineered nano-structures for *physical* bactericidal action (rather than chemical leaching) specifically targeting waterless hygiene in clothing is highly inventive.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully implemented, this could revolutionize clothing hygiene in water-scarce environments by actively neutralizing microbes on the fabric itself. However, its impact on visible soiling or odors not directly caused by live bacteria might be limited.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nano-structures can effectively kill or inhibit a broad spectrum of relevant bacteria and viruses on clothing surfaces without requiring water or external activators (e.g. UV light for some TiO2 applications).",
+        "These nano-structures can be integrated into fabrics durably and safely, without causing skin irritation or releasing harmful nanoparticles into the environment or body.",
+        "The bactericidal action remains potent over the garment's lifespan and does not inadvertently promote the development of resistant microbial strains."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and prototype methods for creating stable, non-leaching bactericidal nano-structures (e.g., mimicking cicada wing nanopillars) on common textile fibers.",
+        "Conduct in-vitro testing to assess the broad-spectrum bactericidal/virucidal efficacy against relevant skin and environmental microbes, and concurrently evaluate cytotoxicity to human skin cells.",
+        "Evaluate the mechanical durability of these nano-structures and their antimicrobial effect after simulated wear, abrasion, and potential minimal cleaning cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high and broad-spectrum bactericidal efficacy solely through physical nano-structures without relying on leachable biocides.",
+        "Ensuring long-term durability of the nano-structures and their bactericidal effect through wear, flexing, and exposure to sweat/body oils.",
+        "Addressing biocompatibility, potential for skin irritation, and regulatory approval concerning skin contact and the potential for nanoparticle release or absorption."
+      ]
+    },
+    "8e1ea2bb-2727-4c8d-852b-f35f5164be5d": {
+      "uuid": "8e1ea2bb-2727-4c8d-852b-f35f5164be5d",
+      "idea": "Design clothing for dry mechanical cleaning via superhydrophobic particle release.",
+      "description": "Engineer fabrics where minimal agitation (shaking, air burst) on a superhydrophobic surface releases contaminants, achieving cleaning with virtually no water. This concept leverages advanced material properties for a novel, near-waterless mechanical cleaning process, distinct from traditional washing or biologically-based purification methods.",
+      "feasibility_rationale": "This concept's feasibility is highly dependent on achieving exceptionally robust and effective superhydrophobic surfaces (as in Idea 1). Effective removal of diverse contaminants, especially oily or sticky ones, solely by mechanical agitation without damaging the fabric, is a very significant technical challenge.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The idea of leveraging superhydrophobicity specifically for *dry* mechanical cleaning of clothing through particle release (e.g., by shaking or air bursts) is a highly inventive and distinct approach to waterless cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If truly effective across a wide range of soiling, this could offer a near-waterless, energy-efficient cleaning method, fundamentally transforming clothing care in water-scarce regions and beyond. Its potential impact is enormous.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Superhydrophobic surfaces can be engineered to minimize adhesion of a wide variety of soil particles and biological matter to near-zero levels.",
+        "Minimal mechanical agitation (e.g., shaking, localized air bursts) is sufficient to dislodge the vast majority of contaminants to achieve a hygienic state.",
+        "The process of dislodging contaminants can be managed so as not to create secondary problems like airborne particulate hazards or immediate re-soiling."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype superhydrophobic fabrics specifically for their ability to release various types of dry and semi-dry particulate contaminants upon simple mechanical agitation.",
+        "Quantify the cleaning efficiency (percentage of contaminant removal) for different soil types (dust, pollen, skin flakes, light food particles) and agitation methods.",
+        "Investigate methods for containing or collecting dislodged particles during such a 'dry cleaning' process to prevent re-deposition or inhalation."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving near-perfect non-adhesion for a diverse range of contaminants, including oily substances, biofilms, or deeply embedded particles, on a flexible, wearable surface.",
+        "Effectiveness of simple mechanical agitation for removing strongly adhered or absorbed soils without damaging the delicate superhydrophobic surface structure or the fabric itself.",
+        "Managing the dislodged particulate matter to prevent re-soiling, inhalation hazards, or accumulation in the living environment."
+      ]
+    },
+    "6c281e75-bda6-4d41-8481-99a424cf5369": {
+      "uuid": "6c281e75-bda6-4d41-8481-99a424cf5369",
+      "idea": "Light-activated photocatalytic clothing fibers for self-cleaning.",
+      "description": "Integrate photocatalysts into fabric to degrade stains and bacteria upon light exposure, drastically reducing water needed for cleaning. This is an active degradation approach.",
+      "feasibility_rationale": "While integrating photocatalysts into fibers is achievable, ensuring sufficient efficiency, durability through wear/wash, and addressing potential fiber degradation or harmful byproducts presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying photocatalysis directly within textile fibers for everyday self-cleaning is a highly inventive approach to waterless garment hygiene, moving beyond surface coatings.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce water usage for laundry by enabling continuous, low-level cleaning and sanitization, directly addressing the core design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Photocatalysts can be durably and safely integrated into common clothing fibers without compromising fabric properties (feel, strength, color).",
+        "Ambient light (indoor or outdoor) is sufficient to activate the photocatalytic process effectively against common stains and microbes on clothing.",
+        "The degradation byproducts are non-toxic and do not cause discoloration or odor."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate methods for incorporating various photocatalysts (e.g., TiO2, ZnO) into common textile fibers (cotton, polyester, nylon) and evaluate their stability and retention.",
+        "Test the efficacy of these photocatalytic fibers against common stains (e.g., sebum, food spills) and representative bacteria/viruses under realistic light conditions (sunlight, ambient indoor light).",
+        "Assess the long-term impact of photocatalytic activity on fiber strength, colorfastness, and tactile properties, and analyze any degradation byproducts."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high photocatalytic efficiency under variable and often low-intensity light conditions (e.g., indoor lighting, shaded outdoor areas).",
+        "Ensuring long-term durability of the photocatalytic function and fiber integrity through repeated wear, flexing, and potential minimal (water-based) rinsing.",
+        "Potential for photocatalytic materials to degrade the fabric fibers themselves over time or produce harmful intermediate compounds."
+      ]
+    },
+    "425f83e1-fcad-4738-a251-663f255b2d72": {
+      "uuid": "425f83e1-fcad-4738-a251-663f255b2d72",
+      "idea": "Garment sanitizing bag using photocatalysis and internal light.",
+      "description": "A reusable bag lined with photocatalytic material and an internal light source cleans clothes placed inside without water, offering a contained, water-free sanitization method.",
+      "feasibility_rationale": "Constructing a bag with photocatalytic lining and an internal light source is likely feasible using existing technologies, though optimizing light distribution and catalyst efficiency for textile items needs focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While photocatalytic chambers exist, a dedicated, portable bag for garment sanitization using internal light is a moderately novel application for water-scarce environments.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This offers a significant impact by providing a water-free method for sanitizing clothing, extending wear time between full washes and improving hygiene in water-scarce settings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A portable light source within the bag can effectively activate the photocatalytic lining to sanitize all surfaces of the enclosed garments.",
+        "The process can effectively neutralize odors and kill a broad spectrum of relevant microbes within a reasonable timeframe (e.g., a few hours).",
+        "The bag can be designed to be durable, user-friendly, and affordable for target users."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Prototype a bag with a selected photocatalytic lining (e.g., TiO2-coated fabric) and an optimized internal light source (e.g., UV-A LEDs).",
+        "Test the prototype's efficacy in reducing microbial load (bacteria, fungi) and common odors on various fabric types and garment configurations (folded, loosely packed).",
+        "Evaluate the time required for effective sanitization and assess any potential negative effects on fabrics (e.g., discoloration, degradation) after repeated cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring uniform light exposure and catalyst contact to all parts of crumpled or folded garments within the bag.",
+        "Managing potential volatile organic compounds (VOCs) or byproducts generated during the degradation process within a closed system, ensuring they are fully mineralized or safely vented.",
+        "Effectiveness on tough physical stains versus just microbes/odors; the idea emphasizes sanitization, but \"cleans clothes\" in the description implies broader action."
+      ]
+    },
+    "03720dbc-49e2-43fc-b059-e4077750e593": {
+      "uuid": "03720dbc-49e2-43fc-b059-e4077750e593",
+      "idea": "Clothing fibers with bio-inspired low-adhesion surfaces.",
+      "description": "Engineer fabric surfaces to mimic natural low-adhesion properties (like SLIPS), preventing dirt/microbes from sticking, thus making cleaning easier and requiring less water. This is a preventative approach.",
+      "feasibility_rationale": "Creating durable SLIPS-like surfaces on flexible textile fibers that can withstand wear, abrasion, and maintain the lubricant layer presents very significant scientific and engineering challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Engineering textile fibers with durable, SLIPS-like low-adhesion surfaces is a breakthrough concept for clothing, moving far beyond conventional repellent finishes.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successful, this could be transformative by fundamentally reducing the adherence of dirt and microbes, leading to drastically less need for any form of cleaning and thus minimal water use.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Micro/nanostructures suitable for SLIPS can be created or integrated onto/into textile fibers without negatively impacting comfort or breathability.",
+        "A biocompatible, non-toxic lubricant can be durably retained within the fiber structure during normal wear and use.",
+        "The low-adhesion surface will be effective against a wide range of common soiling agents (dirt, oils, microbes) in a clothing context."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research methods to create stable micro/nanoporous structures on representative textile fibers (e.g., polyester, cotton) suitable for lubricant infusion.",
+        "Identify and test biocompatible, non-volatile lubricants that can be effectively infused and retained in these fibrous structures.",
+        "Evaluate the anti-fouling performance (against particulate soil, oily substances, and microbial adhesion) and durability (to abrasion, flexing) of prototype treated fibers/fabrics."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability of the micro/nanostructure and the infused lubricant layer on flexible fibers subjected to mechanical stress (stretching, abrasion) and environmental exposure.",
+        "Maintaining breathability and comfort of the fabric if pores are filled with lubricant or surfaces are significantly altered.",
+        "Scalability and cost of manufacturing such advanced textile fibers."
+      ]
+    },
+    "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df": {
+      "uuid": "5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df",
+      "idea": "Living fabric with microbes that break down soil/odor with humidity.",
+      "description": "Idea: Create 'living' textiles with microbes that break down soil/odor using only humidity, drastically reducing water for cleaning. Inspired by bioremediation and microbial interactions with textiles, this aligns with using microbial purification.",
+      "feasibility_rationale": "Maintaining viable, effective microbial consortia within a textile through wear, environmental changes, and over time is extremely challenging. Ensuring safety and controlling microbial activity are major hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying bioremediation concepts directly into the fabric matrix for continuous cleaning activated by ambient humidity is a significant departure from traditional washing. It internalizes the 'Schmutzdecke' concept within the garment itself.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could virtually eliminate the need for water in clothes cleaning for many types of soiling, fundamentally changing laundry practices.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be embedded in textiles and remain viable/active through wear and minimal moisture (humidity).",
+        "These microbes can effectively break down a wide range of common soils and odor-causing compounds without damaging the fabric or harming the wearer.",
+        "Ambient humidity provides sufficient moisture for microbial activity without making the garment feel damp."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen microbial candidates (or consortia) for broad-spectrum soil/odor degradation and textile compatibility.",
+        "Develop and test methods for embedding/attaching microbes to textile fibers while maintaining viability.",
+        "Conduct small-scale tests on fabric swatches to assess cleaning efficacy with humidity, durability, and potential for skin irritation."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and controlled activity of microbes in a dynamic wear environment.",
+        "Safety concerns: preventing pathogenicity, allergic reactions, or unwanted byproducts.",
+        "Achieving breakdown of diverse soil types and odor compounds effectively and quickly enough."
+      ]
+    },
+    "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b": {
+      "uuid": "74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b",
+      "idea": "Microbial cleaning patch targets specific soils using ambient moisture.",
+      "description": "Idea: Develop microbial cleaning patches for targeted stain removal using ambient moisture, not submersion, thus saving water. Inspired by microbes selectively consuming compounds, this applies the initial purification concept locally.",
+      "feasibility_rationale": "Containing microbes in a patch and activating them for a specific task is more controlled than a whole-garment system. However, ensuring efficacy on diverse stains and shelf-life are key challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Localized cleaning patches exist, but using specifically cultured microbes activated by ambient moisture for stain removal is a novel application of bioremediation principles in a consumer product.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water use for spot cleaning and extend the time between full washes, offering a practical solution for minor soiling.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Microbes can be formulated into a stable, activatable patch format.",
+        "Ambient moisture is sufficient to activate microbes for effective stain degradation in a reasonable timeframe.",
+        "Patches can target a useful range of common stains without damaging fabric or leaving residues."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and develop microbial strains/consortia targeting specific common stains (e.g., grease, protein, pigments).",
+        "Prototype patch delivery systems: assess material for patch, microbial loading, and activation by humidity.",
+        "Test efficacy on stained fabric swatches, evaluating cleaning speed, completeness, and potential fabric damage."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing microbial consortia effective against a variety of common stain types.",
+        "Ensuring shelf-stability of the microbial patches and a simple activation mechanism.",
+        "Consumer perception and safety (e.g., contact with skin, disposal of used patches)."
+      ]
+    },
+    "72ec003e-2a2e-4d30-a2e9-6acc48e79328": {
+      "uuid": "72ec003e-2a2e-4d30-a2e9-6acc48e79328",
+      "idea": "Textiles fostering protective biofilms to outcompete harmful microbes.",
+      "description": "Idea: Engineer textiles to foster protective biofilms that outcompete odor/pathogen microbes, reducing wash frequency and water use. Inspired by protective microbial communities, this is an alternative to direct breakdown, focusing on exclusion.",
+      "feasibility_rationale": "Establishing and maintaining a stable, beneficial biofilm on a textile surface through wear and environmental exposure is very difficult. Ensuring the biofilm itself doesn't cause issues is also a challenge.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Shifting from killing microbes (antimicrobial) to cultivating beneficial ones on textiles for competitive exclusion is a paradigm shift in textile hygiene, akin to probiotics for fabrics.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could drastically reduce the need for frequent washing by preventing odor and pathogenic microbe proliferation, saving substantial water.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A beneficial, stable biofilm can be established and maintained on textile surfaces.",
+        "This 'protective' biofilm can effectively outcompete common odor-causing and pathogenic microbes relevant to clothing.",
+        "The biofilm itself is non-pathogenic, non-allergenic, and does not negatively impact fabric properties or wearer comfort."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen for non-pathogenic microbes that can form robust biofilms on common textile materials.",
+        "Investigate mechanisms of competitive exclusion by candidate biofilms against target odor-causing/pathogenic microbes.",
+        "Develop methods to 'inoculate' textiles and promote the formation of the desired biofilm, then test its stability and protective effects."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying and cultivating suitable probiotic microbes that form stable, beneficial biofilms on diverse textiles.",
+        "Ensuring the biofilm's resilience to wear, abrasion, and occasional (gentle) cleaning.",
+        "Controlling the biofilm to prevent unwanted side effects (e.g., its own odor, changing fabric feel, skin sensitivity)."
+      ]
+    },
+    "2d7767b5-db20-4f6e-bcbe-fe5502fbba30": {
+      "uuid": "2d7767b5-db20-4f6e-bcbe-fe5502fbba30",
+      "idea": "Clothes self-sanitize, drastically cutting wash frequency and water.",
+      "description": "Embed antimicrobial agents in clothing to prevent microbial growth, keeping them hygienic longer and minimizing water-intensive washes, directly addressing water scarcity. This contrasts with a separate biological purification step by building protection into the garment.",
+      "feasibility_rationale": "Embedding antimicrobials is technically established, though ensuring long-term, broad-spectrum efficacy and skin safety for everyday wear requires focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While antimicrobial fabrics exist, their systematic application to drastically reduce general laundry for hygiene in water-scarce regions, moving beyond niche sportswear, represents a highly inventive re-purposing of the technology.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Successfully embedding potent, long-lasting antimicrobials could dramatically reduce washing frequency, leading to significant water savings and improved hygiene in water-scarce areas.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Embedded antimicrobial agents remain effective through multiple wear cycles and environmental exposures before any infrequent wash.",
+        "The antimicrobial effect is broad enough to maintain 'standard hygiene levels' without actual washing for extended periods.",
+        "Users will trust and adopt 'self-sanitizing' clothes, significantly altering their traditional washing habits."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and test efficacy of existing/novel embedded antimicrobials against target hygiene-relevant pathogens over extended wear periods under realistic conditions.",
+        "Investigate methods to address physical soiling (e.g., dust, light stains, sweat residue) that are compatible with infrequent washing and antimicrobial treatments.",
+        "Conduct user studies in target water-scarce communities to assess acceptance of reduced washing frequency with antimicrobial clothing and identify cultural barriers."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring durability and long-term efficacy of embedded antimicrobials across diverse fabric types and against a wide range of microbes.",
+        "Addressing non-microbial soiling (dirt, stains, body oils) which may still necessitate some form of cleaning, potentially negating some water savings.",
+        "Overcoming consumer skepticism and ingrained habits related to the psychological need for frequent 'washing' of clothes for them to be considered clean."
+      ]
+    },
+    "ab553fb3-75cc-49a7-af87-262210f2e843": {
+      "uuid": "ab553fb3-75cc-49a7-af87-262210f2e843",
+      "idea": "Fabric pH alteration inhibits microbes, enabling minimal water rinsing.",
+      "description": "Use pH-modifying fabric treatments to create a microbe-hostile surface, allowing hygiene maintenance with only light rinsing, drastically reducing water for cleaning. This offers a chemical preventative approach rather than a biological cleaning one.",
+      "feasibility_rationale": "Achieving durable and skin-safe pH alteration on diverse fabrics presents moderate technical challenges, particularly maintaining efficacy through wear and light rinsing.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Using fabric pH modification for microbial control is a known concept, but its specific application for hygiene maintenance with minimal water rinsing in water-scarce settings offers a moderately novel approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective, pH alteration combined with minimal rinsing could offer moderate water savings, though its impact depends on the true efficacy of rinsing alone for overall hygiene.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "The pH-altered surface effectively inhibits a broad spectrum of relevant microbes necessary for maintaining hygiene standards.",
+        "The pH alteration treatment is durable enough for practical daily wear and withstands multiple minimal rinsing cycles without significant degradation.",
+        "Minimal water rinsing alone is sufficient to remove enough physical and biological load (including sweat components, skin cells) to maintain hygiene and comfort."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Test the longevity and effectiveness of various pH-modifying treatments on different fabric types under simulated wear and rinsing conditions.",
+        "Evaluate skin sensitivity, comfort, and fabric integrity (e.g., colorfastness, texture) of textiles treated with effective concentrations of pH modifiers.",
+        "Quantify water reduction and hygiene outcomes (microbial load, odor, perceived cleanliness) of 'minimal water rinsing' compared to traditional washing and no washing."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability of the pH-modifying treatment against abrasion, sweat, body oils, and repeated light rinsing.",
+        "Ensuring skin compatibility and comfort across a diverse user population, as altered pH could potentially irritate sensitive skin.",
+        "Defining and validating the efficacy of 'minimal water rinsing' for overall hygiene beyond just microbial inhibition (e.g., removing allergens, particulate matter, non-microbial odors)."
+      ]
+    },
+    "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9": {
+      "uuid": "2d3bb2f6-12c7-4548-84ef-9d871f2bc4e9",
+      "idea": "Low-water refreshed antimicrobial clothing extends wear, saves water.",
+      "description": "Develop garments with topical antimicrobials refreshable via a low-water method (e.g., spray), extending use between full, water-heavy laundering cycles. This approach focuses on maintaining protection with minimal input, differing from a self-sustaining biological cleaning system.",
+      "feasibility_rationale": "Developing and applying topical antimicrobial sprays is highly feasible; the main challenge is ensuring sufficient, lasting protection and user acceptance of this method for hygiene.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Topical fabric refreshers with antimicrobial properties are somewhat established; integrating this into a deliberate system for water saving in hygiene is a slight variation on existing consumer products.",
+      "novelty_score": 2,
+      "potential_impact_rationale": "A topical refresh system could offer moderate water savings by extending the period between full washes, providing a practical interim solution for users.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Topical antimicrobial refresh provides adequate and sufficiently durable antimicrobial protection between full washes under real-world conditions.",
+        "Users can easily, consistently, and effectively apply the refresh treatment to achieve necessary coverage and efficacy.",
+        "The refresh process itself is very low water and does not lead to undesirable residue buildup or fabric damage over time, necessitating more frequent full washing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test various topical antimicrobial formulas (e.g., sprays, foams) for efficacy, drying time, scent, and fabric compatibility.",
+        "Evaluate the persistence of antimicrobial effect after topical application under simulated wear conditions (e.g., friction, light perspiration).",
+        "Conduct user trials to assess the effectiveness of the refresh system in extending wear duration, reducing water use, and gauging user acceptance and perceived cleanliness."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring effectiveness and durability of a topical refresh in maintaining robust hygiene levels, not just odor masking.",
+        "Potential for residue buildup on fabric after multiple applications, affecting feel, breathability, or attracting dirt.",
+        "User compliance in correct application and overcoming the psychological barrier of a 'refreshed' garment being as hygienic as a 'washed' one for extended wear."
+      ]
+    },
+    "aecc3487-b761-46d9-ac07-2b4cf1357584": {
+      "uuid": "aecc3487-b761-46d9-ac07-2b4cf1357584",
+      "idea": "Anti-biofilm clothing treatments to reduce cleaning needs.",
+      "description": "Develop clothing finishes that prevent or significantly impede biofilm formation, thereby reducing the frequency and intensity of cleaning needed, saving water. This approach, inspired by the problem of resilient dry surface biofilms ('_K pneumoniae_ is able to remain on surfaces as a dry surface biofilm'), focuses on prevention.",
+      "feasibility_rationale": "Significant R&D is needed to create fabric treatments that are effective against a broad range of microbes, durable through wear, safe for skin contact, and economically viable for clothing. Maintaining anti-biofilm properties over the garment's lifecycle is a key challenge.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While anti-biofilm technologies exist in other sectors, their dedicated application to everyday clothing for the primary purpose of reducing cleaning frequency and water usage is a highly inventive approach. It shifts the focus from reactive cleaning to proactive prevention of microbial colonization on textiles.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could dramatically reduce water consumption by decreasing cleaning frequency and intensity, directly addressing the core of the design challenge. It also offers the co-benefit of potentially enhanced hygiene.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Effective, durable, and safe anti-biofilm treatments can be developed or adapted for common clothing fabrics.",
+        "Preventing biofilm formation will significantly reduce the perceived need for washing by users, thus saving water.",
+        "The cost of such treatments will be acceptable for consumer or institutional clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct a comprehensive literature review and market scan of existing anti-biofilm technologies applicable to textiles.",
+        "Develop prototype fabric swatches with promising treatments and test for anti-biofilm efficacy against common bacteria and fungi found on clothes.",
+        "Assess initial durability (e.g., to simulated wear/washing) and safety (e.g., cytotoxicity, skin irritation potential) of treated swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring the long-term durability of the anti-biofilm treatment through repeated wear, abrasion, and any necessary low-water cleaning cycles.",
+        "Guaranteeing the treatment is non-toxic, non-allergenic, comfortable against the skin, and does not negatively alter fabric properties.",
+        "Achieving broad-spectrum anti-biofilm efficacy without promoting the development of resistant microbial strains."
+      ]
+    },
+    "c538de4b-3d8e-458e-890e-a028231b458a": {
+      "uuid": "c538de4b-3d8e-458e-890e-a028231b458a",
+      "idea": "Induce 'safe-state' on clothes via desiccation/other means.",
+      "description": "Explore methods to render contaminants on clothes viable but non-culturable or non-transferable using minimal water or dry processes, inspired by the observed VBNC state. This offers a water-saving hygiene approach by altering contaminant state rather than relying on full removal or the initial biological purification principle.",
+      "feasibility_rationale": "Reliably inducing and maintaining a stable Viable But Non-Culturable (VBNC) or non-transferable state for a diverse range of relevant clothing contaminants across various fabric types presents substantial scientific hurdles. Confirming the long-term safety and stability of such a state is also a major unknown.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of inducing a VBNC or non-transferable state for contaminants on clothing, rather than focusing on their removal or killing, is a paradigm-shifting and highly original approach to hygiene and low-water cleaning. It fundamentally rethinks what 'clean' could mean.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successfully and safely realized, this could revolutionize low-water cleaning by neutralizing hygiene threats with minimal resource input. However, user acceptance of contaminants remaining (even if 'safe') might limit widespread adoption.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A VBNC or similar 'safe state' can be reliably and consistently induced for common clothing contaminants using practical low-water or dry methods.",
+        "This induced 'safe state' is stable under typical wear conditions (e.g., presence of sweat, friction) and effectively prevents pathogen transfer or reactivation.",
+        "Users and regulatory bodies will accept clothing that contains 'inactivated' or 'non-transferable' rather than 'removed' or 'killed' contaminants as hygienically safe."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct an in-depth scientific literature review on inducing VBNC states in microorganisms relevant to clothing hygiene, focusing on methods and stability.",
+        "Identify potential low-energy methods (e.g., specific wavelengths of light, controlled desiccation cycles, non-thermal plasma) for inducing such states on textiles.",
+        "Perform proof-of-concept laboratory experiments to attempt to induce and verify VBNC/non-transferable states for model bacteria on representative textile swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying and validating methods to induce a stable VBNC/non-transferable state across diverse microbial species and fabric types without damaging the fabric.",
+        "High risk of pathogen reactivation from the VBNC state under unforeseen environmental conditions (e.g., rehydration from perspiration, changes in temperature).",
+        "Overcoming public perception and achieving regulatory acceptance for wearing clothes with 'neutralized' but physically present microorganisms."
+      ]
+    },
+    "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a": {
+      "uuid": "cc7cfa7c-a05b-4153-a2f2-c2cbe70c4f4a",
+      "idea": "Hyper-efficient mechanical action for low-water clothes cleaning.",
+      "description": "Design washing systems with ultra-effective mechanical actions (e.g., targeted agitation, sonics) for low-water clothes cleaning, drawing from the finding that wiping effectively reduces transfer from tenacious dry biofilms. This aims to maximize physical removal when water for dissolution and suspension is scarce.",
+      "feasibility_rationale": "This is likely feasible by adapting or combining existing technologies (e.g., ultrasonics, advanced agitation, targeted mist/air jets). The primary challenge is optimizing these for maximal soil/microbe removal with minimal water, while ensuring fabric care.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Improving mechanical action is a known pathway for better cleaning, but focusing on 'hyper-efficiency' specifically for extreme low-water scenarios, potentially using novel mechanisms (e.g., targeted sonics, particle bombardment) to overcome adhesion with minimal liquid, offers a moderately novel twist. The direct inspiration from biofilm removal by wiping adds a specific angle.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effective low-water mechanical cleaning would directly address the design challenge by significantly reducing water consumption for laundry, offering a practical solution for water-scarce environments if hygiene standards can be met or redefined.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Advanced mechanical forces can be effectively concentrated and applied to dislodge a wide range of soils and microbes from fabrics using drastically reduced water volumes.",
+        "Such hyper-efficient systems can be developed to be non-damaging to common clothing fabrics over repeated cleaning cycles.",
+        "The energy consumption and cost of such systems will be practical for the target water-scarce settings."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and benchmark existing advanced mechanical cleaning technologies (e.g., ultrasonic transducers, CO2 pellets, high-frequency vibration, targeted air/mist jets) for their potential in low-water textile cleaning.",
+        "Develop computational models or small-scale physical prototypes to test the efficacy of selected mechanical actions on standardized soiled/contaminated fabric swatches with varying minimal water levels.",
+        "Evaluate the trade-offs between cleaning effectiveness (soil and microbial load reduction), water usage, energy consumption, cycle time, and potential fabric wear for promising mechanical approaches."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving effective soil and microbial removal with very little water to act as a solvent, suspension, and transport medium for dislodged contaminants.",
+        "Preventing fabric damage (e.g., abrasion, tearing, color fading) from intensified or novel mechanical actions required for low-water cleaning.",
+        "Designing systems that are compact, affordable, energy-efficient, and user-friendly for deployment in diverse water-scarce environments."
+      ]
+    },
+    "bcf5ec45-1bbb-420e-999b-9ccc3db3b041": {
+      "uuid": "bcf5ec45-1bbb-420e-999b-9ccc3db3b041",
+      "idea": "Probiotic textiles self-neutralize contaminants for hygiene.",
+      "description": "Clothing incorporates beneficial, encapsulated microbes that actively break down sweat, oils, and pathogenic bacteria, thereby maintaining hygiene and reducing the need for frequent, water-intensive washing. This applies biological purification principles directly to textiles.",
+      "feasibility_rationale": "Maintaining live probiotic viability and efficacy through textile manufacturing, wear, and potential skin contact, while ensuring safety and preventing unwanted microbial growth, presents substantial R&D challenges. Current encapsulation technology for live microbes on textiles is nascent.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying live probiotic cultures directly into textile matrices for continuous hygiene maintenance is a significant departure from traditional cleaning or passive antimicrobial coatings. It draws inspiration from biological systems like the Schmutzdecke in a novel context for personal apparel.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could nearly eliminate the need for water-based washing for hygiene maintenance of certain garments, fundamentally addressing the design challenge in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Encapsulated probiotics can remain viable and active on textiles for a sufficient duration to provide hygiene benefits.",
+        "Probiotics can effectively neutralize a broad spectrum of contaminants and pathogenic bacteria relevant to clothing hygiene.",
+        "The probiotic textile system is safe for long-term skin contact and does not cause adverse reactions or disrupt the natural skin microbiome negatively."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify robust probiotic strains effective against common clothing contaminants (sweat, oils, odor-causing bacteria, common pathogens) and compatible with textile integration.",
+        "Develop and test encapsulation methods that protect microbes during textile production and wear, allow for controlled release/activity, and maintain viability.",
+        "Conduct small-scale trials on treated fabric swatches to assess hygiene efficacy (microbial load reduction, odor control) and microbial viability over time and under simulated wear conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability, stability, and controlled activity of encapsulated microbes within the textile matrix under various environmental conditions (temperature, humidity, UV exposure).",
+        "Scalability of manufacturing probiotic textiles and achieving cost-effectiveness comparable to or justifiable over existing solutions.",
+        "Consumer acceptance, regulatory approval (e.g., safety for skin, environmental impact), and addressing potential for unintended microbial consequences."
+      ]
+    },
+    "a704b584-51f0-489f-b1fd-079035259451": {
+      "uuid": "a704b584-51f0-489f-b1fd-079035259451",
+      "idea": "Nanostructured textiles kill microbes on contact, saving water.",
+      "description": "Fabric surfaces are engineered with microscopic physical structures that mechanically rupture bacteria and viruses upon contact, ensuring hygiene with only minimal water needed for occasional rinsing of debris, drastically cutting water use.",
+      "feasibility_rationale": "Creating precise, durable, and cost-effective antimicrobial nanostructures on flexible textile surfaces at scale is complex. Ensuring the structures remain effective after repeated wear, abrasion, and potential minimal rinsing is a key challenge.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While antimicrobial nanostructures are an active research area, their specific application to textiles for mechanical microbial destruction to primarily reduce water consumption for hygiene is a moderately innovative approach. It shifts from chemical to physical action for hygiene maintenance.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce the microbial load on clothing, thereby decreasing the frequency and intensity of water-based washing needed for hygiene, leading to substantial water savings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanostructures can be durably integrated into common clothing fabrics without significantly compromising comfort, feel, or other essential fabric properties.",
+        "The 'contact killing' mechanism of the nanostructures is effective against a broad range of relevant pathogens found on clothing and maintains efficacy over time.",
+        "The nanostructures are safe for prolonged human skin contact and do not shed harmful nanoparticles into the environment or onto the user."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate and compare different methods for creating durable and effective antimicrobial nanostructures (e.g., nanoneedles, patterned surfaces) on common textile types (cotton, polyester, blends).",
+        "Test the antimicrobial efficacy of these nanostructured textiles against a panel of relevant bacteria and viruses under simulated wear and soiling conditions.",
+        "Evaluate the safety (skin irritation, cytotoxicity, particle shedding) and durability (wash resistance, abrasion resistance) of the most promising nanostructured textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high durability of the nanostructures during regular wear, stretching, and even minimal washing/rinsing cycles.",
+        "Cost-effective and scalable manufacturing processes for applying nanostructures to large volumes of textiles.",
+        "Addressing potential long-term health effects of skin contact with nanostructured materials and environmental concerns regarding nanoparticle shedding."
+      ]
+    },
+    "92447bee-0714-4f71-8fdd-10700120ae5c": {
+      "uuid": "92447bee-0714-4f71-8fdd-10700120ae5c",
+      "idea": "Encapsulated essential oil dry cleanse spray for hygiene.",
+      "description": "A water-minimal \"dry cleanse\" spray using microencapsulated essential oils. These oils release antimicrobial and deodorizing compounds, effectively refreshing clothes and restoring hygiene between conventional washes, thus directly addressing water scarcity.",
+      "feasibility_rationale": "Microencapsulation of essential oils is an established technology, and formulating sprays is common. The primary challenges lie in optimizing the blend for broad-spectrum hygiene efficacy and ensuring sustained release without fabric damage or skin irritation.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While fabric refresher sprays and essential oils for aroma are common, a dedicated hygiene-focused 'dry cleanse' spray using microencapsulated essential oils for sustained antimicrobial action to significantly reduce washing frequency is a moderately novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This offers a practical, user-friendly way to reduce water usage by refreshing clothes and maintaining an intermediate level of hygiene, thus extending wear time between full washes, though it doesn't eliminate them.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Microencapsulated essential oils can provide a sufficient level of antimicrobial and deodorizing effects to meet acceptable hygiene standards between full washes.",
+        "The spray application can achieve even coverage and penetration into fabric without causing damage, staining, or leaving undesirable residues.",
+        "The concentration and types of essential oils required for effective hygiene are safe for repeated indirect skin contact via clothing and for inhalation during application."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test combinations of microencapsulated essential oils for broad-spectrum antimicrobial activity against common clothing-related microbes (bacteria, fungi).",
+        "Develop prototype spray formulations and evaluate their effectiveness in reducing microbial load and neutralizing odours on various fabric types, assessing longevity of effect.",
+        "Conduct safety testing for skin sensitivity (e.g., RIPT - Repeat Insult Patch Test on fabric treated with spray) and fabric compatibility (discoloration, degradation) of the developed formulations."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving true broad-spectrum antimicrobial efficacy that provides actual hygiene (pathogen reduction) beyond simple odour masking.",
+        "Ensuring long-lasting effects from a single application to genuinely extend the period between washes, and preventing rapid re-contamination or microbial resistance.",
+        "Potential for allergic reactions or skin sensitization to specific essential oils in a segment of the user population, and managing scent preferences."
+      ]
+    },
+    "5fbb3047-67c2-4fa9-a238-5a0295b3a816": {
+      "uuid": "5fbb3047-67c2-4fa9-a238-5a0295b3a816",
+      "idea": "Embed cleaning enzymes in fabric, activated by minimal moisture for targeted breakdown.",
+      "description": "This idea embeds freeze-dried enzymes in fibers, activated by minimal water for local cleaning. Inspired by snippet's rehydratable reactions, it's an abiotic alternative to living biological purification for low-water hygiene.",
+      "feasibility_rationale": "Freeze-drying enzymes is known, but stable, effective embedding in fabric and ensuring long-term activity and efficient cleaning with minimal moisture pose significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While enzyme detergents exist, embedding stable, moisture-activated enzymes directly into fabric for in-situ cleaning with minimal water is a significant departure from conventional washing methods and offers a fresh approach to the design challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could dramatically reduce water usage for clothing hygiene by enabling targeted, on-garment cleaning, aligning perfectly with the design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Enzymes can be stably embedded in fabric fibers without losing activity over time and through wear.",
+        "A minimal amount of moisture (e.g., sweat, mist) is sufficient to activate enzymes effectively for cleaning.",
+        "The enzymatic action can achieve 'standard hygiene levels' for a broad range of common soiling/microbial loads."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and test methods for embedding various cleaning enzymes into common textile fibers, assessing stability and activity post-embedding.",
+        "Conduct experiments to determine the minimum water volume and optimal conditions for activating embedded enzymes to break down common stains and microbial loads.",
+        "Evaluate the longevity of enzyme activity through simulated wear and tear cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining enzyme stability and activity after embedding and during garment wear/storage.",
+        "Ensuring effective distribution and penetration of minimal moisture for enzyme activation across soiled areas.",
+        "Cost-effectiveness of enzyme production and fabric integration at scale."
+      ]
+    },
+    "a822aa31-e916-42b0-99b9-4c989a2bee76": {
+      "uuid": "a822aa31-e916-42b0-99b9-4c989a2bee76",
+      "idea": "Garments use sensors to trigger localized lytic agents upon pathogen detection.",
+      "description": "Clothing incorporates pathogen-specific sensors activating co-localized, freeze-dried lytic agents. Provides targeted, minimal-water hygiene. Inspired by snippet's detection/lysis, it's a highly engineered alternative to broad biological purification.",
+      "feasibility_rationale": "While components exist in lab settings, integrating reliable, durable, and safe pathogen sensors and lytic agent release mechanisms into everyday textiles faces substantial technical hurdles in power, reusability, and cost.",
+      "feasibility_score": 2,
+      "novelty_rationale": "This idea combines advanced biosensing with targeted, on-demand decontamination directly within the garment, representing a paradigm shift for hygiene and pathogen control in clothing.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "Successfully implementing this could provide unparalleled protection against specific pathogens on clothing, revolutionizing hygiene in critical settings and offering personalized health benefits.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Pathogen sensors can be made sufficiently robust, specific, and sensitive for reliable operation in a garment.",
+        "Lytic agents can be stored stably and released effectively in a localized manner without harming the wearer or fabric.",
+        "The system (sensors, agents, activation) can withstand normal garment wear, tear, and some form of cleaning/refreshing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate the feasibility of embedding simplified, robust pathogen signature sensors (e.g., targeting general bacterial markers initially) into textile swatches.",
+        "Explore methods for controlled, localized release of benign model 'lytic agents' (e.g., pH indicators, colored dyes) from fabric upon a trigger.",
+        "Conduct a thorough safety assessment of potential lytic agents and their byproducts in contact with skin and fabric."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing robust, reliable, and low-cost biosensors suitable for integration into textiles that can withstand wear and washing.",
+        "Ensuring the safety and specificity of lytic agents, preventing harm to the wearer or beneficial microbes.",
+        "Powering the sensors and activation mechanisms within a garment."
+      ]
+    },
+    "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae": {
+      "uuid": "4faf4d73-3d49-4a40-8fea-3b4f7ff6cfae",
+      "idea": "Garment patches with concentrated, water-activated enzymes in micro-chambers for spot cleaning.",
+      "description": "Textile 'patches' with concentrated, lyophilized enzymes in micro-chambers activate with minimal water for potent spot cleaning. Mimics snippet's low-volume reactions, focusing on chemical action unlike the initial biological approach.",
+      "feasibility_rationale": "Microfabrication techniques for creating chambers on flexible substrates are advancing, and enzyme stabilization is understood. Integrating these into a user-friendly patch format seems achievable with focused R&D.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While spot cleaning exists, the concept of pre-fabricated, enzyme-filled micro-chamber patches activated by minimal water offers a novel delivery mechanism and controlled reaction environment for clothing.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This offers a highly practical solution for extending garment wear life between full washes by efficiently tackling common spots and stains with minimal water, directly addressing a key aspect of the design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Enzymes can be concentrated and stabilized effectively within micro-chambers on a patch.",
+        "The patch can be easily applied and activated by the user with a very small amount of water.",
+        "The concentrated enzymes in the micro-chambers can effectively break down common stains without damaging fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Prototype micro-chamber designs on flexible textile-like substrates and test methods for loading/sealing lyophilized enzymes.",
+        "Evaluate the efficacy of rehydrated enzymes from these chambers on various common stains using minimal water volumes.",
+        "Assess the stability of enzymes in the patches over time and under different storage conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Designing durable micro-chambers that can withstand handling and application yet allow for effective enzyme release/action upon activation.",
+        "Ensuring sufficient enzyme concentration and activity within the small volume of a micro-chamber to tackle various stains.",
+        "User adoption and cost-effectiveness compared to existing spot treatment solutions."
+      ]
+    },
+    "634718a3-21d7-4347-b885-4b58a0af1ebf": {
+      "uuid": "634718a3-21d7-4347-b885-4b58a0af1ebf",
+      "idea": "Biofilm-infused textiles for continuous, low-water cleaning.",
+      "description": "Develop textiles with embedded, benign microbial consortia that actively degrade dirt and pathogens, minimizing water needed for rinsing. This directly applies principles of biological purification to the clothing itself.",
+      "feasibility_rationale": "Maintaining a stable, effective, and safe microbial consortia within textiles through wear and varying conditions is a significant hurdle; longevity and control are key issues.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying biofilms directly into textiles for continuous, self-cleaning is a highly inventive approach for clothing hygiene, significantly departing from conventional methods.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could be transformative for water-scarce environments by drastically reducing or eliminating the need for water in clothes cleaning.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Benign and effective microbial consortia can be identified and stably embedded within textile fibers.",
+        "The biofilm can remain active and functional through typical wear and tear and minimal moisture conditions.",
+        "The biofilm activity is sufficient to achieve hygiene standards without adverse effects (odor, skin irritation, fabric degradation)."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify microbial consortia effective against common soils and pathogens found on clothing, which are also benign to humans and textiles.",
+        "Develop and test methods for embedding and maintaining these consortia within various fabric types.",
+        "Conduct small-scale trials to assess cleaning efficacy, biofilm stability, and potential side effects under simulated wear conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term stability and viability of the biofilm in fabric.",
+        "Controlling biofilm activity to prevent unwanted odors, fabric damage, or skin reactions.",
+        "Consumer acceptance of wearing \"living\" textiles and potential allergenic responses."
+      ]
+    },
+    "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6": {
+      "uuid": "1aaab99f-6564-4a6a-a3dc-a0fd13b608b6",
+      "idea": "Enzymatic wash with MBR-based water recycling loop.",
+      "description": "A system using targeted enzymes for soil breakdown, followed by a compact membrane bioreactor to purify and continuously reuse the minimal water, addressing both hygiene and severe water scarcity.",
+      "feasibility_rationale": "Enzyme technology is mature and MBRs are established, but miniaturization for domestic use and long-term operation with very low water volumes present integration challenges.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Combining targeted enzymes with a compact MBR for clothing cleaning is a moderately novel system approach, particularly for achieving high water recycling rates in a domestic context.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This system could significantly reduce water consumption for laundry by enabling high reuse rates, directly addressing the design challenge of hygiene in severe water scarcity.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A broad-spectrum enzyme cocktail can effectively break down diverse soils on clothing in minimal water.",
+        "A compact MBR can efficiently purify the enzyme-rich, soil-laden water to a level suitable for reuse on clothes.",
+        "The system can be made user-friendly, cost-effective, and robust for domestic or small-community use."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test enzyme formulations optimized for low-water, high-soil load conditions typical of minimal water washing.",
+        "Design and prototype a lab-scale MBR system specifically for treating laundry effluent from enzymatic washing, focusing on water recovery and quality.",
+        "Evaluate the long-term performance of the integrated system, including water quality, enzyme replenishment needs, and membrane fouling."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a compact, efficient, and affordable MBR unit suitable for very low water volumes and diverse contaminants from laundry.",
+        "Managing enzyme stability and activity over multiple cycles in a closed-loop system.",
+        "Preventing build-up of recalcitrant compounds or microbial growth in the recycled water over time."
+      ]
+    },
+    "4a1871df-ce9a-4509-a24d-c330dc5596b8": {
+      "uuid": "4a1871df-ce9a-4509-a24d-c330dc5596b8",
+      "idea": "Bacteria-activated self-cleaning fabric inspired by self-healing concrete.",
+      "description": "Embed spore-forming bacteria within fabric fibers that activate upon contact with moisture and specific soils to 'self-clean' the textile, drastically reducing external water input for hygiene.",
+      "feasibility_rationale": "Significant biological challenges exist in ensuring bacteria activate appropriately, perform effective cleaning, and then become dormant without harming fabric or wearer; precise control is difficult.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Using spore-forming bacteria embedded in fabric, inspired by self-healing concrete, for self-cleaning is a highly inventive and fresh perspective for textile hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If realized, this could revolutionize clothing care by making clothes largely self-maintaining, offering a transformative solution for water-scarce regions.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Spore-forming bacteria can be embedded in fabric fibers and remain dormant until specifically activated by moisture and soils.",
+        "Activation leads to reliable and effective degradation of a wide range of common clothing soils.",
+        "The bacteria, their metabolic byproducts, and the activation process are safe for prolonged skin contact and do not damage the textile."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify spore-forming bacteria with known capabilities to degrade common clothing soils (e.g., oils, proteins) and are demonstrably safe for human contact.",
+        "Investigate methods for incorporating bacterial spores into textile fibers in a stable, dormant state that allows for subsequent activation.",
+        "Conduct proof-of-concept experiments to demonstrate controlled activation and cleaning efficacy on fabric swatches with standardized soils."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving reliable and targeted activation/deactivation of bacteria within the fabric matrix without premature or incomplete action.",
+        "Ensuring the \"cleaning\" action is effective across a range of common soils and does not produce undesirable byproducts (e.g., odors, discoloration, toxins).",
+        "Long-term viability of spores through wear, environmental exposure, and ensuring they don't become pathogenic or cause skin issues."
+      ]
+    },
+    "1430f8ab-3190-4b7b-a9c2-c11abb76e376": {
+      "uuid": "1430f8ab-3190-4b7b-a9c2-c11abb76e376",
+      "idea": "Self-cleaning textiles with embedded purifying microbial biofilms.",
+      "description": "Integrate beneficial microbial biofilms into clothing fibers to continuously break down dirt and odors, achieving hygiene with drastically reduced water for rinsing. This directly applies the biological purification principle.",
+      "feasibility_rationale": "Maintaining a stable, effective, and safe biofilm on flexible, wearable textiles that undergo mechanical stress and varying conditions presents substantial biological and engineering challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying living microbial biofilms directly onto textiles for continuous cleaning is a highly inventive approach for clothing care, moving beyond passive material properties.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could revolutionize clothing hygiene by creating garments that largely self-clean, drastically reducing water, energy, and detergent use.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial microbial consortia can be stably integrated into textile fibers and remain viable through wear and minimal care.",
+        "These biofilms can effectively break down a wide range of common soils and odor-causing compounds on clothing without damaging the fabric or harming the wearer.",
+        "The biofilm can be controlled to prevent pathogenic overgrowth or the production of undesirable byproducts."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and cultivate microbial consortia that demonstrate efficacy against common clothing soils and odors, are safe for skin contact, and compatible with textile materials.",
+        "Develop and test methods for embedding or attaching biofilms to various textile fibers to ensure durability and sustained microbial activity.",
+        "Conduct small-scale trials on biofilm-treated fabric swatches to assess cleaning performance, odor reduction, fabric integrity over time, and biocompatibility."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability, stability, and consistent activity of the biofilm on dynamic textile surfaces under varying environmental conditions.",
+        "Controlling the microbial ecosystem to prevent the growth of pathogenic organisms or the release of harmful/allergenic byproducts.",
+        "Overcoming potential consumer aversion to wearing 'living' clothes and ensuring comfort and non-irritation."
+      ]
+    },
+    "8db70e3c-0907-4731-88c8-4e0396669ebc": {
+      "uuid": "8db70e3c-0907-4731-88c8-4e0396669ebc",
+      "idea": "Plant-xylem inspired fabric filters for low-water laundry systems.",
+      "description": "Develop fabrics mimicking plant xylem to filter wash water for immediate reuse in clothes cleaning, achieving hygiene standards while minimizing total water consumption. This offers a bio-inspired filtration solution.",
+      "feasibility_rationale": "Creating durable, efficient, and non-clogging synthetic xylem-like filter materials at a scale suitable for laundry systems is technically challenging but draws on established membrane science.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Using bio-inspired xylem structures as integral fabric filters within a laundry system for immediate water reuse offers a moderately novel approach to water conservation in cleaning.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water consumption in laundry by enabling efficient on-site recycling of wash water, directly addressing water scarcity.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Xylem-mimicking porous structures can be manufactured into durable fabric or filter components suitable for repeated use in laundry systems.",
+        "These structures can effectively filter particulate matter, microbes, and key dissolved contaminants from wash water to enable safe reuse for cleaning.",
+        "The filtration system can maintain adequate flow rates and resist biofouling/clogging when exposed to detergents and diverse soil loads."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and characterize prototype materials that mimic plant xylem structures, focusing on pore size distribution, flow rate, and filtration efficiency for simulated laundry wastewater.",
+        "Evaluate the mechanical durability and chemical resistance of these materials under conditions typical of laundry cycles (e.g., agitation, detergents, temperature changes).",
+        "Design a conceptual model of a low-water laundry system incorporating such a filter and perform simulations to estimate water saving potential and identify critical operational parameters."
+      ],
+      "major_challenges_roadblocks": [
+        "Scalable and cost-effective manufacturing of synthetic xylem-mimicking materials with consistent and precise filtration properties.",
+        "Preventing and managing biofouling and particulate clogging of the filter material over numerous laundry cycles.",
+        "Achieving sufficient water flow rates for practical laundry cycle durations while maintaining high filtration efficacy and hygiene standards."
+      ]
+    },
+    "6257318a-9081-4e67-8fdd-435706ab6479": {
+      "uuid": "6257318a-9081-4e67-8fdd-435706ab6479",
+      "idea": "Thermoresponsive coatings on clothes release dirt with minimal water.",
+      "description": "Coat clothing with polymers that bind dirt, then release it via temperature change with minimal water, achieving effective cleaning and hygiene with significantly less water. This is a material-based approach.",
+      "feasibility_rationale": "While thermoresponsive polymers exist, developing coatings that durably adhere to textiles, effectively bind diverse soils, and release them efficiently with minimal water requires significant material science R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying thermoresponsive polymers specifically to clothing for temperature-triggered dirt release is a highly inventive material-based solution for low-water cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This approach could dramatically reduce water and energy consumption in laundry by making dirt removal significantly easier and requiring less mechanical action and water.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Thermoresponsive polymers can be durably coated onto a variety of textile types without adversely affecting fabric feel, breathability, or appearance.",
+        "These polymers can effectively bind a broad spectrum of common clothing soils (e.g., oils, particulate matter, sweat components) at one temperature.",
+        "A readily achievable temperature shift can trigger near-complete release of the bound soil, requiring only minimal water for rinsing away loosened dirt."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or synthesize candidate thermoresponsive polymers with suitable transition temperatures (e.g., between ambient and warm tap water) and demonstrable affinity for common soil types found on clothing.",
+        "Develop and optimize methods for applying these polymer coatings to various textile substrates, focusing on adhesion, durability through wear/wash cycles, and evenness of coating.",
+        "Conduct laboratory tests on coated fabric swatches to quantify dirt binding capacity and release efficiency upon temperature change, measuring the amount of water needed for effective soil removal."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving robust and long-lasting adhesion of the polymer coating to textile fibers, capable of withstanding multiple wear and washing cycles.",
+        "Ensuring the polymer coating effectively binds a wide range of chemically diverse soils and then releases them cleanly without redeposition or leaving residues.",
+        "Addressing potential concerns regarding the toxicity, cost, environmental impact of the polymers, and the energy required for the temperature shift."
+      ]
+    },
+    "ade5182a-9bdf-4027-8b20-80133469b7eb": {
+      "uuid": "ade5182a-9bdf-4027-8b20-80133469b7eb",
+      "idea": "SERS-based hygiene scanners for verifying low-water clothes cleaning.",
+      "description": "Use SERS+ML as a rapid, portable scanner to verify clothing hygiene after low-water cleaning, ensuring microbial and contaminant standards are met. This provides crucial validation for novel cleaning methods, ensuring they meet hygiene targets effectively.",
+      "feasibility_rationale": "While SERS and ML are established technologies, developing a robust, portable, and affordable scanner for diverse clothing materials and contaminants presents significant engineering and calibration challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying advanced spectroscopic techniques like SERS with ML for consumer-level or point-of-use clothing hygiene verification is a significant departure from traditional visual/olfactory checks or lab-based swab tests. It offers a data-driven approach to a common problem.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "A reliable scanner could significantly boost adoption and confidence in low-water cleaning methods by providing tangible proof of hygiene, directly addressing the core challenge of verifying cleanliness.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "SERS can reliably detect and differentiate a relevant range of microbial and chemical contaminants on diverse textile surfaces.",
+        "A portable, user-friendly, and cost-effective SERS device can be developed for consumer or semi-pro use.",
+        "ML algorithms can be trained to accurately interpret SERS data for hygiene assessment with minimal false positives/negatives."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct proof-of-concept studies using benchtop SERS to identify detectable bio-signatures (bacteria, fungi, key organic soils) on common textile swatches after various low-water cleaning simulations.",
+        "Develop a preliminary spectral library of common contaminants and clean fabric references relevant to clothing hygiene.",
+        "Investigate current state-of-the-art in portable SERS device components and assess pathways for cost reduction and enhanced usability."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving sufficient sensitivity and specificity across varied fabric types, colors, dyes, and contaminant mixtures.",
+        "Miniaturization, cost reduction, and development of a user-friendly interface for a consumer-facing device.",
+        "Establishing clear, measurable 'hygiene standards' that the SERS scanner can objectively verify against."
+      ]
+    },
+    "c485d817-50d8-4977-a27d-22e9ecd0df7b": {
+      "uuid": "c485d817-50d8-4977-a27d-22e9ecd0df7b",
+      "idea": "Embed SERS-active sentinel fibers in clothing for cleanliness monitoring.",
+      "description": "Integrate SERS-active 'sentinel fibers' into textiles that change spectral signature when soiled or pathogens are present. This enables direct, on-garment hygiene assessment, guiding water-efficient cleaning decisions and verifying cleanliness.",
+      "feasibility_rationale": "Significant materials science breakthroughs are needed to create durable, washable, cost-effective SERS-active fibers that retain sensitivity after multiple wear/wash cycles and integrate seamlessly into textiles. Reading the signal effectively from embedded fibers also presents major challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Embedding SERS-active fibers directly into clothing for continuous or on-demand hygiene monitoring is a paradigm shift from external assessment methods, representing a truly 'smart textile' approach to cleanliness.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "This could revolutionize personal hygiene and laundry practices by enabling precise, needs-based cleaning and offering ultimate assurance of cleanliness, perfectly aligning with water-saving goals and potentially reducing unnecessary washing.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "SERS-active fibers can be manufactured that are safe, durable, and maintain sensitivity through numerous wear and low-water washing cycles.",
+        "The spectral changes in these fibers accurately and reliably correlate with hygiene levels (microbial load, specific contaminants) on the garment.",
+        "A practical method for reading the spectral signature from embedded fibers (e.g., with a compact handheld device) can be developed without damaging the garment."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and synthesize prototype SERS-active polymer fibers or textile coatings, focusing on biocompatibility and adhesion to common clothing materials.",
+        "Test the durability (mechanical stress, wash cycles) and sustained sensitivity of prototype SERS-active fibers to target analytes (e.g., bacterial markers).",
+        "Explore optical methods for interrogating embedded fibers, considering signal strength, interference from fabric, and ease of use."
+      ],
+      "major_challenges_roadblocks": [
+        "Material science: Developing SERS-active fibers that are robust, launderable (even with low-water methods), biocompatible, and cost-effective for mass production.",
+        "Maintaining sensor sensitivity and avoiding signal degradation or leaching of SERS materials over the garment's lifespan.",
+        "Developing a practical, non-invasive, and reliable method to read out the SERS signal from fibers distributed within a garment."
+      ]
+    },
+    "8ae80d72-cf14-42be-b190-a6d98e854eb1": {
+      "uuid": "8ae80d72-cf14-42be-b190-a6d98e854eb1",
+      "idea": "Use SERS to detect microbial metabolite signatures for hygiene assessment.",
+      "description": "Develop a SERS system to detect specific metabolic byproducts of common microbes on clothes. Absence or low levels of these metabolites would indicate effective low-water cleaning to hygiene standards, offering a molecular-level verification.",
+      "feasibility_rationale": "Identifying specific, stable, and consistently detectable microbial metabolites on diverse textiles that reliably correlate with hygiene levels presents a complex biochemical and analytical challenge. Sensitivity requirements for SERS would be high due to potentially low metabolite concentrations.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Targeting microbial metabolites rather than the microbes themselves for hygiene assessment is a sophisticated and indirect approach. It offers a novel molecular perspective on defining and measuring clothing cleanliness.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, detecting metabolite signatures could offer a highly sensitive and specific measure of biological hygiene, complementing direct pathogen detection and enhancing confidence in the efficacy of low-water cleaning methods.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Specific, SERS-detectable microbial metabolites exist that reliably indicate unhygienic conditions on clothing across different individuals and environments.",
+        "These metabolites are present in sufficient concentrations on fabric surfaces for robust SERS detection.",
+        "A SERS system can be developed to differentiate these metabolite signatures from the complex chemical background of textiles, sweat, skin cells, and residual detergents."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Conduct literature review and exploratory studies (e.g., using GC-MS or LC-MS on soiled fabric extracts) to identify candidate microbial metabolites consistently associated with unhygienic clothing.",
+        "Evaluate the SERS activity and potential for selective detection of any identified candidate metabolites.",
+        "Develop and test SERS substrates and protocols optimized for detecting these target metabolites on various textile samples, assessing sensitivity and specificity."
+      ],
+      "major_challenges_roadblocks": [
+        "Biochemical complexity: Identifying unique and stable metabolite biomarkers for 'unclean' clothing that are consistently SERS-active and not confounded by diet, environment, or textile chemistry.",
+        "Sensitivity: Achieving the necessary SERS sensitivity to detect potentially low concentrations of these metabolites amidst interfering signals from fabric, sweat, and detergent residues.",
+        "Correlation and calibration: Establishing a robust correlation between detected metabolite levels and actual hygiene standards (e.g., microbial load, pathogen presence) and user perception of cleanliness."
+      ]
+    },
+    "760d7717-d6ec-47a3-a018-631fbd97c241": {
+      "uuid": "760d7717-d6ec-47a3-a018-631fbd97c241",
+      "idea": "Self-cleaning clothes with dormant, dirt-digesting microbial biofilms.",
+      "description": "Integrate dormant microorganisms into fabric that activate with minimal moisture to break down soils and odors, drastically reducing water for cleaning. This adapts the biological purification concept for direct application to textiles.",
+      "feasibility_rationale": "Requires significant breakthroughs in bio-engineering textiles, ensuring microbe viability, targeted action, safety for prolonged skin contact, and prevention of fabric degradation.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying biological purification principles, specifically active microbial biofilms, directly to textiles for cleaning is a highly inventive departure from conventional methods.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could revolutionize clothes cleaning by making garments largely self-maintaining, drastically reducing water and energy consumption for laundry.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microorganisms can be effectively integrated into textile fibers and remain dormant until activated by minimal moisture.",
+        "These microorganisms can effectively degrade a wide range of common clothing soils and odors using very little water.",
+        "The process, microbes, and byproducts are safe for human skin contact, do not damage the fabric, and are environmentally benign."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify/engineer microbial strains capable of degrading common clothing soils and surviving dormancy in/on textile fibers.",
+        "Develop and test methods for embedding or coating dormant microbes onto fabrics and their controlled activation with minimal moisture.",
+        "Conduct initial safety (skin irritation, inhalation) and efficacy tests on small fabric swatches, assessing soil removal and odor reduction."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability, stability, and controlled activation of dormant microbes in diverse fabric types and under various environmental conditions.",
+        "Achieving effective cleaning (soil removal, odor elimination, hygiene standards) comparable to traditional methods without fabric degradation or harmful byproducts.",
+        "Overcoming consumer acceptance barriers and addressing safety concerns regarding wearing clothes with active microbial populations."
+      ]
+    },
+    "48d83e2a-c65a-466c-a05b-d2ece365bc72": {
+      "uuid": "48d83e2a-c65a-466c-a05b-d2ece365bc72",
+      "idea": "Compact multi-strata cleaning pad for clothes using minimal pulsed water.",
+      "description": "A device with layers for physical and biological cleaning, through which clothes are pressed. Minimal water is pulsed through, mimicking efficient vertical flow wetland principles for low-water cleaning.",
+      "feasibility_rationale": "While filtration principles are established, miniaturizing them effectively into a durable, user-friendly pad that cleans clothes with minimal water presents notable engineering challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Adapting multi-stage water filtration principles into a compact, portable pad for garment-specific cleaning is a moderately novel approach to the challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could offer a practical, very low-water solution for cleaning individual items or spot cleaning, particularly useful in water-scarce settings or for travel.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "A multi-layer physical and/or biological filtration system can be effectively miniaturized into a compact pad format while retaining cleaning efficacy.",
+        "Minimal pulsed water combined with mechanical pressing is sufficient to mobilize soils and facilitate their removal/degradation within the pad.",
+        "The pad can be designed to be durable, easy to use, and its waste (trapped soil, spent media) can be managed hygienically."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Prototype and test various layered materials (e.g., fine mesh, activated carbon, porous ceramics) for a compact pad structure, focusing on particle capture and flow dynamics.",
+        "Evaluate the efficacy of minimal pulsed water and mechanical pressing (e.g., rolling, stamping) for dislodging and filtering common soils from fabric swatches.",
+        "Investigate options for incorporating a renewable/replaceable biological cleaning layer or an easily cleanable/replaceable filter cartridge system."
+      ],
+      "major_challenges_roadblocks": [
+        "Designing filter layers that are effective across a range of soil types, durable, and resist rapid clogging in a compact, water-limited format.",
+        "Achieving sufficient cleaning performance, including stain removal and hygiene, with very low water volumes and limited mechanical action.",
+        "Developing a practical method for cleaning or regenerating the pad, or managing disposable components, without significant environmental impact."
+      ]
+    },
+    "e9df4c82-746e-44ca-8c08-75c8e6c790b3": {
+      "uuid": "e9df4c82-746e-44ca-8c08-75c8e6c790b3",
+      "idea": "Clothing fibers with absorbent, purifying nanocrystals for near-waterless cleaning.",
+      "description": "Embed modified cellulose nanocrystals in fibers to absorb dirt and microbes with very little water, then allow easy release/regeneration. This shifts from traditional washing to material-based purification.",
+      "feasibility_rationale": "Requires significant advancements in materials science to develop nanocrystals with broad-spectrum absorption, ensure their durable integration into fibers, and create an efficient, low-energy regeneration process.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating functionalized nanocrystals directly into clothing fibers for active absorption, purification, and subsequent regeneration is a highly inventive materials-based approach to cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If realized, this could lead to garments requiring very infrequent, near-waterless 'refreshing' rather than traditional washing, significantly impacting water usage for laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanocrystals can be engineered to exhibit high and selective absorption capacity for a wide range of common clothing soils and microbes.",
+        "These nanocrystals can be durably and safely embedded within or coated onto textile fibers without negatively impacting fabric properties (e.g., feel, breathability, durability).",
+        "An efficient, low-energy, and user-friendly method can be developed to regenerate the nanocrystals by releasing absorbed contaminants without damaging the garment."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify/synthesize nanocrystal candidates (e.g., modified cellulose nanocrystals, zeolites, MOFs) with demonstrated high affinity for common clothing soils and microbial contaminants.",
+        "Explore and test methods for incorporating these nanocrystals into textile fibers or as a durable surface coating, assessing stability and impact on fabric properties.",
+        "Investigate and prototype low-energy regeneration mechanisms (e.g., mild heat, specific light wavelengths, simple solvent rinse) for contaminant-laden nanocrystals on fabric swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving broad-spectrum absorption and purification capabilities in nanocrystals for diverse soils (oily, particulate, biological) and odors.",
+        "Developing a practical, efficient, and safe in-garment regeneration mechanism for the nanocrystals that consumers can easily perform with minimal resources.",
+        "Ensuring the long-term stability, safety (e.g., no shedding of nanoparticles, no skin irritation), and cost-effectiveness of nanocrystal-functionalized textiles."
+      ]
+    },
+    "284f8a2e-cfbe-4115-9b21-8fa2441449cd": {
+      "uuid": "284f8a2e-cfbe-4115-9b21-8fa2441449cd",
+      "idea": "Enzyme-coated fibers for waterless stain breakdown.",
+      "description": "Embed durable, enzyme-releasing *B. subtilis* spores into fabric fibers. This allows for targeted breakdown of organic stains with minimal or no water, addressing water scarcity by enabling 'dry' cleaning at a microbial level, building on the idea of biological agents for purification.",
+      "feasibility_rationale": "Embedding spores or enzymes into fibers is conceivable, but ensuring their long-term stability, controlled release upon encountering a stain, and safety for skin contact presents significant R&D challenges. The 'waterless' aspect also needs careful definition for enzyme activation.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Integrating enzyme-releasing spores directly into fabric fibers for persistent, waterless stain removal offers a significantly new paradigm compared to traditional washing or topical treatments. This moves beyond existing enzyme detergents by making the fabric itself the cleaning agent.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could drastically reduce water consumption for stain removal and potentially extend the time between full washes, directly addressing the core challenge of water scarcity.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "B. subtilis spores can be effectively and durably embedded into or coated onto textile fibers without compromising fabric properties.",
+        "Embedded spores can release active enzymes in sufficient quantities to break down common stains without requiring significant added water.",
+        "The enzyme activity is localized to the stain and does not damage the fabric or cause skin irritation over prolonged contact."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and prototype methods for incorporating B. subtilis spores into common textile fibers (e.g., cotton, polyester), assessing spore viability and retention.",
+        "Test the efficacy of spore-derived enzymes against common stains on fabric swatches in low/no water conditions.",
+        "Conduct preliminary safety assessments (e.g., cytotoxicity, skin irritation models) for spore-coated fabrics."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a method to embed/coat spores that ensures their viability and controlled enzyme release over the garment's lifespan.",
+        "Ensuring the enzymes are effective against a broad range of stains without water, or with minimal ambient moisture.",
+        "Addressing potential allergenic reactions, skin sensitization, or unwanted microbial growth/odor from the spores/enzymes on the fabric."
+      ]
+    },
+    "a08cf1a6-4436-4921-b12b-31be7acd3d64": {
+      "uuid": "a08cf1a6-4436-4921-b12b-31be7acd3d64",
+      "idea": "Self-refreshing clothes with engineered B. subtilis biofilms.",
+      "description": "Develop clothing with a harmless, engineered *B. subtilis* biofilm that continuously degrades sweat and minor organic soiling. This reduces washing frequency, directly tackling low-water cleaning by extending garment wearability, analogous to the continuous purification observed in natural biofilm systems.",
+      "feasibility_rationale": "Maintaining a controlled, beneficial, and aesthetically acceptable biofilm on dynamic textile surfaces through wear, washing (even if infrequent), and environmental exposure presents immense technical and safety hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Creating a persistent, beneficial biofilm on clothing that actively degrades soil and odors is a radical departure from conventional textile cleaning, directly mirroring the continuous action of a Schmutzdecke.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successful, this could nearly eliminate the need for frequent washing, offering a paradigm shift in clothing maintenance and water conservation, fundamentally solving the design challenge.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A harmless, engineered B. subtilis biofilm can be stably established and maintained on textile surfaces through normal wear conditions.",
+        "The biofilm can effectively degrade common body soils (sweat, sebum) and malodor compounds without damaging the fabric or harming the wearer.",
+        "The biofilm itself does not produce undesirable odors, textures, or appearances, and remains safe over time."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate methods for promoting and sustaining B. subtilis biofilm formation on various textile swatches under simulated wear conditions.",
+        "Screen/engineer B. subtilis strains for optimal production of enzymes targeting sweat components and malodor precursors, and assess their activity within a biofilm context.",
+        "Conduct rigorous safety testing for skin contact with B. subtilis biofilms on textiles, including potential for allergenicity and opportunistic infection."
+      ],
+      "major_challenges_roadblocks": [
+        "Controlling biofilm formation, thickness, and activity to be effective but not detrimental (e.g., fabric degradation, odor, skin issues).",
+        "Ensuring the long-term safety and stability of an engineered microbial community on clothing, preventing contamination or mutation.",
+        "User acceptance of wearing 'living' clothes and managing their care."
+      ]
+    },
+    "1aa1436e-c07d-447e-85a1-4abdb668d9dd": {
+      "uuid": "1aa1436e-c07d-447e-85a1-4abdb668d9dd",
+      "idea": "Concentrated B. subtilis spore 'laundry pod' for minimal water soaks.",
+      "description": "Create a 'pod' of dormant *B. subtilis* spores that activate in a small amount of water to enzymatically clean clothes. This significantly reduces water volume compared to conventional washing, offering a direct solution to water scarcity through concentrated biological action.",
+      "feasibility_rationale": "Producing and formulating *B. subtilis* spores is established technology. Optimizing spore germination, enzyme production speed, and cleaning efficacy in very low water volumes are the main R&D tasks.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While enzyme pods are common, using dormant spores that activate to produce enzymes in a minimal water soak offers a more robust and potentially more potent approach to concentrated cleaning.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could enable effective cleaning with drastically reduced water volumes per cycle, directly addressing the challenge of cleaning to hygiene standards in water-scarce settings.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "B. subtilis spores can be formulated into a stable pod that allows for rapid germination and high-level enzyme production upon addition to a small volume of water.",
+        "The enzymes produced by the activated spores are effective at cleaning a typical laundry load in minimal water within a reasonable timeframe.",
+        "The process is safe, leaves no harmful residues on clothes, and any wastewater is manageable."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test formulations of B. subtilis spore pods, evaluating germination rates and enzyme production kinetics in small water volumes.",
+        "Conduct wash performance tests using spore pods on standardized stained fabric swatches in minimal water soak conditions.",
+        "Assess the residual microbial load on fabrics post-cleaning and rinsing, and evaluate the safety of the process and any wastewater."
+      ],
+      "major_challenges_roadblocks": [
+        "Optimizing spore germination speed and the rate/yield of enzyme production to achieve effective cleaning in a practical timeframe.",
+        "Ensuring even distribution and penetration of enzymes in very low water conditions to clean all garments effectively.",
+        "Managing any potential byproducts of microbial activity and ensuring spore disposal or inactivation post-use."
+      ]
+    },
+    "bdf658cb-b5c2-44e2-81fe-d3914a20af05": {
+      "uuid": "bdf658cb-b5c2-44e2-81fe-d3914a20af05",
+      "idea": "Enzyme-coated textiles for waterless biological soil degradation on clothes.",
+      "description": "Textiles are treated with catalytic enzymes that break down organic soil and microbes, achieving cleaning with minimal or no water. This approach is inspired by biological purification principles, applying targeted biocatalysts directly to the fabric.",
+      "feasibility_rationale": "Ensuring enzyme stability, durability of coating, and effectiveness across diverse soils/microbes without water presents major technical hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying enzymes directly to textiles for continuous, waterless soil and microbe degradation is a significant departure from traditional washing, even if enzyme use in detergents is known.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could lead to truly waterless clothing hygiene, directly addressing the core of the design challenge in water-scarce settings.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Enzymes can be durably bound to textile fibers without losing significant activity over the garment's lifespan.",
+        "A combination of enzymes can effectively degrade a broad spectrum of common soils and microbial contaminants found on clothing in a dry or minimally moist state.",
+        "The breakdown products of enzymatic action are non-irritating, non-odorous, and do not negatively affect fabric feel or appearance."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify robust enzyme immobilization techniques suitable for common textile fibers that maintain enzyme activity.",
+        "Conduct lab tests to evaluate the efficacy of selected enzyme systems against common stains (e.g., sebum, protein-based) and microbial loads on fabric swatches in low-water/no-water conditions.",
+        "Investigate the stability and longevity of immobilized enzymes on textiles under simulated wear conditions, including exposure to UV light and temperature fluctuations."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term enzyme stability and activity on fabric through multiple wear cycles and environmental exposures.",
+        "Ensuring the enzymatic action is sufficient to meet perceived and actual hygiene levels (visual, olfactory, microbial) without water as a solvent and transport medium.",
+        "Cost-effective and scalable manufacturing of enzyme-coated textiles, and addressing potential consumer concerns about skin sensitivity or long-term effects."
+      ]
+    },
+    "4010ee79-81ba-405a-ada6-8c62e9545309": {
+      "uuid": "4010ee79-81ba-405a-ada6-8c62e9545309",
+      "idea": "Durable, nano-textured clothing that physically ruptures microbes, reducing wash frequency.",
+      "description": "Clothing surfaces are engineered with permanent, microscopic physical structures that kill microbes on contact, maintaining hygiene longer and significantly reducing water-intensive washing. This offers a durable, non-chemical route to cleanliness.",
+      "feasibility_rationale": "Creating robust, wear-resistant nano-textures on flexible textiles is technically challenging, and ensuring consistent antimicrobial efficacy without causing skin irritation requires careful design and scalable manufacturing.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of antimicrobial nano-textures is established in materials science, but its specific application to clothing to primarily reduce wash frequency by maintaining hygiene is a moderately novel approach to the design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "By maintaining microbial hygiene, this approach can significantly reduce the need for frequent washing, directly impacting water usage for laundry.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nano-textures can be engineered to be sufficiently durable on flexible textile substrates to withstand normal wear, tear, and occasional gentle cleaning processes.",
+        "The physical antimicrobial action of the nano-textures is effective against a broad spectrum of relevant microbes on clothing and does not lead to the development of resistant microbial strains.",
+        "The nano-textured surface is comfortable against the skin, non-irritating, and does not negatively alter desired fabric properties like breathability or feel."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test fabrication methods (e.g., nano-imprinting, etching) for creating various candidate nano-textures on common clothing fabrics like cotton and polyester.",
+        "Evaluate the antimicrobial efficacy (kill rate, spectrum) and durability (through simulated wear, abrasion, and limited washing cycles) of these textured fabrics.",
+        "Conduct preliminary skin sensitivity and comfort studies using fabric swatches with promising nano-textures on human volunteers."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high durability of the nano-structures on flexible and stretchable textile substrates during prolonged wear and mechanical stress.",
+        "Scalability and cost-effectiveness of manufacturing nano-textured textiles for the mass market.",
+        "Addressing non-microbial soiling (e.g., dirt, oils, stains) which would still accumulate and necessitate some form of cleaning, potentially damaging the nano-texture."
+      ]
+    },
+    "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb": {
+      "uuid": "0fbd470a-7fdd-43a7-8126-a32ab8bed4fb",
+      "idea": "Clothing releasing natural antimicrobials activated by body moisture for continuous hygiene.",
+      "description": "Garments incorporate encapsulated natural antimicrobial agents (e.g., essential oils) that are released when exposed to sweat, providing ongoing sanitization and reducing the need for frequent water-based washing. This leverages a minimal, naturally present water source.",
+      "feasibility_rationale": "Technologies for encapsulation and triggered release are fairly well-established; the main challenge is tailoring them for sustained efficacy, optimal release rates, and durability on clothing using natural compounds.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While controlled release mechanisms are explored in textiles, the specific use of body moisture to trigger natural antimicrobials for continuous hygiene offers a moderately novel application for this challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This approach can extend the wearability of clothes by managing microbial growth and odor, leading to reduced washing frequency and thus water savings.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Natural antimicrobial agents can be effectively encapsulated within textiles and released in sufficient, controlled concentrations by body moisture to maintain hygiene.",
+        "The release mechanism can provide antimicrobial benefits over a reasonable number of wear periods before the encapsulated agent is depleted.",
+        "The released natural antimicrobials are non-irritating to the skin at effective concentrations, do not cause undesirable secondary odors, and are stable within the encapsulation matrix."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and test suitable natural antimicrobials (e.g., tea tree oil, chitosan derivatives) and compatible encapsulation methods (e.g., cyclodextrins, polymeric microcapsules) for moisture-triggered release from textiles.",
+        "Evaluate the release kinetics and antimicrobial efficacy of treated fabric swatches when exposed to simulated sweat conditions over time.",
+        "Assess the durability of the encapsulated antimicrobial system and its effectiveness after simulated wear and a limited number of gentle laundering cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring sufficient payload of the antimicrobial agent and achieving a controlled, sustained release that maintains efficacy over the desired wear duration.",
+        "Maintaining the integrity and functionality of the encapsulated system through even infrequent, gentle washing cycles that might be needed to remove physical soils.",
+        "Potential for skin sensitization to specific natural antimicrobials over prolonged exposure, and variability in individual sweat production affecting release consistency."
+      ]
+    },
+    "7f33828b-b6d0-443b-bc3c-99d82bc3bab3": {
+      "uuid": "7f33828b-b6d0-443b-bc3c-99d82bc3bab3",
+      "idea": "Smart fabric releases cleaners on-demand when soiled, minimizing water.",
+      "description": "This fabric would incorporate materials that activate cleaning/disinfecting agents only when specific contaminants are detected, directly addressing hygiene with minimal water. This material-based responsive approach contrasts with mechanisms involving a living biological layer.",
+      "feasibility_rationale": "Developing integrated sensor-actuator systems in flexible, durable textiles is challenging. Ensuring agent stability, controlled release, and non-toxicity over the garment's lifecycle requires significant R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While smart materials exist, applying them to clothing for on-demand, targeted release of cleaning agents triggered by soiling is a fresh approach to waterless hygiene. It significantly departs from traditional washing or purely passive anti-microbial surfaces.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could revolutionize clothing hygiene in water-scarce environments by making washing cycles nearly obsolete for certain types of soiling, directly addressing the challenge.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Effective, non-toxic cleaning agents can be stably embedded and released from fabric.",
+        "Sensors can accurately detect a relevant range of 'soiling' or 'contamination' triggers.",
+        "The system can be durable enough for practical clothing use and multiple activation cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate stimuli-responsive materials and compatible cleaning agents suitable for textile integration.",
+        "Develop proof-of-concept prototypes of fabric swatches with embedded sensors and release mechanisms for specific contaminants.",
+        "Assess the durability and safety (e.g., skin contact, residual chemicals) of prototype materials."
+      ],
+      "major_challenges_roadblocks": [
+        "Miniaturization and integration of reliable sensors and release mechanisms into textile fibers/matrix.",
+        "Ensuring the longevity and reusability/rechargeability of the cleaning agents and release system.",
+        "Cost-effectiveness for widespread adoption and addressing potential skin sensitivity or toxicity."
+      ]
+    },
+    "9159993a-1adf-4a09-9f55-45d6f7491cec": {
+      "uuid": "9159993a-1adf-4a09-9f55-45d6f7491cec",
+      "idea": "Develop anti-fouling clothing surfaces to repel dirt and microbes.",
+      "description": "Prevent clothes from getting dirty/contaminated using anti-fouling coatings, reducing cleaning frequency and water usage. This preventive strategy differs from the initial focus on using a biological layer to process existing contaminants.",
+      "feasibility_rationale": "Technologies for creating water/oil repellent and antimicrobial surfaces are relatively mature. The main challenge is adapting these for textiles to ensure durability, breathability, comfort, and cost-effectiveness without negative environmental/health impacts.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While anti-fouling coatings exist for various applications, creating a breathable, durable, and broadly effective anti-fouling surface for everyday clothing presents a novel application focus for this design challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If effective, this would significantly reduce the frequency of washing, leading to substantial water savings and maintaining hygiene for longer periods.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "An anti-fouling surface can be created that is effective against a wide range of common clothing contaminants (dirt, oils, microbes).",
+        "The coating/surface treatment will be durable enough to withstand regular wear, abrasion, and some washing.",
+        "The treated fabric will maintain acceptable comfort, breathability, and aesthetic properties."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Survey existing anti-fouling technologies and assess their suitability for textile application considering durability, breathability, and safety.",
+        "Develop and test prototype fabric treatments for repellency against target soils and microbes, and assess their durability.",
+        "Evaluate the impact of treatments on fabric hand-feel, breathability, and potential for skin irritation."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term durability of the anti-fouling properties against mechanical wear and laundering.",
+        "Maintaining fabric breathability and comfort, as many repellent coatings can negatively affect these.",
+        "Potential environmental concerns or health impacts of some anti-fouling agents (e.g., PFCs, nanoparticles)."
+      ]
+    },
+    "6abc2971-7bf8-4b5f-b751-ffd857eaded9": {
+      "uuid": "6abc2971-7bf8-4b5f-b751-ffd857eaded9",
+      "idea": "Clothing selectively neutralizes harmful bacteria, not all microbes.",
+      "description": "Create clothing that targets harmful bacteria without broad sterilization, reducing the need for intensive, water-heavy cleaning. This selective approach to microbial management is inspired by targeted biomaterials and offers an alternative to fostering a diverse purifying biofilm.",
+      "feasibility_rationale": "Developing materials that can reliably identify and neutralize specific harmful bacteria while remaining inert to beneficial microbes on a fabric surface is a major scientific challenge. Current technologies for such selectivity are largely experimental and complex.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Moving beyond broad-spectrum antimicrobials to selectively target harmful bacteria on clothing is a sophisticated approach, aligning with emerging understandings of microbiomes. This is a novel application for textile hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could improve hygiene and reduce reliance on harsh cleaning methods, indirectly saving water by reducing the perceived need for aggressive, frequent washing. Its primary impact is on targeted pathogen control rather than general soil removal.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "It's possible to identify and target specific harmful bacteria commonly found on clothing.",
+        "Mechanisms can be developed for fabric to selectively neutralize these targets without broad antimicrobial action.",
+        "Maintaining a 'healthy' or benign microbiome on clothing is beneficial or achievable through this approach."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify key harmful bacterial species commonly associated with clothing-related hygiene issues in water-scarce settings.",
+        "Research existing mechanisms for selective bacterial targeting (e.g., specific bacteriophages, enzymes, aptamers) and assess their potential for textile application.",
+        "Conduct proof-of-concept studies on immobilizing selective antimicrobial agents on fabric substrates and testing their efficacy and selectivity."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing reliable and specific pathogen recognition and neutralization mechanisms suitable for integration into textiles.",
+        "Ensuring the selective agents are stable, durable, and do not cause unintended ecological or health effects.",
+        "Defining which bacteria are 'harmful' in this context and the complexity of targeting multiple potential pathogens."
+      ]
+    },
+    "06362b17-babe-4c76-8f8d-41fb7e78f53e": {
+      "uuid": "06362b17-babe-4c76-8f8d-41fb7e78f53e",
+      "idea": "Bio-active fabric patches for targeted stain removal.",
+      "description": "Develop textile patches with specialized biofilms that actively degrade clothing soils using minimal moisture, directly addressing water scarcity in cleaning. This adapts the principle of biological degradation.",
+      "feasibility_rationale": "While cultivating biofilms on porous materials is known, ensuring their stability, targeted activity, safety, and user-friendliness on a fabric patch presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Using living biofilms embedded in fabric patches for direct, targeted stain degradation is a fresh approach to clothing care, moving beyond chemical or physical removal.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Could drastically reduce water used for stain removal and potentially delay full washes, making a substantial contribution to water-scarce cleaning.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Biofilms can be engineered to effectively degrade a wide range of common clothing stains.",
+        "These biofilms can be maintained in a dormant/active state on a fabric patch and activated with minimal moisture.",
+        "The bio-active patches will be safe for direct or indirect skin contact and not damage fabrics."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify microbial consortia capable of degrading common fabric stains (e.g., oils, proteins, pigments).",
+        "Develop methods to immobilize and maintain viable biofilms on flexible textile-like substrates.",
+        "Conduct initial safety and efficacy tests on various fabric types and stain simulants."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing stable, effective, and broad-spectrum stain-degrading biofilms.",
+        "Ensuring user safety (non-pathogenic, non-allergenic) and fabric compatibility.",
+        "Practical application: shelf-life, activation mechanism, disposal of used patches."
+      ]
+    },
+    "d1370fbd-b8a9-4326-8fdb-dd654feb43d4": {
+      "uuid": "d1370fbd-b8a9-4326-8fdb-dd654feb43d4",
+      "idea": "Garments with biofilm sensors for precision cleaning.",
+      "description": "Embed biofilm-based sensors in clothing to detect soiled areas, enabling hyper-targeted cleaning methods that avoid widespread water use. This uses biological sensing for cleaning efficiency.",
+      "feasibility_rationale": "While biofilm sensors are used in controlled environments, integrating them into washable, wearable garments with reliable power and signal transduction presents substantial technical and durability challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Embedding biofilm sensors directly into clothing for localized soil detection is a novel concept, moving beyond visual inspection to a micro-level assessment for cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could enable hyper-targeted cleaning, minimizing water and resource use by only treating actually soiled areas, leading to significant conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Biofilm sensors can be made sensitive and specific enough to detect common clothing soil types.",
+        "These sensors can be robustly integrated into textiles and withstand wear and (potentially gentle) washing.",
+        "A practical system can be developed to translate sensor data into a targeted cleaning action with minimal water."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or engineer biofilms that can reliably detect common soil indicators (e.g., urea, lipids, proteins) and produce a measurable signal.",
+        "Explore methods for encapsulating or embedding these biofilm sensors into textile fibers or structures.",
+        "Prototype a basic sensor-textile interface and test its responsiveness to simulated soiling."
+      ],
+      "major_challenges_roadblocks": [
+        "Durability and washability of embedded biofilm sensors.",
+        "Powering the sensors and transmitting data reliably from a garment.",
+        "Developing a companion targeted cleaning system that can act on the sensor data effectively."
+      ]
+    },
+    "9910bd22-729f-458e-9410-1e448f2487dd": {
+      "uuid": "9910bd22-729f-458e-9410-1e448f2487dd",
+      "idea": "Closed-loop bio-reactor cleans clothes with recycled mist.",
+      "description": "A compact chamber mists clothes; runoff is purified and reused by an integrated biofilm reactor, achieving hygiene with minimal total water. This is inspired by contained biological processing systems.",
+      "feasibility_rationale": "While bio-reactors for water treatment exist, adapting this to a compact, efficient, and hygienic clothes cleaning appliance with misting presents considerable engineering and biological management challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of a self-contained, mist-based cleaning chamber with an integrated bio-reactor for water purification and reuse is a novel system-level approach for domestic laundry.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If effective and user-friendly, this system could revolutionize clothes cleaning in water-scarce environments by drastically reducing net water consumption per cycle.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Misting with biologically treated water can effectively clean clothes to acceptable hygiene standards.",
+        "A compact bio-reactor can efficiently and consistently purify the diverse and variable soil load from clothes washing.",
+        "The system can be made user-friendly, safe, and economically viable for household use."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research the efficacy of mist-based cleaning for various fabric types and soil loads, focusing on hygiene.",
+        "Design and prototype a small-scale bio-reactor specifically for treating laundry effluent (including potential detergent residues).",
+        "Investigate methods to maintain biofilm health and prevent contamination in a closed-loop system with intermittent operation."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving effective cleaning and soil removal solely with mist and recycled water.",
+        "Maintaining a stable and effective biofilm in the reactor despite variable inputs (detergents, diverse soils).",
+        "Ensuring microbiological safety of the cleaned clothes and preventing odor or biofilm buildup in the system."
+      ]
+    },
+    "9ced186f-efc8-4af2-a430-9f78249c2169": {
+      "uuid": "9ced186f-efc8-4af2-a430-9f78249c2169",
+      "idea": "Biofilm-infused 'cleaning patches' for targeted, low-water stain removal.",
+      "description": "Develop reusable patches containing engineered marine microbial biofilms. These patches would be applied to soiled areas, using minimal moisture to activate the biofilm's enzymatic action for cleaning, directly addressing low-water needs and hygiene standards, drawing from the initial biological purification concept.",
+      "feasibility_rationale": "Engineering stable, effective, and safe microbial biofilms for direct application on clothing, with minimal moisture activation and reusability, presents considerable but potentially solvable R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying engineered marine biofilms in a patch format for targeted clothing stain removal is a highly inventive adaptation of bioremediation principles to personal garment care.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce water consumption by enabling effective spot cleaning, thereby decreasing the frequency of full, water-intensive washes.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Marine microbial biofilms can be engineered to effectively degrade a wide range of common clothing stains using only minimal ambient moisture.",
+        "The biofilm patches can be designed to be safe for prolonged skin contact post-application and leave no harmful or undesirable residues on clothes.",
+        "The patches can maintain their cleaning efficacy and structural integrity over multiple use and reactivation cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and culture marine microorganisms that produce enzymes effective against common stains (e.g., oils, proteins, pigments) under low-moisture conditions.",
+        "Develop prototype biofilm patch formulations and test their cleaning efficacy and speed on various fabric types and stain compositions.",
+        "Conduct preliminary safety assessments for skin sensitization and material compatibility with common textiles."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving broad-spectrum stain removal efficacy and sufficient speed of action for practical use.",
+        "Ensuring the long-term stability, viability, and containment of engineered microbes within the patch.",
+        "Addressing user acceptance concerns regarding applying live microbial cultures to clothing."
+      ]
+    },
+    "bacb7271-a8f7-433b-9d20-948864b01b00": {
+      "uuid": "bacb7271-a8f7-433b-9d20-948864b01b00",
+      "idea": "'Dry-clean' clothes with vaporized marine biosurfactants and antimicrobials.",
+      "description": "A waterless cleaning system that vaporizes biosurfactants and antimicrobial agents derived from marine EPS or seaweeds. These vapors would permeate clothes to lift dirt and neutralize pathogens, achieving hygiene with significantly less water.",
+      "feasibility_rationale": "Vaporizing complex biological molecules like biosurfactants and antimicrobials without denaturation, ensuring effective fabric penetration, and achieving actual soil removal (not just masking) are major technical hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of a waterless, vapor-based cleaning system using marine-derived agents is highly original for garment care, moving beyond surface sprays to a permeating treatment.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could offer a truly waterless method for cleaning and sanitizing clothes, revolutionizing garment care in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Marine-derived biosurfactants and antimicrobial compounds can be effectively vaporized or aerosolized while retaining their functional properties.",
+        "These vaporized agents can sufficiently penetrate textile fibers to interact with and dislodge/neutralize soils and pathogens.",
+        "A practical mechanism can be implemented to either remove the dislodged soil particles or ensure they are fully degraded/neutralized without redeposition."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and test methods for gentle vaporization/aerosolization of marine biosurfactants and antimicrobials, assessing their stability and activity post-treatment.",
+        "Evaluate the penetration depth and cleaning/sanitizing efficacy of these agents in vapor form on various fabric swatches soiled with representative stains and microbes.",
+        "Conduct initial inhalation safety studies and assess potential residue concerns on treated fabrics."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving effective soil lifting and removal using only vapor-phase agents, as physical dirt may not be carried away.",
+        "Ensuring the safety of vaporized compounds for inhalation and skin contact from residues on clothing.",
+        "Developing a device that can effectively vaporize, circulate, and potentially recapture or neutralize these agents."
+      ]
+    },
+    "aef5e868-f941-4924-8ef4-02d9e015f5ea": {
+      "uuid": "aef5e868-f941-4924-8ef4-02d9e015f5ea",
+      "idea": "Self-cleaning clothing via embedded, regenerable marine extremophile enzyme systems.",
+      "description": "Engineer clothing fibers to host or slowly release robust enzymes from marine extremophiles. These enzymes would continuously degrade common soils using ambient moisture, drastically reducing the need for water-intensive washes to maintain hygiene.",
+      "feasibility_rationale": "Durably embedding active and regenerable enzyme systems within textile fibers while ensuring broad-spectrum efficacy, safety, and fiber integrity presents profound scientific and materials engineering challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating regenerable marine extremophile enzyme systems directly into clothing for continuous, ambient-moisture cleaning is a highly ambitious and inventive concept.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could fundamentally alter clothing maintenance by drastically reducing the need for any water-based washing, leading to transformative water savings.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Robust enzymes from marine extremophiles can be successfully immobilized within or onto textile fibers without significant loss of activity over time and use.",
+        "These embedded enzymes can effectively degrade a wide variety of common soils using only ambient moisture.",
+        "A practical and user-friendly method for regenerating or replenishing the enzymatic activity in the clothing can be developed."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen marine extremophiles for enzymes demonstrating high catalytic activity against diverse stains (lipids, proteins, carbohydrates) under ambient humidity and temperature conditions.",
+        "Experiment with different enzyme immobilization techniques on common textile fibers (e.g., covalent bonding, encapsulation) to assess durability and retained activity.",
+        "Conceptualize and test basic regeneration mechanisms for immobilized enzymes, such as exposure to a simple activating solution or specific light conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving long-term stability and activity of enzymes embedded in fibers through multiple wear and ambient exposure cycles.",
+        "Developing a regeneration process that is simple, effective, and does not damage the garment or require specialized equipment.",
+        "Ensuring the enzymes do not cause skin irritation or allergic reactions, and do not degrade the textile fibers themselves over time."
+      ]
+    },
+    "08d4b378-81e2-49a9-ada6-31c8fa7ca62f": {
+      "uuid": "08d4b378-81e2-49a9-ada6-31c8fa7ca62f",
+      "idea": "Layered bio-textile with distinct microbial zones for sequential soil degradation.",
+      "description": "This idea proposes a fabric with embedded microbial layers, each specialized for breaking down different types of clothing soil, mimicking the biofilter's zoned purification. This could enable thorough cleaning with very little water.",
+      "feasibility_rationale": "Creating stable, viable, and functionally distinct microbial layers within a textile matrix poses extreme manufacturing and long-term viability challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "This concept reimagines clothing as a self-cleaning ecosystem, directly embedding zoned biological processing into the fabric structure, a highly original approach for clothing care.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "This could lead to clothes that largely clean themselves with minimal water, fundamentally altering laundry practices and water consumption.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be embedded and remain viable and functional within distinct textile layers.",
+        "Layered design prevents negative interactions and maintains specialization for sequential degradation.",
+        "The system can achieve effective broad-spectrum cleaning with minimal water input."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research bio-immobilization techniques for different microbial consortia within separate, adjacent material layers.",
+        "Conduct proof-of-concept studies on simplified layered systems using model fabrics and target soils.",
+        "Identify and characterize microbial consortia for each \"zone\" targeting distinct components of clothing soil."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing scalable manufacturing for multi-layered, microbially active textiles.",
+        "Ensuring long-term microbial viability, stability, and containment through wear and minimal-water activation.",
+        "Addressing user safety (skin contact, inhalation) and preventing malodor or fabric degradation."
+      ]
+    },
+    "9f5353a7-deb5-4543-9676-f00d966f7360": {
+      "uuid": "9f5353a7-deb5-4543-9676-f00d966f7360",
+      "idea": "Self-forming microbial 'cleaning hotspots' on clothes activated by dirt.",
+      "description": "This concept involves applying dormant microbes to clothing that activate and form concentrated cleaning zones ('hot spots') upon contact with specific soils or stains, thus targeting cleaning and minimizing water.",
+      "feasibility_rationale": "Engineering or discovering microbes that can reliably sense diverse soils, migrate, and concentrate activity on fabric presents considerable R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The concept of dormant microbes activating and forming localized 'cleaning hotspots' in response to dirt is highly inventive for textile care, offering precision.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Offers highly efficient, targeted cleaning for stains and soiled areas, drastically reducing water and detergent for spot treatments and potentially delaying full washes.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microbes can be applied to fabric in a stable, dormant state, activatable by specific soil components.",
+        "Activated microbes can effectively form concentrated \"hotspots\" with enhanced cleaning power.",
+        "The process is safe for fabrics and users, and doesn't lead to uncontrolled microbial growth."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen for or engineer microbes exhibiting chemotaxis or activation in response to key components of common stains (e.g., lipids, proteins).",
+        "Develop methods for applying these microbes to textiles in a dormant but viable state.",
+        "Test the cleaning efficacy of activated microbial concentrations on stained fabric swatches in controlled conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing reliable mechanisms for soil sensing and targeted microbial activation/aggregation on textiles.",
+        "Ensuring sufficient cleaning efficacy and speed within these 'hotspots' for practical use.",
+        "Managing the lifecycle of the microbes on the garment (application, activation, deactivation/removal)."
+      ]
+    },
+    "8795b9d3-4d6c-424c-912b-43da43e1cdd6": {
+      "uuid": "8795b9d3-4d6c-424c-912b-43da43e1cdd6",
+      "idea": "Adaptive microbial consortium spray for low-water clothing refresh and deep clean.",
+      "description": "A spray containing a diverse, adaptable microbial community that colonizes fabric, breaks down soils/odors with minimal water, and potentially adapts to new contaminants over time. This offers a very low-water alternative to conventional washing.",
+      "feasibility_rationale": "Creating a stable, safe, and truly adaptive multi-species microbial spray presents formulation and biological interaction complexities, though some groundwork exists in probiotics.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While microbial sprays exist, one with an *adaptive* consortium designed for deep cleaning and ongoing soil/odor management is highly inventive.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "A successful adaptive spray could largely replace water-intensive washing for many garments, offering a transformative, highly convenient low-water cleaning solution.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A diverse microbial consortium can remain viable and effective in a sprayable formulation.",
+        "The consortium can colonize fabrics, degrade a wide range of soils/odors with minimal water, and not harm textiles or users.",
+        "The consortium can demonstrably \"adapt\" its degradation capabilities to new or persistent soils over time."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Curate and test a diverse microbial consortium for broad-spectrum degradation of common clothing soils and malodors.",
+        "Develop a stable spray formulation that maintains microbial viability and allows effective fabric colonization.",
+        "Design experiments to assess the consortium's adaptive response to challenging or novel soil types on textiles over repeated applications."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring stability, safety, and long-term efficacy of a complex microbial consortium in a consumer product.",
+        "Achieving reliable and beneficial \"adaptation\" without unintended consequences (e.g., pathogenicity, odor).",
+        "Gaining consumer acceptance for regularly spraying live, adaptive microbial cultures onto clothing."
+      ]
+    },
+    "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1": {
+      "uuid": "e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1",
+      "idea": "Smart fabrics with embedded, dormant microbial consortia for self-cleaning.",
+      "description": "This involves textiles interwoven with engineered microbes that activate with minimal moisture to break down dirt and odors, significantly reducing water for laundering. This builds on the initial biological purification concept by applying it directly to the garment.",
+      "feasibility_rationale": "Significant breakthroughs are needed in microbial engineering for dormancy/activation in textiles, ensuring long-term viability, managing biological safety, and achieving user acceptance for such intimate microbial integration.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of programmable, dormant microbial ecosystems woven directly into fabric fibers for comprehensive, on-demand self-cleaning is highly innovative and significantly departs from passive antimicrobial coatings or existing self-cleaning material concepts.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could revolutionize clothes cleaning, drastically reduce water use for laundry, and provide continuous hygiene, fundamentally solving the design challenge.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbial consortia can be safely and effectively embedded into fabric fibers and remain dormant yet viable for extended periods.",
+        "Activation with minimal moisture will be reliable and provide sufficient cleaning action without damaging the fabric or producing harmful byproducts.",
+        "Users will accept wearing clothing containing engineered microbes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research methods for encapsulating or embedding diverse microbial consortia into textile fibers while maintaining dormancy and future activatability.",
+        "Identify or engineer microbial strains that are robust, safe for skin contact, and effective at degrading common soiling agents and odor-causing bacteria with minimal water.",
+        "Develop proof-of-concept fabric swatches and test activation mechanisms, cleaning efficacy, and microbial survival under simulated wear conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and stability of microbes in fabric through manufacturing, wear, tear, and varying environmental conditions.",
+        "Controlling microbial activity to prevent fabric degradation, unwanted odors, skin irritation, or release of harmful endotoxins/metabolites.",
+        "Public perception, regulatory approval, and ethical considerations for clothing containing genetically engineered microorganisms."
+      ]
+    },
+    "97a40f71-3da7-49df-8963-3685e6a1e009": {
+      "uuid": "97a40f71-3da7-49df-8963-3685e6a1e009",
+      "idea": "Develop targeted enzyme cocktail spray for waterless clothing deodorizing and stain lifting.",
+      "description": "This idea uses a cell-free system of purified enzymes in a mist to break down specific soils and odor molecules on clothes without bulk water, offering an alternative to live microbial systems.",
+      "feasibility_rationale": "Enzyme production and formulation into sprays are established technologies; the primary challenge lies in developing a stable, broad-spectrum enzyme cocktail effective on diverse soils/odors with minimal water and no fabric damage.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While enzyme cleaners exist, a highly targeted, multi-enzyme cocktail spray specifically designed for *waterless* comprehensive clothing deodorizing and broad stain lifting is a moderately novel advancement for everyday garment care.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water usage by enabling effective refreshment of clothes between full washes and treating many stains locally, extending wear time and lessening reliance on water-intensive laundry cycles.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A cocktail of enzymes can be developed to effectively degrade a wide range of common stains and odor-causing compounds on various fabrics without requiring bulk water.",
+        "Enzymes can be stabilized in a spray formulation for a reasonable shelf-life and remain active upon application without excessive moisture.",
+        "The enzyme action will not damage fabric color or integrity, nor leave undesirable residues with repeated use."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen candidate enzymes for efficacy against common clothing soils (e.g., sebum, food components, sweat byproducts) under low-moisture conditions on various fabric types.",
+        "Investigate formulation strategies to stabilize a multi-enzyme cocktail in an aqueous or solvent-based spray, ensuring long-term activity and compatibility.",
+        "Conduct small-scale application tests on diverse fabric swatches to assess cleaning/deodorizing performance, potential fabric damage, residue formation, and drying time."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving broad efficacy against diverse stains (oils, proteins, carbohydrates, pigments) and odor compounds with a single, stable enzyme cocktail.",
+        "Ensuring enzyme stability in storage and on fabric post-application, and preventing residue buildup or fabric degradation with repeated use.",
+        "Cost-effectiveness of producing a complex, purified enzyme cocktail for a mass-market consumer product."
+      ]
+    },
+    "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b": {
+      "uuid": "d767a8bb-50a7-40c1-b8d4-f8a8dc21325b",
+      "idea": "Bio-patches releasing microbial surfactants and enzymes for spot-cleaning clothes.",
+      "description": "Concentrated microbial communities in a patch target tough stains by releasing biosurfactants and enzymes, minimizing water use to localized areas, similar to how some microbes initiate pollutant breakdown.",
+      "feasibility_rationale": "Containing and activating microbes in a patch for localized cleaning presents moderate R&D challenges regarding delivery, efficacy, and residue management, but is more contained than whole-fabric integration.",
+      "feasibility_score": 3,
+      "novelty_rationale": "The application of contained, live microbial systems within a disposable or reusable patch form for active, targeted spot-cleaning of clothes is a moderately novel delivery mechanism.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Effective for targeted stain removal, this could extend the wearability of garments between full washes, thus contributing to water saving, though its impact is localized rather than comprehensive.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Microbes can be effectively contained within a patch structure and activated on-demand (e.g., with minimal moisture) to produce sufficient surfactants and enzymes locally.",
+        "The byproducts of microbial activity in the patch are safe, non-staining, and do not leave undesirable residues or odors on the fabric after treatment.",
+        "The patch can effectively deliver cleaning agents to the stain and facilitate its removal within a reasonable timeframe without damaging the fabric."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype patch materials and designs for containing a dormant microbial consortium and enabling controlled activation upon application to fabric.",
+        "Screen or engineer microbial strains/consortia that efficiently produce relevant biosurfactants and enzymes for common stain types (e.g., grease, food) when activated in a patch format.",
+        "Evaluate the cleaning efficacy of prototype patches on standardized stained fabric swatches, assessing contact time, residue, and potential fabric effects."
+      ],
+      "major_challenges_roadblocks": [
+        "Designing a user-friendly patch that effectively houses and activates microbes, delivers cleaning agents precisely to the stain, and is easily removable without leaving residue or damaging fabric.",
+        "Ensuring the microbial consortium is safe for skin proximity, produces effective cleaning agents rapidly upon activation, and does not persist or cause issues post-application.",
+        "Managing treatment time, user expectations for a biological spot cleaner, and ensuring consistent performance across various stain types and fabrics."
+      ]
+    },
+    "569ba423-dbab-473a-b684-50fe0a562976": {
+      "uuid": "569ba423-dbab-473a-b684-50fe0a562976",
+      "idea": "Bioremediating fabric spray for waterless cleaning.",
+      "description": "Develop a spray containing engineered microbes that break down dirt and pathogens on clothes, achieving hygiene with minimal water. This solution directly addresses the need for effective cleaning with significantly less water and is inspired by the concept of bioremediation, similar to the initial focus on biological purification.",
+      "feasibility_rationale": "Requires significant breakthroughs in microbial engineering for effectiveness across diverse soils/pathogens, safety, fabric compatibility, and stability in a waterless or low-water spray format.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While microbial cleaning exists, a spray-on, waterless solution with engineered microbes for comprehensive fabric hygiene presents a fresh approach to the specific design challenge. It significantly departs from conventional water-based washing.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Could virtually eliminate water use for routine clothing hygiene, drastically addressing the core challenge in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be engineered to effectively break down a wide range of common clothing soils and pathogens without water.",
+        "Engineered microbes will be safe for human skin contact and will not damage fabrics or leave undesirable residues/odors.",
+        "A stable formulation for delivering live, active microbes in a spray format can be developed."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate microbial strains or enzymes with potential for breaking down common fabric soils and neutralizing pathogens with minimal water.",
+        "Conduct small-scale lab tests on fabric swatches to assess cleaning efficacy, fabric compatibility, and potential residue of selected microbes.",
+        "Investigate methods for stabilizing and delivering active microbes in a spray formulation and assess their viability over time."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring microbial safety and preventing unintended ecological consequences if microbes are released.",
+        "Achieving broad-spectrum efficacy against diverse stains, dirts, and pathogens in a dry/low-moisture environment.",
+        "Consumer acceptance of using live microbes on clothing."
+      ]
+    },
+    "caffd407-4f79-4a26-90f1-1fa6b7a85d46": {
+      "uuid": "caffd407-4f79-4a26-90f1-1fa6b7a85d46",
+      "idea": "Nanoparticle-based garment refreshers for targeted hygiene.",
+      "description": "Create waterless refreshers using nanoparticles to neutralize odors and eliminate microbes on clothing, directly addressing hygiene and water scarcity. This leverages nanotechnology mentioned in the excerpts as an advanced solution pathway, offering a different technological approach than the initial biological purification concept.",
+      "feasibility_rationale": "Technology for antimicrobial/odor-neutralizing nanoparticles exists, but ensuring long-term safety, avoiding fabric damage/accumulation, and achieving broad hygiene effectiveness presents R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While nanoparticle applications for fabric exist, a dedicated solution for comprehensive, waterless hygiene targeting both odor and a broad range of microbes offers a moderately new angle for this specific challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could substantially reduce the frequency of water-intensive washing by maintaining hygiene and freshness, offering a significant improvement in water conservation.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanoparticles can be designed to effectively neutralize a broad spectrum of odor-causing compounds and common pathogens on fabric surfaces without water.",
+        "The nanoparticles will be safe for human exposure (dermal, inhalation) and environmentally benign after use.",
+        "Nanoparticles will not negatively impact fabric feel, color, or longevity with repeated application."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Survey existing nanoparticle technologies (e.g., TiO2, Ag, ZnO) for proven antimicrobial and odor-neutralizing efficacy and assess their suitability for fabric application.",
+        "Conduct safety assessments (toxicology, environmental impact) for candidate nanoparticles under conditions relevant to garment application.",
+        "Develop prototype formulations and test on various fabrics for hygiene efficacy, material compatibility, and potential residue/accumulation."
+      ],
+      "major_challenges_roadblocks": [
+        "Addressing health and environmental safety concerns associated with widespread nanoparticle use (e.g., inhalation, accumulation).",
+        "Achieving lasting efficacy and preventing build-up on fabrics after multiple applications.",
+        "Ensuring nanoparticles effectively target and neutralize microbes and odor rather than just masking them."
+      ]
+    },
+    "1638c27a-2c10-4b03-aa62-5058ff1d2d62": {
+      "uuid": "1638c27a-2c10-4b03-aa62-5058ff1d2d62",
+      "idea": "Personal clothing 'water loop' for ultra-low water washing.",
+      "description": "Design a compact system that recycles and purifies a small, fixed volume of water for multiple clothing cleaning cycles, drastically cutting water use and ensuring hygiene. This applies circular economy thinking, mentioned in the source, to the personal laundry challenge, focusing on system-level water efficiency.",
+      "feasibility_rationale": "Requires integration and miniaturization of advanced water purification technologies. Key challenges include effective removal of diverse contaminants (detergents, soils, dyes) and preventing system fouling or microbial growth over many cycles.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While water recycling in washing exists conceptually, designing a compact, personal, and highly efficient closed-loop system for ultra-low water usage brings a moderately novel approach to the household scale.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "If technically and economically viable, this could drastically reduce household water consumption for laundry, offering a significant solution to water scarcity.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A compact and affordable water purification system can effectively remove detergents, soils, dyes, and microbes from wash water to a standard suitable for reuse on clothes.",
+        "The system can maintain a high level of water quality over numerous cycles with minimal water top-up.",
+        "Energy consumption for the purification process will be acceptable and not negate the environmental benefits of water saving."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Model and simulate the contaminant load in a small, fixed volume of wash water over multiple cycles to identify key purification targets and challenges.",
+        "Evaluate and select a combination of compact purification technologies (e.g., ultrafiltration, reverse osmosis, UV, activated carbon) suitable for removing identified contaminants.",
+        "Develop a small-scale proof-of-concept prototype to test the efficacy of the purification train and assess water quality over several simulated wash/recycle cycles."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a miniaturized, cost-effective, and robust multi-stage water purification system capable of handling complex laundry wastewater.",
+        "Managing the accumulation of recalcitrant compounds, dyes, and salts in the closed loop over time.",
+        "Ensuring consistent hygiene standards and preventing microbial contamination within the recycled water and the appliance itself."
+      ]
+    },
+    "7fc18d09-eb62-4640-b2b6-005782ff94fa": {
+      "uuid": "7fc18d09-eb62-4640-b2b6-005782ff94fa",
+      "idea": "Self-cleaning clothes with engineered microbial biofilms.",
+      "description": "Clothes embedded with dormant, beneficial microbes activate with minimal moisture/body heat to break down sweat/odors, drastically reducing water use. This adapts the initial concept of biological purification for direct textile application, aiming to solve the low-water hygiene challenge.",
+      "feasibility_rationale": "Embedding stable, effective, and safe dormant microbes into textiles that can be reliably activated and controlled presents substantial R&D challenges, including microbe selection, long-term viability, and preventing adverse skin reactions.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying biofilm concepts directly to textiles for self-cleaning is a fresh take on clothing hygiene, significantly departing from traditional washing. While bio-integrated materials exist, their application for active, on-garment cleaning driven by body conditions is highly inventive for this specific challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could fundamentally change how clothes are cleaned, virtually eliminating water use for routine hygiene and dramatically impacting water-scarce regions.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial microbes can be engineered to remain dormant in textiles for extended periods and activate effectively with minimal moisture/heat.",
+        "These microbes can comprehensively break down a wide range of common clothing soils to hygienic levels without damaging the fabric or causing skin irritation.",
+        "The byproducts of microbial action are non-harmful and do not create new soiling or odor issues."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Literature review and expert consultation on candidate microbes for textile biofilm formation and soil degradation (sweat, sebum).",
+        "Proof-of-concept lab study: Test selected microbes on fabric swatches for their ability to reduce specific organic compounds with minimal water.",
+        "Investigate methods for embedding and maintaining dormant microbial cultures within textile fibers."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying/engineering suitable microbial consortia that are safe, effective against diverse soils, and robust enough for textile integration and wear.",
+        "Ensuring long-term viability and controlled activation/deactivation of microbes within the fabric across various environmental conditions and wear cycles.",
+        "Addressing potential user acceptance, skin sensitivity, and regulatory hurdles for clothing with live microorganisms."
+      ]
+    },
+    "6e579fd9-6ca9-4452-9ff8-bb5693e70442": {
+      "uuid": "6e579fd9-6ca9-4452-9ff8-bb5693e70442",
+      "idea": "Stimuli-responsive nanofiber mesh for waterless dirt extraction.",
+      "description": "A reusable fabric overlay of smart nanofibers adsorbs dirt, then releases it via stimulus (e.g., heat), cleaning clothes without bulk water. This material-science approach offers an alternative to biological methods for the low-water cleaning challenge.",
+      "feasibility_rationale": "Developing nanofibers with high adsorption capacity for diverse soils and efficient, non-damaging release mechanisms requires significant material science R&D. Ensuring the overlay effectively contacts and removes particulates and oily soils from underlying fabric is also challenging.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Stimuli-responsive materials and nanofibers are known, but their specific combination as a reusable overlay for waterless dirt extraction from clothing is a clever application. It's not paradigm-shifting but offers a distinct approach.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water consumption for cleaning certain types of soiling, offering a substantial improvement, especially if the mesh is durable and easily \"cleaned\" itself.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Nanofibers can be engineered with broad-spectrum soil adsorption capabilities and efficient release upon a practical stimulus (e.g., mild heat, light).",
+        "The mesh can achieve intimate contact with the clothing surface to effectively lift various types of dirt and particulates.",
+        "The stimulus for dirt release from the mesh is energy-efficient, non-damaging to the mesh or clothes, and practical for users."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and synthesize candidate stimuli-responsive polymers for broad-spectrum soil adsorption/desorption suitable for nanofiber formation.",
+        "Develop and test prototype nanofiber meshes for their ability to pick up and release standardized soils from common fabric types.",
+        "Evaluate the energy requirements and practicality of the chosen stimulus for dirt release."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving high adsorption efficiency for a wide range of soil types (particulate, oily, proteinaceous) and robust release without material degradation over multiple cycles.",
+        "Designing a mesh that conforms well to clothing for effective cleaning without damaging delicate fabrics.",
+        "Ensuring the \"cleaning\" of the mesh itself (dirt release) is simple, effective, and doesn't just transfer the problem."
+      ]
+    },
+    "c6fe245d-e60b-4cd0-b0eb-da527d227d92": {
+      "uuid": "c6fe245d-e60b-4cd0-b0eb-da527d227d92",
+      "idea": "Compact AOP-membrane unit for in-garment water recycling.",
+      "description": "A small device using minimal mist, an AOP to break down soils within clothes, and a membrane to purify the mist, achieving hygienic cleaning with very little water. This hybrid chemical-physical process is an alternative pathway to the design challenge.",
+      "feasibility_rationale": "Miniaturizing AOP reactors and membrane systems to be effective, safe, and energy-efficient for in-garment application presents significant engineering challenges. Ensuring thorough cleaning and managing potential AOP byproducts are key concerns.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Combining AOPs and membrane filtration for water recycling is established in wastewater treatment, but miniaturizing this into a compact, in-garment system for localized cleaning is a novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could enable highly water-efficient spot cleaning or refreshment of garments to hygienic levels, significantly reducing water usage compared to full washes.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "AOPs can effectively break down diverse clothing soils in a low-water mist environment without damaging fabric or producing harmful residues.",
+        "A compact membrane system can efficiently purify the mist for reuse within the garment, achieving hygienic standards.",
+        "The entire system can be miniaturized into a practical, safe, and energy-efficient device suitable for consumer use or localized application."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and model the efficacy of various AOPs (e.g., photocatalysis, ozonation) on common fabric soils in a low-moisture environment.",
+        "Develop and test a lab-scale prototype combining a miniaturized AOP with a membrane for mist purification and soil degradation on fabric swatches.",
+        "Assess energy consumption, byproduct formation, and material compatibility (fabric damage, AOP component longevity) of the prototype system."
+      ],
+      "major_challenges_roadblocks": [
+        "Miniaturization of AOP generation (e.g., UV, ozone, catalyst) and membrane filtration components while maintaining efficacy and safety.",
+        "Managing AOP reaction kinetics and potential formation of harmful byproducts in a confined, low-water environment directly on textiles.",
+        "Ensuring uniform mist application and soil degradation across the treated garment area and preventing damage to sensitive fabrics."
+      ]
+    },
+    "b50048a6-f6fc-41d4-becd-639a376d37d1": {
+      "uuid": "b50048a6-f6fc-41d4-becd-639a376d37d1",
+      "idea": "Engineered microbes on fabric make cleaners.",
+      "description": "Develop clothing with engineered bacteria that produce cleaning agents (enzymes, surfactants) in-situ when dampened, directly addressing low-water cleaning via a biological approach.",
+      "feasibility_rationale": "Significant R&D is needed for stable microbe integration into textiles, ensuring their viability, controlled activation, and safety for skin contact. Long-term durability and preventing unwanted microbial growth are major challenges.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying engineered, cleaner-producing microbes directly onto fabric is a fresh take on self-cleaning textiles, moving beyond passive coatings to active biological systems.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could lead to truly self-cleaning clothes requiring only minimal moisture, drastically reducing water usage and improving hygiene in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Engineered microbes can be safely and durably integrated into fabric fibers.",
+        "Microbes can be activated by simple dampening to produce effective cleaning agents in sufficient quantities.",
+        "The system will be safe for prolonged skin contact and will not produce harmful byproducts or allergens."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research methods for immobilizing engineered bacteria on various textile types and assess their survival rates.",
+        "Identify or engineer bacterial strains that produce suitable cleaning agents (e.g., lipases, proteases) and can be triggered by simple stimuli like moisture.",
+        "Conduct preliminary safety assessments for skin contact with candidate engineered microbes."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and stability of microbes on fabric through wear and storage.",
+        "Controlling microbial activity to prevent unwanted effects (e.g., odor, fabric degradation, skin irritation).",
+        "Public acceptance and regulatory approval for wearing genetically engineered organisms."
+      ]
+    },
+    "9c557fbc-de54-4ebf-933d-dbc1dbe013d9": {
+      "uuid": "9c557fbc-de54-4ebf-933d-dbc1dbe013d9",
+      "idea": "CO2-breathing fabric releases trapped dirt.",
+      "description": "Create fabrics with CO2-responsive polymers that bind dirt, then release it upon CO2 exposure (e.g., exhaled breath), offering a chemical-free, ultra-low water cleaning method.",
+      "feasibility_rationale": "While CO2-responsive polymers exist, tailoring them for effective broad-spectrum dirt adhesion/release on textiles and ensuring durability over wash/wear cycles presents significant R&D challenges. The mechanism of dirt capture and release needs to be highly efficient.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Using CO2 (potentially from exhaled breath) as a trigger for dirt release from fabric is a highly inventive approach, leveraging smart material chemistry for a waterless cleaning mechanism.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If effective, this method could offer a near-waterless, chemical-free way to \"refresh\" clothes, significantly reducing water for laundering, especially for light soiling.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "CO2-responsive polymers can be developed that effectively bind common types of soil and then fully release them upon exposure to practical CO2 concentrations.",
+        "These polymers can be integrated into textile fibers without negatively impacting fabric feel, durability, or breathability.",
+        "The dirt release mechanism is efficient enough to remove a satisfactory amount of soiling."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or synthesize CO2-responsive polymers with high affinity for common soil components and demonstrate reversible binding.",
+        "Investigate methods to incorporate these polymers into or onto textile fibers while maintaining fabric properties.",
+        "Test the efficiency of dirt release using realistic CO2 concentrations (e.g., simulating exhaled breath or small CO2 cartridges)."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving strong binding for diverse dirt particles and complete release with low CO2 concentrations.",
+        "Ensuring the polymer's responsiveness and integrity over many use cycles and potential (even if infrequent) washing.",
+        "Managing the released dirt (e.g., does it just fall off, or is a secondary removal step needed?)."
+      ]
+    },
+    "6836b111-e126-4387-86fc-ac0c4d5525c8": {
+      "uuid": "6836b111-e126-4387-86fc-ac0c4d5525c8",
+      "idea": "Catalytic fibers activated by sonic waves.",
+      "description": "Integrate sonically-activated catalysts into clothing fibers to break down dirt and microbes using minimal moisture when exposed to ultrasonic waves from a compact device.",
+      "feasibility_rationale": "Integrating stable and effective catalysts into fibers is achievable. However, ensuring efficient sonic activation for broad-spectrum soil/microbe degradation with minimal water and without damaging fibers or requiring harsh co-reagents requires significant development.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While sonochemistry and catalytic materials are established, their direct integration into fibers for clothing hygiene activated by a portable device presents a moderately novel system-level concept.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could enable targeted, rapid, and deep cleaning/disinfection with minimal water, potentially using a handheld device, offering a significant improvement over conventional washing.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Catalysts can be embedded in fibers that effectively degrade diverse soils and microbes upon sonic activation in a minimally moist environment.",
+        "Sonic activation can be achieved efficiently and safely with a compact device without damaging the fabric.",
+        "The catalytic process does not produce harmful byproducts or degrade the fabric over time."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or develop catalysts suitable for fiber integration that show activity against target soils/microbes upon sonication in low-water conditions.",
+        "Prototype fiber/catalyst composites and test their cleaning efficacy and durability under sonication.",
+        "Investigate the design parameters for a compact, safe, and effective ultrasonic applicator for clothing."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing catalysts that are highly active, stable in fibers, and can break down a broad range of organic soils and microbes.",
+        "Designing a safe and efficient compact ultrasonic device that can uniformly activate catalysts within fabric.",
+        "Ensuring the process doesn't require additional chemical activators or that any required co-agents are benign and easily applied/removed."
+      ]
+    },
+    "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d": {
+      "uuid": "380a60c6-3eb5-4ce1-bdfd-ce389cb0140d",
+      "idea": "Bio-integrated textiles: clothing fibers as biofilm carriers for self-purification.",
+      "description": "This idea proposes embedding or designing clothing fibers to naturally host beneficial biofilms that break down dirt and microbes, reducing water-intensive washing. This directly addresses the challenge by minimizing water use through continuous, low-level biological cleaning.",
+      "feasibility_rationale": "Significant R&D is needed to ensure biofilm stability, safety (non-pathogenic, non-allergenic), efficacy on diverse stains/microbes, and durability on wearable textiles without degrading the fabric or causing user discomfort.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying biofilm self-purification directly to textile fibers for continuous cleaning is a highly inventive approach to reducing water use in laundry, moving beyond traditional cleaning paradigms.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could fundamentally redefine clothing hygiene by enabling continuous, waterless self-purification, drastically reducing laundry water needs.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial biofilms can be stably integrated into or onto textile fibers.",
+        "These biofilms can effectively break down common soils and neutralize odor-causing bacteria without harming the fabric or the wearer.",
+        "The self-purification process is sufficient to meet hygiene standards without requiring frequent traditional washing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate microorganisms/biofilms suitable for textile integration and soil/microbe degradation.",
+        "Conduct proof-of-concept studies on textile swatches to assess biofilm adhesion, viability, and cleaning efficacy on common stains.",
+        "Evaluate skin sensitivity and material compatibility of selected biofilm-textile combinations."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying/engineering safe and effective microbial consortia that thrive on textiles and break down a wide range of soils/microbes.",
+        "Ensuring long-term stability and activity of the biofilm through wear, environmental changes, and occasional gentle rinsing.",
+        "Consumer acceptance of wearing \"living\" textiles and managing potential issues like biofilm odor or appearance."
+      ]
+    },
+    "bc7511b7-6a4a-42db-8a87-fd64d03a556d": {
+      "uuid": "bc7511b7-6a4a-42db-8a87-fd64d03a556d",
+      "idea": "Self-cleaning fabric coating using embedded microbial biofilms.",
+      "description": "A fabric treatment incorporating a resilient, mixed-microbial biofilm that actively breaks down organic soils and odors on clothes, requiring only minimal moisture to activate, thus significantly reducing water for cleaning. This applies the principle of biological purification directly to the garment surface.",
+      "feasibility_rationale": "Significant challenges exist in maintaining biofilm viability, safety, and controlled activity on dynamic textile surfaces subjected to wear and environmental changes.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Directly integrating active, self-regenerating biological cleaning agents into fabric fibers is a radical departure from conventional laundry methods.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successful, it could nearly eliminate water usage for routine cleaning, revolutionizing garment care in water-scarce environments.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Biofilms can be durably integrated into fabric without compromising textile properties.",
+        "Microbial activity can be precisely controlled to target dirt and odors without harming the fabric or user.",
+        "The embedded biofilm can survive typical garment use and remain effective with minimal moisture."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify robust microbial consortia capable of degrading common soils and surviving on textiles.",
+        "Research biocompatible methods for embedding or coating fabrics with these consortia.",
+        "Conduct initial safety and efficacy trials on treated fabric swatches."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability and stability of microbes on flexible, wearable materials.",
+        "Preventing adverse effects like skin irritation, allergic reactions, or unpleasant odors from the biofilm.",
+        "Achieving effective cleaning across diverse soil types and environmental conditions."
+      ]
+    },
+    "02d2b9d8-8cc1-4ec8-af5d-303968810f39": {
+      "uuid": "02d2b9d8-8cc1-4ec8-af5d-303968810f39",
+      "idea": "Reusable biofilm cleaning pads/pods for targeted low-water cleaning.",
+      "description": "Develop durable, reusable pads/pods from sustainable materials inoculated with cleaning biofilms for targeted 'wipe' or minimal water 'soak' cleaning. This drastically cuts water use for the clothing hygiene challenge by localizing biological cleaning action.",
+      "feasibility_rationale": "Likely feasible as it involves containing and maintaining the biofilm on a dedicated, potentially conditionable tool rather than directly on dynamic clothing surfaces, simplifying stability and control.",
+      "feasibility_score": 4,
+      "novelty_rationale": "Using reusable pads with active biofilms for targeted cleaning is a moderately novel application of biofilm technology to clothing care, offering a distinct approach from conventional spot removers or full washes.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Offers a moderate impact by enabling effective low-water spot cleaning and potentially reducing the frequency of full, water-intensive washes for lightly soiled garments.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "A biofilm can be maintained in an active state on a reusable pad/pod material.",
+        "The biofilm can effectively transfer its cleaning action to textiles with minimal water and contact time.",
+        "The pads/pods can be easily \"recharged\" or have their biofilms sustained between uses."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify robust biofilm-forming microorganisms effective against common clothing stains and test their efficacy in a \"wipe\" or \"dab\" application.",
+        "Prototype different pad materials (e.g., luffa, cellulose sponge) and assess biofilm adhesion, longevity, and cleaning performance.",
+        "Investigate methods for biofilm preservation/reactivation on the pads between uses."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a durable pad material that supports biofilm viability and allows effective cleaning action without damaging fabrics.",
+        "Ensuring the biofilm effectively removes a range of stains and odors with minimal mechanical action and water.",
+        "Designing a user-friendly system for storing, using, and maintaining/rejuvenating the biofilm pads."
+      ]
+    },
+    "7fd4339e-23cf-4a39-9e35-c9598636d5df": {
+      "uuid": "7fd4339e-23cf-4a39-9e35-c9598636d5df",
+      "idea": "Adaptive microbial spray for targeted 'spot cleaning' without full wash.",
+      "description": "Develop a spray containing a diverse microbial consortium that can be 'tuned' or self-selects to break down specific types of stains locally on clothing, eliminating the need for a full water-intensive wash cycle. This leverages the concept of tailored biological functions for efficient, low-water cleaning.",
+      "feasibility_rationale": "Formulating microbial sprays is established; the main R&D lies in developing the adaptive mechanism and ensuring broad efficacy and stability.",
+      "feasibility_score": 4,
+      "novelty_rationale": "While microbial cleaners exist, a spray that adapts its consortium or function to specific stains offers a clever advancement for targeted cleaning.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could significantly reduce the frequency of full water-intensive washes, directly addressing water scarcity for clothing care.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microbial consortia can be stabilized in a spray formulation with adequate shelf-life.",
+        "Microbes can effectively and rapidly break down a wide range of common clothing stains.",
+        "An \"adaptive\" functionality (e.g., through microbial signaling or pre-selection) is practically achievable in a consumer product."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Screen and cultivate microbial consortia for broad-spectrum stain degradation capabilities.",
+        "Develop and test stable spray formulations for microbial viability and efficacy.",
+        "Investigate mechanisms for \"adaptive\" targeting of stains (e.g., quorum sensing triggers, mixed consortia with selective activation)."
+      ],
+      "major_challenges_roadblocks": [
+        "Achieving rapid and visible cleaning action comparable to chemical spot removers.",
+        "Ensuring efficacy across diverse fabric types and stain chemistries without discoloration or damage.",
+        "Consumer acceptance and education regarding the use of live microbial sprays on clothing."
+      ]
+    },
+    "2b3a282b-7fad-4175-8818-71b2dacddf7f": {
+      "uuid": "2b3a282b-7fad-4175-8818-71b2dacddf7f",
+      "idea": "Miniature biofilm reactor for in-home greywater laundry recycling.",
+      "description": "Design a compact biofilm-based water filtration unit that continuously cleans and recycles laundry greywater within a household system, drastically cutting fresh water demand for washing clothes. This adapts the described wastewater treatment model for localized, highly efficient water reuse in laundry.",
+      "feasibility_rationale": "While biofilm reactors are proven, miniaturizing them effectively for variable household laundry effluent and ensuring low maintenance presents engineering challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Adapting industrial/municipal biofilm wastewater treatment technology to a compact, in-home laundry greywater recycling system is a novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could drastically reduce freshwater consumption for laundry by enabling efficient on-site water recycling, directly tackling the design challenge.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A biofilm reactor can be sufficiently miniaturized to be practical and affordable for household use.",
+        "The reactor can consistently treat laundry greywater (with detergents, soils, lint) to a quality suitable for reuse in washing machines.",
+        "The system will be user-friendly, requiring minimal maintenance from the average consumer."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test lab-scale biofilm reactor prototypes using realistic laundry greywater.",
+        "Identify microbial consortia resilient to common laundry chemicals and effective in pollutant removal.",
+        "Assess the quality of treated water and its suitability for reuse in washing machines (impact on clothes, machine)."
+      ],
+      "major_challenges_roadblocks": [
+        "Effectively managing the variability in laundry greywater composition (detergents, bleach, fabric softeners, soil types).",
+        "Preventing biofouling/clogging and ensuring long-term stable performance in a compact design.",
+        "Achieving cost-effectiveness and consumer acceptance for an additional home appliance."
+      ]
+    },
+    "948abef2-789c-44e5-a69c-ebe4cbce3a8e": {
+      "uuid": "948abef2-789c-44e5-a69c-ebe4cbce3a8e",
+      "idea": "Modular biofilm reactor for in-home greywater recycling from ultra-low water washes.",
+      "description": "Design a compact biofilm reactor to treat minimal greywater from ultra-low water clothing washes, enabling water reuse for subsequent cleaning cycles. This addresses water scarcity by applying efficient biological water treatment principles directly to the laundry process.",
+      "feasibility_rationale": "Moderately feasible, as biofilm reactor technology is mature, but challenges lie in miniaturization for domestic use, consistent performance with variable laundry effluent (detergents, particulates), and ensuring water quality for reuse in washing.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While biofilm reactors for wastewater are established, designing a compact, efficient system specifically for in-home recycling of ultra-low volume laundry greywater is a moderately novel application.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Offers significant impact by enabling multiple reuses of washing water, directly addressing water scarcity if coupled with effective ultra-low water washing technologies.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Ultra-low water washing methods will become effective and adopted, generating small, treatable greywater volumes.",
+        "A compact biofilm reactor can effectively treat laundry greywater (containing detergents, lint, soils) to a standard safe for reuse in subsequent washes.",
+        "The system can be made affordable, user-friendly, and low-maintenance for home use."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Characterize typical effluent from envisioned \"ultra-low water\" washing processes to define reactor influent parameters.",
+        "Develop and test bench-scale biofilm reactor configurations for their ability to treat synthetic and real low-volume laundry greywater.",
+        "Assess the quality of treated water for its suitability for reuse in clothes washing (e.g., residual contaminants, odor, impact on cleaning efficacy)."
+      ],
+      "major_challenges_roadblocks": [
+        "Handling variability in greywater composition (detergents, bleach, fabric softeners, soil load) and its impact on biofilm health and treatment efficiency.",
+        "Achieving sufficient purification levels in a compact reactor to prevent redeposition of dirt or build-up of undesirable compounds in recycled wash water.",
+        "Cost, size, maintenance requirements, and consumer acceptance of an additional home appliance."
+      ]
+    },
+    "6646e6d9-40fb-4f62-a2ed-a803d086a1ca": {
+      "uuid": "6646e6d9-40fb-4f62-a2ed-a803d086a1ca",
+      "idea": "Bio-active textile patches for targeted clothing cleaning.",
+      "description": "Develop textile patches containing dormant, beneficial microbes that activate with minimal moisture to break down soil and odors on clothing, offering a targeted, very low-water cleaning solution. This adapts the described biofilm-on-a-medium concept for direct application to garments.",
+      "feasibility_rationale": "Requires significant R&D in microbial selection, encapsulation/dormancy techniques, and ensuring material compatibility and user safety for direct skin contact and fabric integrity.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While probiotic textiles exist, using targeted, activatable microbial patches specifically for soil and odor breakdown on clothing represents a fresh and inventive approach to low-water cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If effective for common stains and odors, it could dramatically reduce the need for full washes for lightly soiled areas, directly addressing water scarcity in clothing care.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Effective microbes can be identified that break down common clothing soils/odors without damaging fabrics or harming users.",
+        "These microbes can be maintained in a dormant state on a textile patch and reliably activated with minimal moisture.",
+        "The cleaning action is sufficiently rapid and effective for user satisfaction."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate microbial consortia effective against common textile soils (e.g., sebum, food stains) and odors.",
+        "Develop and test methods for embedding dormant microbes in textile patch prototypes and assess their activation, viability, and cleaning efficacy on fabric swatches.",
+        "Conduct preliminary safety assessments, including skin irritation potential and fabric degradation tests with selected microbes."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring microbial safety, preventing unintended microbial growth or skin irritation, and managing byproducts of microbial action.",
+        "Achieving a broad spectrum of cleaning action against diverse soil types and odors with a limited microbial set.",
+        "Durability of the patches, shelf-life of the dormant microbes, and user acceptance of applying microbial products directly to clothing."
+      ]
+    },
+    "1de383ce-7967-4b9f-9d45-713749649aab": {
+      "uuid": "1de383ce-7967-4b9f-9d45-713749649aab",
+      "idea": "Microbial misting system for water-efficient garment refreshing.",
+      "description": "A system that applies a fine mist of specifically selected microbes onto clothes, where they digest organic soil and neutralize odors with minimal water usage. This is inspired by the \"billions of hungry microbes... who feed off of the organic matter\" and the \"intermittent irrigation batch process.\"",
+      "feasibility_rationale": "Developing stable microbial formulations and an effective, safe misting application presents R&D challenges, particularly regarding dosage, preventing over-saturation, unwanted residue, and long-term fabric effects.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Applying microbial sprays to textiles is a known concept in some areas, but a dedicated system for garment refreshing with optimized microbial blends and minimal water is a moderately novel adaptation for this specific challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could significantly extend the wearability of garments between full washes by refreshing and deodorizing, offering substantial water savings compared to frequent laundering.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A microbial mist can effectively penetrate fabric and reach soiled areas to act within a reasonable timeframe.",
+        "The selected microbes will effectively break down target compounds (sweat, oils, odor molecules) without leaving undesirable residues or odors.",
+        "Users will accept spraying live microbial cultures onto their clothing and perceive it as clean and safe."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Formulate and test various microbial consortia in liquid form for their efficacy in breaking down sweat, oils, and odor-causing compounds on various fabric swatches.",
+        "Prototype a simple misting device to assess application parameters (coverage, droplet size, volume), drying time, and any immediate fabric effects (e.g., staining, weakening).",
+        "Investigate user perception, safety considerations (inhalation, skin contact), and shelf-stability for applying microbial mists to clothing."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring even application, avoiding fabric damage or discoloration from the mist or microbial byproducts.",
+        "Consumer acceptance and overcoming potential concerns about spraying microbes on clothes, including allergic reactions or perceived hygiene issues.",
+        "Maintaining the viability and efficacy of the microbial solution during storage and application."
+      ]
+    },
+    "f75b59cf-5bea-422c-9c4f-75fbd75333ed": {
+      "uuid": "f75b59cf-5bea-422c-9c4f-75fbd75333ed",
+      "idea": "Self-refreshing clothing via integrated bio-layers.",
+      "description": "Design clothing with integrated, permeable layers that cultivate a beneficial biofilm, which actively breaks down sweat and light grime using ambient humidity or minimal added water. This draws from the layered system using \"Geotextiles\" and concepts of aeration like worms creating \"channels which ensure even distribution of air and water.\"",
+      "feasibility_rationale": "Maintaining a stable, effective, and safe biofilm within the dynamic environment of clothing fabric that endures wear and care presents immense, potentially insurmountable, scientific and engineering challenges with current technology.",
+      "feasibility_score": 1,
+      "novelty_rationale": "The concept of clothing with integrated, self-sustaining bio-layers for active, continuous cleaning is a paradigm shift for garment care and highly innovative, bordering on science fiction.",
+      "novelty_score": 5,
+      "potential_impact_rationale": "If successfully realized, this could revolutionize clothing hygiene and drastically reduce water consumption for laundry to near zero for daily refreshing and light soil removal.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "A beneficial and persistent biofilm can be successfully cultivated and sustained within the layers of a wearable garment through multiple wear cycles.",
+        "This integrated biofilm can actively and effectively break down sweat, oils, and light grime using only ambient humidity or minimal added water without producing foul odors or damaging the fabric.",
+        "The bio-layers are inherently safe for prolonged and direct skin contact and do not cause irritation, infection, or other adverse health effects."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research materials science for creating biocompatible, permeable, and durable textile layers suitable for long-term biofilm cultivation within a garment structure.",
+        "Identify and culture exceptionally robust microbial consortia that demonstrate effective soil degradation and odor control in conditions mimicking a garment microenvironment (variable humidity, temperature, mechanical stress).",
+        "Conduct fundamental proof-of-concept experiments with simple, static layered textile systems to assess biofilm formation, stability, basic cleaning efficacy, and material integrity over extended periods."
+      ],
+      "major_challenges_roadblocks": [
+        "Creating and maintaining a stable, beneficial, and long-lasting biofilm within a flexible, wearable textile structure that is subject to movement, friction, and environmental changes.",
+        "Ensuring the biofilm is active against soils but completely inert towards the garment material and human skin over the lifetime of the garment.",
+        "Controlling moisture levels, nutrient supply (from soils), preventing undesirable microbial overgrowth, managing metabolic byproducts, and avoiding foul odor production."
+      ]
+    },
+    "177839a0-f385-4fed-b2bd-295d5fca38d7": {
+      "uuid": "177839a0-f385-4fed-b2bd-295d5fca38d7",
+      "idea": "Bio-active fabric hosting cleaning biofilms.",
+      "description": "Develop clothing where the fabric itself, especially natural fibers like cotton, is engineered to host a beneficial biofilm. This biofilm would consume organic soil and pathogens directly on the garment, drastically reducing water needed for cleaning.",
+      "feasibility_rationale": "Maintaining biofilm viability, ensuring it doesn't harm the fabric or wearer, and controlling its activity without copious water are major technical hurdles for direct fabric integration.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While biofilms are utilized in wastewater treatment, integrating them directly into clothing fabric as a primary self-cleaning mechanism is a highly inventive application for personal hygiene.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could fundamentally change clothes cleaning in water-scarce environments, drastically reducing or even eliminating the need for conventional water-intensive washing.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Beneficial biofilms can be cultivated and sustained effectively on common clothing fabrics through wear and tear.",
+        "The biofilm can effectively break down diverse soils and pathogens without damaging the fabric or causing user discomfort/harm.",
+        "Biofilm activity can be reliably controlled and 'activated' or 'refreshed' with minimal water input and user effort."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify robust, safe microbial consortia (or single organisms) suitable for fabric integration and degradation of common clothing soils.",
+        "Conduct proof-of-concept studies on biofilm adhesion, growth, cleaning efficacy, and stability on various fabric swatches under simulated wear conditions.",
+        "Investigate methods for controlled activation/deactivation/refreshment of the biofilm on fabric using minimal water and user intervention, while ensuring user safety."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring long-term viability, stability, and consistent performance of the biofilm on dynamic, wearable surfaces subjected to physical stress and environmental changes.",
+        "Preventing undesirable outcomes such as odor generation, skin irritation, allergic reactions, or pathogenic contamination from the biofilm itself.",
+        "Overcoming consumer acceptance barriers related to wearing 'living' clothing and trusting its hygiene capabilities."
+      ]
+    },
+    "1763548c-fbe3-4ae9-8457-218a93635925": {
+      "uuid": "1763548c-fbe3-4ae9-8457-218a93635925",
+      "idea": "Reusable biofilm cleaning elements for garments.",
+      "description": "Create modular, reusable cleaning elements (e.g., beads, patches) with entrapped microorganisms. These elements are applied to clothes to biologically degrade contaminants with minimal water and can be easily separated or 'recharged'.",
+      "feasibility_rationale": "Encapsulation technology for microorganisms is relatively established, but developing effective, durable, and user-friendly elements for clothing application presents moderate R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Adapting bio-immobilization techniques to create modular, reusable cleaning components for garments is a moderately novel approach to low-water clothing care.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water consumption for laundry by localizing cleaning action and enabling targeted treatment or low-water full-garment cleaning.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microorganisms can be effectively entrapped within reusable elements that allow sufficient interaction with fabric soils and contaminants for effective cleaning.",
+        "These cleaning elements can be easily and non-destructively applied to and removed from various types of garments.",
+        "The 'recharging' or 'reactivation' process for the biofilm elements is simple, water-efficient, and restores cleaning efficacy over multiple cycles."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop and test prototype biofilm-entrapped elements (e.g., beads, patches) for cleaning efficacy on standardized soiled fabric samples with minimal water.",
+        "Investigate various materials and methods for encapsulating microorganisms that maximize viability, activity, and durability of the cleaning elements.",
+        "Design and evaluate user-friendly mechanisms for attaching, detaching, and 'recharging' (e.g., nutrient replenishment, rinsing) the cleaning elements."
+      ],
+      "major_challenges_roadblocks": [
+        "Designing elements that ensure adequate contact and mass transfer between the entrapped biofilm and the soiled fabric surface for effective cleaning.",
+        "Ensuring the longevity, robustness, and reusability of the cleaning elements through multiple application, cleaning, and recharging cycles.",
+        "Developing a practical and convenient system for users to manage the elements, including application, removal, storage, and 'recharging'."
+      ]
+    },
+    "18ffb726-dac5-4aa9-ac3b-c672e53cee9f": {
+      "uuid": "18ffb726-dac5-4aa9-ac3b-c672e53cee9f",
+      "idea": "Garments with sanitizing nanoparticle-releasing biofilms.",
+      "description": "Integrate biofilms into clothing that are engineered to produce and release antimicrobial nanoparticles. This provides dual-action cleaning: biological soil breakdown and targeted sanitization, enhancing hygiene with minimal water.",
+      "feasibility_rationale": "Engineering biofilms to reliably produce and release specific nanoparticles at effective concentrations, while also performing cleaning, is a complex synthetic biology challenge.",
+      "feasibility_score": 2,
+      "novelty_rationale": "The concept of integrating biofilms into clothing that both biologically clean and produce sanitizing nanoparticles in-situ is a highly inventive, multi-functional approach.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successful, this could provide an exceptionally high level of hygiene and cleanliness with minimal water, transforming garment care in resource-limited settings.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Biofilms can be genetically engineered to concurrently perform soil degradation and controllably produce/release effective antimicrobial nanoparticles.",
+        "The release of nanoparticles can be managed to ensure safety for the wearer and avoid negative environmental impacts.",
+        "The dual action of biological cleaning and nanoparticle sanitization offers a significant synergistic benefit for garment hygiene under low-water conditions."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify or engineer microbial strains capable of producing relevant antimicrobial nanoparticles (e.g., silver) while also possessing broad soil-degrading enzymatic capabilities.",
+        "Conduct in-vitro proof-of-concept studies on nanoparticle production by engineered biofilms on fabric swatches and assess their antimicrobial efficacy against target pathogens.",
+        "Evaluate the safety profile of any released nanoparticles and the engineered biofilm itself concerning direct skin contact and environmental release."
+      ],
+      "major_challenges_roadblocks": [
+        "Significant complexity in genetically engineering stable microorganisms for dual functionalities (soil degradation and controlled nanoparticle synthesis/release).",
+        "Controlling nanoparticle dosage, specificity, and potential long-term effects on the wearer's skin microbiome and the broader environment.",
+        "Maintaining the viability and functional stability of such a sophisticated engineered biological system on a wearable item."
+      ]
+    },
+    "48303506-045c-49ee-a37c-1b1ff587018c": {
+      "uuid": "48303506-045c-49ee-a37c-1b1ff587018c",
+      "idea": "Bio-catalytic fabric for self-cleaning clothes using engineered biofilms.",
+      "description": "Develop clothing from or incorporating carbon fabric that hosts engineered biofilms. These biofilms catalytically break down dirt/odors with minimal water (e.g., humidity or mist), directly addressing low-water cleaning by extending the principle of biological purification to the garment itself.",
+      "feasibility_rationale": "Significant R&D is needed to ensure biofilm survival, activity, and safety on wearable textiles under real-world conditions, and to engineer them for broad cleaning efficacy.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Applying engineered biofilms directly onto clothing fabric for continuous self-cleaning is a significant departure from conventional laundry, representing a fresh approach to the design challenge.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could fundamentally change how clothes are cleaned, potentially eliminating the need for frequent washing and drastically reducing water consumption.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Biofilms can be engineered to be robust enough to survive on clothing during wear.",
+        "Engineered biofilms can effectively break down a wide range of common soils and odors found on clothes using only ambient humidity or minimal mist.",
+        "The bio-catalytic fabric and its byproducts will be safe for prolonged skin contact and environmentally benign."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify microbial consortia or engineered strains capable of degrading common clothing soils/odors under low-water conditions and compatible with textile integration.",
+        "Test the adhesion, survival, and activity of candidate biofilms on carbon fabric samples under simulated wear conditions (flexing, abrasion, varying humidity).",
+        "Conduct preliminary safety assessments (e.g., cytotoxicity, skin irritation potential) of selected biofilm-fabric combinations."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining biofilm viability and activity on flexible, moving, and abrading fabric surfaces.",
+        "Ensuring the safety of the biofilm and its metabolic byproducts for the wearer and the environment.",
+        "Achieving broad-spectrum cleaning efficacy against diverse types of dirt, stains, and odors with minimal water."
+      ]
+    },
+    "a148b803-bff8-45a7-b913-05e6f6bd9319": {
+      "uuid": "a148b803-bff8-45a7-b913-05e6f6bd9319",
+      "idea": "Electrochemical biofilm patch for targeted low-water stain removal.",
+      "description": "A reusable patch with biofilm-coated carbon fabric uses a small electrical current to degrade contaminants on clothing. This offers a targeted, low-water cleaning method inspired by the microbial electrochemical systems mentioned in the excerpts.",
+      "feasibility_rationale": "While still requiring R&D for biofilm stability and electrochemical efficiency in a patch, it's more contained and potentially manageable than whole-garment systems.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Combining localized biofilm activity with electrochemical enhancement in a patch format for stain removal is a novel approach to targeted cleaning.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could significantly reduce the need for full washes by effectively treating localized stains with minimal water, thus extending garment wearability.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Biofilms can be integrated into a patch that maintains their viability and catalytic activity when an electrical current is applied.",
+        "The electrochemical enhancement significantly boosts the biofilm's ability to degrade common stains in a short timeframe.",
+        "The patch can be designed to be user-friendly, safe, and reusable across various fabric types without damaging them."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Develop prototype biofilm-coated carbon fabric electrodes and test their efficacy in degrading model stains with and without electrochemical stimulation.",
+        "Investigate the optimal operating conditions (current, voltage, hydration) for the electrochemical biofilm patch.",
+        "Explore designs for a self-contained, reusable patch, including power source and user interface."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing a stable, long-lasting biofilm within the patch that can be reactivated or maintained.",
+        "Ensuring effective and rapid stain degradation for a variety of stain types using the electrochemical biofilm system.",
+        "Designing a practical, safe, and easy-to-use patch device (power source, application mechanism, material compatibility)."
+      ]
+    },
+    "872c1c0f-7c20-4e06-b351-fbb61c5d9495": {
+      "uuid": "872c1c0f-7c20-4e06-b351-fbb61c5d9495",
+      "idea": "Resilient biofilm cleaning systems for imperfect, real-world conditions.",
+      "description": "Design biofilm-based cleaning solutions that are robust enough to function effectively with variable water quality or on diverse fabric types. This approach, inspired by methods for analyzing systems with \"suboptimal electrodes,\" addresses practical challenges in water-scarce settings.",
+      "feasibility_rationale": "Developing broadly resilient biofilms is a significant scientific challenge, but focusing research on this aspect could yield adaptable solutions for cleaning applications.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While biofilm robustness is a general research goal, explicitly designing cleaning systems for efficacy under suboptimal conditions is a relevant and somewhat novel framing for this challenge.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Enhancing the robustness of biofilm cleaning systems would greatly increase their applicability and effectiveness in diverse, real-world water-scarce environments.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "It's possible to identify or engineer microbial consortia/biofilms that exhibit broad tolerance and efficacy across a range of environmental stressors.",
+        "The mechanisms conferring resilience can be translated into practical biofilm design principles for cleaning.",
+        "Users in water-scarce settings will have access to conditions that can sustain these resilient biofilms for cleaning purposes."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Characterize the impact of common water contaminants (e.g., minerals, salts) on the performance of candidate cleaning biofilms.",
+        "Screen diverse microbial consortia for their ability to form stable, active cleaning biofilms on various fabric types.",
+        "Investigate strategies (e.g., protective encapsulation, genetic engineering) to enhance biofilm resilience to environmental stressors relevant to clothing care."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying or engineering microbial strains/consortia with broad resilience and consistent cleaning performance.",
+        "Understanding and mitigating the impact of variable water contaminants or fabric chemistries on biofilm activity.",
+        "Developing testing protocols that adequately simulate \"imperfect, real-world conditions\" for validation of cleaning efficacy."
+      ]
+    },
+    "f3148425-fe91-4568-b6ee-3dab8e42c753": {
+      "uuid": "f3148425-fe91-4568-b6ee-3dab8e42c753",
+      "idea": "Bio-active cleaning patches for targeted, low-water stain removal.",
+      "description": "Develop detachable textile patches hosting cleaning microbes. These patches would be applied to soiled areas, cleaning them with minimal water, drawing inspiration from how textiles can support living biocomposites.",
+      "feasibility_rationale": "Culturing microbes on textiles is demonstrated, but maintaining viability, efficacy for various stains, user safety, and controlled activation on a patch presents significant R&D challenges.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While microbial cleaning exists, the concept of a localized, detachable 'living patch' for clothing offers a specific and somewhat fresh application for water-scarce scenarios.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "Could notably reduce water usage for common stains and extend clothing wear, but may not address full garment hygiene needs comprehensively.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "Microbes can be selected/engineered to effectively break down common clothing stains without damaging diverse fabric types.",
+        "Microbes can remain viable and active on a patch for a reasonable shelf-life and be easily activated with minimal water.",
+        "The patches are safe for skin contact and do not leave harmful residues on clothing."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify candidate microorganisms or microbial consortia with broad stain-degrading capabilities suitable for textile application.",
+        "Develop prototype patches with selected microbes on cotton/textile substrates and test their viability, activation with minimal water, and stain removal efficacy.",
+        "Assess material compatibility (fabric degradation) and basic safety (e.g., skin irritation potential of microbial byproducts)."
+      ],
+      "major_challenges_roadblocks": [
+        "Identifying or engineering robust microbial consortia effective against a wide range of stains and compatible with various textiles.",
+        "Ensuring long-term viability and stability of microbes on the patch, and developing a simple, effective activation mechanism.",
+        "Consumer acceptance, safety (no pathogenic contamination, no skin irritation), and managing byproducts of microbial action."
+      ]
+    },
+    "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf": {
+      "uuid": "168b7766-1ba6-4588-b7b6-2c4fd5e05cbf",
+      "idea": "Engineer clothing fibers with embedded microbes for self-cleaning properties.",
+      "description": "Create textiles where cleaning microorganisms are integrated within the fiber structure, potentially protected by coatings, for continuous, low-moisture hygiene, analogous to the scaffold function in the source material.",
+      "feasibility_rationale": "Embedding viable microbes within fibers, ensuring their long-term survival, targeted activity, and safety during wear, presents substantial, potentially prohibitive, technical hurdles.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Integrating living, active microbes directly within clothing fibers for continuous self-cleaning is a highly inventive step beyond surface coatings or passive material properties.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "Truly self-cleaning clothes would revolutionize hygiene and water conservation in clothing care, fundamentally solving the design challenge.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Microbes can be successfully integrated into the core structure of textile fibers and remain viable and active.",
+        "These embedded microbes can effectively neutralize odors and light soiling without degrading the textile or harming the wearer.",
+        "The self-cleaning effect is potent enough to meet hygiene standards with very minimal water/moisture input."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Investigate methods for encapsulating or integrating microbes within fiber precursors or during fiber spinning processes.",
+        "Identify extremely hardy, benign microorganisms with relevant cleaning/deodorizing properties that might survive such processes.",
+        "Conduct proof-of-concept studies on the survival and activity of microbes on fiber surfaces or in fiber matrices under simulated wear conditions."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing fiber manufacturing processes that allow for microbial embedment and survival.",
+        "Ensuring microbe longevity and activity through multiple wear cycles, exposure to environment, and UV light.",
+        "Controlling microbial activity to prevent fiber degradation, skin irritation, or unintended ecological consequences when clothes are eventually discarded."
+      ]
+    },
+    "5be48aa4-dedf-437f-9ee1-fd07febbd6e8": {
+      "uuid": "5be48aa4-dedf-437f-9ee1-fd07febbd6e8",
+      "idea": "Develop a reusable, low-water \"bio-sponge\" with cleaning microbes.",
+      "description": "A textile-based cleaning tool, like a sponge, housing a biofilm of cleaning microbes. It would be activated with minimal water to wipe clothes clean, leveraging the low-water operation of biocomposites.",
+      "feasibility_rationale": "Creating and maintaining a beneficial biofilm on a sponge-like textile is plausible, but ensuring consistent cleaning efficacy, preventing contamination, and user safety over repeated uses requires significant R&D.",
+      "feasibility_score": 3,
+      "novelty_rationale": "While cleaning tools exist, a reusable \"living\" sponge with a microbial biofilm for clothes offers a moderately novel approach to low-water cleaning, distinct from disposable wipes or detergents.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "A reusable bio-sponge could offer a practical and significant reduction in water usage for general garment refreshment and cleaning, making it a highly impactful tool.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "A stable and effective cleaning biofilm can be cultivated and maintained on a reusable textile/sponge material.",
+        "The bio-sponge can effectively remove dirt and odors from clothing with minimal water and mechanical action.",
+        "The bio-sponge itself can be easily \"recharged\" or maintained without becoming a source of contamination."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Experiment with different textile materials and structures to find optimal substrates for cultivating and maintaining robust cleaning biofilms.",
+        "Test the cleaning efficacy of prototype bio-sponges on various fabrics and stains using minimal water.",
+        "Develop protocols for maintaining the bio-sponge's microbial culture and hygiene between uses (e.g., \"feeding\" solution, rinsing)."
+      ],
+      "major_challenges_roadblocks": [
+        "Maintaining the health and specific composition of the microbial biofilm on the sponge over time and through multiple uses, preventing unwanted microbial growth.",
+        "Ensuring the sponge effectively transfers cleaning action to clothes without leaving undesirable residues or damaging fabrics.",
+        "User acceptance regarding hygiene of a \"living\" cleaning tool and developing clear instructions for use and maintenance."
+      ]
+    },
+    "f735ea0d-be30-4bc3-bac4-3fe8620678d9": {
+      "uuid": "f735ea0d-be30-4bc3-bac4-3fe8620678d9",
+      "idea": "Bio-regenerative fabric coating cleans clothes using starved microbes.",
+      "description": "A dormant biofilm coating on fabric activates with minimal moisture upon soiling, with microbes consuming contaminants. This approach utilizes biological purification for low-water cleaning.",
+      "feasibility_rationale": "Significant R&D is needed to ensure long-term viability and controlled activation of microbes on fabric, and their effectiveness against a wide range of stains without adverse effects such as odor or skin irritation.",
+      "feasibility_score": 2,
+      "novelty_rationale": "While self-cleaning materials are explored, using dormant, starved microbes that activate on contact with soiling and minimal moisture is a fresh approach for textile cleaning, directly inspired by biological regeneration principles.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "This could revolutionize low-water cleaning by enabling clothes to actively self-clean light soiling, drastically reducing washing frequency and associated water consumption.",
+      "potential_impact_score": 4,
+      "key_assumptions": [
+        "Microbes can remain dormant yet viable on fabric for extended periods and through multiple wear cycles.",
+        "Soiling and minimal moisture are sufficient and reliable triggers for microbial activation and effective contaminant consumption.",
+        "The microbial action will not damage fabric integrity or cause undesirable odors or skin reactions for the wearer."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and screen robust microbial strains for survival in a dormant state on textiles and their ability to degrade common organic soils with minimal water.",
+        "Develop and test prototype fabric coatings, assessing microbe viability, adhesion, and controlled activation mechanisms.",
+        "Conduct small-scale efficacy tests on coated fabric swatches against representative stains, monitoring for cleaning performance and any negative side-effects (e.g., odor, fabric degradation)."
+      ],
+      "major_challenges_roadblocks": [
+        "Ensuring microbial survival, dormancy, and precisely controlled reactivation on diverse fabric types under variable environmental conditions.",
+        "Achieving broad-spectrum cleaning efficacy for various common stains without producing harmful byproducts or unpleasant odors.",
+        "Overcoming potential consumer acceptance barriers and addressing safety concerns related to wearing microbe-coated clothing."
+      ]
+    },
+    "95f220ae-c63b-4ac2-ab23-351abce2ac13": {
+      "uuid": "95f220ae-c63b-4ac2-ab23-351abce2ac13",
+      "idea": "EPS-matrix clothing layer traps dirt for dry, low-water removal.",
+      "description": "Clothing incorporates a biofilm-derived EPS layer to bind dirt, enabling easy mechanical removal (brushing/shaking), minimizing water use. This leverages biofilm adhesion, a key aspect of biological purification systems.",
+      "feasibility_rationale": "Creating a stable, effective, and user-friendly EPS-like coating presents material science challenges regarding durability and dirt-release mechanisms, but leveraging adhesion principles is plausible.",
+      "feasibility_score": 3,
+      "novelty_rationale": "Adapting the concept of a biofilm's EPS matrix for enhanced dirt adhesion on textiles, specifically for subsequent dry mechanical removal, is a clever twist on easy-clean surface technologies.",
+      "novelty_score": 3,
+      "potential_impact_rationale": "This could significantly reduce water use by making physical dirt removal more effective, thereby extending the time between full washes, especially for particulate or surface soiling.",
+      "potential_impact_score": 3,
+      "key_assumptions": [
+        "An EPS-like matrix can be durably and economically applied to common textile fabrics without compromising their feel or breathability.",
+        "The matrix will effectively bind a wide range of common particulate and light greasy soils.",
+        "Bound dirt can be easily and substantially removed by simple mechanical actions (e.g., brushing, shaking, vacuuming) without requiring significant water."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Research and identify suitable bio-polymers or synthetic mimics for an EPS-like coating with optimal adhesion and controlled-release properties for dirt.",
+        "Develop and test application methods for creating thin, durable, and flexible coatings on various fabric types.",
+        "Evaluate the dirt trapping efficiency and mechanical release efficacy of coated fabric swatches using standardized soils and mechanical actions."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing an EPS-like coating that is durable enough for regular wear and potential mild cleaning, yet allows easy release of trapped dirt upon specific mechanical action.",
+        "Ensuring the coating does not negatively impact fabric properties such as breathability, texture, comfort, or appearance.",
+        "Achieving consistent effectiveness across a diverse range of soil types, from particulate matter to oily residues."
+      ]
+    },
+    "36f2f2d2-45b0-4644-9053-e97d371ca5cd": {
+      "uuid": "36f2f2d2-45b0-4644-9053-e97d371ca5cd",
+      "idea": "Fabric with tailored microbial consortia for targeted stain degradation.",
+      "description": "Specific microbial communities embedded in clothing fibers break down common stains with minimal water, directly applying the principle of using tailored biological consortia for purification.",
+      "feasibility_rationale": "Requires significant breakthroughs in bioengineering to embed, sustain, and control diverse microbial consortia within fabric fibers that can specifically target a wide range of stains effectively and durably.",
+      "feasibility_score": 2,
+      "novelty_rationale": "Embedding tailored microbial consortia directly within fabric fibers for targeted, in-situ stain degradation represents a highly innovative and ambitious application of bioremediation principles to everyday garment care.",
+      "novelty_score": 4,
+      "potential_impact_rationale": "If successfully realized, this could fundamentally change garment care by making clothes self-remediating for specific stains, drastically reducing the need for water, detergents, and energy for cleaning.",
+      "potential_impact_score": 5,
+      "key_assumptions": [
+        "Diverse microbial consortia can be successfully embedded or integrated into fabric fibers while maintaining their viability and specific functionalities.",
+        "These embedded consortia can be tailored to effectively degrade a broad spectrum of common clothing stains with minimal water and without damaging the fabric.",
+        "The biological degradation process is rapid enough for practical consumer use and does not produce undesirable byproducts, odors, or pose any health risks."
+      ],
+      "key_next_steps_to_validate_or_develop": [
+        "Identify and characterize microbial consortia with proven efficacy in degrading common stain components (e.g., lipids, proteins, tannins, pigments).",
+        "Explore and test various techniques for encapsulating or embedding selected microbes/spores within or onto textile fibers while ensuring their long-term viability and accessibility to stains.",
+        "Conduct proof-of-concept studies on treated fabric swatches against specific target stains, assessing degradation efficiency, speed, fabric integrity, and any byproduct formation."
+      ],
+      "major_challenges_roadblocks": [
+        "Developing robust methods to embed and sustain viable, complex microbial consortia within fabric structures throughout the garment's lifecycle, including wear and tear.",
+        "Ensuring the consortia effectively and specifically target a broad range of common stains without damaging diverse fabric types or posing risks to the wearer.",
+        "Maintaining the efficacy of the microbial system through multiple cycles of soiling and potential mild (non-sterilizing) cleaning or refreshment processes."
+      ]
     }
   },
   "active_ingredient": {

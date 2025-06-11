@@ -290,6 +290,21 @@
             color: #facc15;
             opacity: 0.7;
         }
+        .collapse-toggle {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 0.2rem;
+            transition: color 0.2s;
+        }
+        .collapse-toggle i {
+            transition: transform 0.2s;
+        }
+        .collapse-content {
+            transition: max-height 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -449,16 +464,89 @@
                 container.innerHTML = `<div class="no-ideas-message">No ideas associated with this lens</div>`;
                 return;
             }
-            uniqueUuids.forEach(uuid => {
+            // Sort by interestingness (impact as fallback)
+            uniqueUuids.sort((a, b) => {
+                const ia = idea_lenses_hierarchy.idea_spark_lookup[a];
+                const ib = idea_lenses_hierarchy.idea_spark_lookup[b];
+                const scoreA = ia && ia.interestingness_score !== undefined ? ia.interestingness_score : (ia && ia.impact_score !== undefined ? ia.impact_score : 0);
+                const scoreB = ib && ib.interestingness_score !== undefined ? ib.interestingness_score : (ib && ib.impact_score !== undefined ? ib.impact_score : 0);
+                return scoreB - scoreA;
+            });
+            uniqueUuids.forEach((uuid, idx) => {
                 const idea = idea_lenses_hierarchy.idea_spark_lookup[uuid];
                 if (!idea) return;
+                // Badge helpers
+                function badge(label, icon, score, color, rationale) {
+                    if (score === undefined || rationale === undefined) return '';
+                    return `<div class="flex items-start mb-2">
+                        <span class="inline-flex items-center font-semibold text-sm px-3 py-1 rounded-full mr-3 justify-start" style="background:${color.bg};color:${color.text};width:140px;min-width:140px;max-width:140px;">
+                            <i class="fas ${icon} mr-1"></i> ${label}: ${score}/5
+                        </span>
+                        <span class="text-gray-700 text-sm flex-1">${rationale}</span>
+                    </div>`;
+                }
+                // Collapsible section helper
+                function collapsible(title, content, sectionId, innerHtml) {
+                    // If innerHtml is provided, use it as the content (for badges section)
+                    if (innerHtml) {
+                        return `<div class="mb-2">
+                            <button class="collapse-toggle flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" data-target="${sectionId}">
+                                <i class="fas fa-chevron-right mr-2 transition-transform"></i>
+                                ${title}
+                            </button>
+                            <div id="${sectionId}" class="collapse-content pl-6 mt-1 hidden">
+                                ${innerHtml}
+                            </div>
+                        </div>`;
+                    }
+                    if (!content || !Array.isArray(content) || !content.length) return '';
+                    return `<div class="mb-2">
+                        <button class="collapse-toggle flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" data-target="${sectionId}">
+                            <i class="fas fa-chevron-right mr-2 transition-transform"></i>
+                            ${title}
+                        </button>
+                        <div id="${sectionId}" class="collapse-content pl-6 mt-1 hidden">
+                            <ul class="list-disc list-inside text-sm text-gray-600">
+                                ${content.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>`;
+                }
+                // Colors/icons for badges
+                const badgeStyles = {
+                    feasibility: { bg: '#FEF3C7', text: '#92400E', icon: 'fa-tools' },
+                    novelty: { bg: '#FEF3C7', text: '#B45309', icon: 'fa-star' },
+                    impact: { bg: '#DEF7EC', text: '#03543F', icon: 'fa-bolt' }
+                };
+                // Render card
                 const ideaCard = document.createElement('div');
-                ideaCard.className = 'idea-card';
+                ideaCard.className = 'idea-card bg-blue-50 rounded-xl p-6 mb-6 shadow-sm border-l-8 border-blue-200';
                 ideaCard.innerHTML = `
-                    <div class="idea-title">${idea.idea}</div>
-                    <div class="idea-description">${idea.description}</div>
+                    <div class="idea-title font-semibold text-gray-900 text-lg mb-2">${idea.idea}</div>
+                    <div class="idea-description text-gray-700 text-base mb-4">${idea.description}</div>
+                    ${collapsible('Idea Assessment', null, `assessment-${uuid}`, `
+                        ${badge('Feasibility', badgeStyles.feasibility.icon, idea.feasibility_score, badgeStyles.feasibility, idea.feasibility_rationale)}
+                        ${badge('Novelty', badgeStyles.novelty.icon, idea.novelty_score, badgeStyles.novelty, idea.novelty_rationale)}
+                        ${badge('Impact', badgeStyles.impact.icon, idea.potential_impact_score, badgeStyles.impact, idea.potential_impact_rationale)}
+                    `)}
+                    ${collapsible('Key Assumptions', idea.key_assumptions, `assumptions-${uuid}`)}
+                    ${collapsible('Next Steps', idea.key_next_steps_to_validate_or_develop, `nextsteps-${uuid}`)}
+                    ${collapsible('Challenges', idea.major_challenges_roadblocks, `challenges-${uuid}`)}
                 `;
                 container.appendChild(ideaCard);
+            });
+            // Collapsible logic
+            container.querySelectorAll('.collapse-toggle').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = btn.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    if (content) {
+                        const open = !content.classList.contains('hidden');
+                        content.classList.toggle('hidden', open);
+                        btn.querySelector('i').classList.toggle('fa-chevron-right', open);
+                        btn.querySelector('i').classList.toggle('fa-chevron-down', !open);
+                    }
+                });
             });
         }
         function renderHierarchy() {
