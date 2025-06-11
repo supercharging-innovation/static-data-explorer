@@ -319,11 +319,8 @@
         <div class="content-container">
             <!-- Left Sidebar - Lenses -->
             <div class="lens-sidebar">
-                <h1 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Avenir', 'Inter', sans-serif;">Lens Hierarchy</h1>
-                <p class="text-gray-600 text-sm mb-4">Browse and explore the lens taxonomy</p>
-                <div class="search-container">
-                    <input type="text" id="search" class="search-input" placeholder="Search lenses..." />
-                </div>
+                <h1 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Avenir', 'Inter', sans-serif;">Explore Idea Themes</h1>
+                <p class="text-gray-600 text-sm mb-4">Browse creative themes and perspectives</p>
                 <div id="hierarchy-tree"></div>
             </div>
             <!-- Right Panel - Ideas -->
@@ -624,13 +621,6 @@
         }
         document.getElementById('active-ingredient-text').textContent = idea_lenses_hierarchy.active_ingredient.active_ingredient_text;
         renderHierarchy();
-        let searchTimeout;
-        document.getElementById('search').addEventListener('input', (e) => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                filterLenses(e.target.value);
-            }, 300);
-        });
     </script>
 </body>
 </html> 
