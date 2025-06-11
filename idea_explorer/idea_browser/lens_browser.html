@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Lenses Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            font-size: 15px;
+        }
+        .lens-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(124,58,237,0.06);
+            border: 1px solid #ece9f9;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        .idea-card {
+            background: #f8f7fc;
+            border-radius: 0.75rem;
+            border: 1px solid #ece9f9;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+        .idea-card:hover {
+            background: #f5f3ff;
+        }
+        .lens-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #ece9f9;
+        }
+        .lens-count {
+            background: #7c3aed;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            height: 2rem;
+        }
+        .related-lens {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #4B5563;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .main-content {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .lens-sidebar {
+            width: 400px;
+            background: white;
+            border-right: 1px solid #ece9f9;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+        .ideas-sidebar {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+        .lens-title {
+            color: #1F2937;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        .idea-title {
+            color: #1F2937;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .idea-description {
+            color: #4B5563;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .lens-nav-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 0.5rem;
+            word-break: break-word;
+            white-space: normal;
+            min-height: 2.5rem;
+        }
+        .lens-nav-item:hover {
+            background: #f5f3ff;
+        }
+        .lens-nav-item.active {
+            background: #7c3aed;
+            color: white;
+        }
+        .lens-nav-item.active .lens-count {
+            background: white;
+            color: #7c3aed;
+        }
+        .lens-nav-text {
+            flex: 1 1 0%;
+            white-space: normal;
+            word-break: break-word;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-content.open {
+            max-height: 500px;
+            padding: 0.5rem 0;
+        }
+        .accordion-toggle {
+            transition: transform 0.3s ease;
+        }
+        .accordion-toggle.open {
+            transform: rotate(180deg);
+        }
+        .lens-search-input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            transition: border-color 0.2s;
+        }
+        .lens-search-input:focus {
+            outline: none;
+            border-color: #a78bfa;
+            background: #f3f4f6;
+        }
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                height: auto;
+            }
+            .lens-sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ece9f9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <!-- Left Sidebar - Lenses -->
+        <div class="lens-sidebar">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">Idea Lenses</h1>
+            <p class="text-gray-600 text-sm mb-4">Browse ideas through different perspectives</p>
+            <input type="text" id="lens-search" class="lens-search-input" placeholder="Search lenses..." autocomplete="off" />
+            <div class="text-sm text-gray-600 mb-4" id="lens-count-label"></div>
+            <div id="lens-nav-list">
+                <!-- Lenses will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Right Sidebar - Ideas -->
+        <div class="ideas-sidebar">
+            <div id="lens-content">
+                <!-- Lens content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the data -->
+    <script src="../../data/idea_lenses_biofilm_phase_1.js"></script>
+    <script>
+        // Sort lenses by number of ideas
+        const sortedLenses = idea_lenses.sort((a, b) => b.idea_sparks.length - a.idea_sparks.length);
+        
+        // Create a map of ideas to their related lenses
+        const ideaToLenses = new Map();
+        idea_lenses.forEach(lens => {
+            lens.idea_sparks.forEach(spark => {
+                if (!ideaToLenses.has(spark.uuid)) {
+                    ideaToLenses.set(spark.uuid, []);
+                }
+                ideaToLenses.get(spark.uuid).push(lens.lens);
+            });
+        });
+
+        let filteredLenses = sortedLenses;
+        let activeLensIndex = 0;
+
+        function renderLensNav() {
+            const navList = document.getElementById('lens-nav-list');
+            const lensCountLabel = document.getElementById('lens-count-label');
+            lensCountLabel.textContent = `${filteredLenses.length} lens${filteredLenses.length === 1 ? '' : 'es'} available`;
+            navList.innerHTML = filteredLenses.map((lens, index) => `
+                <div class="lens-nav-item${index === activeLensIndex ? ' active' : ''}" data-index="${index}">
+                    <span class="lens-nav-text">${lens.lens}</span>
+                    <span class="lens-count">${lens.idea_sparks.length}</span>
+                </div>
+            `).join('');
+
+            // Add click handlers
+            document.querySelectorAll('.lens-nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.lens-nav-item').forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    activeLensIndex = parseInt(item.dataset.index);
+                    renderLensContent(filteredLenses[activeLensIndex]);
+                });
+            });
+
+            // Show the first lens by default
+            renderLensContent(filteredLenses[activeLensIndex]);
+        }
+
+        // Render lens content
+        function renderLensContent(lens) {
+            const content = document.getElementById('lens-content');
+            content.innerHTML = `
+                <div class="lens-card">
+                    <div class="lens-header">
+                        <h3 class="lens-title">${lens.lens}</h3>
+                        <span class="lens-count">${lens.idea_sparks.length} ideas</span>
+                    </div>
+                    <div class="space-y-4">
+                        ${lens.idea_sparks.map(spark => {
+                            const relatedLenses = ideaToLenses.get(spark.uuid)
+                                .filter(relatedLens => relatedLens !== lens.lens);
+                            return `
+                                <div class="idea-card">
+                                    <h4 class="idea-title">${spark.idea}</h4>
+                                    <p class="idea-description mb-3">${spark.description}</p>
+                                    ${relatedLenses.length > 0 ? `
+                                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                                            <span>${relatedLenses.length} other lens${relatedLenses.length === 1 ? '' : 'es'}</span>
+                                            <i class="fas fa-chevron-down accordion-toggle"></i>
+                                        </div>
+                                        <div class="accordion-content">
+                                            ${relatedLenses.map(relatedLens => `
+                                                <span class="related-lens">${relatedLens}</span>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Toggle accordion
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.accordion-toggle');
+            content.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
+        // Lens search filter
+        document.getElementById('lens-search').addEventListener('input', function(e) {
+            const query = e.target.value.trim().toLowerCase();
+            filteredLenses = sortedLenses.filter(lens => lens.lens.toLowerCase().includes(query));
+            activeLensIndex = 0;
+            renderLensNav();
+        });
+
+        // Initialize the interface
+        renderLensNav();
+    </script>
+</body>
+</html> 

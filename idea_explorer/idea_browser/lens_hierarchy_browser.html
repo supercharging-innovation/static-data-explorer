@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lens Hierarchy Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1f2937;
+        }
+
+        .hierarchy-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .lens-node {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .lens-header {
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 1rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .lens-header:hover {
+            background-color: #f8fafc;
+        }
+
+        .lens-content {
+            padding: 0 1.25rem 1.25rem;
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .lens-children {
+            margin-left: 2rem;
+            border-left: 2px solid #e5e7eb;
+            padding-left: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            color: #6b7280;
+        }
+
+        .toggle-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .lens-name {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+
+        .lens-description {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .search-container {
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+
+        .stats-bar {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: #7c3aed;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="hierarchy-container">
+        <h1 class="text-3xl font-bold mb-2">Lens Hierarchy Browser</h1>
+        <p class="text-gray-600 mb-6">Explore the hierarchical structure of idea lenses</p>
+
+        <div class="search-container">
+            <input type="text" id="search" class="search-input" placeholder="Search lenses..." />
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fas fa-layer-group text-purple-600"></i>
+                <span class="stat-value" id="total-lenses">0</span>
+                <span class="stat-label">Total Lenses</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-sitemap text-purple-600"></i>
+                <span class="stat-value" id="max-depth">0</span>
+                <span class="stat-label">Max Depth</span>
+            </div>
+        </div>
+
+        <div id="hierarchy-tree">
+            <!-- Hierarchy will be rendered here -->
+        </div>
+    </div>
+
+    <script src="../../data/idea_lenses_biofilm_hierarchy.js"></script>
+    <script>
+        function createLensNode(lens, depth = 0) {
+            const hasChildren = lens.children && lens.children.length > 0;
+            const node = document.createElement('div');
+            node.className = 'lens-node';
+            node.dataset.uuid = lens.uuid;
+            node.dataset.depth = depth;
+
+            const header = document.createElement('div');
+            header.className = 'lens-header';
+            header.innerHTML = `
+                <div>
+                    <div class="lens-name">${lens.name}</div>
+                    <div class="lens-description">${lens.description}</div>
+                </div>
+                ${hasChildren ? '<i class="fas fa-chevron-down toggle-icon"></i>' : ''}
+            `;
+
+            const content = document.createElement('div');
+            content.className = 'lens-content';
+            content.style.display = 'none';
+
+            if (hasChildren) {
+                const childrenContainer = document.createElement('div');
+                childrenContainer.className = 'lens-children';
+                lens.children.forEach(child => {
+                    childrenContainer.appendChild(createLensNode(child, depth + 1));
+                });
+                content.appendChild(childrenContainer);
+            }
+
+            node.appendChild(header);
+            node.appendChild(content);
+
+            if (hasChildren) {
+                header.addEventListener('click', () => {
+                    const isOpen = content.style.display !== 'none';
+                    content.style.display = isOpen ? 'none' : 'block';
+                    header.querySelector('.toggle-icon').classList.toggle('open');
+                });
+            }
+
+            return node;
+        }
+
+        function renderHierarchy() {
+            const container = document.getElementById('hierarchy-tree');
+            container.innerHTML = '';
+            
+            idea_lenses_hierarchy.forEach(lens => {
+                container.appendChild(createLensNode(lens));
+            });
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const totalLenses = document.querySelectorAll('.lens-node').length;
+            const maxDepth = Math.max(...Array.from(document.querySelectorAll('.lens-node'))
+                .map(node => parseInt(node.dataset.depth)));
+
+            document.getElementById('total-lenses').textContent = totalLenses;
+            document.getElementById('max-depth').textContent = maxDepth;
+        }
+
+        function filterLenses(query) {
+            const searchTerm = query.toLowerCase();
+            const nodes = document.querySelectorAll('.lens-node');
+            
+            // First, hide all nodes
+            nodes.forEach(node => {
+                node.style.display = 'none';
+                const content = node.querySelector('.lens-content');
+                if (content) {
+                    content.style.display = 'none';
+                }
+                const toggleIcon = node.querySelector('.toggle-icon');
+                if (toggleIcon) {
+                    toggleIcon.classList.remove('open');
+                }
+            });
+
+            // Then, show matching nodes and their parents
+            nodes.forEach(node => {
+                const name = node.querySelector('.lens-name').textContent.toLowerCase();
+                const description = node.querySelector('.lens-description').textContent.toLowerCase();
+                const matches = name.includes(searchTerm) || description.includes(searchTerm);
+
+                if (matches) {
+                    // Show this node
+                    node.style.display = 'block';
+                    
+                    // Show all parent nodes and their content
+                    let parent = node.parentElement;
+                    while (parent && parent.classList.contains('lens-children')) {
+                        const parentNode = parent.parentElement;
+                        parentNode.style.display = 'block';
+                        
+                        const parentContent = parentNode.querySelector('.lens-content');
+                        if (parentContent) {
+                            parentContent.style.display = 'block';
+                        }
+                        
+                        const parentToggle = parentNode.querySelector('.toggle-icon');
+                        if (parentToggle) {
+                            parentToggle.classList.add('open');
+                        }
+                        
+                        parent = parent.parentElement;
+                    }
+                }
+            });
+
+            // If search is empty, show all nodes
+            if (!searchTerm) {
+                nodes.forEach(node => {
+                    node.style.display = 'block';
+                });
+            }
+        }
+
+        // Initialize
+        renderHierarchy();
+
+        // Search functionality with debounce
+        let searchTimeout;
+        document.getElementById('search').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterLenses(e.target.value);
+            }, 300); // Debounce for 300ms
+        });
+    </script>
+</body>
+</html> 
