@@ -305,6 +305,18 @@
         .collapse-content {
             transition: max-height 0.3s ease;
         }
+        .draggable-lens {
+            cursor: grab;
+            transition: box-shadow 0.2s, border 0.2s;
+        }
+        .draggable-lens.dragging {
+            opacity: 0.6;
+            box-shadow: 0 0 0 2px #a78bfa, 0 4px 16px rgba(124,58,237,0.13);
+        }
+        .draggable-lens.drag-over {
+            border: 2px dashed #a78bfa;
+            background: #f3f0ff;
+        }
     </style>
 </head>
 <body>
@@ -583,9 +595,43 @@
         function renderHierarchy() {
             const container = document.getElementById('hierarchy-tree');
             container.innerHTML = '';
-            idea_lenses_hierarchy.taxonomy.forEach(lens => {
-                container.appendChild(createLensNode(lens));
-            });
+            // Add drag-and-drop for top-level lenses
+            let dragSrcIndex = null;
+            let topLevelLenses = idea_lenses_hierarchy.taxonomy.slice();
+            function renderTopLevel() {
+                container.innerHTML = '';
+                topLevelLenses.forEach((lens, idx) => {
+                    const node = createLensNode(lens);
+                    node.setAttribute('draggable', 'true');
+                    node.classList.add('draggable-lens');
+                    node.addEventListener('dragstart', (e) => {
+                        dragSrcIndex = idx;
+                        node.classList.add('dragging');
+                        e.dataTransfer.effectAllowed = 'move';
+                    });
+                    node.addEventListener('dragend', () => {
+                        node.classList.remove('dragging');
+                    });
+                    node.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                        node.classList.add('drag-over');
+                    });
+                    node.addEventListener('dragleave', () => {
+                        node.classList.remove('drag-over');
+                    });
+                    node.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        node.classList.remove('drag-over');
+                        if (dragSrcIndex !== null && dragSrcIndex !== idx) {
+                            const moved = topLevelLenses.splice(dragSrcIndex, 1)[0];
+                            topLevelLenses.splice(idx, 0, moved);
+                            renderTopLevel();
+                        }
+                    });
+                    container.appendChild(node);
+                });
+            }
+            renderTopLevel();
         }
         function filterLenses(query) {
             const searchTerm = query.toLowerCase();
