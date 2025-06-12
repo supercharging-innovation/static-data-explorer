@@ -351,6 +351,10 @@
                         <button id="export-lens-btn" title="Export Lens & Ideas" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200">
                             <i class="fas fa-download"></i>
                         </button>
+                        <button id="clipboard-lens-btn" title="Copy JSON to Clipboard" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200 relative">
+                            <i class="fas fa-clipboard"></i>
+                            <span id="clipboard-copied-tooltip" class="absolute -top-7 left-1/2 -translate-x-1/2 bg-purple-700 text-white text-xs rounded px-2 py-1 shadow transition-opacity opacity-0 pointer-events-none">Copied!</span>
+                        </button>
                     </div>
                 </div>
                 <div id="current-lens-card"></div>
@@ -496,18 +500,22 @@
             const sparksBadge = document.getElementById('idea-sparks-count-badge');
             const sparksCountText = document.getElementById('idea-sparks-count-text');
             const exportBtn = document.getElementById('export-lens-btn');
+            const clipboardBtn = document.getElementById('clipboard-lens-btn');
+            const clipboardTooltip = document.getElementById('clipboard-copied-tooltip');
             container.innerHTML = '';
             // Show current lens info in a prominent card
             if (!lens) {
                 lensCard.innerHTML = '';
                 if (sparksCountText) sparksCountText.textContent = '';
                 if (exportBtn) exportBtn.style.display = 'none';
+                if (clipboardBtn) clipboardBtn.style.display = 'none';
                 container.innerHTML = `<div class="empty-bulb flex flex-col items-center justify-center h-full w-full" style="min-height: 300px;">
                     <i class="fas fa-lightbulb text-yellow-300" style="font-size: 4rem;"></i>
                 </div>`;
                 return;
             }
             if (exportBtn) exportBtn.style.display = '';
+            if (clipboardBtn) clipboardBtn.style.display = '';
             const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
             lensCard.innerHTML = `
                 <div class="current-lens-card bg-white rounded-2xl shadow-lg border border-purple-200 p-6 mb-8 flex flex-col gap-2 relative">
@@ -635,6 +643,27 @@
                         document.body.removeChild(a);
                         URL.revokeObjectURL(url);
                     }, 100);
+                };
+            }
+            if (clipboardBtn) {
+                clipboardBtn.onclick = async function() {
+                    const lensData = {
+                        uuid: lens.uuid,
+                        name: lens.name,
+                        description: lens.description,
+                        idea_spark_uuids: uniqueUuids,
+                        idea_sparks: uniqueUuids.map(uuid => idea_lenses_hierarchy.idea_spark_lookup[uuid])
+                    };
+                    const json = JSON.stringify(lensData, null, 2);
+                    try {
+                        await navigator.clipboard.writeText(json);
+                        if (clipboardTooltip) {
+                            clipboardTooltip.style.opacity = '1';
+                            setTimeout(() => { clipboardTooltip.style.opacity = '0'; }, 1200);
+                        }
+                    } catch (err) {
+                        alert('Failed to copy to clipboard');
+                    }
                 };
             }
         }
