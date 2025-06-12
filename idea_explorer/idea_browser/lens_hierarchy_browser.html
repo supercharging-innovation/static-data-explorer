@@ -317,6 +317,10 @@
             border: 2px dashed #a78bfa;
             background: #f3f0ff;
         }
+        .lens-glow {
+            box-shadow: 0 0 0 4px #a78bfa, 0 4px 16px rgba(124,58,237,0.13) !important;
+            transition: box-shadow 0.4s;
+        }
     </style>
 </head>
 <body>
@@ -422,20 +426,57 @@
             }
             node.appendChild(header);
             node.appendChild(content);
-            // Expand/collapse
-            if (hasChildren) {
-                header.addEventListener('click', e => {
-                    if (e.target.classList.contains('toggle-icon')) {
-                        const isOpen = content.style.display !== 'none';
-                        content.style.display = isOpen ? 'none' : 'block';
-                        header.querySelector('.toggle-icon').classList.toggle('open');
-                        return;
-                    }
-                    selectLens(lens, header);
-                });
-            } else {
-                header.addEventListener('click', () => selectLens(lens, header));
-            }
+            // Expand/collapse and scroll/glow logic
+            header.addEventListener('click', e => {
+                if (e.target.classList.contains('toggle-icon')) {
+                    const isOpen = content.style.display !== 'none';
+                    content.style.display = isOpen ? 'none' : 'block';
+                    header.querySelector('.toggle-icon').classList.toggle('open');
+                    return;
+                }
+                // Collapse siblings' children
+                const parent = node.parentElement;
+                if (parent && parent.classList.contains('lens-children')) {
+                    Array.from(parent.children).forEach(sibling => {
+                        if (sibling !== node) {
+                            const siblingContent = sibling.querySelector(':scope > .lens-content');
+                            const siblingIcon = sibling.querySelector(':scope > .lens-header .toggle-icon');
+                            if (siblingContent) siblingContent.style.display = 'none';
+                            if (siblingIcon) siblingIcon.classList.remove('open');
+                        }
+                    });
+                } else if (depth === 0) {
+                    // Top-level: collapse other top-levels
+                    document.querySelectorAll('.lens-node[data-depth="0"]').forEach(topNode => {
+                        if (topNode !== node) {
+                            const topContent = topNode.querySelector(':scope > .lens-content');
+                            const topIcon = topNode.querySelector(':scope > .lens-header .toggle-icon');
+                            if (topContent) topContent.style.display = 'none';
+                            if (topIcon) topIcon.classList.remove('open');
+                        }
+                    });
+                }
+                // Expand this node if it has children
+                if (hasChildren) {
+                    content.style.display = 'block';
+                    const icon = header.querySelector('.toggle-icon');
+                    if (icon) icon.classList.add('open');
+                }
+                // Scroll this node to top of sidebar
+                setTimeout(() => {
+                    // Scroll with offset from top
+                    const sidebar = document.querySelector('.lens-sidebar');
+                    const nodeRect = node.getBoundingClientRect();
+                    const sidebarRect = sidebar.getBoundingClientRect();
+                    const offset = 20; // px gap from top
+                    const scrollTop = sidebar.scrollTop + (nodeRect.top - sidebarRect.top) - offset;
+                    sidebar.scrollTo({ top: scrollTop, behavior: 'smooth' });
+                    // Glow effect
+                    node.classList.add('lens-glow');
+                    setTimeout(() => node.classList.remove('lens-glow'), 900);
+                }, 0);
+                selectLens(lens, header);
+            });
             return node;
         }
         function selectLens(lens, headerEl) {
@@ -443,6 +484,11 @@
             headerEl.classList.add('selected');
             selectedLensNode = lens;
             renderIdeas(lens);
+            // Scroll right panel to top
+            const ideasPanel = document.querySelector('.ideas-panel');
+            if (ideasPanel) {
+                ideasPanel.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
         function renderIdeas(lens) {
             const container = document.getElementById('ideas-container');
