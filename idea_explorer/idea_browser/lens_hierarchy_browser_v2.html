@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lens Hierarchy Browser V2</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @font-face {
+            font-family: 'Avenir';
+            src: local('Avenir'), local('Avenir Next'), local('AvenirNext-Regular');
+            font-weight: 400;
+        }
+        body {
+            font-family: 'Avenir', 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1f2937;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .active-ingredient-bar {
+            background: linear-gradient(90deg, #ede9fe 0%, #f3f4f6 100%);
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+        }
+        .active-ingredient-card {
+            background: white;
+            border-radius: 1.25rem;
+            box-shadow: 0 2px 12px 0 rgba(124,58,237,0.08);
+            margin: 1.5rem 0;
+            width: 96vw;
+            max-width: 1600px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2.5rem;
+            gap: 2rem;
+        }
+        .active-ingredient-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #7c3aed;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+            min-width: 180px;
+            text-align: left;
+        }
+        .active-ingredient-text {
+            font-size: 1.08rem;
+            color: #1f2937;
+            font-weight: 500;
+            text-align: left;
+        }
+        .content-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .lens-sidebar {
+            width: 50%;
+            min-width: 0;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            overflow-y: auto;
+            padding: 2rem 2rem 2rem 2.5rem;
+        }
+        .ideas-panel {
+            width: 50%;
+            min-width: 0;
+            background: #f3f0ff;
+            overflow-y: auto;
+            padding: 2rem 2.5rem 2rem 2rem;
+            transition: background 0.3s;
+        }
+        .ideas-panel.ideas-mode {
+            background: #fffbe8;
+        }
+        .ideas-panel.landing-mode {
+            background: #e0e7ff;
+        }
+        .empty-landing-message {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 400px;
+            color: #7c3aed;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+            opacity: 0.85;
+        }
+        .empty-landing-message .fa-sparkles {
+            font-size: 2.5rem;
+            color: #fbbf24;
+            margin-bottom: 1.2rem;
+        }
+        .lens-node {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+        .lens-header {
+            padding: 1.25rem 1.25rem 0.75rem 0.75rem;
+            cursor: pointer;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            border-radius: 1rem 1rem 0 0;
+            transition: background-color 0.2s ease;
+        }
+        .lens-header:hover, .lens-header.selected {
+            background-color: #ede9fe;
+        }
+        .lens-content {
+            padding: 0 1.25rem 1.25rem;
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .lens-children {
+            margin-left: 2rem;
+            border-left: 2px solid #e5e7eb;
+            padding-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        .toggle-icon {
+            transition: transform 0.3s ease;
+            color: #6b7280;
+            margin-left: 0.75rem;
+            font-size: 1.1rem;
+        }
+        .toggle-icon.open {
+            transform: rotate(180deg);
+        }
+        .lens-name {
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.1rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .lens-description {
+            color: #6b7280;
+            font-size: 0.93rem;
+            margin-top: 0.5rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .lens-badges-row {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            margin-top: 0.7rem;
+            margin-bottom: 0.1rem;
+        }
+        .lens-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: #f3f0ff;
+            color: #7c3aed;
+            font-size: 0.93rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.18rem 0.85rem 0.18rem 0.7rem;
+            box-shadow: 0 1px 2px rgba(124,58,237,0.04);
+        }
+        .lens-badge i {
+            font-size: 1.05em;
+        }
+        .search-container {
+            margin-bottom: 1.5rem;
+        }
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+        }
+        .idea-card {
+            background: #f7f6fd;
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem 1.25rem 1.5rem;
+            margin-bottom: 2.1rem;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.06);
+            border-left: 6px solid #FFD700;
+            position: relative;
+            transition: box-shadow 0.2s, border-color 0.2s;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .idea-card:hover {
+            box-shadow: 0 4px 16px rgba(124,58,237,0.13);
+            border-left: 6px solid #fbbf24;
+        }
+        .idea-title {
+            font-weight: 700;
+            color: #1f2937;
+            font-size: 1.13rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .idea-description {
+            color: #4b5563;
+            font-size: 0.99rem;
+            line-height: 1.6;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .no-ideas-message {
+            text-align: center;
+            color: #6b7280;
+            padding: 2rem;
+            font-size: 1.1rem;
+        }
+        .idea-sparks-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        .idea-sparks-header .fa-lightbulb {
+            color: #FFD700;
+            font-size: 1.7rem;
+            margin-left: 0.5rem;
+        }
+        .lens-header-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #7c3aed;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.01em;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .current-lens-info {
+            background: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 6px rgba(124,58,237,0.06);
+            padding: 1.1rem 1.5rem 1.1rem 1.5rem;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #7c3aed;
+        }
+        .current-lens-title {
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: #7c3aed;
+            margin-bottom: 0.2rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .current-lens-desc {
+            color: #4b5563;
+            font-size: 0.97rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+            margin-bottom: 0.7rem;
+        }
+        .current-lens-ideas-count {
+            color: #7c3aed;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.2rem;
+            font-family: 'Avenir', 'Inter', sans-serif;
+        }
+        .current-lens-card {
+            box-shadow: 0 4px 16px 0 rgba(124,58,237,0.10);
+            position: relative;
+            overflow: visible;
+        }
+        .current-lens-card .fa-lightbulb {
+            color: #facc15;
+        }
+        .current-lens-badge {
+            position: absolute;
+            top: -1.2rem;
+            left: 1.5rem;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.10);
+            pointer-events: none;
+        }
+        .empty-bulb {
+            min-height: 300px;
+            color: #facc15;
+            opacity: 0.7;
+        }
+        .collapse-toggle {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 0;
+            margin-bottom: 0.2rem;
+            transition: color 0.2s;
+        }
+        .collapse-toggle i {
+            transition: transform 0.2s;
+        }
+        .collapse-content {
+            transition: max-height 0.3s ease;
+        }
+        .draggable-lens {
+            cursor: grab;
+            transition: box-shadow 0.2s, border 0.2s;
+        }
+        .draggable-lens.dragging {
+            opacity: 0.6;
+            box-shadow: 0 0 0 2px #a78bfa, 0 4px 16px rgba(124,58,237,0.13);
+        }
+        .draggable-lens.drag-over {
+            border: 2px dashed #a78bfa;
+            background: #f3f0ff;
+        }
+        .lens-glow {
+            box-shadow: 0 0 0 4px #a78bfa, 0 4px 16px rgba(124,58,237,0.13) !important;
+            transition: box-shadow 0.4s;
+        }
+        .sub-lens-preview-area {
+            margin-bottom: 2rem;
+        }
+        .sub-lens-preview-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #7c3aed;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sub-lens-preview {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.08);
+            transition: all 0.2s;
+            cursor: pointer;
+            border: 1.5px solid #e0e7ff;
+        }
+        .sub-lens-preview:hover {
+            box-shadow: 0 4px 16px rgba(124,58,237,0.13);
+            transform: translateY(-2px);
+            border-color: #a78bfa;
+        }
+        .sub-lens-preview-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .sub-lens-preview-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            flex: 1 1 100%;
+        }
+        .sub-lens-preview-description {
+            color: #4b5563;
+            font-size: 0.97rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .sub-lens-preview-actions-row {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 0.7rem;
+        }
+        .sub-lens-preview-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .sub-lens-preview-stats {
+            display: flex;
+            gap: 1.1rem;
+            font-size: 0.97rem;
+            color: #6b7280;
+            align-items: center;
+        }
+        .sub-lens-preview-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .sub-lens-preview-top-ideas-title {
+            font-size: 0.93rem;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .sub-lens-badge-novelty, .sub-lens-badge-feasibility, .sub-lens-badge-impact {
+            position: relative;
+        }
+        .sub-lens-badge-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            width: max-content;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 0.4rem;
+            padding: 0.2rem 0.7rem;
+            position: absolute;
+            z-index: 10;
+            left: 50%;
+            top: -2.1rem;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .sub-lens-badge-novelty:hover .sub-lens-badge-tooltip,
+        .sub-lens-badge-feasibility:hover .sub-lens-badge-tooltip,
+        .sub-lens-badge-impact:hover .sub-lens-badge-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        .sub-lens-preview-top-ideas {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .sub-lens-preview-top-ideas-title {
+            font-size: 0.93rem;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        .sub-lens-preview-top-idea {
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .sub-lens-preview-top-idea-title {
+            font-size: 0.97rem;
+            font-weight: 500;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        .sub-lens-preview-top-idea-description {
+            font-size: 0.89rem;
+            color: #6b7280;
+        }
+        .sub-lens-preview-top-idea-scores {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .sub-lens-badge-novelty {
+            background: #ede9fe;
+            color: #7c3aed;
+            border-radius: 9999px;
+            padding: 0.18rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .sub-lens-badge-feasibility {
+            background: #fef3c7;
+            color: #b45309;
+            border-radius: 9999px;
+            padding: 0.18rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .sub-lens-badge-impact {
+            background: #def7ec;
+            color: #03543f;
+            border-radius: 9999px;
+            padding: 0.18rem 0.7rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .sub-lens-divider {
+            height: 2px;
+            background: linear-gradient(90deg, #ede9fe 0%, #f3f4f6 100%);
+            border-radius: 1px;
+            margin: 2rem 0 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.08);
+        }
+        .sub-lens-preview-action {
+            padding: 0.5rem 1.1rem;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1.5px solid #a78bfa;
+            outline: none;
+            cursor: pointer;
+            background: #f3f0ff;
+        }
+        .sub-lens-preview-action.primary {
+            background: #7c3aed;
+            color: white;
+            border: 1.5px solid #7c3aed;
+        }
+        .sub-lens-preview-action.primary:disabled {
+            background: #e5e7eb;
+            color: #a1a1aa;
+            border: 1.5px solid #e5e7eb;
+            cursor: not-allowed;
+        }
+        .sub-lens-preview-action.primary:hover:not(:disabled) {
+            background: #6d28d9;
+            border-color: #6d28d9;
+        }
+        .sub-lens-preview-action.secondary {
+            background: #f3f0ff;
+            color: #7c3aed;
+            border: 1.5px solid #a78bfa;
+        }
+        .sub-lens-preview-action.secondary:hover {
+            background: #ede9fe;
+            border-color: #7c3aed;
+        }
+        .flat-view-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ede9fe;
+            color: #7c3aed;
+            border: 1.5px solid #a78bfa;
+            border-radius: 0.5rem;
+            padding: 0.4rem 1.1rem;
+            font-size: 0.97rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+        }
+        .flat-view-back-btn:hover {
+            background: #e0e7ff;
+            border-color: #7c3aed;
+        }
+        .flat-view-tag {
+            background: #f3f4f6;
+            color: #7c3aed;
+            border-radius: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.2rem 0.7rem;
+            margin-left: 0.7rem;
+            display: inline-block;
+        }
+        .right-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            justify-content: space-between;
+        }
+        .right-panel-context {
+            font-size: 1.05rem;
+            color: #7c3aed;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+        .right-panel-up-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #ede9fe;
+            color: #7c3aed;
+            border: 1.5px solid #a78bfa;
+            border-radius: 0.5rem;
+            padding: 0.4rem 0.7rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-left: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            position: relative;
+        }
+        .right-panel-up-btn.ideas-mode {
+            background: #fbbf24;
+            color: #fff;
+            border: 1.5px solid #fbbf24;
+        }
+        .right-panel-up-btn.ideas-mode:hover {
+            background: #f59e42;
+            border-color: #f59e42;
+        }
+        .right-panel-up-btn.lenses-mode {
+            background: #ede9fe;
+            color: #7c3aed;
+            border: 1.5px solid #a78bfa;
+        }
+        .right-panel-up-btn.lenses-mode:hover {
+            background: #a78bfa;
+            color: #fff;
+            border-color: #a78bfa;
+        }
+        .right-panel-up-btn:hover {
+            background: #e0e7ff;
+            border-color: #7c3aed;
+        }
+        .right-panel-up-btn[title]::after {
+            content: attr(title);
+            position: absolute;
+            left: 50%;
+            bottom: 120%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 0.4rem;
+            font-size: 0.85rem;
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+        .right-panel-up-btn:hover[title]::after {
+            opacity: 1;
+        }
+        .sticky-goto-top-btn {
+            position: fixed;
+            right: 2.5rem;
+            bottom: 2.5rem;
+            z-index: 50;
+            background: #a78bfa;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 8px rgba(124,58,237,0.13);
+            cursor: pointer;
+            opacity: 0.85;
+            transition: background 0.2s, opacity 0.2s;
+        }
+        .sticky-goto-top-btn.ideas-mode {
+            background: #fbbf24;
+            color: #fff;
+        }
+        .sticky-goto-top-btn.ideas-mode:hover {
+            background: #f59e42;
+            opacity: 1;
+        }
+        .sticky-goto-top-btn.lenses-mode {
+            background: #a78bfa;
+            color: #fff;
+        }
+        .sticky-goto-top-btn.lenses-mode:hover {
+            background: #7c3aed;
+            opacity: 1;
+        }
+        .sticky-goto-top-btn:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Active Ingredient Bar -->
+        <div class="active-ingredient-bar">
+            <div class="active-ingredient-card">
+                <div class="active-ingredient-header">Active Ingredient</div>
+                <div class="active-ingredient-text" id="active-ingredient-text">Loading active ingredient...</div>
+            </div>
+        </div>
+        <div class="content-container">
+            <!-- Left Sidebar - Lenses -->
+            <div class="lens-sidebar">
+                <h1 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Avenir', 'Inter', sans-serif;">Explore Idea Themes</h1>
+                <p class="text-gray-600 text-sm mb-4">Browse creative themes and perspectives</p>
+                <div id="hierarchy-tree"></div>
+            </div>
+            <!-- Right Panel - Ideas -->
+            <div class="ideas-panel">
+                <div id="idea-sparks-header" class="mb-7 flex items-center justify-between"></div>
+                <div id="current-lens-card"></div>
+                <div id="ideas-container"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../../data/idea_lenses_biofilm_hierarchy_v2.js"></script>
+    <script>
+        // Helper functions
+        function collectAllUniqueIdeaUuids(lens, seen = new Set()) {
+            if (lens.idea_spark_uuids && Array.isArray(lens.idea_spark_uuids)) {
+                lens.idea_spark_uuids.forEach(uuid => seen.add(uuid));
+            }
+            if (lens.children && lens.children.length > 0) {
+                lens.children.forEach(child => collectAllUniqueIdeaUuids(child, seen));
+            }
+            return seen;
+        }
+
+        function aggregateLensStats(node, depth = 1) {
+            const uniqueIdeas = collectAllUniqueIdeaUuids(node);
+            let subLensCount = 0;
+            let maxDepth = depth;
+            if (node.children && node.children.length > 0) {
+                subLensCount += node.children.length;
+                node.children.forEach(child => {
+                    const childStats = aggregateLensStats(child, depth + 1);
+                    subLensCount += childStats.subLensCount;
+                    if (childStats.maxDepth > maxDepth) maxDepth = childStats.maxDepth;
+                });
+            }
+            node._unique_idea_count = uniqueIdeas.size;
+            node._total_sub_lens_count = subLensCount;
+            node._max_depth = maxDepth - depth + 1;
+            return { uniqueIdeas, subLensCount, maxDepth };
+        }
+
+        function getTopIdeas(lens, count = 3) {
+            const allIdeas = Array.from(collectAllUniqueIdeaUuids(lens));
+            return allIdeas
+                .map(uuid => idea_lenses_hierarchy.idea_spark_lookup[uuid])
+                .filter(idea => idea)
+                .sort((a, b) => {
+                    const scoreA = a.novelty_score !== undefined ? a.novelty_score : (a.interestingness_score !== undefined ? a.interestingness_score : (a.impact_score !== undefined ? a.impact_score : 0));
+                    const scoreB = b.novelty_score !== undefined ? b.novelty_score : (b.interestingness_score !== undefined ? b.interestingness_score : (b.impact_score !== undefined ? b.impact_score : 0));
+                    return scoreB - scoreA;
+                })
+                .slice(0, count);
+        }
+
+        function isLeafNode(lens) {
+            return !lens.children || lens.children.length === 0;
+        }
+
+        function createLensNode(lens, depth = 0) {
+            const hasChildren = lens.children && lens.children.length > 0;
+            const node = document.createElement('div');
+            node.className = 'lens-node';
+            node.dataset.uuid = lens.uuid;
+            node.dataset.depth = depth;
+            
+            // Header
+            const header = document.createElement('div');
+            header.className = 'lens-header';
+            header.innerHTML = `
+                <div style="flex:1;min-width:0;">
+                    <div class="lens-name">${lens.name}</div>
+                    <div class="lens-description">${lens.description}</div>
+                    <div class="lens-badges-row">
+                        <span class="lens-badge"><i class="fas fa-lightbulb"></i> Ideas: ${lens._unique_idea_count}</span>
+                        <span class="lens-badge"><i class="fas fa-layer-group"></i> Sub-lenses: ${lens._total_sub_lens_count}</span>
+                        <span class="lens-badge"><i class="fas fa-sitemap"></i> Depth: ${lens._max_depth}</span>
+                    </div>
+                </div>
+                <div class="flex items-center" style="margin-left:1rem;">
+                    ${hasChildren ? '<i class="fas fa-chevron-down toggle-icon"></i>' : ''}
+                </div>
+            `;
+
+            // Content (children)
+            const content = document.createElement('div');
+            content.className = 'lens-content';
+            content.style.display = 'none';
+            
+            if (hasChildren) {
+                const childrenContainer = document.createElement('div');
+                childrenContainer.className = 'lens-children';
+                lens.children.forEach(child => {
+                    childrenContainer.appendChild(createLensNode(child, depth + 1));
+                });
+                content.appendChild(childrenContainer);
+            }
+
+            node.appendChild(header);
+            node.appendChild(content);
+
+            // Expand/collapse and scroll/glow logic
+            header.addEventListener('click', e => {
+                if (e.target.classList.contains('toggle-icon')) {
+                    const isOpen = content.style.display !== 'none';
+                    content.style.display = isOpen ? 'none' : 'block';
+                    header.querySelector('.toggle-icon').classList.toggle('open');
+                    return;
+                }
+
+                // Collapse siblings' children
+                const parent = node.parentElement;
+                if (parent && parent.classList.contains('lens-children')) {
+                    Array.from(parent.children).forEach(sibling => {
+                        if (sibling !== node) {
+                            const siblingContent = sibling.querySelector(':scope > .lens-content');
+                            const siblingIcon = sibling.querySelector(':scope > .lens-header .toggle-icon');
+                            if (siblingContent) siblingContent.style.display = 'none';
+                            if (siblingIcon) siblingIcon.classList.remove('open');
+                        }
+                    });
+                } else if (depth === 0) {
+                    // Top-level: collapse other top-levels
+                    document.querySelectorAll('.lens-node[data-depth="0"]').forEach(topNode => {
+                        if (topNode !== node) {
+                            const topContent = topNode.querySelector(':scope > .lens-content');
+                            const topIcon = topNode.querySelector(':scope > .lens-header .toggle-icon');
+                            if (topContent) topContent.style.display = 'none';
+                            if (topIcon) topIcon.classList.remove('open');
+                        }
+                    });
+                }
+
+                // Expand this node if it has children
+                if (hasChildren) {
+                    content.style.display = 'block';
+                    const icon = header.querySelector('.toggle-icon');
+                    if (icon) icon.classList.add('open');
+                }
+
+                // Scroll this node to top of sidebar
+                setTimeout(() => {
+                    const sidebar = document.querySelector('.lens-sidebar');
+                    const nodeRect = node.getBoundingClientRect();
+                    const sidebarRect = sidebar.getBoundingClientRect();
+                    const offset = 20;
+                    const scrollTop = sidebar.scrollTop + (nodeRect.top - sidebarRect.top) - offset;
+                    sidebar.scrollTo({ top: scrollTop, behavior: 'smooth' });
+                    node.classList.add('lens-glow');
+                    setTimeout(() => node.classList.remove('lens-glow'), 900);
+                }, 0);
+
+                selectLens(lens, header);
+            });
+
+            return node;
+        }
+
+        function selectLens(lens, headerEl) {
+            document.querySelectorAll('.lens-header').forEach(h => h.classList.remove('selected'));
+            headerEl.classList.add('selected');
+            selectedLensNode = lens;
+            const parentLens = findParentLens(lens.uuid);
+            renderIdeas(lens, null, parentLens);
+            
+            const ideasPanel = document.querySelector('.ideas-panel');
+            if (ideasPanel) {
+                ideasPanel.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function renderIdeas(lens, mode = null, parentLens = null) {
+            const container = document.getElementById('ideas-container');
+            const lensCard = document.getElementById('current-lens-card');
+            const sparksBadge = document.getElementById('idea-sparks-count-badge');
+            const sparksCountText = document.getElementById('idea-sparks-count-text');
+            const exportBtn = document.getElementById('export-lens-btn');
+            const clipboardBtn = document.getElementById('clipboard-lens-btn');
+            const clipboardTooltip = document.getElementById('clipboard-copied-tooltip');
+            const ideasPanel = document.querySelector('.ideas-panel');
+
+            container.innerHTML = '';
+            // Set panel background for sub-lens or idea mode
+            ideasPanel.classList.remove('ideas-mode', 'landing-mode');
+            if (!lens) {
+                ideasPanel.classList.add('landing-mode');
+                // Hide the header
+                const header = document.getElementById('idea-sparks-header');
+                if (header) header.innerHTML = '';
+                // Show landing message
+                container.innerHTML = `
+                    <div class="empty-landing-message">
+                        <i class="fas fa-sparkles"></i>
+                        Select a lens on the left to explore ideas and themes!
+                    </div>
+                `;
+                lensCard.innerHTML = '';
+                if (sparksCountText) sparksCountText.textContent = '';
+                if (exportBtn) exportBtn.style.display = 'none';
+                if (clipboardBtn) clipboardBtn.style.display = 'none';
+                afterIdeasPanelRender();
+                return;
+            }
+            if (isLeafNode(lens) || mode === 'flat') {
+                ideasPanel.classList.add('ideas-mode');
+            } else {
+                ideasPanel.classList.remove('ideas-mode');
+            }
+
+            // Find parent lens for back button
+            if (!parentLens && lens) {
+                parentLens = findParentLens(lens.uuid);
+            }
+
+            // Render right panel header
+            renderRightPanelHeader((isLeafNode(lens) || mode === 'flat') ? 'ideas' : 'sublenses', lens, parentLens);
+
+            if (!lens) {
+                lensCard.innerHTML = '';
+                if (sparksCountText) sparksCountText.textContent = '';
+                if (exportBtn) exportBtn.style.display = 'none';
+                if (clipboardBtn) clipboardBtn.style.display = 'none';
+                container.innerHTML = `<div class="empty-bulb flex flex-col items-center justify-center h-full w-full" style="min-height: 300px;">
+                    <i class="fas fa-lightbulb text-yellow-300" style="font-size: 4rem;"></i>
+                </div>`;
+                return;
+            }
+
+            if (exportBtn) exportBtn.style.display = '';
+            if (clipboardBtn) clipboardBtn.style.display = '';
+
+            const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
+
+            // Show current lens info
+            lensCard.innerHTML = `
+                <div class="current-lens-card bg-white rounded-2xl shadow-lg border border-purple-200 p-6 mb-8 flex flex-col gap-2 relative">
+                    <span class="current-lens-badge absolute -top-4 left-6 bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full border border-purple-200 shadow" style="z-index:2;">Current Lens</span>
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">${lens.name}</h3>
+                    </div>
+                    <div class="text-gray-600 text-base mb-1">${lens.description || ''}</div>
+                </div>
+            `;
+
+            if (sparksCountText) {
+                sparksCountText.textContent = `${uniqueUuids.length} Idea Spark${uniqueUuids.length === 1 ? '' : 's'}`;
+            }
+
+            if (!uniqueUuids.length) {
+                container.innerHTML = `<div class="no-ideas-message">No ideas associated with this lens</div>`;
+                return;
+            }
+
+            // If it's a leaf node, show the ideas as before
+            if (isLeafNode(lens)) {
+                uniqueUuids.sort((a, b) => {
+                    const ia = idea_lenses_hierarchy.idea_spark_lookup[a];
+                    const ib = idea_lenses_hierarchy.idea_spark_lookup[b];
+                    const scoreA = ia && ia.interestingness_score !== undefined ? ia.interestingness_score : (ia && ia.impact_score !== undefined ? ia.impact_score : 0);
+                    const scoreB = ib && ib.interestingness_score !== undefined ? ib.interestingness_score : (ib && ib.impact_score !== undefined ? ib.impact_score : 0);
+                    return scoreB - scoreA;
+                });
+
+                uniqueUuids.forEach((uuid, idx) => {
+                    const idea = idea_lenses_hierarchy.idea_spark_lookup[uuid];
+                    if (!idea) return;
+
+                    function badge(label, icon, score, color, rationale) {
+                        if (score === undefined || rationale === undefined) return '';
+                        return `<div class="flex items-start mb-2">
+                            <span class="inline-flex items-center font-semibold text-sm px-3 py-1 rounded-full mr-3 justify-start" style="background:${color.bg};color:${color.text};width:140px;min-width:140px;max-width:140px;">
+                                <i class="fas ${icon} mr-1"></i> ${label}: ${score}/5
+                            </span>
+                            <span class="text-gray-700 text-sm flex-1">${rationale}</span>
+                        </div>`;
+                    }
+
+                    function collapsible(title, content, sectionId, innerHtml) {
+                        if (innerHtml) {
+                            return `<div class="mb-2">
+                                <button class="collapse-toggle flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" data-target="${sectionId}">
+                                    <i class="fas fa-chevron-right mr-2 transition-transform"></i>
+                                    ${title}
+                                </button>
+                                <div id="${sectionId}" class="collapse-content pl-6 mt-1 hidden">
+                                    ${innerHtml}
+                                </div>
+                            </div>`;
+                        }
+                        if (!content || !Array.isArray(content) || !content.length) return '';
+                        return `<div class="mb-2">
+                            <button class="collapse-toggle flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" data-target="${sectionId}">
+                                <i class="fas fa-chevron-right mr-2 transition-transform"></i>
+                                ${title}
+                            </button>
+                            <div id="${sectionId}" class="collapse-content pl-6 mt-1 hidden">
+                                <ul class="list-disc list-inside text-sm text-gray-600">
+                                    ${content.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>`;
+                    }
+
+                    const badgeStyles = {
+                        feasibility: { bg: '#FEF3C7', text: '#92400E', icon: 'fa-tools' },
+                        novelty: { bg: '#FEF3C7', text: '#B45309', icon: 'fa-star' },
+                        impact: { bg: '#DEF7EC', text: '#03543F', icon: 'fa-bolt' }
+                    };
+
+                    const ideaCard = document.createElement('div');
+                    ideaCard.className = 'idea-card bg-blue-50 rounded-xl p-6 mb-6 shadow-sm border-l-8 border-blue-200';
+                    ideaCard.innerHTML = `
+                        <div class="idea-title font-semibold text-gray-900 text-lg mb-2">${idea.idea}</div>
+                        <div class="idea-description text-gray-700 text-base mb-4">${idea.description}</div>
+                        ${collapsible('Idea Assessment', null, `assessment-${uuid}`, `
+                            ${badge('Feasibility', badgeStyles.feasibility.icon, idea.feasibility_score, badgeStyles.feasibility, idea.feasibility_rationale)}
+                            ${badge('Novelty', badgeStyles.novelty.icon, idea.novelty_score, badgeStyles.novelty, idea.novelty_rationale)}
+                            ${badge('Impact', badgeStyles.impact.icon, idea.potential_impact_score, badgeStyles.impact, idea.potential_impact_rationale)}
+                        `)}
+                        ${collapsible('Key Assumptions', idea.key_assumptions, `assumptions-${uuid}`)}
+                        ${collapsible('Next Steps', idea.key_next_steps_to_validate_or_develop, `nextsteps-${uuid}`)}
+                        ${collapsible('Challenges', idea.major_challenges_roadblocks, `challenges-${uuid}`)}
+                    `;
+                    container.appendChild(ideaCard);
+                });
+            } else {
+                // For non-leaf nodes, show preview cards for each child
+                let subLensArea = document.createElement('div');
+                subLensArea.className = 'sub-lens-preview-area';
+                subLensArea.innerHTML = `
+                    <div class="sub-lens-preview-label"><i class="fas fa-layer-group"></i> Sub-lenses</div>
+                `;
+                lens.children.forEach(child => {
+                    const previewCard = document.createElement('div');
+                    previewCard.className = 'sub-lens-preview';
+                    // Determine if child is a leaf node
+                    const isLeaf = !child.children || child.children.length === 0;
+                    const hasIdeas = child._unique_idea_count > 0;
+                    const hasSubLenses = child._total_sub_lens_count > 0;
+                    previewCard.innerHTML = `
+                        <div class="sub-lens-preview-header">
+                            <div class="sub-lens-preview-title">${child.name}</div>
+                        </div>
+                        <div class="sub-lens-preview-description">${child.description}</div>
+                        <div class="sub-lens-preview-actions-row">
+                            <div class="sub-lens-preview-actions">
+                                ${isLeaf
+                                    ? `<button class="sub-lens-preview-action primary">View Ideas</button>`
+                                    : `<button class="sub-lens-preview-action primary" ${hasSubLenses ? '' : 'disabled style=\"opacity:0.6;\"'}>Explore Sub-lens</button>`}
+                                ${(!isLeaf && hasIdeas) ? `<button class="sub-lens-preview-action secondary">View All Ideas</button>` : ''}
+                            </div>
+                            <div class="sub-lens-preview-stats">
+                                <div class="sub-lens-preview-stat">
+                                    <i class="fas fa-lightbulb text-yellow-400"></i>
+                                    ${child._unique_idea_count} ideas
+                                </div>
+                                <div class="sub-lens-preview-stat">
+                                    <i class="fas fa-layer-group text-purple-400"></i>
+                                    ${child._total_sub_lens_count} sub-lenses
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sub-lens-preview-top-ideas">
+                            <div class="sub-lens-preview-top-ideas-title"><i class="fas fa-lightbulb text-yellow-400"></i> Top Ideas</div>
+                            ${getTopIdeas(child, 2).map(idea => `
+                                <div class="sub-lens-preview-top-idea">
+                                    <div class="sub-lens-preview-top-idea-title">${idea.idea}</div>
+                                    <div class="sub-lens-preview-top-idea-description">${idea.description}</div>
+                                    <div class="sub-lens-preview-top-idea-scores">
+                                        <span class="sub-lens-badge-novelty"><i class="fas fa-star"></i> ${idea.novelty_score !== undefined ? idea.novelty_score : '-'} /5
+                                            <span class="sub-lens-badge-tooltip">Novelty Score</span>
+                                        </span>
+                                        <span class="sub-lens-badge-feasibility"><i class="fas fa-tools"></i> ${idea.feasibility_score !== undefined ? idea.feasibility_score : '-'} /5
+                                            <span class="sub-lens-badge-tooltip">Feasibility Score</span>
+                                        </span>
+                                        <span class="sub-lens-badge-impact"><i class="fas fa-bolt"></i> ${idea.potential_impact_score !== undefined ? idea.potential_impact_score : '-'} /5
+                                            <span class="sub-lens-badge-tooltip">Impact Score</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+
+                    // Add click handlers
+                    const exploreBtn = previewCard.querySelector('.sub-lens-preview-action.primary');
+                    const viewAllBtn = previewCard.querySelector('.sub-lens-preview-action.secondary');
+
+                    if (isLeaf) {
+                        exploreBtn.addEventListener('click', () => {
+                            const parentLens = findParentLens(child.uuid);
+                            selectLens(child, document.querySelector(`.lens-node[data-uuid=\"${child.uuid}\"] .lens-header`));
+                        });
+                    } else if (exploreBtn && hasSubLenses) {
+                        exploreBtn.addEventListener('click', () => {
+                            const childNode = document.querySelector(`.lens-node[data-uuid=\"${child.uuid}\"]`);
+                            if (childNode) {
+                                const header = childNode.querySelector('.lens-header');
+                                header.click();
+                            }
+                        });
+                    }
+
+                    if (viewAllBtn) {
+                        viewAllBtn.addEventListener('click', () => {
+                            // Show a flat list of all ideas under this node and its descendants
+                            renderFlatIdeas(child);
+                        });
+                    }
+
+                    subLensArea.appendChild(previewCard);
+                });
+                // Divider
+                let divider = document.createElement('div');
+                divider.className = 'sub-lens-divider';
+                subLensArea.appendChild(divider);
+                container.appendChild(subLensArea);
+            }
+
+            // Collapsible logic
+            container.querySelectorAll('.collapse-toggle').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = btn.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    if (content) {
+                        const open = !content.classList.contains('hidden');
+                        content.classList.toggle('hidden', open);
+                        btn.querySelector('i').classList.toggle('fa-chevron-right', open);
+                        btn.querySelector('i').classList.toggle('fa-chevron-down', !open);
+                    }
+                });
+            });
+
+            // Export button logic
+            if (exportBtn) {
+                exportBtn.onclick = function() {
+                    const lensData = {
+                        uuid: lens.uuid,
+                        name: lens.name,
+                        description: lens.description,
+                        idea_spark_uuids: uniqueUuids,
+                        idea_sparks: uniqueUuids.map(uuid => idea_lenses_hierarchy.idea_spark_lookup[uuid])
+                    };
+                    const json = JSON.stringify(lensData, null, 2);
+                    const blob = new Blob([json], {type: 'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    const safeName = (lens.name || 'lens').replace(/[^a-z0-9]+/gi, '_').toLowerCase();
+                    a.download = `lens_export_${safeName}.json`;
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                };
+            }
+
+            if (clipboardBtn) {
+                clipboardBtn.onclick = async function() {
+                    const lensData = {
+                        uuid: lens.uuid,
+                        name: lens.name,
+                        description: lens.description,
+                        idea_spark_uuids: uniqueUuids,
+                        idea_sparks: uniqueUuids.map(uuid => idea_lenses_hierarchy.idea_spark_lookup[uuid])
+                    };
+                    const json = JSON.stringify(lensData, null, 2);
+                    try {
+                        await navigator.clipboard.writeText(json);
+                        if (clipboardTooltip) {
+                            clipboardTooltip.style.opacity = '1';
+                            setTimeout(() => { clipboardTooltip.style.opacity = '0'; }, 1200);
+                        }
+                    } catch (err) {
+                        alert('Failed to copy to clipboard');
+                    }
+                };
+            }
+
+            afterIdeasPanelRender();
+        }
+
+        function renderHierarchy() {
+            const container = document.getElementById('hierarchy-tree');
+            container.innerHTML = '';
+            
+            let dragSrcIndex = null;
+            let topLevelLenses = idea_lenses_hierarchy.taxonomy.slice();
+            
+            function renderTopLevel() {
+                container.innerHTML = '';
+                topLevelLenses.forEach((lens, idx) => {
+                    const node = createLensNode(lens);
+                    node.setAttribute('draggable', 'true');
+                    node.classList.add('draggable-lens');
+                    
+                    node.addEventListener('dragstart', (e) => {
+                        dragSrcIndex = idx;
+                        node.classList.add('dragging');
+                        e.dataTransfer.effectAllowed = 'move';
+                    });
+                    
+                    node.addEventListener('dragend', () => {
+                        node.classList.remove('dragging');
+                    });
+                    
+                    node.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                        node.classList.add('drag-over');
+                    });
+                    
+                    node.addEventListener('dragleave', () => {
+                        node.classList.remove('drag-over');
+                    });
+                    
+                    node.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        node.classList.remove('drag-over');
+                        if (dragSrcIndex !== null && dragSrcIndex !== idx) {
+                            const moved = topLevelLenses.splice(dragSrcIndex, 1)[0];
+                            topLevelLenses.splice(idx, 0, moved);
+                            renderTopLevel();
+                        }
+                    });
+                    
+                    container.appendChild(node);
+                });
+            }
+            
+            renderTopLevel();
+        }
+
+        function filterLenses(query) {
+            const searchTerm = query.toLowerCase();
+            const nodes = document.querySelectorAll('.lens-node');
+            
+            nodes.forEach(node => {
+                node.style.display = 'none';
+                const content = node.querySelector('.lens-content');
+                if (content) content.style.display = 'none';
+                const toggleIcon = node.querySelector('.toggle-icon');
+                if (toggleIcon) toggleIcon.classList.remove('open');
+            });
+            
+            nodes.forEach(node => {
+                const name = node.querySelector('.lens-name').textContent.toLowerCase();
+                const description = node.querySelector('.lens-description').textContent.toLowerCase();
+                const matches = name.includes(searchTerm) || description.includes(searchTerm);
+                
+                if (matches) {
+                    node.style.display = 'block';
+                    let parent = node.parentElement;
+                    while (parent && parent.classList.contains('lens-children')) {
+                        const parentNode = parent.parentElement;
+                        parentNode.style.display = 'block';
+                        const parentContent = parentNode.querySelector('.lens-content');
+                        if (parentContent) parentContent.style.display = 'block';
+                        const parentToggle = parentNode.querySelector('.toggle-icon');
+                        if (parentToggle) parentToggle.classList.add('open');
+                        parent = parent.parentElement;
+                    }
+                }
+            });
+            
+            if (!searchTerm) {
+                nodes.forEach(node => { node.style.display = 'block'; });
+            }
+        }
+
+        // Helper to render a flat list of all ideas for a node and its descendants
+        function renderFlatIdeas(lens) {
+            const container = document.getElementById('ideas-container');
+            const lensCard = document.getElementById('current-lens-card');
+            const sparksCountText = document.getElementById('idea-sparks-count-text');
+            const exportBtn = document.getElementById('export-lens-btn');
+            const clipboardBtn = document.getElementById('clipboard-lens-btn');
+            const clipboardTooltip = document.getElementById('clipboard-copied-tooltip');
+            const ideasPanel = document.querySelector('.ideas-panel');
+            ideasPanel.classList.add('ideas-mode');
+            container.innerHTML = '';
+
+            // Highlight the correct lens in the sidebar
+            document.querySelectorAll('.lens-header').forEach(h => h.classList.remove('selected'));
+            const sidebarNode = document.querySelector(`.lens-node[data-uuid="${lens.uuid}"] .lens-header`);
+            if (sidebarNode) sidebarNode.classList.add('selected');
+
+            // Back to Sub-lenses button
+            const backBtn = document.createElement('button');
+            backBtn.className = 'flat-view-back-btn';
+            backBtn.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Sub-lenses';
+            backBtn.onclick = () => {
+                // Re-render sub-lens preview for this node
+                selectLens(lens, document.querySelector(`.lens-node[data-uuid="${lens.uuid}"] .lens-header`));
+            };
+            container.appendChild(backBtn);
+
+            const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
+            lensCard.innerHTML = `
+                <div class="current-lens-card bg-white rounded-2xl shadow-lg border border-purple-200 p-6 mb-8 flex flex-col gap-2 relative">
+                    <span class="current-lens-badge absolute -top-4 left-6 bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full border border-purple-200 shadow" style="z-index:2;">Current Lens <span class="flat-view-tag">Flat View</span></span>
+                    <div class="flex items-center gap-3 mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">${lens.name}</h3>
+                    </div>
+                    <div class="text-gray-600 text-base mb-1">${lens.description || ''}</div>
+                </div>
+            `;
+            if (sparksCountText) {
+                sparksCountText.textContent = `${uniqueUuids.length} Idea Spark${uniqueUuids.length === 1 ? '' : 's'}`;
+            }
+            if (!uniqueUuids.length) {
+                container.innerHTML += `<div class="no-ideas-message">No ideas associated with this lens</div>`;
+                return;
+            }
+            uniqueUuids.sort((a, b) => {
+                const ia = idea_lenses_hierarchy.idea_spark_lookup[a];
+                const ib = idea_lenses_hierarchy.idea_spark_lookup[b];
+                const scoreA = ia && ia.interestingness_score !== undefined ? ia.interestingness_score : (ia && ia.impact_score !== undefined ? ia.impact_score : 0);
+                const scoreB = ib && ib.interestingness_score !== undefined ? ib.interestingness_score : (ib && ib.impact_score !== undefined ? ib.impact_score : 0);
+                return scoreB - scoreA;
+            });
+            uniqueUuids.forEach((uuid, idx) => {
+                const idea = idea_lenses_hierarchy.idea_spark_lookup[uuid];
+                if (!idea) return;
+                function badge(label, icon, score, color, rationale) {
+                    if (score === undefined || rationale === undefined) return '';
+                    return `<div class="flex items-start mb-2">
+                        <span class="inline-flex items-center font-semibold text-sm px-3 py-1 rounded-full mr-3 justify-start" style="background:${color.bg};color:${color.text};width:140px;min-width:140px;max-width:140px;">
+                            <i class="fas ${icon} mr-1"></i> ${label}: ${score}/5
+                        </span>
+                        <span class="text-gray-700 text-sm flex-1">${rationale}</span>
+                    </div>`;
+                }
+                function collapsible(title, content, sectionId, innerHtml) {
+                    if (innerHtml) {
+                        return `<div class="mb-2">
+                            <button class="collapse-toggle flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" data-target="${sectionId}">
+                                <i class="fas fa-chevron-right mr-2 transition-transform"></i>
+                                ${title}
+                            </button>
+                            <div id="${sectionId}" class="collapse-content pl-6 mt-1 hidden">
+                                ${innerHtml}
+                            </div>
+                        </div>`;
+                    }
+                    if (!content || !Array.isArray(content) || !content.length) return '';
+                    return `<div class="mb-2">
+                        <button class="collapse-toggle flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none" data-target="${sectionId}">
+                            <i class="fas fa-chevron-right mr-2 transition-transform"></i>
+                            ${title}
+                        </button>
+                        <div id="${sectionId}" class="collapse-content pl-6 mt-1 hidden">
+                            <ul class="list-disc list-inside text-sm text-gray-600">
+                                ${content.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>`;
+                }
+                const badgeStyles = {
+                    feasibility: { bg: '#FEF3C7', text: '#92400E', icon: 'fa-tools' },
+                    novelty: { bg: '#FEF3C7', text: '#B45309', icon: 'fa-star' },
+                    impact: { bg: '#DEF7EC', text: '#03543F', icon: 'fa-bolt' }
+                };
+                const ideaCard = document.createElement('div');
+                ideaCard.className = 'idea-card bg-blue-50 rounded-xl p-6 mb-6 shadow-sm border-l-8 border-blue-200';
+                ideaCard.innerHTML = `
+                    <div class="idea-title font-semibold text-gray-900 text-lg mb-2">${idea.idea}</div>
+                    <div class="idea-description text-gray-700 text-base mb-4">${idea.description}</div>
+                    ${collapsible('Idea Assessment', null, `assessment-${uuid}`, `
+                        ${badge('Feasibility', badgeStyles.feasibility.icon, idea.feasibility_score, badgeStyles.feasibility, idea.feasibility_rationale)}
+                        ${badge('Novelty', badgeStyles.novelty.icon, idea.novelty_score, badgeStyles.novelty, idea.novelty_rationale)}
+                        ${badge('Impact', badgeStyles.impact.icon, idea.potential_impact_score, badgeStyles.impact, idea.potential_impact_rationale)}
+                    `)}
+                    ${collapsible('Key Assumptions', idea.key_assumptions, `assumptions-${uuid}`)}
+                    ${collapsible('Next Steps', idea.key_next_steps_to_validate_or_develop, `nextsteps-${uuid}`)}
+                    ${collapsible('Challenges', idea.major_challenges_roadblocks, `challenges-${uuid}`)}
+                `;
+                container.appendChild(ideaCard);
+            });
+            // Collapsible logic
+            container.querySelectorAll('.collapse-toggle').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetId = btn.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    if (content) {
+                        const open = !content.classList.contains('hidden');
+                        content.classList.toggle('hidden', open);
+                        btn.querySelector('i').classList.toggle('fa-chevron-right', open);
+                        btn.querySelector('i').classList.toggle('fa-chevron-down', !open);
+                    }
+                });
+            });
+
+            afterIdeasPanelRender();
+        }
+
+        // Helper to get parent lens by uuid
+        function findParentLens(uuid, node = null, parent = null) {
+            if (!node) {
+                for (const root of idea_lenses_hierarchy.taxonomy) {
+                    const found = findParentLens(uuid, root, null);
+                    if (found) return found;
+                }
+                return null;
+            }
+            if (node.uuid === uuid) return parent;
+            if (node.children && node.children.length > 0) {
+                for (const child of node.children) {
+                    const found = findParentLens(uuid, child, node);
+                    if (found) return found;
+                }
+            }
+            return null;
+        }
+
+        // Render right panel header
+        function renderRightPanelHeader(mode, lens, parentLens) {
+            const header = document.getElementById('idea-sparks-header');
+            if (!header) return;
+            // If nothing is selected, clear the header
+            if (!lens) {
+                header.innerHTML = '';
+                return;
+            }
+            let icon = '';
+            let title = '';
+            if (mode === 'sublenses') {
+                icon = '<i class="fas fa-layer-group text-purple-400"></i>';
+                title = 'Explore Lenses';
+            } else {
+                icon = '<i class="fas fa-lightbulb text-yellow-400"></i>';
+                title = 'Idea Sparks';
+            }
+            header.innerHTML = `
+                <div class="right-panel-header">
+                    <span>${icon} ${title}</span>
+                    <span>
+                        ${parentLens ? `<button class="right-panel-up-btn ${mode === 'ideas' ? 'ideas-mode' : 'lenses-mode'}" title="Go up one level"><i class="fas fa-chevron-up"></i></button>` : ''}
+                    </span>
+                </div>
+                <div class="right-panel-context">${''}</div>
+                <div class="flex items-center gap-2" style="margin-left:auto;">
+                    <span id="idea-sparks-count-badge" class="bg-yellow-100 text-yellow-700 font-semibold text-base px-4 py-1 rounded-full border border-yellow-200 shadow-sm flex items-center gap-2">
+                        <i class="fas fa-lightbulb text-yellow-400"></i>
+                        <span id="idea-sparks-count-text"></span>
+                    </span>
+                    <button id="export-lens-btn" title="Export Lens & Ideas" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button id="clipboard-lens-btn" title="Copy JSON to Clipboard" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200 relative">
+                        <i class="fas fa-clipboard"></i>
+                        <span id="clipboard-copied-tooltip" class="absolute -top-7 left-1/2 -translate-x-1/2 bg-purple-700 text-white text-xs rounded px-2 py-1 shadow transition-opacity opacity-0 pointer-events-none">Copied!</span>
+                    </button>
+                </div>
+            `;
+            // Up button handler
+            if (parentLens) {
+                const upBtn = header.querySelector('.right-panel-up-btn');
+                if (upBtn) {
+                    upBtn.onclick = () => {
+                        selectLens(parentLens, document.querySelector(`.lens-node[data-uuid="${parentLens.uuid}"] .lens-header`));
+                        // Scroll sidebar to selected lens
+                        setTimeout(() => {
+                            const sidebar = document.querySelector('.lens-sidebar');
+                            const node = document.querySelector(`.lens-node[data-uuid="${parentLens.uuid}"]`);
+                            if (sidebar && node) {
+                                const nodeRect = node.getBoundingClientRect();
+                                const sidebarRect = sidebar.getBoundingClientRect();
+                                const offset = 20;
+                                const scrollTop = sidebar.scrollTop + (nodeRect.top - sidebarRect.top) - offset;
+                                sidebar.scrollTo({ top: scrollTop, behavior: 'smooth' });
+                            }
+                        }, 0);
+                    };
+                }
+            }
+        }
+
+        // Sticky Go to Top button logic
+        function setupStickyGoToTop() {
+            let btn = document.getElementById('sticky-goto-top-btn');
+            if (!btn) {
+                btn = document.createElement('button');
+                btn.id = 'sticky-goto-top-btn';
+                btn.className = 'sticky-goto-top-btn';
+                btn.title = 'Scroll to top';
+                btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                btn.style.display = 'none';
+                document.body.appendChild(btn);
+            }
+            const ideasPanel = document.querySelector('.ideas-panel');
+            if (!ideasPanel) return;
+            btn.onclick = () => {
+                ideasPanel.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            ideasPanel.addEventListener('scroll', () => {
+                if (ideasPanel.scrollTop > 200) {
+                    btn.style.display = 'flex';
+                } else {
+                    btn.style.display = 'none';
+                }
+            });
+            // Set color scheme based on mode
+            if (ideasPanel.classList.contains('ideas-mode')) {
+                btn.classList.add('ideas-mode');
+                btn.classList.remove('lenses-mode');
+            } else {
+                btn.classList.remove('ideas-mode');
+                btn.classList.add('lenses-mode');
+            }
+        }
+
+        // Call setupStickyGoToTop after DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            renderIdeas(null);
+            const header = document.getElementById('idea-sparks-header');
+            if (header) header.innerHTML = '';
+            setupStickyGoToTop();
+        });
+        // Also call after rendering ideas panel
+        function afterIdeasPanelRender() {
+            setupStickyGoToTop();
+        }
+
+        // Initialize
+        idea_lenses_hierarchy.taxonomy.forEach(root => aggregateLensStats(root));
+        document.getElementById('active-ingredient-text').textContent = idea_lenses_hierarchy.active_ingredient.active_ingredient_text;
+        renderHierarchy();
+    </script>
+</body>
+</html> 
