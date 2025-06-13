@@ -883,7 +883,6 @@
             const ideasPanel = document.querySelector('.ideas-panel');
 
             container.innerHTML = '';
-            // Set panel background for sub-lens or idea mode
             ideasPanel.classList.remove('ideas-mode', 'landing-mode');
             if (!lens) {
                 ideasPanel.classList.add('landing-mode');
@@ -915,8 +914,9 @@
                 parentLens = findParentLens(lens.uuid);
             }
 
-            // Render right panel header
-            renderRightPanelHeader((isLeafNode(lens) || mode === 'flat') ? 'ideas' : 'sublenses', lens, parentLens);
+            // Render right panel header (pass idea count for badge)
+            const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
+            renderRightPanelHeader((isLeafNode(lens) || mode === 'flat') ? (mode === 'flat' ? 'flat' : 'ideas') : 'sublenses', lens, parentLens, uniqueUuids.length);
 
             if (!lens) {
                 lensCard.innerHTML = '';
@@ -931,8 +931,6 @@
 
             if (exportBtn) exportBtn.style.display = '';
             if (clipboardBtn) clipboardBtn.style.display = '';
-
-            const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
 
             // Show current lens info
             lensCard.innerHTML = `
@@ -1092,11 +1090,11 @@
                     if (isLeaf) {
                         exploreBtn.addEventListener('click', () => {
                             const parentLens = findParentLens(child.uuid);
-                            selectLens(child, document.querySelector(`.lens-node[data-uuid=\"${child.uuid}\"] .lens-header`));
+                            selectLens(child, document.querySelector(`.lens-node[data-uuid="${child.uuid}\"] .lens-header`));
                         });
                     } else if (exploreBtn && hasSubLenses) {
                         exploreBtn.addEventListener('click', () => {
-                            const childNode = document.querySelector(`.lens-node[data-uuid=\"${child.uuid}\"]`);
+                            const childNode = document.querySelector(`.lens-node[data-uuid="${child.uuid}\"]`);
                             if (childNode) {
                                 const header = childNode.querySelector('.lens-header');
                                 header.click();
@@ -1284,34 +1282,26 @@
             ideasPanel.classList.add('ideas-mode');
             container.innerHTML = '';
 
-            // Highlight the correct lens in the sidebar
-            document.querySelectorAll('.lens-header').forEach(h => h.classList.remove('selected'));
-            const sidebarNode = document.querySelector(`.lens-node[data-uuid="${lens.uuid}"] .lens-header`);
-            if (sidebarNode) sidebarNode.classList.add('selected');
-
-            // Back to Sub-lenses button
-            const backBtn = document.createElement('button');
-            backBtn.className = 'flat-view-back-btn';
-            backBtn.innerHTML = '<i class="fas fa-arrow-left"></i> Back to Sub-lenses';
-            backBtn.onclick = () => {
-                // Re-render sub-lens preview for this node
-                selectLens(lens, document.querySelector(`.lens-node[data-uuid="${lens.uuid}"] .lens-header`));
-            };
-            container.appendChild(backBtn);
-
+            // Find parent lens for back button
+            const parentLens = findParentLens(lens.uuid);
+            // Render right panel header (pass idea count for badge)
             const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
-            lensCard.innerHTML = `
-                <div class="current-lens-card bg-white rounded-2xl shadow-lg border border-purple-200 p-6 mb-8 flex flex-col gap-2 relative">
-                    <span class="current-lens-badge absolute -top-4 left-6 bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full border border-purple-200 shadow" style="z-index:2;">Current Lens <span class="flat-view-tag">Flat View</span></span>
-                    <div class="flex items-center gap-3 mb-2">
-                        <h3 class="text-xl font-semibold text-gray-900">${lens.name}</h3>
-                    </div>
-                    <div class="text-gray-600 text-base mb-1">${lens.description || ''}</div>
-                </div>
-            `;
-            if (sparksCountText) {
-                sparksCountText.textContent = `${uniqueUuids.length} Idea Spark${uniqueUuids.length === 1 ? '' : 's'}`;
+            renderRightPanelHeader('flat', lens, parentLens, uniqueUuids.length);
+
+            if (!lens) {
+                lensCard.innerHTML = '';
+                if (sparksCountText) sparksCountText.textContent = '';
+                if (exportBtn) exportBtn.style.display = 'none';
+                if (clipboardBtn) clipboardBtn.style.display = 'none';
+                container.innerHTML = `<div class="empty-bulb flex flex-col items-center justify-center h-full w-full" style="min-height: 300px;">
+                    <i class="fas fa-lightbulb text-yellow-300" style="font-size: 4rem;"></i>
+                </div>`;
+                return;
             }
+
+            if (exportBtn) exportBtn.style.display = '';
+            if (clipboardBtn) clipboardBtn.style.display = '';
+
             if (!uniqueUuids.length) {
                 container.innerHTML += `<div class="no-ideas-message">No ideas associated with this lens</div>`;
                 return;
@@ -1418,7 +1408,7 @@
         }
 
         // Render right panel header
-        function renderRightPanelHeader(mode, lens, parentLens) {
+        function renderRightPanelHeader(mode, lens, parentLens, ideaCount = null) {
             const header = document.getElementById('idea-sparks-header');
             if (!header) return;
             // If nothing is selected, clear the header
@@ -1439,14 +1429,14 @@
                 <div class="right-panel-header">
                     <span>${icon} ${title}</span>
                     <span>
-                        ${parentLens ? `<button class="right-panel-up-btn ${mode === 'ideas' ? 'ideas-mode' : 'lenses-mode'}" title="Go up one level"><i class="fas fa-chevron-up"></i></button>` : ''}
+                        ${parentLens ? `<button class="right-panel-up-btn ${mode === 'ideas' || mode === 'flat' ? 'ideas-mode' : 'lenses-mode'}" title="Go up one level"><i class="fas fa-undo"></i></button>` : ''}
                     </span>
                 </div>
                 <div class="right-panel-context">${''}</div>
                 <div class="flex items-center gap-2" style="margin-left:auto;">
                     <span id="idea-sparks-count-badge" class="bg-yellow-100 text-yellow-700 font-semibold text-base px-4 py-1 rounded-full border border-yellow-200 shadow-sm flex items-center gap-2">
                         <i class="fas fa-lightbulb text-yellow-400"></i>
-                        <span id="idea-sparks-count-text"></span>
+                        <span id="idea-sparks-count-text">${ideaCount !== null ? ideaCount : ''}</span>
                     </span>
                     <button id="export-lens-btn" title="Export Lens & Ideas" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200">
                         <i class="fas fa-download"></i>
