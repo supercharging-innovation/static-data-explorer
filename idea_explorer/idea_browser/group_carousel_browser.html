@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Idea Group Carousel Browser</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
     
     body {
-      font-family: "Inter", "Avenir", sans-serif;
+      font-family: 'Avenir', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
       background: #f8fafc;
       min-height: 100vh;
       overflow-x: hidden;
@@ -433,6 +433,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .details-header,
+    .details-header * {
+      font-family: 'Avenir', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+    }
+    .curated-idea-card,
+    .curated-idea-card * {
+      font-family: 'Avenir', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+    }
+    .carousel-tile,
+    .carousel-tile * {
+      font-family: 'Avenir', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+    }
+
+    .fa, .fas, .far, .fal, .fab {
+      font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', 'FontAwesome', sans-serif !important;
+      font-weight: 900 !important;
     }
   </style>
   <script src="../../data/idea_curation_test_v2.js"></script>
