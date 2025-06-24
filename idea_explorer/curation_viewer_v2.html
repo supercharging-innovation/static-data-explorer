@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Idea Viewer V2</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f5f7;
+        }
+        .thematic-group-card {
+            background: white;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        .thematic-group-header {
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 1.25rem 1.25rem 0 0;
+        }
+        .thematic-group-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .thematic-group-summary {
+            font-size: 1.05rem;
+            margin-top: 0.5rem;
+            max-width: 80ch;
+            opacity: 0.95;
+        }
+        .curated-ideas-container {
+            padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+        }
+        .curated-idea-card {
+            background-color: #f8fafc;
+            border-radius: 1rem;
+            padding: 1.75rem;
+            margin-top: 1.5rem;
+            border-left: 5px solid #6366f1;
+            transition: all 0.2s;
+        }
+        .curated-idea-card:hover {
+            box-shadow: 0 4px 16px rgba(99,102,241,0.15);
+            transform: translateY(-2px);
+        }
+        .curated-idea-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #312e81;
+            margin-bottom: 0.5rem;
+        }
+        .idea-summary-text {
+            color: #374151;
+            margin-bottom: 1.75rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        .idea-detail-section {
+            margin-bottom: 1.25rem;
+        }
+        .idea-detail-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .idea-detail-content {
+            color: #374151;
+            line-height: 1.6;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 0.5rem;
+            border-left: 3px solid #e5e7eb;
+        }
+        .idea-detail-content.core-principle {
+            border-left-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .idea-detail-content.form-factor {
+            border-left-color: #10b981;
+            background: #ecfdf5;
+        }
+        .idea-detail-content.mode-of-action {
+            border-left-color: #f59e0b;
+            background: #fffbeb;
+        }
+        .idea-detail-content.key-differentiator {
+            border-left-color: #8b5cf6;
+            background: #f3f4f6;
+        }
+        .mode-of-action-list {
+            list-style-position: inside;
+            list-style-type: decimal;
+        }
+        .mode-of-action-list li:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        .source-sparks-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.25rem;
+            background-color: #eef2ff;
+            color: #4338ca;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .source-sparks-toggle:hover {
+            background-color: #e0e7ff;
+        }
+        .source-sparks-toggle .toggle-icon {
+            transition: transform 0.2s;
+        }
+        .source-sparks-container {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 2px solid #e0e7ff;
+        }
+        .source-spark-item {
+            background-color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #4b5563;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: 1px solid #e5e7eb;
+        }
+        .source-spark-item .fa-lightbulb {
+            color: #fbbf24;
+        }
+        .hidden {
+            display: none;
+        }
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: #f3f4f6;
+            color: #6b7280;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body class="p-8 md:p-12">
+
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-800">Curated Idea Groups V2</h1>
+            <p class="text-lg text-gray-600 mt-2">Enhanced thematic groups with detailed idea specifications.</p>
+        </div>
+
+        <div id="viewer-container">
+            <!-- Thematic groups will be rendered here -->
+        </div>
+    </div>
+
+    <script src="../data/idea_curation_test_v2.js"></script>
+    <script>
+        function formatModeOfAction(text) {
+            const items = text.split(/(?=\d+\.\s)/).map(s => s.trim()).filter(Boolean);
+            if (items.length > 1) {
+                return `<ol class="mode-of-action-list">${items.map(item => `<li>${item.replace(/^\d+\.\s/, '')}</li>`).join('')}</ol>`;
+            }
+            return `<p>${text}</p>`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('viewer-container');
+            
+            // The variable from your file is `idea_curation_test`
+            const data = idea_curation_test;
+
+            if (!data || !data.thematic_groups || data.thematic_groups.length === 0) {
+                container.innerHTML = '<p>No thematic groups found in the data file.</p>';
+                return;
+            }
+
+            data.thematic_groups.forEach(group => {
+                const groupCard = document.createElement('div');
+                groupCard.className = 'thematic-group-card';
+
+                let curatedIdeasHtml = '';
+                group.curated_ideas.forEach(idea => {
+                    
+                    let sourceSparksHtml = '';
+                    idea.source_sparks.forEach(spark => {
+                        sourceSparksHtml += `
+                            <div class="source-spark-item" title="UUID: ${spark.uuid}">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>${spark.idea}</span>
+                            </div>
+                        `;
+                    });
+
+                    curatedIdeasHtml += `
+                        <div class="curated-idea-card">
+                            <h3 class="curated-idea-title">
+                                ${idea.optimized_idea}
+                                <span class="stats-badge">
+                                    <i class="fas fa-lightbulb"></i>
+                                    ${idea.source_sparks.length} source${idea.source_sparks.length !== 1 ? 's' : ''}
+                                </span>
+                            </h3>
+                            <p class="idea-summary-text">${idea.idea_summary}</p>
+                            
+                            <div class="idea-detail-section">
+                                <div class="idea-detail-label">
+                                    <i class="fas fa-atom text-blue-500"></i>
+                                    Core Principle
+                                </div>
+                                <div class="idea-detail-content core-principle">
+                                    ${idea.core_principle}
+                                </div>
+                            </div>
+
+                            <div class="idea-detail-section">
+                                <div class="idea-detail-label">
+                                    <i class="fas fa-cube text-green-500"></i>
+                                    Form Factor
+                                </div>
+                                <div class="idea-detail-content form-factor">
+                                    ${idea.form_factor}
+                                </div>
+                            </div>
+
+                            <div class="idea-detail-section">
+                                <div class="idea-detail-label">
+                                    <i class="fas fa-cogs text-yellow-500"></i>
+                                    Mode of Action
+                                </div>
+                                <div class="idea-detail-content mode-of-action">
+                                    ${formatModeOfAction(idea.mode_of_action)}
+                                </div>
+                            </div>
+
+                            <button class="source-sparks-toggle" data-target="sparks-${idea.optimized_idea.replace(/[^a-zA-Z0-9]/g, '-')}">
+                                Source Sparks (${idea.source_sparks.length})
+                                <i class="fas fa-chevron-down toggle-icon"></i>
+                            </button>
+                            <div id="sparks-${idea.optimized_idea.replace(/[^a-zA-Z0-9]/g, '-')}" class="source-sparks-container hidden">
+                                ${sourceSparksHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                groupCard.innerHTML = `
+                    <div class="thematic-group-header">
+                        <h2 class="thematic-group-title">
+                            <i class="fas fa-tags"></i>
+                            ${group.group_name}
+                        </h2>
+                        <p class="thematic-group-summary">${group.group_summary}</p>
+                    </div>
+                    <div class="curated-ideas-container">
+                        ${curatedIdeasHtml}
+                    </div>
+                `;
+                container.appendChild(groupCard);
+            });
+
+            // Add event listeners for the toggle buttons
+            document.querySelectorAll('.source-sparks-toggle').forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetContainer = document.getElementById(targetId);
+                    const icon = button.querySelector('.toggle-icon');
+                    
+                    if (targetContainer) {
+                        const isHidden = targetContainer.classList.contains('hidden');
+                        targetContainer.classList.toggle('hidden', !isHidden);
+                        icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

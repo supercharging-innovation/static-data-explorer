@@ -1432,16 +1432,15 @@
                         ${parentLens ? `<button class="right-panel-up-btn ${mode === 'ideas' || mode === 'flat' ? 'ideas-mode' : 'lenses-mode'}" title="Go up one level"><i class="fas fa-undo"></i></button>` : ''}
                     </span>
                 </div>
-                <div class="right-panel-context">${''}</div>
-                <div class="flex items-center gap-2" style="margin-left:auto;">
-                    <span id="idea-sparks-count-badge" class="bg-yellow-100 text-yellow-700 font-semibold text-base px-4 py-1 rounded-full border border-yellow-200 shadow-sm flex items-center gap-2">
+                <div class="flex items-center gap-2" style="margin-left:0;">
+                    <span id="idea-sparks-count-badge" class="bg-yellow-50 text-yellow-800 font-semibold text-base px-4 py-1 rounded-full border border-yellow-200 shadow-sm flex items-center gap-2" style="border-width:2px;">
                         <i class="fas fa-lightbulb text-yellow-400"></i>
-                        <span id="idea-sparks-count-text">${ideaCount !== null ? ideaCount : ''}</span>
+                        <span id="idea-sparks-count-text">${ideaCount !== null ? ideaCount + ' Idea Sparks' : ''}</span>
                     </span>
-                    <button id="export-lens-btn" title="Export Lens & Ideas" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200">
+                    <button id="export-lens-btn" title="Export Lens & Ideas" class="ml-1 p-2 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200 border-2">
                         <i class="fas fa-download"></i>
                     </button>
-                    <button id="clipboard-lens-btn" title="Copy JSON to Clipboard" style="display:none;" class="ml-1 p-2 bg-purple-100 hover:bg-purple-200 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200 relative">
+                    <button id="clipboard-lens-btn" title="Copy JSON to Clipboard" class="ml-1 p-2 bg-purple-50 hover:bg-purple-100 text-purple-700 rounded-full transition-colors flex items-center justify-center text-lg shadow-none border border-purple-200 border-2 relative">
                         <i class="fas fa-clipboard"></i>
                         <span id="clipboard-copied-tooltip" class="absolute -top-7 left-1/2 -translate-x-1/2 bg-purple-700 text-white text-xs rounded px-2 py-1 shadow transition-opacity opacity-0 pointer-events-none">Copied!</span>
                     </button>
@@ -1467,6 +1466,57 @@
                         }, 0);
                     };
                 }
+            }
+            // Download and clipboard logic
+            const exportBtn = header.querySelector('#export-lens-btn');
+            const clipboardBtn = header.querySelector('#clipboard-lens-btn');
+            const clipboardTooltip = header.querySelector('#clipboard-copied-tooltip');
+            if (exportBtn) {
+                exportBtn.onclick = function() {
+                    const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
+                    const lensData = {
+                        uuid: lens.uuid,
+                        name: lens.name,
+                        description: lens.description,
+                        idea_spark_uuids: uniqueUuids,
+                        idea_sparks: uniqueUuids.map(uuid => idea_lenses_hierarchy.idea_spark_lookup[uuid])
+                    };
+                    const json = JSON.stringify(lensData, null, 2);
+                    const blob = new Blob([json], {type: 'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    const safeName = (lens.name || 'lens').replace(/[^a-z0-9]+/gi, '_').toLowerCase();
+                    a.download = `lens_export_${safeName}.json`;
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(() => {
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                };
+            }
+            if (clipboardBtn) {
+                clipboardBtn.onclick = async function() {
+                    const uniqueUuids = Array.from(collectAllUniqueIdeaUuids(lens));
+                    const lensData = {
+                        uuid: lens.uuid,
+                        name: lens.name,
+                        description: lens.description,
+                        idea_spark_uuids: uniqueUuids,
+                        idea_sparks: uniqueUuids.map(uuid => idea_lenses_hierarchy.idea_spark_lookup[uuid])
+                    };
+                    const json = JSON.stringify(lensData, null, 2);
+                    try {
+                        await navigator.clipboard.writeText(json);
+                        if (clipboardTooltip) {
+                            clipboardTooltip.style.opacity = '1';
+                            setTimeout(() => { clipboardTooltip.style.opacity = '0'; }, 1200);
+                        }
+                    } catch (err) {
+                        alert('Failed to copy to clipboard');
+                    }
+                };
             }
         }
 

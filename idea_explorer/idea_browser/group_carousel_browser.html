@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Idea Group Carousel Browser</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    
+    body {
+      font-family: "Inter", "Avenir", sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Improved color schemes and visual design */
+    .carousel-tile {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      cursor: default;
+      overflow: visible;
+      background: white;
+      border-radius: 1.5rem;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      padding-bottom: 2.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .carousel-tile:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    /* Enhanced slide color schemes - back to original but improved */
+    .slide-theme {
+      background: #ede9fe;
+      color: #7c3aed;
+    }
+    
+    .slide-summary {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    
+    .slide-selling {
+      background: #fef9c3;
+      color: #b45309;
+    }
+    
+    .slide-ideas {
+      background: #f3f4f6;
+      color: #111827;
+    }
+    
+    .slide-ideas .fa-lightbulb {
+      color: #ffd700 !important;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    .slide-ideas .idea-sparks-text {
+      color: #bfa100 !important;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+      font-size: 1.8rem;
+    }
+
+    .swiper {
+      width: 100%;
+      min-height: 180px;
+      padding-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 120px;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+      border-radius: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination {
+      bottom: 0.7rem !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.7rem;
+      padding-bottom: 0.2rem;
+    }
+    
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      opacity: 1;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      margin: 0 2px !important;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: #667eea;
+      border: 2px solid #667eea;
+      transform: scale(1.2);
+    }
+
+    .group-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #111;
+      margin-top: 1.2rem;
+      margin-bottom: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    /* Hover button overlay - repositioned to center with more padding */
+    .details-button {
+      display: block;
+      position: static;
+      margin: 1.5rem auto 0 auto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1);
+    }
+    
+    .details-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    }
+    
+    .carousel-tile:hover .details-button {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1.05);
+    }
+
+    /* View switching animation */
+    .view-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    .overview-view,
+    .details-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  visibility 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .overview-view.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-60px);
+    }
+    .details-view {
+      z-index: 2;
+      background: white;
+      overflow-y: auto;
+      transform: translateY(100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .details-view.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    /* Back button */
+    .back-button {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Details view styling (inspired by curation_viewer_v2) */
+    .thematic-group-header {
+      padding: 3rem 2.5rem 2rem 2.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+    
+    .thematic-group-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .thematic-group-summary {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      max-width: 80ch;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .curated-ideas-container {
+      padding: 2rem 2.5rem 3rem 2.5rem;
+      background: #f8fafc;
+    }
+    
+    .curated-idea-card {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border-left: 6px solid #667eea;
+      transition: all 0.3s ease;
+    }
+    
+    .curated-idea-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .curated-idea-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .idea-summary-text {
+      color: #4b5563;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+    
+    .idea-detail-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .idea-detail-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .idea-detail-content {
+      color: #374151;
+      line-height: 1.6;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 0.75rem;
+      border-left: 4px solid #e5e7eb;
+    }
+    
+    .idea-detail-content.core-principle {
+      border-left-color: #3b82f6;
+      background: #eff6ff;
+    }
+    
+    .idea-detail-content.form-factor {
+      border-left-color: #10b981;
+      background: #ecfdf5;
+    }
+    
+    .idea-detail-content.mode-of-action {
+      border-left-color: #f59e0b;
+      background: #fffbeb;
+    }
+    
+    .mode-of-action-list {
+      list-style-position: inside;
+      list-style-type: decimal;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .mode-of-action-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    
+    .stats-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: #f3f4f6;
+      color: #6b7280;
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-left: 0.5rem;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      color: #667eea;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      display: none;
+    }
+    
+    .scroll-indicator:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .scroll-indicator.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+  <script src="../../data/idea_curation_test_v2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <div class="view-container">
+    <!-- Overview View -->
+    <div class="overview-view" id="overview-view">
+      <div class="max-w-7xl mx-auto py-10 px-4">
+        <h1 class="text-4xl font-bold text-gray-900 mb-3 text-center">Browse Idea Groups</h1>
+        <p class="text-gray-600 text-lg mb-12 text-center max-w-3xl mx-auto">
+          Explore creative solution themes. Hover to preview carousel, click details button for full exploration.
+        </p>
+        <div id="carousel-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+      </div>
+    </div>
+
+    <!-- Details View -->
+    <div class="details-view" id="details-view">
+      <button class="back-button" id="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Overview
+      </button>
+      <div id="details-content"></div>
+    </div>
+  </div>
+
+  <button class="scroll-indicator" id="scroll-indicator">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script>
+    /* --------------------------------------------------
+       CONFIGURATION
+    -------------------------------------------------- */
+    const AUTOPLAY_INTERVAL = 2000; // ms
+
+    /* --------------------------------------------------
+       Extract data from idea_curation_test
+    -------------------------------------------------- */
+    const groupData = Array.isArray(idea_curation_test?.thematic_groups)
+      ? idea_curation_test.thematic_groups
+      : [];
+
+    /* --------------------------------------------------
+       DOM helpers
+    -------------------------------------------------- */
+    const qs = (sel, el = document) => el.querySelector(sel);
+    const qsa = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+
+    /* --------------------------------------------------
+       View management
+    -------------------------------------------------- */
+    const overviewView = qs("#overview-view");
+    const detailsView = qs("#details-view");
+    const backButton = qs("#back-button");
+    const scrollIndicator = qs("#scroll-indicator");
+
+    function showDetailsView() {
+      overviewView.classList.add("hidden");
+      detailsView.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function showOverviewView() {
+      overviewView.classList.remove("hidden");
+      detailsView.classList.remove("active");
+      document.body.style.overflow = "auto";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    backButton.addEventListener("click", showOverviewView);
+
+    // Scroll indicator functionality
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollIndicator.classList.add("show");
+      } else {
+        scrollIndicator.classList.remove("show");
+      }
+    });
+
+    scrollIndicator.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* --------------------------------------------------
+       Build card markup & attach behaviour per card
+    -------------------------------------------------- */
+    const grid = qs("#carousel-grid");
+
+    groupData.forEach((group, idx) => {
+      // --- Build card shell -------------------------------------------------
+      const cardWrap = document.createElement("div");
+      cardWrap.className = "flex flex-col items-center";
+
+      const card = document.createElement("div");
+      card.className =
+        "carousel-tile flex flex-col items-center justify-center mb-4 w-full transition-transform duration-200 relative";
+      card.dataset.index = idx;
+
+      /* ----------- Swiper container + slides (static markup) --------------- */
+      card.innerHTML = `
+        <div class="swiper" style="border-radius:1.25rem;overflow:hidden;min-height:180px;">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <button class="details-button" data-group-index="${idx}">
+          <i class="fas fa-arrow-right mr-2"></i>
+          View Details
+        </button>`;
+
+      cardWrap.appendChild(card);
+      grid.appendChild(cardWrap);
+
+      // Group name label
+      const groupNameEl = document.createElement("div");
+      groupNameEl.className = "group-name";
+      groupNameEl.textContent = group.group_name;
+      cardWrap.appendChild(groupNameEl);
+
+      // Populate slides
+      const slides = [
+        {
+          icon: "fa-bolt",
+          text: group.descriptive_title,
+          slideClass: "slide-theme",
+        },
+        {
+          icon: "fa-quote-left",
+          text: group.one_liner_summary,
+          slideClass: "slide-summary",
+        },
+        {
+          icon: "fa-star",
+          text: group.selling_point,
+          slideClass: "slide-selling",
+        },
+        {
+          icon: "fa-lightbulb",
+          text: `${group.curated_ideas.length} Idea Sparks`,
+          slideClass: "slide-ideas",
+          custom: true,
+        },
+      ];
+
+      const swiperWrapper = qs(".swiper-wrapper", card);
+      slides.forEach((s) => {
+        const slideEl = document.createElement("div");
+        slideEl.className = `swiper-slide ${s.slideClass}`;
+        slideEl.innerHTML = s.custom
+          ? `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl idea-sparks-text mb-2">${s.text}</span>`
+          : `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl font-bold mb-2">${s.text}</span>`;
+        swiperWrapper.appendChild(slideEl);
+      });
+
+      /* --------------------------------------------------
+         Attach interactive behaviour (self-contained per card)
+      -------------------------------------------------- */
+      initCardInteractions(card, group, idx);
+    });
+
+    /* ==================================================
+       CARD INTERACTION LOGIC (runs once per card)
+    ================================================== */
+    function initCardInteractions(card, group, groupIndex) {
+      const paginationEl = qs(".swiper-pagination", card);
+      const detailsButton = qs(".details-button", card);
+
+      const swiper = new Swiper(qs(".swiper", card), {
+        slidesPerView: 1,
+        effect: "fade",
+        fadeEffect: { crossFade: true },
+        pagination: {
+          el: paginationEl,
+          clickable: true,
+        },
+        allowTouchMove: true,
+        speed: 400,
+        autoHeight: true,
+      });
+
+      let autoplayId = null;
+      let manualDotClick = false;
+
+      function startAutoplay() {
+        if (autoplayId) return; // already running
+        autoplayId = setInterval(() => {
+          const next =
+            swiper.activeIndex === swiper.slides.length - 1 ? 0 : swiper.activeIndex + 1;
+          swiper.slideTo(next, 400);
+        }, AUTOPLAY_INTERVAL);
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayId);
+        autoplayId = null;
+      }
+
+      function resetToFirst() {
+        swiper.slideTo(0, 400);
+      }
+
+      /* ---------- Mouse interactions ------------------ */
+      card.addEventListener("mouseenter", () => {
+        startAutoplay();
+      });
+
+      card.addEventListener("mouseleave", () => {
+        stopAutoplay();
+        if (!manualDotClick) resetToFirst();
+        // allow future auto-reset after short delay
+        setTimeout(() => {
+          manualDotClick = false;
+        }, 600);
+      });
+
+      // treat hover on pagination as manual
+      paginationEl.addEventListener('mouseenter', () => {       
+        manualDotClick = true;
+        stopAutoplay();
+      });
+
+      /* ---------- Pagination dot clicks --------------- */
+      paginationEl.addEventListener("click", (e) => {
+        if (e.target.classList.contains("swiper-pagination-bullet")) {
+          manualDotClick = true;
+          stopAutoplay();
+          e.stopPropagation();
+        }
+      });
+
+      /* ---------- Details button click --------------- */
+      detailsButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stopAutoplay();
+        openDetailsView(group);
+      });
+    }
+
+    /* --------------------------------------------------
+       Details view builder
+    -------------------------------------------------- */
+    function openDetailsView(group) {
+      const detailsContent = qs("#details-content");
+      
+      function formatModeOfAction(text) {
+        const items = text.split(/(?=\d+\.\s)/).map(s => s.trim()).filter(Boolean);
+        if (items.length > 1) {
+          return `<ol class="mode-of-action-list">${items.map(item => `<li>${item.replace(/^\d+\.\s/, '')}</li>`).join('')}</ol>`;
+        }
+        return `<p>${text}</p>`;
+      }
+
+      let curatedIdeasHtml = '';
+      group.curated_ideas.forEach(idea => {
+        curatedIdeasHtml += `
+          <div class="curated-idea-card">
+            <h3 class="curated-idea-title">
+              <i class="fas fa-lightbulb text-yellow-500"></i>
+              ${idea.optimized_idea}
+              <span class="stats-badge">
+                <i class="fas fa-lightbulb"></i>
+                ${idea.source_sparks.length} source${idea.source_sparks.length !== 1 ? 's' : ''}
+              </span>
+            </h3>
+            <p class="idea-summary-text">${idea.idea_summary}</p>
+            
+            <div class="idea-detail-section">
+              <div class="idea-detail-label">
+                <i class="fas fa-atom text-blue-500"></i>
+                Core Principle
+              </div>
+              <div class="idea-detail-content core-principle">
+                ${idea.core_principle}
+              </div>
+            </div>
+
+            <div class="idea-detail-section">
+              <div class="idea-detail-label">
+                <i class="fas fa-cube text-green-500"></i>
+                Form Factor
+              </div>
+              <div class="idea-detail-content form-factor">
+                ${idea.form_factor}
+              </div>
+            </div>
+
+            <div class="idea-detail-section">
+              <div class="idea-detail-label">
+                <i class="fas fa-cogs text-yellow-500"></i>
+                Mode of Action
+              </div>
+              <div class="idea-detail-content mode-of-action">
+                ${formatModeOfAction(idea.mode_of_action)}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      detailsContent.innerHTML = `
+        <div class="thematic-group-header">
+          <h2 class="thematic-group-title">
+            <i class="fas fa-tags"></i>
+            ${group.group_name}
+          </h2>
+          <p class="thematic-group-summary">${group.group_summary}</p>
+        </div>
+        <div class="curated-ideas-container">
+          ${curatedIdeasHtml}
+        </div>
+      `;
+
+      showDetailsView();
+    }
+
+    // On page load, ensure only overview is visible
+    overviewView.classList.remove("hidden");
+    detailsView.classList.remove("active");
+  </script>
+</body>
+</html>
