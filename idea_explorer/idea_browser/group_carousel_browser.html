@@ -194,7 +194,7 @@
     }
     .details-view {
       z-index: 2;
-      background: white;
+      background: #f8fafc;
       overflow-y: auto;
       transform: translateY(100%);
       opacity: 0;
@@ -208,146 +208,191 @@
       pointer-events: auto;
     }
 
-    /* Back button */
+    /* Lighter, subtle header background */
+    .details-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, #f1f5ff 0%, #e0e7ff 100%);
+      z-index: 10;
+      padding: 2.2rem 2.5rem 1.2rem 2.5rem;
+      box-shadow: 0 2px 16px rgba(49,46,129,0.07);
+      border-bottom: none;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .details-header-main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+      flex: 1 1 0%;
+    }
+    .details-group-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #312e81;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .details-group-summary {
+      color: #4b5563;
+      font-size: 1.13rem;
+      max-width: 70ch;
+      font-weight: 400;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .details-header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.7rem;
+    }
     .back-button {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
+      position: static;
+      background: #6366f1;
+      color: #fff;
       border: none;
       border-radius: 50px;
-      padding: 12px 20px;
+      padding: 10px 18px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      z-index: 100;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s, border 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 1rem;
+      z-index: 10;
+      border: 2px solid #fff;
     }
-    
     .back-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: #4f46e5;
+      color: #fff;
+      border: 2px solid #FFD700;
+      box-shadow: 0 8px 25px rgba(99,102,241,0.18);
+      transform: translateY(-2px) scale(1.04);
     }
-
-    /* Details view styling (inspired by curation_viewer_v2) */
-    .thematic-group-header {
-      padding: 3rem 2.5rem 2rem 2.5rem;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      text-align: center;
-    }
-    
-    .thematic-group-title {
-      font-size: 2.5rem;
+    .details-idea-count {
+      background: #fffbea;
+      color: #bfa100;
       font-weight: 700;
-      margin-bottom: 1rem;
+      font-size: 1.08rem;
+      border-radius: 9999px;
+      padding: 0.4rem 1.1rem;
+      margin-top: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 1px 4px rgba(191,161,0,0.07);
+    }
+    .details-idea-count .fa-lightbulb {
+      color: #FFD700;
+    }
+    .curated-ideas-container {
+      padding: 2.5rem 2.5rem 3rem 2.5rem;
+      background: #f8fafc;
+    }
+    .curated-idea-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 2rem 2.2rem 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.07);
+      border-left: 6px solid #6366f1;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .curated-idea-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.13);
+    }
+    .idea-number-badge {
+      position: absolute;
+      left: -1.7rem;
+      top: 1.5rem;
+      background: #6366f1;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.13);
     }
-    
-    .thematic-group-summary {
-      font-size: 1.2rem;
-      opacity: 0.95;
-      max-width: 80ch;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    .curated-ideas-container {
-      padding: 2rem 2.5rem 3rem 2.5rem;
-      background: #f8fafc;
-    }
-    
-    .curated-idea-card {
-      background: white;
-      border-radius: 1.25rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border-left: 6px solid #667eea;
-      transition: all 0.3s ease;
-    }
-    
-    .curated-idea-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    }
-    
     .curated-idea-title {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: #1f2937;
-      margin-bottom: 1rem;
+      margin-bottom: 0.7rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      margin-left: 2.2rem;
     }
-    
     .idea-summary-text {
-      color: #4b5563;
-      margin-bottom: 2rem;
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-    
-    .idea-detail-section {
+      color: #374151;
       margin-bottom: 1.5rem;
+      line-height: 1.7;
+      font-size: 1.08rem;
+      margin-left: 2.2rem;
     }
-    
+    .idea-detail-section {
+      margin-bottom: 1.1rem;
+      margin-left: 2.2rem;
+    }
     .idea-detail-label {
-      font-size: 0.9rem;
+      font-size: 0.93rem;
       font-weight: 600;
       color: #6b7280;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-    
     .idea-detail-content {
       color: #374151;
       line-height: 1.6;
-      padding: 1rem;
+      padding: 0.9rem 1.1rem;
       background: #f8fafc;
       border-radius: 0.75rem;
       border-left: 4px solid #e5e7eb;
     }
-    
     .idea-detail-content.core-principle {
       border-left-color: #3b82f6;
       background: #eff6ff;
     }
-    
     .idea-detail-content.form-factor {
       border-left-color: #10b981;
       background: #ecfdf5;
     }
-    
     .idea-detail-content.mode-of-action {
       border-left-color: #f59e0b;
       background: #fffbeb;
     }
-    
     .mode-of-action-list {
       list-style-position: inside;
       list-style-type: decimal;
       margin: 0;
       padding: 0;
     }
-    
     .mode-of-action-list li {
       margin-bottom: 0.5rem;
       padding-left: 0.5rem;
     }
-    
     .stats-badge {
       display: inline-flex;
       align-items: center;
@@ -360,7 +405,6 @@
       border-radius: 9999px;
       margin-left: 0.5rem;
     }
-
     /* Scroll indicator */
     .scroll-indicator {
       position: fixed;
@@ -409,10 +453,6 @@
 
     <!-- Details View -->
     <div class="details-view" id="details-view">
-      <button class="back-button" id="back-button">
-        <i class="fas fa-arrow-left"></i>
-        Back to Overview
-      </button>
       <div id="details-content"></div>
     </div>
   </div>
@@ -445,7 +485,6 @@
     -------------------------------------------------- */
     const overviewView = qs("#overview-view");
     const detailsView = qs("#details-view");
-    const backButton = qs("#back-button");
     const scrollIndicator = qs("#scroll-indicator");
 
     function showDetailsView() {
@@ -460,8 +499,6 @@
       document.body.style.overflow = "auto";
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-    backButton.addEventListener("click", showOverviewView);
 
     // Scroll indicator functionality
     window.addEventListener("scroll", () => {
@@ -645,9 +682,10 @@
       }
 
       let curatedIdeasHtml = '';
-      group.curated_ideas.forEach(idea => {
+      group.curated_ideas.forEach((idea, idx) => {
         curatedIdeasHtml += `
           <div class="curated-idea-card">
+            <span class="idea-number-badge">${idx + 1}</span>
             <h3 class="curated-idea-title">
               <i class="fas fa-lightbulb text-yellow-500"></i>
               ${idea.optimized_idea}
@@ -692,12 +730,23 @@
       });
 
       detailsContent.innerHTML = `
-        <div class="thematic-group-header">
-          <h2 class="thematic-group-title">
-            <i class="fas fa-tags"></i>
-            ${group.group_name}
-          </h2>
-          <p class="thematic-group-summary">${group.group_summary}</p>
+        <div class="details-header">
+          <div class="details-header-main">
+            <span class="details-group-title">
+              ${group.group_name}
+            </span>
+            <div class="details-group-summary">${group.group_summary}</div>
+          </div>
+          <div class="details-header-actions">
+            <button class="back-button" id="back-button">
+              <i class="fas fa-arrow-left"></i>
+              Back to Overview
+            </button>
+            <span class="details-idea-count">
+              <i class="fas fa-lightbulb"></i>
+              ${group.curated_ideas.length} Idea Spark${group.curated_ideas.length !== 1 ? 's' : ''}
+            </span>
+          </div>
         </div>
         <div class="curated-ideas-container">
           ${curatedIdeasHtml}
@@ -705,6 +754,9 @@
       `;
 
       showDetailsView();
+
+      // Always re-attach the event listener after rendering
+      qs('#back-button', detailsContent).onclick = showOverviewView;
     }
 
     // On page load, ensure only overview is visible
