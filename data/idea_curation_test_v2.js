@@ -2723,217 +2723,559 @@ var lens_info = {
     ]
   }
 
-var idea_curation_test = {'thematic_groups': [{'group_name': 'Intelligent Textiles: The Self-Cleaning Garment',
-  'group_summary': 'This theme envisions fabrics with biologically-integrated cleaning capabilities, transforming passive apparel into active systems that continuously maintain their own hygiene. These solutions aim to drastically reduce washing frequency by making the garment itself the cleaning agent.',
-  'curated_ideas': [{'optimized_idea': 'Self-Cleaning Textile with Embedded, Moisture-Activated Microbial Spores',
-    'idea_summary': 'A fabric embedded with dormant microbial spores (e.g., Bacillus subtilis) that germinate upon contact with minimal moisture like sweat or a light mist. Once active, the microbes release enzymes to break down soil and odor, providing a built-in, on-demand cleaning cycle without needing a full wash.',
-    'core_principle': 'Utilizes the resilience and dormancy of bacterial spores, which are integrated into textile fibers and activated by environmental triggers to perform targeted biocatalysis.',
-    'form_factor': 'Standard textile fabric (woven or knit) with microbial spores embedded or coated onto the fibers during the finishing process.',
-    'mode_of_action': '1. Spores remain dormant and stable within the dry fabric. 2. Contact with moisture (sweat, humidity, mist) triggers spore germination. 3. Active bacteria secrete enzymes (proteases, lipases) that break down organic soil and odor molecules. 4. As the fabric dries, the bacteria return to a dormant spore state.',
-    'source_sparks': [{'uuid': '579de866-fa5d-4130-b472-53c5f30b9227',
-      'idea': 'Probiotic textiles actively degrade soils, reducing water-based washing.'},
-     {'uuid': 'fe8b88dc-f6c5-4023-aa93-7117828555d6',
-      'idea': 'Self-cleaning clothing fibers embedded with dormant, water-activated microbes.'},
-     {'uuid': '9f05b3f0-a196-4cdb-a5e4-6955db763ce9',
-      'idea': "Clothing fibers with embedded, dormant 'dirt-degrading' extremophilic spores."},
-     {'uuid': 'a02eb9c6-0d92-4709-b93e-54fe1a58bdf4',
-      'idea': 'Self-cleaning clothes via antimicrobial/biosurfactant-secreting spores.'},
-     {'uuid': '3ece97d1-0637-4a09-9f35-0110c8b7b547',
-      'idea': 'Embed stabilized biocatalysts within fabric fibers for continuous, low-water cleaning.'},
-     {'uuid': '4a433e27-ce92-4d3a-a5c1-8cb2e6c3a533',
-      'idea': 'Embed engineered bacterial spores in clothing fibers for on-demand cleaning activation.'},
-     {'uuid': '90459c01-3801-4f04-a709-9ca7fec0c554',
-      'idea': 'Self-cleaning fabric with integrated, regenerable microbial layers.'},
-     {'uuid': '5a2e0580-9a1e-4727-b000-33b42a7b37bc',
-      'idea': "Encapsulated 'cleaning spores' activated by moisture for low-water fabric hygiene."},
-     {'uuid': '15d75362-9c07-430a-b484-ccee3c69ae13',
-      'idea': 'Clothing with embedded, moisture-activated cleaning microbes.'},
-     {'uuid': '760d7717-d6ec-47a3-a018-631fbd97c241',
-      'idea': 'Self-cleaning clothes with dormant, dirt-digesting microbial biofilms.'},
-     {'uuid': '284f8a2e-cfbe-4115-9b21-8fa2441449cd',
-      'idea': 'Enzyme-coated fibers for waterless stain breakdown.'},
-     {'uuid': 'e81d33f3-b54b-4cf9-a9f9-f107aa0bceb1',
-      'idea': 'Smart fabrics with embedded, dormant microbial consortia for self-cleaning.'}]},
-   {'optimized_idea': "Continuously-Active 'Living Textile' with an Integrated Probiotic Biofilm",
-    'idea_summary': "A revolutionary textile that hosts a stable, beneficial microbial biofilm on its fibers, which continuously metabolizes sweat and oils while outcompeting odor-causing bacteria. This 'living' garment maintains its own hygiene with only ambient humidity, fundamentally changing the paradigm from periodic cleaning to continuous maintenance.",
-    'core_principle': 'Establishes a symbiotic, self-sustaining microbial ecosystem (biofilm) on the fabric surface that provides a persistent prophylactic and cleaning effect.',
-    'form_factor': 'A fabric, potentially with modified fiber topology (e.g., higher porosity), that serves as a scaffold for a resilient, pre-inoculated biofilm.',
-    'mode_of_action': "1. A beneficial microbial consortium is inoculated onto the fabric to form a stable biofilm. 2. The biofilm continuously consumes low levels of organic matter (sweat, skin cells). 3. The established colony competitively excludes odor-causing microbes. 4. The garment requires only occasional misting or care to maintain the biofilm's health.",
-    'source_sparks': [{'uuid': '928b8410-c67c-4abc-bf13-0f7c3f611609',
-      'idea': 'Clothing with beneficial microbes for self-cleaning and hygiene.'},
-     {'uuid': 'e7b829c0-381d-41e7-ba10-0603032f5c04',
-      'idea': 'Engineered bio-fabrics self-clean via beneficial microbes.'},
-     {'uuid': '8adb8097-53ac-4559-bf42-c1ba375a8e5a',
-      'idea': 'Biofilm-Enhanced Self-Cleaning Textiles for Low-Water Hygiene.'},
-     {'uuid': '6ccaaf09-17b5-4808-bc52-f2aca3011e61',
-      'idea': 'Engineer clothing with a beneficial, self-sustaining microbiome for odor and soil control.'},
-     {'uuid': '4f299f3e-28e5-4a0e-bbcd-62056d5005be',
-      'idea': 'Engineered yeast biofilm for continuous fabric self-cleaning.'},
-     {'uuid': 'da20cf2f-f38a-4acb-b9f2-48b0ebf10486',
-      'idea': 'Self-cleaning fabric with integrated microbial biofilm.'},
-     {'uuid': 'ebdf7462-731f-4775-81dc-6bb99a7584c7',
-      'idea': '"Living fabric" with embedded biofilm cleans clothes with minimal misting.'},
-     {'uuid': '721a8509-ef17-41f5-a4bb-05b005c341ef',
-      'idea': "Fabric 'inoculation' for continuous, low-water self-cleaning."},
-     {'uuid': '3f959d56-f854-4a5e-b976-d4bbac73c69f',
-      'idea': 'Biofilm-integrated textiles self-clean by metabolizing dirt and microbes.'},
-     {'uuid': '5fe4a881-f2c1-4cc0-a4fe-1b7fb4cea6df',
-      'idea': 'Living fabric with microbes that break down soil/odor with humidity.'},
-     {'uuid': '72ec003e-2a2e-4d30-a2e9-6acc48e79328',
-      'idea': 'Textiles fostering protective biofilms to outcompete harmful microbes.'},
-     {'uuid': 'a08cf1a6-4436-4921-b12b-31be7acd3d64',
-      'idea': 'Self-refreshing clothes with engineered B. subtilis biofilms.'},
-     {'uuid': '380a60c6-3eb5-4ce1-bdfd-ce389cb0140d',
-      'idea': 'Bio-integrated textiles: clothing fibers as biofilm carriers for self-purification.'},
-     {'uuid': '177839a0-f385-4fed-b2bd-295d5fca38d7',
-      'idea': 'Bio-active fabric hosting cleaning biofilms.'}]},
-   {'optimized_idea': 'Fabric with Encapsulated, Timed-Release Cleaning Agents',
-    'idea_summary': "A textile integrated with microscopic capsules that contain dormant microbes or enzymes. These capsules are designed to rupture or become permeable in response to specific triggers like moisture, pH changes from sweat, or physical stress, releasing their cleaning payload precisely when and where it's needed.",
-    'core_principle': 'Leverages microencapsulation technology to protect and stabilize potent biological cleaning agents within the fabric structure, enabling controlled, on-demand release.',
-    'form_factor': 'A textile with microcapsules embedded within or coated onto its fibers during the manufacturing or finishing process.',
-    'mode_of_action': '1. Microcapsules containing dormant microbes or enzymes are integrated into the fabric. 2. A specific trigger (e.g., increased moisture, pH shift) degrades the capsule wall. 3. The cleaning agents are released locally to the soiled area. 4. The agents break down the soil, then biodegrade or are removed in a minimal rinse.',
-    'source_sparks': [{'uuid': '6b4d9586-267b-4bab-a6e9-30634c9a40ac',
-      'idea': 'Encapsulated bio-agents in fabric for targeted, low-water cleaning.'},
-     {'uuid': '6fb1f9fe-0055-46a9-bd87-9056c4ea449b',
-      'idea': 'Core-shell fibers releasing cleaning enzymes upon contact for waterless cleaning.'},
-     {'uuid': 'c8734bab-eaf1-4183-b6d2-1e54631d2fdb',
-      'idea': 'Encapsulate bio-enzymes/microbes for low-water textile cleaning.'},
-     {'uuid': 'bcf5ec45-1bbb-420e-999b-9ccc3db3b041',
-      'idea': 'Probiotic textiles self-neutralize contaminants for hygiene.'},
-     {'uuid': 'e7a75522-05f1-401d-85f7-cd16e2073e39',
-      'idea': 'Self-Cleaning Fabric with Encapsulated Microbes.'}]},
-   {'optimized_idea': 'Electro-Active Textile System for Accelerated Bio-Cleaning',
-    'idea_summary': 'A next-generation cleaning system pairing electrogenic bacteria with conductive fabric fibers or patches, where a low electrical field is used to significantly boost the metabolic rate and cleaning efficacy of the microbes. This approach dramatically shortens cleaning time for tough stains and enables rapid, low-water garment refreshing.',
-    'core_principle': 'Application of a mild electrical potential to stimulate the metabolic activity of electrogenic microorganisms, accelerating the rate of biodegradation of organic soil.',
-    'form_factor': 'Can be a fully integrated textile with conductive yarns, a flexible patch with embedded electrodes, or a compact device that applies a current to a microbially-treated garment.',
-    'mode_of_action': '1. The garment, embedded with or treated with electrogenic microbes, is placed in the system. 2. The system is moistened. 3. A low-voltage electrical current is applied across the conductive elements. 4. The current stimulates the microbes to rapidly break down soil and stains. 5. The process completes in a fraction of the time of passive biological cleaning.',
-    'source_sparks': [{'uuid': 'a499f52e-84fe-4eca-b125-b74193697092',
-      'idea': 'Create bio-electric textiles with grime-degrading bacteria and conductive fibers.'},
-     {'uuid': '0c6ed701-2cd9-477d-a02e-88b65f88877f',
-      'idea': 'Electro-boosted microbial pod for rapid, low-water garment refreshing.'},
-     {'uuid': '8d32a7cb-c6bf-4140-8e67-2fea2d7fa991',
-      'idea': 'Electrically-stimulated microbial cleaning patches for stubborn stains.'},
-     {'uuid': 'a148b803-bff8-45a7-b913-05e6f6bd9319',
-      'idea': 'Electrochemical biofilm patch for targeted low-water stain removal.'}]}],
-  'descriptive_title': 'Bio-Integrated Textiles for Autonomous Garment Hygiene',
-  'one_liner_summary': 'A portfolio of textiles with embedded or integrated microbial systems that actively or on-demand break down soil and odor.',
-  'selling_point': 'This approach offers the ultimate user convenience by eliminating the need for most cleaning cycles, fundamentally redefining garment care.'},
- {'group_name': 'On-Demand Bio-Treatments',
-  'group_summary': 'This theme focuses on developing user-friendly consumer products that apply microbial cleaning power to existing garments. These solutions provide targeted, waterless care, allowing users to refresh clothes and remove stains without a full wash.',
-  'curated_ideas': [{'optimized_idea': 'Probiotic Fabric Refresh Spray for Odor and Light Soil',
-    'idea_summary': "A sprayable solution containing a consortium of beneficial microbes that actively degrades odor molecules and breaks down light soiling upon application. This provides a quick, waterless refresh between washes by rebalancing the fabric's microbiome and neutralizing contaminants.",
-    'core_principle': 'Topical application of a liquid suspension of live probiotic bacteria that perform rapid, localized bioremediation and competitive exclusion on fabric surfaces.',
-    'form_factor': 'A liquid solution in a standard spray bottle for misting onto garments.',
-    'mode_of_action': '1. The user sprays a fine mist onto the garment, targeting odorous or lightly soiled areas. 2. Probiotic bacteria colonize the area, outcompeting malodorous microbes. 3. The microbes secrete enzymes to break down sweat and oils. 4. The solution evaporates, leaving a refreshed fabric with a residual protective microbiome.',
-    'source_sparks': [{'uuid': 'b573fa12-f56e-4e55-bb80-6a4ef62dd9be',
-      'idea': 'Probiotic fabric spray for continuous low-water cleaning.'},
-     {'uuid': 'cd6cf74d-de99-402b-b7ae-08845b699387',
-      'idea': 'Probiotic clothing sprays to digest soil/odors with minimal moisture.'},
-     {'uuid': '3a444687-333d-4a80-a116-379a1ab74754',
-      'idea': 'Clothes are misted with microbes, then placed in a chamber for bio-cleaning.'},
-     {'uuid': 'ba9c6e47-b8db-43c8-9279-eb5fb7a8a108',
-      'idea': 'Microbial consortia "clothing refresh" mist for odor/light soil.'},
-     {'uuid': '022322b5-5ac7-44d7-9c99-478d8fbf1712',
-      'idea': 'Probiotic clothing sprays to maintain hygiene, reduce full washes.'},
-     {'uuid': '1f6dc925-4218-4151-92e4-e9bf33e46c88',
-      'idea': "Spray-on probiotic 'shield' for clothes to outcompete harmful bacteria."},
-     {'uuid': '7331f577-2e1a-49e7-abfb-be3c0b571e06',
-      'idea': 'Microbiome-balancing spray for clothes to neutralize odor, delay washing.'},
-     {'uuid': '8795b9d3-4d6c-424c-912b-43da43e1cdd6',
-      'idea': 'Adaptive microbial consortium spray for low-water clothing refresh and deep clean.'},
-     {'uuid': '1de383ce-7967-4b9f-9d45-713749649aab',
-      'idea': 'Microbial misting system for water-efficient garment refreshing.'}]},
-   {'optimized_idea': 'Reusable Bio-Catalytic Patch for Targeted Stain Removal',
-    'idea_summary': "A flexible, reusable patch containing a dense, living biofilm of specialized microorganisms that can be applied directly to stubborn stains on clothing. Activated by a minimal amount of water, the patch acts as a concentrated 'bioreactor', digesting contaminants without needing to wash the entire garment.",
-    'core_principle': 'Localized application of a high-density, immobilized microbial culture to deliver concentrated enzymatic cleaning power directly to a specific target area.',
-    'form_factor': 'A small, flexible, multi-layered patch (e.g., silicone or fabric-based) with an adhesive backing, housing a living biofilm layer.',
-    'mode_of_action': "1. The user applies the patch to a stained area of the garment. 2. A few drops of water or a light mist activate the dormant microbes in the biofilm. 3. The microbes secrete enzymes, breaking down the stain over a period of hours. 4. The patch is removed, and the residual matter is wiped away. The patch can be 'recharged' by rinsing and storing.",
-    'source_sparks': [{'uuid': '59af1042-eed0-496f-a451-024cba15e8b4',
-      'idea': 'Flexible biofilm "cleaning patches" that absorb and neutralize odors and light soiling.'},
-     {'uuid': '9ddde7ae-afa8-4a90-8423-b10a4c43fb9e',
-      'idea': 'Bio-active fabric patches for self-cleaning clothes.'},
-     {'uuid': 'f5eaee5e-8101-407e-8a09-27530da41071',
-      'idea': 'Bio-catalytic patches for targeted stain removal on clothing.'},
-     {'uuid': '07541379-71d3-4320-a5d1-cf324267ef57',
-      'idea': 'Biofilm cleaning patch digests clothes soil with mist.'},
-     {'uuid': 'e830546e-cc9e-4897-8de8-cd73c149c561',
-      'idea': 'Reusable biofilm cleaning patch for clothes.'},
-     {'uuid': 'bfdec52c-3565-44b0-a6bb-41418a736737',
-      'idea': 'Bio-active clothing patches with nutrients for self-cleaning spots.'},
-     {'uuid': '74b3562e-db7b-4fa5-9a6a-1d46b7a1b88b',
-      'idea': 'Microbial cleaning patch targets specific soils using ambient moisture.'},
-     {'uuid': 'f41467cf-c70f-4be2-9f10-f2021da7c985',
-      'idea': 'Biofilm-infused fabric patches for targeted stain/odor removal with minimal water.'},
-     {'uuid': '06362b17-babe-4c76-8f8d-41fb7e78f53e',
-      'idea': 'Bio-active fabric patches for targeted stain removal.'},
-     {'uuid': '9ced186f-efc8-4af2-a430-9f78249c2169',
-      'idea': "Biofilm-infused 'cleaning patches' for targeted, low-water stain removal."},
-     {'uuid': '6646e6d9-40fb-4f62-a2ed-a803d086a1ca',
-      'idea': 'Bio-active textile patches for targeted clothing cleaning.'}]},
-   {'optimized_idea': 'Peel-Off Biofilm Sheet for Dry Contaminant Removal',
-    'idea_summary': "A novel dry-cleaning solution in the form of a flexible sheet with an engineered biofilm layer. The sheet is pressed onto clothing, where the biofilm's extracellular polymeric substances (EPS) adhere to and trap particulate dirt and oils, which are then lifted away when the sheet is peeled off, requiring no water.",
-    'core_principle': 'Leverages the natural adhesive and cohesive properties of microbial biofilms and their EPS matrix to physically lift and remove contaminants from a surface.',
-    'form_factor': 'A thin, flexible, single-use sheet, similar to a lint roller sheet, with one side coated in a tacky, stabilized biofilm.',
-    'mode_of_action': '1. The user takes a biofilm sheet and presses the active side firmly onto the garment. 2. The EPS layer adheres to surface contaminants like dust, hair, and oils. 3. The user peels the sheet away, lifting the contaminants off the fabric. 4. The used sheet is discarded and composted.',
-    'source_sparks': [{'uuid': '429d6018-af9c-44a9-b829-5229468fc234',
-      'idea': "'Peel-off' biofilm sheet for dry-cleaning clothes by contaminant adhesion and removal."},
-     {'uuid': '24c0bce9-a266-4106-9719-c59facf1d188',
-      'idea': 'Sacrificial mycelial layer on clothes traps dirt, then sheds.'}]}],
-  'descriptive_title': 'Topical Biologics for Waterless Garment Refreshment and Spot Cleaning',
-  'one_liner_summary': 'A suite of sprays and patches that deliver concentrated microbial or enzymatic cleaning action directly onto fabric surfaces.',
-  'selling_point': 'These products seamlessly integrate into existing consumer habits while dramatically reducing water consumption for everyday garment care.'},
- {'group_name': 'Advanced Bio-Cleaning Systems & Additives',
-  'group_summary': 'This theme explores new hardware, processes, and potent additives that enable highly efficient, low-water biological cleaning. The focus is on creating novel appliances and consumables that deliver a deep clean comparable to traditional washing, but with a fraction of the water.',
-  'curated_ideas': [{'optimized_idea': 'Low-Water Laundry Pod with Genetically Engineered Microbes (GEMs)',
-    'idea_summary': 'A single-use, dissolvable pod containing a potent, concentrated dose of dormant, genetically engineered microorganisms designed for maximum soil degradation. Activated by a small fraction of the water used in a conventional wash, the GEMs rapidly produce a cocktail of high-efficiency enzymes, achieving a deep clean in an ultra-low-water environment.',
-    'core_principle': 'Leverages synthetic biology to engineer microbes for hyper-production of specific cleaning enzymes, delivered in a concentrated, water-soluble pod format for convenience and efficiency.',
-    'form_factor': 'A water-soluble PVA film pod containing a powdered or granulated mix of dormant engineered microbes and activators.',
-    'mode_of_action': '1. A pod is added to laundry in a low-water appliance or container. 2. The pod dissolves, releasing the GEMs. 3. The microbes activate in the minimal water and begin producing high concentrations of targeted enzymes. 4. The enzymes break down soils throughout the garment load. 5. A minimal rinse cycle removes the residue.',
-    'source_sparks': [{'uuid': '35a601cc-77d7-4fde-b1da-76c770375b15',
-      'idea': 'Water-efficient cleaning pods release microbes activated by clothing soil.'},
-     {'uuid': '0dc0db25-7a76-409c-8f2a-be25dfefc391',
-      'idea': '"Living laundry pod" with GEMs activated by small water amount.'},
-     {'uuid': '356108cf-8432-4ca9-99ef-4744cb73cedd',
-      'idea': 'Encapsulated bio-agents in pods for low-water clothes cleaning.'},
-     {'uuid': '1aa1436e-c07d-447e-85a1-4abdb668d9dd',
-      'idea': "Concentrated B. subtilis spore 'laundry pod' for minimal water soaks."}]},
-   {'optimized_idea': 'Reusable Biofilm-Coated Beads for Dry-Tumbling Garment Cleaning',
-    'idea_summary': "A waterless cleaning method where garments are tumbled in a machine with durable, porous beads coated in a robust cleaning biofilm. The mechanical action transfers soil from the fabric to the beads, where the biofilm actively digests it, offering a 'dry' cleaning process that is gentle on fabrics and requires no bulk water.",
-    'core_principle': 'Combines mechanical cleaning (abrasion, friction) with biological degradation by using mobile, high-surface-area media as carriers for a cleaning biofilm.',
-    'form_factor': 'Small, durable, porous spheres or geometric shapes (e.g., ceramic, polymer) coated with a resilient, living microbial biofilm.',
-    'mode_of_action': "1. Clothes and bioactive beads are placed in a tumbler. 2. The machine tumbles, causing the beads to gently rub against the fabric. 3. Soil and oils are physically transferred to the beads' biofilm surface. 4. The biofilm metabolizes the collected soil. 5. After the cycle, the clean clothes are removed, and the beads are ready for the next use.",
-    'source_sparks': [{'uuid': 'e45615b2-ac31-44b8-85b7-7a62fcb54a78',
-      'idea': 'Layered garment tumbler for dry bio-physical cleaning.'},
-     {'uuid': '95300a6e-f5ae-4fe5-a037-4a8dc5858f17',
-      'idea': 'Develop reusable beads coated with engineered biofilms for low-water tumbling cleaning.'},
-     {'uuid': '632db2c0-ec41-4577-9b8b-57edd43e092e',
-      'idea': "Reusable biofilm-coated cleaning elements for low-water 'dry tumbling' of garments."},
-     {'uuid': '1763548c-fbe3-4ae9-8457-218a93635925',
-      'idea': 'Reusable biofilm cleaning elements for garments.'}]},
-   {'optimized_idea': 'Mycelium-Based Cleaning Systems: Living Mats and Enzyme-Secreting Inserts',
-    'idea_summary': 'This concept leverages the natural properties of fungi, either as reusable cleaning mats that physically absorb and enzymatically decompose soil, or as cartridges of immobilized mycelium for low-water washing machines. Fungi offer a robust and powerful alternative to bacteria for breaking down complex organic compounds and persistent contaminants.',
-    'core_principle': 'Harnesses the saprophytic nature of fungi (mycelium) to secrete powerful extracellular enzymes for decomposing a wide range of organic materials.',
-    'form_factor': 'Either a flexible, reusable mat of living mycelium or a rigid, porous cartridge containing immobilized mycelium for insertion into an appliance.',
-    'mode_of_action': '(Mat) 1. A soiled garment is pressed against the living mycelial mat. 2. The mat secretes enzymes and physically traps/absorbs soil. 3. The garment is removed, clean. (Insert) 1. The mycelial cartridge is placed in a low-water washing appliance. 2. Water circulates through the cartridge, which releases a continuous stream of cleaning enzymes into the wash.',
-    'source_sparks': [{'uuid': '280a927f-fcda-4c97-b60f-184074e5bdeb',
-      'idea': 'Reusable mycelial mats for biological clothes cleaning.'},
-     {'uuid': 'd1a41da4-89af-4e48-adc7-a7893f44c5e1',
-      'idea': 'Fungal bioremediation for specific clothing contaminants.'},
-     {'uuid': 'f2d13061-b933-4ce7-b227-9c8792b53b40',
-      'idea': 'Enzyme-secreting mycelial inserts for low-water washing machines.'}]},
-   {'optimized_idea': 'Compact Bioreactor for In-Home Laundry Water Recycling',
-    'idea_summary': 'A small-footprint appliance that takes in greywater from a low-water wash cycle and uses a highly efficient biofilm or fungal reactor to purify it for immediate reuse. This creates a closed-loop system that could reduce net water consumption for laundry by over 90%, directly addressing severe water scarcity.',
-    'core_principle': 'Adapts industrial-scale bioremediation and water treatment technology into a compact, automated, household-scale appliance for real-time greywater recycling.',
-    'form_factor': "A compact, self-contained appliance (similar in size to a dehumidifier) that connects to a low-water washing machine's water lines.",
-    'mode_of_action': '1. Greywater from a rinse cycle is pumped into the bioreactor. 2. The water passes through a medium (e.g., fungal mat, biofilm-coated scaffolds) where microbes metabolize detergents and organic soil. 3. Purified water is held in a reservoir, ready for the next wash cycle. 4. The system periodically self-manages biomass.',
-    'source_sparks': [{'uuid': '559496d4-d165-472d-8c8b-7bdedbd34677',
-      'idea': 'Recirculating "algae filter" for greywater clothes rinsing.'},
-     {'uuid': '83f8d33e-3492-4faf-8b8c-848997a969cd',
-      'idea': 'Bio-Augmented Laundry: Fungal Water Recycler.'},
-     {'uuid': 'f7aaef9d-8a3c-4262-aa0d-6f06c154e71b',
-      'idea': 'Compact fungal bioreactor for in-home laundry water recycling.'},
-     {'uuid': '2b3a282b-7fad-4175-8818-71b2dacddf7f',
-      'idea': 'Miniature biofilm reactor for in-home greywater laundry recycling.'}]}],
-  'descriptive_title': 'Novel Appliances and Additives for Low-Water Biocatalytic Laundry',
-  'one_liner_summary': 'A range of new cleaning systems, including bio-active tumbling media, mycelium-based reactors, and potent laundry pods.',
-  'selling_point': 'By reinventing the washing process itself, these systems provide a high-performance, sustainable alternative to conventional laundry.'}]}
+var idea_curation_test = {
+  "groups": [
+    {
+      "group_name": "Living Textiles",
+      "group_summary": "This theme focuses on embedding or growing living microorganisms directly into or as part of the fabric structure, creating 'smart textiles' that continuously clean themselves with minimal user intervention or water.",
+      "curated_ideas": [
+        {
+          "optimized_idea": "Self-Cleaning Textile with Integrated, Moisture-Activated Microbes",
+          "idea_summary": "A revolutionary fabric with dormant microorganisms embedded directly into its fibers. Activated by minimal moisture like body sweat or ambient humidity, these microbes continuously break down dirt and odors, making the garment itself the cleaning system and drastically reducing the need for water-intensive washing.",
+          "core_principle": "Integrates dormant, beneficial microbes (e.g., spores) into textile fibers, which are activated by ambient moisture or sweat to metabolize organic soil and odor-causing compounds.",
+          "form_factor": "A textile or fabric where the cleaning agents are an intrinsic part of the material, appearing and feeling like conventional fabric but with self-cleaning properties.",
+          "mode_of_action": "1. Dormant microbes are integrated into fabric fibers during manufacturing. 2. When the garment is worn, moisture and organic soil (sweat, oils) activate the microbes. 3. The microbes consume the soil as nutrients, breaking it down into harmless byproducts. 4. The fabric remains hygienically clean for extended periods, requiring infrequent, low-intensity washing.",
+          "source_sparks": [
+            {
+              "idea": "Clothing with beneficial microbes for self-cleaning and hygiene."
+            },
+            {
+              "idea": "Engineered bio-fabrics self-clean via beneficial microbes."
+            },
+            {
+              "idea": "Probiotic textiles actively degrade soils, reducing water-based washing."
+            },
+            {
+              "idea": "Probiotic fabric finish for self-cleaning, low-water garment care."
+            },
+            {
+              "idea": "Biofilm-Enhanced Self-Cleaning Textiles for Low-Water Hygiene."
+            },
+            {
+              "idea": "Engineer clothing with a beneficial, self-sustaining microbiome for odor and soil control."
+            },
+            {
+              "idea": "Algae-coated fibers for self-sanitizing textiles."
+            },
+            {
+              "idea": "Self-cleaning clothing fibers embedded with dormant, water-activated microbes."
+            },
+            {
+              "idea": "Clothing fibers with embedded, dormant 'dirt-degrading' extremophilic spores."
+            },
+            {
+              "idea": "Develop fabrics that cultivate a cleaning biofilm, mimicking the Schmutzdecke."
+            },
+            {
+              "idea": "Engineered yeast biofilm for continuous fabric self-cleaning."
+            },
+            {
+              "idea": "GEM-infused fabric self-cleans with minimal moisture for hygiene."
+            },
+            {
+              "idea": "Self-cleaning clothes via antimicrobial/biosurfactant-secreting spores."
+            },
+            {
+              "idea": "Develop 'living laundry' with bacteria that biodegrade dirt, minimizing water."
+            },
+            {
+              "idea": "Self-cleaning fabric with integrated microbial biofilm."
+            },
+            {
+              "idea": "Clothing with embedded, moisture-activated cleaning microbes."
+            },
+            {
+              "idea": "Self-cleaning fabric with integrated, regenerable microbial layers."
+            },
+            {
+              "idea": "Living fabric with microbes that break down soil/odor with humidity."
+            },
+            {
+              "idea": "Textiles fostering protective biofilms to outcompete harmful microbes."
+            },
+            {
+              "idea": "Probiotic textiles self-neutralize contaminants for hygiene."
+            },
+            {
+              "idea": "Bio-integrate beneficial microbes for self-cleaning fabrics."
+            },
+            {
+              "idea": "Self-cleaning textiles with embedded purifying microbial biofilms."
+            },
+            {
+              "idea": "Self-cleaning clothes with dormant, dirt-digesting microbial biofilms."
+            },
+            {
+              "idea": "Self-refreshing clothes with engineered B. subtilis biofilms."
+            },
+            {
+              "idea": "Layered bio-textile with distinct microbial zones for sequential soil degradation."
+            },
+            {
+              "idea": "Smart fabrics with embedded, dormant microbial consortia for self-cleaning."
+            },
+            {
+              "idea": "Self-cleaning clothes with engineered microbial biofilms."
+            },
+            {
+              "idea": "Bio-integrated textiles: clothing fibers as biofilm carriers for self-purification."
+            },
+            {
+              "idea": "Bio-active fabric hosting cleaning biofilms."
+            },
+            {
+              "idea": "Bio-catalytic fabric for self-cleaning clothes using engineered biofilms."
+            },
+            {
+              "idea": "Engineer clothing fibers with embedded microbes for self-cleaning properties."
+            },
+            {
+              "idea": "Fabric with tailored microbial consortia for targeted stain degradation."
+            },
+            {
+              "idea": "Embed 'ecosystem engineer' microbes in fabric to self-clean/condition with minimal moisture."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Fabric with Trigger-Release Microcapsules for On-Demand Cleaning",
+          "idea_summary": "This fabric integrates microscopic capsules containing dormant cleaning microbes or enzymes. These capsules protect the active agents until a specific trigger, like moisture or friction, causes them to release their contents precisely when and where needed, offering a highly controlled, on-demand cleaning effect.",
+          "core_principle": "Utilizes microencapsulation to embed dormant microbes or enzymes within protective shells inside the fabric, which rupture or become permeable upon specific triggers (moisture, friction, chemical signals) to release their payload.",
+          "form_factor": "A textile with microscopic capsules integrated into the yarn or fabric finish, invisible to the naked eye and undetectable by touch.",
+          "mode_of_action": "1. Microcapsules containing dormant microbes or enzymes are added to the fabric during the finishing process. 2. The capsules remain inert and stable during storage and normal wear. 3. Contact with moisture or the presence of specific soiling compounds triggers the capsules to release their cleaning agents. 4. The released agents break down local soiling, providing targeted cleaning without a full wash.",
+          "source_sparks": [
+            {
+              "idea": "Encapsulated bio-agents in fabric for targeted, low-water cleaning."
+            },
+            {
+              "idea": "Core-shell fibers releasing cleaning enzymes upon contact for waterless cleaning."
+            },
+            {
+              "idea": "Encapsulate bio-enzymes/microbes for low-water textile cleaning."
+            },
+            {
+              "idea": "Embed stabilized biocatalysts within fabric fibers for continuous, low-water cleaning."
+            },
+            {
+              "idea": "Embed engineered bacterial spores in clothing fibers for on-demand cleaning activation."
+            },
+            {
+              "idea": "Encapsulated 'cleaning spores' activated by moisture for low-water fabric hygiene."
+            },
+            {
+              "idea": "Self-Cleaning Fabric with Encapsulated Microbes."
+            },
+            {
+              "idea": "Bacteria-activated self-cleaning fabric inspired by self-healing concrete."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Bio-Productive Textile with On-Demand Detergent Secretion",
+          "idea_summary": "This concept involves textiles that host engineered microbes capable of producing their own cleaning agents, such as enzymes or biosurfactants, directly on the fabric surface. Instead of just consuming dirt, the fabric actively produces and releases detergents when needed, offering a proactive approach to low-water cleaning.",
+          "core_principle": "Engineered microbes living on the fabric surface actively synthesize and secrete cleaning agents like biosurfactants or enzymes, effectively turning the garment into a mobile bioreactor.",
+          "form_factor": "A textile treated with a finish containing living, genetically engineered microorganisms that are symbiotic with the fabric.",
+          "mode_of_action": "1. Engineered microbes are seeded onto the fabric. 2. When activated by moisture, the microbes begin to produce and secrete cleaning compounds (e.g., surfactants, enzymes). 3. These compounds break down oils and other soils on the fabric. 4. The system is self-sustaining as long as minimal moisture and nutrients (from the soil) are available.",
+          "source_sparks": [
+            {
+              "idea": "Clothes with enzyme-secreting biofilms for continuous cleaning."
+            },
+            {
+              "idea": "Self-cleaning textiles with embedded enzyme-secreting yeast."
+            },
+            {
+              "idea": "Engineer microbes for on-fabric detergent production."
+            },
+            {
+              "idea": "Light-driven fabric producing its own cleansing bio-agents."
+            },
+            {
+              "idea": "Engineered microbes on fabric make cleaners."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Self-Sanitizing Fabric Woven from Antimicrobial Mycelial Fibers",
+          "idea_summary": "A novel textile created from fungal mycelium, the root structure of mushrooms, which possesses inherent antimicrobial properties. This 'living leather' naturally resists odor and microbial growth, dramatically reducing the need for washing and offering a fully biodegradable end-of-life solution.",
+          "core_principle": "Utilizes fungal mycelium not as a treatment, but as the primary structural component of the textile itself, leveraging its natural antimicrobial and biodegradable properties.",
+          "form_factor": "A non-woven, leather-like textile made entirely from grown fungal mycelium, or a composite yarn blending mycelium with other fibers.",
+          "mode_of_action": "1. Mycelium is grown in sheets or as fibers. 2. The material is processed and treated to create a durable, flexible textile. 3. The inherent biological properties of the mycelium prevent the growth of odor-causing microbes during wear. 4. The garment requires significantly less washing and can be composted at the end of its life.",
+          "source_sparks": [
+            {
+              "idea": "Self-Sanitizing Mycelial Fibers for Clothing."
+            },
+            {
+              "idea": "Sacrificial mycelial layer on clothes traps dirt, then sheds."
+            }
+          ]
+        }
+      ],
+      "descriptive_title": "Integrated Biocatalytic Textiles for Continuous Self-Cleaning",
+      "one_liner_summary": "Solutions that transform the fabric itself into an active cleaning system by integrating dormant microbes, microencapsulated spores, or bio-productive organisms into the fibers.",
+      "selling_point": "This approach fundamentally reduces the laundry burden by enabling garments to self-maintain hygiene, extending wear time and drastically cutting water and energy consumption.",
+      "thumbnail_image_path": "/app/data/idea_group_thumbnails/49cf6b1f-fca0-4aed-bdd5-4567dc404848/thumbnail_49cf6b1f-fca0-4aed-bdd5-4567dc404848_1750852840.png"
+    },
+    {
+      "group_name": "Topical Bio-Treatments",
+      "group_summary": "This theme explores spray-based solutions that apply curated microbial consortia or their enzymes directly onto clothing for maintenance, targeted stain removal, or active defense against pathogens.",
+      "curated_ideas": [
+        {
+          "optimized_idea": "Probiotic Fabric Refresh Spray for Continuous Hygiene",
+          "idea_summary": "A simple, spray-on probiotic solution designed to refresh garments between full washes. By introducing a community of beneficial bacteria, the spray actively outcompetes odor-causing microbes and digests light soil, extending the wearability of clothes without requiring water.",
+          "core_principle": "Applies a liquid solution of beneficial, non-engineered probiotic bacteria to fabric surfaces to outcompete odor-causing microbes and break down light organic soil.",
+          "form_factor": "A liquid spray in a pump bottle, delivering a fine mist to be applied to clothing between washes.",
+          "mode_of_action": "1. The user sprays a light mist onto the garment, particularly in odor-prone areas. 2. The probiotic bacteria colonize the fabric surface. 3. They consume sweat and oils while competitively inhibiting the growth of malodorous bacteria. 4. The garment is refreshed and can be worn again without a full wash.",
+          "source_sparks": [
+            {
+              "idea": "Probiotic fabric spray for continuous low-water cleaning."
+            },
+            {
+              "idea": "Probiotic clothing sprays to digest soil/odors with minimal moisture."
+            },
+            {
+              "idea": "Microbial consortia \"clothing refresh\" mist for odor/light soil."
+            },
+            {
+              "idea": "Probiotic clothing sprays to maintain hygiene, reduce full washes."
+            },
+            {
+              "idea": "Spray-on probiotic 'shield' for clothes to outcompete harmful bacteria."
+            },
+            {
+              "idea": "Microbiome-balancing spray for clothes to neutralize odor, delay washing."
+            },
+            {
+              "idea": "Adaptive microbial consortium spray for low-water clothing refresh and deep clean."
+            },
+            {
+              "idea": "Microbial misting system for water-efficient garment refreshing."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Targeted Bio-Enzymatic Stain Remover Spray",
+          "idea_summary": "A high-precision 'spot cleaner' in a spray or pen format that delivers a concentrated dose of specialized microbes or enzymes to break down specific stains. This waterless pre-treatment or standalone solution eliminates the need for a full wash to deal with localized spills.",
+          "core_principle": "Utilizes a targeted application of specialized microbes or purified enzymes engineered to break down specific, stubborn molecules found in common stains like oil, grass, or wine.",
+          "form_factor": "A liquid spray, potentially in a pen-like applicator for precision, containing a concentrated solution of stain-specific enzymes or microbes.",
+          "mode_of_action": "1. The user applies the solution directly to a fresh or set-in stain. 2. The targeted enzymes or microbes immediately begin to catalytically break down the specific molecules of the stain (e.g., lipases for oil, proteases for protein). 3. The stain is visibly reduced or eliminated. 4. The area can be blotted with a damp cloth or left to air dry.",
+          "source_sparks": [
+            {
+              "idea": "Targeted probiotic treatment for clothing odor hotspots."
+            },
+            {
+              "idea": "Lipase-secreting yeast patch/spray for targeted stain removal."
+            },
+            {
+              "idea": "Targeted bio-spray breaks down stains, reducing water for washing."
+            },
+            {
+              "idea": "Targeted microbial sprays for specific stain and odor elimination."
+            },
+            {
+              "idea": "Microbial spray/fog for waterless clothing stain removal."
+            },
+            {
+              "idea": "Bioremediating fabric spray for waterless cleaning."
+            },
+            {
+              "idea": "Adaptive microbial spray for targeted 'spot cleaning' without full wash."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Pathogen-Sensing Biocidal Fabric Spray",
+          "idea_summary": "A 'smart' spray containing engineered microbes that remain dormant until they detect the presence of specific harmful bacteria or pathogens on a fabric. Upon detection, they activate and release targeted antimicrobial agents, providing on-demand sanitization with minimal water and high specificity.",
+          "core_principle": "Engineered microbes within the spray can detect the chemical signatures or quorum-sensing molecules of specific pathogens, triggering the release of targeted antimicrobial peptides or enzymes.",
+          "form_factor": "An aerosol or pump spray containing a 'smart' microbial solution in a dormant state.",
+          "mode_of_action": "1. The spray is applied to a garment as a protective measure. 2. Engineered microbes lie dormant on the fabric. 3. If the garment is contaminated with a target pathogen, its molecular signals are detected by the engineered microbes. 4. This detection triggers the microbes to produce and release a specific biocidal agent, neutralizing the threat.",
+          "source_sparks": [
+            {
+              "idea": "Pathogen-sensing, self-activating cleaning spray for clothes."
+            }
+          ]
+        }
+      ],
+      "descriptive_title": "Probiotic and Enzymatic Sprays for On-Demand Fabric Care",
+      "one_liner_summary": "A portfolio of sprayable formulations containing beneficial microbes or enzymes for refreshing garments, removing specific stains, and maintaining hygiene between washes.",
+      "selling_point": "These solutions offer a convenient, water-free way to extend the life of garments between full washes, targeting specific problems like odor or stains with precision.",
+      "thumbnail_image_path": "/app/data/idea_group_thumbnails/f0fc52e1-fc7c-4dc2-9aad-01c4d4739a83/thumbnail_f0fc52e1-fc7c-4dc2-9aad-01c4d4739a83_1750854402.png"
+    },
+    {
+      "group_name": "Modular Bio-Cleaners",
+      "group_summary": "This theme focuses on developing detachable and reusable patches, liners, or sheets that apply concentrated biological cleaning action to specific areas of a garment, offering a targeted and resource-efficient alternative to full washing.",
+      "curated_ideas": [
+        {
+          "optimized_idea": "Reusable Bio-Active Cleaning Patch for Targeted Stain Removal",
+          "idea_summary": "A reusable, flexible patch cultivated with a powerful biofilm of cleaning microbes. The patch is applied directly to stains or soiled areas, where the microbes work to digest contaminants with only minimal moisture, offering a potent, water-saving alternative to scrubbing or full washes.",
+          "core_principle": "A living biofilm of soil-degrading microbes is cultivated on a flexible, reusable substrate, which is then physically applied to soiled areas of clothing to transfer the cleaning action.",
+          "form_factor": "A flexible, fabric-like patch or pad with a living, damp biofilm layer on one side. It can be stored in a sealed, nutrient-rich container between uses.",
+          "mode_of_action": "1. The user removes the patch from its storage container and applies it to a stain. 2. A light misting may be required to ensure microbial activity. 3. The concentrated biofilm on the patch breaks down the organic soil over a period of time. 4. The patch is removed, the area is wiped clean, and the patch is returned to its container to 'recharge'.",
+          "source_sparks": [
+            {
+              "idea": "Flexible biofilm \"cleaning patches\" that absorb and neutralize odors and light soiling."
+            },
+            {
+              "idea": "Bio-active fabric patches for self-cleaning clothes."
+            },
+            {
+              "idea": "Bio-catalytic patches for targeted stain removal on clothing."
+            },
+            {
+              "idea": "Biofilm cleaning patch digests clothes soil with mist."
+            },
+            {
+              "idea": "Bio-active fabric patches for continuous, low-water clothing cleaning."
+            },
+            {
+              "idea": "Reusable biofilm patches trap and release clothing soil."
+            },
+            {
+              "idea": "Dry-cleaning patches using Solid-State Fermentation microbes for low-water fabric care."
+            },
+            {
+              "idea": "Reusable biofilm cleaning patch for clothes."
+            },
+            {
+              "idea": "Microbial-infused fabric patches for self-cleaning clothes."
+            },
+            {
+              "idea": "Bio-active clothing patches with nutrients for self-cleaning spots."
+            },
+            {
+              "idea": "Microbial cleaning patch targets specific soils using ambient moisture."
+            },
+            {
+              "idea": "Biofilm-infused fabric patches for targeted stain/odor removal with minimal water."
+            },
+            {
+              "idea": "Bio-active fabric patches for targeted stain removal."
+            },
+            {
+              "idea": "Biofilm-infused 'cleaning patches' for targeted, low-water stain removal."
+            },
+            {
+              "idea": "Bio-patches releasing microbial surfactants and enzymes for spot-cleaning clothes."
+            },
+            {
+              "idea": "Bio-active textile patches for targeted clothing cleaning."
+            },
+            {
+              "idea": "Bio-active cleaning patches for targeted, low-water stain removal."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Peel-Off Biofilm Sheet for Waterless Contaminant Removal",
+          "idea_summary": "A disposable, 'peel-and-stick' sheet that uses a biofilm's natural adhesiveness to physically trap and lift away dirt, oils, and particulates from clothing. This completely water-free method acts like a biological lint roller for a deeper, microscopic clean.",
+          "core_principle": "Leverages the strong adhesive properties of extracellular polymeric substances (EPS) in a biofilm to physically bind to and lift contaminants from a fabric surface without water.",
+          "form_factor": "A thin, flexible, dry-to-the-touch sheet with a tacky biofilm/EPS layer on one side, similar to a lint roller sheet.",
+          "mode_of_action": "1. A biofilm sheet is peeled from its backing. 2. It is pressed firmly onto the surface of the garment. 3. The biofilm's EPS layer adheres to surface contaminants. 4. The sheet is peeled away, taking the trapped dirt with it. 5. The used sheet is discarded.",
+          "source_sparks": [
+            {
+              "idea": "'Peel-off' biofilm sheet for dry-cleaning clothes by contaminant adhesion and removal."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Adhesive Bio-Purifying Liners for Odor Hotspots",
+          "idea_summary": "Discreet, adhesive liners containing cleaning microbes that are placed inside clothing at 'hotspots' like collars and underarms. These liners work continuously to break down sweat and oils at the source, preventing stains and odors from ever setting in and extending the time between washes.",
+          "core_principle": "A microbial consortium is housed in a thin, flexible, adhesive liner that is applied to the inside of clothing in high-odor or high-soil areas to provide continuous, preventative cleaning.",
+          "form_factor": "A thin, disposable or reusable adhesive strip, similar to a garment shield, that is applied to the inside of collars, cuffs, or underarm areas.",
+          "mode_of_action": "1. The user applies the adhesive liner to the inside of a clean garment. 2. As the garment is worn, the microbes in the liner are activated by body heat and moisture. 3. They intercept and degrade sweat, oils, and odor-causing bacteria before they can soil the main fabric. 4. The liner is removed and replaced as needed.",
+          "source_sparks": [
+            {
+              "idea": "Adhesive Bio-Purifying Liners for Clothing."
+            }
+          ]
+        }
+      ],
+      "descriptive_title": "Detachable Bio-Active Modules for Localized Garment Cleaning",
+      "one_liner_summary": "Flexible, reusable patches and liners containing concentrated biofilms that adhere to clothing to degrade stains, neutralize odors, or physically lift away contaminants.",
+      "selling_point": "This modular approach provides powerful cleaning exactly where it's needed, preventing the need for a full wash to treat a single spot and offering a highly adaptable care system.",
+      "thumbnail_image_path": "/app/data/idea_group_thumbnails/e1b0e232-a0c4-47ce-b927-c1568363e1e6/thumbnail_e1b0e232-a0c4-47ce-b927-c1568363e1e6_1750854428.png"
+    },
+    {
+      "group_name": "Bio-Appliances & Consumables",
+      "group_summary": "This theme reimagines the laundry process through new hardware and consumables, including compact water-recycling bioreactors, low-water microbial cleaning chambers, and potent 'living' laundry pods or slurries.",
+      "curated_ideas": [
+        {
+          "optimized_idea": "Compact Bioreactor for In-Home Laundry Water Recycling",
+          "idea_summary": "A compact bioreactor for the home that takes greywater from a laundry cycle and uses a living biofilm to purify it to a standard where it can be reused for the next wash. This system dramatically cuts the net water consumption per load by creating a closed-loop water recycling system.",
+          "core_principle": "A closed-loop filtration system uses a living biofilm or fungal culture to continuously purify a small volume of laundry water, allowing it to be reused for multiple wash cycles.",
+          "form_factor": "A compact, stand-alone appliance or a module integrated into a washing machine that houses a bioreactor with a microbial or fungal biofilm.",
+          "mode_of_action": "1. Greywater from a rinse cycle is pumped into the bioreactor unit. 2. The water percolates through a medium supporting a robust biofilm (e.g., fungi, algae, bacteria). 3. The microbes metabolize detergents, soils, and other contaminants, purifying the water. 4. The clean, recycled water is stored for use in the next laundry cycle.",
+          "source_sparks": [
+            {
+              "idea": "Recirculating \"algae filter\" for greywater clothes rinsing."
+            },
+            {
+              "idea": "Bio-Augmented Laundry: Fungal Water Recycler."
+            },
+            {
+              "idea": "Compact fungal bioreactor for in-home laundry water recycling."
+            },
+            {
+              "idea": "Closed-loop bio-reactor cleans clothes with recycled mist."
+            },
+            {
+              "idea": "Miniature biofilm reactor for in-home greywater laundry recycling."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Low-Water Microbial Misting & Incubation Chamber",
+          "idea_summary": "A next-generation cleaning appliance that replaces the water-filled drum with a humidity-controlled chamber. Clothes are hung and exposed to a fine mist of potent microbes that actively degrade soil and odors over a 'bio-soaking' cycle, achieving a deep clean with near-zero water consumption.",
+          "core_principle": "Garments are placed in a sealed, humidity-controlled environment where they are exposed to a microbial mist or vapor, allowing for deep cleaning with minimal free water.",
+          "form_factor": "A cabinet- or closet-style appliance where clothes are hung, or a flexible bag for portability.",
+          "mode_of_action": "1. Soiled garments are hung inside the chamber. 2. The system generates a warm, humid environment and releases a mist containing cleaning microbes. 3. The microbes colonize the fabric and metabolize soil over a set cycle time. 4. A final dry or venting cycle deactivates the microbes and leaves the clothes clean and dry.",
+          "source_sparks": [
+            {
+              "idea": "Microbial 'dry-fermentation' cleaning for clothes."
+            },
+            {
+              "idea": "Percolation cleaning: Garments slowly infused with targeted microbial solution."
+            },
+            {
+              "idea": "Clothes are misted with microbes, then placed in a chamber for bio-cleaning."
+            },
+            {
+              "idea": "Sequential anaerobic-aerobic microbial pod for deep cleaning clothes."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Bio-Active Tumbling Media for Mechanical-Biological Cleaning",
+          "idea_summary": "A set of reusable, biofilm-coated 'bio-beads' that are added to a low-water tumbler with clothes. As the clothes and beads tumble, the beads mechanically dislodge dirt and biologically degrade it via their biofilm coating, offering a hybrid physical-biological cleaning method.",
+          "core_principle": "Solid, reusable cleaning elements coated with a robust biofilm are tumbled with dry or minimally damp clothes, transferring cleaning action through mechanical contact.",
+          "form_factor": "Durable, porous elements like spheres, cubes, or jacks made from ceramic or bioplastics, coated with a living, cleaning biofilm.",
+          "mode_of_action": "1. Clothes and a set of bio-active tumbling media are placed in a low-water tumbler. 2. The machine tumbles the load, facilitating contact between the media and the fabric. 3. Mechanical action loosens dirt, which is then degraded by the biofilm on the media. 4. At the end of the cycle, the media is separated for reuse.",
+          "source_sparks": [
+            {
+              "idea": "Layered garment tumbler for dry bio-physical cleaning."
+            },
+            {
+              "idea": "Develop a 'cleaning mat' with a cultivated biofilm for clothes."
+            },
+            {
+              "idea": "Develop reusable beads coated with engineered biofilms for low-water tumbling cleaning."
+            },
+            {
+              "idea": "Reusable mycelial mats for biological clothes cleaning."
+            },
+            {
+              "idea": "Reusable biofilm-coated cleaning elements for low-water 'dry tumbling' of garments."
+            },
+            {
+              "idea": "Compact multi-strata cleaning pad for clothes using minimal pulsed water."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Washing Appliance with Immobilized Biofilm Cleaning Surfaces",
+          "idea_summary": "A washing machine where the drum itself is a living cleaning surface. Coated with an immobilized biofilm of powerful microbes, the drum actively breaks down soils on clothes that tumble against it, requiring far less water and detergent to achieve a hygienic clean.",
+          "core_principle": "The internal surfaces of a washing machine drum are coated with an immobilized, robust biofilm that actively degrades contaminants as clothes tumble against it.",
+          "form_factor": "A washing machine with a specially designed drum surface (e.g., high-porosity ceramic or polymer) that hosts a permanent, living biofilm.",
+          "mode_of_action": "1. Clothes are loaded into the machine with a minimal amount of water. 2. As the drum rotates, clothes rub against the bioactive surface. 3. The immobilized biofilm degrades soils and contaminants through direct contact. 4. A low-volume rinse completes the cycle.",
+          "source_sparks": [
+            {
+              "idea": "Bio-active cleaning surfaces using immobilized microbes for low-water fabric care."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Concentrated 'Living Laundry' Pod for Ultra-Low-Water Washing",
+          "idea_summary": "A 'living laundry pod' that replaces conventional detergent for use in new, ultra-low-water washing machines. The pod contains a hyper-concentrated dose of dormant microbes that activate upon contact with water and soil, unleashing a powerful biological cleaning process in just a few cups of water.",
+          "core_principle": "A highly concentrated, shelf-stable dose of dormant, soil-activated microbes is packaged in a single-use or multi-use pod format for use in ultra-low-water washing cycles.",
+          "form_factor": "A small, water-soluble pod or a solid tablet containing a dense concentration of dormant microbes (spores) and activators.",
+          "mode_of_action": "1. A pod is added to a compatible low-water washing machine with the laundry load. 2. A small amount of water dissolves the pod and activates the microbes. 3. The microbes rapidly multiply and consume the organic soil on the clothes. 4. A minimal rinse or even a simple spin-dry completes the cycle.",
+          "source_sparks": [
+            {
+              "idea": "Water-efficient cleaning pods release microbes activated by clothing soil."
+            },
+            {
+              "idea": "\"Living laundry pod\" with GEMs activated by small water amount."
+            },
+            {
+              "idea": "Encapsulated bio-agents in pods for low-water clothes cleaning."
+            },
+            {
+              "idea": "Develop clothing cleaning pods with bio-active, regenerable filter media."
+            },
+            {
+              "idea": "Concentrated B. subtilis spore 'laundry pod' for minimal water soaks."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "High-Density Microbial Slurry for Low-Water Agitation Cleaning",
+          "idea_summary": "Instead of filling a machine with water, this system uses a small amount of a reusable, high-density microbial slurry to scrub clothes clean. The slurry's microbes degrade contaminants, and after the cycle, the slurry can be filtered and regenerated for future use, creating a nearly waterless system.",
+          "core_principle": "A small volume of highly concentrated, reusable liquid containing a dense population of living microbes is used to agitate and clean clothes, replacing large volumes of water and detergent.",
+          "form_factor": "A viscous, concentrated liquid bio-slurry supplied in a bottle, intended for use with specialized low-volume washing machines.",
+          "mode_of_action": "1. Clothes are placed in a machine with a small volume of the bio-slurry. 2. The machine agitates the load, ensuring contact between the slurry and the fabric. 3. The microbes in the slurry degrade the soil. 4. The slurry is drained, filtered to remove physical debris, and stored for reuse.",
+          "source_sparks": [
+            {
+              "idea": "Minimalist bio-slurry agitation for low-water garment refresh."
+            },
+            {
+              "idea": "Formulate 'smart soaks' with potent bacterial strains for targeted stain removal."
+            },
+            {
+              "idea": "Concentrated bio-active soak for ultra-low water laundry."
+            }
+          ]
+        }
+      ],
+      "descriptive_title": "Bio-Integrated Appliances and Formulations for Ultra-Low-Water Laundry Cycles",
+      "one_liner_summary": "A suite of new appliances, tumbling media, and concentrated consumables that leverage microbial action to achieve hygienic cleaning with a fraction of the water used in conventional machines.",
+      "selling_point": "By redesigning the laundry appliance and its consumables from the ground up, this approach offers a systems-level solution to water scarcity in clothing care.",
+      "thumbnail_image_path": "/app/data/idea_group_thumbnails/40357232-b3bb-4921-b0c3-b817960e79dc/thumbnail_40357232-b3bb-4921-b0c3-b817960e79dc_1750854468.png"
+    },
+    {
+      "group_name": "Activated Bio-Systems",
+      "group_summary": "This theme explores advanced concepts where the cleaning activity of microbial systems is triggered or significantly enhanced by an external energy source, such as light or electricity.",
+      "curated_ideas": [
+        {
+          "optimized_idea": "Electro-Stimulated Biofilm Patch for Accelerated Stain Degradation",
+          "idea_summary": "A high-power cleaning patch that combines microbial action with electrochemistry. By applying a tiny, safe electrical current to a biofilm on a conductive patch, the system supercharges the microbes' ability to break down even the most stubborn stains, offering rapid, targeted cleaning.",
+          "core_principle": "Applies a small electrical field to a conductive material supporting a biofilm (e.g., carbon cloth patch), dramatically accelerating the metabolic rate of the microbes and their degradation of soil.",
+          "form_factor": "A flexible patch made of conductive carbon cloth coated with electrogenic bacteria, connected to a small, battery-powered control unit.",
+          "mode_of_action": "1. The patch is applied to a stubborn stain. 2. The user activates the control unit, which applies a low voltage across the conductive fabric. 3. The electrical stimulation boosts the metabolic rate of the electrogenic microbes, causing them to rapidly degrade the stain. 4. The patch is removed after a short period.",
+          "source_sparks": [
+            {
+              "idea": "Create bio-electric textiles with grime-degrading bacteria and conductive fibers."
+            },
+            {
+              "idea": "Electro-boosted microbial pod for rapid, low-water garment refreshing."
+            },
+            {
+              "idea": "Electrically-stimulated microbial cleaning patches for stubborn stains."
+            },
+            {
+              "idea": "Electrochemical biofilm patch for targeted low-water stain removal."
+            }
+          ]
+        },
+        {
+          "optimized_idea": "Light-Activated Photosynthetic Biofilm for On-Demand Cleaning",
+          "idea_summary": "A 'solar-powered' self-cleaning fabric that uses a coating of photosynthetic microbes. When exposed to ambient light, these microbes harness the energy to actively decompose dirt and odors, offering a completely passive and regenerative cleaning mechanism.",
+          "core_principle": "Photosynthetic microorganisms (e.g., algae, cyanobacteria) integrated into a fabric coating use light as an energy source to power the breakdown of organic soils or to produce cleaning agents.",
+          "form_factor": "A fabric coating or finish containing light-sensitive microorganisms, giving the fabric a potential faint green tint.",
+          "mode_of_action": "1. The garment is treated with a coating containing photosynthetic microbes. 2. During wear or when hung in a lit room, the microbes absorb light energy. 3. They use this energy to power their metabolism, breaking down sweat, oils, and other organic soils. 4. The cleaning process is continuous as long as light is available.",
+          "source_sparks": [
+            {
+              "idea": "Light-activated microbial fabric coating for waterless dirt decomposition."
+            },
+            {
+              "idea": "Light-driven fabric producing its own cleansing bio-agents."
+            }
+          ]
+        }
+      ],
+      "descriptive_title": "Energy-Augmented Microbial Systems for High-Efficacy Cleaning",
+      "one_liner_summary": "Solutions that use light or electrical stimulation to activate or accelerate the metabolic activity of biofilms for on-demand, high-performance stain degradation.",
+      "selling_point": "By adding an external energy trigger, these systems offer unparalleled control and speed, tackling stubborn stains and enabling 'on/off' functionality for biological cleaning.",
+      "thumbnail_image_path": null
+    }
+  ],
+  "status": "success"
+}

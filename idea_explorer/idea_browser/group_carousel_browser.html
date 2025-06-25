@@ -43,6 +43,16 @@
     .slide-theme {
       background: #ede9fe;
       color: #7c3aed;
+      position: relative;
+    }
+    
+    .slide-theme.has-thumbnail {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+      min-height: 180px;
     }
     
     .slide-summary {
@@ -505,6 +515,27 @@
       font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free', 'FontAwesome', sans-serif !important;
       font-weight: 900 !important;
     }
+
+    .carousel-thumbnail-image-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    .carousel-thumbnail-image {
+      max-width: 180px;
+      max-height: 120px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 16px rgba(124,58,237,0.13);
+      object-fit: contain;
+      background: #fff;
+      border: 2px solid #ede9fe;
+      transition: box-shadow 0.2s;
+    }
+    .slide-theme.has-thumbnail .carousel-thumbnail-image {
+      margin-bottom: 0.5rem;
+    }
   </style>
   <script src="../../data/idea_curation_test_v2.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -537,12 +568,14 @@
        CONFIGURATION
     -------------------------------------------------- */
     const AUTOPLAY_INTERVAL = 2000; // ms
+    // Base path for images (replace '/app/' in thumbnail_image_path)
+    const IMAGE_BASE_PATH = '/Users/vikrammohanty/Desktop/work/code/analogy-explorer-dev/idea_factory_engine/';
 
     /* --------------------------------------------------
        Extract data from idea_curation_test
     -------------------------------------------------- */
-    const groupData = Array.isArray(idea_curation_test?.thematic_groups)
-      ? idea_curation_test.thematic_groups
+    const groupData = Array.isArray(idea_curation_test?.groups)
+      ? idea_curation_test.groups
       : [];
 
     /* --------------------------------------------------
@@ -620,12 +653,28 @@
       cardWrap.appendChild(groupNameEl);
 
       // Populate slides
-      const slides = [
-        {
+      const slides = [];
+      // Hero slide: image if available, else fallback to icon/text
+      if (group.thumbnail_image_path) {
+        let imgPath = group.thumbnail_image_path;
+        if (imgPath.startsWith('/app/')) {
+          imgPath = IMAGE_BASE_PATH + imgPath.slice(5);
+        }
+        slides.push({
+          image: imgPath,
+          text: group.descriptive_title,
+          slideClass: "slide-theme has-thumbnail",
+          isImage: true
+        });
+      } else {
+        slides.push({
           icon: "fa-bolt",
           text: group.descriptive_title,
           slideClass: "slide-theme",
-        },
+        });
+      }
+      // Other slides as before
+      slides.push(
         {
           icon: "fa-quote-left",
           text: group.one_liner_summary,
@@ -641,16 +690,25 @@
           text: `${group.curated_ideas.length} Idea Sparks`,
           slideClass: "slide-ideas",
           custom: true,
-        },
-      ];
+        }
+      );
 
       const swiperWrapper = qs(".swiper-wrapper", card);
       slides.forEach((s) => {
         const slideEl = document.createElement("div");
         slideEl.className = `swiper-slide ${s.slideClass}`;
-        slideEl.innerHTML = s.custom
-          ? `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl idea-sparks-text mb-2">${s.text}</span>`
-          : `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl font-bold mb-2">${s.text}</span>`;
+        if (s.isImage && s.image) {
+          slideEl.innerHTML = `
+            <div class="carousel-thumbnail-image-container">
+              <img src="${s.image}" alt="Group Thumbnail" class="carousel-thumbnail-image" />
+            </div>
+            <span class="block text-xl font-bold mt-3">${s.text}</span>
+          `;
+        } else if (s.custom) {
+          slideEl.innerHTML = `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl idea-sparks-text mb-2">${s.text}</span>`;
+        } else {
+          slideEl.innerHTML = `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl font-bold mb-2">${s.text}</span>`;
+        }
         swiperWrapper.appendChild(slideEl);
       });
 
