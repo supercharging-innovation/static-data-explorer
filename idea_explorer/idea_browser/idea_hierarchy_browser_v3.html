@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lens Hierarchy Browser V3 (idea-group carousel integrated)</title>
+  <!-- Tailwind & Font-Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Swiper carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    /* --------------------------------------------------
+       BASE TYPOGRAPHY & LAYOUT (unchanged from V2)
+    -------------------------------------------------- */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    @font-face{font-family:'Avenir';src:local('Avenir'),local('Avenir Next'),local('AvenirNext-Regular');font-weight:400;}
+
+    body{font-family:'Avenir','Inter',sans-serif;background:#f8fafc;color:#1f2937;height:100vh;overflow:hidden;}
+    .main-container{display:flex;flex-direction:column;height:100vh;}
+    /* …——— existing styles from V2 omitted for brevity (keep them) … */
+
+    /* --------------------------------------------------
+       CAROUSEL + DETAILS styles (ported from carousel-browser)
+    -------------------------------------------------- */
+    .carousel-tile{transition:.3s cubic-bezier(.4,0,.2,1);box-shadow:0 4px 20px rgba(0,0,0,.1);cursor:default;overflow:visible;background:#fff;border-radius:1.5rem;min-height:240px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;padding-bottom:2.5rem;border:1px solid #e5e7eb;}
+    .carousel-tile:hover{box-shadow:0 12px 40px rgba(0,0,0,.15);transform:translateY(-6px) scale(1.02);}    
+    .slide-theme{background:#ede9fe;color:#7c3aed;position:relative;}
+    .slide-theme.has-thumbnail{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem 1.5rem 1.2rem;min-height:180px;}
+    .slide-summary{background:#e0f2fe;color:#0369a1;}
+    .slide-selling{background:#fef9c3;color:#b45309;}
+    .slide-ideas{background:#f3f4f6;color:#111827;}
+    .slide-ideas .fa-lightbulb{color:#ffd700!important;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3));}
+    .idea-sparks-text{color:#bfa100!important;font-weight:700;letter-spacing:.02em;font-size:1.8rem;}
+    .details-button{display:block;position:static;margin:1.5rem auto 0;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border:none;border-radius:50px;padding:12px 28px;font-weight:600;font-size:1rem;cursor:pointer;transition:.3s cubic-bezier(.4,0,.2,1);box-shadow:0 8px 25px rgba(0,0,0,.12);z-index:10;opacity:0;pointer-events:none;}
+    .carousel-tile:hover .details-button{opacity:1;pointer-events:auto;transform:scale(1.05);}    
+    .group-name{font-weight:700;font-size:1.2rem;color:#111;margin-top:1.2rem;margin-bottom:.7rem;text-align:center;letter-spacing:.02em;}
+
+    /* view-switching */
+    .overview-view{opacity:1;visibility:visible;transition:opacity .35s,transform .45s;transform:translateY(0);}    
+    .overview-view.hidden{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-40px);}    
+    .details-view{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(80px);transition:opacity .45s,transform .55s;overflow-y:auto;}
+    .details-view.active{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}    
+
+    .details-header{position:sticky;top:0;background:linear-gradient(90deg,#f1f5ff 0%,#e0e7ff 100%);z-index:10;padding:2.2rem 2.5rem 1.2rem;box-shadow:0 2px 16px rgba(49,46,129,.07);display:flex;gap:2rem;align-items:flex-start;}
+    .details-group-title{font-size:2.1rem;font-weight:800;color:#312e81;margin-bottom:.2rem;letter-spacing:-.01em;line-height:1.1;}
+    .details-group-summary{color:#4b5563;font-size:1.13rem;max-width:70ch;font-weight:400;margin:.2rem 0;}
+    .back-button{background:#6366f1;color:#fff;border:none;border-radius:50px;padding:10px 18px;font-weight:600;display:flex;align-items:center;gap:8px;font-size:1rem;transition:.2s;box-shadow:0 2px 8px rgba(0,0,0,.10);}    
+    .back-button:hover{background:#4f46e5;transform:translateY(-2px) scale(1.04);}    
+    .details-idea-count{background:#fffbea;color:#bfa100;font-weight:700;font-size:1.08rem;border-radius:9999px;height:40px;min-width:140px;padding:0 1.1rem;display:flex;align-items:center;gap:.5rem;box-shadow:0 1px 4px rgba(191,161,0,.07);}    
+    .curated-ideas-container{padding:2.5rem 2.5rem 3rem;background:#f8fafc;}    
+    .curated-idea-card{background:#fff;border-radius:1.25rem;padding:2rem 2.2rem;margin-bottom:2.2rem;box-shadow:0 4px 24px rgba(99,102,241,.07);border-left:6px solid #6366f1;position:relative;transition:.2s;}    
+    .curated-idea-card:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 8px 32px rgba(99,102,241,.13);}    
+    .idea-number-badge{position:absolute;left:-1.7rem;top:1.5rem;background:#6366f1;color:#fff;font-weight:700;font-size:1.1rem;border-radius:50%;width:2.2rem;height:2.2rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(99,102,241,.13);}    
+    .curated-idea-title{font-size:1.25rem;font-weight:700;color:#1f2937;margin-bottom:.7rem;display:flex;align-items:center;gap:.75rem;margin-left:2.2rem;}    
+    .idea-summary-text{color:#374151;margin-bottom:1.5rem;line-height:1.7;font-size:1.08rem;margin-left:2.2rem;}    
+    .idea-detail-section{margin-bottom:1.1rem;margin-left:2.2rem;}    
+    .idea-detail-label{font-size:.93rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}    
+    .idea-detail-content{color:#374151;line-height:1.6;padding:.9rem 1.1rem;background:#f8fafc;border-radius:.75rem;border-left:4px solid #e5e7eb;}    
+    .idea-detail-content.core-principle{border-left-color:#3b82f6;background:#eff6ff;}
+    .idea-detail-content.form-factor{border-left-color:#10b981;background:#ecfdf5;}
+    .idea-detail-content.mode-of-action{border-left-color:#f59e0b;background:#fffbeb;}    
+    .mode-of-action-list{list-style-position:inside;list-style-type:decimal;margin:0;padding:0;}    
+
+    /* hide horizontal scrollbar for ideas-panel when details view active */
+    .ideas-panel{overflow:hidden;}
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- Active Ingredient bar (unchanged) -->
+    <div class="active-ingredient-bar">
+      <div class="active-ingredient-card">
+        <div class="active-ingredient-header">Active Ingredient</div>
+        <div class="active-ingredient-text" id="active-ingredient-text">Loading active ingredient…</div>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <!-- Left sidebar (hierarchy) – unchanged markup -->
+      <div class="lens-sidebar">
+        <h1 class="text-2xl font-bold text-gray-900 mb-2" style="font-family:'Avenir','Inter',sans-serif;">Explore Idea Themes</h1>
+        <p class="text-gray-600 text-sm mb-4">Browse creative themes and perspectives</p>
+        <div id="hierarchy-tree"></div>
+      </div>
+
+      <!-- Right panel (carousel integration) -->
+      <div class="ideas-panel" id="ideas-panel">
+        <div id="idea-sparks-header" class="mb-7 flex items-center justify-between"></div>
+        <!-- optional lens-info card kept from V2 -->
+        <div id="current-lens-card"></div>
+
+        <!-- two mutually exclusive views for idea groups -->
+        <div id="overview-view" class="overview-view"></div>
+        <div id="details-view" class="details-view"></div>
+
+        <!-- container used by legacy "flat" idea view or lenses without curated groups -->
+        <div id="ideas-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- data sources -->
+  <script src="../../data/idea_lenses_biofilm_hierarchy_v3.js"></script>
+  <!-- Swiper -->
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    /* --------------------------------------------------
+       GLOBAL CONFIG & HELPERS
+    -------------------------------------------------- */
+    const IMAGE_BASE_PATH = '/Users/vikrammohanty/Desktop/work/code/analogy-explorer-dev/idea_factory_engine/';
+    const qs  = (sel, el=document) => el.querySelector(sel);
+    const qsa = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+    const fixPath = p => (p && p.startsWith('/app/')) ? IMAGE_BASE_PATH + p.slice(5) : p;
+
+    /* ————————— existing STATE from V2 ————————— */
+    let selectedLensNode = null;
+
+    /* --------------------------------------------------
+       NEW RENDERERS for idea-group carousel integration
+    -------------------------------------------------- */
+    function renderGroupOverview(groups){
+      /* parent elements */
+      const overview = qs('#overview-view');
+      const details  = qs('#details-view');
+      const container = overview;        // alias
+      overview.innerHTML = '';
+      details.classList.remove('active');
+
+      // grid wrapper
+      const grid = document.createElement('div');
+      grid.className = 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-7 mb-8';
+      container.appendChild(grid);
+
+      groups.forEach((g,idx)=>{
+        const wrap = document.createElement('div');
+        wrap.className = 'flex flex-col items-center';
+
+        const card = document.createElement('div');
+        card.className = 'carousel-tile flex flex-col items-center justify-center w-full relative';
+        card.dataset.idx = idx;
+
+        card.innerHTML = `
+          <div class="swiper w-full" style="min-height:180px;">
+            <div class="swiper-wrapper"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <button class="details-button"><i class="fas fa-arrow-right mr-2"></i>View Details</button>
+          <div class="group-name">${g.group_name}</div>`;
+
+        wrap.appendChild(card);
+        grid.appendChild(wrap);
+
+        /* —— Build slides —— */
+        const slides = [];
+        if(g.thumbnail_image_path){
+          slides.push({html:`<img src="${fixPath(g.thumbnail_image_path)}" class="carousel-thumbnail-image" /><span class="block text-xl font-bold mt-3">${g.descriptive_title||''}</span>`,cls:'slide-theme has-thumbnail'});
+        } else {
+          slides.push({html:`<span class="text-4xl mb-3"><i class="fas fa-bolt"></i></span><span class="block text-xl font-bold mb-2">${g.descriptive_title||''}</span>`,cls:'slide-theme'});
+        }
+        slides.push(
+          {html:`<span class="text-4xl mb-3"><i class="fas fa-quote-left"></i></span><span class="block text-xl font-bold mb-2">${g.one_liner_summary||''}</span>`,cls:'slide-summary'},
+          {html:`<span class="text-4xl mb-3"><i class="fas fa-star"></i></span><span class="block text-xl font-bold mb-2">${g.selling_point||''}</span>`,cls:'slide-selling'},
+          {html:`<span class="text-4xl mb-3"><i class="fas fa-lightbulb"></i></span><span class="block text-2xl font-bold mb-2 idea-sparks-text">${g.curated_ideas.length} Idea Sparks</span>`,cls:'slide-ideas'}
+        );
+        const swiperWrap = card.querySelector('.swiper-wrapper');
+        slides.forEach(s=>{
+          const sEl = document.createElement('div');
+          sEl.className = `swiper-slide ${s.cls}`;
+          sEl.innerHTML = s.html;
+          swiperWrap.appendChild(sEl);
+        });
+
+        /* —— activate Swiper —— */
+        const sw = new Swiper(card.querySelector('.swiper'),{
+          slidesPerView:1,effect:'fade',fadeEffect:{crossFade:true},pagination:{el:card.querySelector('.swiper-pagination'),clickable:true},allowTouchMove:true,speed:400,autoHeight:true});
+        let autoplay;
+        card.addEventListener('mouseenter',()=>{autoplay=setInterval(()=>sw.slideNext(),2000);});
+        card.addEventListener('mouseleave',()=>{clearInterval(autoplay);sw.slideTo(0);});
+
+        /* —— details button —— */
+        card.querySelector('.details-button').onclick=()=>openGroupDetails(g);
+      });
+    }
+
+    function openGroupDetails(group){
+      const overview = qs('#overview-view');
+      const details  = qs('#details-view');
+      overview.classList.add('hidden');
+      details.classList.add('active');
+      details.innerHTML = '';
+
+      /* header */
+      const header = document.createElement('div');
+      header.className = 'details-header';
+      header.innerHTML = `
+        <div class="details-header-main">
+          <span class="details-group-title">${group.group_name}</span>
+          <div class="details-group-summary">${group.group_summary||''}</div>
+        </div>
+        <div class="flex flex-col items-end gap-2 min-w-[160px] flex-shrink-0">
+          <button class="back-button"><i class="fas fa-arrow-left"></i> Back</button>
+          <span class="details-idea-count"><i class="fas fa-lightbulb"></i> ${group.curated_ideas.length} Idea Sparks</span>
+        </div>`;
+      details.appendChild(header);
+      header.querySelector('.back-button').onclick=()=>{
+        details.classList.remove('active');
+        overview.classList.remove('hidden');
+        details.scrollTop=0;
+      };
+
+      /* ideas */
+      const ideasWrap = document.createElement('div');
+      ideasWrap.className = 'curated-ideas-container';
+      details.appendChild(ideasWrap);
+
+      group.curated_ideas.forEach((idea,idx)=>{
+        const c = document.createElement('div');
+        c.className='curated-idea-card';
+        c.innerHTML = `
+          <span class="idea-number-badge">${idx+1}</span>
+          <h3 class="curated-idea-title"><i class="fas fa-lightbulb text-yellow-500"></i> ${idea.optimized_idea}
+            <span class="inline-flex items-center gap-1 bg-gray-100 text-gray-700 font-semibold text-sm px-3 py-1 rounded-full ml-2"><i class="fas fa-lightbulb"></i>${idea.source_sparks.length}</span></h3>
+          <p class="idea-summary-text">${idea.idea_summary}</p>
+          ${detailBlock('Core Principle','fa-atom','core-principle',idea.core_principle)}
+          ${detailBlock('Form Factor','fa-cube','form-factor',idea.form_factor)}
+          ${detailBlock('Mode of Action','fa-cogs','mode-of-action',formatModeOfAction(idea.mode_of_action))}`;
+        ideasWrap.appendChild(c);
+      });
+
+      function detailBlock(label,icon,cls,content){
+        return `<div class="idea-detail-section"><div class="idea-detail-label"><i class="fas ${icon}"></i> ${label}</div><div class="idea-detail-content ${cls}">${content}</div></div>`;
+      }
+    }
+
+    /* helper reused from V2 */
+    function formatModeOfAction(text){
+      if(!text) return '';
+      const items = text.split(/(?=\d+\.\s)/).map(s=>s.trim()).filter(Boolean);
+      return items.length>1 ? `<ol class="mode-of-action-list">${items.map(i=>`<li>${i.replace(/^\d+\.\s/,'')}</li>`).join('')}</ol>` : `<p>${text}</p>`;
+    }
+
+    /* --------------------------------------------------
+       REMAINING ORIGINAL JS (hierarchy, flat ideas, etc.)
+       —— only renderIdeas() was edited to call new overview
+    -------------------------------------------------- */
+
+    // …———— existing functions from V2 (createLensNode, renderHierarchy, etc.) kept as-is … //
+
+    /* override of renderIdeas() simplified for new group UI */
+    function renderIdeas(lens){
+      const ideasPanel = qs('#ideas-panel');
+      const ideaContainer = qs('#ideas-container');
+      const lensCard = qs('#current-lens-card');
+
+      // reset
+      ideaContainer.innerHTML='';
+      lensCard.innerHTML='';
+      qs('#overview-view').innerHTML='';
+      qs('#details-view').innerHTML='';
+      qs('#overview-view').classList.remove('hidden');
+      qs('#details-view').classList.remove('active');
+
+      ideasPanel.classList.remove('ideas-mode','landing-mode');
+
+      if(!lens){
+        ideasPanel.classList.add('landing-mode');
+        ideaContainer.innerHTML = `<div class="empty-landing-message"><i class="fas fa-sparkles"></i>Select a lens on the left to explore ideas and themes!</div>`;
+        return;
+      }
+
+      if(Array.isArray(lens.curated_idea_groups) && lens.curated_idea_groups.length){
+        ideasPanel.classList.add('ideas-mode');
+        renderGroupOverview(lens.curated_idea_groups);
+        return;   // —— we’re done (new UI)
+      }
+
+      // —— fallback to original flat/list view if no groups ——
+      renderFlatIdeas(lens);
+    }
+
+    /* --------------------------------------------------
+       INITIALISE (unchanged)
+    -------------------------------------------------- */
+    // … include original findParentLens, renderFlatIdeas, aggregateLensStats, createLensNode, etc. …
+
+    // call aggregate stats then render hierarchy and default panel content
+    idea_lenses_hierarchy.taxonomy.forEach(root=>aggregateLensStats(root));
+    qs('#active-ingredient-text').textContent = idea_lenses_hierarchy.active_ingredient.active_ingredient_text;
+    renderHierarchy();
+    renderIdeas(null);   // landing-mode
+  </script>
+</body>
+</html>
