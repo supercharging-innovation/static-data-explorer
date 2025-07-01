@@ -1024,6 +1024,127 @@
         font-size: 0.85rem;
       }
     }
+
+    /* Dropdown Styles */
+    .dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+    }
+
+    .dropdown-arrow {
+      font-size: 0.7rem;
+      transition: transform 0.2s ease;
+      margin-left: 0.2rem;
+    }
+
+    .dropdown-toggle.active .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.8rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      min-width: 180px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .dropdown-menu.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #374151;
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #f8fafc;
+      color: #1f2937;
+    }
+
+    .dropdown-item i {
+      font-size: 0.85rem;
+      width: 1rem;
+      text-align: center;
+    }
+
+    /* Success Message Styles */
+    .success-message {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: #10b981;
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 0.8rem;
+      box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .success-message.show {
+      transform: translateX(0);
+    }
+
+    .success-message i {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        right: auto;
+        left: 0;
+        min-width: 160px;
+      }
+      
+      .success-message {
+        right: 1rem;
+        left: 1rem;
+        transform: translateY(-100%);
+      }
+      
+      .success-message.show {
+        transform: translateY(0);
+      }
+    }
   </style>
   <script src="../../data/idea_curation_provenance_test.js"></script>
 </head>
@@ -1058,12 +1179,38 @@
           <button class="btn btn-secondary" id="back-btn" title="Back to Overview">
             <i class="fa-solid fa-arrow-left"></i>
           </button>
-          <button class="btn btn-secondary" id="export-group-btn" title="Save group to file">
-            <i class="fa-solid fa-download"></i>
-          </button>
-          <button class="btn btn-secondary" id="copy-group-btn" title="Copy group to clipboard">
-            <i class="fa-solid fa-copy"></i>
-          </button>
+          <div class="dropdown-container">
+            <button class="btn btn-secondary dropdown-toggle" id="export-group-btn" title="Save group to file">
+              <i class="fa-solid fa-download"></i>
+              <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+            </button>
+            <div class="dropdown-menu" id="export-group-dropdown">
+              <div class="dropdown-item" data-format="json" data-type="group">
+                <i class="fa-solid fa-file-code"></i>
+                Save as JSON
+              </div>
+              <div class="dropdown-item" data-format="markdown" data-type="group">
+                <i class="fa-solid fa-file-lines"></i>
+                Save as Markdown
+              </div>
+            </div>
+          </div>
+          <div class="dropdown-container">
+            <button class="btn btn-secondary dropdown-toggle" id="copy-group-btn" title="Copy group to clipboard">
+              <i class="fa-solid fa-copy"></i>
+              <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+            </button>
+            <div class="dropdown-menu" id="copy-group-dropdown">
+              <div class="dropdown-item" data-format="json" data-type="group">
+                <i class="fa-solid fa-file-code"></i>
+                Copy as JSON
+              </div>
+              <div class="dropdown-item" data-format="markdown" data-type="group">
+                <i class="fa-solid fa-file-lines"></i>
+                Copy as Markdown
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -1115,8 +1262,106 @@
       backBtn.addEventListener('click', () => {
         showLanding();
       });
-      document.getElementById('export-group-btn').addEventListener('click', exportGroup);
-      document.getElementById('copy-group-btn').addEventListener('click', copyGroupToClipboard);
+      
+      // Setup dropdown functionality
+      setupDropdowns();
+      
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown-container')) {
+          closeAllDropdowns();
+        }
+      });
+    }
+
+    function setupDropdowns() {
+      // Group level dropdowns
+      const exportGroupBtn = document.getElementById('export-group-btn');
+      const copyGroupBtn = document.getElementById('copy-group-btn');
+      
+      exportGroupBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown('export-group-dropdown', exportGroupBtn);
+      });
+      
+      copyGroupBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleDropdown('copy-group-dropdown', copyGroupBtn);
+      });
+      
+      // Setup dropdown item click handlers
+      setupDropdownItemHandlers();
+    }
+
+    function setupDropdownItemHandlers() {
+      // Group dropdown items
+      document.querySelectorAll('#export-group-dropdown .dropdown-item, #copy-group-dropdown .dropdown-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const format = item.dataset.format;
+          const type = item.dataset.type;
+          const action = item.closest('#export-group-dropdown') ? 'export' : 'copy';
+          
+          if (action === 'export') {
+            exportGroup(format);
+          } else {
+            copyGroupToClipboard(format);
+          }
+          
+          closeAllDropdowns();
+        });
+      });
+    }
+
+    function toggleDropdown(dropdownId, toggleBtn) {
+      const dropdown = document.getElementById(dropdownId);
+      const isActive = dropdown.classList.contains('active');
+      
+      closeAllDropdowns();
+      
+      if (!isActive) {
+        dropdown.classList.add('active');
+        toggleBtn.classList.add('active');
+      }
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.dropdown-menu').forEach(dropdown => {
+        dropdown.classList.remove('active');
+      });
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.classList.remove('active');
+      });
+    }
+
+    function showSuccessMessage(message) {
+      // Remove any existing success message
+      const existing = document.querySelector('.success-message');
+      if (existing) existing.remove();
+      
+      const successMsg = document.createElement('div');
+      successMsg.className = 'success-message';
+      successMsg.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        ${message}
+      `;
+      
+      document.body.appendChild(successMsg);
+      
+      // Trigger animation
+      setTimeout(() => {
+        successMsg.classList.add('show');
+      }, 10);
+      
+      // Remove after 3 seconds
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+        setTimeout(() => {
+          if (successMsg.parentNode) {
+            successMsg.parentNode.removeChild(successMsg);
+          }
+        }, 300);
+      }, 3000);
     }
 
     function renderLanding() {
@@ -1279,12 +1524,38 @@
           <div class="details-title">${idea.idea_title}</div>
           <div class="details-subtitle">${idea.subtitle || ''}</div>
           <div class="details-actions">
-            <button class="btn btn-secondary btn-small" onclick="exportIdea()" title="Save to file">
-              <i class="fa-solid fa-download"></i>
-            </button>
-            <button class="btn btn-secondary btn-small" onclick="copyToClipboard()" title="Copy to clipboard">
-              <i class="fa-solid fa-copy"></i>
-            </button>
+            <div class="dropdown-container">
+              <button class="btn btn-secondary btn-small dropdown-toggle" id="export-idea-btn" title="Save to file">
+                <i class="fa-solid fa-download"></i>
+                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+              </button>
+              <div class="dropdown-menu" id="export-idea-dropdown">
+                <div class="dropdown-item" data-format="json" data-type="idea">
+                  <i class="fa-solid fa-file-code"></i>
+                  Save as JSON
+                </div>
+                <div class="dropdown-item" data-format="markdown" data-type="idea">
+                  <i class="fa-solid fa-file-lines"></i>
+                  Save as Markdown
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-container">
+              <button class="btn btn-secondary btn-small dropdown-toggle" id="copy-idea-btn" title="Copy to clipboard">
+                <i class="fa-solid fa-copy"></i>
+                <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+              </button>
+              <div class="dropdown-menu" id="copy-idea-dropdown">
+                <div class="dropdown-item" data-format="json" data-type="idea">
+                  <i class="fa-solid fa-file-code"></i>
+                  Copy as JSON
+                </div>
+                <div class="dropdown-item" data-format="markdown" data-type="idea">
+                  <i class="fa-solid fa-file-lines"></i>
+                  Copy as Markdown
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
@@ -1375,6 +1646,7 @@
       setTimeout(() => {
         setupProvenanceAccordions();
         setupCitationPopovers(idea);
+        setupIdeaDropdowns();
       }, 100);
     }
 
@@ -1474,63 +1746,133 @@
       });
     }
 
-    function exportGroup() {
+    function setupIdeaDropdowns() {
+      const exportIdeaBtn = document.getElementById('export-idea-btn');
+      const copyIdeaBtn = document.getElementById('copy-idea-btn');
+      
+      if (exportIdeaBtn) {
+        exportIdeaBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleDropdown('export-idea-dropdown', exportIdeaBtn);
+        });
+      }
+      
+      if (copyIdeaBtn) {
+        copyIdeaBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleDropdown('copy-idea-dropdown', copyIdeaBtn);
+        });
+      }
+      
+      // Setup idea dropdown item handlers
+      document.querySelectorAll('#export-idea-dropdown .dropdown-item, #copy-idea-dropdown .dropdown-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const format = item.dataset.format;
+          const type = item.dataset.type;
+          const action = item.closest('#export-idea-dropdown') ? 'export' : 'copy';
+          
+          if (action === 'export') {
+            exportIdea(format);
+          } else {
+            copyToClipboard(format);
+          }
+          
+          closeAllDropdowns();
+        });
+      });
+    }
+
+    function exportGroup(format = 'json') {
       if (currentGroupIndex >= 0) {
         const group = groupData[currentGroupIndex];
-        const dataStr = JSON.stringify(group, null, 2);
-        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        let dataStr, fileName, mimeType;
+        
+        if (format === 'json') {
+          dataStr = JSON.stringify(group, null, 2);
+          fileName = `${group.group_name.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+          mimeType = 'application/json';
+        } else {
+          // Markdown format
+          dataStr = `# ${group.group_name}\n\n${group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `## ${idx + 1}. ${idea.idea_title}\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}`).join('\n\n---\n\n')}`;
+          fileName = `${group.group_name.replace(/[^a-zA-Z0-9]/g, '_')}.md`;
+          mimeType = 'text/markdown';
+        }
+        
+        const dataBlob = new Blob([dataStr], {type: mimeType});
         const url = URL.createObjectURL(dataBlob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `${group.group_name.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+        link.download = fileName;
         link.click();
         URL.revokeObjectURL(url);
+        
+        showSuccessMessage(`Group saved as ${format.toUpperCase()}`);
       }
     }
 
-    function exportIdea() {
+    function exportIdea(format = 'json') {
       if (currentGroupIndex >= 0 && currentIdeaIndex >= 0) {
         const idea = groupData[currentGroupIndex].curated_ideas[currentIdeaIndex];
-        const dataStr = JSON.stringify(idea, null, 2);
-        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        let dataStr, fileName, mimeType;
+        
+        if (format === 'json') {
+          dataStr = JSON.stringify(idea, null, 2);
+          fileName = `${idea.idea_title.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+          mimeType = 'application/json';
+        } else {
+          // Markdown format
+          dataStr = `# ${idea.idea_title}\n\n${idea.subtitle || ''}\n\n## Concept Description\n\n${idea.concept_description}\n\n## How It Works\n\n${idea.how_it_works}\n\n## Inspiration Summary\n\n${idea.inspiration_summary}`;
+          fileName = `${idea.idea_title.replace(/[^a-zA-Z0-9]/g, '_')}.md`;
+          mimeType = 'text/markdown';
+        }
+        
+        const dataBlob = new Blob([dataStr], {type: mimeType});
         const url = URL.createObjectURL(dataBlob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `${idea.idea_title.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+        link.download = fileName;
         link.click();
         URL.revokeObjectURL(url);
+        
+        showSuccessMessage(`Idea saved as ${format.toUpperCase()}`);
       }
     }
 
-    function copyToClipboard() {
+    function copyToClipboard(format = 'markdown') {
       if (currentGroupIndex >= 0 && currentIdeaIndex >= 0) {
         const idea = groupData[currentGroupIndex].curated_ideas[currentIdeaIndex];
-        const text = `**${idea.idea_title}**\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}`;
+        let text;
+        
+        if (format === 'json') {
+          text = JSON.stringify(idea, null, 2);
+        } else {
+          text = `**${idea.idea_title}**\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}`;
+        }
         
         navigator.clipboard.writeText(text).then(() => {
-          // Show success feedback
-          const btn = event.target.closest('button');
-          const originalText = btn.innerHTML;
-          btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-          btn.style.background = 'var(--accent-gradient)';
-          
-          setTimeout(() => {
-            btn.innerHTML = originalText;
-            btn.style.background = '';
-          }, 2000);
+          showSuccessMessage(`Idea copied as ${format.toUpperCase()}`);
+        }).catch(() => {
+          showSuccessMessage('Failed to copy to clipboard');
         });
       }
     }
 
-    function copyGroupToClipboard() {
+    function copyGroupToClipboard(format = 'markdown') {
       if (currentGroupIndex >= 0) {
         const group = groupData[currentGroupIndex];
-        const text = `**${group.group_name}**\n\n${group.descriptive_title || group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `#${idx+1}: ${idea.idea_title}\n${idea.subtitle || ''}`).join('\n\n')}`;
+        let text;
+        
+        if (format === 'json') {
+          text = JSON.stringify(group, null, 2);
+        } else {
+          text = `**${group.group_name}**\n\n${group.descriptive_title || group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `#${idx+1}: ${idea.idea_title}\n${idea.subtitle || ''}`).join('\n\n')}`;
+        }
+        
         navigator.clipboard.writeText(text).then(() => {
-          const btn = event.target.closest('button');
-          const originalHTML = btn.innerHTML;
-          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
-          setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+          showSuccessMessage(`Group copied as ${format.toUpperCase()}`);
+        }).catch(() => {
+          showSuccessMessage('Failed to copy to clipboard');
         });
       }
     }
