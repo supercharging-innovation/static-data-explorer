@@ -862,15 +862,31 @@
     }
 
     /* Citation Popover Styles */
+    .popover-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      animation: backdropFadeIn 0.3s ease-out;
+    }
+    
+    @keyframes backdropFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
     .citation-popover {
       position: fixed;
       z-index: 10000;
-      min-width: 420px;
-      max-width: 480px;
+      min-width: 400px;
+      max-width: 450px;
       background: var(--bg-card);
       border-radius: 0.8rem;
       border: 1px solid var(--sidebar-border);
-      box-shadow: var(--shadow-medium);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
       padding: 0;
       font-size: 0.95rem;
       font-family: var(--body-font);
@@ -880,17 +896,19 @@
       animation: fadeIn 0.3s ease-out;
       overflow: hidden;
     }
+
     .citation-popover .popover-header {
-      background: #f8faff;
+      background: #f8fafc;
       color: var(--text-primary);
       font-weight: 600;
-      font-size: 0.98rem;
-      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      padding: 1rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--sidebar-border);
     }
+
     .citation-popover .popover-close {
       background: none;
       border: none;
@@ -898,76 +916,65 @@
       font-size: 1.2rem;
       cursor: pointer;
       border-radius: 50%;
-      width: 1.6em;
-      height: 1.6em;
+      width: 1.8em;
+      height: 1.8em;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition-smooth);
-      margin-left: 0.8rem;
     }
+
     .citation-popover .popover-close:hover {
       background: var(--badge-bg);
       color: var(--text-primary);
     }
+
     .citation-popover .popover-body {
-      padding: 1rem;
+      padding: 1.2rem;
     }
+
     .citation-popover .popover-url {
-      margin-bottom: 0.8rem;
-      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f0f0f0;
     }
+
     .citation-popover .popover-url a {
       color: #2563eb;
       text-decoration: none;
       font-size: 0.9rem;
-      word-break: break-all;
       line-height: 1.3;
     }
-    .citation-popover .popover-url a:hover {
-      text-decoration: underline;
-    }
+
     .citation-popover .popover-principle {
-      position: relative;
       color: var(--text-secondary);
       font-size: 0.95rem;
       font-weight: 400;
-      padding: 0.8rem 0 0.8rem 0;
       margin-bottom: 1rem;
       line-height: 1.5;
     }
-    .citation-popover .popover-principle::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 60px;
-      height: 2px;
-      background: #2563eb;
-    }
+
     .citation-popover .popover-btn {
-      background: transparent;
-      color: #2563eb;
+      background: #2563eb;
+      color: white;
       border: 1px solid #2563eb;
       border-radius: 0.5rem;
-      font-size: 0.85rem;
-      padding: 0.4rem 0.7rem;
-      margin: 0 1rem 1rem auto;
+      font-size: 0.9rem;
       font-weight: 500;
+      padding: 0.7rem 1rem;
+      width: 100%;
       transition: var(--transition-smooth);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem;
       cursor: pointer;
-      width: fit-content;
-      align-self: flex-end;
     }
+
     .citation-popover .popover-btn:hover {
-      background: #2563eb;
-      border-color: #2563eb;
-      color: #fff;
+      background: #1d4ed8;
+      border-color: #1d4ed8;
     }
+
     @media (max-width: 600px) {
       .citation-popover {
         min-width: 90vw;
@@ -976,13 +983,12 @@
       }
       .citation-popover .popover-header {
         font-size: 0.95rem;
-        padding: 0.7rem 0.9rem;
+        padding: 0.9rem 1rem;
       }
       .citation-popover .popover-body {
-        padding: 0.9rem;
+        padding: 1rem;
       }
       .citation-popover .popover-btn {
-        margin: 0 0.9rem 0.9rem 0.9rem;
         font-size: 0.85rem;
       }
     }
@@ -1499,11 +1505,14 @@
       function removePopover() {
         const existing = document.querySelector('.citation-popover');
         if (existing) existing.remove();
+        const backdrop = document.querySelector('.popover-backdrop');
+        if (backdrop) backdrop.remove();
         document.removeEventListener('mousedown', handleOutsideClick, true);
       }
       function handleOutsideClick(e) {
         const pop = document.querySelector('.citation-popover');
-        if (pop && !pop.contains(e.target)) removePopover();
+        const backdrop = document.querySelector('.popover-backdrop');
+        if (pop && !pop.contains(e.target) && e.target !== backdrop) removePopover();
       }
       // Attach click listeners to all citation badges
       const provenanceSources = idea.provenance?.provenance_sources || [];
@@ -1531,6 +1540,11 @@
           }
           // Ensure the corresponding source card is expanded silently (no scroll)
           window.expandSourceCard(num - 1, false);
+          // Create backdrop
+          const backdrop = document.createElement('div');
+          backdrop.className = 'popover-backdrop';
+          document.body.appendChild(backdrop);
+          
           // Create popover
           const pop = document.createElement('div');
           pop.className = 'citation-popover';
@@ -1550,7 +1564,6 @@
               </div>
               <button class="popover-btn" tabindex="0">
                 See details for inspiration
-                <i class="fas fa-chevron-down"></i>
               </button>
             </div>
           `;
@@ -1582,6 +1595,7 @@
           // Close logic
           const closeBtn = pop.querySelector('.popover-close');
           closeBtn.addEventListener('click', removePopover);
+          backdrop.addEventListener('click', removePopover);
           document.addEventListener('mousedown', handleOutsideClick, true);
           
           // Button logic - with better event handling
