@@ -235,6 +235,12 @@
       min-width: 0;
     }
 
+    .header-group-block {
+      border-left: 6px solid #10b981;
+      padding-left: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
     .header-title {
       font-size: 2.1rem;
       font-family: var(--header-font);
@@ -243,9 +249,19 @@
       margin-bottom: 0.2rem;
       letter-spacing: 0.01em;
       text-transform: none;
-      border-left: 6px solid #10b981;
-      padding-left: 0.8rem;
+      border-left: none;
+      padding-left: 0;
       background: none;
+    }
+
+    .header-oneliner {
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      line-height: 1.5;
+      font-family: var(--body-font);
+      font-style: normal;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
     }
 
     .header-description {
@@ -1017,8 +1033,10 @@
     <header class="detail-header">
       <div class="header-content">
         <div class="header-info">
-          <h1 class="header-title" id="header-title">Group Title</h1>
-          <p class="header-description" id="header-description">Group description will appear here.</p>
+          <div class="header-group-block">
+            <h1 class="header-title" id="header-title">Group Title</h1>
+            <div class="header-oneliner" id="header-oneliner">One-liner summary will appear here.</div>
+          </div>
         </div>
         <div class="header-actions">
           <button class="btn btn-secondary" id="back-btn" title="Back to Overview">
@@ -1129,7 +1147,7 @@
       
       // Update header
       document.getElementById('header-title').textContent = group.group_name;
-      document.getElementById('header-description').textContent = group.descriptive_title || group.group_summary;
+      document.getElementById('header-oneliner').textContent = group.one_liner_summary || '';
       
       // Update idea count
       document.getElementById('sidebar-idea-count').innerHTML = `${group.curated_ideas.length} <i class='fas fa-lightbulb'></i>`;
