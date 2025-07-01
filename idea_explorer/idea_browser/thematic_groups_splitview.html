@@ -182,11 +182,11 @@
 
     .ideas-count {
       background: #fbbf24;
-      color: #7c5700;
+      color: #fff;
       padding: 0.32rem 0.95rem;
       border-radius: 1.2rem;
       font-size: 0.97rem;
-      font-weight: 700;
+      font-weight: 500;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -375,10 +375,10 @@
 
     .idea-count-badge {
       background: #fbbf24;
-      color: #7c5700;
+      color: #fff;
       border-radius: 999px;
       font-size: 1.02rem;
-      font-weight: 700;
+      font-weight: 500;
       padding: 0.22em 1.1em 0.22em 1em;
       margin-left: 0.2em;
       display: flex;
@@ -697,24 +697,24 @@
 
     .citation-badge {
       display: inline-block;
-      background: #232946;
-      color: #fff;
+      background: #eef2ff;
+      color: #2563eb;
       font-size: 0.92rem;
-      font-weight: 700;
+      font-weight: 600;
       padding: 0.18em 0.7em;
       border-radius: 0.7em;
       margin: 0.12em 0.32em 0.12em 0;
       font-family: 'JetBrains Mono', 'Avenir Next', 'Avenir', 'Nunito', 'Montserrat', monospace, sans-serif;
-      box-shadow: 0 1px 4px rgba(35,41,70,0.08);
+      border: 1.5px solid #2563eb;
       letter-spacing: 0.01em;
       vertical-align: middle;
-      border: 1.5px solid #232946;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
 
     .citation-badge:hover {
-      transform: scale(1.1);
-      background: #1a2233;
-      border-color: #1a2233;
+      background: #dbeafe;
+      color: #1d4ed8;
+      border-color: #1d4ed8;
     }
 
     .collapsible {
@@ -1794,7 +1794,7 @@
           mimeType = 'application/json';
         } else {
           // Markdown format
-          dataStr = `# ${group.group_name}\n\n${group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `## ${idx + 1}. ${idea.idea_title}\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}`).join('\n\n---\n\n')}`;
+          dataStr = `# ${group.group_name}\n\n${group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `## ${idx + 1}. ${idea.idea_title}\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}${idea.key_questions_and_assumptions && idea.key_questions_and_assumptions.length > 0 ? `\n\n**Key Questions & Assumptions:**\n${idea.key_questions_and_assumptions.map(item => `- ${item}`).join('\n')}` : ''}${idea.provenance ? `\n\n**Sources:**\n${idea.provenance.provenance_sources.map((source, sourceIdx) => `\n### Source ${sourceIdx + 1}${source.web_snippet_title ? `: ${source.web_snippet_title}` : ''}\n\n${source.web_snippet_url ? `**URL:** ${source.web_snippet_url}\n\n` : ''}**Domain Summary:** ${source.source_domain_summary}\n\n**Core Principle:** ${source.inspiring_principle}\n\n**Key Evidence:**\n${source.evidentiary_snippets.map(snippet => `> ${snippet}`).join('\n\n')}\n\n**Analogical Leap:** ${source.analogical_leap}`).join('\n\n')}` : ''}`).join('\n\n---\n\n')}`;
           fileName = `${group.group_name.replace(/[^a-zA-Z0-9]/g, '_')}.md`;
           mimeType = 'text/markdown';
         }
@@ -1866,7 +1866,7 @@
         if (format === 'json') {
           text = JSON.stringify(group, null, 2);
         } else {
-          text = `**${group.group_name}**\n\n${group.descriptive_title || group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `#${idx+1}: ${idea.idea_title}\n${idea.subtitle || ''}`).join('\n\n')}`;
+          text = `**${group.group_name}**\n\n${group.descriptive_title || group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `## ${idx+1}. ${idea.idea_title}\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}${idea.key_questions_and_assumptions && idea.key_questions_and_assumptions.length > 0 ? `\n\n**Key Questions & Assumptions:**\n${idea.key_questions_and_assumptions.map(item => `- ${item}`).join('\n')}` : ''}${idea.provenance ? `\n\n**Sources:**\n${idea.provenance.provenance_sources.map((source, sourceIdx) => `\n### Source ${sourceIdx + 1}${source.web_snippet_title ? `: ${source.web_snippet_title}` : ''}\n\n${source.web_snippet_url ? `**URL:** ${source.web_snippet_url}\n\n` : ''}**Domain Summary:** ${source.source_domain_summary}\n\n**Core Principle:** ${source.inspiring_principle}\n\n**Key Evidence:**\n${source.evidentiary_snippets.map(snippet => `> ${snippet}`).join('\n\n')}\n\n**Analogical Leap:** ${source.analogical_leap}`).join('\n\n')}` : ''}`).join('\n\n---\n\n')}`;
         }
         
         navigator.clipboard.writeText(text).then(() => {
