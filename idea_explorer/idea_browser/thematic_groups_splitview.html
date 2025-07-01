@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -107,99 +107,115 @@
     }
 
     .group-card {
-      background: var(--bg-card);
+      background: #fff;
       border-radius: 1.2rem;
       padding: 2rem 1.5rem;
       cursor: pointer;
-      border: 1.5px solid var(--sidebar-border);
+      border: 1.5px solid #e5e7eb;
+      border-left: 5px solid #10b981;
       transition: var(--transition-smooth);
       position: relative;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: 0 2px 8px rgba(60,60,60,0.04);
       margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 180px;
+      font-family: 'Avenir Next', 'Nunito', 'Raleway', Arial, sans-serif;
     }
 
     .group-card:hover {
-      border-color: #2563eb;
-      box-shadow: var(--shadow-medium);
-      background: #f5faff;
+      border-color: #e5e7eb;
+      border-left: 5px solid #059669;
+      box-shadow: 0 6px 24px rgba(60,60,60,0.08);
+      background: #f0fdf4;
     }
 
     .group-card-header {
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.1rem;
     }
 
     .group-icon {
       width: 36px;
       height: 36px;
       border-radius: 0.7rem;
-      background: var(--badge-bg);
+      background: #f3f4f6;
+      color: #232946;
+      font-size: 1.08rem;
+      font-weight: 700;
+      font-family: 'Avenir Next', 'Nunito', 'Raleway', Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--badge-text);
-      font-size: 1.1rem;
-      font-weight: 700;
-      font-family: var(--header-font);
+      box-shadow: none;
+      border: 1.5px solid #e5e7eb;
     }
 
     .group-title {
-      font-size: 1.25rem;
-      font-family: var(--header-font);
-      font-weight: 600;
-      color: var(--text-primary);
+      font-size: 1.18rem;
+      font-family: 'Avenir Next', 'Nunito', 'Raleway', Arial, sans-serif;
+      font-weight: 700;
+      color: #232946;
       letter-spacing: -0.01em;
-      line-height: 1.3;
+      line-height: 1.2;
     }
 
     .group-summary {
-      color: var(--text-secondary);
-      font-size: 1rem;
+      color: #4a5568;
+      font-size: 1.01rem;
       line-height: 1.6;
-      margin-bottom: 1.5rem;
-      font-family: 'Crimson Text', serif;
-      font-style: italic;
+      margin-bottom: 1.1rem;
+      font-family: 'Avenir Next', 'Nunito', 'Raleway', Arial, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      min-height: 44px;
     }
 
     .group-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 1.5rem;
+      margin-top: auto;
     }
 
     .ideas-count {
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      padding: 0.35rem 0.9rem;
+      background: #fbbf24;
+      color: #7c5700;
+      padding: 0.32rem 0.95rem;
       border-radius: 1.2rem;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.97rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      font-family: 'Avenir Next', 'Nunito', 'Raleway', Arial, sans-serif;
+      border: none;
+      box-shadow: none;
     }
 
     .explore-btn {
       background: transparent;
-      border: 1.5px solid var(--sidebar-border);
-      color: var(--text-secondary);
-      padding: 0.4rem 1rem;
+      color: #232946;
+      border: 1.5px solid #e5e7eb;
+      padding: 0.42rem 1.15rem;
       border-radius: 1.2rem;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 1.01rem;
+      font-weight: 700;
       transition: var(--transition-smooth);
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      box-shadow: none;
+      font-family: 'Avenir Next', 'Nunito', 'Raleway', Arial, sans-serif;
+      letter-spacing: 0.01em;
     }
 
     .group-card:hover .explore-btn {
-      background: #2563eb;
-      border-color: #2563eb;
-      color: #fff;
+      border-color: #bdbdbd;
+      background: #f3f4f6;
+      color: #232946;
     }
 
     /* Detail View Styles */
@@ -1113,12 +1129,10 @@
         
         card.innerHTML = `
           <div class="group-card-header">
-            <div class="group-icon">
-              ${index + 1}
-            </div>
+            <div class="group-icon">${index + 1}</div>
             <div class="group-title">${group.group_name}</div>
           </div>
-          <div class="group-summary">${group.one_liner_summary || group.group_summary}</div>
+          <div class="group-summary">${group.group_summary || ''}</div>
           <div class="group-meta">
             <div class="ideas-count">
               <i class="fas fa-lightbulb"></i>
