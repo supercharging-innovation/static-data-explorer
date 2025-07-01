@@ -866,7 +866,7 @@
     }
     .citation-popover .popover-btn {
       display: inline-block;
-      background: #2563eb;
+      background: #10b981;
       color: #fff;
       font-weight: 600;
       border: none;
@@ -876,12 +876,16 @@
       margin-top: 0.3em;
       cursor: pointer;
       transition: background 0.18s, box-shadow 0.18s;
-      box-shadow: 0 1px 4px #2563eb1a;
+      box-shadow: 0 1px 4px rgba(16, 185, 129, 0.2);
       outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4em;
     }
     .citation-popover .popover-btn:hover, .citation-popover .popover-btn:focus {
-      background: #1a2233;
-      box-shadow: 0 2px 8px #2563eb22;
+      background: #047857;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
     }
   </style>
   <script src="../../data/idea_curation_provenance_test.js"></script>
@@ -1388,7 +1392,10 @@
             <div class="popover-header">[Source ${num}] <button class="popover-close" title="Close">&times;</button></div>
             <div class="popover-url">${source.web_snippet_url ? `<a href="${source.web_snippet_url}" target="_blank">${source.web_snippet_url}</a>` : ''}</div>
             <div class="popover-principle">${source.inspiring_principle ? source.inspiring_principle : '<em>No core principle available.</em>'}</div>
-            <button class="popover-btn" tabindex="0">See details for inspiration</button>
+            <button class="popover-btn" tabindex="0">
+              <i class="fas fa-chevron-down"></i>
+              See details for inspiration
+            </button>
           `;
           // Position popover
           document.body.appendChild(pop);
@@ -1406,29 +1413,57 @@
           }
           pop.style.left = `${Math.max(left, 12)}px`;
           pop.style.top = `${Math.max(top, 12)}px`;
+          
           // Close logic
-          pop.querySelector('.popover-close').onclick = removePopover;
+          const closeBtn = pop.querySelector('.popover-close');
+          closeBtn.addEventListener('click', removePopover);
           document.addEventListener('mousedown', handleOutsideClick, true);
-          // Button logic
-          pop.querySelector('.popover-btn').onclick = function(ev) {
+          
+          // Button logic - with better event handling
+          const actionBtn = pop.querySelector('.popover-btn');
+          actionBtn.addEventListener('click', function(ev) {
             ev.stopPropagation();
+            ev.preventDefault();
             removePopover();
-            // Scroll and expand the source
+            
+            // Handle the specific card - immediate for expanded, delayed only for expansion
             const sourceCards = document.querySelectorAll('.provenance-source-card');
             const card = sourceCards[num - 1];
             if (card) {
-              // Expand if not already
               const header = card.querySelector('.provenance-source-header');
               const body = card.querySelector('.provenance-source-body');
+              
+              // Check if card needs expansion
               if (body && body.style.display !== 'block') {
+                // Card needs expansion - expand first, then scroll
                 header.click();
+                
+                // Wait only for expansion animation to complete
+                setTimeout(() => {
+                  const headerHeight = 140;
+                  const cardTop = card.getBoundingClientRect().top + window.scrollY;
+                  const targetScrollY = cardTop - headerHeight;
+                  
+                  window.scrollTo({
+                    top: targetScrollY,
+                    behavior: 'smooth'
+                  });
+                }, 500);
+              } else {
+                // Card is already expanded - scroll immediately with minimal delay for popover removal
+                setTimeout(() => {
+                  const headerHeight = 140;
+                  const cardTop = card.getBoundingClientRect().top + window.scrollY;
+                  const targetScrollY = cardTop - headerHeight;
+                  
+                  window.scrollTo({
+                    top: targetScrollY,
+                    behavior: 'smooth'
+                  });
+                }, 100);
               }
-              setTimeout(() => {
-                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                window.scrollBy({ top: -90, behavior: 'smooth' });
-              }, 200);
             }
-          };
+          });
         };
       });
     }
