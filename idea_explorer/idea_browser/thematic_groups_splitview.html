@@ -1384,31 +1384,35 @@
         const allCards = document.querySelectorAll('.provenance-source-card');
         const allBodies = document.querySelectorAll('.provenance-source-body');
         const allChevrons = document.querySelectorAll('.provenance-chevron');
-        
         // Collapse all cards first
         allBodies.forEach((b, i) => {
           b.style.display = 'none';
           if (allChevrons[i]) allChevrons[i].style.transform = '';
           if (allCards[i]) allCards[i].style.background = '#fff';
         });
-        
         // Expand the target card
         if (cardIndex >= 0 && cardIndex < allCards.length) {
           const card = allCards[cardIndex];
           const body = allBodies[cardIndex];
           const chevron = allChevrons[cardIndex];
-          
           body.style.display = 'block';
           if (chevron) chevron.style.transform = 'rotate(90deg)';
           card.style.background = '#f4f8ff';
-          
           // Scroll to card if requested
           if (shouldScroll) {
             requestAnimationFrame(() => {
               requestAnimationFrame(() => {
-                const headerHeight = 140;
+                const headerHeight = 140; // sticky header height
                 const cardTop = card.getBoundingClientRect().top + window.scrollY;
-                const targetScrollY = cardTop - headerHeight;
+                const cardHeight = card.offsetHeight;
+                const viewportHeight = window.innerHeight;
+                let targetScrollY = cardTop - headerHeight - 16; // add extra offset
+                // If card is too tall for viewport, align to top; else, center if possible
+                if (cardHeight < viewportHeight - headerHeight - 32) {
+                  // Center the card if possible
+                  targetScrollY = cardTop - headerHeight - ((viewportHeight - headerHeight - cardHeight) / 2);
+                  if (targetScrollY < 0) targetScrollY = 0;
+                }
                 window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
               });
             });
