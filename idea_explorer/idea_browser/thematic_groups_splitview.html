@@ -299,7 +299,7 @@
       margin: 0 auto;
       width: 100%;
       gap: 0;
-      min-height: 0;
+      min-height: calc(100vh - 120px);
     }
 
     /* Left Sidebar */
@@ -312,7 +312,9 @@
       display: flex;
       flex-direction: column;
       font-family: var(--body-font);
-      height: 100vh;
+      height: calc(100vh - 120px);
+      position: sticky;
+      top: 120px;
       min-height: 0;
     }
 
@@ -436,10 +438,9 @@
     .details-panel {
       flex: 1;
       background: #fff;
-      overflow-y: auto;
+      overflow-y: visible;
       position: relative;
-      height: 100vh;
-      min-height: 0;
+      min-height: 100vh;
     }
 
     .details-panel::before {
@@ -671,23 +672,20 @@
     }
 
     /* Scrollbar Styling */
-    .ideas-sidebar::-webkit-scrollbar,
-    .details-panel::-webkit-scrollbar {
+    .ideas-sidebar::-webkit-scrollbar {
       width: 7px;
     }
 
-    .ideas-sidebar::-webkit-scrollbar-track,
-    .details-panel::-webkit-scrollbar-track {
+    .ideas-sidebar::-webkit-scrollbar-track {
       background: #f1f5f9;
     }
 
-    .ideas-sidebar::-webkit-scrollbar-thumb,
-    .details-panel::-webkit-scrollbar-thumb {
+    .ideas-sidebar::-webkit-scrollbar-thumb {
       background: #e5e7eb;
       border-radius: 4px;
     }
 
-    .ideas-sidebar, .details-panel {
+    .ideas-sidebar {
       scrollbar-width: thin;
       scrollbar-color: #e5e7eb #f4f6fa;
     }
@@ -970,13 +968,23 @@
         item.classList.toggle('selected', index === ideaIndex);
       });
       
+      // Scroll selected card to top of sidebar
+      const selectedCard = document.querySelector(`.idea-item[data-index="${ideaIndex}"]`);
+      const ideasList = document.getElementById('ideas-list');
+      if (selectedCard && ideasList) {
+        ideasList.scrollTo({
+          top: selectedCard.offsetTop - ideasList.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+      
       // Render idea details
       const group = groupData[currentGroupIndex];
       const idea = group.curated_ideas[ideaIndex];
       renderIdeaDetails(idea);
       
-      // Scroll details panel to top
-      document.querySelector('.details-panel').scrollTop = 0;
+      // Scroll page to top of details panel
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function showEmptyState() {
