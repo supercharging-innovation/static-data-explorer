@@ -790,6 +790,99 @@
       line-height: 1.6;
       letter-spacing: 0.01em;
     }
+
+    /* Citation Popover Styles */
+    .citation-popover {
+      position: absolute;
+      z-index: 9999;
+      min-width: 320px;
+      max-width: 420px;
+      background: #fff;
+      color: #232946;
+      border-radius: 1rem;
+      box-shadow: 0 8px 32px rgba(35,41,70,0.13);
+      border: 1.5px solid #232946;
+      padding: 0.7rem 0.7rem 1.1rem 0.7rem;
+      font-size: 1.01rem;
+      line-height: 1.6;
+      pointer-events: auto;
+      opacity: 1;
+      transition: opacity 0.18s;
+      font-family: var(--body-font);
+      animation: fadeIn 0.25s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .citation-popover .popover-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: #2563eb;
+      margin-bottom: 0.2rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .citation-popover .popover-close {
+      background: none;
+      border: none;
+      color: #232946;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0.7;
+      margin-left: 0.7em;
+      transition: opacity 0.2s, color 0.2s;
+      padding: 0.1em 0.4em;
+      line-height: 1;
+    }
+    .citation-popover .popover-close:hover {
+      opacity: 1;
+      color: #2563eb;
+    }
+    .citation-popover .popover-url {
+      font-size: 0.97rem;
+      margin-bottom: 0.1rem;
+      font-weight: 500;
+      color: #2563eb;
+      word-break: break-all;
+      margin-top: 0.1rem;
+    }
+    .citation-popover .popover-url a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .citation-popover .popover-principle {
+      background: #f0f9ff;
+      border-left: 3px solid #38bdf8;
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      color: #0369a1;
+      font-weight: 500;
+      font-size: 0.99rem;
+      margin-bottom: 0.2rem;
+      margin-top: 0.2rem;
+    }
+    .citation-popover .popover-btn {
+      display: inline-block;
+      background: #2563eb;
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.6em;
+      padding: 0.32em 1em;
+      font-size: 0.97rem;
+      margin-top: 0.3em;
+      cursor: pointer;
+      transition: background 0.18s, box-shadow 0.18s;
+      box-shadow: 0 1px 4px #2563eb1a;
+      outline: none;
+    }
+    .citation-popover .popover-btn:hover, .citation-popover .popover-btn:focus {
+      background: #1a2233;
+      box-shadow: 0 2px 8px #2563eb22;
+    }
   </style>
   <script src="../../data/idea_curation_provenance_test.js"></script>
 </head>
@@ -1136,7 +1229,10 @@
         ` : ''}
       `;
       
-      setTimeout(setupProvenanceAccordions, 0);
+      setTimeout(() => {
+        setupProvenanceAccordions();
+        setupCitationPopovers(idea);
+      }, 0);
     }
 
     function setupProvenanceAccordions() {
@@ -1259,6 +1355,82 @@
           setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
         });
       }
+    }
+
+    // --- Citation Popover Logic ---
+    function setupCitationPopovers(idea) {
+      // Remove any existing popover
+      function removePopover() {
+        const existing = document.querySelector('.citation-popover');
+        if (existing) existing.remove();
+        document.removeEventListener('mousedown', handleOutsideClick, true);
+      }
+      function handleOutsideClick(e) {
+        const pop = document.querySelector('.citation-popover');
+        if (pop && !pop.contains(e.target)) removePopover();
+      }
+      // Attach click listeners to all citation badges
+      const provenanceSources = idea.provenance?.provenance_sources || [];
+      document.querySelectorAll('.citation-badge').forEach(badge => {
+        badge.style.cursor = 'pointer';
+        badge.onclick = function(e) {
+          e.stopPropagation();
+          e.preventDefault();
+          removePopover();
+          const num = parseInt(badge.textContent.trim());
+          const source = provenanceSources[num - 1];
+          if (!source) return;
+          // Create popover
+          const pop = document.createElement('div');
+          pop.className = 'citation-popover';
+          // Popover content
+          pop.innerHTML = `
+            <div class="popover-header">[Source ${num}] <button class="popover-close" title="Close">&times;</button></div>
+            <div class="popover-url">${source.web_snippet_url ? `<a href="${source.web_snippet_url}" target="_blank">${source.web_snippet_url}</a>` : ''}</div>
+            <div class="popover-principle">${source.inspiring_principle ? source.inspiring_principle : '<em>No core principle available.</em>'}</div>
+            <button class="popover-btn" tabindex="0">See details for inspiration</button>
+          `;
+          // Position popover
+          document.body.appendChild(pop);
+          const rect = badge.getBoundingClientRect();
+          const scrollY = window.scrollY || window.pageYOffset;
+          const scrollX = window.scrollX || window.pageXOffset;
+          // Prefer right, fallback to left if not enough space
+          let left = rect.left + scrollX + rect.width + 12;
+          if (left + pop.offsetWidth > window.innerWidth - 24) {
+            left = rect.left + scrollX - pop.offsetWidth - 12;
+          }
+          let top = rect.top + scrollY - 8;
+          if (top + pop.offsetHeight > window.innerHeight + scrollY - 24) {
+            top = window.innerHeight + scrollY - pop.offsetHeight - 24;
+          }
+          pop.style.left = `${Math.max(left, 12)}px`;
+          pop.style.top = `${Math.max(top, 12)}px`;
+          // Close logic
+          pop.querySelector('.popover-close').onclick = removePopover;
+          document.addEventListener('mousedown', handleOutsideClick, true);
+          // Button logic
+          pop.querySelector('.popover-btn').onclick = function(ev) {
+            ev.stopPropagation();
+            removePopover();
+            // Scroll and expand the source
+            const sourceCards = document.querySelectorAll('.provenance-source-card');
+            const card = sourceCards[num - 1];
+            if (card) {
+              // Expand if not already
+              const header = card.querySelector('.provenance-source-header');
+              const body = card.querySelector('.provenance-source-body');
+              if (body && body.style.display !== 'block') {
+                header.click();
+              }
+              setTimeout(() => {
+                card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.scrollBy({ top: -90, behavior: 'smooth' });
+              }, 200);
+            }
+          };
+        };
+      });
     }
 
     // Initialize the application
