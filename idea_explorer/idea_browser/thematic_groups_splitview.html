@@ -793,99 +793,128 @@
 
     /* Citation Popover Styles */
     .citation-popover {
-      position: absolute;
-      z-index: 9999;
-      min-width: 320px;
-      max-width: 420px;
-      background: #fff;
-      color: #232946;
-      border-radius: 1rem;
-      box-shadow: 0 8px 32px rgba(35,41,70,0.13);
-      border: 1.5px solid #232946;
-      padding: 0.7rem 0.7rem 1.1rem 0.7rem;
-      font-size: 1.01rem;
-      line-height: 1.6;
-      pointer-events: auto;
-      opacity: 1;
-      transition: opacity 0.18s;
+      position: fixed;
+      z-index: 10000;
+      min-width: 420px;
+      max-width: 480px;
+      background: var(--bg-card);
+      border-radius: 0.8rem;
+      border: 1px solid var(--sidebar-border);
+      box-shadow: var(--shadow-medium);
+      padding: 0;
+      font-size: 0.95rem;
       font-family: var(--body-font);
-      animation: fadeIn 0.25s;
+      color: var(--text-primary);
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      animation: fadeIn 0.3s ease-out;
+      overflow: hidden;
     }
     .citation-popover .popover-header {
+      background: #f8faff;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.98rem;
+      padding: 0.8rem 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-weight: 700;
-      font-size: 1.08rem;
-      color: #2563eb;
-      margin-bottom: 0.2rem;
-      padding-bottom: 0.2rem;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid var(--sidebar-border);
     }
     .citation-popover .popover-close {
       background: none;
       border: none;
-      color: #232946;
+      color: var(--text-secondary);
       font-size: 1.2rem;
       cursor: pointer;
-      opacity: 0.7;
-      margin-left: 0.7em;
-      transition: opacity 0.2s, color 0.2s;
-      padding: 0.1em 0.4em;
-      line-height: 1;
-    }
-    .citation-popover .popover-close:hover {
-      opacity: 1;
-      color: #2563eb;
-    }
-    .citation-popover .popover-url {
-      font-size: 0.97rem;
-      margin-bottom: 0.1rem;
-      font-weight: 500;
-      color: #2563eb;
-      word-break: break-all;
-      margin-top: 0.1rem;
-    }
-    .citation-popover .popover-url a {
-      color: #2563eb;
-      text-decoration: underline;
-    }
-    .citation-popover .popover-principle {
-      background: #f0f9ff;
-      border-left: 3px solid #38bdf8;
-      padding: 0.6rem 1rem;
-      border-radius: 0.5rem;
-      color: #0369a1;
-      font-weight: 500;
-      font-size: 0.99rem;
-      margin-bottom: 0.2rem;
-      margin-top: 0.2rem;
-    }
-    .citation-popover .popover-btn {
-      display: inline-block;
-      background: #10b981;
-      color: #fff;
-      font-weight: 600;
-      border: none;
-      border-radius: 0.6em;
-      padding: 0.32em 1em;
-      font-size: 0.97rem;
-      margin-top: 0.3em;
-      cursor: pointer;
-      transition: background 0.18s, box-shadow 0.18s;
-      box-shadow: 0 1px 4px rgba(16, 185, 129, 0.2);
-      outline: none;
+      border-radius: 50%;
+      width: 1.6em;
+      height: 1.6em;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4em;
+      transition: var(--transition-smooth);
+      margin-left: 0.8rem;
     }
-    .citation-popover .popover-btn:hover, .citation-popover .popover-btn:focus {
-      background: #047857;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    .citation-popover .popover-close:hover {
+      background: var(--badge-bg);
+      color: var(--text-primary);
+    }
+    .citation-popover .popover-body {
+      padding: 1rem;
+    }
+    .citation-popover .popover-url {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
+    }
+    .citation-popover .popover-url a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      word-break: break-all;
+      line-height: 1.3;
+    }
+    .citation-popover .popover-url a:hover {
+      text-decoration: underline;
+    }
+    .citation-popover .popover-principle {
+      position: relative;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-weight: 400;
+      padding: 0.8rem 0 0.8rem 0;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .citation-popover .popover-principle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: #2563eb;
+    }
+    .citation-popover .popover-btn {
+      background: transparent;
+      color: #2563eb;
+      border: 1px solid #2563eb;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      padding: 0.4rem 0.7rem;
+      margin: 0 1rem 1rem auto;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      cursor: pointer;
+      width: fit-content;
+      align-self: flex-end;
+    }
+    .citation-popover .popover-btn:hover {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
+    @media (max-width: 600px) {
+      .citation-popover {
+        min-width: 90vw;
+        max-width: 95vw;
+        font-size: 0.9rem;
+      }
+      .citation-popover .popover-header {
+        font-size: 0.95rem;
+        padding: 0.7rem 0.9rem;
+      }
+      .citation-popover .popover-body {
+        padding: 0.9rem;
+      }
+      .citation-popover .popover-btn {
+        margin: 0 0.9rem 0.9rem 0.9rem;
+        font-size: 0.85rem;
+      }
     }
   </style>
   <script src="../../data/idea_curation_provenance_test.js"></script>
@@ -1133,9 +1162,9 @@
         
         return text;
       }
-      const conceptDescription = processCitations(inlineNumberedToMarkdownList(idea.concept_description), idea.provenance?.provenance_sources);
-      const howItWorks = processCitations(inlineNumberedToMarkdownList(idea.how_it_works), idea.provenance?.provenance_sources);
-      const inspirationSummary = processCitations(inlineNumberedToMarkdownList(idea.inspiration_summary), idea.provenance?.provenance_sources);
+      const conceptDescription = processCitations(parseMarkdown(inlineNumberedToMarkdownList(idea.concept_description)), idea.provenance?.provenance_sources);
+      const howItWorks = processCitations(parseMarkdown(inlineNumberedToMarkdownList(idea.how_it_works)), idea.provenance?.provenance_sources);
+      const inspirationSummary = processCitations(parseMarkdown(inlineNumberedToMarkdownList(idea.inspiration_summary)), idea.provenance?.provenance_sources);
       
       detailsContent.innerHTML = `
         <div class="details-header slide-up">
@@ -1156,7 +1185,7 @@
             <i class="section-icon fas fa-atom"></i>
             Concept Description
           </div>
-          <div class="section-content">${parseMarkdown(conceptDescription)}</div>
+          <div class="section-content">${conceptDescription}</div>
         </div>
         
         <div class="section-card slide-up" data-section="how" style="animation-delay: 0.2s">
@@ -1164,7 +1193,7 @@
             <i class="section-icon fas fa-cogs"></i>
             How It Works
           </div>
-          <div class="section-content">${parseMarkdown(howItWorks)}</div>
+          <div class="section-content">${howItWorks}</div>
         </div>
         
         <div class="section-card slide-up" data-section="inspiration" style="animation-delay: 0.3s">
@@ -1172,7 +1201,7 @@
             <i class="section-icon fas fa-lightbulb"></i>
             Inspiration Summary
           </div>
-          <div class="section-content">${parseMarkdown(inspirationSummary)}</div>
+          <div class="section-content">${inspirationSummary}</div>
         </div>
         
         ${idea.key_questions_and_assumptions && idea.key_questions_and_assumptions.length > 0 ? `
@@ -1202,7 +1231,7 @@
                   <div class="provenance-source-header" data-source-idx="${idx}" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 1.2rem 1.7rem 1.2rem 1.3rem; border-bottom: 1px solid #f3f4f6; border-radius: 1.1rem 1.1rem 0 0;">
                     <div style="display: flex; align-items: center; gap: 1rem;">
                       <span class="provenance-badge" style="background: #eef2ff; color: #2563eb; font-size: 1.08rem; font-weight: 500; padding: 0.38rem 1.1rem; border-radius: 0.7rem; min-width: 2.2rem; text-align: center; display: inline-block; box-shadow: 0 1px 4px #2563eb1a; letter-spacing: 0.01em;">${idx + 1}</span>
-                      ${source.web_snippet_url ? `<span class="provenance-url" style="font-size:0.98rem; font-weight: 500;"><a href="${source.web_snippet_url}" style="color: #2563eb; text-decoration: underline; word-break: break-all;" target="_blank">${source.web_snippet_url}</a></span>` : ''}
+                      ${source.web_snippet_title ? `<span class="provenance-title" style="font-size:1.08rem; font-weight:700; color:#232946; margin-left:0.7em;">${source.web_snippet_title}</span>` : ''}
                     </div>
                     <span class="provenance-chevron" style="color: #2563eb; font-size: 1.2rem; transition: transform 0.3s;"><i class="fas fa-chevron-right"></i></span>
                   </div>
@@ -1225,6 +1254,7 @@
                       <div style="font-weight: 700; color: #232946; margin-bottom: 0.3rem; font-size: 1.07rem; letter-spacing: 0.01em;">Analogical Leap</div>
                       <div style="font-size: 1.05rem; color: #232946;">${parseMarkdown(source.analogical_leap)}</div>
                     </div>
+                    ${source.web_snippet_url ? `<div class="provenance-url" style="font-size:0.98rem; font-weight: 500; margin-bottom:0.7em;"><a href="${source.web_snippet_url}" style="color: #2563eb; text-decoration: underline; word-break: break-all;" target="_blank">${source.web_snippet_url}</a></div>` : ''}
                   </div>
                 </div>
               `).join('')}
@@ -1236,7 +1266,7 @@
       setTimeout(() => {
         setupProvenanceAccordions();
         setupCitationPopovers(idea);
-      }, 0);
+      }, 100);
     }
 
     function setupProvenanceAccordions() {
@@ -1273,8 +1303,8 @@
 
     function formatQuestionsAndAssumptions(items, provenanceSources) {
       return items.map(item => {
-        // Process citations first
-        let processedItem = processCitations(item, provenanceSources);
+        // Process markdown first, then citations
+        let processedItem = processCitations(parseMarkdown(item), provenanceSources);
         
         // Format "Assumption:" and "Question:" labels
         if (processedItem.startsWith('Assumption:')) {
@@ -1293,7 +1323,7 @@
         return numbers.split(/\s*,\s*/).map(num => {
           const sourceIndex = parseInt(num) - 1;
           if (sourceIndex >= 0 && sourceIndex < provenanceSources.length) {
-            return `<span class="citation-badge">${num}</span>`;
+            return `<span class="citation-badge" data-citation="${num}">${num}</span>`;
           }
           return num;
         }).join(' ');
@@ -1375,44 +1405,87 @@
       }
       // Attach click listeners to all citation badges
       const provenanceSources = idea.provenance?.provenance_sources || [];
-      document.querySelectorAll('.citation-badge').forEach(badge => {
+      console.log('Setting up citation popovers for idea:', idea.idea_title);
+      console.log('Found provenance sources:', provenanceSources.length);
+      
+      const citationBadges = document.querySelectorAll('.citation-badge');
+      console.log('Found citation badges:', citationBadges.length);
+      
+      citationBadges.forEach((badge, index) => {
+        console.log('Setting up badge', index, 'with text:', badge.textContent);
         badge.style.cursor = 'pointer';
         badge.onclick = function(e) {
+          console.log('Citation badge clicked:', badge.textContent);
           e.stopPropagation();
           e.preventDefault();
           removePopover();
           const num = parseInt(badge.textContent.trim());
+          console.log('Citation number:', num);
           const source = provenanceSources[num - 1];
-          if (!source) return;
+          console.log('Found source:', source);
+          if (!source) {
+            console.log('No source found for citation:', num);
+            return;
+          }
+          // Ensure the corresponding source card is expanded silently (no scroll)
+          const sourceCardsAll = document.querySelectorAll('.provenance-source-card');
+          const silentCard = sourceCardsAll[num - 1];
+          if (silentCard) {
+            const headerSilent = silentCard.querySelector('.provenance-source-header');
+            const bodySilent = silentCard.querySelector('.provenance-source-body');
+            const chevSilent = silentCard.querySelector('.provenance-chevron');
+            if (bodySilent && bodySilent.style.display !== 'block') {
+              bodySilent.style.display = 'block';
+              if (chevSilent) chevSilent.style.transform = 'rotate(90deg)';
+            }
+          }
           // Create popover
           const pop = document.createElement('div');
           pop.className = 'citation-popover';
-          // Popover content
+          // Popover content (modern, sectioned, with icons)
+          const popoverTitle = source.web_snippet_title ? `${num}. ${source.web_snippet_title}` : `[Source ${num}]`;
           pop.innerHTML = `
-            <div class="popover-header">[Source ${num}] <button class="popover-close" title="Close">&times;</button></div>
-            <div class="popover-url">${source.web_snippet_url ? `<a href="${source.web_snippet_url}" target="_blank">${source.web_snippet_url}</a>` : ''}</div>
-            <div class="popover-principle">${source.inspiring_principle ? source.inspiring_principle : '<em>No core principle available.</em>'}</div>
-            <button class="popover-btn" tabindex="0">
-              <i class="fas fa-chevron-down"></i>
-              See details for inspiration
-            </button>
+            <div class="popover-header">
+              <span>${popoverTitle}</span>
+              <button class="popover-close" title="Close">&times;</button>
+            </div>
+            <div class="popover-body">
+              <div class="popover-url">
+                ${source.web_snippet_url ? `<a href="${source.web_snippet_url}" target="_blank">${source.web_snippet_url}</a>` : '<em>No URL available</em>'}
+              </div>
+              <div class="popover-principle">
+                ${source.inspiring_principle ? source.inspiring_principle : '<em>No core principle available.</em>'}
+              </div>
+              <button class="popover-btn" tabindex="0">
+                See details for inspiration
+                <i class="fas fa-chevron-down"></i>
+              </button>
+            </div>
           `;
           // Position popover
           document.body.appendChild(pop);
+          console.log('Popover added to DOM');
           const rect = badge.getBoundingClientRect();
-          const scrollY = window.scrollY || window.pageYOffset;
-          const scrollX = window.scrollX || window.pageXOffset;
-          // Prefer right, fallback to left if not enough space
-          let left = rect.left + scrollX + rect.width + 12;
+          
+          // Use client coordinates since we're using position: fixed
+          let left = rect.right + 12;
+          let top = rect.top - 8;
+          
+          // Ensure popover stays within viewport
           if (left + pop.offsetWidth > window.innerWidth - 24) {
-            left = rect.left + scrollX - pop.offsetWidth - 12;
+            left = rect.left - pop.offsetWidth - 12;
           }
-          let top = rect.top + scrollY - 8;
-          if (top + pop.offsetHeight > window.innerHeight + scrollY - 24) {
-            top = window.innerHeight + scrollY - pop.offsetHeight - 24;
+          if (top + pop.offsetHeight > window.innerHeight - 24) {
+            top = window.innerHeight - pop.offsetHeight - 24;
           }
-          pop.style.left = `${Math.max(left, 12)}px`;
-          pop.style.top = `${Math.max(top, 12)}px`;
+          
+          // Ensure minimum positioning
+          left = Math.max(left, 12);
+          top = Math.max(top, 12);
+          
+          pop.style.left = `${left}px`;
+          pop.style.top = `${top}px`;
+          console.log('Popover positioned at:', pop.style.left, pop.style.top);
           
           // Close logic
           const closeBtn = pop.querySelector('.popover-close');
@@ -1425,43 +1498,13 @@
             ev.stopPropagation();
             ev.preventDefault();
             removePopover();
-            
-            // Handle the specific card - immediate for expanded, delayed only for expansion
-            const sourceCards = document.querySelectorAll('.provenance-source-card');
-            const card = sourceCards[num - 1];
+            // Scroll to the already-expanded source card
+            const card = document.querySelectorAll('.provenance-source-card')[num - 1];
             if (card) {
-              const header = card.querySelector('.provenance-source-header');
-              const body = card.querySelector('.provenance-source-body');
-              
-              // Check if card needs expansion
-              if (body && body.style.display !== 'block') {
-                // Card needs expansion - expand first, then scroll
-                header.click();
-                
-                // Wait only for expansion animation to complete
-                setTimeout(() => {
-                  const headerHeight = 140;
-                  const cardTop = card.getBoundingClientRect().top + window.scrollY;
-                  const targetScrollY = cardTop - headerHeight;
-                  
-                  window.scrollTo({
-                    top: targetScrollY,
-                    behavior: 'smooth'
-                  });
-                }, 500);
-              } else {
-                // Card is already expanded - scroll immediately with minimal delay for popover removal
-                setTimeout(() => {
-                  const headerHeight = 140;
-                  const cardTop = card.getBoundingClientRect().top + window.scrollY;
-                  const targetScrollY = cardTop - headerHeight;
-                  
-                  window.scrollTo({
-                    top: targetScrollY,
-                    behavior: 'smooth'
-                  });
-                }, 100);
-              }
+              const headerHeight = 140;
+              const cardTop = card.getBoundingClientRect().top + window.scrollY;
+              const targetScrollY = cardTop - headerHeight;
+              window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
             }
           });
         };
