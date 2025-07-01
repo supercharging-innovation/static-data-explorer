@@ -1297,7 +1297,7 @@
             </div>
             <div class="section-content" id="provenance-sources-list">
               ${idea.provenance.provenance_sources.map((source, idx) => `
-                <div class="provenance-source-card" style="background: #f4f8ff; border-radius: 1.2rem; box-shadow: 0 4px 18px rgba(37,99,235,0.08), 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 2rem; border-left: 7px solid #2563eb; border: 1.5px solid #e0e7ef; position: relative;">
+                <div class="provenance-source-card" style="background: #fff; border-radius: 1.2rem; box-shadow: 0 4px 18px rgba(37,99,235,0.08), 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 2rem; border-left: 7px solid #2563eb; border: 1.5px solid #e0e7ef; position: relative;">
                   <div class="provenance-source-header" data-source-idx="${idx}" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 1.2rem 1.7rem 1.2rem 1.3rem; border-bottom: 1px solid #e3e8f0; border-radius: 1.2rem 1.2rem 0 0; background: transparent;">
                     <div style="display: flex; align-items: center; gap: 1rem;">
                       <i class="fas fa-book-open" style="color: #2563eb; font-size: 1.15rem; margin-right: 0.5em;"></i>
@@ -1341,27 +1341,33 @@
     }
 
     function setupProvenanceAccordions() {
-      const headers = document.querySelectorAll('.provenance-source-header');
-      headers.forEach((header, idx) => {
-        header.onclick = function() {
-          const card = header.closest('.provenance-source-card');
-          const body = card.querySelector('.provenance-source-body');
-          const chevron = header.querySelector('.provenance-chevron');
-          const isOpen = body.style.display === 'block';
-          // Collapse all
-          document.querySelectorAll('.provenance-source-body').forEach((b, i) => {
-            b.style.display = 'none';
-            const chev = document.querySelectorAll('.provenance-chevron')[i];
-            if (chev) chev.style.transform = '';
-          });
-          // Expand this one if it was closed
-          if (!isOpen) {
-            body.style.display = 'block';
-            if (chevron) chevron.style.transform = 'rotate(90deg)';
-            // Wait for DOM to update (card to expand) before measuring and scrolling
+      // Unified function to expand a source card with consistent styling and scrolling
+      function expandSourceCard(cardIndex, shouldScroll = true) {
+        const allCards = document.querySelectorAll('.provenance-source-card');
+        const allBodies = document.querySelectorAll('.provenance-source-body');
+        const allChevrons = document.querySelectorAll('.provenance-chevron');
+        
+        // Collapse all cards first
+        allBodies.forEach((b, i) => {
+          b.style.display = 'none';
+          if (allChevrons[i]) allChevrons[i].style.transform = '';
+          if (allCards[i]) allCards[i].style.background = '#fff';
+        });
+        
+        // Expand the target card
+        if (cardIndex >= 0 && cardIndex < allCards.length) {
+          const card = allCards[cardIndex];
+          const body = allBodies[cardIndex];
+          const chevron = allChevrons[cardIndex];
+          
+          body.style.display = 'block';
+          if (chevron) chevron.style.transform = 'rotate(90deg)';
+          card.style.background = '#f4f8ff';
+          
+          // Scroll to card if requested
+          if (shouldScroll) {
             requestAnimationFrame(() => {
               requestAnimationFrame(() => {
-                // Use the same scroll logic that works for citation badge clicks
                 const headerHeight = 140;
                 const cardTop = card.getBoundingClientRect().top + window.scrollY;
                 const targetScrollY = cardTop - headerHeight;
@@ -1369,8 +1375,28 @@
               });
             });
           }
+        }
+      }
+
+      const headers = document.querySelectorAll('.provenance-source-header');
+      headers.forEach((header, idx) => {
+        header.onclick = function() {
+          const card = header.closest('.provenance-source-card');
+          const body = card.querySelector('.provenance-source-body');
+          const isOpen = body.style.display === 'block';
+          
+          // Use unified expansion logic
+          if (!isOpen) {
+            expandSourceCard(idx, true);
+          } else {
+            // If already open, just collapse all
+            expandSourceCard(-1, false);
+          }
         };
       });
+      
+      // Make expandSourceCard available globally for citation popover use
+      window.expandSourceCard = expandSourceCard;
     }
 
     function parseMarkdown(text) {
@@ -1504,17 +1530,7 @@
             return;
           }
           // Ensure the corresponding source card is expanded silently (no scroll)
-          const sourceCardsAll = document.querySelectorAll('.provenance-source-card');
-          const silentCard = sourceCardsAll[num - 1];
-          if (silentCard) {
-            const headerSilent = silentCard.querySelector('.provenance-source-header');
-            const bodySilent = silentCard.querySelector('.provenance-source-body');
-            const chevSilent = silentCard.querySelector('.provenance-chevron');
-            if (bodySilent && bodySilent.style.display !== 'block') {
-              bodySilent.style.display = 'block';
-              if (chevSilent) chevSilent.style.transform = 'rotate(90deg)';
-            }
-          }
+          window.expandSourceCard(num - 1, false);
           // Create popover
           const pop = document.createElement('div');
           pop.className = 'citation-popover';
@@ -1574,14 +1590,8 @@
             ev.stopPropagation();
             ev.preventDefault();
             removePopover();
-            // Scroll to the already-expanded source card
-            const card = document.querySelectorAll('.provenance-source-card')[num - 1];
-            if (card) {
-              const headerHeight = 140;
-              const cardTop = card.getBoundingClientRect().top + window.scrollY;
-              const targetScrollY = cardTop - headerHeight;
-              window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
-            }
+            // Use the unified expansion function
+            window.expandSourceCard(num - 1, true);
           });
         };
       });
