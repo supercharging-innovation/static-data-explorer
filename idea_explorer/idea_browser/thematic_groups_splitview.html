@@ -973,7 +973,7 @@
       const ideasList = document.getElementById('ideas-list');
       if (selectedCard && ideasList) {
         ideasList.scrollTo({
-          top: selectedCard.offsetTop - ideasList.offsetTop,
+          top: selectedCard.offsetTop - ideasList.offsetTop - 12,
           behavior: 'smooth'
         });
       }
