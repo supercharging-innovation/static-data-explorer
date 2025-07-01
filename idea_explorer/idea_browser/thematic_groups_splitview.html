@@ -1358,11 +1358,16 @@
           if (!isOpen) {
             body.style.display = 'block';
             if (chevron) chevron.style.transform = 'rotate(90deg)';
-            // Scroll the very top of the card into view, accounting for fixed headers
-            setTimeout(() => {
-              card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              window.scrollBy({ top: -90, behavior: 'smooth' });
-            }, 100);
+            // Wait for DOM to update (card to expand) before measuring and scrolling
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                // Use the same scroll logic that works for citation badge clicks
+                const headerHeight = 140;
+                const cardTop = card.getBoundingClientRect().top + window.scrollY;
+                const targetScrollY = cardTop - headerHeight;
+                window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+              });
+            });
           }
         };
       });
