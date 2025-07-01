@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thematic Groups Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 2rem 1.5rem;
+    }
+    .group-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .group-tile {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: 1.5px solid #e5e7eb;
+      position: relative;
+      min-height: 220px;
+    }
+    .group-tile:hover {
+      box-shadow: 0 12px 40px rgba(99,102,241,0.13);
+      transform: translateY(-4px) scale(1.02);
+      border: 1.5px solid #6366f1;
+    }
+    .group-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #312e81;
+      margin-bottom: 0.7rem;
+      letter-spacing: -0.01em;
+    }
+    .group-summary {
+      color: #4b5563;
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+      min-height: 48px;
+    }
+    .group-details-btn {
+      margin-top: auto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 24px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.10);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .group-details-btn:hover {
+      background: #6366f1;
+      color: #fff;
+      box-shadow: 0 12px 35px rgba(99,102,241,0.18);
+      transform: scale(1.04);
+    }
+    .split-container {
+      display: flex;
+      height: calc(100vh - 64px);
+      min-height: 500px;
+      background: #f8fafc;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 16px rgba(49,46,129,0.07);
+      overflow: hidden;
+    }
+    .split-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2.2rem 2.5rem 1.2rem 2.5rem;
+      background: linear-gradient(90deg, #f1f5ff 0%, #e0e7ff 100%);
+      border-bottom: none;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 16px rgba(49,46,129,0.07);
+    }
+    .split-header-main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+      flex: 1 1 0%;
+      min-width: 0;
+    }
+    .split-group-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #312e81;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .split-group-summary {
+      color: #4b5563;
+      font-size: 1.13rem;
+      max-width: 70ch;
+      font-weight: 400;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .split-header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.7rem;
+      min-width: 260px;
+      flex-shrink: 0;
+    }
+    .split-header-actions-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.7rem;
+    }
+    .export-btn, .clipboard-btn {
+      background: #fff;
+      color: #bfa100;
+      border: 2px solid #fffbea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s, color 0.2s;
+      box-shadow: 0 1px 4px rgba(191,161,0,0.07);
+      margin-left: 0.2rem;
+      position: relative;
+    }
+    .export-btn:hover, .clipboard-btn:hover {
+      background: #fffbea;
+      color: #bfa100;
+      border: 2px solid #bfa100;
+    }
+    .clipboard-tooltip {
+      position: absolute;
+      top: -2.1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #bfa100;
+      color: #fff;
+      font-size: 0.85rem;
+      border-radius: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      z-index: 10;
+    }
+    .clipboard-btn.copied .clipboard-tooltip {
+      opacity: 1;
+    }
+    .back-btn {
+      background: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s, border 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      z-index: 10;
+      border: 2px solid #fff;
+    }
+    .back-btn:hover {
+      background: #4f46e5;
+      color: #fff;
+      border: 2px solid #FFD700;
+      box-shadow: 0 8px 25px rgba(99,102,241,0.18);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .details-idea-count {
+      background: #fffbea;
+      color: #bfa100;
+      font-weight: 700;
+      font-size: 1.08rem;
+      border-radius: 9999px;
+      height: 40px;
+      min-width: 140px;
+      padding: 0 1.1rem;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 1px 4px rgba(191,161,0,0.07);
+    }
+    .details-idea-count .fa-lightbulb {
+      color: #FFD700;
+    }
+    .sidebar {
+      width: 340px;
+      min-width: 260px;
+      max-width: 400px;
+      background: #fff;
+      border-right: 1.5px solid #e5e7eb;
+      overflow-y: auto;
+      padding: 1.5rem 1rem 1.5rem 1.5rem;
+      box-sizing: border-box;
+    }
+    .details-panel {
+      flex: 1 1 0%;
+      background: #f8fafc;
+      overflow-y: auto;
+      padding: 2.5rem 2.5rem 2.5rem 2rem;
+      box-sizing: border-box;
+      min-width: 0;
+      animation: fadeInDetails 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    @keyframes fadeInDetails {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: none; }
+    }
+    .details-section-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      box-shadow: 0 2px 12px rgba(99,102,241,0.07);
+      margin-bottom: 2.2rem;
+      padding: 2rem 2rem 1.5rem 2rem;
+      transition: box-shadow 0.2s;
+      border-left: 6px solid #6366f1;
+      position: relative;
+    }
+    .details-section-card:last-child { margin-bottom: 0; }
+    .details-section-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.1rem;
+      color: #312e81;
+      letter-spacing: -0.01em;
+    }
+    .details-section-content {
+      font-size: 1.08rem;
+      color: #374151;
+      line-height: 1.8;
+    }
+    .details-section-card .markdown-content {
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+    .details-section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, #ede9fe 0%, #e0e7ff 100%);
+      border: none;
+      margin: 2.2rem 0 2.2rem 0;
+      border-radius: 1rem;
+    }
+    .collapsible {
+      cursor: pointer;
+      user-select: none;
+      transition: color 0.2s;
+    }
+    .collapsible:hover { color: #6366f1; }
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .collapsible-content.active {
+      max-height: 1200px;
+      transition: max-height 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    .idea-card {
+      background: #f3f4f6;
+      border-radius: 1rem;
+      margin-bottom: 1.2rem;
+      padding: 1.2rem 1rem 1.2rem 1.2rem;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+      cursor: pointer;
+      border-left: 5px solid #6366f1;
+      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .idea-card.selected, .idea-card:hover {
+      background: #ede9fe;
+      border-left: 5px solid #7c3aed;
+      box-shadow: 0 4px 16px rgba(99,102,241,0.13);
+    }
+    .idea-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #312e81;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .idea-subtitle {
+      color: #6b7280;
+      font-size: 0.97rem;
+      font-style: italic;
+      margin-bottom: 0.2rem;
+    }
+    @media (max-width: 900px) {
+      .split-container {
+        flex-direction: column;
+        height: auto;
+      }
+      .sidebar {
+        width: 100%;
+        max-width: none;
+        border-right: none;
+        border-bottom: 1.5px solid #e5e7eb;
+        padding: 1.2rem 1rem;
+      }
+      .details-panel {
+        padding: 1.2rem 1rem;
+      }
+      .split-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.2rem 1rem 0.7rem 1rem;
+      }
+      .split-header-actions {
+        min-width: 0;
+        width: 100%;
+        align-items: flex-start;
+      }
+    }
+  </style>
+  <script src="../../data/idea_curation_provenance_test.js"></script>
+</head>
+<body>
+  <div id="dashboard-view" class="dashboard-container">
+    <h1 class="text-4xl font-extrabold text-gray-900 mb-3 text-center" style="letter-spacing:-0.01em;">Browse Thematic Groups</h1>
+    <p class="text-gray-600 text-lg mb-8 text-center max-w-3xl mx-auto">
+      Explore creative solution themes. Click a group to see its curated ideas and details.
+    </p>
+    <div id="group-grid" class="group-grid"></div>
+  </div>
+  <div id="splitview-view" style="display:none;">
+    <div class="split-header">
+      <div class="split-header-main">
+        <span id="splitview-group-title" class="split-group-title"></span>
+        <div id="splitview-group-summary" class="split-group-summary"></div>
+      </div>
+      <div class="split-header-actions">
+        <div class="split-header-actions-row">
+          <button class="back-btn" id="back-to-dashboard"><i class="fas fa-arrow-left"></i> Back to Groups</button>
+        </div>
+        <div class="split-header-actions-row">
+          <span id="splitview-idea-count" class="details-idea-count">
+            <i class="fas fa-lightbulb"></i>
+            <span id="splitview-idea-count-num"></span>
+          </span>
+          <button class="export-btn" id="export-group-btn" title="Download JSON">
+            <i class="fas fa-download"></i>
+          </button>
+          <button class="clipboard-btn" id="clipboard-group-btn" title="Copy JSON to Clipboard">
+            <i class="fas fa-clipboard"></i>
+            <span class="clipboard-tooltip">Copied!</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="split-container">
+      <div class="sidebar" id="sidebar"></div>
+      <div class="details-panel" id="details-panel"></div>
+    </div>
+  </div>
+  <script>
+    // Data loading
+    const groupData = Array.isArray(idea_curation_test) ? idea_curation_test : [];
+    let selectedGroupIdx = 0;
+    let selectedIdeaIdx = 0;
+
+    const dashboardView = document.getElementById('dashboard-view');
+    const groupGrid = document.getElementById('group-grid');
+    const splitviewView = document.getElementById('splitview-view');
+    const sidebar = document.getElementById('sidebar');
+    const detailsPanel = document.getElementById('details-panel');
+    const splitviewGroupTitle = document.getElementById('splitview-group-title');
+    const splitviewGroupSummary = document.getElementById('splitview-group-summary');
+    const splitviewIdeaCount = document.getElementById('splitview-idea-count');
+    const splitviewIdeaCountNum = document.getElementById('splitview-idea-count-num');
+    const backToDashboardBtn = document.getElementById('back-to-dashboard');
+    const exportBtn = document.getElementById('export-group-btn');
+    const clipboardBtn = document.getElementById('clipboard-group-btn');
+
+    function renderDashboard() {
+      groupGrid.innerHTML = '';
+      groupData.forEach((group, idx) => {
+        const tile = document.createElement('div');
+        tile.className = 'group-tile';
+        tile.innerHTML = `
+          <div class="group-title">${group.group_name}</div>
+          <div class="group-summary">${group.group_summary}</div>
+          <button class="group-details-btn"><i class="fas fa-arrow-right"></i> View Details</button>
+        `;
+        tile.onclick = (e) => {
+          if (e.target.tagName === 'BUTTON' || e.target === tile) {
+            openSplitView(idx);
+          }
+        };
+        groupGrid.appendChild(tile);
+      });
+    }
+
+    function openSplitView(groupIdx) {
+      selectedGroupIdx = groupIdx;
+      selectedIdeaIdx = 0;
+      dashboardView.style.display = 'none';
+      splitviewView.style.display = '';
+      const group = groupData[selectedGroupIdx];
+      splitviewGroupTitle.textContent = group.group_name;
+      splitviewGroupSummary.textContent = group.group_summary;
+      splitviewIdeaCountNum.textContent = `${group.curated_ideas.length} Curated Idea${group.curated_ideas.length !== 1 ? 's' : ''}`;
+      renderSidebar();
+      renderDetailsPanel();
+    }
+
+    function closeSplitView() {
+      splitviewView.style.display = 'none';
+      dashboardView.style.display = '';
+    }
+
+    backToDashboardBtn.onclick = closeSplitView;
+
+    if (exportBtn) {
+      exportBtn.onclick = function() {
+        const group = groupData[selectedGroupIdx];
+        const groupCopy = JSON.parse(JSON.stringify(group));
+        const groupDataStr = JSON.stringify(groupCopy, null, 2);
+        const blob = new Blob([groupDataStr], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const safeName = (group.group_name || 'group').replace(/[^a-z0-9]+/gi, '_').toLowerCase();
+        a.download = `group_export_${safeName}.json`;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 100);
+      };
+    }
+    if (clipboardBtn) {
+      clipboardBtn.onclick = async function() {
+        try {
+          const group = groupData[selectedGroupIdx];
+          const groupCopy = JSON.parse(JSON.stringify(group));
+          await navigator.clipboard.writeText(JSON.stringify(groupCopy, null, 2));
+          clipboardBtn.classList.add('copied');
+          setTimeout(() => clipboardBtn.classList.remove('copied'), 1200);
+        } catch (err) {
+          alert('Failed to copy to clipboard');
+        }
+      };
+    }
+
+    function renderSidebar() {
+      sidebar.innerHTML = '';
+      const group = groupData[selectedGroupIdx];
+      group.curated_ideas.forEach((idea, idx) => {
+        const card = document.createElement('div');
+        card.className = 'idea-card' + (idx === selectedIdeaIdx ? ' selected' : '');
+        card.onclick = () => {
+          selectedIdeaIdx = idx;
+          renderSidebar();
+          renderDetailsPanel();
+        };
+        card.innerHTML = `
+          <div class="idea-title"><i class="fas fa-lightbulb text-yellow-500"></i> ${idea.idea_title}</div>
+          ${idea.subtitle ? `<div class="idea-subtitle">${idea.subtitle}</div>` : ''}
+        `;
+        sidebar.appendChild(card);
+      });
+    }
+
+    function parseMarkdown(text) {
+      return marked.parse(text || '');
+    }
+
+    function processCitations(text, provenanceSources) {
+      if (!text || !provenanceSources) return text;
+      return text.replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g, (match, numbers) => {
+        return numbers.split(/\s*,\s*/).map(num => {
+          const sourceIndex = parseInt(num) - 1;
+          if (sourceIndex >= 0 && sourceIndex < provenanceSources.length) {
+            return `<span class="inline-block bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full text-xs ml-1 mr-1">${num}</span>`;
+          }
+          return num;
+        }).join(' ');
+      });
+    }
+
+    function renderDetailsPanel() {
+      const group = groupData[selectedGroupIdx];
+      const idea = group.curated_ideas[selectedIdeaIdx];
+      if (!idea) {
+        detailsPanel.innerHTML = '<div class="text-gray-500 text-lg">No idea selected.</div>';
+        return;
+      }
+      const conceptDescription = processCitations(idea.concept_description, idea.provenance?.provenance_sources);
+      const howItWorks = processCitations(idea.how_it_works, idea.provenance?.provenance_sources);
+      const inspirationSummary = processCitations(idea.inspiration_summary, idea.provenance?.provenance_sources);
+      detailsPanel.innerHTML = `
+        <div class="details-section-card fade-in">
+          <div class="details-section-header"><i class="fas fa-atom text-blue-500"></i> Concept Description</div>
+          <div class="details-section-content markdown-content">${parseMarkdown(conceptDescription)}</div>
+        </div>
+        <div class="details-section-card fade-in">
+          <div class="details-section-header"><i class="fas fa-cogs text-green-500"></i> How It Works</div>
+          <div class="details-section-content markdown-content">${parseMarkdown(howItWorks)}</div>
+        </div>
+        <div class="details-section-card fade-in">
+          <div class="details-section-header"><i class="fas fa-lightbulb text-yellow-500"></i> Inspiration Summary</div>
+          <div class="details-section-content markdown-content">${parseMarkdown(inspirationSummary)}</div>
+        </div>
+        ${idea.key_questions_and_assumptions && idea.key_questions_and_assumptions.length > 0 ? `
+          <div class="details-section-card fade-in">
+            <div class="details-section-header"><i class="fas fa-question-circle text-purple-500"></i> Key Questions & Assumptions</div>
+            <div class="details-section-content">
+              <ul class="list-disc ml-6">
+                ${idea.key_questions_and_assumptions.map(q => `<li>${parseMarkdown(processCitations(q, idea.provenance?.provenance_sources))}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        ` : ''}
+        ${idea.provenance ? `
+          <div class="details-section-card fade-in">
+            <div class="details-section-header collapsible" id="provenance-toggle"><i class="fas fa-microscope text-indigo-500"></i> Research Provenance <i class="fas fa-chevron-down ml-2"></i></div>
+            <div class="collapsible-content" id="provenance-content">
+              <div class="details-section-content">
+                <div class="mb-2"><strong>Overall Synthesis:</strong> ${idea.provenance.overall_synthesis}</div>
+                <div>
+                  ${idea.provenance.provenance_sources.map((source, idx) => `
+                    <div class="mb-3 p-2 bg-indigo-50 rounded">
+                      <div class="font-bold text-indigo-800 mb-1">Source [${idx + 1}] ${source.web_snippet_url ? `<a href="${source.web_snippet_url}" class="text-blue-600 underline text-sm ml-2" target="_blank">[link]</a>` : ''}</div>
+                      <div class="text-gray-700 mb-1"><strong>Core Principle:</strong> ${source.inspiring_principle}</div>
+                      <div class="text-gray-700 mb-1"><strong>Evidence:</strong> ${source.evidentiary_snippets.map(s => `<span class="block ml-2">“${s}”</span>`).join('')}</div>
+                      <div class="text-gray-700 mb-1"><strong>Analogical Leap:</strong> ${source.analogical_leap}</div>
+                      <div class="text-xs text-gray-500 italic">${source.source_domain_summary}</div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        ` : ''}
+      `;
+      // Collapsible Research Provenance
+      const provToggle = document.getElementById('provenance-toggle');
+      const provContent = document.getElementById('provenance-content');
+      if (provToggle && provContent) {
+        provToggle.onclick = function() {
+          provContent.classList.toggle('active');
+          provToggle.querySelector('i.fas.fa-chevron-down').classList.toggle('fa-chevron-up');
+        };
+      }
+    }
+
+    // Initial render
+    renderDashboard();
+  </script>
+</body>
+</html> 

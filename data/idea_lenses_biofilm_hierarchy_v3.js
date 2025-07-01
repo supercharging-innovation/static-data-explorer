@@ -584,7 +584,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 18
               },
               {
                 "uuid": "a6997a6c-830d-48a2-873d-7065c3f88770",
@@ -925,7 +927,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "83725de5-7866-461e-9b88-9f7e8b6b34d4",
@@ -1118,7 +1122,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "fc754c91-dc45-450d-ae56-06df457f587a",
@@ -1426,7 +1432,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 14
               },
               {
                 "uuid": "19065183-30b6-498b-b8d1-9bb4685726f2",
@@ -1534,7 +1542,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "563d2095-9897-405c-88c2-07ddcaec0065",
@@ -1729,7 +1739,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "10b5411f-5e0a-469d-9d80-08b8d582ec51",
@@ -1776,7 +1788,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "55fb5b6d-2ed9-4868-9b19-8aa53974a92c",
@@ -1945,7 +1959,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "4fa35f06-7a32-44b2-b6e5-674566364752",
@@ -2185,9 +2201,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               }
-            ]
+            ],
+            "num_curated_idea_groups": 27,
+            "num_curated_ideas": 76
           },
           {
             "uuid": "4614d3ea-2980-4b92-994d-7c7a9c16e424",
@@ -2555,7 +2575,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "2f5bc159-c02a-409f-b78e-df6af4514ed9",
@@ -2783,7 +2805,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "eaa9e32a-ae1b-44b5-a130-4622a6d1e95a",
@@ -2907,7 +2931,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "d47472ce-a3a6-464e-bfbd-987e0c0dd961",
@@ -3242,7 +3268,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "a452cd26-978a-45c1-9f55-22984e7ae2ed",
@@ -3458,7 +3486,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "1dcaea09-f304-43c5-b9c5-4c0571e8a460",
@@ -3575,9 +3605,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 6
               }
-            ]
+            ],
+            "num_curated_idea_groups": 19,
+            "num_curated_ideas": 57
           },
           {
             "uuid": "bae6b4b8-d769-439f-beb7-84c228343171",
@@ -4013,7 +4047,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 14
               },
               {
                 "uuid": "5b4ec127-4354-4a23-98a8-a4a272ef3d59",
@@ -4083,7 +4119,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "0250c1db-e12f-42d6-837c-14ba2ee80e1f",
@@ -4338,7 +4376,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "10f3be21-2994-4a41-9352-f37577b94d38",
@@ -4420,7 +4460,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "8f8b6030-fa91-43ec-a0e1-bf7532c572d3",
@@ -4624,7 +4666,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "05d68292-452b-4db2-bab6-a4912767abef",
@@ -4893,7 +4937,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 14
               },
               {
                 "uuid": "fe7b2bd2-5123-4bd8-99fe-35f0684f940a",
@@ -5094,7 +5140,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "68868a61-90a6-4163-b337-73a7187374ee",
@@ -5256,9 +5304,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 6
               }
-            ]
+            ],
+            "num_curated_idea_groups": 25,
+            "num_curated_ideas": 66
           },
           {
             "uuid": "0a6cd25f-cc4e-4a1e-b429-bfbe1fabe10b",
@@ -5329,7 +5381,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "abda9f78-30d0-43bd-b3bf-6d9875699496",
@@ -5391,9 +5445,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               }
-            ]
+            ],
+            "num_curated_idea_groups": 2,
+            "num_curated_ideas": 6
           },
           {
             "uuid": "7b6f4397-2540-4878-b73e-3a5fe654c71f",
@@ -5600,7 +5658,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "59e4f113-d813-498c-a318-9f4da1b304ff",
@@ -6029,7 +6089,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "a2ed77a2-2353-4609-964d-65e84fb7586e",
@@ -6185,7 +6247,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "cc27bd2e-04f1-4443-b242-f3e0341ed8b3",
@@ -6273,11 +6337,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               }
-            ]
+            ],
+            "num_curated_idea_groups": 11,
+            "num_curated_ideas": 25
           }
-        ]
+        ],
+        "num_curated_idea_groups": 84,
+        "num_curated_ideas": 230
       },
       {
         "uuid": "98f288cb-10d3-421b-a6b2-fac143cc4216",
@@ -6719,7 +6789,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "20566a6a-619e-4976-b139-d9da7e0593a5",
@@ -7122,7 +7194,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "8f6f9405-770a-414a-a403-84a7e71494c2",
@@ -7548,7 +7622,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 6,
+                "num_curated_ideas": 18
               },
               {
                 "uuid": "75b9b255-42de-4586-ad37-e57f9590d27b",
@@ -7866,7 +7942,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "e7cfb194-adb5-48af-a8a4-1f23ef473b77",
@@ -8577,7 +8655,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 6,
+                "num_curated_ideas": 16
               },
               {
                 "uuid": "bd011e55-a7f5-441d-ac53-6271b9d2a322",
@@ -8977,7 +9057,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "d2d4af77-10c3-4a2c-8a66-41fd0275f8a4",
@@ -9166,7 +9248,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "e5ebb1e1-f815-4c3f-a135-808ada7080e9",
@@ -9327,9 +9411,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 7
               }
-            ]
+            ],
+            "num_curated_idea_groups": 37,
+            "num_curated_ideas": 94
           },
           {
             "uuid": "6a5427a8-6b66-4091-be17-4b6229fe8658",
@@ -9868,7 +9956,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "66671115-d802-4f1a-a7b1-0f6692862929",
@@ -10066,7 +10156,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "82ea82a3-d92b-4ca2-bd2b-8a342590fb9d",
@@ -10164,7 +10256,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 4
               },
               {
                 "uuid": "90b12989-6342-4a9f-9eb2-6d1a3b47d914",
@@ -10347,7 +10441,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "eab095f3-0a2d-4de2-a58d-717415ef57bb",
@@ -10400,7 +10496,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "4f61f385-c476-4320-813b-e6d796c871af",
@@ -10762,7 +10860,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "80967697-4957-4eb7-94cb-a5c4f5309931",
@@ -11112,7 +11212,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "8f323162-f46b-4fb2-8974-281588fde00d",
@@ -11289,7 +11391,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "ce6c3497-2707-41e9-ae5a-8a2369e9037e",
@@ -11339,7 +11443,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 1
               },
               {
                 "uuid": "850fd5c6-cd96-4e2b-b042-ca656d2afbfa",
@@ -11392,7 +11498,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "1737c2ae-3a04-4771-878d-9e12d69a44e7",
@@ -11525,7 +11633,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "160aa0b6-52e2-4503-ab7d-742e873b3df8",
@@ -11712,7 +11822,9 @@ var idea_lenses_hierarchy = {
                         ],
                         "thumbnail_image_path": null
                       }
-                    ]
+                    ],
+                    "num_curated_idea_groups": 2,
+                    "num_curated_ideas": 6
                   },
                   {
                     "uuid": "c73eae84-f6c9-4d24-ac45-b80e3991895d",
@@ -11777,7 +11889,9 @@ var idea_lenses_hierarchy = {
                         ],
                         "thumbnail_image_path": null
                       }
-                    ]
+                    ],
+                    "num_curated_idea_groups": 1,
+                    "num_curated_ideas": 2
                   },
                   {
                     "uuid": "d7cc7b8a-2de3-49d4-9220-46da71a6a66c",
@@ -12066,11 +12180,17 @@ var idea_lenses_hierarchy = {
                         ],
                         "thumbnail_image_path": null
                       }
-                    ]
+                    ],
+                    "num_curated_idea_groups": 2,
+                    "num_curated_ideas": 7
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 15
               }
-            ]
+            ],
+            "num_curated_idea_groups": 32,
+            "num_curated_ideas": 85
           },
           {
             "uuid": "03ff9758-b7e7-47d0-a024-7c79649b8183",
@@ -12193,7 +12313,7 @@ var idea_lenses_hierarchy = {
                         ]
                       }
                     ],
-                    "thumbnail_image_path": null
+                    "thumbnail_image_path": "/app/data/idea_group_thumbnails/15204485-63bd-4523-97f9-a82d3b6a9306/thumbnail_15204485-63bd-4523-97f9-a82d3b6a9306_1750863483.png"
                   },
                   {
                     "uuid": "dc40ccbe-1ae9-4b93-9c1e-3a23a61d4c84",
@@ -12291,7 +12411,7 @@ var idea_lenses_hierarchy = {
                         ]
                       }
                     ],
-                    "thumbnail_image_path": null
+                    "thumbnail_image_path": "/app/data/idea_group_thumbnails/dc40ccbe-1ae9-4b93-9c1e-3a23a61d4c84/thumbnail_dc40ccbe-1ae9-4b93-9c1e-3a23a61d4c84_1750863587.png"
                   },
                   {
                     "uuid": "1b7cfdb0-194e-4d65-b53f-923b74c64aa8",
@@ -12377,7 +12497,7 @@ var idea_lenses_hierarchy = {
                         ]
                       }
                     ],
-                    "thumbnail_image_path": null
+                    "thumbnail_image_path": "/app/data/idea_group_thumbnails/1b7cfdb0-194e-4d65-b53f-923b74c64aa8/thumbnail_1b7cfdb0-194e-4d65-b53f-923b74c64aa8_1750863596.png"
                   },
                   {
                     "uuid": "e335b51a-d6f4-4c97-b1ea-33c6269626c6",
@@ -12421,9 +12541,11 @@ var idea_lenses_hierarchy = {
                         ]
                       }
                     ],
-                    "thumbnail_image_path": null
+                    "thumbnail_image_path": "/app/data/idea_group_thumbnails/e335b51a-d6f4-4c97-b1ea-33c6269626c6/thumbnail_e335b51a-d6f4-4c97-b1ea-33c6269626c6_1750863603.png"
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "476ab886-35d3-4a26-8f05-cf275491e807",
@@ -12517,9 +12639,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 5
               }
-            ]
+            ],
+            "num_curated_idea_groups": 6,
+            "num_curated_ideas": 17
           },
           {
             "uuid": "17cd5725-772e-43cd-9a09-6ebd40d023c6",
@@ -12581,7 +12707,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "eb07b769-0c70-46d2-9edf-449940a64f2c",
@@ -12699,7 +12827,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "d96ab26d-c175-4e35-b2d2-802e1a997c47",
@@ -12793,7 +12923,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               },
               {
                 "uuid": "d4dc0d02-bb94-4148-84db-0a62b96efb44",
@@ -12887,9 +13019,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               }
-            ]
+            ],
+            "num_curated_idea_groups": 7,
+            "num_curated_ideas": 15
           },
           {
             "uuid": "c5144daf-030f-47b9-8193-9fda1cc58ca8",
@@ -13066,7 +13202,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "455a3d5d-a311-466d-808b-8c9a7ed520be",
@@ -13350,7 +13488,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "9f2df79f-1f76-41a6-b65d-bf239aab2f51",
@@ -13397,7 +13537,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "c5b60c6d-e809-441c-b522-1c62d97343a8",
@@ -13708,7 +13850,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "432584ef-b637-43de-94db-c81cf3474c52",
@@ -13767,11 +13911,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               }
-            ]
+            ],
+            "num_curated_idea_groups": 13,
+            "num_curated_ideas": 31
           }
-        ]
+        ],
+        "num_curated_idea_groups": 95,
+        "num_curated_ideas": 242
       },
       {
         "uuid": "cfd66b45-3551-4c75-8af5-2b7f5d63489f",
@@ -14117,7 +14267,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "e0302ebd-9dc1-4b4e-a36a-0c1010abc543",
@@ -14526,7 +14678,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 17
               },
               {
                 "uuid": "e93c54f5-9f7d-4c41-9998-69bb33a77f43",
@@ -14573,7 +14727,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "e479cb5e-b21b-4bec-b164-02752c4310ea",
@@ -14803,9 +14959,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 10
               }
-            ]
+            ],
+            "num_curated_idea_groups": 15,
+            "num_curated_ideas": 38
           },
           {
             "uuid": "15a0ec65-ccfe-40ab-bcb6-3130218cecfa",
@@ -15074,7 +15234,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "c7e2eefb-5075-4318-b066-38c043f771cc",
@@ -15257,7 +15419,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "c06ab784-f873-4b20-8d63-d211504bb085",
@@ -15411,7 +15575,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "f0c1405a-f609-4f6f-bcd3-a13614991dd4",
@@ -15464,7 +15630,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "91732e3f-623e-4d96-aace-d3ca04660c10",
@@ -15632,7 +15800,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "dfeb1fa8-54e1-4064-9459-94d93aacdee8",
@@ -15749,7 +15919,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "cffef564-cbff-4f56-88fa-8e1c2b60b5c8",
@@ -15968,9 +16140,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               }
-            ]
+            ],
+            "num_curated_idea_groups": 19,
+            "num_curated_ideas": 48
           },
           {
             "uuid": "ed1d6437-b79e-4e88-80c3-b1cbc26d3f1b",
@@ -16171,7 +16347,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "4aac43df-87c3-4c14-8ddd-ccfcbf1242cd",
@@ -16342,7 +16520,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "d0931d02-965a-4397-b5c5-5ea0a6833c81",
@@ -16492,7 +16672,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "c2bac3e9-5a4e-4008-8065-14a829c12359",
@@ -16695,7 +16877,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "5d3148b9-3180-4628-b58a-077d8a85b49d",
@@ -16922,7 +17106,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "2c858b87-1121-4e0e-a2e7-9a7f067fca2f",
@@ -17152,7 +17338,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "58cbb46e-20b3-4511-ad73-10d5220a4fed",
@@ -17272,9 +17460,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 6
               }
-            ]
+            ],
+            "num_curated_idea_groups": 24,
+            "num_curated_ideas": 62
           },
           {
             "uuid": "bb383caf-4e10-48e2-a0da-1bcc95934cde",
@@ -17624,7 +17816,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "093cf83c-eb95-4b73-975a-f16909931eb1",
@@ -18095,7 +18289,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 6,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "ee5e5c81-2b0f-4da6-965e-03707129c68d",
@@ -18459,7 +18655,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 16
               },
               {
                 "uuid": "784107ce-63ef-4b20-8c74-c7b6c4a2ab13",
@@ -18732,9 +18930,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               }
-            ]
+            ],
+            "num_curated_idea_groups": 18,
+            "num_curated_ideas": 49
           },
           {
             "uuid": "b5e45492-6336-43bd-acf4-10ea169bee47",
@@ -19055,9 +19257,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               }
-            ]
+            ],
+            "num_curated_idea_groups": 3,
+            "num_curated_ideas": 8
           },
           {
             "uuid": "b5134602-2b9f-44d7-84b3-fc6f555d038e",
@@ -19101,11 +19307,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 1
               }
-            ]
+            ],
+            "num_curated_idea_groups": 1,
+            "num_curated_ideas": 1
           }
-        ]
+        ],
+        "num_curated_idea_groups": 80,
+        "num_curated_ideas": 206
       },
       {
         "uuid": "9f0c30fd-c1df-4409-be86-73a9ea2538d8",
@@ -19437,7 +19649,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "908faca8-27db-4db5-8fdc-9eaa9e18dcaa",
@@ -19691,9 +19905,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 8
               }
-            ]
+            ],
+            "num_curated_idea_groups": 8,
+            "num_curated_ideas": 19
           },
           {
             "uuid": "93d92529-e574-4d64-9aac-5cdc008f9e4c",
@@ -20000,9 +20218,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 12
               }
-            ]
+            ],
+            "num_curated_idea_groups": 5,
+            "num_curated_ideas": 12
           },
           {
             "uuid": "96a5399f-0202-41fd-b4bb-c80438de1ad4",
@@ -20371,7 +20593,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "e4dc9b00-244d-4eff-a6b0-9394dfd4860e",
@@ -20695,7 +20919,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "e6524eb4-1044-4728-a633-ab66833b7d07",
@@ -20730,7 +20956,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 1
               },
               {
                 "uuid": "d9716242-aad6-47b0-ac9e-4e81d99aad2a",
@@ -20919,7 +21147,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "17a936a7-383d-4853-a8d5-9c4ee1f8d099",
@@ -21016,9 +21246,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               }
-            ]
+            ],
+            "num_curated_idea_groups": 12,
+            "num_curated_ideas": 33
           },
           {
             "uuid": "10463cfa-01ef-4f39-bbf2-33eefa7754a4",
@@ -21217,7 +21451,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "482ba376-6129-4009-a8c0-916e5ae13f0b",
@@ -21469,7 +21705,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "906afbd9-c536-4040-841f-7664ea0ab80b",
@@ -21793,7 +22031,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "b68f7c24-e6bc-4152-ae89-f3cd3f26d7f5",
@@ -22030,7 +22270,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "52680dc1-f83d-4cbe-a733-cea9b3a8c43a",
@@ -22320,7 +22562,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "87d9136a-837d-4e74-b965-0e2081a3d9e7",
@@ -22551,7 +22795,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "a7b909f9-e62c-44fe-9801-7d4c39e73475",
@@ -22586,7 +22832,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 1
               },
               {
                 "uuid": "93e632e8-41fa-4695-ae55-20fa1b4ab887",
@@ -22847,9 +23095,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               }
-            ]
+            ],
+            "num_curated_idea_groups": 22,
+            "num_curated_ideas": 62
           },
           {
             "uuid": "e99f85eb-4e6e-44bb-b817-3c6a78358d77",
@@ -23035,7 +23287,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "afbe4bc8-3c2c-45db-a19d-eb9aea0c7b17",
@@ -23132,11 +23386,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               }
-            ]
+            ],
+            "num_curated_idea_groups": 5,
+            "num_curated_ideas": 11
           }
-        ]
+        ],
+        "num_curated_idea_groups": 52,
+        "num_curated_ideas": 137
       },
       {
         "uuid": "169e30b5-cfc0-48ac-9565-bcb762eafd32",
@@ -23743,7 +24003,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 15
               },
               {
                 "uuid": "1b483415-2e42-4721-8c2f-785a53fd745e",
@@ -24449,7 +24711,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 18
               },
               {
                 "uuid": "8dc65425-fa36-4bed-8b6b-6fc436ab9e7c",
@@ -24978,7 +25242,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 17
               },
               {
                 "uuid": "18b0bdbf-8d06-4a2a-a6c2-a8605e22929c",
@@ -25158,9 +25424,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               }
-            ]
+            ],
+            "num_curated_idea_groups": 18,
+            "num_curated_ideas": 59
           },
           {
             "uuid": "890d4a8f-af41-4fa3-ae54-645b3f693b31",
@@ -25322,7 +25592,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "98813a43-e5f6-4001-ac95-113eab023c3d",
@@ -25452,7 +25724,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "346febd3-4f03-4ff1-a78a-fdbba8232084",
@@ -25511,7 +25785,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "4f5cb0f2-da13-411f-a79a-210f2aab27ae",
@@ -25626,9 +25902,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               }
-            ]
+            ],
+            "num_curated_idea_groups": 8,
+            "num_curated_ideas": 22
           },
           {
             "uuid": "9d93160f-b22d-4e8f-aed3-891593a431ad",
@@ -25927,7 +26207,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "b4b06b6a-0817-429f-8eb3-699e6bc4aac2",
@@ -26134,7 +26416,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "723b101b-adef-433e-b3dd-996d1f8c5613",
@@ -26267,7 +26551,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "f518d038-f3e6-4385-a907-86ba23d9f055",
@@ -26450,7 +26736,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "31800ae5-6205-4117-ab8a-a4decfab7d6e",
@@ -26882,7 +27170,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 6,
+                "num_curated_ideas": 22
               },
               {
                 "uuid": "fbbf5c33-f2e8-4f81-bf03-572ce7c02f4e",
@@ -27140,9 +27430,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               }
-            ]
+            ],
+            "num_curated_idea_groups": 21,
+            "num_curated_ideas": 67
           },
           {
             "uuid": "fa3c4f2d-8956-4977-9705-6fba1bc394cd",
@@ -27608,7 +27902,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "530f5c04-76e0-4dcb-bce7-ee9f1f122e3b",
@@ -27860,7 +28156,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "6e542a77-f12b-4f7d-9207-69546aaf257d",
@@ -28129,7 +28427,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "94f6a2df-b8b0-407c-84cd-618672c8a840",
@@ -28402,7 +28702,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "8751050b-067a-4ffd-a251-95234b14e398",
@@ -28666,7 +28968,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "e15cb450-3cd2-419a-bf6b-15234f35d733",
@@ -28725,7 +29029,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "be42b6e3-bdc4-42e2-a758-5410e79fc3dc",
@@ -28801,7 +29107,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "56399905-9c5f-4ba2-88ac-e226e57ec5f5",
@@ -28848,7 +29156,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "59aa8a85-5153-4981-88c7-c0459e5dfed4",
@@ -29016,7 +29326,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 8
               },
               {
                 "uuid": "e6e80a12-9ef4-49df-8b59-0d75ea140edf",
@@ -29125,7 +29437,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 5
               },
               {
                 "uuid": "be2d16df-2840-4688-84a8-86ec980ab74a",
@@ -29187,9 +29501,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               }
-            ]
+            ],
+            "num_curated_idea_groups": 28,
+            "num_curated_ideas": 84
           },
           {
             "uuid": "acdb9963-64e5-4404-9b18-e2f960f09f7c",
@@ -29370,7 +29688,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "484054cb-4421-438a-86ff-4131344d619e",
@@ -29463,9 +29783,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 3
               }
-            ]
+            ],
+            "num_curated_idea_groups": 5,
+            "num_curated_ideas": 12
           },
           {
             "uuid": "d767ccd3-6594-4190-bc84-c9d2fda42074",
@@ -29826,7 +30150,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "180261d0-d03b-4dde-9a25-383a024b9150",
@@ -30152,7 +30478,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "ede1f714-03e8-4769-a1c8-3f941568f9bd",
@@ -30557,11 +30885,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 10
               }
-            ]
+            ],
+            "num_curated_idea_groups": 12,
+            "num_curated_ideas": 33
           }
-        ]
+        ],
+        "num_curated_idea_groups": 92,
+        "num_curated_ideas": 277
       },
       {
         "uuid": "225dff66-0a37-4a41-a195-7160b6f2774e",
@@ -31071,7 +31405,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 6,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "58b1ce92-0f67-416f-93de-4a849de4a563",
@@ -31144,7 +31480,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 3
               },
               {
                 "uuid": "96e55c1b-dce5-46b7-9b47-16f38b7d17db",
@@ -31232,7 +31570,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               },
               {
                 "uuid": "a3e8f599-bf81-4320-96ab-bef7cbf36765",
@@ -31418,7 +31758,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "acd11d34-28da-41e7-9fba-4edcd3eaacad",
@@ -31560,7 +31902,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "5f5b7fe9-433f-48ca-b4d3-6c26cb0b9ac3",
@@ -31607,7 +31951,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "99f86aa2-c770-4230-a859-1b75f6258bc6",
@@ -31903,7 +32249,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "38280b02-d1d0-48da-b672-502959e12cd7",
@@ -32351,9 +32699,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 18
               }
-            ]
+            ],
+            "num_curated_idea_groups": 25,
+            "num_curated_ideas": 60
           },
           {
             "uuid": "e883e6d1-3425-4688-8fdf-ec07da1331fc",
@@ -32734,7 +33086,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "9612ca04-c47d-48d7-bb4a-69fa2272ac41",
@@ -33258,7 +33612,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 19
               },
               {
                 "uuid": "74efc87a-3ac4-4cbf-a0be-fd3612254233",
@@ -33508,9 +33864,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 8
               }
-            ]
+            ],
+            "num_curated_idea_groups": 9,
+            "num_curated_ideas": 36
           },
           {
             "uuid": "196ca039-f9ef-47f0-a9e5-929fa5498287",
@@ -33595,11 +33955,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 3
               }
-            ]
+            ],
+            "num_curated_idea_groups": 2,
+            "num_curated_ideas": 3
           }
-        ]
+        ],
+        "num_curated_idea_groups": 36,
+        "num_curated_ideas": 99
       },
       {
         "uuid": "0ced89d7-ba77-4185-a67f-f37c4b753f10",
@@ -34070,7 +34436,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 6,
+                "num_curated_ideas": 15
               },
               {
                 "uuid": "34adc8cb-6c4f-4c8f-9fe3-c6f9a9d9a105",
@@ -34418,7 +34786,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "c1f953b3-635e-4b96-b340-01331b399db4",
@@ -34720,9 +35090,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 10
               }
-            ]
+            ],
+            "num_curated_idea_groups": 13,
+            "num_curated_ideas": 37
           },
           {
             "uuid": "3c03bf4e-9713-4a6d-bd9b-ded086b1b72d",
@@ -35248,7 +35622,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "3041207a-a65e-40ba-aeab-ee5ee95fc435",
@@ -35503,7 +35879,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 6
               },
               {
                 "uuid": "16246b22-8a40-42b8-aa68-9332ab07ccdc",
@@ -35808,7 +36186,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 10
               },
               {
                 "uuid": "9b9029ca-a0b1-4ca3-87d6-2fd843986879",
@@ -36151,7 +36531,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 14
               },
               {
                 "uuid": "4bb65d31-d794-4389-acb1-413f8192d3af",
@@ -36414,9 +36796,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               }
-            ]
+            ],
+            "num_curated_idea_groups": 21,
+            "num_curated_ideas": 54
           },
           {
             "uuid": "9f3991b2-4857-40d1-aa0b-bd16c9850fdc",
@@ -36779,7 +37165,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "dafc212f-bf33-431d-afce-35341e7788ef",
@@ -37341,7 +37729,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "2474bf7b-9402-4446-b6ab-daab6501df8d",
@@ -37617,7 +38007,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "fbe165e4-53e2-4960-941f-89b99028b993",
@@ -38165,7 +38557,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 12
               },
               {
                 "uuid": "d10caba3-7cfb-456a-bd33-5e53e89e1e4b",
@@ -38212,7 +38606,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 2
               },
               {
                 "uuid": "c566da1d-1128-4432-b0fd-97b2e1ce3de1",
@@ -38297,7 +38693,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 4
               },
               {
                 "uuid": "e97af3df-0de8-4505-83fc-e619261bbb34",
@@ -38905,9 +39303,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 15
               }
-            ]
+            ],
+            "num_curated_idea_groups": 22,
+            "num_curated_ideas": 68
           },
           {
             "uuid": "782308f9-79c5-40e4-b1f3-13b01633bc0b",
@@ -39200,9 +39602,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 11
               }
-            ]
+            ],
+            "num_curated_idea_groups": 4,
+            "num_curated_ideas": 11
           },
           {
             "uuid": "2013f447-dbda-4e72-850e-42956ee0813d",
@@ -39489,7 +39895,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 9
               },
               {
                 "uuid": "c10b728a-3b25-411c-9d92-3b1f610ebb1b",
@@ -39761,9 +40169,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 4,
+                "num_curated_ideas": 8
               }
-            ]
+            ],
+            "num_curated_idea_groups": 8,
+            "num_curated_ideas": 17
           },
           {
             "uuid": "f75781e1-f9b8-4c46-88a3-fddcc57a1a09",
@@ -40124,7 +40536,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 13
               },
               {
                 "uuid": "0e4c089c-041a-4aa0-9e3a-cdc3d3de0775",
@@ -40427,7 +40841,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 3,
+                "num_curated_ideas": 11
               },
               {
                 "uuid": "bde0ae3b-0a9f-4ea5-a3e5-3e4fcc9f5e31",
@@ -40569,7 +40985,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 2,
+                "num_curated_ideas": 7
               },
               {
                 "uuid": "46c74d7e-4672-4922-b368-2ec8aab95368",
@@ -40628,9 +41046,13 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 3
               }
-            ]
+            ],
+            "num_curated_idea_groups": 11,
+            "num_curated_ideas": 34
           },
           {
             "uuid": "fec76632-7726-459c-96f0-90386b520d71",
@@ -40985,7 +41407,9 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 5,
+                "num_curated_ideas": 18
               },
               {
                 "uuid": "3689c444-1a73-4e06-8bc1-8c24e4c216c2",
@@ -41020,11 +41444,17 @@ var idea_lenses_hierarchy = {
                     ],
                     "thumbnail_image_path": null
                   }
-                ]
+                ],
+                "num_curated_idea_groups": 1,
+                "num_curated_ideas": 1
               }
-            ]
+            ],
+            "num_curated_idea_groups": 6,
+            "num_curated_ideas": 19
           }
-        ]
+        ],
+        "num_curated_idea_groups": 85,
+        "num_curated_ideas": 240
       }
     ],
     "active_ingredient": {

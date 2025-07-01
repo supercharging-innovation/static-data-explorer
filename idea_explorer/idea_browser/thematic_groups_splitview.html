@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thematic Groups Explorer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --bg-main: #f7f8fa;
+      --bg-card: #fff;
+      --sidebar-bg: #f5f6f8;
+      --sidebar-border: #e5e7eb;
+      --badge-bg: #e3e8ef;
+      --badge-selected-bg: #2563eb;
+      --badge-text: #334155;
+      --badge-selected-text: #fff;
+      --shadow-subtle: 0 1px 4px rgba(0,0,0,0.03);
+      --shadow-medium: 0 2px 12px rgba(0,0,0,0.06);
+      --transition-smooth: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --header-font: 'Avenir Next', 'Avenir', 'Nunito', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      --body-font: 'Avenir Next', 'Avenir', 'Nunito', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--body-font);
+      background: var(--primary-bg);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Landing Page Styles */
+    .landing-container {
+      min-height: 100vh;
+      background: var(--bg-main);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .landing-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .landing-header {
+      text-align: center;
+      padding: 4rem 2rem 2rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .landing-title {
+      font-size: 2.4rem;
+      font-family: var(--header-font);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .landing-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-family: var(--body-font);
+      font-weight: 400;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .groups-carousel {
+      padding: 3rem 2rem 4rem 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .group-card {
+      background: var(--bg-card);
+      border-radius: 1.2rem;
+      padding: 2rem 1.5rem;
+      cursor: pointer;
+      border: 1.5px solid var(--sidebar-border);
+      transition: var(--transition-smooth);
+      position: relative;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 1.5rem;
+    }
+
+    .group-card:hover {
+      border-color: #2563eb;
+      box-shadow: var(--shadow-medium);
+      background: #f5faff;
+    }
+
+    .group-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .group-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 0.7rem;
+      background: var(--badge-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--badge-text);
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--header-font);
+    }
+
+    .group-title {
+      font-size: 1.25rem;
+      font-family: var(--header-font);
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .group-summary {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-family: 'Crimson Text', serif;
+      font-style: italic;
+    }
+
+    .group-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+
+    .ideas-count {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      padding: 0.35rem 0.9rem;
+      border-radius: 1.2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .explore-btn {
+      background: transparent;
+      border: 1.5px solid var(--sidebar-border);
+      color: var(--text-secondary);
+      padding: 0.4rem 1rem;
+      border-radius: 1.2rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .group-card:hover .explore-btn {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
+
+    /* Detail View Styles */
+    .detail-container {
+      min-height: 100vh;
+      background: var(--primary-bg);
+      display: none;
+      flex-direction: column;
+      transition: var(--transition-smooth);
+    }
+
+    .detail-header {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header-title {
+      font-size: 2.1rem;
+      font-family: var(--header-font);
+      font-weight: 700;
+      color: #232946;
+      margin-bottom: 0.2rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      border-left: 6px solid #10b981;
+      padding-left: 0.8rem;
+      background: none;
+    }
+
+    .header-description {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.5;
+      font-family: 'Crimson Text', serif;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: white;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text-secondary);
+      border: 2px solid #e2e8f0;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .detail-content {
+      display: flex;
+      flex: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      gap: 0;
+      min-height: 0;
+    }
+
+    /* Left Sidebar */
+    .ideas-sidebar {
+      width: 370px;
+      min-width: 300px;
+      background: var(--sidebar-bg);
+      border-right: 1.5px solid var(--sidebar-border);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--body-font);
+      height: 100vh;
+      min-height: 0;
+    }
+
+    .sidebar-header {
+      padding: 2rem 1.5rem 1rem 1.5rem;
+      border-bottom: 1px solid var(--sidebar-border);
+      background: var(--sidebar-bg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-title {
+      font-family: var(--header-font);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar-title .sidebar-count {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-left: 0.5rem;
+    }
+
+    .sidebar-title .fa-lightbulb {
+      color: var(--accent);
+      margin-right: 0.2em;
+    }
+
+    .bulb-icons {
+      display: flex;
+      gap: 0.15rem;
+      margin-left: 0.5rem;
+    }
+
+    .bulb-icon {
+      color: var(--accent);
+      font-size: 1.2rem;
+      filter: drop-shadow(0 1px 1px #fff6);
+    }
+
+    .ideas-list {
+      padding: 1rem;
+      flex: 1;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .idea-item {
+      background: var(--bg-card);
+      border: 1.5px solid var(--sidebar-border);
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.1rem 1.1rem 3.2rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+      min-height: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .idea-item .idea-index-badge {
+      position: absolute;
+      top: 1.1rem;
+      left: 1.1rem;
+      min-width: 28px;
+      height: 28px;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-family: var(--header-font);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: none;
+      z-index: 1;
+      border: 1.5px solid var(--sidebar-border);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .idea-item.selected .idea-index-badge {
+      background: var(--badge-selected-bg);
+      color: var(--badge-selected-text);
+      border-color: var(--badge-selected-bg);
+    }
+
+    .idea-item:hover,
+    .idea-item.selected {
+      background: #f5faff;
+      border-color: #2563eb;
+      box-shadow: var(--shadow-medium);
+    }
+
+    .idea-title {
+      font-size: 1.08rem;
+      font-family: var(--header-font);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .idea-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.97rem;
+      line-height: 1.4;
+      font-family: var(--body-font);
+      font-style: italic;
+    }
+
+    /* Right Details Panel */
+    .details-panel {
+      flex: 1;
+      background: #fff;
+      overflow-y: auto;
+      position: relative;
+      height: 100vh;
+      min-height: 0;
+    }
+
+    .details-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 15% 25%, rgba(245, 158, 11, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .details-content {
+      padding: 2.5rem;
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      padding-right: 2.5rem;
+      font-family: var(--body-font);
+    }
+
+    .details-header {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-subtle);
+      border: 1px solid #f3f4f6;
+    }
+
+    .details-title {
+      font-size: 1.55rem;
+      font-family: var(--header-font);
+      font-weight: 700;
+      color: #232946;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      border-left: 5px solid #2563eb;
+      padding-left: 0.7rem;
+      background: none;
+    }
+
+    .details-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      font-family: var(--body-font);
+      font-style: normal;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .details-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn-small {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    .section-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-subtle);
+      border: 1px solid #f3f4f6;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid #2563eb;
+    }
+    .section-card[data-section="concept"] { border-top-color: #2563eb; }
+    .section-card[data-section="how"] { border-top-color: #10b981; }
+    .section-card[data-section="inspiration"] { border-top-color: #f59e0b; }
+    .section-card[data-section="questions"] { border-top-color: #8b5cf6; }
+    .section-card[data-section="provenance"] { border-top-color: #6366f1; }
+
+    .section-card:hover {
+      box-shadow: var(--shadow-medium);
+      transform: translateY(-2px);
+    }
+
+    .section-header {
+      font-family: var(--header-font);
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: #232946;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      position: relative;
+      margin-bottom: 1.1rem;
+    }
+    .section-header .fa-atom { color: #2563eb; }
+    .section-header .fa-cogs { color: #10b981; }
+    .section-header .fa-lightbulb { color: #f59e0b; }
+    .section-header .fa-question-circle { color: #8b5cf6; }
+    .section-header .fa-microscope { color: #6366f1; }
+
+    .section-content {
+      font-size: 1.08rem;
+      color: #374151;
+      line-height: 1.7;
+      font-family: var(--body-font);
+      font-weight: 400;
+    }
+
+    .section-content p {
+      margin-bottom: 1.2rem;
+      font-family: var(--body-font);
+      font-size: 1.08rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .section-content ul,
+    .section-content ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.2rem;
+      font-family: var(--body-font);
+      font-size: 1.08rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .section-content li,
+    .questions-assumptions-list li,
+    .section-content ol li {
+      margin-bottom: 0.7rem;
+      line-height: 1.7;
+      font-size: 1.08rem;
+      color: #374151;
+      font-family: var(--body-font);
+      font-weight: 400;
+    }
+
+    .assumption-label,
+    .question-label {
+      font-weight: 600;
+      color: #232946;
+      font-family: var(--body-font);
+    }
+
+    .citation-badge {
+      display: inline-block;
+      background: #232946;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.18em 0.7em;
+      border-radius: 0.7em;
+      margin: 0.12em 0.32em 0.12em 0;
+      font-family: 'JetBrains Mono', 'Avenir Next', 'Avenir', 'Nunito', 'Montserrat', monospace, sans-serif;
+      box-shadow: 0 1px 4px rgba(35,41,70,0.08);
+      letter-spacing: 0.01em;
+      vertical-align: middle;
+      border: 1.5px solid #232946;
+    }
+
+    .citation-badge:hover {
+      transform: scale(1.1);
+      background: #1a2233;
+      border-color: #1a2233;
+    }
+
+    .collapsible {
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: color 0.2s;
+    }
+
+    .collapsible:hover { 
+      color: #6366f1; 
+    }
+
+    .collapsible .chevron {
+      transition: transform 0.3s ease;
+      margin-left: auto;
+    }
+
+    .collapsible.active .chevron {
+      transform: rotate(180deg);
+    }
+
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .collapsible-content.active {
+      max-height: 3000px;
+    }
+
+    .provenance-source {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e2e8f0;
+      transition: var(--transition-smooth);
+    }
+
+    .provenance-source:hover {
+      background: #f1f5f9;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-secondary);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.5;
+    }
+
+    /* Scrollbar Styling */
+    .ideas-sidebar::-webkit-scrollbar,
+    .details-panel::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    .ideas-sidebar::-webkit-scrollbar-track,
+    .details-panel::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .ideas-sidebar::-webkit-scrollbar-thumb,
+    .details-panel::-webkit-scrollbar-thumb {
+      background: #e5e7eb;
+      border-radius: 4px;
+    }
+
+    .ideas-sidebar, .details-panel {
+      scrollbar-width: thin;
+      scrollbar-color: #e5e7eb #f4f6fa;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .landing-title {
+        font-size: 2.5rem;
+      }
+      
+      .groups-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+      }
+      
+      .detail-content {
+        flex-direction: column;
+      }
+      
+      .ideas-sidebar {
+        width: 100%;
+        max-height: 40vh;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .landing-header {
+        padding: 2rem 1rem 1rem 1rem;
+      }
+      
+      .landing-title {
+        font-size: 2rem;
+      }
+      
+      .groups-carousel {
+        padding: 2rem 1rem;
+      }
+      
+      .group-card {
+        padding: 2rem 1.5rem;
+      }
+      
+      .detail-header {
+        padding: 1rem;
+      }
+      
+      .details-content {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .slide-up {
+      animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    /* Add scrollMarginTop to provenance-source-card for accurate scroll alignment */
+    .provenance-source-card { scroll-margin-top: 90px; }
+  </style>
+  <script src="../../data/idea_curation_provenance_test.js"></script>
+</head>
+<body>
+  <!-- Landing Page -->
+  <div class="landing-container" id="landing-container">
+    <div class="landing-header">
+      <h1 class="landing-title">Idea Explorer</h1>
+      <p class="landing-subtitle">
+        Discover innovative concepts and breakthrough solutions through curated thematic groups of transformative ideas.
+      </p>
+    </div>
+    
+    <div class="groups-carousel">
+      <div class="groups-grid" id="groups-grid">
+        <!-- Groups will be populated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail View -->
+  <div class="detail-container" id="detail-container">
+    <header class="detail-header">
+      <div class="header-content">
+        <div class="header-info">
+          <h1 class="header-title" id="header-title">Group Title</h1>
+          <p class="header-description" id="header-description">Group description will appear here.</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary" id="back-btn" title="Back to Overview">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button class="btn btn-secondary" id="export-group-btn" title="Save group to file">
+            <i class="fa-solid fa-download"></i>
+          </button>
+          <button class="btn btn-secondary" id="copy-group-btn" title="Copy group to clipboard">
+            <i class="fa-solid fa-copy"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="detail-content">
+      <div class="ideas-sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-title">
+            <i class="fas fa-lightbulb"></i>
+            Idea Sparks <span class="sidebar-count" id="sidebar-idea-count"></span>
+          </div>
+        </div>
+        <div class="ideas-list" id="ideas-list">
+          <!-- Ideas will be populated here -->
+        </div>
+      </div>
+
+      <div class="details-panel">
+        <div class="details-content" id="details-content">
+          <div class="empty-state">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Select an idea to view details</h3>
+            <p>Choose an idea from the sidebar to explore its concept, implementation, and research provenance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data and State
+    const groupData = Array.isArray(idea_curation_test) ? idea_curation_test : [];
+    let currentGroupIndex = -1;
+    let currentIdeaIndex = -1;
+
+    // DOM Elements
+    const landingContainer = document.getElementById('landing-container');
+    const detailContainer = document.getElementById('detail-container');
+    const groupsGrid = document.getElementById('groups-grid');
+    const backBtn = document.getElementById('back-btn');
+
+    // Initialize the application
+    function init() {
+      renderLanding();
+      setupEventListeners();
+    }
+
+    function setupEventListeners() {
+      backBtn.addEventListener('click', () => {
+        showLanding();
+      });
+      document.getElementById('export-group-btn').addEventListener('click', exportGroup);
+      document.getElementById('copy-group-btn').addEventListener('click', copyGroupToClipboard);
+    }
+
+    function renderLanding() {
+      groupsGrid.innerHTML = '';
+      
+      groupData.forEach((group, index) => {
+        const card = document.createElement('div');
+        card.className = 'group-card fade-in';
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        card.innerHTML = `
+          <div class="group-card-header">
+            <div class="group-icon">
+              ${index + 1}
+            </div>
+            <div class="group-title">${group.group_name}</div>
+          </div>
+          <div class="group-summary">${group.one_liner_summary || group.group_summary}</div>
+          <div class="group-meta">
+            <div class="ideas-count">
+              <i class="fas fa-lightbulb"></i>
+              ${group.curated_ideas.length} ideas
+            </div>
+            <div class="explore-btn">
+              Explore
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        `;
+        
+        card.addEventListener('click', () => {
+          showDetail(index);
+        });
+        
+        groupsGrid.appendChild(card);
+      });
+    }
+
+    function showDetail(groupIndex) {
+      currentGroupIndex = groupIndex;
+      currentIdeaIndex = -1;
+      
+      const group = groupData[groupIndex];
+      
+      // Update header
+      document.getElementById('header-title').textContent = group.group_name;
+      document.getElementById('header-description').textContent = group.descriptive_title || group.group_summary;
+      
+      // Update idea count
+      document.getElementById('sidebar-idea-count').textContent = `(${group.curated_ideas.length} ideas)`;
+      
+      // Render ideas list
+      renderIdeasList(group.curated_ideas);
+      
+      // Clear details panel
+      showEmptyState();
+      
+      // Smooth transition
+      landingContainer.style.display = 'none';
+      detailContainer.style.display = 'flex';
+      detailContainer.classList.add('slide-up');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showLanding() {
+      detailContainer.style.display = 'none';
+      landingContainer.style.display = 'block';
+      detailContainer.classList.remove('slide-up');
+      
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderIdeasList(ideas) {
+      const ideasList = document.getElementById('ideas-list');
+      ideasList.innerHTML = '';
+      
+      ideas.forEach((idea, index) => {
+        const item = document.createElement('div');
+        item.className = 'idea-item';
+        item.setAttribute('data-index', index);
+        item.innerHTML = `
+          <span class="idea-index-badge">${index + 1}</span>
+          <div class="idea-content">
+            <div class="idea-title">${idea.idea_title}</div>
+            <div class="idea-subtitle">${idea.subtitle || ''}</div>
+          </div>
+        `;
+        item.addEventListener('click', () => {
+          selectIdea(index);
+        });
+        ideasList.appendChild(item);
+      });
+    }
+
+    function selectIdea(ideaIndex) {
+      currentIdeaIndex = ideaIndex;
+      
+      // Update selected state
+      document.querySelectorAll('.idea-item').forEach((item, index) => {
+        item.classList.toggle('selected', index === ideaIndex);
+      });
+      
+      // Render idea details
+      const group = groupData[currentGroupIndex];
+      const idea = group.curated_ideas[ideaIndex];
+      renderIdeaDetails(idea);
+      
+      // Scroll details panel to top
+      document.querySelector('.details-panel').scrollTop = 0;
+    }
+
+    function showEmptyState() {
+      const detailsContent = document.getElementById('details-content');
+      detailsContent.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Select an idea to view details</h3>
+          <p>Choose an idea from the sidebar to explore its concept, implementation, and research provenance.</p>
+        </div>
+      `;
+    }
+
+    function renderIdeaDetails(idea) {
+      const detailsContent = document.getElementById('details-content');
+      
+      // Convert inline numbered steps to Markdown list
+      function inlineNumberedToMarkdownList(text) {
+        if (!text) return text;
+        
+        // Detect if text contains inline numbered list pattern like "1. **Title:** content 2. **Title:** content"
+        if (/\d+\.\s+\*\*[^*]+\*\*.*?\d+\.\s+\*\*/.test(text)) {
+          // Split at each number-dot-space pattern, keeping the numbers
+          const parts = text.split(/(?=\d+\.\s+)/g).filter(part => part.trim());
+          
+          if (parts.length > 1) {
+            // Each part is already properly numbered, just join with double newlines for proper markdown
+            return parts.map(part => part.trim()).join('\n\n');
+          }
+        }
+        
+        return text;
+      }
+      const conceptDescription = processCitations(inlineNumberedToMarkdownList(idea.concept_description), idea.provenance?.provenance_sources);
+      const howItWorks = processCitations(inlineNumberedToMarkdownList(idea.how_it_works), idea.provenance?.provenance_sources);
+      const inspirationSummary = processCitations(inlineNumberedToMarkdownList(idea.inspiration_summary), idea.provenance?.provenance_sources);
+      
+      detailsContent.innerHTML = `
+        <div class="details-header slide-up">
+          <div class="details-title">${idea.idea_title}</div>
+          <div class="details-subtitle">${idea.subtitle || ''}</div>
+          <div class="details-actions">
+            <button class="btn btn-secondary btn-small" onclick="exportIdea()" title="Save to file">
+              <i class="fa-solid fa-download"></i>
+            </button>
+            <button class="btn btn-secondary btn-small" onclick="copyToClipboard()" title="Copy to clipboard">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="section-card slide-up" data-section="concept" style="animation-delay: 0.1s">
+          <div class="section-header">
+            <i class="section-icon fas fa-atom"></i>
+            Concept Description
+          </div>
+          <div class="section-content">${parseMarkdown(conceptDescription)}</div>
+        </div>
+        
+        <div class="section-card slide-up" data-section="how" style="animation-delay: 0.2s">
+          <div class="section-header">
+            <i class="section-icon fas fa-cogs"></i>
+            How It Works
+          </div>
+          <div class="section-content">${parseMarkdown(howItWorks)}</div>
+        </div>
+        
+        <div class="section-card slide-up" data-section="inspiration" style="animation-delay: 0.3s">
+          <div class="section-header">
+            <i class="section-icon fas fa-lightbulb"></i>
+            Inspiration Summary
+          </div>
+          <div class="section-content">${parseMarkdown(inspirationSummary)}</div>
+        </div>
+        
+        ${idea.key_questions_and_assumptions && idea.key_questions_and_assumptions.length > 0 ? `
+          <div class="section-card slide-up" data-section="questions" style="animation-delay: 0.4s">
+            <div class="section-header">
+              <i class="section-icon fas fa-question-circle"></i>
+              Key Questions & Assumptions
+            </div>
+            <div class="section-content">
+              <ul class="questions-assumptions-list">
+                ${formatQuestionsAndAssumptions(idea.key_questions_and_assumptions, idea.provenance?.provenance_sources)}
+              </ul>
+            </div>
+          </div>
+        ` : ''}
+        
+        ${idea.provenance ? `
+          <div class="section-card slide-up" data-section="provenance" style="animation-delay: 0.5s; border-top: 4px solid #2563eb;">
+            <div class="section-header" style="margin-bottom: 1.5rem; color: #2563eb;">
+              <i class="section-icon fas fa-book-open" style="color: #2563eb;"></i>
+              Sources
+              <span style="background: #2563eb; color: #fff; font-size: 0.98rem; font-weight: 700; padding: 0.18em 0.8em; border-radius: 0.8em; margin-left: 0.7em;">${idea.provenance.provenance_sources.length}</span>
+            </div>
+            <div class="section-content" id="provenance-sources-list">
+              ${idea.provenance.provenance_sources.map((source, idx) => `
+                <div class="provenance-source-card" style="background: #fff; border-radius: 1.1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 2rem;">
+                  <div class="provenance-source-header" data-source-idx="${idx}" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 1.2rem 1.7rem 1.2rem 1.3rem; border-bottom: 1px solid #f3f4f6; border-radius: 1.1rem 1.1rem 0 0;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                      <span class="provenance-badge" style="background: #eef2ff; color: #2563eb; font-size: 1.08rem; font-weight: 500; padding: 0.38rem 1.1rem; border-radius: 0.7rem; min-width: 2.2rem; text-align: center; display: inline-block; box-shadow: 0 1px 4px #2563eb1a; letter-spacing: 0.01em;">${idx + 1}</span>
+                      ${source.web_snippet_url ? `<span class="provenance-url" style="font-size:0.98rem; font-weight: 500;"><a href="${source.web_snippet_url}" style="color: #2563eb; text-decoration: underline; word-break: break-all;" target="_blank">${source.web_snippet_url}</a></span>` : ''}
+                    </div>
+                    <span class="provenance-chevron" style="color: #2563eb; font-size: 1.2rem; transition: transform 0.3s;"><i class="fas fa-chevron-right"></i></span>
+                  </div>
+                  <div class="provenance-source-body" style="padding: 1.5rem 2rem 1.5rem 2rem; display: none; animation: fadeIn 0.5s;">
+                    <div style="background: #eaf3fb; color: #232946; border-radius: 0.6rem; padding: 1em 1.1em; margin-bottom: 1.1rem; font-size: 1.03rem; font-family: inherit; font-style: normal;">${source.source_domain_summary}</div>
+                    <div style="margin-bottom: 1.2rem;">
+                      <div style="font-weight: 700; color: #232946; margin-bottom: 0.3rem; font-size: 1.07rem; letter-spacing: 0.01em;">Core Principle</div>
+                      <div style="font-size: 1.05rem; color: #232946;">${source.inspiring_principle}</div>
+                    </div>
+                    <div style="margin-bottom: 1.2rem;">
+                      <div style="font-weight: 700; color: #232946; margin-bottom: 0.3rem; font-size: 1.07rem; letter-spacing: 0.01em;">Key Evidence</div>
+                      ${source.evidentiary_snippets.map(snippet => `
+                        <div class="evidence-quote" style="display: flex; align-items: flex-start; background: #f7f8fa; border-radius: 0.6rem; padding: 0.7em 1.1em; margin: 0.7em 0; font-style: italic; font-family: inherit; color: #232946; font-size: 1.08rem; line-height: 1.7; letter-spacing: 0.01em;">
+                          <span class="quote-icon" style="color: #2563eb; font-size: 1.3em; margin-right: 0.7em; margin-top: 0.1em;">&#10077;</span>
+                          <span class="quote-text" style="color: #232946; font-style: italic; font-family: inherit;">${snippet}</span>
+                        </div>
+                      `).join('')}
+                    </div>
+                    <div style="margin-bottom: 0.7rem;">
+                      <div style="font-weight: 700; color: #232946; margin-bottom: 0.3rem; font-size: 1.07rem; letter-spacing: 0.01em;">Analogical Leap</div>
+                      <div style="font-size: 1.05rem; color: #232946;">${source.analogical_leap}</div>
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        ` : ''}
+      `;
+      
+      setTimeout(setupProvenanceAccordions, 0);
+    }
+
+    function setupProvenanceAccordions() {
+      const headers = document.querySelectorAll('.provenance-source-header');
+      headers.forEach((header, idx) => {
+        header.onclick = function() {
+          const card = header.closest('.provenance-source-card');
+          const body = card.querySelector('.provenance-source-body');
+          const chevron = header.querySelector('.provenance-chevron');
+          const isOpen = body.style.display === 'block';
+          // Collapse all
+          document.querySelectorAll('.provenance-source-body').forEach((b, i) => {
+            b.style.display = 'none';
+            const chev = document.querySelectorAll('.provenance-chevron')[i];
+            if (chev) chev.style.transform = '';
+          });
+          // Expand this one if it was closed
+          if (!isOpen) {
+            body.style.display = 'block';
+            if (chevron) chevron.style.transform = 'rotate(90deg)';
+            // Scroll the very top of the card into view, accounting for fixed headers
+            setTimeout(() => {
+              card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              window.scrollBy({ top: -90, behavior: 'smooth' });
+            }, 100);
+          }
+        };
+      });
+    }
+
+    function parseMarkdown(text) {
+      return marked.parse(text || '');
+    }
+
+    function formatQuestionsAndAssumptions(items, provenanceSources) {
+      return items.map(item => {
+        // Process citations first
+        let processedItem = processCitations(item, provenanceSources);
+        
+        // Format "Assumption:" and "Question:" labels
+        if (processedItem.startsWith('Assumption:')) {
+          processedItem = processedItem.replace(/^Assumption:/, '<span class="assumption-label">Assumption:</span>');
+        } else if (processedItem.startsWith('Question:')) {
+          processedItem = processedItem.replace(/^Question:/, '<span class="question-label">Question:</span>');
+        }
+        
+        return `<li>${processedItem}</li>`;
+      }).join('');
+    }
+
+    function processCitations(text, provenanceSources) {
+      if (!text || !provenanceSources) return text;
+      return text.replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g, (match, numbers) => {
+        return numbers.split(/\s*,\s*/).map(num => {
+          const sourceIndex = parseInt(num) - 1;
+          if (sourceIndex >= 0 && sourceIndex < provenanceSources.length) {
+            return `<span class="citation-badge">${num}</span>`;
+          }
+          return num;
+        }).join(' ');
+      });
+    }
+
+    function exportGroup() {
+      if (currentGroupIndex >= 0) {
+        const group = groupData[currentGroupIndex];
+        const dataStr = JSON.stringify(group, null, 2);
+        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${group.group_name.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    function exportIdea() {
+      if (currentGroupIndex >= 0 && currentIdeaIndex >= 0) {
+        const idea = groupData[currentGroupIndex].curated_ideas[currentIdeaIndex];
+        const dataStr = JSON.stringify(idea, null, 2);
+        const dataBlob = new Blob([dataStr], {type: 'application/json'});
+        const url = URL.createObjectURL(dataBlob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${idea.idea_title.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+        link.click();
+        URL.revokeObjectURL(url);
+      }
+    }
+
+    function copyToClipboard() {
+      if (currentGroupIndex >= 0 && currentIdeaIndex >= 0) {
+        const idea = groupData[currentGroupIndex].curated_ideas[currentIdeaIndex];
+        const text = `**${idea.idea_title}**\n\n${idea.subtitle || ''}\n\n**Concept Description:**\n${idea.concept_description}\n\n**How It Works:**\n${idea.how_it_works}\n\n**Inspiration Summary:**\n${idea.inspiration_summary}`;
+        
+        navigator.clipboard.writeText(text).then(() => {
+          // Show success feedback
+          const btn = event.target.closest('button');
+          const originalText = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+          btn.style.background = 'var(--accent-gradient)';
+          
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+          }, 2000);
+        });
+      }
+    }
+
+    function copyGroupToClipboard() {
+      if (currentGroupIndex >= 0) {
+        const group = groupData[currentGroupIndex];
+        const text = `**${group.group_name}**\n\n${group.descriptive_title || group.group_summary || ''}\n\n${group.curated_ideas.map((idea, idx) => `#${idx+1}: ${idea.idea_title}\n${idea.subtitle || ''}`).join('\n\n')}`;
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = event.target.closest('button');
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+          setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+        });
+      }
+    }
+
+    // Initialize the application
+    init();
+  </script>
+</body>
+</html> 

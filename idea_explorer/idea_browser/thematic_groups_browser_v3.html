@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thematic Groups Browser v3 - Interactive Citations</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    body {
+      font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      background: #f8fafc;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .carousel-tile {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      cursor: default;
+      overflow: visible;
+      background: white;
+      border-radius: 1.5rem;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      padding-bottom: 2.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .carousel-tile:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      transform: translateY(-6px) scale(1.02);
+    }
+
+    .slide-theme {
+      background: #ede9fe;
+      color: #7c3aed;
+      position: relative;
+    }
+    
+    .slide-summary {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    
+    .slide-selling {
+      background: #fef9c3;
+      color: #b45309;
+    }
+    
+    .slide-ideas {
+      background: #f3f4f6;
+      color: #111827;
+    }
+    
+    .slide-ideas .fa-lightbulb {
+      color: #ffd700 !important;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+    
+    .slide-ideas .idea-sparks-text {
+      color: #bfa100 !important;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+      font-size: 1.8rem;
+    }
+
+    .swiper {
+      width: 100%;
+      min-height: 180px;
+      padding-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 120px;
+      padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+      border-radius: 1.25rem;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination {
+      bottom: 0.7rem !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.7rem;
+      padding-bottom: 0.2rem;
+    }
+    
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      opacity: 1;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      margin: 0 2px !important;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: #667eea;
+      border: 2px solid #667eea;
+      transform: scale(1.2);
+    }
+
+    .group-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #111;
+      margin-top: 1.2rem;
+      margin-bottom: 0.7rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    .details-button {
+      display: block;
+      position: static;
+      margin: 1.5rem auto 0 auto;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1);
+    }
+    
+    .details-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+    }
+    
+    .carousel-tile:hover .details-button {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1.05);
+    }
+
+    .view-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+    
+    .overview-view,
+    .details-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                  visibility 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .overview-view.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-60px);
+    }
+    .details-view {
+      z-index: 2;
+      background: #f8fafc;
+      overflow-y: auto;
+      transform: translateY(100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .details-view.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .details-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, #f1f5ff 0%, #e0e7ff 100%);
+      z-index: 10;
+      padding: 2.2rem 2.5rem 1.2rem 2.5rem;
+      box-shadow: 0 2px 16px rgba(49,46,129,0.07);
+      border-bottom: none;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .details-header-main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+      flex: 1 1 0%;
+      min-width: 0;
+    }
+    .details-group-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #312e81;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .details-group-summary {
+      color: #4b5563;
+      font-size: 1.13rem;
+      max-width: 70ch;
+      font-weight: 400;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .details-header-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.7rem;
+      min-width: 260px;
+      flex-shrink: 0;
+    }
+    .details-header-actions-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.7rem;
+    }
+    .export-btn, .clipboard-btn {
+      background: #fff;
+      color: #bfa100;
+      border: 2px solid #fffbea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s, color 0.2s;
+      box-shadow: 0 1px 4px rgba(191,161,0,0.07);
+      margin-left: 0.2rem;
+      position: relative;
+    }
+    .export-btn:hover, .clipboard-btn:hover {
+      background: #fffbea;
+      color: #bfa100;
+      border: 2px solid #bfa100;
+    }
+    .clipboard-tooltip {
+      position: absolute;
+      top: -2.1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #bfa100;
+      color: #fff;
+      font-size: 0.85rem;
+      border-radius: 0.4rem;
+      padding: 0.2rem 0.7rem;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      z-index: 10;
+    }
+    .clipboard-btn.copied .clipboard-tooltip {
+      opacity: 1;
+    }
+    .back-button {
+      position: static;
+      background: #6366f1;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s, border 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      z-index: 10;
+      border: 2px solid #fff;
+    }
+    .back-button:hover {
+      background: #4f46e5;
+      color: #fff;
+      border: 2px solid #FFD700;
+      box-shadow: 0 8px 25px rgba(99,102,241,0.18);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .details-idea-count {
+      background: #fffbea;
+      color: #bfa100;
+      font-weight: 700;
+      font-size: 1.08rem;
+      border-radius: 9999px;
+      height: 40px;
+      min-width: 140px;
+      padding: 0 1.1rem;
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 1px 4px rgba(191,161,0,0.07);
+    }
+    .details-idea-count .fa-lightbulb {
+      color: #FFD700;
+    }
+    .curated-ideas-container {
+      padding: 2.5rem 2.5rem 3rem 2.5rem;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .curated-idea-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      padding: 2rem 2rem 2rem 2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.07);
+      border-left: 6px solid #6366f1;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 800px;
+      width: 100%;
+    }
+    .curated-idea-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 8px 32px rgba(99,102,241,0.13);
+    }
+    .idea-number-badge {
+      position: absolute;
+      left: -1.7rem;
+      top: 1.5rem;
+      background: #6366f1;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.13);
+    }
+    .curated-idea-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-left: 2.2rem;
+    }
+    .idea-subtitle {
+      color: #6b7280;
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      margin-left: 2.2rem;
+      font-style: italic;
+    }
+    .idea-content-section {
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+    .idea-content-label {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .idea-content-text {
+      color: #374151;
+      line-height: 1.7;
+      padding: 1rem 1.2rem;
+      background: #f8fafc;
+      border-radius: 0.75rem;
+      border-left: 4px solid #e5e7eb;
+      font-size: 1rem;
+    }
+    .idea-content-text.concept-description {
+      border-left-color: #3b82f6;
+      background: #eff6ff;
+    }
+    .idea-content-text.how-it-works {
+      border-left-color: #10b981;
+      background: #ecfdf5;
+    }
+    .idea-content-text.inspiration-summary {
+      border-left-color: #f59e0b;
+      background: #fffbeb;
+    }
+    .idea-content-text.key-questions {
+      border-left-color: #8b5cf6;
+      background: #f3f4f6;
+    }
+
+    /* Citation styles */
+    .citation-link {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.12rem 0.65rem;
+      border-radius: 9999px;
+      margin: 0 0.22em;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      line-height: 1.2;
+      box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+      border: 1.5px solid #c7d2fe;
+      position: relative;
+      vertical-align: baseline;
+    }
+    .citation-link:hover, .citation-link:focus {
+      background: #c7d2fe;
+      color: #312e81;
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(99,102,241,0.18);
+      outline: none;
+    }
+
+    /* Provenance section */
+    .provenance-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #f9fafb;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+    }
+    .provenance-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .overall-synthesis {
+      background: #fff;
+      padding: 1.2rem;
+      border-radius: 0.75rem;
+      border-left: 4px solid #6366f1;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #374151;
+    }
+    .provenance-sources {
+      display: grid;
+      gap: 1rem;
+    }
+    .provenance-source {
+      background: #fff;
+      border-radius: 0.75rem;
+      padding: 1.2rem;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s ease;
+    }
+    .provenance-source:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
+    .source-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+    .source-number {
+      background: #6366f1;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.25rem;
+      flex-shrink: 0;
+    }
+    .source-domain-summary {
+      font-size: 0.9rem;
+      color: #6b7280;
+      font-style: italic;
+      margin-bottom: 0.8rem;
+      line-height: 1.5;
+    }
+    .source-principle {
+      background: #f0f9ff;
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      border-left: 3px solid #0ea5e9;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #0c4a6e;
+    }
+    .source-snippets {
+      margin-bottom: 0.8rem;
+    }
+    .source-snippets-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .source-snippet {
+      background: #fef3c7;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0.4rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.85rem;
+      color: #92400e;
+      border-left: 3px solid #f59e0b;
+      font-family: 'Courier New', monospace;
+    }
+    .source-leap {
+      background: #f3e8ff;
+      padding: 0.8rem;
+      border-radius: 0.5rem;
+      border-left: 3px solid #a855f7;
+      font-size: 0.9rem;
+      color: #581c87;
+      font-weight: 500;
+    }
+    .source-url {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+    }
+    .source-url a {
+      color: #6366f1;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .source-url a:hover {
+      text-decoration: underline;
+    }
+
+    /* Markdown formatting */
+    .markdown-content strong {
+      font-weight: 700;
+      color: #1f2937;
+    }
+    .markdown-content em {
+      font-style: italic;
+      color: #374151;
+    }
+    .markdown-content del {
+      text-decoration: line-through;
+      color: #6b7280;
+    }
+    .markdown-content code {
+      background: #f3f4f6;
+      color: #1f2937;
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      font-family: 'Courier New', monospace;
+      border: 1px solid #e5e7eb;
+    }
+    .markdown-content pre {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    .markdown-content pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      color: #1f2937;
+    }
+    .markdown-content a {
+      color: #3b82f6;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .markdown-content a:hover {
+      color: #1d4ed8;
+    }
+    .markdown-content blockquote {
+      border-left: 4px solid #e5e7eb;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+      color: #6b7280;
+      background: #f9fafb;
+      padding: 0.75rem 1rem;
+      border-radius: 0.25rem;
+    }
+    .markdown-content ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .markdown-content ol {
+      list-style-type: decimal;
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .markdown-content li {
+      margin-bottom: 0.3rem;
+      line-height: 1.6;
+    }
+    .markdown-content p {
+      margin-bottom: 0.8rem;
+      line-height: 1.7;
+    }
+    .markdown-content p:last-child {
+      margin-bottom: 0;
+    }
+    .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .markdown-content h1:first-child, .markdown-content h2:first-child, .markdown-content h3:first-child {
+      margin-top: 0;
+    }
+
+    .scroll-indicator {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      color: #667eea;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      display: none;
+    }
+    
+    .scroll-indicator:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .scroll-indicator.show {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Add popover styles */
+    .citation-popover {
+      position: absolute;
+      z-index: 9999;
+      min-width: 280px;
+      max-width: 440px;
+      background: #fff;
+      color: #222;
+      border-radius: 0.55rem;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.10);
+      border: 1.2px solid #e0e7ff;
+      padding: 0.7rem 1rem 0.7rem 1rem;
+      font-size: 0.97rem;
+      line-height: 1.5;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.18s;
+    }
+    .citation-popover.active {
+      pointer-events: auto;
+      opacity: 1;
+    }
+    .citation-popover .popover-url {
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+      color: #2563eb;
+      word-break: break-all;
+    }
+    .citation-popover .popover-url a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .citation-popover .popover-url a:hover {
+      color: #1e40af;
+    }
+    .citation-popover .popover-summary {
+      font-size: 0.93rem;
+      color: #64748b;
+      margin-bottom: 0.6rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .citation-popover .popover-principle {
+      background: #f0f9ff;
+      border-left: 3px solid #38bdf8;
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.35rem;
+      margin-bottom: 0.6rem;
+      color: #0369a1;
+      font-weight: 500;
+      font-size: 0.98rem;
+    }
+    .citation-popover .popover-snippets {
+      margin-bottom: 0.6rem;
+    }
+    .citation-popover .popover-snippet {
+      background: #f8fafc;
+      border-left: 3px solid #60a5fa;
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.35rem;
+      margin-bottom: 0.4rem;
+      color: #334155;
+      font-size: 0.96rem;
+      font-style: italic;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5em;
+      position: relative;
+    }
+    .citation-popover .popover-snippet:before {
+      content: '\201C';
+      color: #60a5fa;
+      font-size: 1.2em;
+      margin-right: 0.15em;
+      font-family: serif;
+      line-height: 1;
+    }
+    .citation-popover .popover-leap {
+      background: #f3e8ff;
+      border-left: 3px solid #a855f7;
+      padding: 0.5rem 0.9rem;
+      border-radius: 0.35rem;
+      color: #7c3aed;
+      font-weight: 500;
+      font-size: 0.98rem;
+    }
+
+    /* Updated provenance source accordion and citation popover styles */
+    .provenance-source-accordion, .citation-popover {
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.10);
+      border: 1.5px solid #e0e7ff;
+      padding: 1.2rem 1.3rem 1.1rem 1.3rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+    .provenance-source-accordion:hover, .citation-popover.active {
+      box-shadow: 0 8px 32px rgba(99,102,241,0.16);
+    }
+    .provenance-source-accordion .accordion-header {
+      background: none;
+      border: none;
+      box-shadow: none;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #3730a3;
+      padding: 0;
+      margin-bottom: 0.5rem;
+    }
+    .provenance-source-accordion .accordion-content {
+      margin-top: 0.5rem;
+    }
+    .provenance-source-accordion .source-url, .citation-popover .popover-url {
+      font-size: 0.97rem;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #2563eb;
+      word-break: break-all;
+    }
+    .provenance-source-accordion .source-url a, .citation-popover .popover-url a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+    .provenance-source-accordion .source-url a:hover, .citation-popover .popover-url a:hover {
+      color: #1e40af;
+    }
+    .provenance-source-accordion .source-domain-summary, .citation-popover .popover-summary {
+      font-size: 0.98rem;
+      color: #374151;
+      margin-bottom: 0.7rem;
+      font-style: italic;
+    }
+    .provenance-source-accordion .source-principle, .citation-popover .popover-principle {
+      background: #f0f9ff;
+      border-left: 4px solid #38bdf8;
+      padding: 0.7rem 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.7rem;
+      color: #0369a1;
+      font-weight: 500;
+    }
+    .provenance-source-accordion .source-snippets, .citation-popover .popover-snippets {
+      margin-bottom: 0.7rem;
+    }
+    .provenance-source-accordion .source-snippet, .citation-popover .popover-snippet {
+      background: #fef9c3;
+      border-left: 4px solid #f59e0b;
+      padding: 0.6rem 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.4rem;
+      color: #b45309;
+      font-size: 0.97rem;
+      font-style: italic;
+      quotes: "\201C" "\201D";
+    }
+    .provenance-source-accordion .source-snippet:before, .citation-popover .popover-snippet:before {
+      content: open-quote;
+      color: #f59e0b;
+      font-size: 1.2em;
+      margin-right: 0.1em;
+    }
+    .provenance-source-accordion .source-snippet:after, .citation-popover .popover-snippet:after {
+      content: close-quote;
+      color: #f59e0b;
+      font-size: 1.2em;
+      margin-left: 0.1em;
+    }
+    .provenance-source-accordion .source-leap, .citation-popover .popover-leap {
+      background: #f3e8ff;
+      border-left: 4px solid #a855f7;
+      padding: 0.7rem 1rem;
+      border-radius: 0.5rem;
+      color: #7c3aed;
+      font-weight: 500;
+    }
+  </style>
+  <script src="../../data/idea_curation_provenance_test.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <div class="view-container">
+    <!-- Overview View -->
+    <div class="overview-view" id="overview-view">
+      <div class="max-w-7xl mx-auto py-10 px-4">
+        <h1 class="text-4xl font-bold text-gray-900 mb-3 text-center">Browse Thematic Groups</h1>
+        <p class="text-gray-600 text-lg mb-12 text-center max-w-3xl mx-auto">
+          Explore creative solution themes with interactive citations and provenance. Hover to preview carousel, click details for full exploration.
+        </p>
+        <div id="carousel-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+      </div>
+    </div>
+
+    <!-- Details View -->
+    <div class="details-view" id="details-view">
+      <div id="details-content"></div>
+    </div>
+  </div>
+
+  <button class="scroll-indicator" id="scroll-indicator">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script>
+    const AUTOPLAY_INTERVAL = 2000;
+    const groupData = Array.isArray(idea_curation_test) ? idea_curation_test : [];
+
+    const qs = (sel, el = document) => el.querySelector(sel);
+    const qsa = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+
+    const overviewView = qs("#overview-view");
+    const detailsView = qs("#details-view");
+    const scrollIndicator = qs("#scroll-indicator");
+
+    function showDetailsView() {
+      overviewView.classList.add("hidden");
+      detailsView.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function showOverviewView() {
+      overviewView.classList.remove("hidden");
+      detailsView.classList.remove("active");
+      document.body.style.overflow = "auto";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollIndicator.classList.add("show");
+      } else {
+        scrollIndicator.classList.remove("show");
+      }
+    });
+
+    scrollIndicator.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Markdown parsing function
+    function parseMarkdown(text) {
+      if (!text) return '';
+      
+      return text
+        // Headers
+        .replace(/^### (.*$)/gim, '<h3 class="text-lg font-bold text-gray-800 mb-2 mt-3">$1</h3>')
+        .replace(/^## (.*$)/gim, '<h2 class="text-xl font-bold text-gray-800 mb-3 mt-4">$1</h2>')
+        .replace(/^# (.*$)/gim, '<h1 class="text-2xl font-bold text-gray-800 mb-4 mt-5">$1</h1>')
+        
+        // Bold and italic
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/__(.*?)__/g, '<strong>$1</strong>')
+        .replace(/_(.*?)_/g, '<em>$1</em>')
+        
+        // Strikethrough
+        .replace(/~~(.*?)~~/g, '<del class="line-through text-gray-500">$1</del>')
+        
+        // Inline code
+        .replace(/`(.*?)`/g, '<code class="bg-gray-100 text-gray-800 px-1 py-0.5 rounded text-sm font-mono">$1</code>')
+        
+        // Links
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 hover:text-blue-800 underline" target="_blank" rel="noopener noreferrer">$1</a>')
+        
+        // Blockquotes
+        .replace(/^> (.*$)/gim, '<blockquote class="border-l-4 border-gray-300 pl-4 my-3 italic text-gray-600">$1</blockquote>')
+        
+        // Code blocks (simple)
+        .replace(/```([\s\S]*?)```/g, '<pre class="bg-gray-100 p-3 rounded my-3 overflow-x-auto"><code class="text-sm font-mono">$1</code></pre>')
+        
+        // Lists - handle both ordered and unordered lists properly
+        .replace(/^(\d+\.\s+)(.*)$/gm, '<li class="mb-1">$1$2</li>')
+        .replace(/^[-*+]\s+(.*)$/gm, '<li class="mb-1">$1</li>')
+        
+        // Wrap consecutive list items in proper list containers
+        .replace(/(<li[^>]*>.*<\/li>)/s, function(match) {
+          // Check if it's an ordered list (contains numbers)
+          if (match.match(/\d+\./)) {
+            return '<ol class="list-decimal ml-6 my-2 space-y-1">' + match + '</ol>';
+          } else {
+            return '<ul class="list-disc ml-6 my-2 space-y-1">' + match + '</ul>';
+          }
+        })
+        
+        // Paragraphs - handle line breaks and paragraphs
+        .replace(/\n\n/g, '</p><p class="mb-3">')
+        .replace(/^(.+)$/gm, '<p class="mb-3">$1</p>')
+        .replace(/<p class="mb-3"><\/p>/g, '')
+        .replace(/<p class="mb-3"><(ul|ol|h[1-6]|blockquote|pre)>/g, '<$1>')
+        .replace(/<\/(ul|ol|h[1-6]|blockquote|pre)><\/p>/g, '</$1>')
+        .replace(/<p class="mb-3">(<li[^>]*>.*<\/li>)<\/p>/g, '$1')
+        
+        // Clean up empty paragraphs
+        .replace(/<p class="mb-3"><\/p>/g, '')
+        .replace(/<p class="mb-3">\s*<\/p>/g, '');
+    }
+
+    // Citation processing function
+    function processCitations(text, provenanceSources) {
+      if (!text || !provenanceSources) return text;
+      // Replace [1, 8] or [2,3,4] with badges for each number, separated by a space (no comma)
+      return text.replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g, (match, numbers) => {
+        return numbers.split(/\s*,\s*/).map(num => {
+          const sourceIndex = parseInt(num) - 1;
+          if (sourceIndex >= 0 && sourceIndex < provenanceSources.length) {
+            return `<a href="#" class="citation-link" data-source="${sourceIndex}">${num}</a>`;
+          }
+          return num;
+        }).join(' ');
+      });
+    }
+
+    const grid = qs("#carousel-grid");
+
+    groupData.forEach((group, idx) => {
+      const cardWrap = document.createElement("div");
+      cardWrap.className = "flex flex-col items-center";
+
+      const card = document.createElement("div");
+      card.className =
+        "carousel-tile flex flex-col items-center justify-center mb-4 w-full transition-transform duration-200 relative";
+      card.dataset.index = idx;
+
+      card.innerHTML = `
+        <div class="swiper" style="border-radius:1.25rem;overflow:hidden;min-height:180px;">
+          <div class="swiper-wrapper"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <button class="details-button" data-group-index="${idx}">
+          <i class="fas fa-arrow-right mr-2"></i>
+          View Details
+        </button>`;
+
+      cardWrap.appendChild(card);
+      grid.appendChild(cardWrap);
+
+      const groupNameEl = document.createElement("div");
+      groupNameEl.className = "group-name";
+      groupNameEl.textContent = group.group_name;
+      cardWrap.appendChild(groupNameEl);
+
+      const slides = [];
+      slides.push({
+        icon: "fa-bolt",
+        text: group.descriptive_title,
+        slideClass: "slide-theme",
+      });
+      slides.push(
+        {
+          icon: "fa-quote-left",
+          text: group.one_liner_summary,
+          slideClass: "slide-summary",
+        },
+        {
+          icon: "fa-star",
+          text: group.selling_point,
+          slideClass: "slide-selling",
+        },
+        {
+          icon: "fa-lightbulb",
+          text: `${group.curated_ideas.length} Curated Ideas`,
+          slideClass: "slide-ideas",
+          custom: true,
+        }
+      );
+
+      const swiperWrapper = qs(".swiper-wrapper", card);
+      slides.forEach((s) => {
+        const slideEl = document.createElement("div");
+        slideEl.className = `swiper-slide ${s.slideClass}`;
+        if (s.custom) {
+          slideEl.innerHTML = `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl idea-sparks-text mb-2">${s.text}</span>`;
+        } else {
+          slideEl.innerHTML = `<span class="text-4xl mb-3"><i class="fas ${s.icon}"></i></span><span class="block text-xl font-bold mb-2">${s.text}</span>`;
+        }
+        swiperWrapper.appendChild(slideEl);
+      });
+
+      initCardInteractions(card, group, idx);
+    });
+
+    function initCardInteractions(card, group, groupIndex) {
+      const paginationEl = qs(".swiper-pagination", card);
+      const detailsButton = qs(".details-button", card);
+
+      const swiper = new Swiper(qs(".swiper", card), {
+        slidesPerView: 1,
+        effect: "fade",
+        fadeEffect: { crossFade: true },
+        pagination: {
+          el: paginationEl,
+          clickable: true,
+        },
+        allowTouchMove: true,
+        speed: 400,
+        autoHeight: true,
+      });
+
+      let autoplayId = null;
+      let manualDotClick = false;
+
+      function startAutoplay() {
+        if (autoplayId) return;
+        autoplayId = setInterval(() => {
+          const next =
+            swiper.activeIndex === swiper.slides.length - 1 ? 0 : swiper.activeIndex + 1;
+          swiper.slideTo(next, 400);
+        }, AUTOPLAY_INTERVAL);
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayId);
+        autoplayId = null;
+      }
+
+      function resetToFirst() {
+        swiper.slideTo(0, 400);
+      }
+
+      card.addEventListener("mouseenter", () => {
+        startAutoplay();
+      });
+
+      card.addEventListener("mouseleave", () => {
+        stopAutoplay();
+        if (!manualDotClick) resetToFirst();
+        setTimeout(() => {
+          manualDotClick = false;
+        }, 600);
+      });
+
+      paginationEl.addEventListener('mouseenter', () => {       
+        manualDotClick = true;
+        stopAutoplay();
+      });
+
+      paginationEl.addEventListener("click", (e) => {
+        if (e.target.classList.contains("swiper-pagination-bullet")) {
+          manualDotClick = true;
+          stopAutoplay();
+          e.stopPropagation();
+        }
+      });
+
+      detailsButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stopAutoplay();
+        openDetailsView(group);
+      });
+    }
+
+    function openDetailsView(group) {
+      const detailsContent = qs("#details-content");
+      
+      let curatedIdeasHtml = '';
+      group.curated_ideas.forEach((idea, idx) => {
+        // Process citations in text fields
+        const conceptDescription = processCitations(idea.concept_description, idea.provenance?.provenance_sources);
+        const howItWorks = processCitations(idea.how_it_works, idea.provenance?.provenance_sources);
+        const inspirationSummary = processCitations(idea.inspiration_summary, idea.provenance?.provenance_sources);
+
+        curatedIdeasHtml += `
+          <div class="curated-idea-card">
+            <span class="idea-number-badge">${idx + 1}</span>
+            <h3 class="curated-idea-title">
+              <i class="fas fa-lightbulb text-yellow-500"></i>
+              ${idea.idea_title}
+            </h3>
+            ${idea.subtitle ? `<div class="idea-subtitle">${idea.subtitle}</div>` : ''}
+            
+            <div class="idea-content-section">
+              <div class="idea-content-label">
+                <i class="fas fa-atom text-blue-500"></i>
+                Concept Description
+              </div>
+              <div class="idea-content-text concept-description markdown-content">
+                ${parseMarkdown(conceptDescription)}
+              </div>
+            </div>
+
+            <div class="idea-content-section">
+              <div class="idea-content-label">
+                <i class="fas fa-cogs text-green-500"></i>
+                How It Works
+              </div>
+              <div class="idea-content-text how-it-works markdown-content">
+                ${parseMarkdown(howItWorks)}
+              </div>
+            </div>
+
+            <div class="idea-content-section">
+              <div class="idea-content-label">
+                <i class="fas fa-lightbulb text-yellow-500"></i>
+                Inspiration Summary
+              </div>
+              <div class="idea-content-text inspiration-summary markdown-content">
+                ${parseMarkdown(inspirationSummary)}
+              </div>
+            </div>
+
+            ${idea.key_questions_and_assumptions && idea.key_questions_and_assumptions.length > 0 ? `
+              <div class="idea-content-section">
+                <div class="idea-content-label">
+                  <i class="fas fa-question-circle text-purple-500"></i>
+                  Key Questions & Assumptions
+                </div>
+                <div class="idea-content-text key-questions markdown-content">
+                  <ul>
+                    ${idea.key_questions_and_assumptions.map(q => `<li>${parseMarkdown(processCitations(q, idea.provenance?.provenance_sources))}</li>`).join('')}
+                  </ul>
+                </div>
+              </div>
+            ` : ''}
+
+            ${idea.provenance ? `
+              <div class="idea-content-section">
+                <div class="idea-content-label">
+                  <i class="fas fa-microscope text-indigo-500"></i>
+                  Research Provenance
+                </div>
+                <div class="idea-content-text provenance-synthesis markdown-content" style="margin-bottom:1.2rem;">
+                  <button class="toggle-synthesis-btn text-sm text-blue-700 underline mb-2" style="display:block;">Show Overall Synthesis</button>
+                  <div class="synthesis-content" style="display:none;">
+                    <strong>Overall Synthesis:</strong> ${idea.provenance.overall_synthesis}
+                  </div>
+                </div>
+                <div class="provenance-sources">
+                  ${idea.provenance.provenance_sources.map((source, sourceIdx) => `
+                    <div class="provenance-source-accordion">
+                      <button class="accordion-header flex items-center w-full py-2 px-3 rounded bg-gray-100 hover:bg-gray-200 focus:outline-none" data-accordion="${sourceIdx}">
+                        <span class="font-semibold text-indigo-700">Source [${sourceIdx + 1}]</span>
+                        ${source.web_snippet_url ? `<a href="${source.web_snippet_url}" class="ml-2 text-blue-600 underline text-sm" target="_blank">[link]</a>` : ''}
+                        <span class="ml-auto"><i class="fas fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-content hidden mt-2">
+                        <div class="mb-2">
+                          <span class="block font-bold text-gray-700 mb-1">Core Principle for Inspiration</span>
+                          <div class="source-principle">${source.inspiring_principle}</div>
+                        </div>
+                        <div class="mb-2">
+                          <span class="block font-bold text-gray-700 mb-1">Key Evidence Snippets</span>
+                          <div class="source-snippets">
+                            ${source.evidentiary_snippets.map(snippet => `<div class="source-snippet">“${snippet}”</div>`).join('')}
+                          </div>
+                        </div>
+                        <div class="mb-2">
+                          <span class="block font-bold text-gray-700 mb-1">Analogical Leap</span>
+                          <div class="source-leap">${source.analogical_leap}</div>
+                        </div>
+                        <div class="mb-2 text-xs text-gray-500 italic">${source.source_domain_summary}</div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+
+      detailsContent.innerHTML = `
+        <div class="details-header">
+          <div class="details-header-main">
+            <span class="details-group-title">
+              ${group.group_name}
+            </span>
+            <div class="details-group-summary">${group.group_summary}</div>
+          </div>
+          <div class="details-header-actions">
+            <div class="details-header-actions-row" style="margin-bottom: 0.5rem;">
+              <button class="back-button" id="back-button">
+                <i class="fas fa-arrow-left"></i>
+                Back to Overview
+              </button>
+            </div>
+            <div class="details-header-actions-row">
+              <span class="details-idea-count">
+                <i class="fas fa-lightbulb"></i>
+                ${group.curated_ideas.length} Curated Idea${group.curated_ideas.length !== 1 ? 's' : ''}
+              </span>
+              <button class="export-btn" id="export-group-btn" title="Download JSON">
+                <i class="fas fa-download"></i>
+              </button>
+              <button class="clipboard-btn" id="clipboard-group-btn" title="Copy JSON to Clipboard">
+                <i class="fas fa-clipboard"></i>
+                <span class="clipboard-tooltip">Copied!</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="curated-ideas-container">
+          ${curatedIdeasHtml}
+        </div>
+      `;
+
+      showDetailsView();
+
+      qs('#back-button', detailsContent).onclick = showOverviewView;
+
+      const exportBtn = qs('#export-group-btn', detailsContent);
+      const clipboardBtn = qs('#clipboard-group-btn', detailsContent);
+      if (exportBtn) {
+        exportBtn.onclick = function() {
+          const groupCopy = JSON.parse(JSON.stringify(group));
+          const groupData = JSON.stringify(groupCopy, null, 2);
+          const blob = new Blob([groupData], {type: 'application/json'});
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          const safeName = (group.group_name || 'group').replace(/[^a-z0-9]+/gi, '_').toLowerCase();
+          a.download = `group_export_${safeName}.json`;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          }, 100);
+        };
+      }
+      if (clipboardBtn) {
+        clipboardBtn.onclick = async function() {
+          try {
+            const groupCopy = JSON.parse(JSON.stringify(group));
+            await navigator.clipboard.writeText(JSON.stringify(groupCopy, null, 2));
+            clipboardBtn.classList.add('copied');
+            setTimeout(() => clipboardBtn.classList.remove('copied'), 1200);
+          } catch (err) {
+            alert('Failed to copy to clipboard');
+          }
+        };
+      }
+    }
+
+    overviewView.classList.remove("hidden");
+    detailsView.classList.remove("active");
+  </script>
+</body>
+</html> 
