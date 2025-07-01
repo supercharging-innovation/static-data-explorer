@@ -1156,6 +1156,23 @@
       border-radius: 2px;
       margin: 1rem 0 1rem 0;
     }
+
+    .provenance-source-body {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 1.7rem;
+      padding-right: 1.7rem;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s, padding 0.4s;
+    }
+    .provenance-source-body.active {
+      max-height: 1000px;
+      opacity: 1;
+      padding-top: 1.35rem;
+      padding-bottom: 1.35rem;
+    }
   </style>
   <script src="../../data/idea_curation_provenance_test.js"></script>
 </head>
@@ -1626,7 +1643,7 @@
                     </div>
                     <span class="provenance-chevron" style="color: #2563eb; font-size: 1.2rem; transition: transform 0.3s;"><i class="fas fa-chevron-right"></i></span>
                   </div>
-                  <div class="provenance-source-body" style="padding: 1.35rem 1.7rem 1.35rem 1.7rem; display: none; animation: fadeIn 0.5s;">
+                  <div class="provenance-source-body">
                     ${source.web_snippet_url ? `<div class="provenance-url" style="font-size:0.97rem; font-weight: 500; margin-bottom:0.5em; margin-top:0.1em;"><a href="${source.web_snippet_url}" style="color: #2563eb; text-decoration: underline; word-break: break-all;" target="_blank">${source.web_snippet_url}</a></div>` : ''}
                     <div style="background: #eaf3fb; color: #232946; border-radius: 0.5rem; padding: 0.7em 0.9em; margin-bottom: 0.8rem; font-size: 0.99rem; font-family: inherit; font-style: normal;">${parseMarkdown(source.source_domain_summary)}</div>
                     <div style="margin-bottom: 0.7rem;">
@@ -1662,6 +1679,26 @@
     }
 
     function setupProvenanceAccordions() {
+      // Function to scroll to a card immediately (for already expanded cards)
+      function scrollToCard(cardIndex) {
+        const allCards = document.querySelectorAll('.provenance-source-card');
+        if (cardIndex >= 0 && cardIndex < allCards.length) {
+          const card = allCards[cardIndex];
+          const headerHeight = 140; // sticky header height
+          const cardTop = card.getBoundingClientRect().top + window.scrollY;
+          const cardHeight = card.offsetHeight;
+          const viewportHeight = window.innerHeight;
+          let targetScrollY = cardTop - headerHeight - 16; // add extra offset
+          // If card is too tall for viewport, align to top; else, center if possible
+          if (cardHeight < viewportHeight - headerHeight - 32) {
+            // Center the card if possible
+            targetScrollY = cardTop - headerHeight - ((viewportHeight - headerHeight - cardHeight) / 2);
+            if (targetScrollY < 0) targetScrollY = 0;
+          }
+          window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+        }
+      }
+
       // Unified function to expand a source card with consistent styling and scrolling
       function expandSourceCard(cardIndex, shouldScroll = true) {
         const allCards = document.querySelectorAll('.provenance-source-card');
@@ -1669,36 +1706,28 @@
         const allChevrons = document.querySelectorAll('.provenance-chevron');
         // Collapse all cards first
         allBodies.forEach((b, i) => {
-          b.style.display = 'none';
+          b.classList.remove('active');
           if (allChevrons[i]) allChevrons[i].style.transform = '';
-          if (allCards[i]) allCards[i].style.background = '#fff';
+          if (allCards[i]) {
+            allCards[i].style.background = '#fff';
+            allCards[i].style.borderLeft = '1.5px solid #e0e7ef';
+          }
         });
         // Expand the target card
         if (cardIndex >= 0 && cardIndex < allCards.length) {
           const card = allCards[cardIndex];
           const body = allBodies[cardIndex];
           const chevron = allChevrons[cardIndex];
-          body.style.display = 'block';
+          body.classList.add('active');
           if (chevron) chevron.style.transform = 'rotate(90deg)';
-          card.style.background = '#f4f8ff';
+          card.style.background = '#fff';
+          card.style.borderLeft = '7px solid #2563eb';
           // Scroll to card if requested
           if (shouldScroll) {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                const headerHeight = 140; // sticky header height
-                const cardTop = card.getBoundingClientRect().top + window.scrollY;
-                const cardHeight = card.offsetHeight;
-                const viewportHeight = window.innerHeight;
-                let targetScrollY = cardTop - headerHeight - 16; // add extra offset
-                // If card is too tall for viewport, align to top; else, center if possible
-                if (cardHeight < viewportHeight - headerHeight - 32) {
-                  // Center the card if possible
-                  targetScrollY = cardTop - headerHeight - ((viewportHeight - headerHeight - cardHeight) / 2);
-                  if (targetScrollY < 0) targetScrollY = 0;
-                }
-                window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
-              });
-            });
+            // Wait for the transition to complete before scrolling
+            setTimeout(() => {
+              scrollToCard(cardIndex);
+            }, 550); // Wait for transition (500ms) + small buffer
           }
         }
       }
@@ -1708,7 +1737,7 @@
         header.onclick = function() {
           const card = header.closest('.provenance-source-card');
           const body = card.querySelector('.provenance-source-body');
-          const isOpen = body.style.display === 'block';
+          const isOpen = body.classList.contains('active');
           
           // Use unified expansion logic
           if (!isOpen) {
@@ -1720,8 +1749,9 @@
         };
       });
       
-      // Make expandSourceCard available globally for citation popover use
+      // Make functions available globally for citation popover use
       window.expandSourceCard = expandSourceCard;
+      window.scrollToCard = scrollToCard;
     }
 
     function parseMarkdown(text) {
@@ -1891,8 +1921,17 @@
     // --- Citation Popover Logic ---
     function setupCitationPopovers(idea) {
       // Remove any existing popover
-      function removePopover() {
+      function removePopover(collapseSource = true) {
         const existing = document.querySelector('.citation-popover');
+        if (existing && collapseSource) {
+          // Get the citation number to collapse the corresponding source
+          const citationBadge = existing.querySelector('.citation-badge');
+          if (citationBadge) {
+            const num = parseInt(citationBadge.textContent.trim());
+            // Collapse the source card when popover is closed without clicking button
+            window.expandSourceCard(-1, false); // Collapse all
+          }
+        }
         if (existing) existing.remove();
         const backdrop = document.querySelector('.popover-backdrop');
         if (backdrop) backdrop.remove();
@@ -1986,18 +2025,18 @@
           
           // Close logic
           const closeBtn = pop.querySelector('.popover-close');
-          closeBtn.addEventListener('click', removePopover);
-          backdrop.addEventListener('click', removePopover);
+          closeBtn.addEventListener('click', () => removePopover(true)); // Collapse when X is clicked
+          backdrop.addEventListener('click', () => removePopover(true)); // Collapse when backdrop is clicked
           document.addEventListener('mousedown', handleOutsideClick, true);
           
-          // Button logic - with better event handling
+          // Button logic - immediate scroll since card is already expanded
           const actionBtn = pop.querySelector('.popover-btn');
           actionBtn.addEventListener('click', function(ev) {
             ev.stopPropagation();
             ev.preventDefault();
-            removePopover();
-            // Use the unified expansion function
-            window.expandSourceCard(num - 1, true);
+            removePopover(false); // Don't collapse when button is clicked
+            // Card is already expanded, scroll to it immediately without delay
+            window.scrollToCard(num - 1);
           });
         };
       });
