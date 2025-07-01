@@ -1290,18 +1290,19 @@
         
         ${idea.provenance ? `
           <div class="section-card slide-up" data-section="provenance" style="animation-delay: 0.5s; border-top: 4px solid #2563eb;">
-            <div class="section-header" style="margin-bottom: 1.5rem; color: #2563eb;">
+            <div class="section-header" style="margin-bottom: 1.5rem;">
               <i class="section-icon fas fa-book-open" style="color: #2563eb;"></i>
               Sources
               <span style="background: #2563eb; color: #fff; font-size: 0.98rem; font-weight: 700; padding: 0.18em 0.8em; border-radius: 0.8em; margin-left: 0.7em;">${idea.provenance.provenance_sources.length}</span>
             </div>
             <div class="section-content" id="provenance-sources-list">
               ${idea.provenance.provenance_sources.map((source, idx) => `
-                <div class="provenance-source-card" style="background: #fff; border-radius: 1.1rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 2rem;">
-                  <div class="provenance-source-header" data-source-idx="${idx}" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 1.2rem 1.7rem 1.2rem 1.3rem; border-bottom: 1px solid #f3f4f6; border-radius: 1.1rem 1.1rem 0 0;">
+                <div class="provenance-source-card" style="background: #f4f8ff; border-radius: 1.2rem; box-shadow: 0 4px 18px rgba(37,99,235,0.08), 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 2rem; border-left: 7px solid #2563eb; border: 1.5px solid #e0e7ef; position: relative;">
+                  <div class="provenance-source-header" data-source-idx="${idx}" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 1.2rem 1.7rem 1.2rem 1.3rem; border-bottom: 1px solid #e3e8f0; border-radius: 1.2rem 1.2rem 0 0; background: transparent;">
                     <div style="display: flex; align-items: center; gap: 1rem;">
+                      <i class="fas fa-book-open" style="color: #2563eb; font-size: 1.15rem; margin-right: 0.5em;"></i>
                       <span class="provenance-badge" style="background: #eef2ff; color: #2563eb; font-size: 1.08rem; font-weight: 500; padding: 0.38rem 1.1rem; border-radius: 0.7rem; min-width: 2.2rem; text-align: center; display: inline-block; box-shadow: 0 1px 4px #2563eb1a; letter-spacing: 0.01em;">${idx + 1}</span>
-                      ${source.web_snippet_title ? `<span class="provenance-title" style="font-size:1.08rem; font-weight:700; color:#232946; margin-left:0.7em;">${source.web_snippet_title}</span>` : ''}
+                      ${source.web_snippet_title ? `<span class="provenance-title" style="font-size:1.08rem; font-weight:500; color:#232946; margin-left:0.7em;">${source.web_snippet_title}</span>` : ''}
                     </div>
                     <span class="provenance-chevron" style="color: #2563eb; font-size: 1.2rem; transition: transform 0.3s;"><i class="fas fa-chevron-right"></i></span>
                   </div>
