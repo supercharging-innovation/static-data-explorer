@@ -4,50 +4,399 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Abstraction Explorer — Minimal‑Carrier Restoration</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root { --bg:#0b1025; --panel:#0f172a; --card:#0c132b; --text:#e5e7eb; --muted:#94a3b8; --line:#1f2937; --accent:#22c55e; }
+:root { 
+  --bg: #fafafa; 
+  --panel: #ffffff; 
+  --card: #ffffff; 
+  --text: #1a1a1a; 
+  --muted: #6b7280; 
+  --line: #e5e7eb; 
+  --accent: #3b82f6; 
+  --accent-light: #60a5fa;
+  --accent-dark: #2563eb;
+  --yellow-light: #fef3c7;
+  --yellow-medium: #fde68a;
+  --yellow-dark: #f59e0b;
+  --green-light: #d1fae5;
+  --green-medium: #a7f3d0;
+  --green-dark: #10b981;
+  --blue-light: #dbeafe;
+  --blue-medium: #bfdbfe;
+  --blue-dark: #3b82f6;
+  --purple-light: #e9d5ff;
+  --purple-medium: #c4b5fd;
+  --purple-dark: #8b5cf6;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-header{position:sticky;top:0;background:#0b1025;border-bottom:1px solid var(--line);z-index:5}
-.wrap{max-width:1200px;margin:0 auto;padding:16px}
-h1{margin:4px 0 6px 0;font-size:22px}
-.sub{color:var(--muted);font-size:13px;line-height:1.4}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-input[type=search],select{background:var(--card);border:1px solid var(--line);color:var(--text);padding:10px;border-radius:10px}
-main .wrap{padding-top:16px}
-.grid{overflow:auto;border:1px solid var(--line);border-radius:12px}
-table{border-collapse:separate;border-spacing:0;width:100%;min-width:900px}
-th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-th:last-child, td:last-child{border-right:none}
-th{position:sticky;top:0;background:#0f172a;padding:10px;font-size:12px;text-align:left;color:#cbd5e1}
-thead th:first-child{left:0;z-index:2}
-tbody th{position:sticky;left:0;background:#0f172a;color:#cbd5e1;font-weight:600}
-td{padding:10px;font-size:12px;vertical-align:top;background:#0c132b}
-td .cell{cursor:pointer;display:block}
-td .cell:hover{outline:1px dashed #334155}
-.axisTag,.elemTag{display:inline-block;background:#142036;border:1px solid #1f2a44;color:#cbd5e1;padding:2px 8px;border-radius:999px;font-size:11px;margin-right:6px}
-.panel{margin-top:16px;display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
-.card{background:linear-gradient(180deg,#0f192f,#0a1226);border:1px solid var(--line);border-radius:14px;padding:14px}
-.card h3{margin:0 0 6px 0;font-size:16px}
-.small{color:var(--muted);font-size:12px}
-.kv{margin:8px 0}
-.footer{color:var(--muted);font-size:12px;margin-top:12px}
-.btn{background:#1f2937;border:1px solid #334155;color:#e5e7eb;padding:8px 12px;border-radius:8px;font-size:13px;cursor:pointer}
-.btn:hover{background:#273449}
-.highlight{color:#bbf7d0}
-.badge{background:#173a2d;border:1px solid #1c3d31;color:#bbf7d0;padding:2px 6px;border-radius:6px;font-size:11px}
+html,body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  line-height:1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header{
+  position:sticky;
+  top:0;
+  background:var(--panel);
+  border-bottom:1px solid var(--line);
+  z-index:5;
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,0.95);
+}
+
+.wrap{
+  max-width:1400px;
+  margin:0 auto;
+  padding:24px;
+}
+
+h1{
+  margin:0 0 8px 0;
+  font-size:32px;
+  font-weight:700;
+  color:var(--text);
+  letter-spacing:-0.025em;
+  line-height:1.2;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.5;
+  margin-bottom:24px;
+}
+
+.highlight{
+  color:var(--accent-dark);
+  font-weight:600;
+  background:var(--green-light);
+  padding:3px 8px;
+  border-radius:6px;
+  border:1px solid var(--green-medium);
+}
+
+.controls{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:20px;
+  align-items:center;
+}
+
+input[type=search],select{
+  background:var(--card);
+  border:2px solid var(--line);
+  color:var(--text);
+  padding:12px 16px;
+  border-radius:12px;
+  font-size:14px;
+  transition:all 0.2s ease;
+  min-width:200px;
+}
+
+input[type=search]:focus,select:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.btn{
+  background:var(--accent);
+  border:none;
+  color:white;
+  padding:12px 20px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:500;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.btn:hover{
+  background:var(--accent-dark);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-lg);
+}
+
+main .wrap{
+  padding-top:32px;
+}
+
+.grid{
+  overflow:auto;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+}
+
+table{
+  border-collapse:separate;
+  border-spacing:0;
+  width:100%;
+  min-width:900px;
+}
+
+th,td{
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+th:last-child, td:last-child{
+  border-right:none;
+}
+
+th{
+  position:sticky;
+  top:0;
+  background:var(--blue-light);
+  padding:20px 16px;
+  font-size:14px;
+  text-align:left;
+  color:var(--text);
+  font-weight:600;
+  z-index:2;
+  min-width: 180px;
+  max-width: 250px;
+}
+
+thead th:first-child{
+  left:0;
+  z-index:3;
+  background:var(--yellow-light);
+  min-width: 200px;
+}
+
+tbody th{
+  position:sticky;
+  left:0;
+  background:var(--yellow-light);
+  color:var(--text);
+  font-weight:600;
+  z-index:1;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+td{
+  padding:20px 16px;
+  font-size:14px;
+  vertical-align:top;
+  background:var(--card);
+  transition:all 0.2s ease;
+  min-width: 180px;
+  max-width: 250px;
+}
+
+td .cell{
+  cursor:pointer;
+  display:block;
+  padding:16px;
+  border-radius:12px;
+  transition:all 0.3s ease;
+  border:1px solid transparent;
+  line-height:1.6;
+}
+
+td .cell:hover{
+  background:var(--blue-light);
+  border-color:var(--accent);
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-lg);
+}
+
+.axisTag,.elemTag{
+  display:inline-block;
+  background:var(--yellow-light);
+  border:1px solid var(--yellow-medium);
+  color:var(--text);
+  padding:8px 14px;
+  border-radius:20px;
+  font-size:12px;
+  margin:4px 8px 4px 0;
+  font-weight:600;
+  transition:all 0.2s ease;
+  letter-spacing: 0.025em;
+}
+
+.axisTag:hover,.elemTag:hover{
+  background:var(--yellow-medium);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-md);
+}
+
+.axisTag{
+  background:var(--green-light);
+  border-color:var(--green-medium);
+  color:var(--green-dark);
+}
+
+.panel{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:24px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:24px;
+  box-shadow:var(--shadow);
+  transition:all 0.2s ease;
+}
+
+.card:hover{
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-2px);
+}
+
+.card h3{
+  margin:0 0 12px 0;
+  font-size:18px;
+  font-weight:600;
+  color:var(--text);
+}
+
+.small{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  font-weight:400;
+}
+
+.kv{
+  margin:12px 0;
+  padding:16px;
+  background:var(--green-light);
+  border-radius:8px;
+  border-left:3px solid var(--accent);
+}
+
+.footer{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:24px;
+  text-align:center;
+  padding:16px;
+  background:var(--yellow-light);
+  border-radius:8px;
+  border:1px solid var(--yellow-medium);
+}
+
+.badge{
+  background:var(--green-light);
+  border:1px solid var(--green-medium);
+  color:var(--green-dark);
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:500;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .wrap {
+    padding: 16px;
+  }
+  
+  .panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  input[type=search], select {
+    min-width: auto;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading animation */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 8px;
+}
+
+/* Search highlight */
+.search-highlight {
+  background: var(--yellow-light);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 500;
+}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <h1>Abstraction Explorer — Minimal‑Carrier Restoration</h1>
+    <h1>🌱 Abstraction Explorer</h1>
     <div class="sub">Explore the <span class="highlight">core problem abstraction</span> and <span class="highlight">manipulation axes</span>. Click any cell for an abstract manipulation note (no solutions).</div>
     <div class="controls">
-      <input id="q" type="search" placeholder="Search axes, elements, notes…" />
-      <select id="axisFilter"><option value="">All axes</option></select>
-      <select id="elemFilter"><option value="">All abstraction elements</option></select>
-      <button id="export" class="btn">Export visible cells (CSV)</button>
+      <input id="q" type="search" placeholder="🔍 Search axes, elements, notes…" />
+      <select id="axisFilter" aria-label="Filter by manipulation axis">
+        <option value="">📊 All axes</option>
+      </select>
+      <select id="elemFilter" aria-label="Filter by abstraction element">
+        <option value="">🧩 All abstraction elements</option>
+      </select>
+      <button id="export" class="btn">
+        📥 Export visible cells (CSV)
+      </button>
     </div>
   </div>
 </header>
@@ -55,27 +404,35 @@ td .cell:hover{outline:1px dashed #334155}
   <div class="wrap">
     <div class="panel">
       <div class="card">
-        <h3>Problem (Concrete)</h3>
+        <h3>🎯 Problem (Concrete)</h3>
         <div class="small">Laundry with less water (kept here only as context — we remain abstract below).</div>
-        <h3 style="margin-top:10px;">Core Abstraction</h3>
-        <div class="kv small"><b>Statement:</b> Restore a functional, delicate, porous substrate from unwanted, variably bound materials while minimizing the mobilizing medium, avoiding reattachment, and meeting defined criteria.</div>
-        <div class="kv small"><b>Roles:</b> Substrate · Contaminant · Carrier · Energy · Environment · Capture · Information · Criteria · Process</div>
-        <div class="kv small"><b>Core contradictions:</b> low carrier ↔ effective removal · gentle ↔ thorough · short time ↔ proper recovery · minimal additives ↔ broad soils</div>
+        <h3 style="margin-top:16px;">🌿 Core Abstraction</h3>
+        <div class="kv small">
+          <strong>Statement:</strong> Restore a functional, delicate, porous substrate from unwanted, variably bound materials while minimizing the mobilizing medium, avoiding reattachment, and meeting defined criteria.
+        </div>
+        <div class="kv small">
+          <strong>Roles:</strong> Substrate · Contaminant · Carrier · Energy · Environment · Capture · Information · Criteria · Process
+        </div>
+        <div class="kv small">
+          <strong>Core contradictions:</strong> low carrier ↔ effective removal · gentle ↔ thorough · short time ↔ proper recovery · minimal additives ↔ broad soils
+        </div>
       </div>
       <div class="card">
-        <h3>How to use this matrix</h3>
+        <h3>💡 How to use this matrix</h3>
         <ol class="small">
-          <li>Select an <b>axis</b> (how you warp the abstraction).</li>
-          <li>Pick an <b>element</b> (what part of the system you’re mutating).</li>
+          <li>Select an <strong>axis</strong> (how you warp the abstraction).</li>
+          <li>Pick an <strong>element</strong> (what part of the system you're mutating).</li>
           <li>Read the abstract note; later convert it to far‑domain scouting prompts.</li>
         </ol>
-        <div class="small">Tip: no domain nouns; think roles, flows, constraints.</div>
+                 <div class="small" style="margin-top:12px; padding:12px; background:var(--yellow-light); border-radius:6px; border:1px solid var(--yellow-medium);">
+           💡 <strong>Tip:</strong> no domain nouns; think roles, flows, constraints.
+         </div>
       </div>
     </div>
 
-    <div class="card" style="margin-top:12px;">
-      <div class="small" id="count"></div>
-      <div class="grid" style="margin-top:8px">
+    <div class="card" style="margin-top:24px;">
+      <div class="small" id="count" style="font-weight:500; color:var(--accent-dark);"></div>
+      <div class="grid" style="margin-top:12px">
         <table id="matrix">
           <thead>
             <tr id="headRow">
@@ -87,79 +444,169 @@ td .cell:hover{outline:1px dashed #334155}
       </div>
     </div>
 
-    <div class="card" id="details" style="display:none">
-      <h3 id="d_title">Selection</h3>
-      <div class="small" id="d_meta"></div>
-      <div class="kv" id="d_note" style="margin-top:8px;"></div>
-      <div class="kv small" style="margin-top:8px;"><span class="badge">Abstract only</span> Use this to craft far‑domain questions later (e.g., “In what systems does &lt;note&gt; occur?”).</div>
-    </div>
 
-    <div class="footer">This tool stays at the abstraction layer; no solutions are suggested here.</div>
+
+    <div class="footer">🌿 This tool stays at the abstraction layer; no solutions are suggested here.</div>
   </div>
 </main>
 
 <script>
 // ===== Data =====
 const AXES = [
-  {id:"temporal",name:"Temporal Reframing",desc:"Move intervention in time: before‑event, continuous, post‑event."},
-  {id:"role",name:"Role Inversion",desc:"Swap agency: substrate active, contaminant active, carrier as structure."},
-  {id:"boundary",name:"Boundary Alteration",desc:"Change operating boundary: where/when interactions are allowed; alter pressure, gravity, composition."},
-  {id:"medium",name:"Medium Transformation",desc:"Change or remove the mobilizing medium; use non‑traditional states."},
-  {id:"scale",name:"Scale Shift",desc:"Operate at micro / macro / system scales instead of bulk."},
-  {id:"objective",name:"Objective Redefinition",desc:"Redefine 'restored' in functional terms; decouple sub‑goals."},
-  {id:"topology",name:"Process Topology Change",desc:"Rewire steps: serial→parallel, centralized→distributed, one‑pass→cyclical."},
-  {id:"energy",name:"Energy Interaction Shift",desc:"Where/how energy is delivered: localized, remote, stored, pulsed."},
-  {id:"lifecycle",name:"Lifecycle Embedding",desc:"Embed restoration into manufacture, use, or end‑of‑life."},
-  {id:"info",name:"Information Integration",desc:"Sense, map, predict; adapt interventions dynamically."}
+  {id:"temporal",name:"Temporal Reframing",desc:"Pre-event prevention, continuous mitigation, post-event reset — shift when intervention occurs."},
+  {id:"role",name:"Role Inversion",desc:"Swap agency: substrate active, contaminant active, carrier as structure — reverse who does what."},
+  {id:"boundary",name:"Boundary Alteration",desc:"Change pressure/gravity/composition; constrain interaction zones — modify operating context."},
+  {id:"medium",name:"Medium Transformation",desc:"Solid/liquid/gas/plasma states; remove medium entirely — transform transport mechanism."},
+  {id:"scale",name:"Scale Shift",desc:"Micro-scale (fibers) vs. macro-scale (bulk) vs. system-scale — change operating granularity."},
+  {id:"objective",name:"Objective Redefinition",desc:"Redefine 'restored' in functional terms; separate sub-goals — shift success criteria."},
+  {id:"topology",name:"Process Topology Change",desc:"Serial→parallel, centralized→distributed, cyclical→one-pass — rewire process structure."},
+  {id:"energy",name:"Energy Interaction Shift",desc:"Localized/remote/stored/pulsed delivery; change energy form — relocate driving force."},
+  {id:"lifecycle",name:"Lifecycle Embedding",desc:"Integrate into manufacture/use/end-of-life — embed restoration as natural transition."},
+  {id:"info",name:"Information Integration",desc:"Sense/map/predict; control intervention precisely — add decision intelligence."}
 ];
 
+// IMPORTANT: element order is fixed to match the previously shared matrix
 const ELEMENTS = [
-  {id:"substrate",name:"Substrate",desc:"The delicate, porous matrix to preserve."},
-  {id:"contaminant",name:"Contaminant",desc:"Unwanted materials bound variably to the substrate."},
-  {id:"carrier",name:"Carrier Medium",desc:"Mobilizing medium (traditionally water) or alternatives."},
-  {id:"energy",name:"Energy Input",desc:"Mechanical/acoustic/thermal/electrical/optical/chemical input."},
-  {id:"process",name:"Process Flow/Sequence",desc:"The choreography of steps and their ordering."},
-  {id:"environment",name:"Environment/Boundary",desc:"Ambient/boundary conditions that shape interactions."},
-  {id:"capture",name:"Capture Medium",desc:"Where removed materials are held to avoid reattachment."},
-  {id:"information",name:"Information Layer",desc:"Sensing/control that guides when/where/how much."},
-  {id:"criteria",name:"Performance Criteria",desc:"What 'restored' means; thresholds to meet."}
+  {id:"substrate",   name:"Substrate",              desc:"The delicate, porous matrix to preserve — the functional structure being restored."},
+  {id:"contaminant", name:"Contaminant",            desc:"Unwanted materials bound variably to the substrate — the target for removal."},
+  {id:"carrier",     name:"Carrier Medium",         desc:"Mobilizing medium (traditionally water) or alternatives — the transport/activation agent."},
+  {id:"energy",      name:"Energy Input",           desc:"Mechanical/acoustic/thermal/electrical/optical/chemical input — the driving force."},
+  {id:"process",     name:"Process Flow/Sequence",  desc:"The choreography of steps and their ordering — the temporal structure."},
+  {id:"environment", name:"Environment/Boundary",    desc:"Ambient/boundary conditions that shape interactions — the operating context."},
+  {id:"capture",     name:"Capture Medium",         desc:"Where removed materials are held to avoid reattachment — the separation barrier."},
+  {id:"information", name:"Information Layer",       desc:"Sensing/control that guides when/where/how much — the decision system."},
+  {id:"criteria",    name:"Performance Criteria",    desc:"What 'restored' means; thresholds to meet — the success definition."}
 ];
+
+// Derived lookups for order-stable rendering and validation
+const ELEMENT_ORDER_INDEX = Object.fromEntries(ELEMENTS.map((e,i)=>[e.id,i]));
+const ELEMENT_BY_ID = Object.fromEntries(ELEMENTS.map(e=>[e.id,e]));
 
 const CURATED = new Map([
-  [["temporal","carrier"], "Carrier exists pre‑event in dormant form within/adjacent to the matrix and activates only when accumulation crosses a threshold."],
-  [["role","contaminant"], "Contaminant possesses properties that bias it to migrate toward a capture path without bulk mobilizing medium."],
-  [["boundary","environment"], "Interventions occur only within a controlled micro‑environment where adhesion energetics shift in favor of release."],
-  [["scale","energy"], "Energy is delivered only at micro‑sites co‑located with detected accumulation, not to the entire matrix."],
-  [["medium","carrier"], "The mobilizing medium is not a bulk liquid film; it's a transformed state (mist, foam, solid particles, gas, plasma)."],
-  [["objective","criteria"], "Restoration is defined by functional thresholds (e.g., odor safety, hygiene) rather than total visible removal."],
-  [["topology","process"], "Multiple micro‑steps operate in parallel, each addressing a narrow role; cumulative effect meets restoration threshold."],
-  [["energy","energy"], "Energy is imparted remotely or stored then released in situ; the substrate need not be agitated globally."],
-  [["lifecycle","substrate"], "The matrix is designed such that restoration occurs as a normal lifecycle transition without a discrete 'wash.'"],
-  [["info","information"], "Sensing maps accumulation and gates interventions; process halts automatically at the desired threshold."]
+  // Temporal Reframing
+  [["temporal","substrate"], "Pre-condition substrate before use to resist change"],
+  [["temporal","contaminant"], "Alter contaminant during deposition so it bonds weakly"],
+  [["temporal","carrier"], "Embed carrier before soiling, latent until triggered"],
+  [["temporal","energy"], "Deliver energy intermittently during use"],
+  [["temporal","process"], "Continuous micro-interventions instead of cycles"],
+  [["temporal","environment"], "Environment cycles between \"clean\" and \"expose\""],
+  [["temporal","capture"], "Capture medium embedded in substrate during use"],
+  [["temporal","information"], "Continuous sensing triggers actions"],
+  [["temporal","criteria"], "Criteria checked continuously"],
+  
+  // Role Inversion
+  [["role","substrate"], "Substrate sheds contaminants actively"],
+  [["role","contaminant"], "Contaminant migrates toward capture"],
+  [["role","carrier"], "Carrier is permanent; substrate temporary"],
+  [["role","energy"], "Energy from contaminant interaction"],
+  [["role","process"], "Contaminant triggers removal"],
+  [["role","environment"], "Environment driven by contaminant"],
+  [["role","capture"], "Capture medium draws contaminant"],
+  [["role","information"], "Contaminant signals control system"],
+  [["role","criteria"], "Judge by absence of contaminant"],
+  
+  // Boundary Alteration
+  [["boundary","substrate"], "Expose only controlled zones"],
+  [["boundary","contaminant"], "Restrict contaminant entry points"],
+  [["boundary","carrier"], "Carrier isolated in micro-zones"],
+  [["boundary","energy"], "Energy across barriers"],
+  [["boundary","process"], "Flow in sealed channels"],
+  [["boundary","environment"], "Shift pressure/gravity/composition"],
+  [["boundary","capture"], "Isolate capture medium"],
+  [["boundary","information"], "Sense without contact"],
+  [["boundary","criteria"], "Boundary-aware criteria"],
+  
+  // Medium Transformation
+  [["medium","substrate"], "Substrate interacts with non-liquid states"],
+  [["medium","contaminant"], "Contaminant responsive to phase change"],
+  [["medium","carrier"], "Carrier as vapor/foam/solid/field"],
+  [["medium","energy"], "Energy changes carrier state"],
+  [["medium","process"], "Non-liquid process steps"],
+  [["medium","environment"], "Non-traditional medium fills boundary"],
+  [["medium","capture"], "Capture medium coexists in carrier phase"],
+  [["medium","information"], "Sensing works in transformed medium"],
+  [["medium","criteria"], "Criteria redefined for medium context"],
+  
+  // Scale Shift
+  [["scale","substrate"], "Treat substrate at fiber-level"],
+  [["scale","contaminant"], "Handle contaminant in micro-packets"],
+  [["scale","carrier"], "Carrier micro-dosed at precise sites"],
+  [["scale","energy"], "Energy to micro-spots only"],
+  [["scale","process"], "Micro-flows replace bulk"],
+  [["scale","environment"], "Micro-environment per element"],
+  [["scale","capture"], "Micro-scale capture"],
+  [["scale","information"], "Micro-sensing"],
+  [["scale","criteria"], "Per-unit criteria aggregation"],
+  
+  // Objective Redefinition
+  [["objective","substrate"], "Functional restoration without full removal"],
+  [["objective","contaminant"], "Target hazardous contaminants only"],
+  [["objective","carrier"], "Carrier optimized for one metric"],
+  [["objective","energy"], "Energy only for goal"],
+  [["objective","process"], "Skip non-critical steps"],
+  [["objective","environment"], "Adjust environment for goal"],
+  [["objective","capture"], "Specialized capture"],
+  [["objective","information"], "Sense key parameters only"],
+  [["objective","criteria"], "Threshold-based cleanliness"],
+  
+  // Process Topology Change
+  [["topology","substrate"], "Many micro-processes in sequence"],
+  [["topology","contaminant"], "Parallel contaminant paths"],
+  [["topology","carrier"], "Carrier at multiple nodes"],
+  [["topology","energy"], "Parallel energy pulses"],
+  [["topology","process"], "Decentralized flow"],
+  [["topology","environment"], "Multiple environment states"],
+  [["topology","capture"], "Distributed capture"],
+  [["topology","information"], "Parallel sensing"],
+  [["topology","criteria"], "Cumulative criteria"],
+  
+  // Energy Interaction Shift
+  [["energy","substrate"], "Store energy in substrate"],
+  [["energy","contaminant"], "Contaminant releases stored energy"],
+  [["energy","carrier"], "Carrier activated remotely"],
+  [["energy","energy"], "Remote/pulsed/stored energy"],
+  [["energy","process"], "Energy-triggered steps"],
+  [["energy","environment"], "Environment boosts energy delivery"],
+  [["energy","capture"], "Energy-activated capture"],
+  [["energy","information"], "Sensing in energy delivery"],
+  [["energy","criteria"], "Criteria tied to energy dose"],
+  
+  // Lifecycle Embedding
+  [["lifecycle","substrate"], "Inherent restoration over lifespan"],
+  [["lifecycle","contaminant"], "Target contaminant at lifecycle events"],
+  [["lifecycle","carrier"], "Carrier replenished in manufacture"],
+  [["lifecycle","energy"], "Energy integrated into lifecycle"],
+  [["lifecycle","process"], "Flow matches lifecycle phases"],
+  [["lifecycle","environment"], "Environment managed over lifecycle"],
+  [["lifecycle","capture"], "Capture regenerated in lifecycle"],
+  [["lifecycle","information"], "Info accumulates over lifecycle"],
+  [["lifecycle","criteria"], "Evolving criteria over time"],
+  
+  // Information Integration
+  [["info","substrate"], "Substrate encodes history"],
+  [["info","contaminant"], "Contaminant tags itself"],
+  [["info","carrier"], "Dynamic carrier control"],
+  [["info","energy"], "Feedback-adaptive energy"],
+  [["info","process"], "Sequence altered by sensing"],
+  [["info","environment"], "Environment tuned real-time"],
+  [["info","capture"], "Capture mode switched via data"],
+  [["info","information"], "Multi-modal sensing"],
+  [["info","criteria"], "Algorithm-adapted criteria"]
 ]);
 
 // ===== Synthesis =====
 function synth(axis, element){
+  // Look up curated note for this axis×element combination
   const key = JSON.stringify([axis.id, element.id]);
-  // Map can't key arrays by value, so compare serialized keys
   for (const [k,v] of CURATED.entries()){
     if (JSON.stringify(k)===key) return v;
   }
-  const a = axis.id, e = element.id;
-  if (a==="temporal") return "Shift when this element acts: pre‑event conditioning, continuous micro‑intervention, or post‑event reset.";
-  if (a==="role") return "Swap agency or responsibility associated with this element to drive separation without bulk medium.";
-  if (a==="boundary") return "Constrain or alter where this element interacts by modifying the boundary conditions to favor release over adhesion.";
-  if (a==="medium") return "Change the state or eliminate reliance on conventional fluids for this element’s participation.";
-  if (a==="scale") return "Move this element’s influence to micro‑structures or to system scale to avoid bulk treatment.";
-  if (a==="objective") return "Reinterpret success criteria so this element aligns to functional rather than cosmetic restoration.";
-  if (a==="topology") return "Rewire the choreography so this element appears in parallel/distributed loops instead of a single batch step.";
-  if (a==="energy") return "Alter how/where energy reaches this element: localized, remote, pulsed, or stored/released.";
-  if (a==="lifecycle") return "Embed this element’s restorative role into manufacture/use/end‑of‑life transitions.";
-  if (a==="info") return "Use sensing/feedback so this element acts only when/where needed with minimal carrier.";
-  return "Abstract manipulation.";
+  
+  // Fallback for any missing combinations (shouldn't happen with complete matrix)
+  return `Manipulation of ${element.name.toLowerCase()} via ${axis.name.toLowerCase()}.`;
 }
 
-// Build cell data
+// Build cell data (axis×element)
 const CELLS = [];
 for (const axis of AXES){
   for (const el of ELEMENTS){
@@ -185,14 +632,34 @@ ELEMENTS.forEach(e => { const o=document.createElement('option'); o.value=e.id; 
 function buildHeaders(elements){
   headRow.innerHTML='';
   const th0=document.createElement('th'); th0.textContent='Manipulation Axis'; headRow.appendChild(th0);
-  elements.forEach(e=>{ const th=document.createElement('th'); th.textContent=e.name; headRow.appendChild(th); });
+  // Deduplicate and keep canonical element order
+  const seen = new Set();
+  elements
+    .filter(e=>{ if(seen.has(e.id)) return false; seen.add(e.id); return true; })
+    .sort((a,b)=>ELEMENT_ORDER_INDEX[a.id]-ELEMENT_ORDER_INDEX[b.id])
+    .forEach(e=>{ 
+      const th=document.createElement('th'); 
+      th.innerHTML=`<div><div>${e.name}</div><div class='small'>${e.desc}</div></div>`; 
+      headRow.appendChild(th); 
+    });
+}
+
+function highlightSearch(text, searchTerm) {
+  if (!searchTerm) return text;
+  const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  return text.replace(regex, '<span class="search-highlight">$1</span>');
 }
 
 function render(){
   const qv = (q.value||'').toLowerCase().trim();
   const af = axisFilter.value; const ef = elemFilter.value;
   const axes = AXES.filter(a => !af || a.id===af).filter(a => !qv || (a.name+' '+a.desc).toLowerCase().includes(qv));
-  const elements = ELEMENTS.filter(e => !ef || e.id===ef).filter(e => !qv || (e.name+' '+e.desc).toLowerCase().includes(qv));
+  // Filter elements but preserve canonical order; ensure uniqueness
+  const elemPool = ELEMENTS.filter(e => !ef || e.id===ef).filter(e => !qv || (e.name+' '+e.desc).toLowerCase().includes(qv));
+  const seen = new Set();
+  const elements = elemPool.filter(e=>{ if(seen.has(e.id)) return false; seen.add(e.id); return true; })
+                           .sort((a,b)=>ELEMENT_ORDER_INDEX[a.id]-ELEMENT_ORDER_INDEX[b.id]);
+
   buildHeaders(elements);
   tbody.innerHTML='';
 
@@ -201,27 +668,18 @@ function render(){
 
   axes.forEach(a => {
     const tr=document.createElement('tr');
-    const th=document.createElement('th'); th.innerHTML=`<div><div>${a.name}</div><div class='small'>${a.desc}</div></div>`; tr.appendChild(th);
+    const th=document.createElement('th'); th.innerHTML=`<div><div>${highlightSearch(a.name, qv)}</div><div class='small'>${highlightSearch(a.desc, qv)}</div></div>`; tr.appendChild(th);
     elements.forEach(e => {
       const td=document.createElement('td');
-      const c=idx[a.id][e.id];
+      const c=(idx[a.id]||{})[e.id] || {note: synth(a, ELEMENT_BY_ID[e.id]), axis:a.name, element:e.name};
       const div=document.createElement('div'); div.className='cell';
       const preview=(c.note||'').length>160 ? (c.note.slice(0,160)+"…") : c.note;
-      div.innerHTML = `<div class='small'><span class='axisTag'>${a.name}</span> <span class='elemTag'>${e.name}</span></div><div style='margin-top:6px;'>${preview}</div>`;
-      div.addEventListener('click', ()=> showDetail(c));
+      div.innerHTML = `<div class='small'><span class='axisTag'>${highlightSearch(a.name, qv)}</span> <span class='elemTag'>${highlightSearch(e.name, qv)}</span></div><div style='margin-top:8px;'>${highlightSearch(preview, qv)}</div>`;
       td.appendChild(div); tr.appendChild(td);
     });
     tbody.appendChild(tr);
   });
   count.textContent = `${axes.length} axis row(s) × ${elements.length} element column(s) → ${axes.length*elements.length} cells`;
-}
-
-function showDetail(c){
-  document.getElementById('details').style.display='block';
-  document.getElementById('d_title').textContent = `${c.axis} × ${c.element}`;
-  document.getElementById('d_meta').innerHTML = `<span class='axisTag'>Axis: ${c.axis}</span> <span class='elemTag'>Element: ${c.element}</span>`;
-  document.getElementById('d_note').textContent = c.note;
-  window.scrollTo({top:document.getElementById('details').offsetTop-80, behavior:'smooth'});
 }
 
 q.addEventListener('input', render);
@@ -246,16 +704,23 @@ document.getElementById('export').addEventListener('click', ()=>{
   const a=document.createElement('a'); a.href=url; a.download='abstraction_explorer_cells.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
 });
 
-// ===== Minimal test cases (console) =====
+// ===== Data Integrity Tests (console) =====
 (function test(){
   console.group("Abstraction Explorer — tests");
-  // 1) synth returns curated text for a curated cell
-  const ax=AXES.find(a=>a.id==='medium'); const el=ELEMENTS.find(e=>e.id==='carrier');
-  console.assert(synth(ax,el).includes('transformed state'), 'synth curated lookup failed');
+  // 0) Element IDs unique and in expected order
+  const ids = ELEMENTS.map(e=>e.id);
+  const dupIds = ids.filter((id,i)=>ids.indexOf(id)!==i);
+  console.assert(dupIds.length===0, 'Element IDs should be unique', dupIds);
+  console.assert(ELEMENTS.map(e=>e.id).join(',')===
+                 'substrate,contaminant,carrier,energy,process,environment,capture,information,criteria',
+                 'Element order should match canonical matrix');
+  // 1) synth returns curated text for curated cell
+  const ax=AXES.find(a=>a.id==='medium'); const elId='carrier';
+  console.assert(synth(ax, ELEMENT_BY_ID[elId]).includes('vapor/foam/solid/field'), 'synth curated lookup failed');
   // 2) CSV generation has header + at least one row
   const csvSample = toCSV(CELLS.slice(0,2));
   console.assert(csvSample.split('\n').length>=2, 'CSV should contain header and rows');
-  // 3) Render count matches axes*elements when no filters
+  // 3) Render then check count
   render();
   const expected = AXES.length * ELEMENTS.length;
   console.assert(document.getElementById('count').textContent.includes(expected.toString()), 'Count text should include full cell count');
