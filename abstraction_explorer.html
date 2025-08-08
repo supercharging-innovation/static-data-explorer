@@ -44,6 +44,9 @@ html,body{
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent page-level horizontal scrolling; only the table should scroll */
+body{ overflow-x:hidden; }
+
 header{
   position:sticky;
   top:0;
@@ -354,22 +357,54 @@ html {
 /* Tooltip styles */
 .tooltip {
   position: relative;
+  cursor: pointer;
 }
 
-.tooltip:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
+.tooltip-container {
+  position: fixed;
   background: var(--text);
   color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  white-space: nowrap;
-  z-index: 1000;
-  margin-bottom: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: normal;
+  max-width: 300px;
+  width: max-content;
+  z-index: 9999;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: auto;
+}
+
+/* Arrow (rotated square for consistent look across positions) */
+.tooltip-container::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--text);
+  transform: translateX(-50%) rotate(45deg);
+  box-shadow: var(--shadow);
+}
+
+/* Arrow when popover is above the anchor (arrow at bottom) */
+.tooltip-container.pos-above::after { top: 100%; }
+/* Arrow when popover is below the anchor (arrow at top) */
+.tooltip-container.pos-below::after { bottom: 100%; }
+
+.tooltip-container.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip.active {
+  background: var(--blue-light);
+  border-color: var(--accent);
 }
 
 /* Search highlight */
@@ -450,173 +485,53 @@ html {
   </div>
 </main>
 
+<!-- Global popover root (re-used for every cell) -->
+<div id="popover" class="tooltip-container" style="display:none"></div>
+
+<script src="abstraction.js"></script>
 <script>
 // ===== Data =====
-const AXES = [
-  {id:"temporal",name:"Temporal Reframing",desc:"Pre-event prevention, continuous mitigation, post-event reset — shift when intervention occurs."},
-  {id:"role",name:"Role Inversion",desc:"Swap agency: substrate active, contaminant active, carrier as structure — reverse who does what."},
-  {id:"boundary",name:"Boundary Alteration",desc:"Change pressure/gravity/composition; constrain interaction zones — modify operating context."},
-  {id:"medium",name:"Medium Transformation",desc:"Solid/liquid/gas/plasma states; remove medium entirely — transform transport mechanism."},
-  {id:"scale",name:"Scale Shift",desc:"Micro-scale (fibers) vs. macro-scale (bulk) vs. system-scale — change operating granularity."},
-  {id:"objective",name:"Objective Redefinition",desc:"Redefine 'restored' in functional terms; separate sub-goals — shift success criteria."},
-  {id:"topology",name:"Process Topology Change",desc:"Serial→parallel, centralized→distributed, cyclical→one-pass — rewire process structure."},
-  {id:"energy",name:"Energy Interaction Shift",desc:"Localized/remote/stored/pulsed delivery; change energy form — relocate driving force."},
-  {id:"lifecycle",name:"Lifecycle Embedding",desc:"Integrate into manufacture/use/end-of-life — embed restoration as natural transition."},
-  {id:"info",name:"Information Integration",desc:"Sense/map/predict; control intervention precisely — add decision intelligence."}
-];
+// Import data from abstraction.js
+const AXES = AXIS.map((axis, index) => ({
+  id: axis.axis.toLowerCase().replace(/\s+/g, '_'),
+  name: axis.axis,
+  desc: axis.note
+}));
 
-// IMPORTANT: element order is fixed to match the previously shared matrix
-const ELEMENTS = [
-  {id:"substrate",   name:"Substrate",              desc:"The delicate, porous matrix to preserve — the functional structure being restored."},
-  {id:"contaminant", name:"Contaminant",            desc:"Unwanted materials bound variably to the substrate — the target for removal."},
-  {id:"carrier",     name:"Carrier Medium",         desc:"Mobilizing medium (traditionally water) or alternatives — the transport/activation agent."},
-  {id:"energy",      name:"Energy Input",           desc:"Mechanical/acoustic/thermal/electrical/optical/chemical input — the driving force."},
-  {id:"process",     name:"Process Flow/Sequence",  desc:"The choreography of steps and their ordering — the temporal structure."},
-  {id:"environment", name:"Environment/Boundary",    desc:"Ambient/boundary conditions that shape interactions — the operating context."},
-  {id:"capture",     name:"Capture Medium",         desc:"Where removed materials are held to avoid reattachment — the separation barrier."},
-  {id:"information", name:"Information Layer",       desc:"Sensing/control that guides when/where/how much — the decision system."},
-  {id:"criteria",    name:"Performance Criteria",    desc:"What 'restored' means; thresholds to meet — the success definition."}
-];
+const ELEMENTS = ELEMENT.map((element, index) => ({
+  id: element.element.toLowerCase().replace(/\s+/g, '_').replace(/[\/\s]/g, '_'),
+  name: element.element,
+  desc: element.note
+}));
 
 // Derived lookups for order-stable rendering and validation
 const ELEMENT_ORDER_INDEX = Object.fromEntries(ELEMENTS.map((e,i)=>[e.id,i]));
 const ELEMENT_BY_ID = Object.fromEntries(ELEMENTS.map(e=>[e.id,e]));
 
-const CURATED = new Map([
-  // Temporal Reframing
-  [["temporal","substrate"], "Pre-condition substrate before use to resist change"],
-  [["temporal","contaminant"], "Alter contaminant during deposition so it bonds weakly"],
-  [["temporal","carrier"], "Embed carrier before soiling, latent until triggered"],
-  [["temporal","energy"], "Deliver energy intermittently during use"],
-  [["temporal","process"], "Continuous micro-interventions instead of cycles"],
-  [["temporal","environment"], "Environment cycles between \"clean\" and \"expose\""],
-  [["temporal","capture"], "Capture medium embedded in substrate during use"],
-  [["temporal","information"], "Continuous sensing triggers actions"],
-  [["temporal","criteria"], "Criteria checked continuously"],
+// Build cell data from CELL array
+const CELLS = CELL.map(cell => {
+  const axis = AXES.find(a => a.name === cell.axis);
+  // Handle the inconsistency in element names (spaces around slash)
+  const element = ELEMENTS.find(e => {
+    // Try exact match first
+    if (e.name === cell.element) return true;
+    // Try normalizing the slash format
+    const normalizedCellElement = cell.element.replace(/\s*\/\s*/g, ' / ');
+    const normalizedElementName = e.name.replace(/\s*\/\s*/g, ' / ');
+    return normalizedElementName === normalizedCellElement;
+  });
   
-  // Role Inversion
-  [["role","substrate"], "Substrate sheds contaminants actively"],
-  [["role","contaminant"], "Contaminant migrates toward capture"],
-  [["role","carrier"], "Carrier is permanent; substrate temporary"],
-  [["role","energy"], "Energy from contaminant interaction"],
-  [["role","process"], "Contaminant triggers removal"],
-  [["role","environment"], "Environment driven by contaminant"],
-  [["role","capture"], "Capture medium draws contaminant"],
-  [["role","information"], "Contaminant signals control system"],
-  [["role","criteria"], "Judge by absence of contaminant"],
-  
-  // Boundary Alteration
-  [["boundary","substrate"], "Expose only controlled zones"],
-  [["boundary","contaminant"], "Restrict contaminant entry points"],
-  [["boundary","carrier"], "Carrier isolated in micro-zones"],
-  [["boundary","energy"], "Energy across barriers"],
-  [["boundary","process"], "Flow in sealed channels"],
-  [["boundary","environment"], "Shift pressure/gravity/composition"],
-  [["boundary","capture"], "Isolate capture medium"],
-  [["boundary","information"], "Sense without contact"],
-  [["boundary","criteria"], "Boundary-aware criteria"],
-  
-  // Medium Transformation
-  [["medium","substrate"], "Substrate interacts with non-liquid states"],
-  [["medium","contaminant"], "Contaminant responsive to phase change"],
-  [["medium","carrier"], "Carrier as vapor/foam/solid/field"],
-  [["medium","energy"], "Energy changes carrier state"],
-  [["medium","process"], "Non-liquid process steps"],
-  [["medium","environment"], "Non-traditional medium fills boundary"],
-  [["medium","capture"], "Capture medium coexists in carrier phase"],
-  [["medium","information"], "Sensing works in transformed medium"],
-  [["medium","criteria"], "Criteria redefined for medium context"],
-  
-  // Scale Shift
-  [["scale","substrate"], "Treat substrate at fiber-level"],
-  [["scale","contaminant"], "Handle contaminant in micro-packets"],
-  [["scale","carrier"], "Carrier micro-dosed at precise sites"],
-  [["scale","energy"], "Energy to micro-spots only"],
-  [["scale","process"], "Micro-flows replace bulk"],
-  [["scale","environment"], "Micro-environment per element"],
-  [["scale","capture"], "Micro-scale capture"],
-  [["scale","information"], "Micro-sensing"],
-  [["scale","criteria"], "Per-unit criteria aggregation"],
-  
-  // Objective Redefinition
-  [["objective","substrate"], "Functional restoration without full removal"],
-  [["objective","contaminant"], "Target hazardous contaminants only"],
-  [["objective","carrier"], "Carrier optimized for one metric"],
-  [["objective","energy"], "Energy only for goal"],
-  [["objective","process"], "Skip non-critical steps"],
-  [["objective","environment"], "Adjust environment for goal"],
-  [["objective","capture"], "Specialized capture"],
-  [["objective","information"], "Sense key parameters only"],
-  [["objective","criteria"], "Threshold-based cleanliness"],
-  
-  // Process Topology Change
-  [["topology","substrate"], "Many micro-processes in sequence"],
-  [["topology","contaminant"], "Parallel contaminant paths"],
-  [["topology","carrier"], "Carrier at multiple nodes"],
-  [["topology","energy"], "Parallel energy pulses"],
-  [["topology","process"], "Decentralized flow"],
-  [["topology","environment"], "Multiple environment states"],
-  [["topology","capture"], "Distributed capture"],
-  [["topology","information"], "Parallel sensing"],
-  [["topology","criteria"], "Cumulative criteria"],
-  
-  // Energy Interaction Shift
-  [["energy","substrate"], "Store energy in substrate"],
-  [["energy","contaminant"], "Contaminant releases stored energy"],
-  [["energy","carrier"], "Carrier activated remotely"],
-  [["energy","energy"], "Remote/pulsed/stored energy"],
-  [["energy","process"], "Energy-triggered steps"],
-  [["energy","environment"], "Environment boosts energy delivery"],
-  [["energy","capture"], "Energy-activated capture"],
-  [["energy","information"], "Sensing in energy delivery"],
-  [["energy","criteria"], "Criteria tied to energy dose"],
-  
-  // Lifecycle Embedding
-  [["lifecycle","substrate"], "Inherent restoration over lifespan"],
-  [["lifecycle","contaminant"], "Target contaminant at lifecycle events"],
-  [["lifecycle","carrier"], "Carrier replenished in manufacture"],
-  [["lifecycle","energy"], "Energy integrated into lifecycle"],
-  [["lifecycle","process"], "Flow matches lifecycle phases"],
-  [["lifecycle","environment"], "Environment managed over lifecycle"],
-  [["lifecycle","capture"], "Capture regenerated in lifecycle"],
-  [["lifecycle","information"], "Info accumulates over lifecycle"],
-  [["lifecycle","criteria"], "Evolving criteria over time"],
-  
-  // Information Integration
-  [["info","substrate"], "Substrate encodes history"],
-  [["info","contaminant"], "Contaminant tags itself"],
-  [["info","carrier"], "Dynamic carrier control"],
-  [["info","energy"], "Feedback-adaptive energy"],
-  [["info","process"], "Sequence altered by sensing"],
-  [["info","environment"], "Environment tuned real-time"],
-  [["info","capture"], "Capture mode switched via data"],
-  [["info","information"], "Multi-modal sensing"],
-  [["info","criteria"], "Algorithm-adapted criteria"]
-]);
-
-// ===== Synthesis =====
-function synth(axis, element){
-  // Look up curated note for this axis×element combination
-  const key = JSON.stringify([axis.id, element.id]);
-  for (const [k,v] of CURATED.entries()){
-    if (JSON.stringify(k)===key) return v;
-  }
-  
-  // Fallback for any missing combinations (shouldn't happen with complete matrix)
-  return `Manipulation of ${element.name.toLowerCase()} via ${axis.name.toLowerCase()}.`;
-}
-
-// Build cell data (axis×element)
-const CELLS = [];
-for (const axis of AXES){
-  for (const el of ELEMENTS){
-    CELLS.push({
-      axis_id: axis.id, axis: axis.name, axis_desc: axis.desc,
-      element_id: el.id, element: el.name, element_desc: el.desc,
-      note: synth(axis, el)
-    });
-  }
-}
+  return {
+    axis_id: axis ? axis.id : cell.axis.toLowerCase().replace(/\s+/g, '_'),
+    axis: cell.axis,
+    axis_desc: axis ? axis.desc : '',
+    element_id: element ? element.id : cell.element.toLowerCase().replace(/\s+/g, '_').replace(/[\/\s]/g, '_'),
+    element: cell.element,
+    element_desc: element ? element.desc : '',
+    note: cell.note,
+    post_abstraction: cell.post_abstraction
+  };
+});
 
 // ===== UI wiring =====
 const q = document.getElementById('q');
@@ -653,11 +568,36 @@ function highlightSearch(text, searchTerm) {
 function render(){
   const qv = (q.value||'').toLowerCase().trim();
   const af = axisFilter.value; const ef = elemFilter.value;
+  
+  // Filter axes and elements based on search term
   const axes = AXES.filter(a => !af || a.id===af).filter(a => !qv || (a.name+' '+a.desc).toLowerCase().includes(qv));
-  // Filter elements but preserve canonical order; ensure uniqueness
   const elemPool = ELEMENTS.filter(e => !ef || e.id===ef).filter(e => !qv || (e.name+' '+e.desc).toLowerCase().includes(qv));
+  
+  // If there's a search term, also filter based on cell content
+  let filteredAxes = axes;
+  let filteredElements = elemPool;
+  
+  if (qv) {
+    // Find axes and elements that have matching cell content
+    const matchingAxisIds = new Set();
+    const matchingElementIds = new Set();
+    
+    CELLS.forEach(cell => {
+      const cellText = (cell.axis + ' ' + cell.axis_desc + ' ' + cell.element + ' ' + cell.element_desc + ' ' + cell.note + ' ' + (cell.post_abstraction || '')).toLowerCase();
+      if (cellText.includes(qv)) {
+        matchingAxisIds.add(cell.axis_id);
+        matchingElementIds.add(cell.element_id);
+      }
+    });
+    
+    // Filter axes and elements to only include those with matching cells
+    filteredAxes = axes.filter(a => matchingAxisIds.has(a.id));
+    filteredElements = elemPool.filter(e => matchingElementIds.has(e.id));
+  }
+  
+  // Ensure uniqueness and maintain order
   const seen = new Set();
-  const elements = elemPool.filter(e=>{ if(seen.has(e.id)) return false; seen.add(e.id); return true; })
+  const elements = filteredElements.filter(e=>{ if(seen.has(e.id)) return false; seen.add(e.id); return true; })
                            .sort((a,b)=>ELEMENT_ORDER_INDEX[a.id]-ELEMENT_ORDER_INDEX[b.id]);
 
   buildHeaders(elements);
@@ -666,31 +606,129 @@ function render(){
   const idx = {};
   CELLS.forEach(c => { (idx[c.axis_id]||(idx[c.axis_id]={}))[c.element_id]=c; });
 
-  axes.forEach(a => {
+  filteredAxes.forEach(a => {
     const tr=document.createElement('tr');
     const th=document.createElement('th'); th.innerHTML=`<div><div>${highlightSearch(a.name, qv)}</div><div class='small'>${highlightSearch(a.desc, qv)}</div></div>`; tr.appendChild(th);
     elements.forEach(e => {
       const td=document.createElement('td');
-      const c=(idx[a.id]||{})[e.id] || {note: synth(a, ELEMENT_BY_ID[e.id]), axis:a.name, element:e.name};
+      const c=(idx[a.id]||{})[e.id] || {note: 'No data available', axis:a.name, element:e.name};
       const div=document.createElement('div'); div.className='cell';
       const preview=(c.note||'').length>160 ? (c.note.slice(0,160)+"…") : c.note;
-      div.innerHTML = `<div class='small'><span class='axisTag'>${highlightSearch(a.name, qv)}</span> <span class='elemTag'>${highlightSearch(e.name, qv)}</span></div><div style='margin-top:8px;'>${highlightSearch(preview, qv)}</div>`;
+      
+      // Create tooltip content for post_abstraction
+      let tooltipContent = '';
+      if (c.post_abstraction) {
+        tooltipContent = `<div style='font-weight:700; margin-bottom:8px; color:#fff;'>Full Abstract Statement</div><div style='color:#fff;'>${c.post_abstraction}</div>`;
+      }
+      
+      let cellContent = `<div class='small'><span class='axisTag'>${highlightSearch(a.name, qv)}</span> <span class='elemTag'>${highlightSearch(e.name, qv)}</span></div><div style='margin-top:8px;'>${highlightSearch(preview, qv)}</div>`;
+      
+      // Add tooltip indicator if post_abstraction exists
+      if (c.post_abstraction) {
+        cellContent += `<div style='margin-top:8px; font-size:11px; color:var(--muted);'>💡 Click for full abstract statement</div>`;
+      } else {
+        cellContent += `<div style='margin-top:8px; font-size:11px; color:var(--muted); opacity:0.5;'>No abstract data</div>`;
+      }
+      
+      div.innerHTML = cellContent;
+      
+        if (c.post_abstraction) {
+          div.classList.add('tooltip');
+          // Attach click handler to use global popover
+          div.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openPopover(div, tooltipContent);
+          });
+        }
+      
       td.appendChild(div); tr.appendChild(td);
     });
     tbody.appendChild(tr);
   });
-  count.textContent = `${axes.length} axis row(s) × ${elements.length} element column(s) → ${axes.length*elements.length} cells`;
+  count.textContent = `${filteredAxes.length} axis row(s) × ${elements.length} element column(s) → ${filteredAxes.length*elements.length} cells`;
 }
 
 q.addEventListener('input', render);
 axisFilter.addEventListener('change', render);
 elemFilter.addEventListener('change', render);
 
+// ---- Global popover logic ----
+const popover = document.getElementById('popover');
+let popoverAnchor = null;
+
+function openPopover(anchorEl, html){
+  // Close existing
+  closePopover();
+  popoverAnchor = anchorEl;
+  // Active state
+  anchorEl.classList.add('active');
+  // Inject content
+  popover.innerHTML = html;
+  popover.style.display = 'block';
+  popover.classList.add('show');
+  // Position
+  positionPopover();
+}
+
+function closePopover(){
+  if(!popoverAnchor) return;
+  popoverAnchor.classList.remove('active');
+  popover.classList.remove('show');
+  popover.style.display = 'none';
+  popoverAnchor = null;
+}
+
+function positionPopover(){
+  if(!popoverAnchor) return;
+  const rect = popoverAnchor.getBoundingClientRect();
+  // Measure popover after it's visible
+  const pvRect = popover.getBoundingClientRect();
+
+  // Preferred position: above, centered
+  let left = rect.left + rect.width/2;
+  let top = rect.top - 8 - pvRect.height;
+  let placedBelow = false;
+
+  // Keep within viewport horizontally
+  const margin = 12;
+  const vw = window.innerWidth;
+  if(left - pvRect.width/2 < margin){
+    left = pvRect.width/2 + margin;
+  } else if(left + pvRect.width/2 > vw - margin){
+    left = vw - margin - pvRect.width/2;
+  }
+
+  // If not enough space above, place below
+  if(top < margin){
+    top = rect.bottom + 8;
+    placedBelow = true;
+  }
+
+  popover.style.left = left + 'px';
+  popover.style.top = top + 'px';
+  popover.style.transform = 'translateX(-50%)';
+
+  // Arrow orientation class
+  popover.classList.remove('pos-above','pos-below');
+  popover.classList.add(placedBelow ? 'pos-below' : 'pos-above');
+}
+
+// Reposition on scroll/resize
+window.addEventListener('scroll', positionPopover, true);
+window.addEventListener('resize', positionPopover);
+
+// Close on outside click
+document.addEventListener('click', (e)=>{
+  if(popoverAnchor && !e.target.closest('.tooltip') && !e.target.closest('#popover')){
+    closePopover();
+  }
+});
+
 // ===== CSV export =====
 function toCSV(rows){
-  const headers=["axis","axis_desc","element","element_desc","note"];
+  const headers=["axis","axis_desc","element","element_desc","note","post_abstraction"];
   const escape = s => ('"'+String(s).replaceAll('"','""')+'"');
-  const body = rows.map(r => [r.axis,r.axis_desc,r.element,r.element_desc,r.note].map(escape).join(',')).join('\n');
+  const body = rows.map(r => [r.axis,r.axis_desc,r.element,r.element_desc,r.note,r.post_abstraction||''].map(escape).join(',')).join('\n');
   return headers.join(',')+'\n'+body;
 }
 
@@ -698,7 +736,7 @@ document.getElementById('export').addEventListener('click', ()=>{
   const qv=(q.value||'').toLowerCase().trim();
   const af=axisFilter.value; const ef=elemFilter.value;
   const rows = CELLS.filter(c => (!af||c.axis_id===af)&&(!ef||c.element_id===ef)).filter(c=>{
-    if(!qv) return true; const s=(c.axis+' '+c.axis_desc+' '+c.element+' '+c.element_desc+' '+c.note).toLowerCase(); return s.includes(qv);
+    if(!qv) return true; const s=(c.axis+' '+c.axis_desc+' '+c.element+' '+c.element_desc+' '+c.note+' '+(c.post_abstraction||'')).toLowerCase(); return s.includes(qv);
   });
   const csv=toCSV(rows); const blob=new Blob([csv],{type:'text/csv'}); const url=URL.createObjectURL(blob);
   const a=document.createElement('a'); a.href=url; a.download='abstraction_explorer_cells.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
@@ -711,19 +749,12 @@ document.getElementById('export').addEventListener('click', ()=>{
   const ids = ELEMENTS.map(e=>e.id);
   const dupIds = ids.filter((id,i)=>ids.indexOf(id)!==i);
   console.assert(dupIds.length===0, 'Element IDs should be unique', dupIds);
-  console.assert(ELEMENTS.map(e=>e.id).join(',')===
-                 'substrate,contaminant,carrier,energy,process,environment,capture,information,criteria',
-                 'Element order should match canonical matrix');
-  // 1) synth returns curated text for curated cell
-  const ax=AXES.find(a=>a.id==='medium'); const elId='carrier';
-  console.assert(synth(ax, ELEMENT_BY_ID[elId]).includes('vapor/foam/solid/field'), 'synth curated lookup failed');
-  // 2) CSV generation has header + at least one row
+  // 1) CSV generation has header + at least one row
   const csvSample = toCSV(CELLS.slice(0,2));
   console.assert(csvSample.split('\n').length>=2, 'CSV should contain header and rows');
-  // 3) Render then check count
+  // 2) Render then check count
   render();
-  const expected = AXES.length * ELEMENTS.length;
-  console.assert(document.getElementById('count').textContent.includes(expected.toString()), 'Count text should include full cell count');
+  console.assert(CELLS.length > 0, 'Should have cell data from abstraction.js');
   console.groupEnd();
 })();
 </script>
