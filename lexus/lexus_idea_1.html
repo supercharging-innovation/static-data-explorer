@@ -80,6 +80,24 @@
 			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 		}
 
+		.primary-btn.secondary {
+			background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+		}
+
+		.header-buttons {
+			display: flex;
+			gap: 16px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 640px) {
+			.header-buttons {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
 		/* Main Content */
 		.hero {
 			text-align: center;
@@ -360,13 +378,13 @@
 		}
 
 		.axis-label-x {
-			bottom: 5px;
+			bottom: 18px;
 			left: 50%;
 			transform: translateX(-50%);
 		}
 
 		.axis-label-y {
-			left: 5px;
+			left: 18px;
 			top: 50%;
 			transform: translateY(-50%) rotate(-90deg);
 		}
@@ -412,6 +430,27 @@
 			border-color: var(--accent-blue);
 			background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
 		}
+
+		.quadrant-card.ll {
+			border-color: var(--border);
+			background: linear-gradient(135deg, rgba(100, 116, 139, 0.06) 0%, rgba(241, 245, 249, 0.06) 100%);
+		}
+
+		.quadrant-list {
+			margin: 0;
+			padding-left: 16px;
+			color: var(--muted);
+		}
+
+		/* Quadrant grid positions */
+		.quad-ur { grid-column: 2; grid-row: 1; }
+		.quad-ul { grid-column: 1; grid-row: 1; }
+		.quad-lr { grid-column: 2; grid-row: 2; }
+		.quad-ll { grid-column: 1; grid-row: 2; }
+
+		/* Utility helpers */
+		.mt-8 { margin-top: 8px; }
+		.panel-benchmark { border: 1px solid var(--accent-yellow); }
 
 		.quadrant-title {
 			font-size: 16px;
@@ -522,6 +561,45 @@
 
 		.pdf-actions { display: flex; gap: 12px; align-items: center; }
 
+		/* Compact link-styled button for inline actions */
+		.icon-btn.small-link { padding: 4px 10px; font-size: 12px; }
+
+		/* Text modal for full original content */
+		#textModal {
+			position: fixed;
+			inset: 0;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgba(15, 23, 42, 0.8);
+			z-index: 100;
+			-webkit-backdrop-filter: blur(4px);
+			backdrop-filter: blur(4px);
+		}
+
+		#textDialog {
+			background: #ffffff;
+			width: min(900px, 92vw);
+			height: min(80vh, 720px);
+			border-radius: 20px;
+			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+		}
+
+		#textHeader {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20px 24px;
+			border-bottom: 1px solid var(--border);
+			background: var(--card);
+		}
+
+		#textHeader h3 { margin: 0; font-size: 18px; font-weight: 600; }
+		#textContent { flex: 1; padding: 20px 24px; overflow: auto; }
+
 		/* Collapsible Section Styles */
 		.section-header-with-toggle {
 			display: flex;
@@ -567,6 +645,873 @@
 			opacity: 0;
 			margin-bottom: 0;
 		}
+
+		/* Impact × Readiness Chart */
+		.chart-container {
+			position: relative;
+			width: 100%;
+			height: 500px;
+			background: #fff;
+			border: 1px solid var(--border);
+			border-radius: 20px;
+			padding: 40px;
+			margin: 20px 0;
+			box-shadow: var(--shadow);
+		}
+
+		.chart-area {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			border-left: 2px solid var(--text);
+			border-bottom: 2px solid var(--text);
+		}
+
+		.quadrant-bg {
+			position: absolute;
+			opacity: 0.1;
+		}
+
+		.quadrant-bg.top-left { 
+			top: 0; left: 0; width: 50%; height: 50%; 
+			background: var(--accent-yellow); 
+		}
+		.quadrant-bg.top-right { 
+			top: 0; right: 0; width: 50%; height: 50%; 
+			background: var(--accent-green); 
+		}
+		.quadrant-bg.bottom-left { 
+			bottom: 0; left: 0; width: 50%; height: 50%; 
+			background: var(--accent-blue); 
+		}
+		.quadrant-bg.bottom-right { 
+			bottom: 0; right: 0; width: 50%; height: 50%; 
+			background: var(--muted); 
+		}
+
+		.quadrant-line {
+			position: absolute;
+			background: var(--border);
+		}
+
+		.quadrant-line.vertical {
+			width: 1px;
+			height: 100%;
+			left: 50%;
+			top: 0;
+			transform: translateX(-50%);
+		}
+
+		.quadrant-line.horizontal {
+			width: 100%;
+			height: 1px;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.quadrant-label {
+			position: absolute;
+			font-size: 12px;
+			color: var(--text);
+			pointer-events: none;
+			padding: 12px;
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 6px;
+			backdrop-filter: blur(4px);
+			-webkit-backdrop-filter: blur(4px);
+			border: 1px solid rgba(0, 0, 0, 0.1);
+		}
+
+		.quadrant-label.top-left { top: 12px; left: 12px; }
+		.quadrant-label.top-right { top: 12px; right: 12px; text-align: right; }
+		.quadrant-label.bottom-left { bottom: 12px; left: 12px; }
+		.quadrant-label.bottom-right { bottom: 12px; right: 12px; text-align: right; }
+
+		.quadrant-label h3 {
+			font-size: 15px;
+			font-weight: 700;
+			margin: 0 0 4px;
+			color: var(--text);
+		}
+
+		.quadrant-label p {
+			font-size: 11px;
+			margin: 0;
+			line-height: 1.3;
+			color: var(--muted);
+			font-weight: 500;
+		}
+
+		.data-point {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+			transition: all 0.3s ease;
+			z-index: 10;
+			border: 4px solid #fff;
+		}
+
+		.data-point:hover {
+			transform: scale(1.2);
+			z-index: 20;
+			box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+		}
+
+		.data-point-label {
+			font-size: 10px;
+			font-weight: 700;
+			color: #fff;
+			text-align: center;
+			line-height: 1.1;
+			padding: 2px;
+		}
+
+		.axis-label {
+			position: absolute;
+			font-size: 14px;
+			font-weight: 600;
+			color: var(--text);
+		}
+
+		.axis-label.y {
+			left: -60px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+		}
+
+		.axis-label.x {
+			bottom: -40px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		.axis-tick {
+			position: absolute;
+			font-size: 12px;
+			color: var(--muted);
+		}
+
+		.axis-tick.y {
+			left: -25px;
+			transform: translateY(-50%);
+		}
+
+		.axis-tick.x {
+			bottom: -20px;
+			transform: translateX(-50%);
+		}
+
+		/* Modal styles */
+		.modal {
+			position: fixed;
+			inset: 0;
+			background: rgba(15, 23, 42, 0.8);
+			display: none;
+			align-items: center;
+			justify-content: center;
+			z-index: 100;
+			-webkit-backdrop-filter: blur(4px);
+			backdrop-filter: blur(4px);
+		}
+
+		.modal.show {
+			display: flex;
+		}
+
+		.modal-content {
+			background: #fff;
+			border-radius: 20px;
+			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+			width: min(500px, 90vw);
+			max-height: 80vh;
+			overflow: hidden;
+			transform: scale(0.95);
+			transition: transform 0.3s ease;
+		}
+
+		.modal.show .modal-content {
+			transform: scale(1);
+		}
+
+		.modal-header {
+			padding: 24px 24px 16px;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.modal-title {
+			font-size: 20px;
+			font-weight: 600;
+			margin: 0 0 8px;
+			color: var(--text);
+		}
+
+		.modal-category {
+			font-size: 12px;
+			font-weight: 600;
+			color: var(--accent-blue);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.modal-body {
+			padding: 16px 24px 24px;
+		}
+
+		.modal-description {
+			font-size: 14px;
+			line-height: 1.6;
+			color: var(--muted);
+			margin-bottom: 20px;
+		}
+
+		.modal-links {
+			border-top: 1px solid var(--border);
+			padding-top: 16px;
+		}
+
+		.modal-links h3 {
+			font-size: 14px;
+			font-weight: 600;
+			color: var(--text);
+			margin: 0 0 12px;
+		}
+
+		.modal-link {
+			display: flex;
+			align-items: center;
+			color: var(--accent-blue);
+			text-decoration: none;
+			margin-bottom: 8px;
+			transition: color 0.2s ease;
+		}
+
+		.modal-link:hover {
+			color: var(--accent-green);
+		}
+
+		.modal-close {
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			background: transparent;
+			border: none;
+			font-size: 24px;
+			cursor: pointer;
+			color: var(--muted);
+			padding: 4px;
+			border-radius: 4px;
+			transition: all 0.2s ease;
+		}
+
+		.modal-close:hover {
+			background: var(--border);
+			color: var(--text);
+		}
+
+		/* Chart Legend and Scale */
+		.chart-legend {
+			display: flex;
+			justify-content: center;
+			gap: 32px;
+			margin: 8px 0 0 0;
+			padding: 12px 20px;
+			background: var(--card);
+			border-radius: 10px;
+			border: 1px solid var(--border);
+			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+		}
+
+		.legend-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.legend-dot {
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			border: 2px solid #fff;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+
+		.legend-text {
+			font-size: 14px;
+			font-weight: 500;
+			color: var(--text);
+		}
+
+		.trl-scale {
+			display: flex;
+			justify-content: space-between;
+			margin: 24px 0;
+			padding: 20px;
+			background: var(--card);
+			border-radius: 12px;
+			border: 1px solid var(--border);
+		}
+
+		.scale-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 8px;
+			text-align: center;
+			flex: 1;
+		}
+
+		.scale-number {
+			font-size: 18px;
+			font-weight: 700;
+			color: var(--accent-blue);
+			width: 32px;
+			height: 32px;
+			border-radius: 50%;
+			background: rgba(14, 165, 233, 0.1);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.scale-label {
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 500;
+			line-height: 1.3;
+		}
+
+		/* New Chart Styles */
+		.chart-wrapper {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-left: 80px;
+			min-height: 500px;
+		}
+
+		.y-axis-label {
+			position: absolute;
+			left: -70px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+			font-weight: 500;
+			color: var(--text);
+			letter-spacing: 0.05em;
+			font-size: 14px;
+		}
+
+		.y-axis-low {
+			position: absolute;
+			left: -15px;
+			bottom: -5px;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 500;
+		}
+
+		.y-axis-high {
+			position: absolute;
+			left: -15px;
+			top: -5px;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 500;
+		}
+
+		.chart-area-new {
+			width: 100%;
+			aspect-ratio: 2 / 1;
+			max-width: 800px;
+			position: relative;
+			border-left: 3px solid var(--text);
+			border-bottom: 3px solid var(--text);
+			background: rgba(255, 255, 255, 0.5);
+			border-radius: 0 8px 0 0;
+		}
+
+		.quadrant-bg {
+			position: absolute;
+			opacity: 0.08;
+		}
+
+		.quadrant-bg.explore {
+			top: 0;
+			left: 0;
+			width: 50%;
+			height: 50%;
+			background: var(--accent-yellow);
+		}
+
+		.quadrant-bg.develop {
+			top: 0;
+			right: 0;
+			width: 50%;
+			height: 50%;
+			background: var(--accent-green);
+		}
+
+		.quadrant-bg.avoid {
+			bottom: 0;
+			left: 0;
+			width: 50%;
+			height: 50%;
+			background: #ef4444;
+		}
+
+		.quadrant-bg.leverage {
+			bottom: 0;
+			right: 0;
+			width: 50%;
+			height: 50%;
+			background: var(--accent-blue);
+		}
+
+		.quadrant-line {
+			position: absolute;
+		}
+
+		.quadrant-line.vertical {
+			width: 1px;
+			height: 100%;
+			left: 50%;
+			top: 0;
+			background: var(--border);
+			transform: translateX(-50%);
+		}
+
+		.quadrant-line.horizontal {
+			width: 100%;
+			height: 1px;
+			left: 0;
+			top: 50%;
+			background: var(--border);
+			transform: translateY(-50%);
+		}
+
+		.x-axis-labels {
+			width: 100%;
+			max-width: 800px;
+			display: flex;
+			justify-content: space-between;
+			margin-top: 12px;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 500;
+		}
+
+		.x-axis-title {
+			margin-top: 8px;
+			font-weight: 500;
+			color: var(--text);
+			letter-spacing: 0.05em;
+			font-size: 14px;
+		}
+
+		/* Data Point Styles */
+		.chart-point {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+			transition: all 0.3s ease;
+			z-index: 10;
+			border: 3px solid #fff;
+			transform: translate(-50%, -50%);
+		}
+
+		.chart-point:hover {
+			transform: translate(-50%, -50%) scale(1.15);
+			z-index: 20;
+			box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+		}
+
+		.chart-point-label {
+			font-size: 10px;
+			font-weight: 700;
+			color: #000;
+			text-align: center;
+			line-height: 1.1;
+			padding: 2px;
+			text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
+			max-width: 40px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		.chart-point.high-impact {
+			background-color: var(--accent-green);
+		}
+
+		.chart-point.medium-impact {
+			background-color: var(--accent-yellow);
+		}
+
+		.chart-point.low-impact {
+			background-color: var(--accent-blue);
+		}
+
+		.chart-point.benchmark {
+			background-color: var(--muted);
+		}
+
+		/* Visual Research Section */
+		.concept-image-container {
+			display: flex;
+			gap: 32px;
+			margin-bottom: 48px;
+			align-items: center;
+		}
+
+		.concept-image {
+			flex: 1;
+			max-width: 500px;
+		}
+
+		.concept-image img {
+			width: 100%;
+			height: auto;
+			border-radius: 16px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+			transition: transform 0.3s ease;
+		}
+
+		.concept-image img:hover {
+			transform: scale(1.02);
+		}
+
+		.concept-caption {
+			flex: 1;
+			padding-left: 16px;
+		}
+
+		.concept-caption h3 {
+			margin-bottom: 16px;
+			color: var(--accent-blue);
+		}
+
+		.concept-caption p {
+			color: var(--muted);
+			line-height: 1.7;
+			font-size: 16px;
+		}
+
+		@media (max-width: 768px) {
+			.concept-image-container {
+				flex-direction: column;
+				gap: 24px;
+			}
+			
+			.concept-caption {
+				padding-left: 0;
+			}
+		}
+
+		/* Research Gallery */
+		.research-gallery {
+			margin-top: 32px;
+		}
+
+		.gallery-container {
+			position: relative;
+			margin-top: 24px;
+			overflow: hidden;
+			border-radius: 16px;
+			background: var(--card);
+			border: 1px solid var(--border);
+			box-shadow: var(--shadow);
+		}
+
+		.gallery-track {
+			display: flex;
+			transition: transform 0.4s ease-in-out;
+		}
+
+		.gallery-slide {
+			min-width: 100%;
+			display: flex;
+			gap: 24px;
+			padding: 32px;
+			align-items: center;
+		}
+
+		.research-image {
+			flex: 1;
+			max-width: 400px;
+		}
+
+		.research-image img {
+			width: 100%;
+			height: auto;
+			border-radius: 12px;
+			box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+		}
+
+		.research-caption {
+			flex: 1;
+			padding-left: 16px;
+		}
+
+		.research-caption h4 {
+			font-size: 20px;
+			font-weight: 600;
+			margin-bottom: 12px;
+			color: var(--text);
+		}
+
+		.research-caption p {
+			color: var(--muted);
+			line-height: 1.6;
+			margin-bottom: 16px;
+		}
+
+		.research-link {
+			color: var(--accent-blue);
+			text-decoration: none;
+			font-weight: 500;
+			transition: color 0.2s ease;
+		}
+
+		.research-link:hover {
+			color: var(--accent-green);
+		}
+
+		/* Gallery Navigation */
+		.gallery-nav {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px solid var(--border);
+			border-radius: 50%;
+			width: 48px;
+			height: 48px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			font-size: 24px;
+			font-weight: bold;
+			color: var(--text);
+			transition: all 0.3s ease;
+			z-index: 10;
+		}
+
+		.gallery-nav:hover {
+			background: var(--accent-blue);
+			color: white;
+			transform: translateY(-50%) scale(1.1);
+		}
+
+		.gallery-nav.prev {
+			left: 16px;
+		}
+
+		.gallery-nav.next {
+			right: 16px;
+		}
+
+		/* Gallery Indicators */
+		.gallery-indicators {
+			display: flex;
+			justify-content: center;
+			gap: 12px;
+			padding: 20px;
+			background: rgba(248, 250, 252, 0.5);
+			border-top: 1px solid var(--border);
+		}
+
+		.indicator {
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background: var(--border);
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.indicator.active {
+			background: var(--accent-blue);
+			transform: scale(1.2);
+		}
+
+		.indicator:hover {
+			background: var(--accent-green);
+		}
+
+		@media (max-width: 768px) {
+			.gallery-slide {
+				flex-direction: column;
+				text-align: center;
+			}
+			
+			.research-caption {
+				padding-left: 0;
+				padding-top: 16px;
+			}
+			
+			.gallery-nav {
+				width: 40px;
+				height: 40px;
+				font-size: 20px;
+			}
+		}
+
+		/* Baseline Modal Styles */
+		#baselineModal {
+			position: fixed;
+			inset: 0;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgba(15, 23, 42, 0.8);
+			z-index: 100;
+			-webkit-backdrop-filter: blur(4px);
+			backdrop-filter: blur(4px);
+		}
+
+		#baselineDialog {
+			background: #ffffff;
+			width: min(1200px, 95vw);
+			height: min(85vh, 900px);
+			border-radius: 20px;
+			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+		}
+
+		#baselineHeader {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20px 24px;
+			border-bottom: 1px solid var(--border);
+			background: var(--card);
+		}
+
+		#baselineHeader h3 {
+			margin: 0;
+			font-size: 20px;
+			font-weight: 600;
+			color: var(--text);
+		}
+
+		#baselineContent {
+			flex: 1;
+			padding: 24px;
+			overflow: auto;
+		}
+
+		.baseline-intro,
+		.baseline-innovation,
+		.advantages-section,
+		.challenges-section,
+		.bottom-line {
+			margin-bottom: 32px;
+		}
+
+		.baseline-intro h4,
+		.baseline-innovation h4,
+		.advantages-section h4,
+		.challenges-section h4,
+		.bottom-line h4 {
+			font-size: 18px;
+			font-weight: 600;
+			color: var(--accent-blue);
+			margin-bottom: 16px;
+		}
+
+		.comparison-table {
+			margin: 32px 0;
+		}
+
+		.comparison-table h4 {
+			font-size: 18px;
+			font-weight: 600;
+			color: var(--accent-blue);
+			margin-bottom: 16px;
+		}
+
+		.comparison-table table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.comparison-table th {
+			background: var(--gradient-blue);
+			color: white;
+			padding: 12px;
+			text-align: left;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.comparison-table td {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		.comparison-table tr:nth-child(even) {
+			background: rgba(248, 250, 252, 0.5);
+		}
+
+		.comparison-table tr:hover {
+			background: rgba(14, 165, 233, 0.05);
+		}
+
+		.advantages-section ul,
+		.challenges-section ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.advantages-section li,
+		.challenges-section li {
+			padding: 8px 0;
+			padding-left: 20px;
+			position: relative;
+		}
+
+		.advantages-section li::before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: var(--accent-green);
+			font-weight: bold;
+		}
+
+		.challenges-section li::before {
+			content: "⚠";
+			position: absolute;
+			left: 0;
+			color: var(--accent-yellow);
+		}
+
+		.bottom-line {
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+			padding: 20px;
+			border-radius: 12px;
+			border-left: 4px solid var(--accent-blue);
+		}
 	</style>
 </head>
 <body>
@@ -574,7 +1519,10 @@
 		<div class="container">
 			<div class="banner">
 				<h1>Bio-Grown Aerogel Cabin Liners (Cellulose / Bacterial Cellulose)</h1>
-				<button id="openPdf" class="primary-btn" type="button">Deep Research Report (PDF)</button>
+				<div class="header-buttons">
+					<button id="openPdf" class="primary-btn" type="button">Deep Research Report (PDF)</button>
+					<button id="openBaseline" class="primary-btn secondary" type="button">Baseline Comparison</button>
+				</div>
 			</div>
 		</div>
 	</header>
@@ -591,6 +1539,87 @@
 			<div class="card">
 				<h2 class="h2">⚙️ The Science</h2>
 				<p><strong>Cellulose is turned into a water-based gel</strong>, then dried to leave a <strong>nano-porous solid (aerogel)</strong>. Those <strong>tiny pores scatter sound and block heat transfer</strong> (very low thermal conductivity). By adjusting the <strong>gel recipe and drying method</strong>, we tune which <strong>frequencies are absorbed</strong> and how <strong>stiff/soft the pad is</strong>. <strong>Thin scrims and bio-adhesives</strong> protect the fragile core; <strong>hydrophobization (surface treatment)</strong> manages humidity.</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">📸 Images</h2>
+				
+				<!-- Generated Concept Image -->
+				<div class="concept-image-container">
+					<div class="concept-image">
+						<img src="data/proposed_image.png" alt="Bio-Grown Aerogel Cabin Liner Concept" />
+					</div>
+					<div class="concept-caption">
+						<h3 class="h3">Bio-Grown Aerogel Cabin Liner</h3>
+						<p>A thin, lightweight layer grown from cellulose/bacterial cellulose and laminated behind standard interior skins. Its nanoporous network blocks heat and scatters sound, delivering quieter, better-insulated cabins at lower weight. Made via low-temperature, water-based steps (grow → dry → treat → laminate) that fit current trim workflows.</p>
+					</div>
+				</div>
+
+				<!-- Research Images Gallery -->
+				<div class="research-gallery">
+					<h3 class="h3">Research Evidence</h3>
+					<div class="gallery-container">
+						<div class="gallery-track" id="galleryTrack">
+							<div class="gallery-slide">
+								<div class="research-image">
+									<img src="data/image_1.jpg" alt="Transparent cellulose-aerogel window demo" />
+								</div>
+								<div class="research-caption">
+									<h4>Transparent Cellulose-Aerogel Window Demo</h4>
+									<p>Shows how a cellulose aerogel sheet can be optically clear yet block heat, originally explored for energy-saving glazing. Think of this as a thin, light, insulating insert.</p>
+									<a href="https://www.glassonweb.com/article/highly-transparent-silanized-cellulose-aerogels-boosting-energy-efficiency-glazing" target="_blank" rel="noopener" class="research-link">View Source →</a>
+								</div>
+							</div>
+
+							<div class="gallery-slide">
+								<div class="research-image">
+									<img src="data/image_2.png" alt="Nanoscale network of cellulose aerogel" />
+								</div>
+								<div class="research-caption">
+									<h4>Nanoscale Network of Cellulose Aerogel</h4>
+									<p>TEM images reveal a web of nanofibres with sub-100 nm pores; that ultra-porous structure is why it insulates thermally and can absorb sound.</p>
+									<a href="https://www.nature.com/articles/s41560-023-01226-7" target="_blank" rel="noopener" class="research-link">View Source →</a>
+								</div>
+							</div>
+
+							<div class="gallery-slide">
+								<div class="research-image">
+									<img src="data/image_3.jpg" alt="Freeze-drying structure changes" />
+								</div>
+								<div class="research-caption">
+									<h4>How Freeze-Drying Changes Structure</h4>
+									<p>Side-by-side photos and SEMs of cellulose aerogels made with different freezing rates. Faster freezing preserves a finer, more uniform pore network (useful for tuning acoustic/thermal behavior).</p>
+									<a href="https://jwoodscience.springeropen.com/articles/10.1007/s10086-015-1514-7" target="_blank" rel="noopener" class="research-link">View Source →</a>
+								</div>
+							</div>
+
+							<div class="gallery-slide">
+								<div class="research-image">
+									<img src="data/image_4.jpg" alt="Bacterial cellulose transformation" />
+								</div>
+								<div class="research-caption">
+									<h4>Bacterial Cellulose: From Gel to Aerogel</h4>
+									<p>Lab photos of a cultured BC film and the resulting aerogel pieces. This is the "grown, then dried" route we'd use for bio-made liner cores.</p>
+									<a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2020.603407/full" target="_blank" rel="noopener" class="research-link">View Source →</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- Gallery Navigation -->
+						<button class="gallery-nav prev" id="prevBtn" onclick="moveGallery(-1)">‹</button>
+						<button class="gallery-nav next" id="nextBtn" onclick="moveGallery(1)">›</button>
+
+						<!-- Gallery Indicators -->
+						<div class="gallery-indicators">
+							<span class="indicator active" onclick="currentSlide(1)"></span>
+							<span class="indicator" onclick="currentSlide(2)"></span>
+							<span class="indicator" onclick="currentSlide(3)"></span>
+							<span class="indicator" onclick="currentSlide(4)"></span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 		<section class="section">
@@ -729,28 +1758,78 @@
 		<section class="section">
 			<div class="card">
 				<h2 class="h2">📊 Impact × Readiness Roadmap</h2>
-				<p><strong>X-axis:</strong> Technology Readiness for <strong>interior</strong> use (materials + process + validation)</p>
-				<p><strong>Y-axis:</strong> Potential Impact (NVH improvement at thin gauge, thermal comfort, sustainability story)</p>
-				<p><strong>Upper-right (High impact / Medium readiness ~ TRL 3-4 for interiors):</strong></p>
-				<ul>
-					<li><strong>Cellulose or BNC aerogel pads</strong> with <strong>hydrophobized surfaces + protective scrims</strong>, used behind headliners/doors (borrow lamination & moisture control from glazing/VIP work).<br />
-					<em>Why here:</em> Strong physics and far-domain proof; needs automotive-specific durability, flame, VOC, and humidity cycling evidence. (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/30768255/?utm_source=chatgpt.com">PubMed</a>)</li>
-				</ul>
-				<p><strong>Upper-mid (High impact / Lower readiness):</strong></p>
-				<ul>
-					<li><strong>Knittable aerogel fiber laminates</strong> for seat comfort layers (breathable warmth + acoustic damping).<br />
-					<em>Why here:</em> Apparel evidence is strong; auto wear/cleaner/UV specs still to prove. (<a href="https://www.science.org/doi/10.1126/science.adj8013?utm_source=chatgpt.com">Science</a>)</li>
-				</ul>
-				<p><strong>Benchmark line (Today's state):</strong></p>
-				<ul>
-					<li><strong>PET/cotton felts, melamine foams</strong>—production-ready, lower sustainability upside vs. bio-aerogels. (<a href="https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance/?utm_source=chatgpt.com">Autoneum. Mastering Sound and Heat.</a>, <a href="https://www.basotect.basf.com/?utm_source=chatgpt.com">basotect.basf.com</a>)</li>
-				</ul>
+
+				<!-- Chart Container -->
+				<div class="chart-wrapper">
+					<!-- Y-Axis Label -->
+					<div class="y-axis-label">Potential Impact →</div>
+					<div class="y-axis-low">Low</div>
+					<div class="y-axis-high">High</div>
+
+					<div class="chart-area-new" id="chart-container">
+						<!-- Quadrant Backgrounds -->
+						<div class="quadrant-bg explore"></div> <!-- Top-Left: High Impact / Low Readiness -->
+						<div class="quadrant-bg develop"></div> <!-- Top-Right: High Impact / High Readiness -->
+						<div class="quadrant-bg avoid"></div>   <!-- Bottom-Left: Low Impact / Low Readiness -->
+						<div class="quadrant-bg leverage"></div>  <!-- Bottom-Right: Low Impact / High Readiness -->
+
+						<!-- Quadrant Lines -->
+						<div class="quadrant-line vertical"></div>
+						<div class="quadrant-line horizontal"></div>
+
+						<!-- Quadrant Labels -->
+						<div class="quadrant-label top-left">
+							<h3>Explore</h3>
+							<p>(High Impact, Low Readiness)</p>
+						</div>
+						<div class="quadrant-label top-right">
+							<h3>Develop</h3>
+							<p>(High Impact, High Readiness)</p>
+						</div>
+						<div class="quadrant-label bottom-left">
+							<h3>Avoid</h3>
+							<p>(Low Impact, Low Readiness)</p>
+						</div>
+						<div class="quadrant-label bottom-right">
+							<h3>Leverage</h3>
+							<p>(Low Impact, High Readiness)</p>
+						</div>
+
+						<!-- Data points will be injected here by JavaScript -->
+					</div>
+
+					<!-- X-Axis Labels -->
+					<div class="x-axis-labels">
+						<span>Low</span>
+						<span>High</span>
+					</div>
+					<div class="x-axis-title">Technology Readiness →</div>
+				</div>
+
+				<!-- Chart Legend -->
+				<div class="chart-legend">
+					<div class="legend-item">
+						<span class="legend-dot" style="background-color: var(--accent-green);"></span>
+						<span class="legend-text">High Impact</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-dot" style="background-color: var(--accent-yellow);"></span>
+						<span class="legend-text">Medium Impact</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-dot" style="background-color: var(--accent-blue);"></span>
+						<span class="legend-text">Low Impact</span>
+					</div>
+					<div class="legend-item">
+						<span class="legend-dot" style="background-color: var(--border);"></span>
+						<span class="legend-text">Current Technology</span>
+					</div>
+				</div>
 			</div>
 		</section>
 
 		<section class="section">
 			<div class="card">
-				<h3 class="h3">How we got here (research trail, summarized)</h3>
 				<h2 class="h2">🛤️ Research Trail Summary</h2>
 				<p>We searched <strong>outside</strong> conventional foams/felts and asked: <em>Who else uses ultralight porous media to manage heat and sound?</em> That led to <strong>aerogels</strong> (battery safety, building insulation). We then checked if <strong>cellulose-based aerogels</strong> offer similar physics with <strong>renewable feedstocks</strong> and low-energy processing. Reviews and lab studies confirm the <strong>acoustic/thermal potential</strong>; automotive practice shows <strong>aerogels are already qualified</strong> (in batteries) and <strong>cellulose</strong> is already in <strong>auto composites</strong> (NCV), but <strong>not yet combined</strong> as <strong>cellulose-aerogel cabin liners</strong>—hence the opportunity. (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com">Cemef</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com">ScienceDirect</a>, <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com">Aspen Aerogels</a>, <a href="https://www.japan.go.jp/kizuna/2021/02/plant-derived_material.html?utm_source=chatgpt.com">JapanGov - The Government of Japan</a>)</p>
 				<h3 class="h3">One-line takeaway</h3>
@@ -771,6 +1850,128 @@
 			</div>
 			<div id="pdfContent">
 				<iframe id="pdfFrame" title="Deep Research Report"></iframe>
+			</div>
+		</div>
+	</div>
+
+	<!-- Full Text Modal -->
+	<div id="textModal" role="dialog" aria-modal="true" aria-labelledby="textTitle">
+		<div id="textDialog">
+			<div id="textHeader">
+				<h3 id="textTitle">Details</h3>
+				<div class="pdf-actions">
+					<button id="closeText" class="icon-btn" type="button">✕ Close</button>
+				</div>
+			</div>
+			<div id="textContent"></div>
+		</div>
+	</div>
+
+	<!-- Baseline Comparison Modal -->
+	<div id="baselineModal" role="dialog" aria-modal="true" aria-labelledby="baselineTitle">
+		<div id="baselineDialog">
+			<div id="baselineHeader">
+				<h3 id="baselineTitle">Baseline vs. Proposed Innovation</h3>
+				<div class="pdf-actions">
+					<button id="closeBaseline" class="icon-btn" type="button" title="Close modal">✕ Close</button>
+				</div>
+			</div>
+			<div id="baselineContent">
+				<div class="baseline-intro">
+					<h4>What most cars use today (baseline)</h4>
+					<p>Automakers typically rely on <strong>polymer felts (PET/PP blends), melamine foams, and thin acoustic mats</strong> behind headliners, door panels, dash panels, and floor carpets. Examples include <strong>Autoneum's Flexi-Light PET</strong> (polyester felt sound insulation), <strong>3M Thinsulate Acoustic</strong> mats, and <strong>BASF Basotect</strong> (melamine foam). These materials are lightweight, easily die-cut/compression-molded, pass interior flammability, and deliver predictable high-frequency absorption in thin packages.</p>
+					<p>They are validated against <strong>FMVSS 302</strong> flammability and interior <strong>odor/VOC</strong> protocols such as <strong>VDA 270</strong> and <strong>VDA 278</strong>.</p>
+				</div>
+
+				<div class="baseline-innovation">
+					<h4>What we propose (innovation)</h4>
+					<p>Replace some of those liners with <strong>bio-grown cellulose or bacterial-cellulose (BC) aerogel liners</strong>—ultralight, highly porous "solid foams" grown or formed via aqueous, low-temperature routes, optionally <strong>silanized/hydrophobized</strong> and laminated for handling. Peer-reviewed work shows <strong>strong sound absorption</strong> (mid- to high-frequencies) and <strong>very low thermal conductivity</strong>; cellulose aerogels have been demonstrated even as <strong>transparent super-insulating glazings</strong>. Aerogels are already <strong>in mass automotive use</strong> as battery thermal barriers (Aspen Aerogels PyroThin), indicating supply-chain maturity for aerogel formats—though not yet for cabin liners.</p>
+				</div>
+
+				<div class="comparison-table">
+					<h4>Side-by-side Comparison</h4>
+					<table>
+						<thead>
+							<tr>
+								<th>Dimension</th>
+								<th>Baseline PET/PP felts, melamine foams</th>
+								<th>Bio-grown cellulose/BC aerogel liners</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Material & source</strong></td>
+								<td>Petro-derived polymers (PET/PP), melamine; some recycled content options</td>
+								<td>Plant/microbial cellulose networks; can be <strong>grown</strong> (BC) or formed from cellulose fibers</td>
+							</tr>
+							<tr>
+								<td><strong>Manufacturing energy & route</strong></td>
+								<td>Melt/needle-punch felts, foam expansion; conventional thermoforming/compression lines</td>
+								<td>Aqueous <strong>sol-gel / freeze-dry / ambient-dry</strong> routes; <strong>silanization</strong> for moisture resistance</td>
+							</tr>
+							<tr>
+								<td><strong>Acoustic performance</strong></td>
+								<td>Proven mid-/high-frequency absorption in thin packages</td>
+								<td>Reviews & studies report <strong>high absorption</strong>; BC/cellulose aerogels show strong SAC across <strong>~200–5000 Hz</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Thermal performance</strong></td>
+								<td>Good, but limited by polymer/foam conductivity</td>
+								<td><strong>Ultra-low k</strong> (below still air) demonstrated; used for super-insulating glazing</td>
+							</tr>
+							<tr>
+								<td><strong>Weight</strong></td>
+								<td>Low mass; optimized areal density per part</td>
+								<td><strong>Ultra-light</strong> (very high porosity) → potential further mass reduction at equal absorption</td>
+							</tr>
+							<tr>
+								<td><strong>Moisture & durability</strong></td>
+								<td>Managed via chemistries & skins; well-understood in automotive</td>
+								<td>Native cellulose is hydrophilic; <strong>hydrophobization (e.g., silane)</strong> mitigates uptake</td>
+							</tr>
+							<tr>
+								<td><strong>Fire & interior regs</strong></td>
+								<td>Designed to pass <strong>FMVSS 302</strong>; supply base knows the path</td>
+								<td>Needs <strong>formulation & laminate stack</strong> to pass the same (plausible; requires validation)</td>
+							</tr>
+							<tr>
+								<td><strong>Scale & cost</strong></td>
+								<td>Established global supply; cost-optimized</td>
+								<td><strong>Aerogels at scale exist</strong> for EV batteries; cabin-liner applications are <strong>pre-commercial</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Circularity/EOL</strong></td>
+								<td>Recyclate PET options exist; multi-material stacks complicate recycling</td>
+								<td>Cellulose/BC are bio-based; potential <strong>compostable or recyclable</strong> routes</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="advantages-section">
+					<h4>Potential Advantages vs. Baseline</h4>
+					<ul>
+						<li><strong>Higher insulation per weight & thickness</strong> (thermal + acoustic), enabling thinner parts or weight savings</li>
+						<li><strong>Low-energy, water-based processing</strong> pathways and <strong>bio-based feedstocks</strong></li>
+						<li><strong>Design latitude</strong>: aerogel can be laminated to current carriers/skins or targeted to problem cavities</li>
+						<li><strong>Automotive precedent for aerogels</strong> (battery barriers) de-risks supplier capability</li>
+					</ul>
+				</div>
+
+				<div class="challenges-section">
+					<h4>Likely Challenges vs. Baseline</h4>
+					<ul>
+						<li><strong>Moisture management</strong>: requires silanization/encapsulation to stabilize properties</li>
+						<li><strong>Mechanical robustness/handling</strong>: must use fiber-reinforced or hybrid strategies</li>
+						<li><strong>Regulatory validation</strong>: flammability, odor, VOC protocols must be re-proven</li>
+						<li><strong>Industrialization</strong>: cabin aerogel liners are not yet standard; cost/throughput must be demonstrated</li>
+					</ul>
+				</div>
+
+				<div class="bottom-line">
+					<h4>Bottom Line</h4>
+					<p>Baseline PET/PP felts, Thinsulate mats, and melamine foams are proven, inexpensive, and regulation-ready. Our proposed <strong>bio-grown cellulose/BC aerogel liners</strong> are <strong>promising</strong> for <strong>weight-neutral or weight-saving performance gains</strong> in <strong>NVH and thermal comfort</strong>, with an inherently <strong>sustainable feedstock</strong> and <strong>low-temperature processing</strong> story. The concept leverages <strong>aerogels' established automotive presence</strong> (in batteries) but would be <strong>novel in the cabin</strong>, requiring targeted engineering on moisture, handling, and certification to clear production gates.</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -808,6 +2009,81 @@
 				closeBtn.addEventListener('click', closeModal);
 				modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
 				window.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+				// Baseline modal logic
+				var baselineBtn = document.getElementById('openBaseline');
+				var baselineModal = document.getElementById('baselineModal');
+				var closeBaselineBtn = document.getElementById('closeBaseline');
+
+				function openBaselineModal() {
+					baselineModal.style.display = 'flex';
+					document.body.style.overflow = 'hidden';
+				}
+				function closeBaselineModal() {
+					baselineModal.style.display = 'none';
+					document.body.style.overflow = '';
+				}
+				baselineBtn.addEventListener('click', openBaselineModal);
+				closeBaselineBtn.addEventListener('click', closeBaselineModal);
+				baselineModal.addEventListener('click', function(e) { if (e.target === baselineModal) closeBaselineModal(); });
+				window.addEventListener('keydown', function(e) { 
+					if (e.key === 'Escape' && baselineModal.style.display === 'flex') closeBaselineModal(); 
+				});
+				// Full-text modal logic
+				var textModal = document.getElementById('textModal');
+				var closeText = document.getElementById('closeText');
+				var textContent = document.getElementById('textContent');
+				var fullTextMap = {
+					'full-ur': '<p><strong>Upper-right (High impact / Medium readiness ~ TRL 3-4 for interiors):</strong></p>' +
+						'<ul>' +
+							'<li><strong>Cellulose or BNC aerogel pads</strong> with <strong>hydrophobized surfaces + protective scrims</strong>, used behind headliners/doors (borrow lamination & moisture control from glazing/VIP work).<br />' +
+							'<em>Why here:</em> Strong physics and far-domain proof; needs automotive-specific durability, flame, VOC, and humidity cycling evidence. (<a href="https://www.nature.com/articles/s41560-023-01226-7">Nature</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/30768255/">PubMed</a>)</li>' +
+						'</ul>',
+					'full-ul': '<p><strong>Upper-mid (High impact / Lower readiness):</strong></p>' +
+						'<ul>' +
+							'<li><strong>Knittable aerogel fiber laminates</strong> for seat comfort layers (breathable warmth + acoustic damping).<br />' +
+							'<em>Why here:</em> Apparel evidence is strong; auto wear/cleaner/UV specs still to prove. (<a href="https://www.science.org/doi/10.1126/science.adj8013">Science</a>)</li>' +
+						'</ul>',
+					'full-lr': '<p><strong>Medium impact / Higher readiness (illustrative incremental path):</strong></p>' +
+						'<ul>' +
+							'<li>Incremental aerogel-film laminates in select trim zones for thin-gauge NVH gains.</li>' +
+							'<li>Leverage existing adhesive/scrim lines and manufacturing know-how.</li>' +
+						'</ul>',
+					'full-ll': '<p><strong>Exploratory:</strong></p>' +
+						'<ul>' +
+							'<li><strong>Silica–cellulose hybrid aerogels</strong> for tuned absorption; reported SAC values in literature.</li>' +
+							'<li>Topology-optimized cores for specific EV bands.</li>' +
+						'</ul>',
+					'full-bm': '<p><strong>Benchmark line (Today\'s state):</strong></p>' +
+						'<ul>' +
+							'<li><strong>PET/cotton felts, melamine foams</strong>—production-ready, lower sustainability upside vs. bio-aerogels. (<a href="https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance/">Autoneum. Mastering Sound and Heat.</a>, <a href="https://www.basotect.basf.com/">basotect.basf.com</a>)' +
+						'</ul>'
+				};
+
+				function openTextModal(key, title) {
+					textContent.innerHTML = fullTextMap[key] || '';
+					document.getElementById('textTitle').textContent = title || 'Details';
+					textModal.style.display = 'flex';
+					document.body.style.overflow = 'hidden';
+				}
+				function closeTextModal() {
+					textModal.style.display = 'none';
+					textContent.innerHTML = '';
+					document.body.style.overflow = '';
+				}
+				closeText.addEventListener('click', closeTextModal);
+				textModal.addEventListener('click', function(e){ if(e.target === textModal) closeTextModal(); });
+				window.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeTextModal(); });
+
+				// Wire buttons
+				document.querySelectorAll('[data-fulltext-target]').forEach(function(btn){
+					btn.addEventListener('click', function(){
+						var key = btn.getAttribute('data-fulltext-target');
+						var title = btn.closest('.quadrant-card')?.querySelector('.quadrant-title')?.textContent || 'Details';
+						if(btn.closest('.panel-benchmark')) title = 'Benchmark line — today\'s state';
+						openTextModal(key, title);
+					});
+				});
 			})();
 
 			// Toggle section functionality
@@ -826,6 +2102,199 @@
 					icon.textContent = '▶';
 				}
 			}
+
+			// Chart functionality - adapted from impact.html
+			function initChart() {
+				// Data for the points on the chart
+				const technologies = [
+					{
+						name: "Cellulose or BNC aerogel pads",
+						category: "High impact / Medium readiness",
+						description: "With hydrophobized surfaces & protective scrims, used behind headliners/doors. Strong physics and far-domain proof; needs automotive-specific durability, flame, VOC, and humidity cycling evidence.",
+						impact: 9,
+						readiness: 5.5, // TRL 3-4, just over the line into "Develop"
+						color: 'bg-green-500',
+						links: [
+							{ name: "Nature", url: "https://www.nature.com/articles/s41560-023-01226-7" },
+							{ name: "PubMed", url: "https://pubmed.ncbi.nlm.nih.gov/30768255/" }
+						]
+					},
+					{
+						name: "Knittable aerogel fiber laminates",
+						category: "High impact / Lower readiness",
+						description: "For seat comfort layers (breathable warmth + acoustic damping). Apparel evidence is strong; auto wear/cleaner/UV specs still to prove.",
+						impact: 8,
+						readiness: 3,
+						color: 'bg-yellow-500',
+						links: [
+							{ name: "Science", url: "https://www.science.org/doi/10.1126/science.adj8013" }
+						]
+					},
+					{
+						name: "PET/cotton felts, melamine foams",
+						category: "Benchmark (Today's state)",
+						description: "Production-ready, lower sustainability upside vs. bio-aerogels.",
+						impact: 4,
+						readiness: 9.5,
+						color: 'bg-gray-500',
+						links: [
+							{ name: "Autoneum", url: "https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance/" },
+							{ name: "BASF", url: "https://www.basotect.basf.com/" }
+						]
+					}
+				];
+
+				// DOM Elements
+				const chartContainer = document.getElementById('chart-container');
+
+				// Function to create and place a data point on the chart
+				function createPoint(tech) {
+					const point = document.createElement('div');
+					point.className = 'chart-point';
+					
+					// Add impact-based styling
+					if (tech.impact >= 8) {
+						point.classList.add('high-impact');
+					} else if (tech.impact >= 6) {
+						point.classList.add('medium-impact');
+					} else if (tech.impact >= 4) {
+						point.classList.add('low-impact');
+					} else {
+						point.classList.add('benchmark');
+					}
+
+					// Position based on readiness (x) and impact (y)
+					// Scale to chart dimensions: readiness 0-10 maps to 0-100%, impact 0-10 maps to 100%-0%
+					point.style.left = (tech.readiness * 10) + '%';
+					point.style.bottom = (tech.impact * 10) + '%';
+
+					// Add a label inside the point
+					const label = document.createElement('span');
+					label.className = 'chart-point-label';
+					label.textContent = tech.name.split(' ')[0]; // Use first word as label
+					point.appendChild(label);
+
+					point.addEventListener('click', () => showModal(tech));
+					chartContainer.appendChild(point);
+				}
+
+				// Populate the chart with data points
+				technologies.forEach(createPoint);
+			}
+
+			// Modal functionality - adapted from impact.html
+			function showModal(tech) {
+				hideModal();
+
+				const modal = document.createElement('div');
+				modal.className = 'modal show';
+				modal.style.display = 'flex';
+
+				let linksHtml = '';
+				if (tech.links.length > 0) {
+					linksHtml = '<div class="modal-links">';
+					linksHtml += '<h3>Sources:</h3>';
+					tech.links.forEach(link => {
+						linksHtml += '<a href="' + link.url + '" target="_blank" rel="noopener" class="modal-link">' +
+							'<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">' +
+								'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />' +
+							'</svg>' +
+							link.name +
+						'</a>';
+					});
+					linksHtml += '</div>';
+				}
+
+				modal.innerHTML = '<div class="modal-content">' +
+					'<div class="modal-header">' +
+						'<h2 class="modal-title">' + tech.name + '</h2>' +
+						'<p class="modal-category">' + tech.category + '</p>' +
+					'</div>' +
+					'<div class="modal-body">' +
+						'<p class="modal-description">' + tech.description + '</p>' +
+						linksHtml +
+					'</div>' +
+					'<button class="modal-close" onclick="this.closest(\'.modal\').remove()" title="Close modal">' +
+						'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">' +
+							'<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />' +
+						'</svg>' +
+					'</button>' +
+				'</div>';
+
+				document.body.appendChild(modal);
+
+				// Modal is already visible via the 'show' class
+
+				// Close modal when clicking outside
+				modal.addEventListener('click', (e) => {
+					if (e.target === modal) {
+						hideModal();
+					}
+				});
+
+				// Close modal with Escape key
+				document.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape' && !modal.classList.contains('opacity-0')) {
+						hideModal();
+					}
+				});
+			}
+
+			function hideModal() {
+				const modal = document.querySelector('.modal.show');
+				if (modal) {
+					modal.remove();
+				}
+			}
+			
+			// Gallery functionality
+			let currentGalleryIndex = 0;
+			const totalSlides = 4;
+
+			function moveGallery(direction) {
+				currentGalleryIndex += direction;
+				
+				if (currentGalleryIndex >= totalSlides) {
+					currentGalleryIndex = 0;
+				} else if (currentGalleryIndex < 0) {
+					currentGalleryIndex = totalSlides - 1;
+				}
+				
+				updateGallery();
+			}
+
+			function currentSlide(index) {
+				currentGalleryIndex = index - 1;
+				updateGallery();
+			}
+
+			function updateGallery() {
+				const track = document.getElementById('galleryTrack');
+				const indicators = document.querySelectorAll('.indicator');
+				
+				if (track) {
+					track.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
+				}
+				
+				// Update indicators
+				indicators.forEach((indicator, index) => {
+					indicator.classList.toggle('active', index === currentGalleryIndex);
+				});
+			}
+
+			// Auto-advance gallery (optional)
+			function startGalleryAutoplay() {
+				setInterval(() => {
+					moveGallery(1);
+				}, 8000); // Change slide every 8 seconds
+			}
+
+			// Initialize chart when DOM is loaded
+			document.addEventListener('DOMContentLoaded', function() {
+				initChart();
+				// Uncomment the line below to enable auto-advance
+				// startGalleryAutoplay();
+			});
 		</script>
 </body>
 </html>
