@@ -1,668 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio-Grown Cellulose Aerogel Cabin Liners | Lexus Innovation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Bio-Grown Aerogel Cabin Liners — Innovation Dossier</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;500;600;700;800&display=swap');
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            min-height: 100vh;
-        }
+		:root {
+			--bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+			--card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+			--text: #0f172a;
+			--muted: #64748b;
+			--border: #e2e8f0;
+			--accent-blue: #0ea5e9;
+			--accent-green: #10b981;
+			--accent-yellow: #f59e0b;
+			--accent-gold: #d4af37;
+			--gradient-blue: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+			--gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+			--gradient-yellow: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+			--shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: 'Avenir', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			line-height: 1.6;
+			min-height: 100vh;
+		}
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 3rem;
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 24px;
+		}
 
-        .header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-align: center;
-        }
+		/* Header */
+		.header {
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			background: rgba(255, 255, 255, 0.95);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid var(--border);
+			box-shadow: var(--shadow);
+		}
 
-        .header .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            text-align: center;
-            font-weight: 300;
-        }
+		.banner {
+			text-align: center;
+			padding: 24px;
+		}
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
+		.banner h1 {
+			margin: 0 0 16px;
+			font-size: 28px;
+			font-weight: 700;
+			color: var(--text);
+		}
 
-        .nav-toggle {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            color: white;
-            padding: 12px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-        }
+		.primary-btn {
+			background: var(--gradient-blue);
+			color: #fff;
+			border: none;
+			padding: 12px 20px;
+			border-radius: 12px;
+			cursor: pointer;
+			font-weight: 600;
+			box-shadow: var(--shadow);
+			transition: all 0.2s ease;
+		}
 
-        .nav-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            min-width: 200px;
-            margin-top: 8px;
-        }
+		.primary-btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+		}
 
-        .nav-menu.show {
-            display: block;
-        }
+		/* Main Content */
+		.hero {
+			text-align: center;
+			padding: 60px 0;
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+			border-radius: 0 0 40px 40px;
+			margin-bottom: 40px;
+		}
 
-        .nav-menu a {
-            display: block;
-            padding: 12px 20px;
-            color: #2c3e50;
-            text-decoration: none;
-            border-bottom: 1px solid #e9ecef;
-            transition: background-color 0.2s;
-        }
+		.hero h1 {
+			font-size: 48px;
+			font-weight: 800;
+			margin: 0 0 16px;
+			background: var(--gradient-blue);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
 
-        .nav-menu a:hover {
-            background-color: #f8f9fa;
-        }
+		.hero p {
+			font-size: 18px;
+			color: var(--muted);
+			max-width: 600px;
+			margin: 0 auto;
+		}
 
-        .nav-menu a:last-child {
-            border-bottom: none;
-        }
+		.section {
+			scroll-margin-top: 100px;
+			margin-bottom: 60px;
+		}
 
-        /* Main Content */
-        .main-content {
-            display: grid;
-            gap: 3rem;
-        }
+		.section:first-of-type {
+			margin-top: 40px;
+		}
 
-        /* Section Cards */
-        .section {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+		.section-header {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 24px;
+		}
 
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
+		.section-icon {
+			width: 40px;
+			height: 40px;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 20px;
+		}
 
-        .section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1a365d;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #e53e3e;
-        }
+		.icon-blue { background: var(--gradient-blue); }
+		.icon-green { background: var(--gradient-green); }
+		.icon-yellow { background: var(--gradient-yellow); }
+		.text-blue { color: var(--accent-blue); }
+		.text-green { color: var(--accent-green); }
+		.text-yellow { color: var(--accent-yellow); }
+		.text-gold { color: var(--accent-gold); }
+		.gradient-bg-blue { background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); }
+		.gradient-bg-yellow { background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); }
+		.gradient-bg-gold { background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); }
+		.mt-32 { margin-top: 32px; }
+		.assessment-box { padding: 20px; border-radius: 12px; margin: 16px 0; }
 
-        .section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin: 1.5rem 0 1rem 0;
-        }
+		.section-title {
+			font-size: 32px;
+			font-weight: 700;
+			margin: 0;
+			color: var(--text);
+		}
 
-        /* Typography */
-        .highlight-box {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-left: 4px solid #e53e3e;
-            padding: 1.5rem;
-            border-radius: 0 8px 8px 0;
-            margin: 1.5rem 0;
-        }
+		.card {
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 20px;
+			padding: 32px;
+			box-shadow: var(--shadow);
+			transition: all 0.3s ease;
+		}
 
-        .highlight-text {
-            font-weight: 600;
-            color: #e53e3e;
-        }
+		.card:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+		}
 
-        /* Lists */
-        .feature-list {
-            list-style: none;
-            padding: 0;
-        }
+		/* Inspirations Layout */
+		.inspirations-layout {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 24px;
+		}
 
-        .feature-list li {
-            padding: 1rem 0;
-            border-bottom: 1px solid #e9ecef;
-            position: relative;
-            padding-left: 2rem;
-        }
+		@media (max-width: 768px) {
+			.inspirations-layout { 
+				grid-template-columns: 1fr; 
+			}
+		}
 
-        .feature-list li::before {
-            content: "→";
-            color: #e53e3e;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 1rem;
-        }
+		.inspirations-column {
+			padding: 16px;
+			border-radius: 12px;
+			background: var(--card);
+			border: 1px solid var(--border);
+		}
 
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
+		.inspirations-column.far-column {
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(16, 185, 129, 0.02) 100%);
+			border-color: var(--accent-blue);
+		}
 
-        /* Key Players Grid */
-        .players-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+		.inspirations-column.near-column {
+			background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(14, 165, 233, 0.02) 100%);
+			border-color: var(--accent-green);
+		}
 
-        .player-card {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
+		.column-title {
+			font-size: 18px;
+			font-weight: 600;
+			margin-bottom: 12px;
+			color: var(--text);
+		}
 
-        .player-card h4 {
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
+		.inspirations-column.far-column .column-title {
+			color: var(--accent-blue);
+		}
 
-        .player-card p {
-            font-size: 0.9rem;
-            color: #4a5568;
-        }
+		.inspirations-column.near-column .column-title {
+			color: var(--accent-green);
+		}
 
-        /* Assessment Boxes */
-        .assessment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
-        }
+		.inspiration-cards {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+		}
 
-        .assessment-card {
-            background: white;
-            border: 2px solid;
-            border-radius: 8px;
-            padding: 1.5rem;
-        }
 
-        .high-impact {
-            border-color: #48bb78;
-            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
-        }
 
-        .moderate-impact {
-            border-color: #ed8936;
-            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
-        }
+		.inspiration-card {
+			background: #fff;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 12px;
+			transition: all 0.3s ease;
+			margin-bottom: 0;
+		}
 
-        .assessment-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
+		.inspiration-card:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow);
+		}
 
-        .trl-badge {
-            display: inline-block;
-            background: #2d3748;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
+		.inspiration-card.far {
+			border-left: 3px solid var(--accent-blue);
+		}
 
-        /* Links */
-        a {
-            color: #e53e3e;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+		.inspiration-card.near {
+			border-left: 3px solid var(--accent-green);
+		}
 
-        a:hover {
-            color: #c53030;
-            text-decoration: underline;
-        }
+		.inspiration-title {
+			font-size: 14px;
+			font-weight: 600;
+			margin-bottom: 6px;
+			color: var(--text);
+		}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
 
-            .section {
-                padding: 1.5rem;
-            }
 
-            .nav {
-                position: static;
-                text-align: center;
-                margin-bottom: 2rem;
-            }
+		.inspiration-title {
+			font-size: 18px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--text);
+		}
 
-            .nav-menu {
-                position: static;
-                display: block;
-                background: transparent;
-                box-shadow: none;
-                margin-top: 1rem;
-            }
+		.inspiration-meta {
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			font-weight: 600;
+			color: var(--muted);
+			margin-bottom: 12px;
+		}
 
-            .nav-menu a {
-                display: inline-block;
-                margin: 0 0.5rem;
-                border-bottom: none;
-                padding: 8px 16px;
-            }
-        }
+		/* Domain Axis */
+		.domain-axis {
+			position: relative;
+			height: 200px;
+			background: linear-gradient(90deg, rgba(14, 165, 233, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+			border-radius: 16px;
+			padding: 20px;
+			margin: 40px 0;
+		}
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #4a5568;
-            font-size: 0.9rem;
-        }
+		.axis-labels {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
 
-        /* PDF Modal Styles */
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-        }
+		.axis-label {
+			font-weight: 600;
+			color: var(--text);
+		}
 
-        .pdf-modal-content {
-            background-color: white;
-            margin: 2% auto;
-            padding: 20px;
-            border-radius: 12px;
-            width: 90%;
-            height: 90%;
-            max-width: 1200px;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
+		.axis-label.far { color: var(--accent-blue); }
+		.axis-label.near { color: var(--accent-green); }
 
-        .pdf-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e53e3e;
-        }
+		.axis-line {
+			height: 2px;
+			background: linear-gradient(90deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+			position: relative;
+		}
 
-        .pdf-modal-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a365d;
-            margin: 0;
-        }
+		.axis-marker {
+			position: absolute;
+			top: -8px;
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			background: #fff;
+			border: 3px solid;
+			transform: translateX(-50%);
+		}
 
-        .close-modal {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
+		.axis-marker.far { border-color: var(--accent-blue); left: 20%; }
+		.axis-marker.near { border-color: var(--accent-green); left: 80%; }
 
-        .close-modal:hover {
-            color: #e53e3e;
-        }
+		/* Impact × Readiness Quadrants */
+		.quadrants {
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			gap: 20px;
+			height: 600px;
+			background: var(--card);
+			border-radius: 20px;
+			padding: 40px 60px;
+			box-shadow: var(--shadow);
+		}
 
-        .pdf-viewer {
-            width: 100%;
-            height: calc(100% - 80px);
-            border: none;
-            border-radius: 8px;
-        }
+		/* Axes lines */
+		.quadrants::before,
+		.quadrants::after {
+			content: '';
+			position: absolute;
+			background: var(--border);
+		}
 
-        /* Deep Research Button */
-        .research-button {
-            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 20px 0;
-            box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
-        }
+		.quadrants::before {
+			width: 2px;
+			height: 100%;
+			left: 50%;
+			top: 0;
+			transform: translateX(-50%);
+		}
 
-        .research-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(229, 62, 62, 0.4);
-        }
+		.quadrants::after {
+			width: 100%;
+			height: 2px;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+		}
 
-        .research-button i {
-            font-size: 1.1rem;
-        }
+		/* Axis labels */
+		.axis-label-x,
+		.axis-label-y {
+			position: absolute;
+			font-size: 12px;
+			font-weight: 600;
+			color: var(--muted);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
 
-        .research-section {
-            text-align: center;
-            margin: 2rem 0;
-        }
+		.axis-label-x {
+			bottom: 5px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
 
-        .research-description {
-            margin-top: 10px;
-            color: #4a5568;
-            font-size: 0.9rem;
-        }
+		.axis-label-y {
+			left: 5px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+		}
 
-        @media (max-width: 768px) {
-            .pdf-modal-content {
-                width: 95%;
-                height: 95%;
-                margin: 2.5% auto;
-            }
-        }
-    </style>
+		/* Quadrant identifiers */
+		.quadrant-id {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			font-size: 10px;
+			font-weight: 700;
+			color: var(--muted);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			opacity: 0.6;
+		}
+
+		.quadrant-card {
+			background: #fff;
+			border: 2px solid var(--border);
+			border-radius: 16px;
+			padding: 24px;
+			position: relative;
+			transition: all 0.3s ease;
+		}
+
+		.quadrant-card:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow);
+		}
+
+		.quadrant-card.ur {
+			border-color: var(--accent-green);
+			background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%);
+		}
+
+		.quadrant-card.ul {
+			border-color: var(--accent-yellow);
+			background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+		}
+
+		.quadrant-card.lr {
+			border-color: var(--accent-blue);
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+		}
+
+		.quadrant-title {
+			font-size: 16px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--text);
+		}
+
+		/* Typography */
+		.h2 {
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0 0 16px;
+			color: var(--text);
+		}
+
+		.h3 {
+			font-size: 20px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--text);
+		}
+
+		.lead {
+			font-size: 18px;
+			color: var(--muted);
+			line-height: 1.7;
+		}
+
+		.kicker {
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 600;
+		}
+
+		/* Footer */
+		.footer {
+			text-align: center;
+			padding: 40px 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		/* Modal */
+		#pdfModal {
+			position: fixed;
+			inset: 0;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			background: rgba(15, 23, 42, 0.8);
+			z-index: 100;
+			-webkit-backdrop-filter: blur(4px);
+			backdrop-filter: blur(4px);
+		}
+
+		#pdfDialog {
+			background: #ffffff;
+			width: min(1000px, 92vw);
+			height: min(80vh, 800px);
+			border-radius: 20px;
+			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+		}
+
+		#pdfHeader {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 20px 24px;
+			border-bottom: 1px solid var(--border);
+			background: var(--card);
+		}
+
+		#pdfHeader h3 {
+			margin: 0;
+			font-size: 18px;
+			font-weight: 600;
+		}
+
+		#pdfContent { flex: 1; }
+		#pdfContent iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+		.icon-btn {
+			background: transparent;
+			border: 1px solid var(--border);
+			color: var(--text);
+			padding: 8px 16px;
+			border-radius: 8px;
+			cursor: pointer;
+			font-weight: 500;
+			transition: all 0.2s ease;
+		}
+
+		.icon-btn:hover {
+			background: var(--gradient-blue);
+			color: #fff;
+			border-color: var(--accent-blue);
+		}
+
+		.pdf-actions { display: flex; gap: 12px; align-items: center; }
+
+		/* Collapsible Section Styles */
+		.section-header-with-toggle {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.toggle-btn {
+			background: transparent;
+			border: 1px solid var(--border);
+			color: var(--muted);
+			padding: 6px 12px;
+			border-radius: 6px;
+			cursor: pointer;
+			font-size: 12px;
+			transition: all 0.2s ease;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+		}
+
+		.toggle-btn:hover {
+			background: var(--border);
+			color: var(--text);
+		}
+
+		.toggle-icon {
+			transition: transform 0.2s ease;
+		}
+
+		.toggle-btn.collapsed .toggle-icon {
+			transform: rotate(-90deg);
+		}
+
+		.collapsible-content {
+			transition: all 0.3s ease;
+			overflow: hidden;
+		}
+
+		.collapsible-content.collapsed {
+			max-height: 0;
+			opacity: 0;
+			margin-bottom: 0;
+		}
+	</style>
 </head>
 <body>
-    <!-- PDF Modal -->
-    <div id="pdfModal" class="pdf-modal">
-        <div class="pdf-modal-content">
-            <div class="pdf-modal-header">
-                <h3 class="pdf-modal-title">Deep Research Report</h3>
-                <span class="close-modal">&times;</span>
-            </div>
-            <iframe class="pdf-viewer" src="" title="Deep Research Report PDF"></iframe>
-        </div>
-    </div>
+	<header class="header">
+		<div class="container">
+			<div class="banner">
+				<h1>Bio-Grown Aerogel Cabin Liners (Cellulose / Bacterial Cellulose)</h1>
+				<button id="openPdf" class="primary-btn" type="button">Deep Research Report (PDF)</button>
+			</div>
+		</div>
+	</header>
 
-    <div class="nav">
-        <button class="nav-toggle" onclick="toggleNav()">Navigation</button>
-        <div class="nav-menu" id="navMenu">
-            <a href="#overview">Name of the idea</a>
-            <a href="#plain-language">In plain language</a>
-            <a href="#inspiration">Analogical inspiration</a>
-            <a href="#relevance">Why it's relevant</a>
-            <a href="#landscape">What currently exists</a>
-            <a href="#novelty">Novelty assessment</a>
-            <a href="#non-obviousness">Non-obviousness</a>
-            <a href="#players">Key players</a>
-            <a href="#readiness">Tech-readiness</a>
-            <a href="#research-trail">Research trail</a>
-        </div>
-    </div>
+	<main class="container">
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">🌱 The Innovation</h2>
+				<p><strong>Ultralight, plant-derived "frozen foam" pads</strong> (aerogels/foams made from <strong>cellulose or bacterial cellulose</strong>) used behind trim—<strong>headliners, door inners, parcel shelves</strong>—to cut cabin noise and heat flow. Think: <strong>marshmallow-light pads that absorb hiss and keep heat out</strong>, made from <strong>renewable fibers</strong> and processed at <strong>low temperatures</strong>.</p>
+			</div>
+		</section>
 
-    <div class="header">
-        <div class="container">
-            <h1>Bio-grown cellulose aerogel liners for quiet, comfortable, low-impact cabins</h1>
-        </div>
-    </div>
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">⚙️ The Science</h2>
+				<p><strong>Cellulose is turned into a water-based gel</strong>, then dried to leave a <strong>nano-porous solid (aerogel)</strong>. Those <strong>tiny pores scatter sound and block heat transfer</strong> (very low thermal conductivity). By adjusting the <strong>gel recipe and drying method</strong>, we tune which <strong>frequencies are absorbed</strong> and how <strong>stiff/soft the pad is</strong>. <strong>Thin scrims and bio-adhesives</strong> protect the fragile core; <strong>hydrophobization (surface treatment)</strong> manages humidity.</p>
+			</div>
+		</section>
+		<section class="section">
+			<div class="card">
+				<div class="section-header-with-toggle">
+					<h2 class="h2">💡 Inspirations</h2>
+					<button class="toggle-btn" onclick="toggleSection('inspirations-content')" aria-label="Toggle Inspirations section">
+						<span class="toggle-icon">▼</span>
+					</button>
+				</div>
+				<div id="inspirations-content" class="collapsible-content">
 
-    <div class="container">
-        <!-- Deep Research Report Button -->
-        <div class="research-section">
-            <button class="research-button" onclick="openPDFModal()">
-                <i>📄</i>
-                View Deep Research Report
-            </button>
-            <p class="research-description">
-                Comprehensive technical analysis and research findings
-            </p>
-        </div>
+				<div class="inspirations-layout">
+					<!-- Far Domain Column -->
+					<div class="inspirations-column far-column">
+						<h3 class="column-title">🌍 Far-Domain Precedents</h3>
+						<div class="inspiration-cards">
+							<div class="inspiration-card far">
+								<div class="inspiration-title">🏢 Transparent cellulose aerogels in building glazing</div>
+								<p><strong>How it's used:</strong> Hydrophobized, highly transparent cellulose aerogels sit inside glazing units to dramatically reduce heat loss while admitting daylight. (<a href="https://www.nature.com/articles/s41560-023-01226-7">Nature</a>, <a href="https://www.sciopen.com/article/10.26599/NRE.2023.9120090">SciOpen</a>)</p>
+								<p><strong>What we borrow:</strong> Moisture control via silanization; handling/laminating fragile aerogel sheets; the "ultra-thin but high-R" mindset for tight interior cavities.</p>
+							</div>
 
-        <div class="main-content">
-            <!-- Name of the idea -->
-            <section class="section" id="overview">
-                <h2>1) Name of the idea</h2>
-                <p><strong>Bio-grown cellulose aerogel liners for quiet, comfortable, low-impact cabins</strong></p>
-            </section>
+							<div class="inspiration-card far">
+								<div class="inspiration-title">🏭 Bio-based aerogel cores for vacuum-insulation panels (VIPs)</div>
+								<p><strong>How it's used:</strong> New VIPs replace fumed-silica cores with <strong>cellulose bio-aerogels</strong> to achieve extreme insulation at thin gauges for buildings/industry. (<a href="https://www.chemistryviews.org/cellulose-aerogel-as-core-material-for-vacuum-insulation">ChemistryViews</a>, <a href="https://www.va-q-tec.com/en/technology/vacuum-insulation-panels">va-Q-tec</a>)</p>
+								<p><strong>What we borrow:</strong> Assembly and edge-sealing practices for very porous cores; durability know-how when panels are thin but must be handled in manufacturing.</p>
+							</div>
 
-            <!-- In plain language -->
-            <section class="section" id="plain-language">
-                <h2>2) In plain language</h2>
+							<div class="inspiration-card far">
+								<div class="inspiration-title">👕 Aerogel fibers/laminates in apparel & wearables</div>
+								<p><strong>How it's used:</strong> Knittable, flexible aerogel fibers/laminates deliver warmth without bulk in garments. (<a href="https://www.science.org/doi/10.1126/science.adj8013">Science</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S0144861725009750">ScienceDirect</a>)</p>
+								<p><strong>What we borrow:</strong> Breathable, flexible stacks for seats/headliners; joining/lamination that preserves water-vapor permeability (comfort + fogging/VOC awareness).</p>
+							</div>
 
-                <h3>What it is</h3>
-                <p>Ultralight, plant- or microbe-derived foam "blankets" (aerogels) that sit behind interior panels (headliner, door, quarter trim, tunnel cover). They absorb hiss/whine in EVs and insulate the cabin—at a fraction of the weight of conventional foams/felts—while being made from renewable cellulose instead of petrochemicals.</p>
+							<div class="inspiration-card far">
+								<div class="inspiration-title">🔊 Bacterial cellulose (BNC) aerogels as acoustic media</div>
+								<p><strong>How it's used:</strong> Lab studies show <strong>high sound-absorption (200–5000 Hz)</strong> and air-like thermal conductivity in BNC aerogels; freeze-drying and pore control tune performance. (<a href="https://pubmed.ncbi.nlm.nih.gov/30768255">PubMed</a>, <a href="https://pubs.acs.org/doi/abs/10.1021/acs.biomac.8b01816">American Chemical Society Publications</a>)</p>
+								<p><strong>What we borrow:</strong> Process knobs (freeze-dry parameters, density) to hit EV-relevant frequencies and stiffness targets.</p>
+							</div>
 
-                <h3>How it works</h3>
-                <p>Cellulose fibers (from wood pulp or bacteria) are turned into a wet gel, then dried to leave a <strong>highly porous solid</strong> (90–99% air). The labyrinth of pores <strong>traps sound</strong> and <strong>slows heat flow</strong>. Parts are made at <strong>low temperatures</strong> (mostly water-based), and end-of-life can be compostable or recyclable depending on the binder used. Reviews of biopolymer/cellulose aerogels confirm the <strong>sound absorption</strong> and <strong>low thermal conductivity</strong> basis of the idea. (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">Cemef</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352492824012248?utm_source=chatgpt.com" target="_blank" rel="noopener">ScienceDirect</a>)</p>
-            </section>
+							<div class="inspiration-card far">
+								<div class="inspiration-title">📚 Cross-domain reviews on aerogels & acoustics</div>
+								<p><strong>How it's used:</strong> Aerogels (inorganic/organic/biopolymer) have promising sound absorption thanks to extreme porosity; literature flags the need for more standardized acoustic data—useful guidance for our test plan. (<a href="https://onlinelibrary.wiley.com/doi/10.1002/adem.202201137">Wiley Online Library</a>, <a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf">cemef.minesparis.psl.eu</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S2352492824012248">ScienceDirect</a>)</p>
+								<p><strong>What we borrow:</strong> Material performance benchmarking, test methodology guidance.</p>
+							</div>
+						</div>
+					</div>
 
-            <!-- Analogical inspiration -->
-            <section class="section" id="inspiration">
-                <h2>3) Analogical inspiration (where it's used now)</h2>
-                <p>Learning from diverse domains where ultralight porous media manage heat and sound:</p>
+					<!-- Near Domain Column -->
+					<div class="inspirations-column near-column">
+						<h3 class="column-title">🚗 Near-Domain Reality Checks</h3>
+						<div class="inspiration-cards">
+							<div class="inspiration-card near">
+								<div class="inspiration-title">🚗 Current interior absorbers</div>
+								<p><strong>How it's used:</strong> Felt/nonwovens (cotton/PET mixes) like <strong>Autoneum Flexi-Loft</strong>—lightweight, formable acoustic blankets used for inner dashes, carpets, etc. (<a href="https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance">Autoneum. Mastering Sound and Heat.</a>, <a href="https://www.nonwovens-industry.com/contents/view_breaking-news/2025-07-15/autoneum-introduces-flexi-light-pet">Nonwovens Industry</a>)</p>
+							</div>
 
-                <ul class="feature-list">
-                    <li><strong>Aerogels for EV battery safety</strong> (thermal barriers) – already in production: <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com" target="_blank" rel="noopener">Aspen Aerogels' PyroThin</a> ultra-thin aerogel barriers are used by major OEMs to stop thermal-runaway propagation between cells. (<a href="https://www.investors.com/news/aspen-aerogels-stock-ev-play-doe-loan-revenue/?utm_source=chatgpt.com" target="_blank" rel="noopener">Investors</a>)</li>
-                    <li><strong>Melamine aerogel foams in vehicle interiors</strong> – <a href="https://download.basf.com/p1/8a8082587fd4b608017fd64b1e533cf6/en/Basotect%3Csup%3E%C2%AE%3Csup%3E_%E2%80%93_Ideal_Sound_Absorption_and_Thermal_Insulation_for_the_Transportation_Industry_Brochure_English.pdf?view=&utm_source=chatgpt.com" target="_blank" rel="noopener">BASF's Basotect®</a> is widely used for headliners, HVAC, and interior NVH because it's light, absorbs mid-high frequencies well, and meets flammability standards. (<a href="https://insights.basf.com/files/pdf/Basotect_Brochure.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">insights.basf.com</a>)</li>
-                    <li><strong>Lightweight nonwoven acoustic felts</strong> – <a href="https://www.nonwovensnews.com/industrial-products-news/15702-sustainable-noise-reduction-from-autoneum?utm_source=chatgpt.com" target="_blank" rel="noopener">Autoneum's felts</a> (e.g., Flexi-Loft blends with recycled cotton/PET) are common for floors/headliners, setting today's baseline for sustainable NVH. (<a href="https://www.autoneum.com/products-technologies/light-vehicles/interior/?utm_source=chatgpt.com" target="_blank" rel="noopener">Autoneum</a>)</li>
-                    <li><strong>Cellulose nanofiber (CNF) in automotive parts</strong> – The <a href="https://www.japan.go.jp/kizuna/2021/02/plant-derived_material.html?utm_source=chatgpt.com" target="_blank" rel="noopener">Nano Cellulose Vehicle (NCV) concept</a> used wood-derived CNF across 13 parts (e.g., door trim, floor) with notable weight reduction. (<a href="https://www.cardesignnews.com/interiors/nano-cellulose-vehicle-highlights-potential-of-plants/455237?utm_source=chatgpt.com" target="_blank" rel="noopener">Car Design News</a>, <a href="https://www.tokyo-motorshow.com/en/gallery/2019/04_030_MOE/002.html?utm_source=chatgpt.com" target="_blank" rel="noopener">tokyo-motorshow.com</a>)</li>
-                </ul>
-            </section>
+							<div class="inspiration-card near">
+								<div class="inspiration-title">🧰 Light foams for acoustics</div>
+								<p><strong>How it's used:</strong> Melamine foam (BASF <strong>Basotect</strong>) deployed by OEMs (e.g., VW engine cover acoustics). Not bio-based; good benchmark for mass, absorption, flammability. (<a href="https://www.basf.com/global/en/media/news-releases/2015/06/p-15-253">BASF</a>, <a href="https://www.basotect.basf.com">basotect.basf.com</a>)</p>
+							</div>
 
-            <!-- Why it's relevant to our problem -->
-            <section class="section" id="relevance">
-                <h2>4) Why it's relevant to our problem</h2>
-                <ul class="feature-list">
-                    <li><strong>Noise + thermal wins for EVs</strong>: EV cabins expose high-frequency hiss and structural drumming; porous ultralight media are effective there. Aerogels offer high absorption per mass plus thermal insulation for HVAC load reduction. (<a href="https://journals.sagepub.com/doi/full/10.1177/16878132251345867?utm_source=chatgpt.com" target="_blank" rel="noopener">SAGE Journals</a>, <a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">Cemef</a>)</li>
-                    <li><strong>Sustainability</strong>: Cellulose aerogels use renewable feedstocks and mostly aqueous, low-temperature processing—aligning with low-energy manufacturing and circularity goals. (<a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com" target="_blank" rel="noopener">ScienceDirect</a>)</li>
-                    <li><strong>Design latitude</strong>: They can be laminated to thin coverskins, die-cut, or net-shaped, enabling thin packages behind trim where space is tight. (Comparable approaches are already used with Basotect felts.) (<a href="https://download.basf.com/p1/8a8082587fd4b608017fd64b1e533cf6/en/Basotect%3Csup%3E%C2%AE%3Csup%3E_%E2%80%93_Ideal_Sound_Absorption_and_Thermal_Insulation_for_the_Transportation_Industry_Brochure_English.pdf?view=&utm_source=chatgpt.com" target="_blank" rel="noopener">BASF Download</a>)</li>
-                </ul>
-            </section>
+							<div class="inspiration-card near">
+								<div class="inspiration-title">🔥 Aerogel already in cars (elsewhere)</div>
+								<p><strong>How it's used:</strong> <strong>Aspen Aerogels PyroThin</strong> shields in EV battery packs (thermal/runaway barriers). Shows automotive-grade aerogel processing exists, just not yet for trim acoustics. (<a href="https://www.aerogel.com/product/pyrothin">Aspen Aerogels</a>)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</section>
 
-            <!-- What currently exists -->
-            <section class="section" id="landscape">
-                <h2>5) What currently exists (and in what form)</h2>
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">🎯 Why This Matters</h2>
+				<ul>
+					<li><strong>Acoustic win at thin gauges:</strong> Nanoporous structure lets us target EV hiss/whine bands without bulky stacks. (Mapped from building-glazing and BNC studies.) (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/30768255/?utm_source=chatgpt.com">PubMed</a>)</li>
+					<li><strong>Thermal comfort & HVAC load:</strong> Very low thermal conductivity gives headliner/roof and parcel-shelf parts extra thermal resistance. (Borrowed from glazing/VIP work.) (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>, <a href="https://www.chemistryviews.org/cellulose-aerogel-as-core-material-for-vacuum-insulation/?utm_source=chatgpt.com">ChemistryViews</a>)</li>
+					<li><strong>Sustainability:</strong> Bio-based feedstock, water-borne processing, and compostable/benign end-of-life pathways vs. petro foams. (Seen across cellulose aerogel reviews.) (<a href="https://www.mdpi.com/2073-4360/12/8/1759?utm_source=chatgpt.com">MDPI</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11468492/?utm_source=chatgpt.com">PMC</a>)</li>
+				</ul>
+			</div>
+		</section>
 
-                <h3>Acoustics/thermal science base</h3>
-                <p>Cross-cutting academic reviews (2022–2024) document acoustic absorption of aerogels (silica, polymers, biopolymers) and cellulose aerogels' low density/low thermal conductivity. (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">Cemef</a>, <a href="https://onlinelibrary.wiley.com/doi/10.1002/adem.202201137?utm_source=chatgpt.com" target="_blank" rel="noopener">Wiley Online Library</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com" target="_blank" rel="noopener">ScienceDirect</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10538065/?utm_source=chatgpt.com" target="_blank" rel="noopener">PMC</a>)</p>
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">🔍 Current Landscape</h2>
+				<ul>
+					<li><strong>Commercialized today (automotive):</strong> PET/cotton felts (Autoneum) and melamine foams (Basotect) for NVH; aerogel in <strong>battery</strong> protection (Aspen). No mainstream <strong>cellulose-aerogel interior liners</strong> yet. (<a href="https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance/?utm_source=chatgpt.com">Autoneum. Mastering Sound and Heat.</a>, <a href="https://www.basotect.basf.com/?utm_source=chatgpt.com">basotect.basf.com</a>, <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com">Aspen Aerogels</a>)</li>
+				</ul>
+				<div class="hr"></div>
+				<ul>
+					<li><strong>Experimental / pre-commercial:</strong>
+						<ul>
+							<li><strong>Cellulose aerogels for glazing & building insulation</strong> (ultra-low k, moisture-managed). (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>)</li>
+							<li><strong>Silica–cellulose hybrid aerogels</strong> with reported <strong>SAC \~0.4–0.5</strong> (normal incidence). (<a href="https://pubs.acs.org/doi/10.1021/acsomega.2c03734?utm_source=chatgpt.com">American Chemical Society Publications</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9685788/?utm_source=chatgpt.com">PMC</a>)</li>
+							<li><strong>BNC aerogels</strong> with high sound absorption across 200–5000 Hz; air-like k. (<a href="https://pubmed.ncbi.nlm.nih.gov/30768255/?utm_source=chatgpt.com">PubMed</a>)</li>
+							<li><strong>Knittable aerogel fibers</strong> for flexible, breathable insulation. (<a href="https://www.science.org/doi/10.1126/science.adj8013?utm_source=chatgpt.com">Science</a>)</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
 
-                <h3>Aerogels in automotive today (adjacent but real)</h3>
-                <ul class="feature-list">
-                    <li><strong>Bacterial nanocellulose (BNC) aerogels</strong> (experimental → pilot): BNC aerogels can be grown by microbes, then dried into high-porosity, breathable pads; properties depend strongly on drying route (freeze vs. supercritical). (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11276278/?utm_source=chatgpt.com" target="_blank" rel="noopener">PMC</a>, <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2020.603407/full?utm_source=chatgpt.com" target="_blank" rel="noopener">Frontiers</a>)</li>
-                    <li><strong>Battery thermal barriers</strong>: <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com" target="_blank" rel="noopener">PyroThin</a> in EV packs at multiple OEMs; proves automotive-grade aerogels at scale. (<a href="https://www.investors.com/news/aspen-aerogels-stock-ev-play-doe-loan-revenue/?utm_source=chatgpt.com" target="_blank" rel="noopener">Investors</a>)</li>
-                    <li><strong>Interior melamine foams</strong>: <a href="https://download.basf.com/p1/8a8082587fd4b608017fd64b1e533cf6/en/Basotect%3Csup%3E%C2%AE%3Csup%3E_%E2%80%93_Ideal_Sound_Absorption_and_Thermal_Insulation_for_the_Transportation_Industry_Brochure_English.pdf?view=&utm_source=chatgpt.com" target="_blank" rel="noopener">Basotect</a> in headliners/HVAC—light, flame-retardant, mid-high frequency absorber; long-standing interior use.</li>
-                    <li><strong>Bio-felts/nonwovens</strong>: Recycled cotton/PET felts for floors and headliners (e.g., <a href="https://www.nonwovensnews.com/industrial-products-news/15702-sustainable-noise-reduction-from-autoneum?utm_source=chatgpt.com" target="_blank" rel="noopener">Autoneum</a>) define current sustainable NVH stack-ups.</li>
-                </ul>
-            </section>
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">🚀 Innovation Assessment</h2>
+				
+				<h3 class="h3">✨ Novelty</h3>
+				<ul>
+					<li><strong>Concept novelty:</strong> <strong>High.</strong> We found <strong>no evidence</strong> of cellulose- or BNC-aerogel <strong>interior liners</strong> in production vehicles; closest automotive use of aerogel is in <strong>battery thermal shields</strong>, not cabin NVH/thermal pads. (<a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com">Aspen Aerogels</a>)</li>
+					<li><strong>Technique maturity in other sectors:</strong> <strong>Medium–High</strong> for thermal glazing/insulation and VIPs; <strong>emerging</strong> for acoustics with bio-aerogels (solid lab data, fewer standardized acoustic datasets). (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>, <a href="https://www.chemistryviews.org/cellulose-aerogel-as-core-material-for-vacuum-insulation/?utm_source=chatgpt.com">ChemistryViews</a>, <a href="https://onlinelibrary.wiley.com/doi/10.1002/adem.202201137?utm_source=chatgpt.com">Wiley Online Library</a>)</li>
+				</ul>
 
-            <!-- Novelty assessment -->
-            <section class="section" id="novelty">
-                <h2>6) Novelty assessment</h2>
-                <p>Using <strong>cellulose (including BNC) *aerogels*</strong> specifically as <strong>cabin acoustic/thermal liners</strong> (headliner/door/tunnel) appears <strong>novel</strong> vs. today's solutions (melamine foams, PET/cotton felts, PU foams). We found <strong>no public production examples</strong> of <strong>cellulose-aerogel liners</strong> in series interiors. (Aerogels: yes in EV batteries; cellulose: yes in composites; but <strong>cellulose-aerogel for NVH</strong> is at research/prototype stage.) (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">Cemef</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com" target="_blank" rel="noopener">ScienceDirect</a>, <a href="https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2020.603407/full?utm_source=chatgpt.com" target="_blank" rel="noopener">Frontiers</a>, <a href="https://download.basf.com/p1/8a8082587fd4b608017fd64b1e533cf6/en/Basotect%3Csup%3E%C2%AE%3Csup%3E_%E2%80%93_Ideal_Sound_Absorption_and_Thermal_Insulation_for_the_Transportation_Industry_Brochure_English.pdf?view=&utm_source=chatgpt.com" target="_blank" rel="noopener">BASF Download</a>)</p>
-                <p>Caveat: It's possible a supplier is piloting quietly; we see no public, series-production disclosure for cabin NVH as of <strong>August 21, 2025</strong>.</p>
-            </section>
+				<h3 class="h3">💡 Non-obviousness</h3>
+				<ul>
+					<li><strong>Why this isn't a "usual suspect":</strong> The cabin NVH world leans on felts/foams that are easy to die-cut and robust in humidity. Aerogels are <strong>fragile and hygroscopic</strong> without tweaks. The <strong>non-obvious</strong> leap is to import <strong>glazing/VIP tricks</strong> (silanization, protective scrims, controlled lamination) to make <strong>bio-aerogels</strong> survive vehicle humidity/handling while exploiting their <strong>thin-gauge acoustic + thermal</strong> strengths. (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Wiley Online Library</a>, <a href="https://onlinelibrary.wiley.com/doi/10.1002/adem.202201137?utm_source=chatgpt.com">Wiley Online Library</a>)</li>
+				</ul>
+			</div>
+		</section>
 
-            <!-- Non-obviousness assessment -->
-            <section class="section" id="non-obviousness">
-                <h2>7) Non-obviousness assessment (why this isn't an "expected" idea)</h2>
-                <p>Interior NVH has standardized on <strong>thermoplastic felts and PU/melamine foams</strong>; jumping to <strong>bio-grown, ultralight aerogels</strong> is non-obvious because of concerns about <strong>brittleness, humidity pickup, and flammability</strong>—yet recent work shows <strong>process routes and hybrids</strong> (e.g., silica–cellulose) to address these. The aerogel literature also flags <strong>acoustics are promising but under-reported</strong> vs. thermal, implying hidden potential. (<a href="https://www.sciencedirect.com/science/article/abs/pii/S2352492824012248?utm_source=chatgpt.com" target="_blank" rel="noopener">ScienceDirect</a>, <a href="https://onlinelibrary.wiley.com/doi/10.1002/adem.202201137?utm_source=chatgpt.com" target="_blank" rel="noopener">Wiley Online Library</a>)</p>
-            </section>
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">🤝 Key Players & Partners</h2>
+				<ul>
+					<li><strong>Thermal glazing & cellulose aerogels (academia/consortia):</strong> Research teams behind <strong>transparent silanized cellulose aerogels</strong> (Nature Energy 2023). (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>)</li>
+					<li><strong>VIPs with bio-aerogel cores:</strong> <strong>Aerogel-it</strong> and <strong>va-Q-tec</strong> partnership on cellulose-core VIPs. (<a href="https://www.chemistryviews.org/cellulose-aerogel-as-core-material-for-vacuum-insulation/?utm_source=chatgpt.com">ChemistryViews</a>)</li>
+					<li><strong>Aerogel fibers & flexible stacks:</strong> Teams publishing <strong>knittable aerogel fibers</strong> (Science 2023); textile labs working on aerogel-textile laminates. (<a href="https://www.science.org/doi/10.1126/science.adj8013?utm_source=chatgpt.com">Science</a>)</li>
+					<li><strong>Automotive NVH baselines:</strong> <strong>Autoneum</strong> (felts) and <strong>BASF Basotect</strong> (melamine foams) for benchmarks and A/B testing. (<a href="https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance/?utm_source=chatgpt.com">Autoneum. Mastering Sound and Heat.</a>, <a href="https://www.basotect.basf.com/?utm_source=chatgpt.com">basotect.basf.com</a>)</li>
+					<li><strong>Automotive-grade aerogel processing:</strong> <strong>Aspen Aerogels</strong> (battery barriers)—experience with automotive specs and supply. (<a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com">Aspen Aerogels</a>)</li>
+				</ul>
+			</div>
+		</section>
 
-            <!-- Key players -->
-            <section class="section" id="players">
-                <h2>8) Key players (to contact or monitor)</h2>
+		<section class="section">
+			<div class="card">
+				<h2 class="h2">📊 Impact × Readiness Roadmap</h2>
+				<p><strong>X-axis:</strong> Technology Readiness for <strong>interior</strong> use (materials + process + validation)</p>
+				<p><strong>Y-axis:</strong> Potential Impact (NVH improvement at thin gauge, thermal comfort, sustainability story)</p>
+				<p><strong>Upper-right (High impact / Medium readiness ~ TRL 3-4 for interiors):</strong></p>
+				<ul>
+					<li><strong>Cellulose or BNC aerogel pads</strong> with <strong>hydrophobized surfaces + protective scrims</strong>, used behind headliners/doors (borrow lamination & moisture control from glazing/VIP work).<br />
+					<em>Why here:</em> Strong physics and far-domain proof; needs automotive-specific durability, flame, VOC, and humidity cycling evidence. (<a href="https://www.nature.com/articles/s41560-023-01226-7?utm_source=chatgpt.com">Nature</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/30768255/?utm_source=chatgpt.com">PubMed</a>)</li>
+				</ul>
+				<p><strong>Upper-mid (High impact / Lower readiness):</strong></p>
+				<ul>
+					<li><strong>Knittable aerogel fiber laminates</strong> for seat comfort layers (breathable warmth + acoustic damping).<br />
+					<em>Why here:</em> Apparel evidence is strong; auto wear/cleaner/UV specs still to prove. (<a href="https://www.science.org/doi/10.1126/science.adj8013?utm_source=chatgpt.com">Science</a>)</li>
+				</ul>
+				<p><strong>Benchmark line (Today's state):</strong></p>
+				<ul>
+					<li><strong>PET/cotton felts, melamine foams</strong>—production-ready, lower sustainability upside vs. bio-aerogels. (<a href="https://www.autoneum.com/2021/11/15/flexi-loft-versatile-sustainability-champion-with-high-acoustic-performance/?utm_source=chatgpt.com">Autoneum. Mastering Sound and Heat.</a>, <a href="https://www.basotect.basf.com/?utm_source=chatgpt.com">basotect.basf.com</a>)</li>
+				</ul>
+			</div>
+		</section>
 
-                <div class="players-grid">
-                    <div class="player-card">
-                        <h4><a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com" target="_blank" rel="noopener">Aspen Aerogels</a></h4>
-                        <p>PyroThin EV thermal barriers; deep automotive validation and manufacturing. Potential partner for process/lamination know-how.</p>
-                    </div>
-                    <div class="player-card">
-                        <h4><a href="https://celluforce.com/?utm_source=chatgpt.com" target="_blank" rel="noopener">CelluForce</a> & <a href="https://www.borregaard.com/markets/cleaners/products/exilva-mfc?utm_source=chatgpt.com" target="_blank" rel="noopener">Borregaard</a></h4>
-                        <p>CNC, MFC/CNF suppliers. Supply, functionalization, dispersion expertise.</p>
-                    </div>
-                    <div class="player-card">
-                        <h4><a href="https://www.autoneum.com/products-technologies/light-vehicles/interior/?utm_source=chatgpt.com" target="_blank" rel="noopener">Autoneum</a></h4>
-                        <p>Global leader in interior NVH felts/liners; comparative target and potential co-dev partner.</p>
-                    </div>
-                    <div class="player-card">
-                        <h4><a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">Mines Paris – Budtova Group</a></h4>
-                        <p>Research on aerogel acoustics and biopolymer materials.</p>
-                    </div>
-                </div>
-            </section>
+		<section class="section">
+			<div class="card">
+				<h3 class="h3">How we got here (research trail, summarized)</h3>
+				<h2 class="h2">🛤️ Research Trail Summary</h2>
+				<p>We searched <strong>outside</strong> conventional foams/felts and asked: <em>Who else uses ultralight porous media to manage heat and sound?</em> That led to <strong>aerogels</strong> (battery safety, building insulation). We then checked if <strong>cellulose-based aerogels</strong> offer similar physics with <strong>renewable feedstocks</strong> and low-energy processing. Reviews and lab studies confirm the <strong>acoustic/thermal potential</strong>; automotive practice shows <strong>aerogels are already qualified</strong> (in batteries) and <strong>cellulose</strong> is already in <strong>auto composites</strong> (NCV), but <strong>not yet combined</strong> as <strong>cellulose-aerogel cabin liners</strong>—hence the opportunity. (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com">Cemef</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com">ScienceDirect</a>, <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com">Aspen Aerogels</a>, <a href="https://www.japan.go.jp/kizuna/2021/02/plant-derived_material.html?utm_source=chatgpt.com">JapanGov - The Government of Japan</a>)</p>
+				<h3 class="h3">One-line takeaway</h3>
+				<p><strong>Cellulose aerogel cabin liners</strong> convert a well-proven physics (ultralight porous media for heat/sound) into a <strong>renewable, low-energy</strong> material platform for interiors—<strong>novel in cars</strong>, feasible to prototype now, and positioned for high impact if we de-risk humidity, flammability, and VOC.</p>
+			</div>
+		</section>
+	</main>
 
-            <!-- Tech-readiness vs. Impact -->
-            <section class="section" id="readiness">
-                <h2>9) Tech-readiness vs. Impact (quick quadrant placement)</h2>
+	<!-- PDF Modal -->
+	<div id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+		<div id="pdfDialog">
+			<div id="pdfHeader">
+				<h3 id="pdfTitle">Deep Research Report (PDF)</h3>
+				<div class="pdf-actions">
+					<a id="openExternal" class="icon-btn" href="#" target="_blank" rel="noopener">📎 Open in new tab</a>
+					<button id="closePdf" class="icon-btn" type="button">✕ Close</button>
+				</div>
+			</div>
+			<div id="pdfContent">
+				<iframe id="pdfFrame" title="Deep Research Report"></iframe>
+			</div>
+		</div>
+	</div>
 
-                <div class="assessment-grid">
-                    <div class="assessment-card high-impact">
-                        <h4>Cellulose Aerogel Cabin Liners</h4>
-                        <p>TRL ~3–4. Lab data strong for acoustics/thermal; needs automotive laminates, humidity & flame performance, VOC/odor validation.</p>
-                        <span class="trl-badge">High Impact / Lower TRL</span>
-                    </div>
-                    <div class="assessment-card high-impact">
-                        <h4>Bacterial Nanocellulose (BNC) Aerogels</h4>
-                        <p>TRL ~2–3. Elegant biology and breathability; scale, drying route, and cost need work. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11276278/?utm_source=chatgpt.com" target="_blank" rel="noopener">PMC</a>)</p>
-                        <span class="trl-badge">High Impact / Lower TRL</span>
-                    </div>
-                    <div class="assessment-card moderate-impact">
-                        <h4><a href="https://download.basf.com/p1/8a8082587fd4b608017fd64b1e533cf6/en/Basotect%3Csup%3E%C2%AE%3Csup%3E_%E2%80%93_Ideal_Sound_Absorption_and_Thermal_Insulation_for_the_Transportation_Industry_Brochure_English.pdf?view=&utm_source=chatgpt.com" target="_blank" rel="noopener">Melamine Foam (Basotect) Liners</a></h4>
-                        <p>TRL 9. Widely used; good acoustics, meets flammability; petro-based.</p>
-                        <span class="trl-badge">Moderate Impact / High TRL</span>
-                    </div>
-                    <div class="assessment-card moderate-impact">
-                        <h4><a href="https://www.nonwovensnews.com/industrial-products-news/15702-sustainable-noise-reduction-from-autoneum?utm_source=chatgpt.com" target="_blank" rel="noopener">Recycled PET/Cotton Felts</a></h4>
-                        <p>TRL 9. Sustainable weight/cost; good but heavier vs. aerogels per absorption.</p>
-                        <span class="trl-badge">Moderate Impact / High TRL</span>
-                    </div>
-                </div>
-            </section>
+			<script>
+			(function() {
+				// Ensure external links open in new tab
+				var externalLinks = document.querySelectorAll('a[href^="http"]');
+				externalLinks.forEach(function(a) {
+					a.setAttribute('target', '_blank');
+					a.setAttribute('rel', 'noopener');
+				});
 
-            <!-- How we got here -->
-            <section class="section" id="research-trail">
-                <h2>How we got here (research trail, summarized)</h2>
-                <p>We searched <strong>outside</strong> conventional foams/felts and asked: <em>Who else uses ultralight porous media to manage heat and sound?</em> That led to <strong>aerogels</strong> (battery safety, building insulation). We then checked if <strong>cellulose-based aerogels</strong> offer similar physics with <strong>renewable feedstocks</strong> and low-energy processing. Reviews and lab studies confirm the <strong>acoustic/thermal potential</strong>; automotive practice shows <strong>aerogels are already qualified</strong> (in batteries) and <strong>cellulose</strong> is already in <strong>auto composites</strong> (NCV), but <strong>not yet combined</strong> as <strong>cellulose-aerogel cabin liners</strong>—hence the opportunity. (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com" target="_blank" rel="noopener">Cemef</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com" target="_blank" rel="noopener">ScienceDirect</a>, <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com" target="_blank" rel="noopener">Aspen Aerogels</a>, <a href="https://www.japan.go.jp/kizuna/2021/02/plant-derived_material.html?utm_source=chatgpt.com" target="_blank" rel="noopener">JapanGov</a>)</p>
-            </section>
+				// PDF modal logic
+				var pdfBtn = document.getElementById('openPdf');
+				var modal = document.getElementById('pdfModal');
+				var closeBtn = document.getElementById('closePdf');
+				var frame = document.getElementById('pdfFrame');
+				var openExternal = document.getElementById('openExternal');
+				var pdfPath = 'data/Cellulose Aerogels and BNC in Automotive Interiors_ Acoustic & Thermal Applications.pdf';
+				var encoded = encodeURI(pdfPath);
 
-            <!-- One-line takeaway -->
-            <section class="section">
-                <h3>One-line takeaway</h3>
-                <div class="highlight-box">
-                    <p><strong>Cellulose aerogel cabin liners</strong> convert a well-proven physics (ultralight porous media for heat/sound) into a <strong>renewable, low-energy</strong> material platform for interiors—<strong>novel in cars</strong>, feasible to prototype now, and positioned for high impact if we de-risk humidity, flammability, and VOC.</p>
-                </div>
-            </section>
-        </div>
-    </div>
+				function openModal() {
+					frame.src = encoded;
+					openExternal.href = encoded;
+					modal.style.display = 'flex';
+					document.body.style.overflow = 'hidden';
+				}
+				function closeModal() {
+					modal.style.display = 'none';
+					frame.src = '';
+					document.body.style.overflow = '';
+				}
+				pdfBtn.addEventListener('click', openModal);
+				closeBtn.addEventListener('click', closeModal);
+				modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+				window.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+			})();
 
-    <div class="footer">
-        <p>Lexus Innovation | Bio-Materials for Automotive Interiors</p>
-    </div>
-
-    <script>
-        function toggleNav() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('show');
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Close nav menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const nav = document.querySelector('.nav');
-            const navMenu = document.getElementById('navMenu');
-            if (!nav.contains(e.target)) {
-                navMenu.classList.remove('show');
-            }
-        });
-
-        // PDF Modal functionality
-        function openPDFModal() {
-            const modal = document.getElementById('pdfModal');
-            const iframe = modal.querySelector('.pdf-viewer');
-            iframe.src = 'data/Cellulose Aerogels and BNC in Automotive Interiors_ Acoustic & Thermal Applications.pdf';
-            modal.style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closePDFModal() {
-            const modal = document.getElementById('pdfModal');
-            const iframe = modal.querySelector('.pdf-viewer');
-            modal.style.display = 'none';
-            iframe.src = ''; // Clear the iframe src to stop the PDF
-            document.body.style.overflow = 'auto'; // Restore background scrolling
-        }
-
-        // Close modal when clicking the X
-        document.querySelector('.close-modal').addEventListener('click', closePDFModal);
-
-        // Close modal when clicking outside of it
-        document.getElementById('pdfModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePDFModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const modal = document.getElementById('pdfModal');
-                if (modal.style.display === 'block') {
-                    closePDFModal();
-                }
-            }
-        });
-    </script>
+			// Toggle section functionality
+			function toggleSection(sectionId) {
+				const content = document.getElementById(sectionId);
+				const button = content.previousElementSibling.querySelector('.toggle-btn');
+				const icon = button.querySelector('.toggle-icon');
+				
+				if (content.classList.contains('collapsed')) {
+					content.classList.remove('collapsed');
+					button.classList.remove('collapsed');
+					icon.textContent = '▼';
+				} else {
+					content.classList.add('collapsed');
+					button.classList.add('collapsed');
+					icon.textContent = '▶';
+				}
+			}
+		</script>
 </body>
 </html>
