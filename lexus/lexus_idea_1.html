@@ -1139,17 +1139,17 @@
 		}
 
 		.chart-point-label {
-			font-size: 10px;
+			font-size: 8px;
 			font-weight: 700;
 			color: #000;
 			text-align: center;
 			line-height: 1.1;
 			padding: 2px;
 			text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
-			max-width: 40px;
-			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
+			max-width: 60px;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+			white-space: normal;
 		}
 
 		.chart-point.high-impact {
@@ -1233,24 +1233,29 @@
 			background: var(--card);
 			border: 1px solid var(--border);
 			box-shadow: var(--shadow);
+			max-height: 500px;
 		}
 
 		.gallery-track {
 			display: flex;
 			transition: transform 0.4s ease-in-out;
+			width: 100%;
 		}
 
 		.gallery-slide {
 			min-width: 100%;
+			width: 100%;
 			display: flex;
 			gap: 24px;
 			padding: 32px;
-			align-items: center;
+			align-items: flex-start;
+			box-sizing: border-box;
 		}
 
 		.research-image {
-			flex: 1;
+			flex: 0 0 45%;
 			max-width: 400px;
+			min-width: 300px;
 		}
 
 		.research-image img {
@@ -1263,19 +1268,24 @@
 		.research-caption {
 			flex: 1;
 			padding-left: 16px;
+			overflow: hidden;
+			word-wrap: break-word;
 		}
 
 		.research-caption h4 {
-			font-size: 20px;
+			font-size: 18px;
 			font-weight: 600;
 			margin-bottom: 12px;
 			color: var(--text);
+			line-height: 1.3;
 		}
 
 		.research-caption p {
 			color: var(--muted);
-			line-height: 1.6;
+			line-height: 1.5;
 			margin-bottom: 16px;
+			font-size: 14px;
+			max-width: 100%;
 		}
 
 		.research-link {
@@ -1353,14 +1363,26 @@
 		}
 
 		@media (max-width: 768px) {
+			.gallery-container {
+				max-height: none;
+			}
+			
 			.gallery-slide {
 				flex-direction: column;
 				text-align: center;
+				padding: 24px;
+			}
+			
+			.research-image {
+				flex: 0 0 auto;
+				max-width: 100%;
+				min-width: auto;
 			}
 			
 			.research-caption {
 				padding-left: 0;
 				padding-top: 16px;
+				text-align: left;
 			}
 			
 			.gallery-nav {
@@ -1559,7 +1581,7 @@
 
 				<!-- Research Images Gallery -->
 				<div class="research-gallery">
-					<h3 class="h3">Research Evidence</h3>
+					<h3 class="h3">Gallery</h3>
 					<div class="gallery-container">
 						<div class="gallery-track" id="galleryTrack">
 							<div class="gallery-slide">
@@ -2171,7 +2193,7 @@
 					// Add a label inside the point
 					const label = document.createElement('span');
 					label.className = 'chart-point-label';
-					label.textContent = tech.name.split(' ')[0]; // Use first word as label
+					label.textContent = tech.name; // Use full name as label
 					point.appendChild(label);
 
 					point.addEventListener('click', () => showModal(tech));
