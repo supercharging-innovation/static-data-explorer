@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morphological Box Builder — Substrate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+      html, body { height: 100%; }
+      body {
+        font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+        background: #f1f5f9;
+        color: #0f172a;
+      }
+      .pill {
+        border-radius: 9999px;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.875rem;
+        border-width: 1px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.12s ease-in-out;
+      }
+      .pill-active {
+        background: #0f172a;
+        color: white;
+        border-color: #0f172a;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+      }
+      .pill-inactive {
+        background: white;
+        color: #334155;
+        border-color: #cbd5e1;
+      }
+      .grid-auto {
+        display: grid;
+        grid-template-columns: 40px var(--cols, 1fr);
+      }
+      .h-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .minw-grid {
+        min-width: max-content;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="sticky top-0 z-10 backdrop-blur bg-slate-50/80 border-b">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-3">
+        <div class="text-xl font-bold tracking-tight">
+          Morphological Box Builder — <span class="text-slate-600">Substrate</span>
+        </div>
+        <div class="flex-1"></div>
+        <div class="flex items-center gap-2">
+          <button id="btn-random" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100">
+            <i class="fa-solid fa-dice"></i> <span>Random combo</span>
+          </button>
+          <button id="btn-add-dim" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100">
+            <i class="fa-solid fa-plus"></i> <span>Add dimension</span>
+          </button>
+          <button id="btn-reset" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100">
+            <i class="fa-solid fa-rotate"></i> <span>Reset defaults</span>
+          </button>
+          <button id="btn-save" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100">
+            <i class="fa-solid fa-floppy-disk"></i> <span>Save preset</span>
+          </button>
+          <label class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100 cursor-pointer">
+            <i class="fa-solid fa-upload"></i> <span>Load preset</span>
+            <input id="input-load" type="file" accept="application/json" class="hidden" />
+          </label>
+          <button id="btn-export" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100">
+            <i class="fa-solid fa-file-csv"></i> <span>Export CSV</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Instructions -->
+      <section class="lg:col-span-12">
+        <div class="rounded-2xl border bg-white shadow-sm p-4">
+          <div class="text-sm text-slate-700 leading-relaxed">
+            <div class="font-semibold mb-1">How to use this Zwicky (morphological) box</div>
+            <ol class="list-decimal ml-5 space-y-1">
+              <li><span class="font-medium">Add or edit dimensions</span> on the left. Use the Include checkbox to temporarily exclude a dimension.</li>
+              <li>Click options to <span class="font-medium">restrict</span> a dimension to a subset. Use Select all / Clear to toggle quickly.</li>
+              <li>On the right, browse <span class="font-medium">combinations</span>. Use the search box, pagination, and rows/page to navigate.</li>
+              <li>Use <span class="font-medium">Random combo</span> to sample the space. Copy any row; export CSV with an adjustable limit.</li>
+              <li><span class="font-medium">Save/Load preset</span> to JSON. Your current state is also saved to your browser automatically.</li>
+              <li>If columns overflow, <span class="font-medium">scroll horizontally</span> in the combinations section.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- Left: Dimensions -->
+      <section class="lg:col-span-6 flex flex-col gap-4">
+        <div class="rounded-2xl border bg-white shadow-sm p-4">
+          <div class="text-sm text-slate-600 leading-relaxed">
+            Define dimensions and their option sets. Click options to restrict generation to a subset (clear to use all). Toggle
+            <em>Include</em> to temporarily remove a dimension from combination building.
+          </div>
+        </div>
+        <div id="dims-container" class="flex flex-col gap-4"></div>
+      </section>
+
+      <!-- Right: Combinations -->
+      <section class="lg:col-span-6 flex flex-col gap-4">
+        <div class="rounded-2xl border bg-white shadow-sm p-4">
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="text-lg font-semibold">Combinations</div>
+            <div id="total-count" class="text-sm text-slate-600">0 total</div>
+            <div class="flex-1"></div>
+            <input id="filter-input" placeholder="Search in current page" class="px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-300" />
+            <div class="flex items-center gap-2 text-sm">
+              <span>Rows/page</span>
+              <select id="page-size" class="px-2 py-2 border rounded-xl bg-white">
+                <option value="10">10</option>
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="250">250</option>
+                <option value="500">500</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="random-box" class="hidden mt-3 p-3 rounded-xl bg-slate-50 border text-sm h-scroll"></div>
+
+          <div class="mt-4 rounded-2xl border h-scroll" id="rows-container"></div>
+
+          <div class="mt-3 flex items-center gap-2">
+            <button id="btn-prev" class="px-3 py-2 rounded-xl border bg-white hover:bg-slate-50">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div id="page-label" class="text-sm">Page 1 / 1</div>
+            <button id="btn-next" class="px-3 py-2 rounded-xl border bg-white hover:bg-slate-50">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="flex-1"></div>
+            <div class="flex items-center gap-2 text-sm">
+              <span>Export limit</span>
+              <input id="csv-limit" type="number" min="1" value="5000" class="w-28 px-2 py-2 border rounded-xl" />
+              <button id="btn-export-2" class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-100">
+                <i class="fa-solid fa-file-csv"></i> <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border bg-white shadow-sm p-4 text-sm text-slate-600">
+          Tips:
+          <ul class="list-disc ml-5 mt-2 space-y-1">
+            <li>Click an option to <span class="font-medium">restrict</span> that dimension to a subset (clear to use all).</li>
+            <li>Use <span class="font-medium">Random combo</span> to explore the space quickly.</li>
+            <li>Export CSV for offline tagging or evaluation. Large spaces? Raise the export limit gradually.</li>
+            <li>Add/remove/reorder dimensions as needed; presets save/load as JSON.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // ---------- Utilities ----------
+      const LOCAL_KEY = 'zwicky_substrate_v1';
+      const uid = () => Math.random().toString(36).slice(2, 9);
+      const sanitize = (s) => s.trim().replace(/\s+/g, ' ');
+      const uniq = (arr) => Array.from(new Set(arr.map((s) => sanitize(s))));
+
+      function candidateArrays(dimensions) {
+        const dims = dimensions.filter((d) => d.include !== false);
+        const arrays = dims.map((d) => (d.selected && d.selected.length ? d.selected : d.options));
+        return { dims, arrays };
+      }
+
+      function countCombinations(dimensions) {
+        const { arrays } = candidateArrays(dimensions);
+        if (!arrays.length) return 0;
+        let total = 1;
+        for (const arr of arrays) {
+          if (!arr.length) return 0;
+          total *= arr.length;
+          if (total > Number.MAX_SAFE_INTEGER / 2) return Number.MAX_SAFE_INTEGER;
+        }
+        return total;
+      }
+
+      function combinationAt(dimensions, index) {
+        const { dims, arrays } = candidateArrays(dimensions);
+        let remainder = index;
+        const result = {};
+        const radices = arrays.map((a) => a.length);
+        const multipliers = radices.map((_, i) => radices.slice(i + 1).reduce((p, n) => p * n, 1));
+        for (let i = 0; i < arrays.length; i++) {
+          const m = multipliers[i] || 1;
+          const choiceIdx = Math.floor(remainder / m) % arrays[i].length;
+          result[dims[i].name] = arrays[i][choiceIdx];
+          remainder = remainder % m;
+        }
+        return result;
+      }
+
+      function toCSV(dimensions, total, maxRows) {
+        const { dims, arrays } = candidateArrays(dimensions);
+        const headers = dims.map((d) => d.name);
+        const limit = Math.min(total, maxRows ?? total);
+        const lines = [];
+        lines.push(headers.map((h) => '"' + h.replace(/"/g, '""') + '"').join(','));
+        const radices = arrays.map((a) => a.length);
+        const multipliers = radices.map((_, i) => radices.slice(i + 1).reduce((p, n) => p * n, 1));
+        for (let idx = 0; idx < limit; idx++) {
+          let remainder = idx;
+          const row = [];
+          for (let i = 0; i < arrays.length; i++) {
+            const m = multipliers[i] || 1;
+            const choiceIdx = Math.floor(remainder / m) % arrays[i].length;
+            const val = arrays[i][choiceIdx];
+            row.push('"' + String(val).replace(/"/g, '""') + '"');
+            remainder = remainder % m;
+          }
+          lines.push(row.join(','));
+        }
+        return lines.join('\n');
+      }
+
+      function download(filename, text, mime) {
+        const blob = new Blob([text], { type: mime || 'text/plain;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+      }
+
+      function saveJSON(filename, data) {
+        download(filename, JSON.stringify(data, null, 2), 'application/json');
+      }
+
+      // ---------- Defaults ----------
+      function defaultDimensions() {
+        return [
+          {
+            id: uid(),
+            name: 'Substrate (archetype)',
+            include: true,
+            selected: [],
+            options: [
+              'Hard inorganics: glass, silica, ceramics, concrete, stone',
+              'Metals & alloys: steel, aluminum, copper, titanium, nickel',
+              'Polymers: PE/PP/PVC, PC/PA/PBT, PTFE/FEP, elastomers',
+              'Composites: CFRP/GFRP, laminates, filled plastics',
+              'Fibrous sheets/textiles: paper, fabrics, nonwovens',
+              'Membranes/filters: MF/UF/NF/RO, ion-exchange',
+              'Powders/granular: zeolites, activated carbon, soils, regolith',
+              'Gels & soft solids: hydrogels, organogels, slurries',
+              'Biological tissues: skin, mucosa, organs, bone, plant surfaces',
+              'Biofilms/ECM/scaffolds',
+              'Devices/components: wafers, PCBs, microfluidics, optics, implants',
+              'Infrastructure: piping, tanks, ship hulls, HX tubes',
+              'Liquid interfaces: water surface, oil–water interface',
+              'Aerosols/droplets',
+              'Digital analogs: tables, graphs, file systems, vector stores',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Scale & form factor',
+            include: true,
+            selected: [],
+            options: [
+              'Atomic/nano (≤100 nm)',
+              'Micro (1 nm–100 µm)',
+              'Meso (100 µm–1 mm)',
+              'Macro (mm–m)',
+              'Mega (installations)',
+              '2D film/coating',
+              '3D bulk',
+              'Lattice/foam',
+              'Fiber/yarn',
+              'Particulate bed',
+              'Patterned/etched',
+              'Layered stack',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Material constitution',
+            include: true,
+            selected: [],
+            options: [
+              'Metal',
+              'Ceramic/glass',
+              'Polymer (thermoplastic/thermoset/elastomer)',
+              'Carbonaceous (graphite/graphene/AC)',
+              'Composite/hybrid',
+              'Biological (tissue/wood/biofilm)',
+              'Mineral/rock/soil',
+              'Gel/colloid',
+              'Liquid interface',
+              'Digital (logical/virtual)',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Morphology & porosity',
+            include: true,
+            selected: [],
+            options: [
+              'Atomically smooth',
+              'Polished',
+              'Matte/rough',
+              'Micro/meso/macro-porous',
+              'Hierarchical pores',
+              'Fibrous/felted',
+              'Cellular/foam',
+              'Fissured/cracked',
+              'Channelled/microfluidic',
+              'Patterned (micro/nano-textured)',
+              'Granular',
+              'Layered/laminate',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Mechanical response',
+            include: true,
+            selected: [],
+            options: [
+              'Rigid',
+              'Stiff',
+              'Compliant/elastic',
+              'Viscoelastic',
+              'Plastic/ductile',
+              'Brittle',
+              'Soft/gel-like',
+              'Thixotropic',
+              'Granular-flowing',
+              'Membrane-tensive',
+              'Swelling/shrinking',
+              'Shape-memory',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Surface/interfacial chemistry',
+            include: true,
+            selected: [],
+            options: [
+              'Hydrophilic',
+              'Hydrophobic/oleophilic',
+              'Oleophobic',
+              'Amphiphilic',
+              'Zwitterionic',
+              'Charged (anionic/cationic)',
+              'Redox-active',
+              'Catalytic (acid/base/metal)',
+              'Hydrogen-bonding',
+              'π–π interactive',
+              'Bioactive (ligands/peptides)',
+              'Low surface energy',
+              'High surface energy',
+              'Passivated/oxidized',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Binding/attachment modes',
+            include: true,
+            selected: [],
+            options: [
+              'Physisorption (vdW)',
+              'Chemisorption/covalent',
+              'Electrostatic/ion-exchange',
+              'Hydrogen bonding',
+              'Coordination/chelation',
+              'Hydrophobic association',
+              'Mechanical interlock/entrapment',
+              'Capillary/meniscus',
+              'Crystallization/scale',
+              'Bioadhesion (proteins/cells/EPS)',
+              'Magnetic',
+              'Sintering/fusion',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Environment/context',
+            include: true,
+            selected: [],
+            options: [
+              'Dry air',
+              'Humid air',
+              'Submerged (fresh)',
+              'Submerged (sea)',
+              'Non-aqueous solvent',
+              'Multiphase (slurry/emulsion/foam)',
+              'Vacuum/low-p',
+              'Cryogenic',
+              'High temperature',
+              'Radiation/UV',
+              'Sterile/aseptic',
+              'In vivo',
+              'In vitro',
+              'Cleanroom (ISO)',
+              'Food-grade',
+              'Outdoor weathering',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Geometric accessibility',
+            include: true,
+            selected: [],
+            options: [
+              'Open exterior surface',
+              'Recessed features',
+              'Internal pores (micro/meso/macro)',
+              'Tortuous networks',
+              'Buried interface/interlayer',
+              'Confined channels/capillaries',
+              'Occluded cavities/blind holes',
+              'Moving/rotating surfaces',
+              'Continuous web/roll-to-roll',
+            ],
+          },
+          {
+            id: uid(),
+            name: 'Sensitivity & constraints',
+            include: true,
+            selected: [],
+            options: [
+              'Heat-sensitive',
+              'Solvent-sensitive',
+              'pH-sensitive',
+              'Oxidation-sensitive',
+              'Moisture-sensitive',
+              'Shear/abrasion-sensitive',
+              'ESD-sensitive',
+              'Biocompatibility required',
+              'Regulatory grade (med/food/pharma/semiconductor)',
+              'Conservation/heritage',
+              'Single-use',
+              'Reusable',
+            ],
+          },
+        ];
+      }
+
+      // ---------- State ----------
+      let dimensions = (() => {
+        try {
+          const saved = localStorage.getItem(LOCAL_KEY);
+          if (saved) return JSON.parse(saved);
+        } catch {}
+        return defaultDimensions();
+      })();
+      let page = 1;
+      let pageSize = 25;
+      let csvLimit = 5000;
+      let filterText = '';
+      let randomPick = null;
+
+      // ---------- DOM Refs ----------
+      const dimsContainer = document.getElementById('dims-container');
+      const rowsContainer = document.getElementById('rows-container');
+      const totalCountEl = document.getElementById('total-count');
+      const filterInput = document.getElementById('filter-input');
+      const pageSizeSel = document.getElementById('page-size');
+      const csvLimitInput = document.getElementById('csv-limit');
+      const pageLabel = document.getElementById('page-label');
+      const randomBox = document.getElementById('random-box');
+
+      // ---------- Persistence ----------
+      function persist() {
+        try { localStorage.setItem(LOCAL_KEY, JSON.stringify(dimensions)); } catch {}
+      }
+
+      // ---------- Renderers ----------
+      function renderDimensions() {
+        dimsContainer.innerHTML = '';
+        dimensions.forEach((dim, index) => {
+          const card = document.createElement('div');
+          card.className = 'rounded-2xl border border-slate-200 bg-white shadow-sm p-4 flex flex-col gap-3';
+          card.dataset.id = dim.id;
+
+          const header = document.createElement('div');
+          header.className = 'flex items-center gap-2';
+          header.innerHTML = `
+            <input value="${escapeHtml(dim.name)}" class="flex-1 text-lg font-semibold bg-transparent focus:outline-none px-2 py-1 rounded-md hover:bg-slate-50 focus:bg-slate-50" />
+            <label class="flex items-center gap-2 text-sm text-slate-600">
+              <input type="checkbox" ${dim.include !== false ? 'checked' : ''} />
+              Include
+            </label>
+            <button title="Remove dimension" class="ml-2 inline-flex items-center gap-1 text-slate-500 hover:text-red-600">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          `;
+          const nameInput = header.querySelector('input[type="text"], input:not([type])');
+          nameInput.addEventListener('blur', () => {
+            const newName = sanitize(nameInput.value) || dim.name;
+            updateDim(dim.id, { ...dim, name: newName });
+          });
+          const includeCb = header.querySelector('input[type="checkbox"]');
+          includeCb.addEventListener('change', (e) => updateDim(dim.id, { ...dim, include: includeCb.checked }));
+          const removeBtn = header.querySelector('button');
+          removeBtn.addEventListener('click', () => removeDim(dim.id));
+
+          const optionsWrap = document.createElement('div');
+          optionsWrap.className = 'flex flex-wrap items-center mb-1';
+          (dim.options || []).forEach((opt) => {
+            const optWrap = document.createElement('div');
+            optWrap.className = 'flex items-center';
+            const isActive = (dim.selected || []).includes(opt);
+            const pill = document.createElement('button');
+            pill.className = `pill ${isActive ? 'pill-active' : 'pill-inactive'}`;
+            pill.textContent = opt;
+            pill.addEventListener('click', () => toggleOption(dim.id, opt));
+            const del = document.createElement('button');
+            del.className = '-ml-2 mr-2 text-slate-400 hover:text-red-600';
+            del.title = 'Remove option';
+            del.innerHTML = '<i class="fa-solid fa-trash text-xs"></i>';
+            del.addEventListener('click', (ev) => { ev.stopPropagation(); removeOption(dim.id, opt); });
+            optWrap.appendChild(pill);
+            optWrap.appendChild(del);
+            optionsWrap.appendChild(optWrap);
+          });
+
+          const addRow = document.createElement('div');
+          addRow.className = 'flex items-center gap-2';
+          addRow.innerHTML = `
+            <input placeholder="Add option" class="flex-1 px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-300" />
+            <button class="inline-flex items-center gap-2 px-3 py-2 rounded-xl border bg-white hover:bg-slate-50" title="Add option">
+              <i class="fa-solid fa-plus"></i> <span>Add</span>
+            </button>
+            <div class="flex-1"></div>
+            <button class="text-xs px-2 py-1 rounded-lg border mr-1 hover:bg-slate-50" title="Select all options">Select all</button>
+            <button class="text-xs px-2 py-1 rounded-lg border hover:bg-slate-50" title="Clear selection">Clear</button>
+          `;
+          const addInput = addRow.querySelector('input');
+          const addBtn = addRow.querySelector('button');
+          const [selectAllBtn, clearBtn] = addRow.querySelectorAll('button.text-xs');
+          addInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') addOption(dim.id, addInput.value); });
+          addBtn.addEventListener('click', () => addOption(dim.id, addInput.value));
+          selectAllBtn.addEventListener('click', () => updateDim(dim.id, { ...dim, selected: [...dim.options] }));
+          clearBtn.addEventListener('click', () => updateDim(dim.id, { ...dim, selected: [] }));
+
+          const meta = document.createElement('div');
+          meta.className = 'flex items-center gap-2 text-xs text-slate-500';
+          const selCount = dim.selected?.length ? `${dim.selected.length} selected` : 'Using all options';
+          meta.innerHTML = `<span>${selCount}</span><span>•</span><span>${dim.options.length} total options</span>`;
+
+          const moveRow = document.createElement('div');
+          moveRow.className = 'flex gap-2';
+          moveRow.innerHTML = `
+            <button class="text-xs px-2 py-1 rounded-lg border hover:bg-slate-50" title="Move up">↑</button>
+            <button class="text-xs px-2 py-1 rounded-lg border hover:bg-slate-50" title="Move down">↓</button>
+          `;
+          const [upBtn, downBtn] = moveRow.querySelectorAll('button');
+          upBtn.addEventListener('click', () => moveDim(dim.id, -1));
+          downBtn.addEventListener('click', () => moveDim(dim.id, 1));
+
+          card.appendChild(header);
+          card.appendChild(optionsWrap);
+          card.appendChild(addRow);
+          card.appendChild(meta);
+          card.appendChild(moveRow);
+          dimsContainer.appendChild(card);
+        });
+      }
+
+      function renderRandomBox(headers) {
+        if (!randomPick) { randomBox.classList.add('hidden'); randomBox.innerHTML=''; return; }
+        randomBox.classList.remove('hidden');
+        const cols = headers.length;
+        const grid = headers.map((h) => `
+          <div class="px-2 py-1 rounded-lg bg-white border text-slate-800">
+            <div class="text-[11px] uppercase tracking-wide text-slate-500">${escapeHtml(h)}</div>
+            <div class="text-sm">${escapeHtml(String(randomPick[h] ?? ''))}</div>
+          </div>
+        `).join('');
+        randomBox.innerHTML = `
+          <div class="font-medium mb-2">Random selection</div>
+          <div class="minw-grid grid gap-1" style="grid-template-columns: repeat(${cols}, minmax(160px, max-content))">${grid}</div>
+        `;
+      }
+
+      function renderRows() {
+        const { dims } = candidateArrays(dimensions);
+        const headers = dims.map((d) => d.name);
+        const total = countCombinations(dimensions);
+        totalCountEl.textContent = `${formatNumber(total)} total`;
+
+        // Clamp page
+        const maxPage = Math.max(1, Math.ceil(total / pageSize));
+        if (page > maxPage) page = maxPage;
+
+        const rows = [];
+        const start = (page - 1) * pageSize;
+        const end = Math.min(start + pageSize, total);
+        for (let i = start; i < end; i++) rows.push(combinationAt(dimensions, i));
+
+        const f = filterText.trim().toLowerCase();
+        const filtered = f ? rows.filter((r) => Object.values(r).join(' ').toLowerCase().includes(f)) : rows;
+
+        // Build grid
+        const headerCells = [`<div class="px-2 py-2 border-b bg-slate-50 text-center text-xs text-slate-500">Copy</div>`]
+          .concat(headers.map((h) => `<div class="px-3 py-2 border-b bg-slate-50 text-xs font-medium text-slate-600">${escapeHtml(h)}</div>`))
+          .join('');
+
+        const bodyRows = filtered.map((row, i) => {
+          const copyBtn = `<div class="px-2 py-2 border-b flex items-center justify-center">
+            <button class="px-2 py-1 text-xs rounded-lg border hover:bg-slate-50" data-copy-index="${i}"><i class="fa-solid fa-copy"></i></button>
+          </div>`;
+          const cells = headers.map((h) => `<div class="px-3 py-2 border-b text-sm text-slate-800">${escapeHtml(String(row[h] ?? ''))}</div>`).join('');
+          return copyBtn + cells;
+        }).join('');
+
+        const colsStyle = `grid-template-columns: 40px repeat(${headers.length}, minmax(160px, max-content))`;
+        rowsContainer.innerHTML = `<div class="minw-grid grid" style="${colsStyle}">${headerCells}${bodyRows}</div>`;
+
+        // Copy handlers
+        rowsContainer.querySelectorAll('[data-copy-index]').forEach((btn) => {
+          btn.addEventListener('click', async (e) => {
+            const idx = Number(btn.getAttribute('data-copy-index'));
+            const row = filtered[idx];
+            const str = headers.map((h) => `${h}: ${row[h]}`).join('\n');
+            try {
+              await navigator.clipboard.writeText(str);
+              alert('Copied combination to clipboard');
+            } catch {
+              alert('Copy failed');
+            }
+          });
+        });
+
+        pageLabel.textContent = `Page ${formatNumber(page)} / ${formatNumber(maxPage)}`;
+        renderRandomBox(headers);
+      }
+
+      // ---------- Mutations ----------
+      function updateDim(id, patch) {
+        dimensions = dimensions.map((d) => (d.id === id ? patch : d));
+        persist();
+        renderDimensions();
+        renderRows();
+      }
+
+      function removeDim(id) {
+        if (!confirm('Remove this dimension?')) return;
+        dimensions = dimensions.filter((d) => d.id !== id);
+        persist();
+        renderDimensions();
+        renderRows();
+      }
+
+      function moveDim(id, delta) {
+        const idx = dimensions.findIndex((d) => d.id === id);
+        if (idx < 0) return;
+        const newIdx = Math.max(0, Math.min(dimensions.length - 1, idx + delta));
+        const next = dimensions.slice();
+        const [item] = next.splice(idx, 1);
+        next.splice(newIdx, 0, item);
+        dimensions = next;
+        persist();
+        renderDimensions();
+        renderRows();
+      }
+
+      function toggleOption(id, opt) {
+        const dim = dimensions.find((d) => d.id === id);
+        if (!dim) return;
+        const selected = new Set(dim.selected || []);
+        if (selected.has(opt)) selected.delete(opt); else selected.add(opt);
+        updateDim(id, { ...dim, selected: Array.from(selected) });
+      }
+
+      function removeOption(id, opt) {
+        const dim = dimensions.find((d) => d.id === id);
+        if (!dim) return;
+        const options = (dim.options || []).filter((o) => o !== opt);
+        const selected = (dim.selected || []).filter((o) => o !== opt);
+        updateDim(id, { ...dim, options, selected });
+      }
+
+      function addOption(id, value) {
+        const dim = dimensions.find((d) => d.id === id);
+        if (!dim) return;
+        const s = sanitize(value || '');
+        if (!s) return;
+        const options = uniq([...(dim.options || []), s]);
+        updateDim(id, { ...dim, options });
+      }
+
+      function addDimension() {
+        dimensions = dimensions.concat([{ id: uid(), name: 'New dimension', include: true, selected: [], options: ['Option A', 'Option B'] }]);
+        persist();
+        renderDimensions();
+        renderRows();
+      }
+
+      function resetDefaults() {
+        if (!confirm('Replace current box with the default substrate schema?')) return;
+        dimensions = defaultDimensions();
+        page = 1; randomPick = null; filterText = '';
+        persist();
+        renderDimensions();
+        renderRows();
+      }
+
+      function doRandom() {
+        const { dims, arrays } = candidateArrays(dimensions);
+        if (!arrays.length) { randomPick = null; renderRows(); return; }
+        const obj = {};
+        for (let i = 0; i < arrays.length; i++) {
+          const arr = arrays[i];
+          obj[dims[i].name] = arr[Math.floor(Math.random() * arr.length)];
+        }
+        randomPick = obj;
+        renderRows();
+      }
+
+      function doExportCSV() {
+        const total = countCombinations(dimensions);
+        if (!total) return;
+        const limit = Math.min(Number(csvLimit) || 0, total);
+        const csv = toCSV(dimensions, total, limit);
+        download(`zwicky_substrate_${Date.now()}.csv`, csv, 'text/csv;charset=utf-8;');
+      }
+
+      function savePreset() { saveJSON('zwicky_substrate_preset.json', dimensions); }
+
+      function loadPreset(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const parsed = JSON.parse(String(reader.result));
+            if (!Array.isArray(parsed)) throw new Error('Invalid preset');
+            dimensions = parsed;
+            page = 1; randomPick = null; filterText = '';
+            persist();
+            renderDimensions();
+            renderRows();
+          } catch (err) {
+            alert('Invalid preset file');
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      // ---------- Events ----------
+      document.getElementById('btn-add-dim').addEventListener('click', addDimension);
+      document.getElementById('btn-reset').addEventListener('click', resetDefaults);
+      document.getElementById('btn-random').addEventListener('click', doRandom);
+      document.getElementById('btn-export').addEventListener('click', doExportCSV);
+      document.getElementById('btn-export-2').addEventListener('click', doExportCSV);
+      document.getElementById('btn-save').addEventListener('click', savePreset);
+      document.getElementById('input-load').addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (file) loadPreset(file);
+        e.target.value = '';
+      });
+      document.getElementById('btn-prev').addEventListener('click', () => { page = Math.max(1, page - 1); renderRows(); });
+      document.getElementById('btn-next').addEventListener('click', () => {
+        const maxPage = Math.max(1, Math.ceil(countCombinations(dimensions) / pageSize));
+        page = Math.min(maxPage, page + 1); renderRows();
+      });
+      filterInput.addEventListener('input', (e) => { filterText = e.target.value; renderRows(); });
+      pageSizeSel.addEventListener('change', (e) => { pageSize = Number(e.target.value) || 25; page = 1; renderRows(); });
+      csvLimitInput.addEventListener('input', (e) => { csvLimit = Number(e.target.value) || 1; });
+
+      // ---------- Helpers ----------
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+      function formatNumber(n) { try { return Number(n).toLocaleString(); } catch { return String(n); } }
+
+      // ---------- Init ----------
+      renderDimensions();
+      renderRows();
+    </script>
+  </body>
+  </html>
+
+

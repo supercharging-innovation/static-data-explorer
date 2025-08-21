@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Substrates Dashboard</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --muted: #94a3b8;
+        --text: #e5e7eb;
+        --accent: #22c55e;
+        --border: #1f2937;
+        --chip: #0b1220;
+      }
+      html, body {
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-size: 20px;
+        margin: 0;
+      }
+      .controls {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr auto;
+        gap: 12px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        padding: 12px;
+        border-radius: 10px;
+      }
+      .stat {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      input[type="text"], select {
+        width: 100%;
+        padding: 10px 12px;
+        background: #0b1220;
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        outline: none;
+      }
+      button {
+        padding: 10px 12px;
+        background: var(--accent);
+        color: #062e12;
+        border: 0;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button.secondary {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--border);
+      }
+      .table-wrap {
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      thead th {
+        text-align: left;
+        font-size: 12px;
+        color: var(--muted);
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--border);
+        -webkit-user-select: none;
+        user-select: none;
+        cursor: pointer;
+      }
+      tbody td {
+        padding: 12px;
+        border-top: 1px solid var(--border);
+        vertical-align: top;
+      }
+      .name {
+        font-weight: 600;
+      }
+      .aliases {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .chip {
+        font-size: 12px;
+        color: var(--muted);
+        background: var(--chip);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 2px 8px;
+      }
+      .notes {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .toolbar {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .controls { grid-template-columns: 1fr; }
+        header { flex-direction: column; align-items: flex-start; gap: 6px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Substrates Dashboard</h1>
+        <div class="toolbar">
+          <span id="countStat" class="stat"></span>
+          <button class="secondary" id="resetBtn" title="Reset filters">Reset</button>
+        </div>
+      </header>
+
+      <div class="controls">
+        <input id="searchInput" type="text" placeholder="Search name, aliases, why…" />
+        <select id="categoryFilter" aria-label="Filter by category" title="Filter by category"></select>
+        <select id="typeFilter" aria-label="Filter by type" title="Filter by type"></select>
+        <button id="exportBtn" title="Export current view as JSON">Export JSON</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-key="name">Name</th>
+              <th data-key="category">Category</th>
+              <th data-key="type">Type</th>
+              <th data-key="probeCount" title="Number of probes available">Probes</th>
+              <th>Aliases</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+
+      <div id="notes" class="notes"></div>
+    </div>
+
+    <script src="data/substrates.js"></script>
+    <script>
+      // State
+      let allItems = [];
+      let filteredItems = [];
+      let sortKey = "name";
+      let sortDir = "asc"; // or 'desc'
+
+      function normalize(text) {
+        return (text || "").toString().toLowerCase();
+      }
+
+      function escapeHTML(text) {
+        return (text || "").toString().replace(/[&<>"']/g, ch => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[ch]);
+      }
+
+      function uniqueSorted(values) {
+        return Array.from(new Set(values)).filter(Boolean).sort((a, b) => a.localeCompare(b));
+      }
+
+      function populateFilters(items) {
+        const categorySelect = document.getElementById("categoryFilter");
+        const typeSelect = document.getElementById("typeFilter");
+
+        const categories = ["All categories", ...uniqueSorted(items.map(i => i.category))];
+        const types = ["All types", ...uniqueSorted(items.map(i => i.type))];
+
+        categorySelect.innerHTML = categories.map(c => `<option value="${c}">${c}</option>`).join("");
+        typeSelect.innerHTML = types.map(t => `<option value="${t}">${t}</option>`).join("");
+      }
+
+      function getActiveFilters() {
+        const q = normalize(document.getElementById("searchInput").value);
+        const category = document.getElementById("categoryFilter").value;
+        const type = document.getElementById("typeFilter").value;
+        return { q, category, type };
+      }
+
+      function applyFilters() {
+        const { q, category, type } = getActiveFilters();
+
+        filteredItems = allItems.filter(item => {
+          const matchesQuery = !q ||
+            normalize(item.name).includes(q) ||
+            normalize(item.why).includes(q) ||
+            (Array.isArray(item.aliases) && normalize(item.aliases.join(" ")).includes(q));
+
+          const matchesCategory = (category === "All categories") || (item.category === category);
+          const matchesType = (type === "All types") || (item.type === type);
+          return matchesQuery && matchesCategory && matchesType;
+        });
+
+        sortAndRender();
+      }
+
+      function sortAndRender() {
+        const dir = sortDir === "asc" ? 1 : -1;
+        filteredItems.sort((a, b) => {
+          if (sortKey === "probeCount") {
+            const av = Number(a.probeCount || 0);
+            const bv = Number(b.probeCount || 0);
+            return (av - bv) * dir;
+          }
+          const av = (a[sortKey] || "").toString().toLowerCase();
+          const bv = (b[sortKey] || "").toString().toLowerCase();
+          return av.localeCompare(bv) * dir;
+        });
+        renderTable();
+      }
+
+      function renderTable() {
+        const tbody = document.getElementById("resultsBody");
+        const countStat = document.getElementById("countStat");
+        tbody.innerHTML = filteredItems.map(item => {
+          const aliases = (item.aliases || []).map(a => `<span class="chip">${escapeHTML(a)}</span>`).join(" ");
+          const langChips = (item.probes && Array.isArray(item.probes.non_en)) ? item.probes.non_en.map(code => `<span class="chip">${escapeHTML(code)}</span>`).join(" ") : "";
+          const queriesList = (item.probes && Array.isArray(item.probes.queries)) ? item.probes.queries.map(q => `<li>${escapeHTML(q)}</li>`).join("") : "";
+          const corporaList = (item.probes && Array.isArray(item.probes.suggested_corpora)) ? item.probes.suggested_corpora.map(c => `<li>${escapeHTML(c)}</li>`).join("") : "";
+          const probesCell = item.probes ? `
+            <details>
+              <summary><span class="chip">queries: ${Number(item.probeCount || 0)}</span> ${langChips}</summary>
+              <div>
+                <div><strong>Queries</strong>
+                  <ul>${queriesList}</ul>
+                </div>
+                <div><strong>Suggested corpora</strong>
+                  <ul>${corporaList}</ul>
+                </div>
+                ${(item.probes && Array.isArray(item.probes.non_en) && item.probes.non_en.length) ? `<div><strong>Non-English</strong><div class="aliases">${langChips}</div></div>` : ""}
+              </div>
+            </details>
+          ` : "";
+
+          return `
+            <tr>
+              <td class="name">${escapeHTML(item.name)}</td>
+              <td>${escapeHTML(item.category)}</td>
+              <td>${escapeHTML(item.type)}</td>
+              <td>${probesCell}</td>
+              <td><div class="aliases">${aliases || ""}</div></td>
+              <td>${escapeHTML(item.why)}</td>
+            </tr>
+          `;
+        }).join("");
+
+        countStat.textContent = `Showing ${filteredItems.length} of ${allItems.length}`;
+      }
+
+      function attachEvents() {
+        document.getElementById("searchInput").addEventListener("input", applyFilters);
+        document.getElementById("categoryFilter").addEventListener("change", applyFilters);
+        document.getElementById("typeFilter").addEventListener("change", applyFilters);
+        document.getElementById("resetBtn").addEventListener("click", () => {
+          document.getElementById("searchInput").value = "";
+          document.getElementById("categoryFilter").selectedIndex = 0;
+          document.getElementById("typeFilter").selectedIndex = 0;
+          applyFilters();
+        });
+
+        document.getElementById("exportBtn").addEventListener("click", () => {
+          const blob = new Blob([JSON.stringify(filteredItems, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "substrates_filtered.json";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        });
+
+        // Sorting
+        document.querySelectorAll("thead th[data-key]").forEach(th => {
+          th.addEventListener("click", () => {
+            const key = th.getAttribute("data-key");
+            if (sortKey === key) {
+              sortDir = sortDir === "asc" ? "desc" : "asc";
+            } else {
+              sortKey = key;
+              sortDir = "asc";
+            }
+            sortAndRender();
+          });
+        });
+      }
+
+      function renderNotes(notes) {
+        const el = document.getElementById("notes");
+        if (!Array.isArray(notes) || notes.length === 0) {
+          el.textContent = "";
+          return;
+        }
+        el.innerHTML = notes.map(n => `• ${n}`).join("<br/>");
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        if (!window.substrates || !Array.isArray(window.substrates.items)) {
+          alert("Failed to load substrates data.");
+          return;
+        }
+        // Merge probe data by name (case-insensitive)
+        const baseItems = window.substrates.items.slice();
+        const probeMap = new Map();
+        if (window.substrates_with_probes && Array.isArray(window.substrates_with_probes.probes)) {
+          window.substrates_with_probes.probes.forEach(p => {
+            if (p && p.name) probeMap.set(normalize(p.name), p);
+          });
+        }
+        allItems = baseItems.map(item => {
+          const matchedProbe = probeMap.get(normalize(item.name));
+          const probeCount = matchedProbe && Array.isArray(matchedProbe.queries) ? matchedProbe.queries.length : 0;
+          return Object.assign({}, item, { probes: matchedProbe || null, probeCount });
+        });
+        populateFilters(allItems);
+        attachEvents();
+        applyFilters();
+        renderNotes(window.substrates.notes);
+      });
+    </script>
+  </body>
+</html>
+
+
