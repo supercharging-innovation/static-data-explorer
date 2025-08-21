@@ -488,6 +488,115 @@
 			font-weight: 600;
 		}
 
+		/* Navigation Menu */
+		.nav-menu {
+			position: fixed;
+			top: 50%;
+			right: 24px;
+			transform: translateY(-50%);
+			background: rgba(255, 255, 255, 0.95);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 16px 12px;
+			box-shadow: var(--shadow);
+			z-index: 40;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			max-height: 80vh;
+			overflow-y: auto;
+		}
+
+		.nav-menu::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		.nav-menu::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		.nav-menu::-webkit-scrollbar-thumb {
+			background: var(--border);
+			border-radius: 2px;
+		}
+
+		.nav-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 8px 12px;
+			border-radius: 8px;
+			color: var(--muted);
+			text-decoration: none;
+			font-size: 12px;
+			font-weight: 500;
+			transition: all 0.2s ease;
+			white-space: nowrap;
+			min-width: 140px;
+		}
+
+		.nav-item:hover {
+			background: var(--accent-blue);
+			color: white;
+			transform: translateX(-4px);
+		}
+
+		.nav-item.active {
+			background: var(--gradient-blue);
+			color: white;
+		}
+
+		.nav-icon {
+			font-size: 14px;
+			width: 16px;
+			text-align: center;
+		}
+
+		.nav-text {
+			font-size: 11px;
+			line-height: 1.2;
+		}
+
+		/* Mobile Navigation */
+		@media (max-width: 1024px) {
+			.nav-menu {
+				position: fixed;
+				bottom: 24px;
+				right: 24px;
+				top: auto;
+				transform: none;
+				flex-direction: row;
+				max-height: none;
+				overflow-y: visible;
+				overflow-x: auto;
+				padding: 12px 16px;
+				gap: 12px;
+			}
+
+			.nav-item {
+				min-width: auto;
+				padding: 8px 12px;
+				flex-direction: column;
+				gap: 4px;
+				text-align: center;
+			}
+
+			.nav-text {
+				font-size: 10px;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.nav-menu {
+				bottom: 16px;
+				right: 16px;
+				left: 16px;
+				justify-content: center;
+			}
+		}
+
 		/* Footer */
 		.footer {
 			text-align: center;
@@ -1549,22 +1658,66 @@
 		</div>
 	</header>
 
+	<!-- Navigation Menu -->
+	<nav class="nav-menu" id="navMenu">
+		<a href="#innovation" class="nav-item" data-section="innovation">
+			<span class="nav-icon">🌱</span>
+			<span class="nav-text">Innovation</span>
+		</a>
+		<a href="#science" class="nav-item" data-section="science">
+			<span class="nav-icon">⚙️</span>
+			<span class="nav-text">Science</span>
+		</a>
+		<a href="#images" class="nav-item" data-section="images">
+			<span class="nav-icon">📸</span>
+			<span class="nav-text">Images</span>
+		</a>
+		<a href="#inspirations" class="nav-item" data-section="inspirations">
+			<span class="nav-icon">💡</span>
+			<span class="nav-text">Inspirations</span>
+		</a>
+		<a href="#why-matters" class="nav-item" data-section="why-matters">
+			<span class="nav-icon">🎯</span>
+			<span class="nav-text">Why Matters</span>
+		</a>
+		<a href="#landscape" class="nav-item" data-section="landscape">
+			<span class="nav-icon">🔍</span>
+			<span class="nav-text">Landscape</span>
+		</a>
+		<a href="#assessment" class="nav-item" data-section="assessment">
+			<span class="nav-icon">🚀</span>
+			<span class="nav-text">Assessment</span>
+		</a>
+		<a href="#players" class="nav-item" data-section="players">
+			<span class="nav-icon">🤝</span>
+			<span class="nav-text">Key Players</span>
+		</a>
+		<a href="#roadmap" class="nav-item" data-section="roadmap">
+			<span class="nav-icon">📊</span>
+			<span class="nav-text">Roadmap</span>
+		</a>
+		<a href="#research" class="nav-item" data-section="research">
+			<span class="nav-icon">🛤️</span>
+			<span class="nav-text">Research Trail</span>
+		</a>
+	</nav>
+
 	<main class="container">
-		<section class="section">
+		<section class="section" id="innovation">
 			<div class="card">
 				<h2 class="h2">🌱 The Innovation</h2>
 				<p><strong>Ultralight, plant-derived "frozen foam" pads</strong> (aerogels/foams made from <strong>cellulose or bacterial cellulose</strong>) used behind trim—<strong>headliners, door inners, parcel shelves</strong>—to cut cabin noise and heat flow. Think: <strong>marshmallow-light pads that absorb hiss and keep heat out</strong>, made from <strong>renewable fibers</strong> and processed at <strong>low temperatures</strong>.</p>
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="science">
 			<div class="card">
 				<h2 class="h2">⚙️ The Science</h2>
 				<p><strong>Cellulose is turned into a water-based gel</strong>, then dried to leave a <strong>nano-porous solid (aerogel)</strong>. Those <strong>tiny pores scatter sound and block heat transfer</strong> (very low thermal conductivity). By adjusting the <strong>gel recipe and drying method</strong>, we tune which <strong>frequencies are absorbed</strong> and how <strong>stiff/soft the pad is</strong>. <strong>Thin scrims and bio-adhesives</strong> protect the fragile core; <strong>hydrophobization (surface treatment)</strong> manages humidity.</p>
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="images">
 			<div class="card">
 				<h2 class="h2">📸 Images</h2>
 				
@@ -1644,7 +1797,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="section">
+		<section class="section" id="inspirations">
 			<div class="card">
 				<div class="section-header-with-toggle">
 					<h2 class="h2">💡 Inspirations</h2>
@@ -1716,7 +1869,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="why-matters">
 			<div class="card">
 				<h2 class="h2">🎯 Why This Matters</h2>
 				<ul>
@@ -1727,7 +1880,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="landscape">
 			<div class="card">
 				<h2 class="h2">🔍 Current Landscape</h2>
 				<ul>
@@ -1747,7 +1900,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="assessment">
 			<div class="card">
 				<h2 class="h2">🚀 Innovation Assessment</h2>
 				
@@ -1764,7 +1917,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="players">
 			<div class="card">
 				<h2 class="h2">🤝 Key Players & Partners</h2>
 				<ul>
@@ -1777,7 +1930,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="roadmap">
 			<div class="card">
 				<h2 class="h2">📊 Impact × Readiness Roadmap</h2>
 
@@ -1850,7 +2003,7 @@
 			</div>
 		</section>
 
-		<section class="section">
+		<section class="section" id="research">
 			<div class="card">
 				<h2 class="h2">🛤️ Research Trail Summary</h2>
 				<p>We searched <strong>outside</strong> conventional foams/felts and asked: <em>Who else uses ultralight porous media to manage heat and sound?</em> That led to <strong>aerogels</strong> (battery safety, building insulation). We then checked if <strong>cellulose-based aerogels</strong> offer similar physics with <strong>renewable feedstocks</strong> and low-energy processing. Reviews and lab studies confirm the <strong>acoustic/thermal potential</strong>; automotive practice shows <strong>aerogels are already qualified</strong> (in batteries) and <strong>cellulose</strong> is already in <strong>auto composites</strong> (NCV), but <strong>not yet combined</strong> as <strong>cellulose-aerogel cabin liners</strong>—hence the opportunity. (<a href="https://www.cemef.minesparis.psl.eu/wp-content/uploads/2023/01/Acoustic-Properties-of-Aerogels-Current-Status-and-Prospects.pdf?utm_source=chatgpt.com">Cemef</a>, <a href="https://www.sciencedirect.com/science/article/pii/S1359836824003706?utm_source=chatgpt.com">ScienceDirect</a>, <a href="https://www.aerogel.com/product/pyrothin/?utm_source=chatgpt.com">Aspen Aerogels</a>, <a href="https://www.japan.go.jp/kizuna/2021/02/plant-derived_material.html?utm_source=chatgpt.com">JapanGov - The Government of Japan</a>)</p>
@@ -2311,9 +2464,60 @@
 				}, 8000); // Change slide every 8 seconds
 			}
 
+			// Navigation menu functionality
+			function initNavigation() {
+				const navItems = document.querySelectorAll('.nav-item');
+				const sections = document.querySelectorAll('section[id]');
+				
+				// Smooth scrolling for navigation links
+				navItems.forEach(item => {
+					item.addEventListener('click', function(e) {
+						e.preventDefault();
+						const targetId = this.getAttribute('href').substring(1);
+						const targetSection = document.getElementById(targetId);
+						
+						if (targetSection) {
+							targetSection.scrollIntoView({
+								behavior: 'smooth',
+								block: 'start'
+							});
+						}
+					});
+				});
+				
+				// Update active navigation item based on scroll position
+				function updateActiveNav() {
+					const scrollPosition = window.scrollY + 100;
+					
+					sections.forEach(section => {
+						const sectionTop = section.offsetTop;
+						const sectionHeight = section.offsetHeight;
+						const sectionId = section.getAttribute('id');
+						
+						if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+							// Remove active class from all nav items
+							navItems.forEach(item => item.classList.remove('active'));
+							
+							// Add active class to current section's nav item
+							const activeNavItem = document.querySelector(`[href="#${sectionId}"]`);
+							if (activeNavItem) {
+								activeNavItem.classList.add('active');
+							}
+						}
+					});
+				}
+				
+				// Update navigation on scroll
+				window.addEventListener('scroll', updateActiveNav);
+				
+				// Initial active state
+				updateActiveNav();
+			}
+			
 			// Initialize chart when DOM is loaded
 			document.addEventListener('DOMContentLoaded', function() {
 				initChart();
+				initNavigation();
 				// Uncomment the line below to enable auto-advance
 				// startGalleryAutoplay();
 			});
