@@ -821,15 +821,16 @@
 
 		.quadrant-label {
 			position: absolute;
-			font-size: 12px;
+			font-size: 13px;
 			color: var(--text);
 			pointer-events: none;
-			padding: 12px;
-			background: rgba(255, 255, 255, 0.9);
-			border-radius: 6px;
-			backdrop-filter: blur(4px);
-			-webkit-backdrop-filter: blur(4px);
-			border: 1px solid rgba(0, 0, 0, 0.1);
+			padding: 14px;
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 8px;
+			backdrop-filter: blur(6px);
+			-webkit-backdrop-filter: blur(6px);
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 		}
 
 		.quadrant-label.top-left { top: 12px; left: 12px; }
@@ -838,16 +839,16 @@
 		.quadrant-label.bottom-right { bottom: 12px; right: 12px; text-align: right; }
 
 		.quadrant-label h3 {
-			font-size: 15px;
+			font-size: 16px;
 			font-weight: 700;
-			margin: 0 0 4px;
+			margin: 0 0 6px;
 			color: var(--text);
 		}
 
 		.quadrant-label p {
-			font-size: 11px;
+			font-size: 12px;
 			margin: 0;
-			line-height: 1.3;
+			line-height: 1.4;
 			color: var(--muted);
 			font-weight: 500;
 		}
@@ -1028,32 +1029,32 @@
 		.chart-legend {
 			display: flex;
 			justify-content: center;
-			gap: 32px;
-			margin: 8px 0 0 0;
-			padding: 12px 20px;
+			gap: 40px;
+			margin: 16px 0 0 0;
+			padding: 16px 24px;
 			background: var(--card);
-			border-radius: 10px;
+			border-radius: 12px;
 			border: 1px solid var(--border);
-			box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+			box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 		}
 
 		.legend-item {
 			display: flex;
 			align-items: center;
-			gap: 8px;
+			gap: 10px;
 		}
 
 		.legend-dot {
-			width: 16px;
-			height: 16px;
+			width: 18px;
+			height: 18px;
 			border-radius: 50%;
 			border: 2px solid #fff;
-			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 		}
 
 		.legend-text {
-			font-size: 14px;
-			font-weight: 500;
+			font-size: 15px;
+			font-weight: 600;
 			color: var(--text);
 		}
 
@@ -1144,6 +1145,7 @@
 			border-bottom: 3px solid var(--text);
 			background: rgba(255, 255, 255, 0.5);
 			border-radius: 0 8px 0 0;
+			min-height: 400px;
 		}
 
 		.quadrant-bg {
@@ -1227,55 +1229,82 @@
 		/* Data Point Styles */
 		.chart-point {
 			position: absolute;
-			width: 50px;
-			height: 50px;
-			border-radius: 50%;
 			cursor: pointer;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 			transition: all 0.3s ease;
 			z-index: 10;
-			border: 3px solid #fff;
 			transform: translate(-50%, -50%);
+			/* Anchor at the dot center to avoid overflow near edges */
+			width: 0;
+			height: 0;
 		}
 
 		.chart-point:hover {
-			transform: translate(-50%, -50%) scale(1.15);
+			transform: translate(-50%, -50%) scale(1.05);
 			z-index: 20;
-			box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+		}
+
+		.chart-point-dot {
+			position: absolute;
+			left: 0;
+			top: 0;
+			transform: translate(-50%, -50%);
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			border: 3px solid #fff;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			transition: all 0.3s ease;
+		}
+
+		.chart-point:hover .chart-point-dot {
+			transform: scale(1.2);
+			box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 		}
 
 		.chart-point-label {
-			font-size: 8px;
-			font-weight: 700;
-			color: #000;
-			text-align: center;
-			line-height: 1.1;
-			padding: 2px;
-			text-shadow: 1px 1px 3px rgba(255,255,255,0.9);
-			max-width: 60px;
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-			white-space: normal;
+			position: absolute;
+			left: 20px; /* default to the right of the dot */
+			top: 0;
+			transform: translateY(-50%);
+			font-size: 12px;
+			font-weight: 600;
+			text-align: left;
+			line-height: 1.3;
+			padding: 8px 12px;
+			border-radius: 8px;
+			border: 2px solid #fff;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+			backdrop-filter: blur(6px);
+			-webkit-backdrop-filter: blur(6px);
+			white-space: nowrap;
+			max-width: 200px;
 		}
 
-		.chart-point.high-impact {
-			background-color: var(--accent-green);
+		.chart-point-label.high-impact {
+			background: var(--accent-green);
+			color: white;
+			border-color: var(--accent-green);
 		}
 
-		.chart-point.medium-impact {
-			background-color: var(--accent-yellow);
+		.chart-point-label.medium-impact {
+			background: var(--accent-yellow);
+			color: var(--text);
+			border-color: var(--accent-yellow);
 		}
 
-		.chart-point.low-impact {
-			background-color: var(--accent-blue);
+		.chart-point-label.low-impact {
+			background: var(--accent-blue);
+			color: white;
+			border-color: var(--accent-blue);
 		}
 
-		.chart-point.benchmark {
-			background-color: var(--muted);
+		.chart-point-label.benchmark {
+			background: var(--muted);
+			color: white;
+			border-color: var(--muted);
 		}
+
+
 
 		/* Visual Research Section */
 		.concept-image-container {
@@ -2326,27 +2355,61 @@
 				function createPoint(tech) {
 					const point = document.createElement('div');
 					point.className = 'chart-point';
-					
-					// Add impact-based styling
-					if (tech.impact >= 8) {
-						point.classList.add('high-impact');
-					} else if (tech.impact >= 6) {
-						point.classList.add('medium-impact');
-					} else if (tech.impact >= 4) {
-						point.classList.add('low-impact');
-					} else {
-						point.classList.add('benchmark');
-					}
 
 					// Position based on readiness (x) and impact (y)
 					// Scale to chart dimensions: readiness 0-10 maps to 0-100%, impact 0-10 maps to 100%-0%
-					point.style.left = (tech.readiness * 10) + '%';
-					point.style.bottom = (tech.impact * 10) + '%';
+					const x = tech.readiness * 10;
+					const y = tech.impact * 10;
+					point.style.left = x + '%';
+					point.style.bottom = y + '%';
 
-					// Add a label inside the point
+					// Create the dot
+					const dot = document.createElement('div');
+					dot.className = 'chart-point-dot';
+					
+					// Create the label
 					const label = document.createElement('span');
 					label.className = 'chart-point-label';
-					label.textContent = tech.name; // Use full name as label
+					label.textContent = tech.name;
+					
+					// Add impact-based styling to both dot and label
+					let impactClass;
+					if (tech.impact >= 8) {
+						dot.style.backgroundColor = 'var(--accent-green)';
+						impactClass = 'high-impact';
+					} else if (tech.impact >= 6) {
+						dot.style.backgroundColor = 'var(--accent-yellow)';
+						impactClass = 'medium-impact';
+					} else if (tech.impact >= 4) {
+						dot.style.backgroundColor = 'var(--accent-blue)';
+						impactClass = 'low-impact';
+					} else {
+						dot.style.backgroundColor = 'var(--muted)';
+						impactClass = 'benchmark';
+					}
+					
+					label.classList.add(impactClass);
+
+					// Smart positioning to avoid overflow/overlaps
+					// Default label to the right of the dot; when near the right edge, flip to left
+					if (x > 85) {
+						label.style.left = 'auto';
+						label.style.right = '20px';
+						label.style.textAlign = 'right';
+					} else {
+						label.style.left = '20px';
+						label.style.right = 'auto';
+						label.style.textAlign = 'left';
+					}
+					
+					// Keep dots inside chart with a small margin
+					const clampedX = Math.max(2, Math.min(98, x));
+					const clampedY = Math.max(2, Math.min(98, y));
+					point.style.left = clampedX + '%';
+					point.style.bottom = clampedY + '%';
+
+					// Add dot and label to point
+					point.appendChild(dot);
 					point.appendChild(label);
 
 					point.addEventListener('click', () => showModal(tech));
