@@ -526,15 +526,15 @@
 			display: flex;
 			align-items: center;
 			gap: 8px;
-			padding: 8px 12px;
+			padding: 10px 14px;
 			border-radius: 8px;
 			color: var(--muted);
 			text-decoration: none;
-			font-size: 12px;
+			font-size: 14px;
 			font-weight: 500;
 			transition: all 0.2s ease;
 			white-space: nowrap;
-			min-width: 140px;
+			min-width: 150px;
 		}
 
 		.nav-item:hover {
@@ -549,14 +549,14 @@
 		}
 
 		.nav-icon {
-			font-size: 14px;
-			width: 16px;
+			font-size: 16px;
+			width: 18px;
 			text-align: center;
 		}
 
 		.nav-text {
-			font-size: 11px;
-			line-height: 1.2;
+			font-size: 13px;
+			line-height: 1.3;
 		}
 
 		/* Mobile Navigation */
@@ -571,20 +571,20 @@
 				max-height: none;
 				overflow-y: visible;
 				overflow-x: auto;
-				padding: 12px 16px;
-				gap: 12px;
+				padding: 14px 18px;
+				gap: 14px;
 			}
 
 			.nav-item {
 				min-width: auto;
-				padding: 8px 12px;
+				padding: 10px 14px;
 				flex-direction: column;
-				gap: 4px;
+				gap: 6px;
 				text-align: center;
 			}
 
 			.nav-text {
-				font-size: 10px;
+				font-size: 12px;
 			}
 		}
 
@@ -2469,6 +2469,20 @@
 				const navItems = document.querySelectorAll('.nav-item');
 				const sections = document.querySelectorAll('section[id]');
 				
+				// Function to set active navigation item
+				function setActiveNavItem(sectionId) {
+					// Clear all active states first
+					navItems.forEach(item => item.classList.remove('active'));
+					document.body.removeAttribute('data-active-section');
+					
+					// Set the new active state
+					const activeNavItem = document.querySelector(`[href="#${sectionId}"]`);
+					if (activeNavItem) {
+						activeNavItem.classList.add('active');
+						document.body.setAttribute('data-active-section', sectionId);
+					}
+				}
+				
 				// Smooth scrolling for navigation links
 				navItems.forEach(item => {
 					item.addEventListener('click', function(e) {
@@ -2477,10 +2491,19 @@
 						const targetSection = document.getElementById(targetId);
 						
 						if (targetSection) {
+							// Immediately highlight the clicked navigation item
+							setActiveNavItem(targetId);
+							
+							// Smooth scroll to the target section
 							targetSection.scrollIntoView({
 								behavior: 'smooth',
 								block: 'start'
 							});
+							
+							// Update navigation state after scroll completes
+							setTimeout(() => {
+								updateActiveNav();
+							}, 800);
 						}
 					});
 				});
@@ -2488,27 +2511,80 @@
 				// Update active navigation item based on scroll position
 				function updateActiveNav() {
 					const scrollPosition = window.scrollY + 100;
+					const windowHeight = window.innerHeight;
+					const documentHeight = document.documentElement.scrollHeight;
 					
+					// Check if we're near the bottom of the page
+					const isNearBottom = scrollPosition + windowHeight >= documentHeight - 200;
+					
+					let activeSection = null;
+					let bestSection = null;
+					let bestVisibility = 0;
+					
+					// Find which section is currently most visible
 					sections.forEach(section => {
 						const sectionTop = section.offsetTop;
 						const sectionHeight = section.offsetHeight;
 						const sectionId = section.getAttribute('id');
 						
+						// Calculate how much of this section is visible
+						const sectionBottom = sectionTop + sectionHeight;
+						const visibleTop = Math.max(sectionTop, scrollPosition);
+						const visibleBottom = Math.min(sectionBottom, scrollPosition + windowHeight);
+						const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+						const visibilityRatio = visibleHeight / sectionHeight;
+						
+						// Check if scroll position is within this section
 						if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-							// Remove active class from all nav items
-							navItems.forEach(item => item.classList.remove('active'));
-							
-							// Add active class to current section's nav item
-							const activeNavItem = document.querySelector(`[href="#${sectionId}"]`);
-							if (activeNavItem) {
-								activeNavItem.classList.add('active');
-							}
+							activeSection = sectionId;
+						}
+						
+						// Track the section with the highest visibility ratio
+						if (visibilityRatio > bestVisibility) {
+							bestVisibility = visibilityRatio;
+							bestSection = sectionId;
 						}
 					});
+					
+					// If no section is directly active, use the most visible one
+					if (!activeSection && bestSection) {
+						activeSection = bestSection;
+					}
+					
+					// If we're near the bottom and no section is active, activate the last section
+					if (!activeSection && isNearBottom && sections.length > 0) {
+						const lastSection = sections[sections.length - 1];
+						activeSection = lastSection.getAttribute('id');
+					}
+					
+					// Update navigation highlighting only if we found an active section
+					if (activeSection) {
+						// Clear any existing active states first
+						navItems.forEach(item => item.classList.remove('active'));
+						document.body.removeAttribute('data-active-section');
+						
+						// Store the current active section
+						document.body.setAttribute('data-active-section', activeSection);
+						
+						// Ensure only one navigation item is active
+						const activeNavItem = document.querySelector(`[href="#${activeSection}"]`);
+						if (activeNavItem) {
+							activeNavItem.classList.add('active');
+						}
+					}
 				}
 				
-				// Update navigation on scroll
-				window.addEventListener('scroll', updateActiveNav);
+				// Update navigation on scroll with throttling for better performance
+				let scrollTimeout;
+				window.addEventListener('scroll', function() {
+					if (scrollTimeout) {
+						clearTimeout(scrollTimeout);
+					}
+					scrollTimeout = setTimeout(updateActiveNav, 10);
+				});
+				
+				// Also update on window resize
+				window.addEventListener('resize', updateActiveNav);
 				
 				// Initial active state
 				updateActiveNav();
