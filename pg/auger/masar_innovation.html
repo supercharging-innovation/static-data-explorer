@@ -802,6 +802,14 @@
 			<span class="nav-icon">📋</span>
 			<span class="nav-text">90-Day Plan</span>
 		</a>
+		<a href="#validation" class="nav-item" data-section="validation">
+			<span class="nav-icon">🔬</span>
+			<span class="nav-text">Validation</span>
+		</a>
+		<a href="#players" class="nav-item" data-section="players">
+			<span class="nav-icon">🤝</span>
+			<span class="nav-text">Key Players</span>
+		</a>
 		<a href="#risks" class="nav-item" data-section="risks">
 			<span class="nav-icon">⚠️</span>
 			<span class="nav-text">Risks</span>
@@ -985,35 +993,45 @@
 						<thead>
 							<tr>
 								<th>Pillar</th>
-								<th>Now</th>
+								<th>IRL</th>
 								<th>Rationale</th>
-								<th>Gate to Next</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td><strong>Scientific Validity</strong></td>
-								<td class="score">4/9</td>
-								<td>Strong plausibility: EPS enzymes + DNase (human/in vitro), microstreaming physics, magnetic biofilm removal ex vivo. Need home-use interdental data.</td>
-								<td>Bench <strong>typodont</strong> & <strong>ex vivo tooth</strong> studies: plaque surrogates + human plaque samples; quantify detachment vs. irrigator alone</td>
+								<td><strong>Science Plausibility</strong></td>
+								<td class="score">6/9</td>
+								<td>Magnetic swarms remove dental biofilms in lab/ex vivo; fluid physics and enzymatic adjuncts well founded.</td>
 							</tr>
 							<tr>
-								<td><strong>Technical Feasibility</strong></td>
+								<td><strong>Core Tech Components</strong></td>
+								<td class="score">5/9</td>
+								<td>Portable coil arrays exist; low-power actuation feasible; consumable particle slurries manufacturable.</td>
+							</tr>
+							<tr>
+								<td><strong>Human Safety</strong></td>
 								<td class="score">4/9</td>
-								<td>Off-the-shelf coils, drivers; edible iron-oxide supply; enzyme stability in rinse</td>
-								<td>Build <strong>alpha mouthpiece</strong> (<100 mT rotating field), demonstrate chain formation and safe interdental reach in gel fixtures</td>
+								<td>Materials have food/medical precedent; MF exposure standards clear; needs oral retention/clearance studies.</td>
+							</tr>
+							<tr>
+								<td><strong>Efficacy vs. Baseline</strong></td>
+								<td class="score">3/9</td>
+								<td>Oral irrigators improve bleeding; MASAR could beat plaque metrics if micro-scrub works in vivo—unproven.</td>
 							</tr>
 							<tr>
 								<td><strong>Regulatory Path</strong></td>
-								<td class="score">3/9</td>
-								<td>Components known; combo product & magnetic aspects new</td>
-								<td>Pre-sub with FDA; define <strong>non-nano</strong>, exposure limits, pacemaker warnings; finalize <strong>predicate</strong> strategy</td>
+								<td class="score">4/9</td>
+								<td>Likely class II (US) powered irrigator + accessory consumable; magnetic navigation precedent in other indications (not dental).</td>
 							</tr>
 							<tr>
-								<td><strong>Consumer/Use Fit</strong></td>
-								<td class="score">3/9</td>
-								<td>60-sec cycle compelling; comfort unknown</td>
-								<td><strong>n=20</strong> home-use formative study on comfort/perceived clean + adherence</td>
+								<td><strong>Manufacturability/Cost</strong></td>
+								<td class="score">5/9</td>
+								<td>Coils, drivers, mouthpiece plastics are conventional; particle supply scalable (E172-grade).</td>
+							</tr>
+							<tr>
+								<td><strong>Behavior & UX</strong></td>
+								<td class="score">5/9</td>
+								<td>Bite-and-go mouthpieces are accepted (whitening trays, aligners); needs moisture/fit comfort validation.</td>
 							</tr>
 						</tbody>
 					</table>
@@ -1081,6 +1099,109 @@
 				<ul>
 					<li><strong>Single-use lab:</strong> % plaque area removed (planimetry), detachment force (microtensile), biofilm viscoelasticity shift after enzyme pre-soak</li>
 					<li><strong>Home pilot:</strong> Bleeding sites (%), Modified Gingival Index, Interproximal Plaque Index, time-to-clean (self-report), comfort (VAS). Benchmarks from irrigator literature guide effect sizes</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="validation">
+			<div class="card">
+				<h2 class="h2">🔬 Detailed Validation Workstreams</h2>
+				
+				<p class="kicker">US-based team with in-house EE/ME, access to university/shared dental labs</p>
+
+				<div class="comparison-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Workstream</th>
+								<th>Goal</th>
+								<th>Method & Success Criteria</th>
+								<th>Est. Cost</th>
+								<th>Time</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>A. Particle safety & retrieval</strong></td>
+								<td>Show particles are safe if swallowed in small amounts and don't linger subgingivally.</td>
+								<td>Use E172 iron oxide carriers; measure retention/clearance on tooth/pocket models; simulate accidental swallow; cytotoxicity on gingival fibroblasts; verify magnetic retrieval via field reversal. Success: >99% mass recovered from model; no cytotox at use doses.</td>
+								<td>$40–75k</td>
+								<td>6–8 wks</td>
+							</tr>
+							<tr>
+								<td><strong>B. Actuation physics in mouthpiece</strong></td>
+								<td>Prove coil-on-tray can drive swarms interdental at safe field strengths/temperatures.</td>
+								<td>3D-printed tray with 8–12 coil array (OctoMag/ModMag-inspired), embedded temp sensors; thermal < 39 °C; field gradients mapped; visualize swarm entry into 0.2–0.4 mm gaps. Success: repeatable assembly + interdental transit.</td>
+								<td>$60–120k</td>
+								<td>8–12 wks</td>
+							</tr>
+							<tr>
+								<td><strong>C. Biofilm detachment on tooth analogs</strong></td>
+								<td>Quantify plaque removal vs. irrigator baseline.</td>
+								<td>Microcosm dental biofilms on 3D-printed teeth; benchtop irrigator vs. MASAR; outcomes: % area cleared (confocal), CFU, EPS reduction. Target: ≥25–35% better plaque removal than irrigator at equal time/flow.</td>
+								<td>$80–150k</td>
+								<td>10–12 wks</td>
+							</tr>
+							<tr>
+								<td><strong>D. Enzymatic adjunct synergy</strong></td>
+								<td>Reduce required mechanical energy/time.</td>
+								<td>Screen dextranase/mutanase & DNase with MASAR agitation; quantify biofilm mechanical integrity drop and removal efficiency. Goal: ≥30% time or field reduction at equal removal.</td>
+								<td>$35–70k</td>
+								<td>6–8 wks</td>
+							</tr>
+							<tr>
+								<td><strong>E. Gingiva safety & enamel wear</strong></td>
+								<td>Confirm atraumatic use.</td>
+								<td>Ex vivo porcine gingiva and extracted teeth; repeated daily cycles; histology; enamel surface roughness (Ra). Criteria: no tissue injury; enamel wear non-inferior to sonic brushing.</td>
+								<td>$60–100k</td>
+								<td>6–8 wks</td>
+							</tr>
+							<tr>
+								<td><strong>F. Human factors pilot (n=15–20)</strong></td>
+								<td>Usability, comfort, and preliminary gum health signals.</td>
+								<td>4-week home-use with hygienist measures (bleeding on probing, plaque index); device logs. Target: ≥15% BoP reduction from baseline with high acceptability.</td>
+								<td>$120–220k</td>
+								<td>10–12 wks</td>
+							</tr>
+							<tr>
+								<td><strong>G. Regulatory mapping</strong></td>
+								<td>Define pathway & test plan.</td>
+								<td>513(g)/pre-sub consult; IEC 60601 safety; biocompatibility for tray & slurry; EMC with coils. Consider analogy to powered irrigator; note precedents in magnetic navigation.</td>
+								<td>$30–60k</td>
+								<td>4–6 wks</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="callout">
+					<h4>12-Month Program Summary</h4>
+					<p><strong>Total Cost:</strong> $0.5–0.8M all-in (including labor, fixtures, consumables, pre-sub)</p>
+					<p><strong>Timeline:</strong> Workstreams A→G with overlapping phases for maximum efficiency</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="players">
+			<div class="card">
+				<h2 class="h2">🤝 Key Players & Partners</h2>
+				
+				<h3 class="h3">🎓 Academia & Institutes (micro-robotics & dental biofilms)</h3>
+				<ul class="advantages-list">
+					<li><strong>University of Pennsylvania (Koo Lab, Penn Dental; Steager/GRASP Lab):</strong> Pioneered <strong>magnetic bristle robots</strong> and <strong>catalytic antimicrobial robots</strong> removing dental biofilms on complex surfaces. Ideal science/translation partner.</li>
+					<li><strong>ETH Zürich – Multi-Scale Robotics Lab (Bradley Nelson):</strong> World-class in magnetic helical microrobots and electromagnetic actuation systems (e.g., <strong>OctoMag</strong>).</li>
+					<li><strong>Max Planck Institute for Intelligent Systems – Physical Intelligence Dept. (Metin Sitti):</strong> Leaders in soft/magnetic micro-swimmers and bio-interfacing microrobotics.</li>
+					<li><strong>CUHK – Li Zhang Lab:</strong> Magnetic microrobots & wireless actuation; experience with biofilm-targeting micro-swimmers.</li>
+					<li><strong>Dental biofilm physics & ultrasonics community:</strong> Foundational work on cavitation/microstreaming (Walmsley et al.).</li>
+				</ul>
+
+				<h3 class="h3">🏢 Companies (translation & scale-up)</h3>
+				<ul class="advantages-list">
+					<li><strong>Stereotaxis (magnetic navigation):</strong> Clinical, regulated magnetic field navigation platform—systems expertise for safety/EMC and magnetic control.</li>
+					<li><strong>Microbot Medical / Bionaut Labs:</strong> Regulatory and systems know-how in magnetically driven endoluminal microrobotics; signals a maturing regulatory environment.</li>
+					<li><strong>Church & Dwight (Waterpik):</strong> Gold-standard irrigator evidence base; channel to consumer dental; potential co-dev for pump and flow path.</li>
+					<li><strong>Philips (Sonicare), P&G (Oral-B), Colgate:</strong> Drive daily-use devices; integration of MASAR as a "smart tray" accessory is plausible.</li>
+					<li><strong>Dentsply Sirona / EMS:</strong> Professional biofilm management leaders—evidence generation partners; design inputs for subgingival safety.</li>
 				</ul>
 			</div>
 		</section>
@@ -1267,13 +1388,13 @@
 					{
 						name: 'MASAR (current concept)',
 						category: 'High impact / Medium readiness',
-						description: 'Integrated rinse + magnetic soft chains + gentle acoustic microstreaming + flush. Bench/ex vivo underway; home interdental data pending.',
+						description: 'Integrated rinse + magnetic soft chains + gentle acoustic microstreaming + flush. Strong scientific plausibility (6/9) but needs efficacy validation (3/9).',
 						impact: 8.5,
-						readiness: 4.5,
+						readiness: 4.8, // Average of IRL scores: (6+5+4+3+4+5+5)/7 ≈ 4.6
 						colorClass: 'high',
 						links: [
 							{ name: 'Mechanism', url: '#mechanism' },
-							{ name: 'Plan', url: '#plan' }
+							{ name: 'Validation Plan', url: '#validation' }
 						]
 					},
 					{
