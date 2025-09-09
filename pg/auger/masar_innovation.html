@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>MASAR — Magnetically Assembled Soft Auger Rinse — Innovation Dossier</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;500;600;700;800&display=swap');
+
+		:root {
+			--bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+			--card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+			--text: #0f172a;
+			--muted: #64748b;
+			--border: #e2e8f0;
+			--accent-blue: #0ea5e9;
+			--accent-green: #10b981;
+			--accent-yellow: #f59e0b;
+			--accent-gold: #d4af37;
+			--accent-purple: #8b5cf6;
+			--gradient-blue: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+			--gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+			--gradient-yellow: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+			--gradient-purple: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+			--shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
+
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: 'Avenir', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			line-height: 1.6;
+			min-height: 100vh;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 24px;
+		}
+
+		/* Header */
+		.header {
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			background: rgba(255, 255, 255, 0.95);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid var(--border);
+			box-shadow: var(--shadow);
+		}
+
+		.banner {
+			text-align: center;
+			padding: 24px;
+		}
+
+		.banner h1 {
+			margin: 0 0 16px;
+			font-size: 28px;
+			font-weight: 700;
+			color: var(--text);
+		}
+
+		.primary-btn {
+			background: var(--gradient-blue);
+			color: #fff;
+			border: none;
+			padding: 12px 20px;
+			border-radius: 12px;
+			cursor: pointer;
+			font-weight: 600;
+			box-shadow: var(--shadow);
+			transition: all 0.2s ease;
+		}
+
+		.primary-btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+		}
+
+		.primary-btn.secondary {
+			background: var(--gradient-purple);
+		}
+
+		.header-buttons {
+			display: flex;
+			gap: 16px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 640px) {
+			.header-buttons {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
+		/* Main Content */
+		.hero {
+			text-align: center;
+			padding: 60px 0;
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+			border-radius: 0 0 40px 40px;
+			margin-bottom: 40px;
+		}
+
+		.hero h1 {
+			font-size: 48px;
+			font-weight: 800;
+			margin: 0 0 16px;
+			background: var(--gradient-purple);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		.hero p {
+			font-size: 18px;
+			color: var(--muted);
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.section {
+			scroll-margin-top: 100px;
+			margin-bottom: 60px;
+		}
+
+		.section:first-of-type {
+			margin-top: 40px;
+		}
+
+		.section-header {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		.section-icon {
+			width: 40px;
+			height: 40px;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 20px;
+		}
+
+		.icon-blue { background: var(--gradient-blue); }
+		.icon-green { background: var(--gradient-green); }
+		.icon-yellow { background: var(--gradient-yellow); }
+		.icon-purple { background: var(--gradient-purple); }
+		.text-blue { color: var(--accent-blue); }
+		.text-green { color: var(--accent-green); }
+		.text-yellow { color: var(--accent-yellow); }
+		.text-purple { color: var(--accent-purple); }
+		.gradient-bg-blue { background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); }
+		.gradient-bg-purple { background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); }
+		.mt-32 { margin-top: 32px; }
+		.assessment-box { padding: 20px; border-radius: 12px; margin: 16px 0; }
+
+		.section-title {
+			font-size: 32px;
+			font-weight: 700;
+			margin: 0;
+			color: var(--text);
+		}
+
+		.card {
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 20px;
+			padding: 32px;
+			box-shadow: var(--shadow);
+			transition: all 0.3s ease;
+		}
+
+		.card:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Innovation Image */
+		.concept-image-container {
+			display: flex;
+			gap: 32px;
+			margin-bottom: 48px;
+			align-items: center;
+		}
+
+		.concept-image {
+			flex: 1;
+			max-width: 500px;
+		}
+
+		.concept-image img {
+			width: 100%;
+			height: auto;
+			border-radius: 16px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+			transition: transform 0.3s ease;
+		}
+
+		.concept-image img:hover {
+			transform: scale(1.02);
+		}
+
+		.concept-caption {
+			flex: 1;
+			padding-left: 16px;
+		}
+
+		.concept-caption h3 {
+			margin-bottom: 16px;
+			color: var(--accent-purple);
+		}
+
+		.concept-caption p {
+			color: var(--muted);
+			line-height: 1.7;
+			font-size: 16px;
+		}
+
+		@media (max-width: 768px) {
+			.concept-image-container {
+				flex-direction: column;
+				gap: 24px;
+			}
+			
+			.concept-caption {
+				padding-left: 0;
+			}
+		}
+
+		/* Typography */
+		.h2 {
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0 0 16px;
+			color: var(--text);
+		}
+
+		.h3 {
+			font-size: 20px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--text);
+		}
+
+		.lead {
+			font-size: 18px;
+			color: var(--muted);
+			line-height: 1.7;
+		}
+
+		.kicker {
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 600;
+		}
+
+		/* Navigation Menu */
+		.nav-menu {
+			position: fixed;
+			top: 50%;
+			right: 24px;
+			transform: translateY(-50%);
+			background: rgba(255, 255, 255, 0.95);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 16px 12px;
+			box-shadow: var(--shadow);
+			z-index: 40;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			max-height: 80vh;
+			overflow-y: auto;
+		}
+
+		.nav-menu::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		.nav-menu::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		.nav-menu::-webkit-scrollbar-thumb {
+			background: var(--border);
+			border-radius: 2px;
+		}
+
+		.nav-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 10px 14px;
+			border-radius: 8px;
+			color: var(--muted);
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: 500;
+			transition: all 0.2s ease;
+			white-space: nowrap;
+			min-width: 150px;
+		}
+
+		.nav-item:hover {
+			background: var(--accent-purple);
+			color: white;
+			transform: translateX(-4px);
+		}
+
+		.nav-item.active {
+			background: var(--gradient-purple);
+			color: white;
+		}
+
+		.nav-icon {
+			font-size: 16px;
+			width: 18px;
+			text-align: center;
+		}
+
+		.nav-text {
+			font-size: 13px;
+			line-height: 1.3;
+		}
+
+		/* Mobile Navigation */
+		@media (max-width: 1024px) {
+			.nav-menu {
+				position: fixed;
+				bottom: 24px;
+				left: 24px;
+				top: auto;
+				transform: none;
+				flex-direction: row;
+				max-height: none;
+				overflow-y: visible;
+				overflow-x: auto;
+				padding: 14px 18px;
+				gap: 14px;
+			}
+
+			.nav-item {
+				min-width: auto;
+				padding: 10px 14px;
+				flex-direction: column;
+				gap: 6px;
+				text-align: center;
+			}
+
+			.nav-text {
+				font-size: 12px;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.nav-menu {
+				bottom: 16px;
+				right: 16px;
+				left: 16px;
+				justify-content: center;
+			}
+		}
+
+		/* Tables */
+		.comparison-table {
+			margin: 32px 0;
+		}
+
+		.comparison-table h4 {
+			font-size: 18px;
+			font-weight: 600;
+			color: var(--accent-purple);
+			margin-bottom: 16px;
+		}
+
+		.comparison-table table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.comparison-table th {
+			background: var(--gradient-purple);
+			color: white;
+			padding: 12px;
+			text-align: left;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.comparison-table td {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		.comparison-table tr:nth-child(even) {
+			background: rgba(248, 250, 252, 0.5);
+		}
+
+		.comparison-table tr:hover {
+			background: rgba(139, 92, 246, 0.05);
+		}
+
+		/* Lists */
+		.fancy-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.fancy-list li {
+			padding: 12px 0;
+			padding-left: 24px;
+			position: relative;
+			border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+		}
+
+		.fancy-list li:last-child {
+			border-bottom: none;
+		}
+
+		.fancy-list li::before {
+			content: "⚙️";
+			position: absolute;
+			left: 0;
+			color: var(--accent-purple);
+			font-weight: bold;
+		}
+
+		.advantages-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.advantages-list li {
+			padding: 8px 0;
+			padding-left: 20px;
+			position: relative;
+		}
+
+		.advantages-list li::before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: var(--accent-green);
+			font-weight: bold;
+		}
+
+		.risks-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.risks-list li {
+			padding: 8px 0;
+			padding-left: 20px;
+			position: relative;
+		}
+
+		.risks-list li::before {
+			content: "⚠";
+			position: absolute;
+			left: 0;
+			color: var(--accent-yellow);
+		}
+
+		/* IRL Table */
+		.irl-table {
+			margin: 24px 0;
+		}
+
+		.irl-table table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.irl-table th {
+			background: var(--gradient-purple);
+			color: white;
+			padding: 12px;
+			text-align: left;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.irl-table td {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			font-size: 14px;
+			line-height: 1.5;
+			vertical-align: top;
+		}
+
+		.irl-table .score {
+			font-weight: 700;
+			color: var(--accent-purple);
+			text-align: center;
+		}
+
+		.irl-table tr:nth-child(even) {
+			background: rgba(248, 250, 252, 0.5);
+		}
+
+		/* Footer */
+		.footer {
+			text-align: center;
+			padding: 40px 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		/* Collapsible Section Styles */
+		.section-header-with-toggle {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.toggle-btn {
+			background: transparent;
+			border: 1px solid var(--border);
+			color: var(--muted);
+			padding: 6px 12px;
+			border-radius: 6px;
+			cursor: pointer;
+			font-size: 12px;
+			transition: all 0.2s ease;
+			display: flex;
+			align-items: center;
+			gap: 4px;
+		}
+
+		.toggle-btn:hover {
+			background: var(--border);
+			color: var(--text);
+		}
+
+		.toggle-icon {
+			transition: transform 0.2s ease;
+		}
+
+		.toggle-btn.collapsed .toggle-icon {
+			transform: rotate(-90deg);
+		}
+
+		.collapsible-content {
+			transition: all 0.3s ease;
+			overflow: hidden;
+		}
+
+		.collapsible-content.collapsed {
+			max-height: 0;
+			opacity: 0;
+			margin-bottom: 0;
+		}
+
+		/* Links */
+		a {
+			color: var(--accent-purple);
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		a:hover {
+			color: var(--accent-blue);
+			text-decoration: underline;
+		}
+
+		/* Callout boxes */
+		.callout {
+			background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+			padding: 20px;
+			border-radius: 12px;
+			border-left: 4px solid var(--accent-purple);
+			margin: 20px 0;
+		}
+
+		.callout h4 {
+			margin-top: 0;
+			color: var(--accent-purple);
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="banner">
+				<h1>MASAR — Magnetically Assembled Soft Auger Rinse</h1>
+				<div class="header-buttons">
+					<button class="primary-btn" type="button">60-Second Daily Interdental Cleaner</button>
+					<button class="primary-btn secondary" type="button">Enzyme-Softens • Soft-Auger Swirls • Rinse Lifts</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Navigation Menu -->
+	<nav class="nav-menu" id="navMenu">
+		<a href="#innovation" class="nav-item" data-section="innovation">
+			<span class="nav-icon">⚙️</span>
+			<span class="nav-text">Innovation</span>
+		</a>
+		<a href="#mechanism" class="nav-item" data-section="mechanism">
+			<span class="nav-icon">🧬</span>
+			<span class="nav-text">Mechanism</span>
+		</a>
+		<a href="#image" class="nav-item" data-section="image">
+			<span class="nav-icon">📸</span>
+			<span class="nav-text">Concept</span>
+		</a>
+		<a href="#inspiration" class="nav-item" data-section="inspiration">
+			<span class="nav-icon">💡</span>
+			<span class="nav-text">Inspiration</span>
+		</a>
+		<a href="#comparison" class="nav-item" data-section="comparison">
+			<span class="nav-icon">📊</span>
+			<span class="nav-text">Baseline vs MASAR</span>
+		</a>
+		<a href="#safety" class="nav-item" data-section="safety">
+			<span class="nav-icon">🛡️</span>
+			<span class="nav-text">Safety</span>
+		</a>
+		<a href="#novelty" class="nav-item" data-section="novelty">
+			<span class="nav-icon">✨</span>
+			<span class="nav-text">Novelty</span>
+		</a>
+		<a href="#readiness" class="nav-item" data-section="readiness">
+			<span class="nav-icon">🚀</span>
+			<span class="nav-text">Readiness</span>
+		</a>
+		<a href="#plan" class="nav-item" data-section="plan">
+			<span class="nav-icon">📋</span>
+			<span class="nav-text">90-Day Plan</span>
+		</a>
+		<a href="#risks" class="nav-item" data-section="risks">
+			<span class="nav-icon">⚠️</span>
+			<span class="nav-text">Risks</span>
+		</a>
+	</nav>
+
+	<main class="container">
+		<section class="section" id="innovation">
+			<div class="card">
+				<h2 class="h2">⚙️ The Innovation</h2>
+				<p><strong>A safe, daily mouth product that loosens and lifts sticky plaque between teeth and under the gums—fast—by combining self-assembling magnetic micro-"augers," gentle acoustic microstreaming, and biofilm-softening enzymes.</strong></p>
+				
+				<div class="callout">
+					<h4>Core Insight from Analog</h4>
+					<p>A sewer auger clears roots by delivering torque through a flexible shaft, then flushing debris. We miniaturize the <em>function</em> (not the form) with <strong>field-assembled, flexible micro-chains</strong> that swirl into interdental spaces, weaken plaque's glue (EPS), and lift debris for a rinse-out—like a <em>soft auger</em>.</p>
+				</div>
+
+				<h3 class="h3">What It Is:</h3>
+				<ul class="fancy-list">
+					<li><strong>Rinse</strong> with biocompatible, enzyme blend (dextranase/mutanase + DNase I) to loosen EPS</li>
+					<li><strong>Mouthpiece</strong> that creates a low-frequency rotating magnetic field + gentle acoustic pulses</li>
+					<li><strong>Edible, starch-coated iron-oxide microbeads</strong> in the rinse self-assemble into flexible chains (micro-augers) and oscillate in the field to sweep interproximal and shallow subgingival zones; a quick water burst flushes the debris</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="mechanism">
+			<div class="card">
+				<h2 class="h2">🧬 Mechanism of Action</h2>
+				
+				<h3 class="h3">1. Matrix Softening (Chemistry)</h3>
+				<ul>
+					<li><strong>Glucanohydrolases</strong> (dextranase/mutanase) remodel/cleave α-glucans that cement plaque. Human and mixed-biofilm studies support EPS weakening. (<a href="https://www.researchgate.net/publication/8430020_The_influence_of_mutanase_and_dextranase_on_the_production_and_structure_of_glucans_synthesized_by_streptococcal_glucosyltransferases" target="_blank">ResearchGate</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9912700/" target="_blank">PMC</a>)</li>
+					<li><strong>DNase I</strong> cleaves extracellular DNA, a structural scaffold in oral biofilms, reducing cohesion and facilitating removal. (<a href="https://pubmed.ncbi.nlm.nih.gov/35047995/" target="_blank">PubMed</a>)</li>
+				</ul>
+
+				<h3 class="h3">2. Soft Mechanical "Augering" (Physics)</h3>
+				<ul>
+					<li><strong>Magnetic micro-chains</strong> (iron-oxide core, food-grade coating) assemble and align in a rotating field (tens of mT). The chains flex around embrasures like a cable auger, generating local shear at the tooth–plaque interface while staying soft against tissues. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6748647/" target="_blank">PMC</a>, <a href="https://pubs.acs.org/doi/10.1021/acsnano.2c01950" target="_blank">ACS Publications</a>)</li>
+					<li><strong>Acoustic microstreaming</strong> from gentle transduction (sonic/ultrasonic) boosts shear at boundaries and helps dislodge softened plaque without sharp tips. (<a href="https://www.sciencedirect.com/science/article/pii/S1875389215001042/pdf" target="_blank">ScienceDirect</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0149804" target="_blank">PLOS</a>)</li>
+				</ul>
+
+				<h3 class="h3">3. Debris Evacuation</h3>
+				<ul>
+					<li>A short <strong>pulsed irrigation</strong> clears freed material. Oral irrigators consistently improve bleeding/gingival indices, supporting this step as safe and beneficial. (<a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/idh.12741" target="_blank">Wiley Online Library</a>)</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="image">
+			<div class="card">
+				<h2 class="h2">📸 Concept Visualization</h2>
+				
+				<div class="concept-image-container">
+					<div class="concept-image">
+						<img src="image.png" alt="MASAR - Magnetically Assembled Soft Auger Rinse Concept" />
+					</div>
+					<div class="concept-caption">
+						<h3 class="h3">MASAR Implementation</h3>
+						<p>Exploded view showing: (A) sachet of enzyme + coated iron-oxide microbeads poured into a small cup; (B) U-shaped mouthpiece with slim handle—coil segments along the arch and a small sonic transducer in the handle; (C) "During use" inset showing micro-chains (dark beads in flexible chain) forming between teeth under a rotating field, gently sweeping the embrasure; arrows depict microstreaming flow; (D) a rinse burst flushing loosened plaque out.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="inspiration">
+			<div class="card">
+				<h2 class="h2">💡 Inspiration</h2>
+				
+				<div class="callout">
+					<h4>The Sewer Auger Principle</h4>
+					<p>A flexible shaft delivers rotational energy into hard-to-reach spaces, fractures the obstruction, then flushes the debris away.</p>
+					
+					<p><strong>Our Transfer:</strong> MASAR preserves the functions (reach → disrupt → evacuate) but swaps steel blades for soft, field-assembled magnetic chains plus enzyme softening and gentle microstreaming to stay safe for daily oral use.</p>
+					
+					<p><strong>Safety Translation:</strong> Concentrated shear becomes distributed, low-energy shear, and the "flush" becomes a brief irrigation burst after actuation.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="comparison">
+			<div class="card">
+				<h2 class="h2">📊 Baseline vs. MASAR — Outcomes & Targets</h2>
+				
+				<div class="callout">
+					<p><strong>NOTE:</strong> "Targets" are hypotheses for study powering, not claims.</p>
+				</div>
+
+				<div class="comparison-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Dimension</th>
+								<th>Baseline (Home Care Today)</th>
+								<th>MASAR Target (30–60 s cycle)</th>
+								<th>Rationale / Evidence</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Interdental plaque detachment (single use)</strong></td>
+								<td>Floss or water flosser: mixed results; single-use parity or small edge either way</td>
+								<td><strong>+15–25%</strong> greater interdental plaque removal vs. water flosser alone (single use)</td>
+								<td>Adds matrix softening + mechanical engagement + microstreaming not present with irrigation alone</td>
+							</tr>
+							<tr>
+								<td><strong>Bleeding on probing (2–4 wks)</strong></td>
+								<td>Water flosser improves bleeding vs. floss in several trials/meta-analyses</td>
+								<td><strong>Additional −15–30%</strong> bleeding sites vs. water flosser + brush</td>
+								<td>Faster detachment → less inflammation; irrigators already help—MASAR should add</td>
+							</tr>
+							<tr>
+								<td><strong>Time to "clean feel"</strong></td>
+								<td>2–3 min (brush + floss/irrigate)</td>
+								<td><strong>≤60 s</strong> cycle</td>
+								<td>Field-assembled chains sweep multiple embrasures simultaneously + quick flush</td>
+							</tr>
+							<tr>
+								<td><strong>User tolerance / comfort</strong></td>
+								<td>Water flosser acceptable; ultrasonic sensations may bother some users</td>
+								<td><strong>Comparable or better</strong> (low-power pulses, soft chains)</td>
+								<td>No hard tips; gentle interacting forces. Microstreaming at low level</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="safety">
+			<div class="card">
+				<h2 class="h2">🛡️ Safety, Biocompatibility & Regulatory Notes</h2>
+				
+				<ul class="advantages-list">
+					<li><strong>Iron-oxide (E172) safety:</strong> EFSA's 2015 re-evaluation found no safety concern for iron oxides/hydroxides (E172) as food additives within specified uses; MASAR uses coated, non-nano, ingestible-mass-limited particles (<a href="https://www.efsa.europa.eu/en/efsajournal/pub/4317" target="_blank">EFSA</a>, <a href="https://efsa.onlinelibrary.wiley.com/doi/pdf/10.2903/j.efsa.2015.4317" target="_blank">EFSA Journal</a>)</li>
+					<li><strong>Non-contact assistance:</strong> Acoustic microstreaming/cavitation are documented in dentistry; we operate at conservative amplitudes for home use (<a href="https://www.sciencedirect.com/science/article/pii/S1875389215001042/pdf" target="_blank">ScienceDirect</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0149804" target="_blank">PLOS</a>)</li>
+					<li><strong>Regulatory path (US, hypothesis):</strong> Rinse (cosmetic/OTC drug depending on actives) + powered mouthpiece (Class II, likely 510(k) pathway akin to oral irrigators/sonic devices)</li>
+					<li><strong>Prior daily air-powder systems:</strong> (erythritol/glycine) are professional-use and low-abrasive; MASAR is non-abrasive home analog via soft chains + enzymes (<a href="https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1374817/full" target="_blank">Frontiers</a>)</li>
+				</ul>
+
+				<h3 class="h3">Contraindications & Cautions (to study)</h3>
+				<ul class="risks-list">
+					<li>Fixed orthodontic appliances/retainers</li>
+					<li>Metal restorations with exposed edges</li>
+					<li>Users with implanted <strong>pacemakers/ICDs</strong> (magnet proximity); study labeling and field limits accordingly</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="novelty">
+			<div class="card">
+				<h2 class="h2">✨ Novelty Assessment</h2>
+				
+				<h3 class="h3">Precedents Outside Dentistry</h3>
+				<ul>
+					<li><strong>Magnetic micro-robots</strong> and catalytic swarms have removed dental biofilm ex vivo (lab setting), validating magnetic guidance for oral biofilms</li>
+					<li><strong>NiTi rotary endodontic files</strong> demonstrate small-scale flexible torque transmission (root canals), not consumer plaque removal</li>
+				</ul>
+
+				<h3 class="h3">Relevant IP Found (Adjacent)</h3>
+				<ul>
+					<li>Magnetic toothpaste/brush systems and field-guided particles for oral cleaning appear in patents (e.g., US20100307086A1; EP3915434A1)</li>
+					<li>MASAR differs by <strong>field-assembled soft chains + enzyme synergy + acoustic assist</strong> as a daily interdental solution</li>
+				</ul>
+
+				<div class="callout">
+					<h4>Verdict</h4>
+					<p>Mechanistic analogy (augering) is old in principle, but MASAR's <strong>self-assembled soft auger + enzyme + microstreaming</strong> configuration for daily <strong>interdental</strong> use appears <strong>novel</strong> vs. commercial devices and distinct from lab-scale microrobot demos. Prior art exists around magnets in oral care; claim carefully and emphasize the integrated, chain-forming mechanism and specific biofilm-matrix synergy.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="readiness">
+			<div class="card">
+				<h2 class="h2">🚀 Impact-Readiness Levels (IRL)</h2>
+				
+				<p class="kicker">1–9 scale like TRL; current estimates and gates to +1</p>
+
+				<div class="irl-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Pillar</th>
+								<th>Now</th>
+								<th>Rationale</th>
+								<th>Gate to Next</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Scientific Validity</strong></td>
+								<td class="score">4/9</td>
+								<td>Strong plausibility: EPS enzymes + DNase (human/in vitro), microstreaming physics, magnetic biofilm removal ex vivo. Need home-use interdental data.</td>
+								<td>Bench <strong>typodont</strong> & <strong>ex vivo tooth</strong> studies: plaque surrogates + human plaque samples; quantify detachment vs. irrigator alone</td>
+							</tr>
+							<tr>
+								<td><strong>Technical Feasibility</strong></td>
+								<td class="score">4/9</td>
+								<td>Off-the-shelf coils, drivers; edible iron-oxide supply; enzyme stability in rinse</td>
+								<td>Build <strong>alpha mouthpiece</strong> (<100 mT rotating field), demonstrate chain formation and safe interdental reach in gel fixtures</td>
+							</tr>
+							<tr>
+								<td><strong>Regulatory Path</strong></td>
+								<td class="score">3/9</td>
+								<td>Components known; combo product & magnetic aspects new</td>
+								<td>Pre-sub with FDA; define <strong>non-nano</strong>, exposure limits, pacemaker warnings; finalize <strong>predicate</strong> strategy</td>
+							</tr>
+							<tr>
+								<td><strong>Consumer/Use Fit</strong></td>
+								<td class="score">3/9</td>
+								<td>60-sec cycle compelling; comfort unknown</td>
+								<td><strong>n=20</strong> home-use formative study on comfort/perceived clean + adherence</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="plan">
+			<div class="card">
+				<h2 class="h2">📋 0–90 Day Plan (Evidence & Prototypes)</h2>
+				
+				<h3 class="h3">0–30 Days</h3>
+				<ul class="fancy-list">
+					<li><strong>Enzyme screen (bench):</strong> EPS-rich S. mutans mixed biofilm on hydroxyapatite; test dextranase/mutanase ± DNase for detachment vs. buffer. Outcome: % biomass reduction, cohesiveness</li>
+					<li><strong>Particle safety profiling:</strong> Verify non-nano size distribution, starch/cellulose coating integrity, iron release in artificial saliva; daily exposure << typical E172 dietary levels</li>
+					<li><strong>Field assembly demo:</strong> Rotating field rig; record chain formation and bend radius across 0.5–1.5 mm interdental analog gaps</li>
+				</ul>
+
+				<h3 class="h3">31–60 Days</h3>
+				<ul class="fancy-list">
+					<li><strong>Alpha mouthpiece</strong> (U-shaped coil pair or segmented coils) + low-power sonic actuator; log field strengths (≤~100 mT at surface), temperature rise, acoustic amplitude</li>
+					<li><strong>Typodont/Ex-vivo tests:</strong> Human plaque samples on extracted teeth; endpoints: residual plaque area (disclosing), plaque index change (single use), and particle retrieval</li>
+				</ul>
+
+				<h3 class="h3">61–90 Days</h3>
+				<ul class="fancy-list">
+					<li><strong>Pilot RCT (n≈24):</strong> MASAR vs. water flosser (both with standard brushing) over 2 weeks. Primary: bleeding on gentle probing; Secondary: interdental plaque via standardized scoring and image analysis. Power for 15–20% delta; safety logging</li>
+				</ul>
+
+				<h3 class="h3">Measurement Plan (Example Endpoints)</h3>
+				<ul>
+					<li><strong>Single-use lab:</strong> % plaque area removed (planimetry), detachment force (microtensile), biofilm viscoelasticity shift after enzyme pre-soak</li>
+					<li><strong>Home pilot:</strong> Bleeding sites (%), Modified Gingival Index, Interproximal Plaque Index, time-to-clean (self-report), comfort (VAS). Benchmarks from irrigator literature guide effect sizes</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="risks">
+			<div class="card">
+				<h2 class="h2">⚠️ Risks & Mitigations</h2>
+				
+				<ul class="risks-list">
+					<li><strong>Particle retention/ingestion:</strong> Limit concentration and session dose; design magnetic capture at mouthpiece exit screen; rinse-out step; E172 framework</li>
+					<li><strong>Pacemakers/implants:</strong> Conservative field, distance warnings, exclusion until verified</li>
+					<li><strong>Enzyme stability/irritation:</strong> pH-buffered formula, co-lyophilized enzyme pods reconstituted on use; patch testing</li>
+					<li><strong>Efficacy vs. tight contacts:</strong> Provide interdental elastomer tip to locally focus field, or brief floss threader for extremely tight areas (study variations)</li>
+				</ul>
+
+				<div class="callout">
+					<h4>What's "New" vs. Known</h4>
+					<p>MASAR combines known pieces in a novel way: oral irrigators reduce bleeding/gingival inflammation (add mechanically engaged interdental micro-chains + enzymes to accelerate detachment), ultrasonic microstreaming aids non-contact disruption (use low-power pulses primarily for microstreaming while chains provide contact), enzymes soften oral EPS (pre-soak during chain actuation to lower required shear), and magnetic micro-robots remove dental biofilms ex vivo (daily consumer implementation via self-assembled chains in a rinse—not lab robots).</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+	<footer class="footer">
+		<div class="container">
+			<p>MASAR Innovation Dossier — Magnetically Assembled Soft Auger Rinse</p>
+		</div>
+	</footer>
+
+	<script>
+		// Navigation menu functionality
+		function initNavigation() {
+			const navItems = document.querySelectorAll('.nav-item');
+			const sections = document.querySelectorAll('section[id]');
+			
+			// Function to set active navigation item
+			function setActiveNavItem(sectionId) {
+				// Clear all active states first
+				navItems.forEach(item => item.classList.remove('active'));
+				document.body.removeAttribute('data-active-section');
+				
+				// Set the new active state
+				const activeNavItem = document.querySelector(`[href="#${sectionId}"]`);
+				if (activeNavItem) {
+					activeNavItem.classList.add('active');
+					document.body.setAttribute('data-active-section', sectionId);
+				}
+			}
+			
+			// Smooth scrolling for navigation links
+			navItems.forEach(item => {
+				item.addEventListener('click', function(e) {
+					e.preventDefault();
+					const targetId = this.getAttribute('href').substring(1);
+					const targetSection = document.getElementById(targetId);
+					
+					if (targetSection) {
+						// Immediately highlight the clicked navigation item
+						setActiveNavItem(targetId);
+						
+						// Smooth scroll to the target section
+						targetSection.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+						
+						// Update navigation state after scroll completes
+						setTimeout(() => {
+							updateActiveNav();
+						}, 800);
+					}
+				});
+			});
+			
+			// Update active navigation item based on scroll position
+			function updateActiveNav() {
+				const scrollPosition = window.scrollY + 100;
+				const windowHeight = window.innerHeight;
+				const documentHeight = document.documentElement.scrollHeight;
+				
+				// Check if we're near the bottom of the page
+				const isNearBottom = scrollPosition + windowHeight >= documentHeight - 200;
+				
+				let activeSection = null;
+				let bestSection = null;
+				let bestVisibility = 0;
+				
+				// Find which section is currently most visible
+				sections.forEach(section => {
+					const sectionTop = section.offsetTop;
+					const sectionHeight = section.offsetHeight;
+					const sectionId = section.getAttribute('id');
+					
+					// Calculate how much of this section is visible
+					const sectionBottom = sectionTop + sectionHeight;
+					const visibleTop = Math.max(sectionTop, scrollPosition);
+					const visibleBottom = Math.min(sectionBottom, scrollPosition + windowHeight);
+					const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+					const visibilityRatio = visibleHeight / sectionHeight;
+					
+					// Check if scroll position is within this section
+					if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+						activeSection = sectionId;
+					}
+					
+					// Track the section with the highest visibility ratio
+					if (visibilityRatio > bestVisibility) {
+						bestVisibility = visibilityRatio;
+						bestSection = sectionId;
+					}
+				});
+				
+				// If no section is directly active, use the most visible one
+				if (!activeSection && bestSection) {
+					activeSection = bestSection;
+				}
+				
+				// If we're near the bottom and no section is active, activate the last section
+				if (!activeSection && isNearBottom && sections.length > 0) {
+					const lastSection = sections[sections.length - 1];
+					activeSection = lastSection.getAttribute('id');
+				}
+				
+				// Update navigation highlighting only if we found an active section
+				if (activeSection) {
+					// Clear any existing active states first
+					navItems.forEach(item => item.classList.remove('active'));
+					document.body.removeAttribute('data-active-section');
+					
+					// Store the current active section
+					document.body.setAttribute('data-active-section', activeSection);
+					
+					// Ensure only one navigation item is active
+					const activeNavItem = document.querySelector(`[href="#${activeSection}"]`);
+					if (activeNavItem) {
+						activeNavItem.classList.add('active');
+					}
+				}
+			}
+			
+			// Update navigation on scroll with throttling for better performance
+			let scrollTimeout;
+			window.addEventListener('scroll', function() {
+				if (scrollTimeout) {
+					clearTimeout(scrollTimeout);
+				}
+				scrollTimeout = setTimeout(updateActiveNav, 10);
+			});
+			
+			// Also update on window resize
+			window.addEventListener('resize', updateActiveNav);
+			
+			// Initial active state
+			updateActiveNav();
+		}
+		
+		// Toggle section functionality
+		function toggleSection(sectionId) {
+			const content = document.getElementById(sectionId);
+			const button = content.previousElementSibling.querySelector('.toggle-btn');
+			const icon = button.querySelector('.toggle-icon');
+			
+			if (content.classList.contains('collapsed')) {
+				content.classList.remove('collapsed');
+				button.classList.remove('collapsed');
+				icon.textContent = '▼';
+			} else {
+				content.classList.add('collapsed');
+				button.classList.add('collapsed');
+				icon.textContent = '▶';
+			}
+		}
+		
+		// Initialize when DOM is loaded
+		document.addEventListener('DOMContentLoaded', function() {
+			initNavigation();
+		});
+	</script>
+</body>
+</html>

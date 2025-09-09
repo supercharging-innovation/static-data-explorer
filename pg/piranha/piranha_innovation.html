@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Weaken → Disintegrate™ — Bio-Safe "Piranha" Cleaning for Dental Plaque — Innovation Dossier</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Avenir:wght@300;400;500;600;700;800&display=swap');
+
+		:root {
+			--bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+			--card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+			--text: #0f172a;
+			--muted: #64748b;
+			--border: #e2e8f0;
+			--accent-blue: #0ea5e9;
+			--accent-green: #10b981;
+			--accent-yellow: #f59e0b;
+			--accent-red: #ef4444;
+			--accent-orange: #f97316;
+			--gradient-blue: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+			--gradient-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+			--gradient-yellow: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+			--gradient-red: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+			--gradient-orange: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+			--shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
+
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: 'Avenir', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			line-height: 1.6;
+			min-height: 100vh;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 24px;
+		}
+
+		/* Header */
+		.header {
+			position: sticky;
+			top: 0;
+			z-index: 50;
+			background: rgba(255, 255, 255, 0.95);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid var(--border);
+			box-shadow: var(--shadow);
+		}
+
+		.banner {
+			text-align: center;
+			padding: 24px;
+		}
+
+		.banner h1 {
+			margin: 0 0 16px;
+			font-size: 28px;
+			font-weight: 700;
+			color: var(--text);
+		}
+
+		.primary-btn {
+			background: var(--gradient-orange);
+			color: #fff;
+			border: none;
+			padding: 12px 20px;
+			border-radius: 12px;
+			cursor: pointer;
+			font-weight: 600;
+			box-shadow: var(--shadow);
+			transition: all 0.2s ease;
+		}
+
+		.primary-btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+		}
+
+		.primary-btn.secondary {
+			background: var(--gradient-red);
+		}
+
+		.header-buttons {
+			display: flex;
+			gap: 16px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		@media (max-width: 640px) {
+			.header-buttons {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
+
+		/* Main Content */
+		.hero {
+			text-align: center;
+			padding: 60px 0;
+			background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(249, 115, 22, 0.1) 100%);
+			border-radius: 0 0 40px 40px;
+			margin-bottom: 40px;
+		}
+
+		.hero h1 {
+			font-size: 48px;
+			font-weight: 800;
+			margin: 0 0 16px;
+			background: var(--gradient-orange);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		.hero p {
+			font-size: 18px;
+			color: var(--muted);
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.section {
+			scroll-margin-top: 100px;
+			margin-bottom: 60px;
+		}
+
+		.section:first-of-type {
+			margin-top: 40px;
+		}
+
+		.section-header {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		.section-icon {
+			width: 40px;
+			height: 40px;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 20px;
+		}
+
+		.icon-blue { background: var(--gradient-blue); }
+		.icon-green { background: var(--gradient-green); }
+		.icon-yellow { background: var(--gradient-yellow); }
+		.icon-orange { background: var(--gradient-orange); }
+		.icon-red { background: var(--gradient-red); }
+		.text-blue { color: var(--accent-blue); }
+		.text-green { color: var(--accent-green); }
+		.text-yellow { color: var(--accent-yellow); }
+		.text-orange { color: var(--accent-orange); }
+		.text-red { color: var(--accent-red); }
+		.gradient-bg-orange { background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); }
+		.mt-32 { margin-top: 32px; }
+		.assessment-box { padding: 20px; border-radius: 12px; margin: 16px 0; }
+
+		.section-title {
+			font-size: 32px;
+			font-weight: 700;
+			margin: 0;
+			color: var(--text);
+		}
+
+		.card {
+			background: var(--card);
+			border: 1px solid var(--border);
+			border-radius: 20px;
+			padding: 32px;
+			box-shadow: var(--shadow);
+			transition: all 0.3s ease;
+		}
+
+		.card:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Innovation Image */
+		.concept-image-container {
+			display: flex;
+			gap: 32px;
+			margin-bottom: 48px;
+			align-items: center;
+		}
+
+		.concept-image {
+			flex: 1;
+			max-width: 500px;
+		}
+
+		.concept-image img {
+			width: 100%;
+			height: auto;
+			border-radius: 16px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+			transition: transform 0.3s ease;
+		}
+
+		.concept-image img:hover {
+			transform: scale(1.02);
+		}
+
+		.concept-caption {
+			flex: 1;
+			padding-left: 16px;
+		}
+
+		.concept-caption h3 {
+			margin-bottom: 16px;
+			color: var(--accent-orange);
+		}
+
+		.concept-caption p {
+			color: var(--muted);
+			line-height: 1.7;
+			font-size: 16px;
+		}
+
+		@media (max-width: 768px) {
+			.concept-image-container {
+				flex-direction: column;
+				gap: 24px;
+			}
+			
+			.concept-caption {
+				padding-left: 0;
+			}
+		}
+
+		/* Gallery */
+		.concept-gallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 24px;
+			margin-top: 32px;
+		}
+
+		.gallery-item {
+			background: #fff;
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			overflow: hidden;
+			transition: all 0.3s ease;
+		}
+
+		.gallery-item:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+		}
+
+		.gallery-item img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+		}
+
+		.gallery-caption {
+			padding: 16px;
+		}
+
+		.gallery-caption h4 {
+			margin: 0 0 8px;
+			color: var(--accent-orange);
+			font-size: 16px;
+			font-weight: 600;
+		}
+
+		.gallery-caption p {
+			margin: 0;
+			color: var(--muted);
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		/* Typography */
+		.h2 {
+			font-size: 24px;
+			font-weight: 700;
+			margin: 0 0 16px;
+			color: var(--text);
+		}
+
+		.h3 {
+			font-size: 20px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--text);
+		}
+
+		.lead {
+			font-size: 18px;
+			color: var(--muted);
+			line-height: 1.7;
+		}
+
+		.kicker {
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 600;
+		}
+
+		/* Navigation Menu */
+		.nav-menu {
+			position: fixed;
+			top: 50%;
+			right: 24px;
+			transform: translateY(-50%);
+			background: rgba(255, 255, 255, 0.95);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 16px 12px;
+			box-shadow: var(--shadow);
+			z-index: 40;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			max-height: 80vh;
+			overflow-y: auto;
+		}
+
+		.nav-menu::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		.nav-menu::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		.nav-menu::-webkit-scrollbar-thumb {
+			background: var(--border);
+			border-radius: 2px;
+		}
+
+		.nav-item {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			padding: 10px 14px;
+			border-radius: 8px;
+			color: var(--muted);
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: 500;
+			transition: all 0.2s ease;
+			white-space: nowrap;
+			min-width: 150px;
+		}
+
+		.nav-item:hover {
+			background: var(--accent-orange);
+			color: white;
+			transform: translateX(-4px);
+		}
+
+		.nav-item.active {
+			background: var(--gradient-orange);
+			color: white;
+		}
+
+		.nav-icon {
+			font-size: 16px;
+			width: 18px;
+			text-align: center;
+		}
+
+		.nav-text {
+			font-size: 13px;
+			line-height: 1.3;
+		}
+
+		/* Mobile Navigation */
+		@media (max-width: 1024px) {
+			.nav-menu {
+				position: fixed;
+				bottom: 24px;
+				left: 24px;
+				top: auto;
+				transform: none;
+				flex-direction: row;
+				max-height: none;
+				overflow-y: visible;
+				overflow-x: auto;
+				padding: 14px 18px;
+				gap: 14px;
+			}
+
+			.nav-item {
+				min-width: auto;
+				padding: 10px 14px;
+				flex-direction: column;
+				gap: 6px;
+				text-align: center;
+			}
+
+			.nav-text {
+				font-size: 12px;
+			}
+		}
+
+		@media (max-width: 640px) {
+			.nav-menu {
+				bottom: 16px;
+				right: 16px;
+				left: 16px;
+				justify-content: center;
+			}
+		}
+
+		/* Tables */
+		.comparison-table {
+			margin: 32px 0;
+		}
+
+		.comparison-table h4 {
+			font-size: 18px;
+			font-weight: 600;
+			color: var(--accent-orange);
+			margin-bottom: 16px;
+		}
+
+		.comparison-table table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.comparison-table th {
+			background: var(--gradient-orange);
+			color: white;
+			padding: 12px;
+			text-align: left;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.comparison-table td {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			font-size: 14px;
+			line-height: 1.5;
+		}
+
+		.comparison-table tr:nth-child(even) {
+			background: rgba(248, 250, 252, 0.5);
+		}
+
+		.comparison-table tr:hover {
+			background: rgba(249, 115, 22, 0.05);
+		}
+
+		/* Lists */
+		.fancy-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.fancy-list li {
+			padding: 12px 0;
+			padding-left: 24px;
+			position: relative;
+			border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+		}
+
+		.fancy-list li:last-child {
+			border-bottom: none;
+		}
+
+		.fancy-list li::before {
+			content: "🧪";
+			position: absolute;
+			left: 0;
+			color: var(--accent-orange);
+			font-weight: bold;
+		}
+
+		.advantages-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.advantages-list li {
+			padding: 8px 0;
+			padding-left: 20px;
+			position: relative;
+		}
+
+		.advantages-list li::before {
+			content: "✓";
+			position: absolute;
+			left: 0;
+			color: var(--accent-green);
+			font-weight: bold;
+		}
+
+		.risks-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.risks-list li {
+			padding: 8px 0;
+			padding-left: 20px;
+			position: relative;
+		}
+
+		.risks-list li::before {
+			content: "⚠";
+			position: absolute;
+			left: 0;
+			color: var(--accent-red);
+		}
+
+		/* IRL Table */
+		.irl-table {
+			margin: 24px 0;
+		}
+
+		.irl-table table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		.irl-table th {
+			background: var(--gradient-orange);
+			color: white;
+			padding: 12px;
+			text-align: left;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		.irl-table td {
+			padding: 12px;
+			border-bottom: 1px solid var(--border);
+			font-size: 14px;
+			line-height: 1.5;
+			vertical-align: top;
+		}
+
+		.irl-table .score {
+			font-weight: 700;
+			color: var(--accent-orange);
+			text-align: center;
+		}
+
+		.irl-table tr:nth-child(even) {
+			background: rgba(248, 250, 252, 0.5);
+		}
+
+		/* Steps */
+		.steps-container {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 24px;
+			margin: 32px 0;
+		}
+
+		.step-card {
+			background: #fff;
+			border: 2px solid var(--border);
+			border-radius: 16px;
+			padding: 24px;
+			position: relative;
+			transition: all 0.3s ease;
+		}
+
+		.step-card:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow);
+		}
+
+		.step-card.step-a {
+			border-color: var(--accent-blue);
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.05) 0%, rgba(249, 115, 22, 0.02) 100%);
+		}
+
+		.step-card.step-b {
+			border-color: var(--accent-red);
+			background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(249, 115, 22, 0.02) 100%);
+		}
+
+		.step-number {
+			position: absolute;
+			top: -12px;
+			left: 20px;
+			background: var(--accent-orange);
+			color: white;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 12px;
+			font-weight: 700;
+		}
+
+		.step-title {
+			font-size: 18px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--text);
+		}
+
+		@media (max-width: 768px) {
+			.steps-container {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		/* Footer */
+		.footer {
+			text-align: center;
+			padding: 40px 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		/* Links */
+		a {
+			color: var(--accent-orange);
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		a:hover {
+			color: var(--accent-red);
+			text-decoration: underline;
+		}
+
+		/* Callout boxes */
+		.callout {
+			background: linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+			padding: 20px;
+			border-radius: 12px;
+			border-left: 4px solid var(--accent-orange);
+			margin: 20px 0;
+		}
+
+		.callout h4 {
+			margin-top: 0;
+			color: var(--accent-orange);
+		}
+
+		.callout.warning {
+			border-left-color: var(--accent-red);
+			background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(249, 115, 22, 0.05) 100%);
+		}
+
+		.callout.warning h4 {
+			color: var(--accent-red);
+		}
+	</style>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="banner">
+				<h1>Weaken → Disintegrate™ — Bio-Safe "Piranha" Cleaning for Dental Plaque</h1>
+				<div class="header-buttons">
+					<button class="primary-btn" type="button">Two-Step Sequential Regimen</button>
+					<button class="primary-btn secondary" type="button">Dehydrate • Oxidize • Remove</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Navigation Menu -->
+	<nav class="nav-menu" id="navMenu">
+		<a href="#innovation" class="nav-item" data-section="innovation">
+			<span class="nav-icon">🧪</span>
+			<span class="nav-text">Innovation</span>
+		</a>
+		<a href="#concept" class="nav-item" data-section="concept">
+			<span class="nav-icon">📸</span>
+			<span class="nav-text">Concept</span>
+		</a>
+		<a href="#problem" class="nav-item" data-section="problem">
+			<span class="nav-icon">🎯</span>
+			<span class="nav-text">Problem</span>
+		</a>
+		<a href="#solution" class="nav-item" data-section="solution">
+			<span class="nav-icon">⚗️</span>
+			<span class="nav-text">Solution</span>
+		</a>
+		<a href="#improvement" class="nav-item" data-section="improvement">
+			<span class="nav-icon">📊</span>
+			<span class="nav-text">Expected Improvement</span>
+		</a>
+		<a href="#novelty" class="nav-item" data-section="novelty">
+			<span class="nav-icon">✨</span>
+			<span class="nav-text">Novelty</span>
+		</a>
+		<a href="#readiness" class="nav-item" data-section="readiness">
+			<span class="nav-icon">🚀</span>
+			<span class="nav-text">Readiness</span>
+		</a>
+		<a href="#risks" class="nav-item" data-section="risks">
+			<span class="nav-icon">⚠️</span>
+			<span class="nav-text">Risks</span>
+		</a>
+		<a href="#evidence" class="nav-item" data-section="evidence">
+			<span class="nav-icon">📋</span>
+			<span class="nav-text">Evidence Plan</span>
+		</a>
+	</nav>
+
+	<main class="container">
+		<section class="section" id="innovation">
+			<div class="card">
+				<h2 class="h2">🧪 The Innovation</h2>
+				<p><strong>A sequential, two-step oral-care system that first dehydrates (weaken) the plaque biofilm with a fast, topical desiccant and then oxidizes (disintegrate) the already-brittle matrix with a low-dose oxidizer.</strong></p>
+				
+				<div class="callout">
+					<h4>Inspiration from "Piranha Solution"</h4>
+					<p>In semiconductor labs, "piranha solution" removes stubborn organic films by <strong>dehydration + radical oxidation</strong> (sulfuric acid + hydrogen peroxide → peroxymonosulfuric acid). We borrow only the <strong>logic</strong>, not the chemistry: recreate the <strong>weaken-then-oxidize</strong> sequence with <strong>biocompatible</strong> agents for plaque. The aim is the same structural outcome (biofilm loses integrity), achieved safely at oral pH and dosage. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9413593/" target="_blank">PMC</a>, <a href="https://fda.report/DailyMed/c5fbbd40-2acc-2fc3-e053-2a95a90ae927" target="_blank">FDA Report</a>)</p>
+				</div>
+
+				<div class="callout warning">
+					<h4>Important Safety Note</h4>
+					<p>This document analogizes the <strong>sequence</strong> of piranha cleaning but <strong>does not</strong> propose piranha reagents for oral use. Piranha solutions are dangerous laboratory oxidants and <strong>must never</strong> be used in or near the body. (<a href="https://fda.report/DailyMed/c5fbbd40-2acc-2fc3-e053-2a95a90ae927" target="_blank">FDA Report</a>)</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="concept">
+			<div class="card">
+				<h2 class="h2">📸 Concept Visualization</h2>
+				
+				<div class="concept-image-container">
+					<div class="concept-image">
+						<img src="two_step_plaque_removal_concept.png" alt="Complete Two-Step Process Overview" />
+					</div>
+					<div class="concept-caption">
+						<h3 class="h3">Weaken → Disintegrate™ Process</h3>
+						<p>Complete conceptual diagram showing the bio-safe analogy to piranha cleaning: sequential dehydration followed by oxidation for effective plaque matrix breakdown. <strong>Step A</strong> uses a brief topical desiccant to collapse plaque hydration and denature matrix proteins, making deposits brittle. <strong>Step B</strong> follows with a low-dose oxidizer (~1.5% H₂O₂) to fragment the weakened matrix and oxidize surface organics for improved removal.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="problem">
+			<div class="card">
+				<h2 class="h2">🎯 Problem & Baseline</h2>
+				
+				<p><strong>Plaque biofilms</strong> are water-rich matrices of extracellular polymeric substances (EPS: polysaccharides, proteins, DNA) with embedded bacteria. The hydrated EPS confers adhesion, viscoelasticity, and tolerance to antimicrobials/mechanics.</p>
+
+				<h3 class="h3">Baseline Options & Evidence</h3>
+				<ul class="advantages-list">
+					<li><strong>Powered brushing</strong> modestly improves outcomes versus manual: Cochrane found statistically significant plaque/gingivitis reductions (e.g., oscillating-rotating heads)</li>
+					<li><strong>Interdental devices</strong> (brushes, rubber picks) generally outperform floss for plaque/gingivitis in many studies; overall evidence quality varies</li>
+					<li><strong>Chlorhexidine</strong> is effective but stains and alters taste with sustained use; combinations with hydrogen peroxide have been studied to mitigate stain</li>
+					<li><strong>Peroxide rinses</strong> at ~1.5% H₂O₂ are recognized OTC oral debriding/cleansing agents; 3% solutions are labeled for first-aid/limited oral debriding use</li>
+				</ul>
+
+				<div class="callout">
+					<h4>The Gap</h4>
+					<p>Baseline measures <strong>do not specifically target EPS water and matrix mechanics</strong> up front. The proposed sequence is designed to <strong>alter the biofilm's physical state first</strong>, then oxidize <strong>while the matrix is brittle</strong>, enabling easier removal with lower force.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="solution">
+			<div class="card">
+				<h2 class="h2">⚗️ Proposed Solution</h2>
+				
+				<div class="steps-container">
+					<div class="step-card step-a">
+						<div class="step-number">A</div>
+						<h3 class="step-title">"Weaken" (Desiccation)</h3>
+						<p>A brief, topical <strong>desiccant</strong> (benchmarks: sulfonated phenolics-based gels used clinically for oral debridement) collapses plaque hydration and denatures matrix proteins, making deposits <strong>brittle</strong> and less adhesive.</p>
+						<p><em>Dental precedent: HYBENX® debriding agent; PerioDT® desiccation technology.</em></p>
+					</div>
+
+					<div class="step-card step-b">
+						<div class="step-number">B</div>
+						<h3 class="step-title">"Disintegrate" (Oxidation)</h3>
+						<p>Immediate follow-on <strong>low-dose oxidizer</strong> (e.g., ~1.5% H₂O₂ rinse or a controlled stabilized chlorine dioxide equivalent) to fragment the already weakened matrix and oxidize surface organics, improving rinse-out and brush-off.</p>
+						<p><em>Clinical literature documents oxidizer adjuncts to antimicrobials and routine plaque control.</em></p>
+					</div>
+				</div>
+
+				<div class="callout">
+					<h4>Analogy Boundary</h4>
+					<p>We adopt the <strong>sequence</strong> of "dehydrate → oxidize," <strong>not</strong> the reagents of piranha (H₂SO₄/H₂O₂); piranha is hazardous and incompatible with biology, used here purely as a conceptual template.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="improvement">
+			<div class="card">
+				<h2 class="h2">📊 Expected Improvement vs Baseline</h2>
+				
+				<div class="comparison-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Dimension</th>
+								<th>Baseline Approach</th>
+								<th>Weaken → Disintegrate™</th>
+								<th>Expected Benefit</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><strong>Mechanics & Effort</strong></td>
+								<td>Standard force needed for plaque removal</td>
+								<td>Lower detachment force post-desiccation</td>
+								<td>Easier interdental cleaning, improved reach in niches</td>
+							</tr>
+							<tr>
+								<td><strong>Efficacy on Established Biofilm</strong></td>
+								<td>Limited penetration of oxidizers</td>
+								<td>Oxidizers penetrate farther once water collapses</td>
+								<td>Improved short-contact efficacy vs. oxidizer alone</td>
+							</tr>
+							<tr>
+								<td><strong>Aesthetics & Safety vs CHX</strong></td>
+								<td>Chlorhexidine stains with sustained use</td>
+								<td>Short-contact peroxide step</td>
+								<td>Lower stain, better taste acceptance</td>
+							</tr>
+							<tr>
+								<td><strong>Consumer Familiarity</strong></td>
+								<td>Single-step applications</td>
+								<td>Two-step workflow (like Crest HD)</td>
+								<td>Market acceptance of sequenced applications</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="novelty">
+			<div class="card">
+				<h2 class="h2">✨ Novelty Assessment</h2>
+				
+				<h3 class="h3">Existing Precedents</h3>
+				<ul>
+					<li><strong>Desiccation in dentistry:</strong> Used professionally (e.g., HYBENX; periodontal pocket desiccation studies; PerioDT product family) — but not paired in sequence with an oxidizer for plaque deconstruction</li>
+					<li><strong>Two-step consumer systems:</strong> Crest HD pairs stannous fluoride with peroxide, but for dual indications (anti-gingivitis/anticaries + whitening), not matrix deconstruction synergy</li>
+					<li><strong>Combo formulas (single phase):</strong> e.g., dimethyl isosorbide + chlorine dioxide in one oral-care composition (US 10,517,808 B2). Single phase ≠ sequential weaken-then-disintegrate</li>
+					<li><strong>Adjunct oxidation with antimicrobials:</strong> Studies of CHX + H₂O₂ (combined/sequential) exist, typically to balance stain and antimicrobial performance—not desiccation-primed oxidation</li>
+				</ul>
+
+				<div class="callout">
+					<h4>Conclusion</h4>
+					<p>The <strong>mechanism-coupled sequence</strong> (desiccation immediately followed by mild oxidation aimed at plaque <strong>matrix mechanics</strong>) is <strong>novel</strong> relative to current consumer and most professional offerings.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="readiness">
+			<div class="card">
+				<h2 class="h2">🚀 Impact-Readiness Levels (IRL)</h2>
+				
+				<div class="irl-table">
+					<table>
+						<thead>
+							<tr>
+								<th>Level</th>
+								<th>Status</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="score">IRL 1-2</td>
+								<td><strong>Principle</strong></td>
+								<td>Mechanistic plausibility supported by biofilm EPS physics and clinical desiccation tools</td>
+							</tr>
+							<tr>
+								<td class="score">IRL 3</td>
+								<td><strong>Bench Feasibility</strong></td>
+								<td>Ex-vivo plaque chips & hydrogel EPS phantoms to quantify embrittlement (DMA) and oxidizer penetration vs. controls</td>
+							</tr>
+							<tr>
+								<td class="score">IRL 4</td>
+								<td><strong>Safety Screen</strong></td>
+								<td>Cytocompatibility of short-contact desiccant formulations on oral epithelial models; peroxide at OTC debriding levels</td>
+							</tr>
+							<tr>
+								<td class="score">IRL 5</td>
+								<td><strong>Pilot Clinical</strong></td>
+								<td>Split-mouth, 2–4 weeks: plaque index, BOP, stain indices, user experience vs. peroxide-only rinse and paste-only control</td>
+							</tr>
+							<tr>
+								<td class="score">IRL 6-7</td>
+								<td><strong>Scaled Validation</strong></td>
+								<td>Multicenter trials; device + drug labeling strategy</td>
+							</tr>
+							<tr>
+								<td class="score">IRL 8-9</td>
+								<td><strong>Launch & Post-Market</strong></td>
+								<td>Real-world adherence analytics; safety surveillance</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<section class="section" id="risks">
+			<div class="card">
+				<h2 class="h2">⚠️ Risks & Mitigations</h2>
+				
+				<ul class="risks-list">
+					<li><strong>Soft-tissue irritation (desiccants):</strong> Strict short contact, controlled viscosity, neutralization/rinse step; in-vitro cytotoxicity screens. Professional use precedents inform guardrails</li>
+					<li><strong>Tooth sensitivity/taste (oxidizers):</strong> Keep within OTC debriding concentrations and brief exposures; flavor systems; avoid chronic daily high-dose use</li>
+					<li><strong>User complexity (two steps):</strong> Combine into single applicator with timed release or back-to-back mini-steps (Crest HD adoption shows users accept 2-step when benefits are clear)</li>
+				</ul>
+
+				<h3 class="h3">Regulatory & Safety Notes</h3>
+				<ul class="advantages-list">
+					<li><strong>Oxidizer step</strong> can align with OTC oral debriding/cleansing monograph ranges (~1.5% H₂O₂ rinse; some 3% solutions are labeled for brief oral debriding)</li>
+					<li><strong>Desiccation step</strong> may be regulated as a professional dental device (predicate examples exist for desiccating oral debriding agents), or as a cosmetic accessory if no therapeutic claims</li>
+					<li><strong>Early FDA consultation recommended</strong> for combination product strategy</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section" id="evidence">
+			<div class="card">
+				<h2 class="h2">📋 Evidence Plan</h2>
+				
+				<h3 class="h3">Bench (Month 0–3)</h3>
+				<ul class="fancy-list">
+					<li>EPS hydrogel (alginate-gelatin-DNA) coupons; <strong>Rheology/DMA</strong> pre/post desiccant; <strong>confocal</strong> penetration of 1.5% H₂O₂ tracer with/without Step-A pretreat</li>
+					<li><strong>Shear-off</strong> tests on ex-vivo plaque: detachment force vs. peroxide-only and CHX-only controls</li>
+				</ul>
+
+				<h3 class="h3">Clinical Pilot (Month 4–8)</h3>
+				<ul class="fancy-list">
+					<li>N=40 split-mouth; endpoints: <strong>Turesky plaque index</strong>, <strong>bleeding on probing</strong>, <strong>Modified Lobene Stain Index</strong>, user effort/time</li>
+					<li>Include <strong>Crest HD</strong> and <strong>H₂O₂-only</strong> arms for context</li>
+				</ul>
+
+				<h3 class="h3">Success Criteria</h3>
+				<ul>
+					<li>≥10–15% additional plaque index reduction vs. oxidizer-only at matched dose</li>
+					<li><strong>Non-inferior stain</strong> to baseline</li>
+					<li>Better <strong>perceived ease</strong> of interdental cleaning</li>
+				</ul>
+
+				<h3 class="h3">Commercialization Notes</h3>
+				<ul>
+					<li><strong>Positioning:</strong> "Weaken → Disintegrate" as a task-oriented plaque-removal booster used 2–3×/week or as professional pre-debridement</li>
+					<li><strong>Form factors:</strong> dual-chamber pen; gel-then-rinse kit; chairside syringe + neutralizing rinse</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+
+
+	<footer class="footer">
+		<div class="container">
+			<p>Weaken → Disintegrate™ Innovation Dossier — Bio-Safe "Piranha" Cleaning for Dental Plaque</p>
+		</div>
+	</footer>
+
+	<script>
+		// Navigation menu functionality
+		function initNavigation() {
+			const navItems = document.querySelectorAll('.nav-item');
+			const sections = document.querySelectorAll('section[id]');
+			
+			// Function to set active navigation item
+			function setActiveNavItem(sectionId) {
+				// Clear all active states first
+				navItems.forEach(item => item.classList.remove('active'));
+				document.body.removeAttribute('data-active-section');
+				
+				// Set the new active state
+				const activeNavItem = document.querySelector(`[href="#${sectionId}"]`);
+				if (activeNavItem) {
+					activeNavItem.classList.add('active');
+					document.body.setAttribute('data-active-section', sectionId);
+				}
+			}
+			
+			// Smooth scrolling for navigation links
+			navItems.forEach(item => {
+				item.addEventListener('click', function(e) {
+					e.preventDefault();
+					const targetId = this.getAttribute('href').substring(1);
+					const targetSection = document.getElementById(targetId);
+					
+					if (targetSection) {
+						// Immediately highlight the clicked navigation item
+						setActiveNavItem(targetId);
+						
+						// Smooth scroll to the target section
+						targetSection.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+						
+						// Update navigation state after scroll completes
+						setTimeout(() => {
+							updateActiveNav();
+						}, 800);
+					}
+				});
+			});
+			
+			// Update active navigation item based on scroll position
+			function updateActiveNav() {
+				const scrollPosition = window.scrollY + 100;
+				const windowHeight = window.innerHeight;
+				const documentHeight = document.documentElement.scrollHeight;
+				
+				// Check if we're near the bottom of the page
+				const isNearBottom = scrollPosition + windowHeight >= documentHeight - 200;
+				
+				let activeSection = null;
+				let bestSection = null;
+				let bestVisibility = 0;
+				
+				// Find which section is currently most visible
+				sections.forEach(section => {
+					const sectionTop = section.offsetTop;
+					const sectionHeight = section.offsetHeight;
+					const sectionId = section.getAttribute('id');
+					
+					// Calculate how much of this section is visible
+					const sectionBottom = sectionTop + sectionHeight;
+					const visibleTop = Math.max(sectionTop, scrollPosition);
+					const visibleBottom = Math.min(sectionBottom, scrollPosition + windowHeight);
+					const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+					const visibilityRatio = visibleHeight / sectionHeight;
+					
+					// Check if scroll position is within this section
+					if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+						activeSection = sectionId;
+					}
+					
+					// Track the section with the highest visibility ratio
+					if (visibilityRatio > bestVisibility) {
+						bestVisibility = visibilityRatio;
+						bestSection = sectionId;
+					}
+				});
+				
+				// If no section is directly active, use the most visible one
+				if (!activeSection && bestSection) {
+					activeSection = bestSection;
+				}
+				
+				// If we're near the bottom and no section is active, activate the last section
+				if (!activeSection && isNearBottom && sections.length > 0) {
+					const lastSection = sections[sections.length - 1];
+					activeSection = lastSection.getAttribute('id');
+				}
+				
+				// Update navigation highlighting only if we found an active section
+				if (activeSection) {
+					// Clear any existing active states first
+					navItems.forEach(item => item.classList.remove('active'));
+					document.body.removeAttribute('data-active-section');
+					
+					// Store the current active section
+					document.body.setAttribute('data-active-section', activeSection);
+					
+					// Ensure only one navigation item is active
+					const activeNavItem = document.querySelector(`[href="#${activeSection}"]`);
+					if (activeNavItem) {
+						activeNavItem.classList.add('active');
+					}
+				}
+			}
+			
+			// Update navigation on scroll with throttling for better performance
+			let scrollTimeout;
+			window.addEventListener('scroll', function() {
+				if (scrollTimeout) {
+					clearTimeout(scrollTimeout);
+				}
+				scrollTimeout = setTimeout(updateActiveNav, 10);
+			});
+			
+			// Also update on window resize
+			window.addEventListener('resize', updateActiveNav);
+			
+			// Initial active state
+			updateActiveNav();
+		}
+		
+		// Initialize when DOM is loaded
+		document.addEventListener('DOMContentLoaded', function() {
+			initNavigation();
+		});
+	</script>
+</body>
+</html>
