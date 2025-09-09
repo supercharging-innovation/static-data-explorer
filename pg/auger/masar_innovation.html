@@ -601,6 +601,154 @@
 			margin-top: 0;
 			color: var(--accent-purple);
 		}
+
+		/* Impact × Readiness Chart */
+		.chart-wrapper {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-left: 80px;
+			min-height: 500px;
+		}
+
+		.y-axis-label {
+			position: absolute;
+			left: 110px;
+			top: 50%;
+			transform: translateY(-50%) rotate(-90deg);
+			font-weight: 500;
+			color: var(--text);
+			letter-spacing: 0.05em;
+			font-size: 14px;
+		}
+
+		.chart-area-new {
+			width: 100%;
+			aspect-ratio: 2 / 1;
+			max-width: 800px;
+			position: relative;
+			border-left: 3px solid var(--text);
+			border-bottom: 3px solid var(--text);
+			background: rgba(255, 255, 255, 0.5);
+			border-radius: 0 8px 0 0;
+			min-height: 400px;
+		}
+
+		.quadrant-bg {
+			position: absolute;
+			opacity: 0.08;
+		}
+
+		.quadrant-bg.explore { top: 0; left: 0; width: 50%; height: 50%; background: var(--accent-yellow); }
+		.quadrant-bg.develop { top: 0; right: 0; width: 50%; height: 50%; background: var(--accent-green); }
+		.quadrant-bg.avoid { bottom: 0; left: 0; width: 50%; height: 50%; background: #ef4444; }
+		.quadrant-bg.leverage { bottom: 0; right: 0; width: 50%; height: 50%; background: var(--accent-blue); }
+
+		.quadrant-line { position: absolute; }
+		.quadrant-line.vertical { width: 1px; height: 100%; left: 50%; top: 0; background: var(--border); transform: translateX(-50%); }
+		.quadrant-line.horizontal { width: 100%; height: 1px; left: 0; top: 50%; background: var(--border); transform: translateY(-50%); }
+
+		.x-axis-labels {
+			width: 100%;
+			max-width: 800px;
+			display: flex;
+			justify-content: space-between;
+			margin-top: 12px;
+			font-size: 12px;
+			color: var(--muted);
+			font-weight: 500;
+		}
+
+		.x-axis-title {
+			margin-top: 8px;
+			font-weight: 500;
+			color: var(--text);
+			letter-spacing: 0.05em;
+			font-size: 14px;
+		}
+
+		.chart-point {
+			position: absolute;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			z-index: 10;
+			transform: translate(-50%, -50%);
+			width: 0;
+			height: 0;
+		}
+
+		.chart-point:hover { transform: translate(-50%, -50%) scale(1.05); z-index: 20; }
+
+		.chart-point-dot {
+			position: absolute;
+			left: 0;
+			top: 0;
+			transform: translate(-50%, -50%);
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			border: 3px solid #fff;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			transition: all 0.3s ease;
+		}
+
+		.chart-point:hover .chart-point-dot { transform: scale(1.2); box-shadow: 0 6px 12px rgba(0,0,0,0.3); }
+
+		.chart-point-label {
+			position: absolute;
+			left: 20px;
+			top: 0;
+			transform: translateY(-50%);
+			font-size: 12px;
+			font-weight: 600;
+			text-align: left;
+			line-height: 1.3;
+			padding: 8px 12px;
+			border-radius: 8px;
+			border: 2px solid #fff;
+			box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+			-webkit-backdrop-filter: blur(6px);
+			backdrop-filter: blur(6px);
+			white-space: nowrap;
+			max-width: 220px;
+		}
+
+		.chart-point-label.high-impact { background: var(--accent-green); color: #fff; border-color: var(--accent-green); }
+		.chart-point-label.medium-impact { background: var(--accent-yellow); color: var(--text); border-color: var(--accent-yellow); }
+		.chart-point-label.low-impact { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
+		.chart-point-label.benchmark { background: var(--muted); color: #fff; border-color: var(--muted); }
+
+		.quadrant-label {
+			position: absolute;
+			font-size: 13px;
+			color: var(--text);
+			pointer-events: none;
+			padding: 14px;
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 8px;
+			-webkit-backdrop-filter: blur(6px);
+			backdrop-filter: blur(6px);
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		}
+
+		.quadrant-label.top-left { top: 12px; left: 12px; }
+		.quadrant-label.top-right { top: 12px; right: 12px; text-align: right; }
+		.quadrant-label.bottom-left { bottom: 12px; left: 12px; }
+		.quadrant-label.bottom-right { bottom: 12px; right: 12px; text-align: right; }
+
+		.quadrant-label h3 { font-size: 16px; font-weight: 700; margin: 0 0 6px; color: var(--text); }
+		.quadrant-label p { font-size: 12px; margin: 0; line-height: 1.4; color: var(--muted); font-weight: 500; }
+
+		/* Minimal modal for point details */
+		.modal { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); display: none; align-items: center; justify-content: center; z-index: 100; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+		.modal.show { display: flex; }
+		.modal-content { background: #fff; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); width: min(520px, 90vw); max-height: 80vh; overflow: auto; position: relative; padding: 20px 24px; }
+		.modal-title { font-size: 18px; font-weight: 700; margin: 0 0 6px; color: var(--text); }
+		.modal-category { font-size: 12px; font-weight: 600; color: var(--accent-purple); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 12px; }
+		.modal-description { font-size: 14px; line-height: 1.6; color: var(--muted); margin: 0; }
+		.modal-close { position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 22px; cursor: pointer; color: var(--muted); }
 	</style>
 </head>
 <body>
@@ -686,19 +834,19 @@
 				
 				<h3 class="h3">1. Matrix Softening (Chemistry)</h3>
 				<ul>
-					<li><strong>Glucanohydrolases</strong> (dextranase/mutanase) remodel/cleave α-glucans that cement plaque. Human and mixed-biofilm studies support EPS weakening. (<a href="https://www.researchgate.net/publication/8430020_The_influence_of_mutanase_and_dextranase_on_the_production_and_structure_of_glucans_synthesized_by_streptococcal_glucosyltransferases" target="_blank">ResearchGate</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9912700/" target="_blank">PMC</a>)</li>
-					<li><strong>DNase I</strong> cleaves extracellular DNA, a structural scaffold in oral biofilms, reducing cohesion and facilitating removal. (<a href="https://pubmed.ncbi.nlm.nih.gov/35047995/" target="_blank">PubMed</a>)</li>
+					<li><strong>Glucanohydrolases</strong> (dextranase/mutanase) remodel/cleave α-glucans that cement plaque. Human and mixed-biofilm studies support EPS weakening. (<a href="https://www.researchgate.net/publication/8430020_The_influence_of_mutanase_and_dextranase_on_the_production_and_structure_of_glucans_synthesized_by_streptococcal_glucosyltransferases" target="_blank" rel="noopener">ResearchGate</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9912700/" target="_blank" rel="noopener">PMC</a>)</li>
+					<li><strong>DNase I</strong> cleaves extracellular DNA, a structural scaffold in oral biofilms, reducing cohesion and facilitating removal. (<a href="https://pubmed.ncbi.nlm.nih.gov/35047995/" target="_blank" rel="noopener">PubMed</a>)</li>
 				</ul>
 
 				<h3 class="h3">2. Soft Mechanical "Augering" (Physics)</h3>
 				<ul>
-					<li><strong>Magnetic micro-chains</strong> (iron-oxide core, food-grade coating) assemble and align in a rotating field (tens of mT). The chains flex around embrasures like a cable auger, generating local shear at the tooth–plaque interface while staying soft against tissues. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6748647/" target="_blank">PMC</a>, <a href="https://pubs.acs.org/doi/10.1021/acsnano.2c01950" target="_blank">ACS Publications</a>)</li>
-					<li><strong>Acoustic microstreaming</strong> from gentle transduction (sonic/ultrasonic) boosts shear at boundaries and helps dislodge softened plaque without sharp tips. (<a href="https://www.sciencedirect.com/science/article/pii/S1875389215001042/pdf" target="_blank">ScienceDirect</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0149804" target="_blank">PLOS</a>)</li>
+					<li><strong>Magnetic micro-chains</strong> (iron-oxide core, food-grade coating) assemble and align in a rotating field (tens of mT). The chains flex around embrasures like a cable auger, generating local shear at the tooth–plaque interface while staying soft against tissues. (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6748647/" target="_blank" rel="noopener">PMC</a>, <a href="https://pubs.acs.org/doi/10.1021/acsnano.2c01950" target="_blank" rel="noopener">ACS Publications</a>)</li>
+					<li><strong>Acoustic microstreaming</strong> from gentle transduction (sonic/ultrasonic) boosts shear at boundaries and helps dislodge softened plaque without sharp tips. (<a href="https://www.sciencedirect.com/science/article/pii/S1875389215001042/pdf" target="_blank" rel="noopener">ScienceDirect</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0149804" target="_blank" rel="noopener">PLOS</a>)</li>
 				</ul>
 
 				<h3 class="h3">3. Debris Evacuation</h3>
 				<ul>
-					<li>A short <strong>pulsed irrigation</strong> clears freed material. Oral irrigators consistently improve bleeding/gingival indices, supporting this step as safe and beneficial. (<a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/idh.12741" target="_blank">Wiley Online Library</a>)</li>
+					<li>A short <strong>pulsed irrigation</strong> clears freed material. Oral irrigators consistently improve bleeding/gingival indices, supporting this step as safe and beneficial. (<a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/idh.12741" target="_blank" rel="noopener">Wiley Online Library</a>)</li>
 				</ul>
 			</div>
 		</section>
@@ -788,10 +936,10 @@
 				<h2 class="h2">🛡️ Safety, Biocompatibility & Regulatory Notes</h2>
 				
 				<ul class="advantages-list">
-					<li><strong>Iron-oxide (E172) safety:</strong> EFSA's 2015 re-evaluation found no safety concern for iron oxides/hydroxides (E172) as food additives within specified uses; MASAR uses coated, non-nano, ingestible-mass-limited particles (<a href="https://www.efsa.europa.eu/en/efsajournal/pub/4317" target="_blank">EFSA</a>, <a href="https://efsa.onlinelibrary.wiley.com/doi/pdf/10.2903/j.efsa.2015.4317" target="_blank">EFSA Journal</a>)</li>
-					<li><strong>Non-contact assistance:</strong> Acoustic microstreaming/cavitation are documented in dentistry; we operate at conservative amplitudes for home use (<a href="https://www.sciencedirect.com/science/article/pii/S1875389215001042/pdf" target="_blank">ScienceDirect</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0149804" target="_blank">PLOS</a>)</li>
+					<li><strong>Iron-oxide (E172) safety:</strong> EFSA's 2015 re-evaluation found no safety concern for iron oxides/hydroxides (E172) as food additives within specified uses; MASAR uses coated, non-nano, ingestible-mass-limited particles (<a href="https://www.efsa.europa.eu/en/efsajournal/pub/4317" target="_blank" rel="noopener">EFSA</a>, <a href="https://efsa.onlinelibrary.wiley.com/doi/pdf/10.2903/j.efsa.2015.4317" target="_blank" rel="noopener">EFSA Journal</a>)</li>
+					<li><strong>Non-contact assistance:</strong> Acoustic microstreaming/cavitation are documented in dentistry; we operate at conservative amplitudes for home use (<a href="https://www.sciencedirect.com/science/article/pii/S1875389215001042/pdf" target="_blank" rel="noopener">ScienceDirect</a>, <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0149804" target="_blank" rel="noopener">PLOS</a>)</li>
 					<li><strong>Regulatory path (US, hypothesis):</strong> Rinse (cosmetic/OTC drug depending on actives) + powered mouthpiece (Class II, likely 510(k) pathway akin to oral irrigators/sonic devices)</li>
-					<li><strong>Prior daily air-powder systems:</strong> (erythritol/glycine) are professional-use and low-abrasive; MASAR is non-abrasive home analog via soft chains + enzymes (<a href="https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1374817/full" target="_blank">Frontiers</a>)</li>
+					<li><strong>Prior daily air-powder systems:</strong> (erythritol/glycine) are professional-use and low-abrasive; MASAR is non-abrasive home analog via soft chains + enzymes (<a href="https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2024.1374817/full" target="_blank" rel="noopener">Frontiers</a>)</li>
 				</ul>
 
 				<h3 class="h3">Contraindications & Cautions (to study)</h3>
@@ -869,6 +1017,40 @@
 							</tr>
 						</tbody>
 					</table>
+				</div>
+
+				<!-- Impact × Readiness Chart (2×2) -->
+				<div class="section mt-32">
+					<h3 class="h3">📊 Impact × Readiness (Proposed vs. Baseline)</h3>
+					<div class="chart-wrapper">
+						<div class="y-axis-label">Potential Impact →</div>
+						<div class="chart-area-new" id="impact-readiness-chart">
+							<div class="quadrant-bg explore"></div>
+							<div class="quadrant-bg develop"></div>
+							<div class="quadrant-bg avoid"></div>
+							<div class="quadrant-bg leverage"></div>
+							<div class="quadrant-line vertical"></div>
+							<div class="quadrant-line horizontal"></div>
+							<div class="quadrant-label top-left">
+								<h3>Explore</h3>
+								<p>(High Impact, Low Readiness)</p>
+							</div>
+							<div class="quadrant-label top-right">
+								<h3>Develop</h3>
+								<p>(High Impact, High Readiness)</p>
+							</div>
+							<div class="quadrant-label bottom-left">
+								<h3>Avoid</h3>
+								<p>(Low Impact, Low Readiness)</p>
+							</div>
+							<div class="quadrant-label bottom-right">
+								<h3>Leverage</h3>
+								<p>(Low Impact, High Readiness)</p>
+							</div>
+						</div>
+						<div class="x-axis-labels"><span>Low</span><span>High</span></div>
+						<div class="x-axis-title">Technology Readiness →</div>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1076,6 +1258,111 @@
 		// Initialize when DOM is loaded
 		document.addEventListener('DOMContentLoaded', function() {
 			initNavigation();
+
+			// Impact × Readiness chart init
+			(function initImpactReadinessChart() {
+				const chart = document.getElementById('impact-readiness-chart');
+				if (!chart) return;
+				const points = [
+					{
+						name: 'MASAR (current concept)',
+						category: 'High impact / Medium readiness',
+						description: 'Integrated rinse + magnetic soft chains + gentle acoustic microstreaming + flush. Bench/ex vivo underway; home interdental data pending.',
+						impact: 8.5,
+						readiness: 4.5,
+						colorClass: 'high',
+						links: [
+							{ name: 'Mechanism', url: '#mechanism' },
+							{ name: 'Plan', url: '#plan' }
+						]
+					},
+					{
+						name: 'Water flosser + brush (baseline)',
+						category: 'Benchmark (today\'s state)',
+						description: 'Production-ready home care; improves bleeding indices; mixed interdental plaque outcomes vs floss.',
+						impact: 5,
+						readiness: 9.5,
+						colorClass: 'benchmark',
+						links: [
+							{ name: 'Evidence (Wiley)', url: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/idh.12741' }
+						]
+					},
+					{
+						name: 'Enzyme-only rinse variant',
+						category: 'Medium–High impact / High readiness',
+						description: 'Glucanases + DNase I softening without magnetic chains; highest readiness among MASAR variants; lower peak impact.',
+						impact: 7,
+						readiness: 6.5,
+						colorClass: 'medium',
+						links: [
+							{ name: 'PMC enzyme mouthwash', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9912700/' }
+						]
+					}
+				];
+
+				function addPoint(p) {
+					const wrapper = document.createElement('div');
+					wrapper.className = 'chart-point';
+					const x = Math.max(2, Math.min(98, p.readiness * 10));
+					const y = Math.max(2, Math.min(98, p.impact * 10));
+					wrapper.style.left = x + '%';
+					wrapper.style.bottom = y + '%';
+
+					const dot = document.createElement('div');
+					dot.className = 'chart-point-dot';
+					const label = document.createElement('span');
+					label.className = 'chart-point-label';
+					label.textContent = p.name;
+
+					let labelClass;
+					if (p.colorClass === 'benchmark') {
+						labelClass = 'benchmark';
+						// muted gray for benchmark
+						dot.style.backgroundColor = 'var(--muted)';
+					} else if (p.impact >= 8) {
+						labelClass = 'high-impact';
+						dot.style.backgroundColor = 'var(--accent-green)';
+					} else if (p.impact >= 6) {
+						labelClass = 'medium-impact';
+						dot.style.backgroundColor = 'var(--accent-yellow)';
+					} else {
+						labelClass = 'low-impact';
+						dot.style.backgroundColor = 'var(--accent-blue)';
+					}
+					label.classList.add(labelClass);
+
+					if (x > 85) {
+						label.style.left = 'auto';
+						label.style.right = '20px';
+						label.style.textAlign = 'right';
+					}
+
+					wrapper.appendChild(dot);
+					wrapper.appendChild(label);
+					wrapper.addEventListener('click', function() {
+						showPointModal(p);
+					});
+					chart.appendChild(wrapper);
+				}
+
+				function showPointModal(p) {
+					const existing = document.querySelector('.modal.show');
+					if (existing) existing.remove();
+					const modal = document.createElement('div');
+					modal.className = 'modal show';
+					modal.innerHTML = '<div class="modal-content">\n'
+						+ '<button class="modal-close" aria-label="Close" onclick="this.closest(\\\'.modal\\\').remove()">✕</button>'
+						+ '<h3 class="modal-title">' + p.name + '</h3>'
+						+ '<div class="modal-category">' + p.category + '</div>'
+						+ '<p class="modal-description">' + p.description + '</p>'
+						+ '</div>';
+					document.body.appendChild(modal);
+					modal.addEventListener('click', function(e){ if (e.target === modal) modal.remove(); });
+					document.addEventListener('keydown', function onKey(e){ if (e.key === 'Escape') { modal.remove(); document.removeEventListener('keydown', onKey); } });
+				}
+
+				points.forEach(addPoint);
+			})();
 		});
 	</script>
 </body>
