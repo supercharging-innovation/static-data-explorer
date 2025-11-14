@@ -211,6 +211,18 @@
 			transform: scale(1.02);
 		}
 
+		.concept-image video {
+			width: 100%;
+			height: auto;
+			border-radius: 16px;
+			box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+			transition: transform 0.3s ease;
+		}
+
+		.concept-image video:hover {
+			transform: scale(1.02);
+		}
+
 		.concept-caption {
 			flex: 1;
 			padding-left: 16px;
@@ -866,6 +878,12 @@
 				<div class="concept-image-container">
 					<div class="concept-image">
 						<img src="image.png" alt="MASAR - Magnetically Assembled Soft Auger Rinse Concept" />
+					</div>
+					<div class="concept-image">
+						<video controls>
+							<source src="sora.MP4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
 					</div>
 					<div class="concept-caption">
 						<h3 class="h3">MASAR Implementation</h3>
