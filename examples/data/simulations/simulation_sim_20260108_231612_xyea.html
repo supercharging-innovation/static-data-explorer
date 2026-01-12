@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid A: GCP-Densified Network Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0b1015; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        #canvas-container { width: 100vw; height: 100vh; }
+        
+        /* UI Overlay */
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(16, 24, 32, 0.9);
+            border: 1px solid #2c3e50;
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            pointer-events: none; /* Let clicks pass through to controls if needed */
+        }
+        
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; color: #00d2ff; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 0.9rem; line-height: 1.4; color: #cbd5e0; margin-bottom: 15px; }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .status-bad { background: #e74c3c; color: white; }
+        .status-good { background: #27ae60; color: white; }
+
+        /* Controls */
+        #controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(16, 24, 32, 0.9);
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: 1px solid #4a5568;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+        }
+
+        button {
+            background: #2d3748;
+            border: 1px solid #4a5568;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        button:hover { background: #4a5568; }
+        button.active { background: #00d2ff; color: #0b1015; border-color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
+
+        /* Labels */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .annotation-line {
+            position: absolute;
+            height: 1px;
+            background: rgba(255,255,255,0.5);
+            transform-origin: 0 0;
+        }
+
+        /* Legend */
+        #legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(16, 24, 32, 0.8);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-panel">
+        <h1>Hybrid A: GCP Simulator</h1>
+        <div id="status-indicator" class="status-badge status-bad">Mode: Standard Injection</div>
+        <p id="description">
+            <strong>The Problem:</strong> Sustainable resins are viscous. Blowing agents expand immediately, breaking the surface skin.
+            <br><br>
+            <em>Result: Rough, pitted surface finish.</em>
+        </p>
+    </div>
+
+    <div id="legend">
+        <div class="legend-item"><div class="dot" style="background:#2ecc71"></div>Sustainable Resin</div>
+        <div class="legend-item"><div class="dot" style="background:#fff"></div>Blowing Agent (Bubble)</div>
+        <div class="legend-item"><div class="dot" style="background:#00d2ff; opacity: 0.5"></div>Counter-Pressure Gas</div>
+    </div>
+
+    <div id="controls">
+        <button id="btn-standard" class="active" onclick="setMode('standard')">Standard Process</button>
+        <button id="btn-gcp" onclick="setMode('gcp')">Activate GCP Solution</button>
+        <button id="btn-reset" onclick="resetSim()">Re-Inject</button>
+    </div>
+
+    <!-- Labels Container -->
+    <div id="labels"></div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            bubbleCount: 300,
+            moldWidth: 10,
+            moldHeight: 6,
+            moldDepth: 2,
+            resinColor: 0x2ecc71,
+            bubbleColor: 0xffffff,
+            pressureColor: 0x00d2ff
+        };
+
+        // --- State ---
+        let state = {
+            mode: 'standard', // 'standard' or 'gcp'
+            pressureLevel: 0, // 0 to 1
+            injectionProgress: 0, // 0 to 1
+            isAnimating: true
+        };
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b1015);
+        scene.fog = new THREE.FogExp2(0x0b1015, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 5, 18);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 1.5;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 7);
+        dirLight.castShadow = true;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x00d2ff, 0.0, 20); // GCP Light
+        blueLight.position.set(0, 0, 0);
+        scene.add(blueLight);
+
+        // --- Objects ---
+
+        // 1. The Mold (Transparent Box)
+        const moldGeo = new THREE.BoxGeometry(CONFIG.moldWidth, CONFIG.moldHeight, CONFIG.moldDepth);
+        const moldMat = new THREE.MeshPhysicalMaterial({
+            color: 0x8899aa,
+            metalness: 0.1,
+            roughness: 0.1,
+            transmission: 0.9,
+            transparent: true,
+            opacity: 0.3,
+            side: THREE.DoubleSide
+        });
+        const mold = new THREE.Mesh(moldGeo, moldMat);
+        scene.add(mold);
+
+        // Mold Edges
+        const edges = new THREE.EdgesGeometry(moldGeo);
+        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x4a5568 }));
+        scene.add(line);
+
+        // 2. The Resin & Bubbles System
+        // We will simulate the resin as a collection of spheres.
+        // Outer spheres represent the skin, inner spheres represent the core.
+        const particles = [];
+        const particleGroup = new THREE.Group();
+        scene.add(particleGroup);
+
+        // Create a grid of particles to represent the material volume
+        const rows = 15;
+        const cols = 25;
+        const spacing = 0.35;
+
+        const sphereGeo = new THREE.SphereGeometry(0.15, 16, 16);
+        const resinMat = new THREE.MeshStandardMaterial({ color: CONFIG.resinColor, roughness: 0.3, metalness: 0.2 });
+        const bubbleMat = new THREE.MeshStandardMaterial({ color: CONFIG.bubbleColor, roughness: 0.1, metalness: 0.1, transparent: true, opacity: 0.9 });
+
+        for(let x = 0; x < cols; x++) {
+            for(let y = 0; y < rows; y++) {
+                // Determine if this particle is "Skin" (near edges) or "Core"
+                const isSkin = (y === 0 || y === rows - 1);
+                
+                // Create Resin Matrix Particle
+                const mesh = new THREE.Mesh(sphereGeo, isSkin ? resinMat : resinMat); // Both start as resin
+                
+                // Position logic: Start at bottom (injector) or left. Let's do left to right fill.
+                // Initial position is outside the mold to the left
+                const targetX = (x - cols/2) * spacing;
+                const targetY = (y - rows/2) * spacing;
+                
+                mesh.position.set(-10 - (Math.random()*5), targetY, 0); // Start way left
+                
+                // Create a "Bubble" inside this resin particle (initially hidden/small)
+                const bubble = new THREE.Mesh(sphereGeo, bubbleMat);
+                bubble.scale.set(0.1, 0.1, 0.1);
+                mesh.add(bubble);
+
+                const pData = {
+                    mesh: mesh,
+                    bubble: bubble,
+                    targetPos: new THREE.Vector3(targetX, targetY, 0),
+                    isSkin: isSkin,
+                    baseScale: 1.0,
+                    randomOffset: Math.random(),
+                    wobbleSpeed: 0.5 + Math.random(),
+                    inMold: false
+                };
+                
+                particles.push(pData);
+                particleGroup.add(mesh);
+            }
+        }
+
+        // 3. Pressure Gas Visuals (Particles)
+        const gasCount = 200;
+        const gasGeo = new THREE.BufferGeometry();
+        const gasPos = new Float32Array(gasCount * 3);
+        for(let i=0; i<gasCount*3; i++) {
+            gasPos[i] = (Math.random() - 0.5) * CONFIG.moldWidth;
+        }
+        gasGeo.setAttribute('position', new THREE.BufferAttribute(gasPos, 3));
+        const gasMat = new THREE.PointsMaterial({
+            color: CONFIG.pressureColor,
+            size: 0.1,
+            transparent: true,
+            opacity: 0
+        });
+        const gasSystem = new THREE.Points(gasGeo, gasMat);
+        scene.add(gasSystem);
+
+        // --- Animation Logic ---
+
+        function updateSimulation(time) {
+            // 1. Handle Injection Movement
+            if (state.injectionProgress < 1) {
+                state.injectionProgress += 0.005;
+            }
+
+            // 2. Handle Pressure Physics
+            // If mode is GCP, pressure is HIGH (1). If Standard, pressure is LOW (0).
+            const targetPressure = state.mode === 'gcp' ? 1 : 0;
+            state.pressureLevel += (targetPressure - state.pressureLevel) * 0.05; // Smooth transition
+
+            // Update Lighting based on pressure
+            blueLight.intensity = state.pressureLevel * 1.5;
+            gasMat.opacity = state.pressureLevel * 0.6;
+
+            // Update Gas Particles (jitter)
+            const positions = gasSystem.geometry.attributes.position.array;
+            for(let i=0; i<gasCount; i++) {
+                // Random movement inside box
+                positions[i*3] += (Math.random()-0.5) * 0.1;
+                positions[i*3+1] += (Math.random()-0.5) * 0.1;
+                positions[i*3+2] += (Math.random()-0.5) * 0.1;
+
+                // Boundary check
+                if(Math.abs(positions[i*3]) > CONFIG.moldWidth/2) positions[i*3] *= -0.9;
+                if(Math.abs(positions[i*3+1]) > CONFIG.moldHeight/2) positions[i*3+1] *= -0.9;
+            }
+            gasSystem.geometry.attributes.position.needsUpdate = true;
+
+            // 3. Update Resin/Bubbles
+            particles.forEach((p, i) => {
+                // Movement: Lerp towards target position based on progress
+                // Add a stagger based on x index so it flows in left-to-right
+                const columnTrigger = (p.targetPos.x + 5) / 10; // Normalize roughly 0-1
+                
+                if (state.injectionProgress > columnTrigger * 0.5) {
+                    // Move towards target
+                    p.mesh.position.lerp(p.targetPos, 0.05);
+                    p.inMold = true;
+                }
+
+                if (p.inMold) {
+                    // PHYSICS LOGIC: The Core Mechanism
+                    
+                    // Bubble Expansion Logic
+                    // Base expansion desire (blowing agent wants to become gas)
+                    let expansionDesire = 1.0; 
+                    
+                    // Pressure Suppression: High pressure = Low expansion
+                    let suppression = state.pressureLevel * 0.95; // GCP suppresses 95%
+                    
+                    let actualScale = expansionDesire - suppression;
+
+                    // SKIN EFFECT
+                    if (p.isSkin) {
+                        if (state.mode === 'standard') {
+                            // Standard: Bubbles expand violently at surface -> Roughness
+                            // Add noise to position to simulate pitting
+                            p.bubble.scale.setScalar(1.5 + Math.sin(time * p.wobbleSpeed) * 0.3);
+                            p.mesh.position.z = (Math.sin(time * 5 + p.randomOffset * 10) * 0.15); 
+                            p.mesh.material.color.setHex(0xaaddaa); // Look slightly washed out
+                        } else {
+                            // GCP: Pressure forces skin tight against wall
+                            // Bubble is TINY
+                            p.bubble.scale.setScalar(0.1);
+                            // Position is perfectly flat (z=0)
+                            p.mesh.position.z = 0;
+                            p.mesh.material.color.setHex(CONFIG.resinColor); // Rich color
+                        }
+                    } else {
+                        // CORE
+                        // Core bubbles eventually expand even in GCP when pressure is released
+                        // For visualization, we keep them suppressed if Pressure is High, expand if Low
+                        p.bubble.scale.setScalar(actualScale * 1.2);
+                    }
+                }
+            });
+        }
+
+        // --- Render Loop ---
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const time = clock.getElapsedTime();
+            controls.update();
+            
+            updateSimulation(time);
+            updateLabels();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Interaction ---
+
+        function setMode(mode) {
+            state.mode = mode;
+            
+            // UI Updates
+            const desc = document.getElementById('description');
+            const indicator = document.getElementById('status-indicator');
+            const btnStd = document.getElementById('btn-standard');
+            const btnGcp = document.getElementById('btn-gcp');
+
+            if (mode === 'standard') {
+                indicator.innerText = "Mode: Standard Injection";
+                indicator.className = "status-badge status-bad";
+                desc.innerHTML = `
+                    <strong>The Problem:</strong> Sustainable resins are viscous. Blowing agents expand immediately, breaking the surface skin.
+                    <br><br>
+                    <em>Result: Rough, pitted surface finish.</em>
+                `;
+                btnStd.classList.add('active');
+                btnGcp.classList.remove('active');
+            } else {
+                indicator.innerText = "Mode: GCP Solution";
+                indicator.className = "status-badge status-good";
+                desc.innerHTML = `
+                    <strong>The Solution:</strong> Gas Counter-Pressure pushes back against the expanding bubbles.
+                    <br><br>
+                    <em>Result: Bubbles stay microscopic at the surface. Perfect, smooth skin is formed.</em>
+                `;
+                btnGcp.classList.add('active');
+                btnStd.classList.remove('active');
+            }
+            
+            resetSim(false); // Soft reset to show transition
+        }
+
+        function resetSim(fullReset = true) {
+            state.injectionProgress = 0;
+            particles.forEach(p => {
+                p.mesh.position.set(-15, p.targetPos.y, 0);
+                p.inMold = false;
+                p.bubble.scale.setScalar(0.1);
+            });
+        }
+
+        // --- Label System ---
+        
+        function createLabel(text, position) {
+            const div = document.createElement('div');
+            div.className = 'label';
+            div.textContent = text;
+            document.getElementById('labels').appendChild(div);
+            return { element: div, position: position };
+        }
+
+        const labels = [
+            createLabel("Mold Wall", new THREE.Vector3(0, 3.2, 0)),
+            createLabel("Resin Flow", new THREE.Vector3(-4, 0, 0)),
+            createLabel("Skin Layer", new THREE.Vector3(2, 2.5, 0.2))
+        ];
+
+        function updateLabels() {
+            labels.forEach(label => {
+                const vector = label.position.clone();
+                vector.project(camera);
+
+                const x = (vector.x * .5 + .5) * window.innerWidth;
+                const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+                // Hide if behind camera or far away
+                if (vector.z > 1 || Math.abs(vector.x) > 1.1 || Math.abs(vector.y) > 1.1) {
+                    label.element.style.display = 'none';
+                } else {
+                    label.element.style.display = 'block';
+                    label.element.style.left = x + 'px';
+                    label.element.style.top = y + 'px';
+                }
+            });
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start
+        animate();
+
+    </script>
+</body>
+</html>

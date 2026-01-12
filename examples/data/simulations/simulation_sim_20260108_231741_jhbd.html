@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entropic Slick-Shield Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #111; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        
+        /* UI Overlay */
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(20, 25, 30, 0.9);
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        h1 { font-size: 1.2rem; margin: 0 0 5px 0; color: #00d2ff; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 0.9rem; margin: 0 0 15px 0; color: #aaa; font-weight: 400; }
+        p { font-size: 0.85rem; line-height: 1.4; color: #ddd; margin-bottom: 15px; }
+
+        .control-group { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        
+        button {
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        button:hover { background: #444; border-color: #777; }
+        button.active { background: #00d2ff; color: #000; border-color: #00d2ff; }
+        button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #555;
+            margin-right: 10px;
+        }
+        
+        .legend { margin-top: 25px; border-top: 1px solid #444; padding-top: 15px; }
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 0.8rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; display: inline-block; }
+        
+        /* Floating Labels */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .label.visible { opacity: 1; }
+
+        /* Animation for pulse */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
+        .highlight { animation: pulse 2s infinite; }
+
+    </style>
+    <!-- Three.js and OrbitControls from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-panel">
+        <h1>Entropic Slick-Shield</h1>
+        <h2>Self-Assembling Oil Barrier</h2>
+        
+        <p id="description">
+            Current State: <strong>Mixed (Untreated)</strong><br>
+            The active "bottlebrush" additives are scattered inside the TPU plastic. The surface is vulnerable.
+        </p>
+
+        <div class="control-group">
+            <button id="btn-migrate" onclick="startMigration()">
+                <span>1. Cool & Migrate</span>
+                <div class="status-indicator" id="ind-migrate"></div>
+            </button>
+            <button id="btn-oil" onclick="addOil()" disabled>
+                <span>2. Drop Oil Test</span>
+                <div class="status-indicator" id="ind-oil"></div>
+            </button>
+            <button id="btn-reset" onclick="resetSim()">
+                <span>Reset Simulation</span>
+            </button>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><span class="dot" style="background: rgba(0, 100, 255, 0.5); border: 1px solid cyan;"></span>TPU Base Matrix</div>
+            <div class="legend-item"><span class="dot" style="background: #ff00aa; box-shadow: 0 0 5px #ff00aa;"></span>Bottlebrush Additive</div>
+            <div class="legend-item"><span class="dot" style="background: #111; border: 1px solid #555;"></span>Oil Droplet</div>
+        </div>
+    </div>
+
+    <!-- 3D Labels (managed by JS) -->
+    <div id="label-barrier" class="label">Steric Barrier (The Forest)</div>
+    <div id="label-bulk" class="label">Bulk TPU Matrix</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            additiveCount: 80,
+            tpuSize: { x: 12, y: 2, z: 12 },
+            additiveSize: 0.3,
+            migrationSpeed: 0.03,
+            oilCount: 15
+        };
+
+        // --- State Management ---
+        const STATE = {
+            migrated: false,
+            oilAdded: false,
+            animating: true
+        };
+
+        // --- Three.js Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a1a);
+        scene.fog = new THREE.FogExp2(0x1a1a1a, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(10, 8, 10);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const spotLight = new THREE.PointLight(0x00d2ff, 0.5);
+        spotLight.position.set(-5, 5, -5);
+        scene.add(spotLight);
+
+        // --- Objects ---
+
+        // 1. The TPU Matrix (The Slab)
+        const tpuGeometry = new THREE.BoxGeometry(CONFIG.tpuSize.x, CONFIG.tpuSize.y, CONFIG.tpuSize.z);
+        const tpuMaterial = new THREE.MeshPhysicalMaterial({
+            color: 0x0066cc,
+            transparent: true,
+            opacity: 0.3,
+            roughness: 0.1,
+            metalness: 0.1,
+            transmission: 0.2,
+            thickness: 1.0
+        });
+        const tpuMesh = new THREE.Mesh(tpuGeometry, tpuMaterial);
+        tpuMesh.position.y = -CONFIG.tpuSize.y / 2;
+        tpuMesh.receiveShadow = true;
+        scene.add(tpuMesh);
+
+        // Grid helper for context
+        const gridHelper = new THREE.GridHelper(30, 30, 0x333333, 0x222222);
+        gridHelper.position.y = -CONFIG.tpuSize.y;
+        scene.add(gridHelper);
+
+        // 2. The Bottlebrush Additives
+        // We will create a custom geometry for the additive to look like a spiky ball (urchin)
+        const additives = [];
+        const additiveGroup = new THREE.Group();
+        scene.add(additiveGroup);
+
+        function createAdditiveGeometry() {
+            const coreGeo = new THREE.IcosahedronGeometry(0.1, 1);
+            const coreMat = new THREE.MeshBasicMaterial({ color: 0xff00aa });
+            
+            // Create a group for one additive unit
+            const unit = new THREE.Group();
+            const core = new THREE.Mesh(coreGeo, coreMat);
+            unit.add(core);
+
+            // Add spikes/bristles
+            const spikeCount = 12;
+            const spikeGeo = new THREE.CylinderGeometry(0.01, 0.01, 0.4, 4);
+            spikeGeo.translate(0, 0.2, 0); // Move pivot to base
+            const spikeMat = new THREE.MeshBasicMaterial({ color: 0xff55cc });
+
+            for(let i=0; i<spikeCount; i++) {
+                const spike = new THREE.Mesh(spikeGeo, spikeMat);
+                spike.rotation.set(
+                    Math.random() * Math.PI * 2,
+                    Math.random() * Math.PI * 2,
+                    Math.random() * Math.PI * 2
+                );
+                unit.add(spike);
+            }
+            return unit;
+        }
+
+        // Initialize Additives scattered inside
+        const protoAdditive = createAdditiveGeometry();
+
+        for (let i = 0; i < CONFIG.additiveCount; i++) {
+            const clone = protoAdditive.clone();
+            
+            // Random position inside the box
+            const x = (Math.random() - 0.5) * (CONFIG.tpuSize.x - 1);
+            const z = (Math.random() - 0.5) * (CONFIG.tpuSize.z - 1);
+            const y = (Math.random() - 1) * (CONFIG.tpuSize.y - 0.5); // Inside, below surface
+
+            clone.position.set(x, y, z);
+            
+            // Store metadata for animation
+            clone.userData = {
+                initialPos: new THREE.Vector3(x, y, z),
+                // Target position is on the surface, arranged somewhat orderly but with noise
+                targetPos: new THREE.Vector3(
+                    x, 
+                    0.2, // Slightly above surface
+                    z
+                ),
+                phase: Math.random() * Math.PI * 2, // For wiggling
+                speed: 0.5 + Math.random() * 0.5
+            };
+
+            additiveGroup.add(clone);
+            additives.push(clone);
+        }
+
+        // 3. Oil Droplets
+        const oils = [];
+        const oilGroup = new THREE.Group();
+        scene.add(oilGroup);
+
+        const oilGeo = new THREE.SphereGeometry(0.4, 16, 16);
+        const oilMat = new THREE.MeshStandardMaterial({
+            color: 0x111111,
+            roughness: 0.1,
+            metalness: 0.5,
+            envMapIntensity: 1
+        });
+
+        // --- Interaction Logic ---
+
+        function startMigration() {
+            if (STATE.migrated) return;
+            
+            STATE.migrated = true;
+            document.getElementById('btn-migrate').classList.add('active');
+            document.getElementById('btn-migrate').disabled = true;
+            document.getElementById('ind-migrate').style.background = '#00ff00';
+            
+            document.getElementById('description').innerHTML = `
+                Current State: <strong>Migrating (Blooming)</strong><br>
+                During cooling, thermodynamic incompatibility drives the additives to the surface.
+            `;
+
+            setTimeout(() => {
+                document.getElementById('btn-oil').disabled = false;
+                document.getElementById('description').innerHTML = `
+                    Current State: <strong>Steric Shield Active</strong><br>
+                    The additives have formed a dense "forest". They vibrate (entropy), creating a barrier that pushes oil away.
+                `;
+                // Show label
+                const lbl = document.getElementById('label-barrier');
+                lbl.classList.add('visible');
+                updateLabelPosition(lbl, new THREE.Vector3(0, 1, 0));
+            }, 2500);
+        }
+
+        function addOil() {
+            if (STATE.oilAdded) return;
+            STATE.oilAdded = true;
+            
+            document.getElementById('btn-oil').classList.add('active');
+            document.getElementById('ind-oil').style.background = '#00ff00';
+
+            // Spawn oil drops
+            for (let i = 0; i < CONFIG.oilCount; i++) {
+                const drop = new THREE.Mesh(oilGeo, oilMat);
+                
+                const x = (Math.random() - 0.5) * (CONFIG.tpuSize.x - 2);
+                const z = (Math.random() - 0.5) * (CONFIG.tpuSize.z - 2);
+                const startY = 5 + Math.random() * 5;
+
+                drop.position.set(x, startY, z);
+                
+                // Physics properties
+                drop.userData = {
+                    velocity: 0,
+                    landed: false,
+                    targetY: STATE.migrated ? 0.6 : 0.0 // Land on bristles (0.6) or surface (0.0)
+                };
+
+                oilGroup.add(drop);
+                oils.push(drop);
+            }
+        }
+
+        function resetSim() {
+            STATE.migrated = false;
+            STATE.oilAdded = false;
+
+            // Reset UI
+            document.getElementById('btn-migrate').classList.remove('active');
+            document.getElementById('btn-migrate').disabled = false;
+            document.getElementById('ind-migrate').style.background = '#555';
+            
+            document.getElementById('btn-oil').classList.remove('active');
+            document.getElementById('btn-oil').disabled = true;
+            document.getElementById('ind-oil').style.background = '#555';
+
+            document.getElementById('description').innerHTML = `
+                Current State: <strong>Mixed (Untreated)</strong><br>
+                The active "bottlebrush" additives are scattered inside the TPU plastic.
+            `;
+            
+            document.getElementById('label-barrier').classList.remove('visible');
+
+            // Reset Additives
+            additives.forEach(a => {
+                a.position.copy(a.userData.initialPos);
+            });
+
+            // Remove Oil
+            for(let i = oilGroup.children.length - 1; i >= 0; i--) {
+                oilGroup.remove(oilGroup.children[i]);
+            }
+            oils.length = 0;
+        }
+
+        // --- Animation Loop ---
+
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const time = clock.getElapsedTime();
+            const delta = clock.getDelta();
+
+            controls.update();
+
+            // 1. Additive Animation
+            additives.forEach(additive => {
+                // Migration Logic
+                if (STATE.migrated) {
+                    // Lerp towards surface
+                    additive.position.lerp(additive.userData.targetPos, CONFIG.migrationSpeed);
+                }
+
+                // Entropic Wiggle (Always happens, but more visible/meaningful at surface)
+                // This represents the "Steric" part - taking up space dynamically
+                additive.rotation.x = Math.sin(time * 5 + additive.userData.phase) * 0.2;
+                additive.rotation.z = Math.cos(time * 4 + additive.userData.phase) * 0.2;
+                
+                // If on surface, bob up and down slightly
+                if (STATE.migrated && additive.position.y > 0) {
+                    additive.position.y = 0.2 + Math.sin(time * 10 + additive.userData.phase) * 0.05;
+                }
+            });
+
+            // 2. Oil Physics
+            oils.forEach(oil => {
+                if (!oil.userData.landed) {
+                    // Gravity
+                    oil.userData.velocity -= 0.02; // Gravity
+                    oil.position.y += oil.userData.velocity;
+
+                    // Collision
+                    if (oil.position.y <= oil.userData.targetY) {
+                        oil.position.y = oil.userData.targetY;
+                        oil.userData.velocity = 0;
+                        oil.userData.landed = true;
+                        
+                        // Impact squish effect could go here
+                    }
+                } else {
+                    // Resting behavior
+                    if (STATE.migrated) {
+                        // If shield is active, oil should bob slightly on top of the "forest"
+                        // This proves it's not touching the surface
+                        oil.position.y = oil.userData.targetY + Math.sin(time * 2 + oil.position.x) * 0.02;
+                        
+                        // Slide off slightly if near edge (hydrophobic effect)
+                        // oil.position.x += Math.sin(time) * 0.001; 
+                    } else {
+                        // If shield inactive, it flattens/sticks (simple scale change)
+                        if (oil.scale.y > 0.2) {
+                            oil.scale.y = THREE.MathUtils.lerp(oil.scale.y, 0.2, 0.1);
+                            oil.scale.x = THREE.MathUtils.lerp(oil.scale.x, 1.5, 0.1);
+                            oil.scale.z = THREE.MathUtils.lerp(oil.scale.z, 1.5, 0.1);
+                        }
+                    }
+                }
+            });
+
+            // 3. Label Tracking
+            if (document.getElementById('label-barrier').classList.contains('visible')) {
+                updateLabelPosition(document.getElementById('label-barrier'), new THREE.Vector3(0, 0.5, 0));
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        function updateLabelPosition(el, position) {
+            const vector = position.clone();
+            vector.project(camera);
+
+            const x = (vector.x * .5 + .5) * window.innerWidth;
+            const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+            el.style.left = `${x}px`;
+            el.style.top = `${y}px`;
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start
+        animate();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactive-Lock Magnetic Skin Simulator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0f1115;
+            font-family: 'Inter', sans-serif;
+            color: #e0e6ed;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: rgba(15, 17, 21, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 12px;
+            border-left: 4px solid #00d2ff;
+            pointer-events: auto;
+            max-width: 500px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            margin: 5px 0 0 0;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #94a3b8;
+        }
+
+        /* Controls Panel */
+        #controls {
+            background: rgba(15, 17, 21, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            pointer-events: auto;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        button {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background: #334155;
+            transform: translateY(-1px);
+        }
+
+        button.active {
+            background: #00d2ff;
+            color: #0f1115;
+            border-color: #00d2ff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+        }
+
+        button.uv-active {
+            background: #a855f7;
+            color: white;
+            border-color: #a855f7;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Status Indicator */
+        #status-panel {
+            margin-top: 10px;
+            padding: 12px;
+            background: #0f172a;
+            border-radius: 8px;
+            border-left: 3px solid #64748b;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .status-highlight {
+            color: #00d2ff;
+            font-weight: bold;
+        }
+
+        /* Legend */
+        #legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(15, 17, 21, 0.8);
+            padding: 15px;
+            border-radius: 12px;
+            pointer-events: auto;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* 3D Labels */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #444;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .visible {
+            opacity: 1;
+        }
+
+        /* Pattern Select */
+        select {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+    </style>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <!-- UI Overlay -->
+    <div id="ui-layer">
+        <header>
+            <h1>Reactive-Lock Magnetic Skin</h1>
+            <h2>Programmable Haptics Simulator</h2>
+        </header>
+
+        <div style="flex-grow: 1;"></div> <!-- Spacer -->
+
+        <div id="controls">
+            
+            <div class="control-group">
+                <label>1. Field Programming</label>
+                <select id="pattern-select">
+                    <option value="ridges">Pattern: Linear Ridges</option>
+                    <option value="spikes">Pattern: Tactile Spikes</option>
+                    <option value="chaos">Pattern: None (Liquid)</option>
+                </select>
+                <button id="magnet-btn" onclick="toggleMagnet()">
+                    <span id="magnet-icon">🧲</span> Activate Magnetic Field
+                </button>
+            </div>
+
+            <div class="control-group">
+                <label>2. Chemical Locking</label>
+                <button id="uv-btn" onclick="activateUV()">
+                    <span>⚡</span> Activate UV Cure
+                </button>
+            </div>
+
+            <div class="control-group">
+                <label>System Controls</label>
+                <button onclick="resetSim()" style="background: #334155;">
+                    <span>↺</span> Reset Material
+                </button>
+            </div>
+
+            <div id="status-panel">
+                State: <span id="state-text" class="status-highlight">LIQUID / GEL</span><br>
+                <span id="desc-text" style="color: #94a3b8;">Particles are suspended in polymer matrix and free to rotate.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legend -->
+    <div id="legend">
+        <div class="legend-item">
+            <div class="dot" style="background: #ffd700;"></div>
+            <span>Fe-Oxide Nanoparticle (Free)</span>
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: #00ffff;"></div>
+            <span>Covalently Bonded (Locked)</span>
+        </div>
+        <div class="legend-item">
+            <div class="dot" style="background: rgba(255, 255, 255, 0.2); border: 1px solid white;"></div>
+            <span>Polymer Matrix</span>
+        </div>
+    </div>
+
+    <!-- Labels for 3D elements -->
+    <div id="label-magnet" class="annotation">Magnetic Field Generator</div>
+    <div id="label-skin" class="annotation">Polymer Skin Layer</div>
+
+    <script>
+        // --- Configuration ---
+        const PARTICLE_COUNT = 1500;
+        const BOX_SIZE = 40;
+        const PARTICLE_SIZE = 0.4;
+        
+        // --- State Management ---
+        const state = {
+            magnetActive: false,
+            isLocked: false,
+            pattern: 'ridges', // ridges, spikes, chaos
+            magnetPos: 0 // 0 = away, 1 = close
+        };
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0f1115, 0.015);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(30, 40, 50);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Prevent going below ground
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(10, 50, 20);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        scene.add(dirLight);
+
+        // UV Light (Spotlight)
+        const uvLight = new THREE.SpotLight(0xa855f7, 0);
+        uvLight.position.set(0, 40, 0);
+        uvLight.angle = Math.PI / 4;
+        uvLight.penumbra = 0.5;
+        uvLight.decay = 2;
+        uvLight.distance = 100;
+        scene.add(uvLight);
+        
+        // UV Helper Visual
+        const uvConeGeo = new THREE.ConeGeometry(15, 40, 32, 1, true);
+        const uvConeMat = new THREE.MeshBasicMaterial({ 
+            color: 0xa855f7, 
+            transparent: true, 
+            opacity: 0, 
+            side: THREE.DoubleSide,
+            blending: THREE.AdditiveBlending 
+        });
+        const uvCone = new THREE.Mesh(uvConeGeo, uvConeMat);
+        uvCone.position.set(0, 20, 0);
+        scene.add(uvCone);
+
+        // --- Objects ---
+
+        // 1. Floor
+        const gridHelper = new THREE.GridHelper(100, 50, 0x334155, 0x1e293b);
+        scene.add(gridHelper);
+
+        // 2. The Polymer Matrix (The Skin)
+        const skinGeo = new THREE.BoxGeometry(BOX_SIZE, 4, BOX_SIZE);
+        const skinMat = new THREE.MeshPhysicalMaterial({
+            color: 0x88ccff,
+            transmission: 0.6,
+            opacity: 0.3,
+            transparent: true,
+            roughness: 0.1,
+            metalness: 0,
+            thickness: 2,
+            side: THREE.DoubleSide
+        });
+        const skinMesh = new THREE.Mesh(skinGeo, skinMat);
+        skinMesh.position.y = 2;
+        scene.add(skinMesh);
+
+        // 3. The Magnet Visual
+        const magnetGroup = new THREE.Group();
+        const magnetGeo = new THREE.CylinderGeometry(8, 8, 2, 32);
+        const magnetMat = new THREE.MeshStandardMaterial({ color: 0xef4444, metalness: 0.8, roughness: 0.2 });
+        const magnetMesh = new THREE.Mesh(magnetGeo, magnetMat);
+        
+        // Magnet Field Lines (Visual Ring)
+        const ringGeo = new THREE.TorusGeometry(10, 0.2, 8, 50);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
+        const ring1 = new THREE.Mesh(ringGeo, ringMat);
+        const ring2 = new THREE.Mesh(ringGeo, ringMat);
+        ring2.rotation.x = Math.PI / 2;
+        
+        magnetGroup.add(magnetMesh);
+        magnetGroup.add(ring1);
+        magnetGroup.add(ring2);
+        magnetGroup.position.set(0, 25, 0); // Start high
+        scene.add(magnetGroup);
+
+        // 4. Nanoparticles (InstancedMesh for performance)
+        // Using a capsule shape to show orientation clearly
+        const particleGeo = new THREE.CapsuleGeometry(PARTICLE_SIZE, PARTICLE_SIZE * 3, 4, 8);
+        const particleMat = new THREE.MeshStandardMaterial({ 
+            color: 0xffd700, 
+            metalness: 0.9, 
+            roughness: 0.3 
+        });
+        const particles = new THREE.InstancedMesh(particleGeo, particleMat, PARTICLE_COUNT);
+        particles.castShadow = true;
+        scene.add(particles);
+
+        // Data arrays for particles
+        const dummy = new THREE.Object3D();
+        const positions = []; // Initial random positions
+        const velocities = []; // For brownian motion
+        const rotations = []; // Initial random rotations
+        
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            const x = (Math.random() - 0.5) * BOX_SIZE * 0.9;
+            const y = (Math.random()) * 3.5 + 0.2; // Keep inside box height
+            const z = (Math.random() - 0.5) * BOX_SIZE * 0.9;
+            
+            positions.push(new THREE.Vector3(x, y, z));
+            velocities.push(new THREE.Vector3(
+                (Math.random() - 0.5) * 0.02,
+                (Math.random() - 0.5) * 0.02,
+                (Math.random() - 0.5) * 0.02
+            ));
+            rotations.push(new THREE.Euler(Math.random() * Math.PI, Math.random() * Math.PI, 0));
+        }
+
+        // --- Simulation Logic ---
+
+        function updateParticles(time) {
+            // Color update based on locking
+            if (state.isLocked) {
+                particles.material.color.setHex(0x00ffff); // Cyan
+                particles.material.emissive.setHex(0x0044aa);
+                particles.material.emissiveIntensity = 0.3;
+            } else {
+                particles.material.color.setHex(0xffd700); // Gold
+                particles.material.emissive.setHex(0x000000);
+            }
+
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                const pos = positions[i];
+                
+                // 1. Determine Target State
+                
+                // If Locked: Stay put (frozen)
+                if (state.isLocked) {
+                    dummy.position.copy(pos);
+                    // We need to store the locked rotation, but for simplicity in this demo,
+                    // we just calculate the last known good rotation logic.
+                    // Ideally, we'd freeze the matrix, but recalculating the "locked" state is visually fine.
+                    // To keep it simple: if locked, we skip all movement logic.
+                    // But we need to set the matrix one last time or keep it persistent.
+                    // In this loop, we just won't update 'pos' or rotation logic.
+                } 
+                else {
+                    // Not Locked: Calculate movement
+                    
+                    // A. Brownian Motion (Liquid Baseline)
+                    if (!state.magnetActive) {
+                        pos.add(velocities[i]);
+                        
+                        // Bounds checking
+                        if (Math.abs(pos.x) > BOX_SIZE/2 * 0.95) velocities[i].x *= -1;
+                        if (pos.y < 0.2 || pos.y > 3.8) velocities[i].y *= -1;
+                        if (Math.abs(pos.z) > BOX_SIZE/2 * 0.95) velocities[i].z *= -1;
+
+                        dummy.position.copy(pos);
+                        
+                        // Random slow rotation
+                        dummy.rotation.set(
+                            rotations[i].x + time * 0.5,
+                            rotations[i].y + time * 0.3,
+                            rotations[i].z
+                        );
+                    } 
+                    // B. Magnetic Alignment
+                    else {
+                        // Move towards pattern
+                        let targetY = pos.y;
+                        let targetAngleX = 0;
+                        let targetAngleZ = 0;
+
+                        if (state.pattern === 'ridges') {
+                            // Sine wave ridges along X axis
+                            const freq = 0.3;
+                            const amp = 1.5;
+                            targetY = 2 + Math.sin(pos.x * freq) * amp;
+                            // Orientation follows slope
+                            targetAngleZ = Math.cos(pos.x * freq) * 1.5; 
+                        } else if (state.pattern === 'spikes') {
+                            // Spikes based on grid
+                            const freq = 0.4;
+                            targetY = 1 + (Math.sin(pos.x * freq) * Math.sin(pos.z * freq) + 1) * 1.5;
+                            // Point up
+                            targetAngleX = Math.PI / 2;
+                        }
+
+                        // Lerp Position (Elastic pull)
+                        pos.y += (targetY - pos.y) * 0.1;
+                        
+                        dummy.position.copy(pos);
+
+                        // Lerp Rotation (Magnetic Torque)
+                        // Create a target quaternion
+                        const targetQuat = new THREE.Quaternion();
+                        if (state.pattern === 'ridges') {
+                            targetQuat.setFromEuler(new THREE.Euler(0, 0, targetAngleZ));
+                        } else {
+                            targetQuat.setFromEuler(new THREE.Euler(targetAngleX, 0, 0));
+                        }
+                        
+                        dummy.rotation.setFromQuaternion(targetQuat);
+                    }
+                }
+                
+                // Update Instance
+                dummy.updateMatrix();
+                particles.setMatrixAt(i, dummy.matrix);
+            }
+            particles.instanceMatrix.needsUpdate = true;
+        }
+
+        // --- Interaction Handlers ---
+
+        function toggleMagnet() {
+            if (state.isLocked) return; // Can't change field if locked
+
+            state.magnetActive = !state.magnetActive;
+            
+            const btn = document.getElementById('magnet-btn');
+            const status = document.getElementById('state-text');
+            const desc = document.getElementById('desc-text');
+
+            if (state.magnetActive) {
+                btn.classList.add('active');
+                btn.innerHTML = `<span id="magnet-icon">🧲</span> Deactivate Magnetic Field`;
+                status.innerText = "MAGNETIC ALIGNMENT";
+                status.style.color = "#ef4444";
+                desc.innerText = "Particles aligning to field lines. Texture is programmable but transient.";
+                
+                // Animate Magnet Down
+                new TWEEN.Tween(magnetGroup.position)
+                    .to({ y: 8 }, 1000)
+                    .easing(TWEEN.Easing.Cubic.Out)
+                    .start();
+
+            } else {
+                btn.classList.remove('active');
+                btn.innerHTML = `<span id="magnet-icon">🧲</span> Activate Magnetic Field`;
+                status.innerText = "LIQUID / GEL";
+                status.style.color = "#00d2ff";
+                desc.innerText = "Field removed. Particles returning to random brownian motion.";
+
+                // Animate Magnet Up
+                new TWEEN.Tween(magnetGroup.position)
+                    .to({ y: 25 }, 1000)
+                    .easing(TWEEN.Easing.Cubic.In)
+                    .start();
+            }
+        }
+
+        function activateUV() {
+            if (!state.magnetActive && !state.isLocked) {
+                alert("Apply magnetic field first to create a texture!");
+                return;
+            }
+            if (state.isLocked) return;
+
+            state.isLocked = true;
+            
+            const btn = document.getElementById('uv-btn');
+            btn.classList.add('uv-active');
+            btn.innerHTML = `<span>🔒</span> Cured & Locked`;
+            
+            const status = document.getElementById('state-text');
+            const desc = document.getElementById('desc-text');
+            status.innerText = "CHEMICALLY LOCKED";
+            status.style.color = "#a855f7";
+            desc.innerText = "UV triggered covalent bonding. Texture is now permanent. Removing magnet won't affect it.";
+
+            // Visual FX
+            uvLight.intensity = 2;
+            uvConeMat.opacity = 0.3;
+
+            // Flash effect
+            setTimeout(() => {
+                uvLight.intensity = 0;
+                uvConeMat.opacity = 0;
+            }, 500);
+            setTimeout(() => {
+                uvLight.intensity = 2;
+                uvConeMat.opacity = 0.3;
+            }, 700);
+            setTimeout(() => {
+                uvLight.intensity = 0;
+                uvConeMat.opacity = 0;
+            }, 1200);
+
+            // Disable magnet controls visually
+            document.getElementById('magnet-btn').disabled = true;
+            document.getElementById('pattern-select').disabled = true;
+        }
+
+        function resetSim() {
+            state.isLocked = false;
+            state.magnetActive = false;
+            state.pattern = document.getElementById('pattern-select').value;
+            
+            // Reset UI
+            document.getElementById('uv-btn').classList.remove('uv-active');
+            document.getElementById('uv-btn').innerHTML = `<span>⚡</span> Activate UV Cure`;
+            
+            document.getElementById('magnet-btn').classList.remove('active');
+            document.getElementById('magnet-btn').innerHTML = `<span id="magnet-icon">🧲</span> Activate Magnetic Field`;
+            document.getElementById('magnet-btn').disabled = false;
+            document.getElementById('pattern-select').disabled = false;
+
+            document.getElementById('state-text').innerText = "LIQUID / GEL";
+            document.getElementById('state-text').style.color = "#00d2ff";
+            document.getElementById('desc-text').innerText = "Reset complete. Ready for new programming.";
+
+            // Reset Magnet Position
+            new TWEEN.Tween(magnetGroup.position)
+                .to({ y: 25 }, 1000)
+                .easing(TWEEN.Easing.Cubic.Out)
+                .start();
+            
+            // Reset particles slightly to look natural
+            for(let i=0; i<PARTICLE_COUNT; i++) {
+                positions[i].y = (Math.random()) * 3.5 + 0.2;
+            }
+        }
+
+        document.getElementById('pattern-select').addEventListener('change', (e) => {
+            state.pattern = e.target.value;
+            if (state.magnetActive && !state.isLocked) {
+                // If magnet is already active, just let the update loop handle the transition
+            }
+        });
+
+
+        // --- Simple Tweening Engine (Minimal) ---
+        const TWEEN = {
+            tweens: [],
+            getAll: function() { return this.tweens; },
+            removeAll: function() { this.tweens = []; },
+            add: function(tween) { this.tweens.push(tween); },
+            remove: function(tween) {
+                const i = this.tweens.indexOf(tween);
+                if (i !== -1) this.tweens.splice(i, 1);
+            },
+            update: function(time) {
+                if (this.tweens.length === 0) return false;
+                let i = 0;
+                while (i < this.tweens.length) {
+                    if (this.tweens[i].update(time)) {
+                        i++;
+                    } else {
+                        this.tweens.splice(i, 1);
+                    }
+                }
+                return true;
+            },
+            Easing: {
+                Cubic: {
+                    In: function(k) { return k * k * k; },
+                    Out: function(k) { return --k * k * k + 1; },
+                    InOut: function(k) {
+                        if ((k *= 2) < 1) return 0.5 * k * k * k;
+                        return 0.5 * ((k -= 2) * k * k + 2);
+                    }
+                }
+            },
+            Tween: function(object) {
+                let _object = object;
+                let _valuesStart = {};
+                let _valuesEnd = {};
+                let _duration = 1000;
+                let _easingFunction = TWEEN.Easing.Cubic.Out;
+                let _startTime = null;
+                
+                this.to = function(properties, duration) {
+                    _valuesEnd = properties;
+                    if (duration !== undefined) _duration = duration;
+                    return this;
+                };
+                
+                this.easing = function(easing) {
+                    _easingFunction = easing;
+                    return this;
+                };
+                
+                this.start = function() {
+                    TWEEN.add(this);
+                    _startTime = performance.now();
+                    for (const property in _valuesEnd) {
+                        _valuesStart[property] = _object[property];
+                    }
+                    return this;
+                };
+                
+                this.update = function(time) {
+                    let elapsed = (time - _startTime) / _duration;
+                    elapsed = elapsed > 1 ? 1 : elapsed;
+                    
+                    const value = _easingFunction(elapsed);
+                    
+                    for (const property in _valuesEnd) {
+                        const start = _valuesStart[property];
+                        const end = _valuesEnd[property];
+                        _object[property] = start + (end - start) * value;
+                    }
+                    
+                    if (elapsed === 1) return false;
+                    return true;
+                };
+            }
+        };
+
+        // --- Animation Loop ---
+        function animate(time) {
+            requestAnimationFrame(animate);
+            
+            TWEEN.update(time);
+            controls.update();
+            updateParticles(time * 0.001);
+            
+            // Label positioning
+            updateLabel(magnetGroup, 'label-magnet', 0, 5, 0);
+            updateLabel(skinMesh, 'label-skin', -15, 0, 15);
+
+            renderer.render(scene, camera);
+        }
+
+        function updateLabel(obj, elId, offsetX, offsetY, offsetZ) {
+            const el = document.getElementById(elId);
+            const vec = new THREE.Vector3(offsetX, offsetY, offsetZ);
+            vec.applyMatrix4(obj.matrixWorld);
+            vec.project(camera);
+            
+            const x = (vec.x * .5 + .5) * window.innerWidth;
+            const y = (-(vec.y * .5) + .5) * window.innerHeight;
+
+            if (Math.abs(vec.z) < 1) {
+                el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+                el.classList.add('visible');
+            } else {
+                el.classList.remove('visible');
+            }
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start
+        animate(performance.now());
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron-Scab: Self-Healing Composite Simulator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --panel-bg: rgba(0, 0, 0, 0.85);
+            --text-main: #e0e0e0;
+            --accent-color: #ff9d00; /* Safety Orange */
+            --capsule-color: #00f0ff; /* Cyan */
+            --font-stack: 'Courier New', Courier, monospace; /* Industrial look */
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            font-family: var(--font-stack);
+            color: var(--text-main);
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background: var(--panel-bg);
+            padding: 15px;
+            border-left: 4px solid var(--accent-color);
+            max-width: 400px;
+            pointer-events: auto;
+            border-radius: 0 0 10px 0;
+        }
+
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .controls {
+            pointer-events: auto;
+            background: var(--panel-bg);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            border-top: 2px solid var(--accent-color);
+            margin-bottom: 20px;
+            align-self: center;
+        }
+
+        button {
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+            padding: 10px 20px;
+            font-family: var(--font-stack);
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #444;
+            border-color: var(--accent-color);
+        }
+
+        button.primary {
+            background: var(--accent-color);
+            color: black;
+            border: none;
+        }
+
+        button.primary:hover {
+            background: #ffb74d;
+            transform: scale(1.05);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Labels floating in 3D space */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--text-main);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            pointer-events: none;
+            border: 1px solid #555;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        
+        .annotation::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            width: 10px;
+            height: 1px;
+            background: #fff;
+        }
+
+        .legend {
+            background: var(--panel-bg);
+            padding: 15px;
+            border-radius: 8px;
+            pointer-events: auto;
+            font-size: 0.85rem;
+            max-width: 250px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .status-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--panel-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: right;
+            pointer-events: auto;
+        }
+
+        .status-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Loading Screen */
+        #loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            color: var(--accent-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            font-size: 2rem;
+            transition: opacity 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="loader">INITIALIZING SIMULATION...</div>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+        <div class="header">
+            <h1>Iron-Scab</h1>
+            <div class="subtitle">Self-Healing Composite Simulator</div>
+            <div style="font-size: 0.8rem; line-height: 1.4;">
+                Visualizing how microcapsules rupture on impact to release high-contrast resin, turning damage into a reinforced "Badge of Honor."
+            </div>
+        </div>
+
+        <div class="status-panel">
+            <div style="font-size: 0.7rem; color: #888;">STRUCTURAL INTEGRITY</div>
+            <div id="integrity-display" class="status-text">100%</div>
+            <div id="status-message" style="font-size: 0.8rem; margin-top: 5px; color: #fff;">SYSTEM READY</div>
+        </div>
+
+        <div class="legend">
+            <div style="margin-bottom: 10px; font-weight: bold; border-bottom: 1px solid #444; padding-bottom: 5px;">LEGEND</div>
+            <div class="legend-item">
+                <span class="dot" style="background: #333; border: 1px solid #fff;"></span>
+                <span>Composite Matrix</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot" style="background: #00f0ff; box-shadow: 0 0 5px #00f0ff;"></span>
+                <span>Microcapsule (Resin)</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot" style="background: #ff9d00; box-shadow: 0 0 5px #ff9d00;"></span>
+                <span>Active Healing Agent</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="btn-impact" class="primary">TEST IMPACT</button>
+            <button id="btn-xray">Toggle X-Ray</button>
+            <button id="btn-reset">Reset</button>
+        </div>
+    </div>
+
+    <!-- Annotations container -->
+    <div id="labels"></div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            capsuleCount: 60,
+            capsuleRadius: 0.15,
+            blockDimensions: { x: 6, y: 1, z: 3 },
+            impactForce: 10,
+            colors: {
+                matrix: 0x222222,
+                capsule: 0x00f0ff,
+                healing: 0xff9d00,
+                impactor: 0x888888
+            }
+        };
+
+        // --- State Management ---
+        const state = {
+            isXray: true, // Start in Xray to see capsules
+            isImpacted: false,
+            isHealing: false,
+            animationTime: 0
+        };
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a1a);
+        scene.fog = new THREE.FogExp2(0x1a1a1a, 0.05);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(5, 5, 5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const rimLight = new THREE.SpotLight(CONFIG.colors.healing, 2);
+        rimLight.position.set(-5, 2, -5);
+        rimLight.lookAt(0, 0, 0);
+        scene.add(rimLight);
+
+        // --- Objects ---
+
+        // 1. The Matrix (Block)
+        const geometryBlock = new THREE.BoxGeometry(CONFIG.blockDimensions.x, CONFIG.blockDimensions.y, CONFIG.blockDimensions.z);
+        const materialBlock = new THREE.MeshPhysicalMaterial({
+            color: CONFIG.colors.matrix,
+            roughness: 0.7,
+            metalness: 0.1,
+            transparent: true,
+            opacity: 0.4, // Start transparent
+            transmission: 0.2,
+            side: THREE.DoubleSide
+        });
+        const block = new THREE.Mesh(geometryBlock, materialBlock);
+        block.receiveShadow = true;
+        block.position.y = -0.5; // Top surface at y=0
+        scene.add(block);
+
+        // Grid for context
+        const gridHelper = new THREE.GridHelper(20, 20, 0x333333, 0x222222);
+        gridHelper.position.y = -1.01;
+        scene.add(gridHelper);
+
+        // 2. Microcapsules
+        const capsules = [];
+        const capsuleGeo = new THREE.SphereGeometry(CONFIG.capsuleRadius, 16, 16);
+        const capsuleMat = new THREE.MeshPhongMaterial({
+            color: CONFIG.colors.capsule,
+            emissive: 0x0044aa,
+            emissiveIntensity: 0.5,
+            transparent: true,
+            opacity: 0.9
+        });
+
+        // Scatter capsules inside the block
+        for (let i = 0; i < CONFIG.capsuleCount; i++) {
+            const mesh = new THREE.Mesh(capsuleGeo, capsuleMat.clone());
+            
+            // Random position within block bounds
+            mesh.position.x = (Math.random() - 0.5) * (CONFIG.blockDimensions.x - 0.5);
+            mesh.position.y = (Math.random() - 0.5) * (CONFIG.blockDimensions.y - 0.4) - 0.5;
+            mesh.position.z = (Math.random() - 0.5) * (CONFIG.blockDimensions.z - 0.5);
+            
+            // Save original position for reset
+            mesh.userData.originalPos = mesh.position.clone();
+            mesh.userData.isRuptured = false;
+            
+            scene.add(mesh);
+            capsules.push(mesh);
+        }
+
+        // 3. The Impactor (Hammer head)
+        const impactorGeo = new THREE.CylinderGeometry(0.5, 0.2, 2, 16);
+        const impactorMat = new THREE.MeshStandardMaterial({ color: 0x555555, roughness: 0.3, metalness: 0.8 });
+        const impactor = new THREE.Mesh(impactorGeo, impactorMat);
+        impactor.rotation.x = Math.PI; // Pointy end down
+        impactor.position.set(0, 3, 0); // Start high
+        impactor.castShadow = true;
+        scene.add(impactor);
+
+        // 4. The Crack (Hidden initially)
+        // Create a jagged shape
+        const crackShape = new THREE.Shape();
+        crackShape.moveTo(-1.5, -0.2);
+        crackShape.lineTo(-0.5, 0.1);
+        crackShape.lineTo(0, -0.3);
+        crackShape.lineTo(0.5, 0.1);
+        crackShape.lineTo(1.5, -0.2);
+        crackShape.lineTo(1.6, 0.05); // Thickness
+        crackShape.lineTo(0.6, 0.3);
+        crackShape.lineTo(0, -0.1);
+        crackShape.lineTo(-0.6, 0.3);
+        crackShape.lineTo(-1.6, 0.05);
+        
+        const crackGeo = new THREE.ExtrudeGeometry(crackShape, {
+            depth: 0.5,
+            bevelEnabled: true,
+            bevelThickness: 0.05,
+            bevelSize: 0.05,
+            bevelSegments: 2
+        });
+        
+        // Rotate to lie flat on surface
+        crackGeo.rotateX(Math.PI / 2);
+        crackGeo.scale(0.8, 1, 0.5); 
+
+        const crackMat = new THREE.MeshStandardMaterial({
+            color: 0x111111, // Dark void initially
+            roughness: 1.0,
+            emissive: 0x000000
+        });
+        
+        const crack = new THREE.Mesh(crackGeo, crackMat);
+        crack.position.set(0, 0.02, 0); // Just above surface
+        crack.visible = false;
+        scene.add(crack);
+
+        // 5. Healing Particles (Instanced Mesh for performance)
+        const particleCount = 200;
+        const particleGeo = new THREE.SphereGeometry(0.04, 8, 8);
+        const particleMat = new THREE.MeshBasicMaterial({ color: CONFIG.colors.healing });
+        const particles = new THREE.InstancedMesh(particleGeo, particleMat, particleCount);
+        particles.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        particles.visible = false;
+        scene.add(particles);
+        
+        // Store particle data
+        const particleData = [];
+        const dummy = new THREE.Object3D();
+        for(let i=0; i<particleCount; i++) {
+            particleData.push({
+                active: false,
+                velocity: new THREE.Vector3(),
+                target: new THREE.Vector3(),
+                position: new THREE.Vector3()
+            });
+        }
+
+        // --- Labels ---
+        const labels = [
+            { text: "Microcapsules", obj: capsules[Math.floor(capsules.length/2)], offset: {x:0, y:0.5, z:0} },
+            { text: "Composite Matrix", obj: block, offset: {x: 2, y: 0.5, z: 1} }
+        ];
+
+        function updateLabels() {
+            const container = document.getElementById('labels');
+            container.innerHTML = '';
+            
+            labels.forEach(label => {
+                if(!label.obj.visible) return;
+
+                const vector = new THREE.Vector3();
+                // Get world position
+                if(label.obj.geometry.type === 'BoxGeometry') {
+                     vector.copy(label.obj.position).add(new THREE.Vector3(label.offset.x, label.offset.y, label.offset.z));
+                } else {
+                    vector.copy(label.obj.position);
+                }
+
+                vector.project(camera);
+
+                const x = (vector.x * .5 + .5) * window.innerWidth;
+                const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+                // Only show if in front of camera
+                if (vector.z < 1 && x > 0 && x < window.innerWidth && y > 0 && y < window.innerHeight) {
+                    const div = document.createElement('div');
+                    div.className = 'annotation';
+                    div.textContent = label.text;
+                    div.style.left = `${x + 20}px`;
+                    div.style.top = `${y - 10}px`;
+                    container.appendChild(div);
+                }
+            });
+        }
+
+        // --- Animation Logic ---
+
+        let animationId;
+        const clock = new THREE.Clock();
+
+        function animate() {
+            animationId = requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            const time = clock.getElapsedTime();
+
+            controls.update();
+
+            // 1. Impact Animation
+            if (state.isImpacted && impactor.position.y > 0.1) {
+                impactor.position.y -= 15 * delta; // Drop fast
+                if (impactor.position.y <= 0.1) {
+                    // HIT!
+                    impactor.position.y = 0.1;
+                    triggerDamage();
+                }
+            } else if (state.isImpacted && impactor.position.y <= 0.1) {
+                // Bounce back up slowly
+                if (impactor.position.y < 3) impactor.position.y += 2 * delta;
+            }
+
+            // 2. Healing Animation
+            if (state.isHealing) {
+                animateHealing(delta);
+            }
+
+            // Subtle float for capsules to show liquid suspension
+            if (!state.isHealing) {
+                capsules.forEach((c, i) => {
+                    if (!c.userData.isRuptured) {
+                        c.position.y = c.userData.originalPos.y + Math.sin(time + i) * 0.02;
+                    }
+                });
+            }
+
+            renderer.render(scene, camera);
+            updateLabels();
+        }
+
+        function triggerDamage() {
+            // Camera Shake
+            const shakeIntensity = 0.2;
+            camera.position.x += (Math.random() - 0.5) * shakeIntensity;
+            camera.position.y += (Math.random() - 0.5) * shakeIntensity;
+            camera.position.z += (Math.random() - 0.5) * shakeIntensity;
+
+            // Show Crack
+            crack.visible = true;
+            crack.scale.set(0.1, 0.1, 0.1); // Start small
+            
+            // Animate crack growth
+            let s = 0.1;
+            const growCrack = setInterval(() => {
+                s += 0.1;
+                crack.scale.set(s, 1, s/1.5);
+                if (s >= 1) clearInterval(growCrack);
+            }, 20);
+
+            // Update UI
+            document.getElementById('integrity-display').innerText = "CRITICAL DAMAGE";
+            document.getElementById('integrity-display').style.color = "#ff3333";
+            document.getElementById('status-message').innerText = "INITIATING AUTO-REPAIR...";
+
+            // Find nearby capsules to rupture
+            const impactPoint = new THREE.Vector3(0, 0, 0);
+            const ruptureRadius = 1.5;
+            
+            const rupturedCapsules = [];
+
+            capsules.forEach(c => {
+                if (c.position.distanceTo(impactPoint) < ruptureRadius) {
+                    c.userData.isRuptured = true;
+                    rupturedCapsules.push(c);
+                    // Visual rupture: shrink and fade
+                    c.scale.set(0.1, 0.1, 0.1);
+                    c.material = c.material.clone(); // unique material
+                    c.material.opacity = 0.2;
+                }
+            });
+
+            // Start Particle Flow
+            initParticles(rupturedCapsules);
+            state.isHealing = true;
+        }
+
+        function initParticles(sources) {
+            particles.visible = true;
+            let pIndex = 0;
+            
+            sources.forEach(source => {
+                // Assign multiple particles per source
+                const particlesPerSource = Math.floor(particleCount / sources.length);
+                
+                for(let i=0; i<particlesPerSource; i++) {
+                    if(pIndex >= particleCount) break;
+                    
+                    const data = particleData[pIndex];
+                    data.active = true;
+                    data.position.copy(source.position);
+                    
+                    // Target random point on the crack
+                    data.target.set(
+                        (Math.random() - 0.5) * 3, // Spread along crack length
+                        0, 
+                        (Math.random() - 0.5) * 0.5
+                    );
+                    
+                    // Velocity calculation (simple seek)
+                    pIndex++;
+                }
+            });
+        }
+
+        function animateHealing(delta) {
+            let activeCount = 0;
+            const speed = 3.0;
+
+            for (let i = 0; i < particleCount; i++) {
+                const data = particleData[i];
+                if (!data.active) continue;
+                activeCount++;
+
+                // Move towards target
+                const dir = new THREE.Vector3().subVectors(data.target, data.position).normalize();
+                data.position.add(dir.multiplyScalar(speed * delta));
+
+                // Wiggle
+                data.position.y += Math.sin(Date.now() * 0.01 + i) * 0.01;
+
+                dummy.position.copy(data.position);
+                dummy.scale.set(1,1,1);
+                dummy.updateMatrix();
+                particles.setMatrixAt(i, dummy.matrix);
+
+                // If reached target (approx)
+                if (data.position.distanceTo(data.target) < 0.1) {
+                    data.active = false; // "Absorbed" into crack
+                    dummy.scale.set(0,0,0); // Hide
+                    particles.setMatrixAt(i, dummy.matrix);
+                }
+            }
+            particles.instanceMatrix.needsUpdate = true;
+
+            // Animate Crack "Healing" (Color change)
+            if (activeCount < particleCount * 0.5) {
+                // As particles arrive, crack glows
+                crack.material.color.lerp(new THREE.Color(CONFIG.colors.healing), 2 * delta);
+                crack.material.emissive.lerp(new THREE.Color(CONFIG.colors.healing), 2 * delta);
+                crack.material.emissiveIntensity = 1.5 + Math.sin(Date.now() * 0.005) * 0.5; // Pulse
+            }
+
+            if (activeCount === 0) {
+                // Done
+                document.getElementById('integrity-display').innerText = "110% (REINFORCED)";
+                document.getElementById('integrity-display').style.color = CONFIG.colors.healing; // Orange string
+                document.getElementById('status-message').innerText = "IRON-SCAB FORMED";
+                document.getElementById('integrity-display').style.color = "#ff9d00";
+            }
+        }
+
+        // --- Interaction Handlers ---
+
+        document.getElementById('btn-impact').addEventListener('click', () => {
+            if (state.isImpacted) return;
+            state.isImpacted = true;
+            document.getElementById('btn-impact').disabled = true;
+        });
+
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            // Reset State
+            state.isImpacted = false;
+            state.isHealing = false;
+            document.getElementById('btn-impact').disabled = false;
+            document.getElementById('integrity-display').innerText = "100%";
+            document.getElementById('integrity-display').style.color = "#e0e0e0";
+            document.getElementById('status-message').innerText = "SYSTEM READY";
+
+            // Reset Objects
+            impactor.position.set(0, 3, 0);
+            crack.visible = false;
+            crack.material.color.setHex(0x111111);
+            crack.material.emissive.setHex(0x000000);
+            crack.material.emissiveIntensity = 0;
+
+            particles.visible = false;
+            
+            // Reset Capsules
+            capsules.forEach(c => {
+                c.position.copy(c.userData.originalPos);
+                c.scale.set(1,1,1);
+                c.material.opacity = 0.9;
+                c.userData.isRuptured = false;
+            });
+        });
+
+        document.getElementById('btn-xray').addEventListener('click', () => {
+            state.isXray = !state.isXray;
+            if (state.isXray) {
+                block.material.opacity = 0.4;
+                block.material.transparent = true;
+            } else {
+                block.material.opacity = 1.0;
+                block.material.transparent = false;
+            }
+        });
+
+        // Window Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start
+        document.getElementById('loader').style.opacity = 0;
+        setTimeout(() => document.getElementById('loader').remove(), 500);
+        animate();
+
+    </script>
+</body>
+</html>

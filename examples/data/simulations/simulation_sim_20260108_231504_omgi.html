@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visco-Textured Composite Simulator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+
+        /* UI Overlay */
+        .ui-panel {
+            position: absolute;
+            background: rgba(20, 20, 25, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            pointer-events: auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        #info-panel {
+            top: 20px;
+            left: 20px;
+            width: 320px;
+        }
+
+        #controls-panel {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            text-align: center;
+        }
+
+        #legend-panel {
+            top: 20px;
+            right: 20px;
+            width: 200px;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            color: #4cc9f0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 0.9rem;
+            margin: 0 0 15px 0;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        /* Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+            margin: 15px 0;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #4cc9f0;
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #444;
+            border-radius: 2px;
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #4cc9f0;
+            color: #4cc9f0;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            margin: 0 5px;
+        }
+
+        .btn:hover {
+            background: #4cc9f0;
+            color: #000;
+        }
+
+        /* Labels floating in 3D space */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            border-left: 3px solid #4cc9f0;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.8rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+        
+        .annotation.visible {
+            opacity: 1;
+        }
+
+        /* Legend Items */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+        }
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Metrics */
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: #fff;
+        }
+        .metric-bar-bg {
+            width: 60%;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            margin-top: 6px;
+            position: relative;
+        }
+        .metric-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <!-- Info Panel -->
+    <div id="info-panel" class="ui-panel">
+        <h1>Visco-Textured Composite</h1>
+        <h2>The "Dry-Soft" Paradox</h2>
+        <p>This material solves the trade-off between softness and stickiness.</p>
+        <p><strong>1. Softness:</strong> The blue gel base absorbs energy (hysteresis), giving it a premium, fleshy feel.</p>
+        <p><strong>2. Dryness:</strong> The white micro-pillars reduce contact area, preventing the "sticky" feeling usually associated with soft gels.</p>
+        <div style="margin-top: 15px; border-top: 1px solid #444; padding-top: 10px;">
+            <p style="font-size: 0.75rem; color: #888;">STATUS MONITOR</p>
+            <div class="metric-row">
+                <span>Softness (Compression)</span>
+                <div class="metric-bar-bg"><div id="bar-soft" class="metric-bar-fill" style="width: 0%; background: #4cc9f0;"></div></div>
+            </div>
+            <div class="metric-row">
+                <span>Stickiness (Contact)</span>
+                <div class="metric-bar-bg"><div id="bar-stick" class="metric-bar-fill" style="width: 10%; background: #ff4d4d;"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legend -->
+    <div id="legend-panel" class="ui-panel">
+        <div class="legend-item"><div class="dot" style="background: #ffffff;"></div>Micro-Texture (Dry)</div>
+        <div class="legend-item"><div class="dot" style="background: #00e5ff; opacity: 0.6;"></div>Viscous Gel (Soft)</div>
+        <div class="legend-item"><div class="dot" style="background: #ffaa00;"></div>Applied Force</div>
+        <div class="legend-item"><div class="dot" style="background: #ff4d4d;"></div>Contact Stress</div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls-panel" class="ui-panel">
+        <h2>Interact</h2>
+        <input type="range" id="pressureSlider" min="0" max="1" step="0.01" value="0">
+        <div style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 10px;">
+            <span style="font-size: 0.7rem; color: #888;">NO PRESSURE</span>
+            <span style="font-size: 0.7rem; color: #888;">MAX PRESSURE</span>
+        </div>
+        <div>
+            <button class="btn" id="toggleLabelsBtn">Toggle Labels</button>
+            <button class="btn" id="pulseBtn">Auto-Pulse</button>
+        </div>
+    </div>
+
+    <!-- 3D Labels (Populated by JS) -->
+    <div id="labels-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration ---
+        const config = {
+            gelColor: 0x00e5ff,
+            textureColor: 0xffffff,
+            fingerColor: 0xffaa00,
+            bgColor: 0x1a1a1a,
+            gridSize: 8, // 8x8 grid of pillars
+            pillarHeight: 0.6,
+            gelHeight: 2.0,
+            maxCompression: 0.4 // 40% compression
+        };
+
+        // --- Scene Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(config.bgColor);
+        scene.fog = new THREE.Fog(config.bgColor, 10, 30);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(8, 6, 8);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.minDistance = 5;
+        controls.maxDistance = 20;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const spotLight = new THREE.SpotLight(0x4cc9f0, 1);
+        spotLight.position.set(-5, 5, 0);
+        spotLight.lookAt(0, 0, 0);
+        scene.add(spotLight);
+
+        // --- Objects ---
+
+        // 1. Viscous Gel Layer (The Base)
+        const gelGeometry = new THREE.BoxGeometry(6, config.gelHeight, 6, 32, 1, 32);
+        // Shift geometry so origin is at the bottom
+        gelGeometry.translate(0, config.gelHeight / 2, 0);
+        
+        const gelMaterial = new THREE.MeshPhysicalMaterial({
+            color: config.gelColor,
+            transmission: 0.6, // Glass-like
+            opacity: 0.9,
+            transparent: true,
+            roughness: 0.2,
+            metalness: 0.1,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1
+        });
+        const gelMesh = new THREE.Mesh(gelGeometry, gelMaterial);
+        gelMesh.castShadow = true;
+        gelMesh.receiveShadow = true;
+        scene.add(gelMesh);
+
+        // 2. Micro-Texture Layer (The Pillars)
+        const textureGroup = new THREE.Group();
+        const pillarGeo = new THREE.CylinderGeometry(0.08, 0.08, config.pillarHeight, 16);
+        pillarGeo.translate(0, config.pillarHeight / 2, 0);
+        
+        // "Re-entrant" Cap (Mushroom head)
+        const capGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.05, 16);
+        capGeo.translate(0, config.pillarHeight, 0); // Sit on top
+
+        const textureMat = new THREE.MeshStandardMaterial({
+            color: config.textureColor,
+            roughness: 0.8, // Matte finish (Dry feel)
+            metalness: 0.1
+        });
+
+        // Create Grid of Pillars
+        const offset = 2.5;
+        const spacing = 5.0 / (config.gridSize - 1);
+
+        for(let x = 0; x < config.gridSize; x++) {
+            for(let z = 0; z < config.gridSize; z++) {
+                const pillar = new THREE.Mesh(pillarGeo, textureMat);
+                const cap = new THREE.Mesh(capGeo, textureMat);
+                
+                const posX = -2.5 + (x * spacing);
+                const posZ = -2.5 + (z * spacing);
+
+                pillar.position.set(posX, 0, posZ);
+                cap.position.set(posX, 0, posZ);
+
+                pillar.castShadow = true;
+                cap.castShadow = true;
+
+                textureGroup.add(pillar);
+                textureGroup.add(cap);
+            }
+        }
+        // Position texture group on top of gel
+        textureGroup.position.y = config.gelHeight;
+        scene.add(textureGroup);
+
+        // 3. The "Finger" (Interaction Probe)
+        const fingerGeo = new THREE.SphereGeometry(2, 32, 32);
+        const fingerMat = new THREE.MeshStandardMaterial({
+            color: config.fingerColor,
+            roughness: 0.5,
+            metalness: 0.0
+        });
+        const finger = new THREE.Mesh(fingerGeo, fingerMat);
+        finger.position.set(0, 4.5, 0); // Start high
+        finger.castShadow = true;
+        scene.add(finger);
+
+        // 4. Base Plate (Context)
+        const baseGeo = new THREE.CylinderGeometry(5, 5, 0.2, 64);
+        const baseMat = new THREE.MeshStandardMaterial({ color: 0x333333, roughness: 0.5 });
+        const base = new THREE.Mesh(baseGeo, baseMat);
+        base.position.y = -0.1;
+        base.receiveShadow = true;
+        scene.add(base);
+
+        // --- Label System ---
+        const labels = [
+            { text: "Re-entrant Texture (Dry)", obj: textureGroup, yOffset: 0.5 },
+            { text: "Viscous Gel (Shock Absorb)", obj: gelMesh, yOffset: config.gelHeight / 2 },
+            { text: "Oleophobic Coating", obj: textureGroup, yOffset: 0.8, xOffset: 1.5 }
+        ];
+
+        const labelContainer = document.getElementById('labels-container');
+        const labelElements = [];
+
+        labels.forEach(l => {
+            const div = document.createElement('div');
+            div.className = 'annotation visible';
+            div.textContent = l.text;
+            labelContainer.appendChild(div);
+            labelElements.push({ div, data: l });
+        });
+
+        // --- Animation Logic ---
+        let targetPressure = 0;
+        let currentPressure = 0;
+        let isAutoPulsing = false;
+        let time = 0;
+
+        const slider = document.getElementById('pressureSlider');
+        const barSoft = document.getElementById('bar-soft');
+        const barStick = document.getElementById('bar-stick');
+
+        slider.addEventListener('input', (e) => {
+            targetPressure = parseFloat(e.target.value);
+            isAutoPulsing = false;
+        });
+
+        document.getElementById('pulseBtn').addEventListener('click', () => {
+            isAutoPulsing = !isAutoPulsing;
+        });
+
+        document.getElementById('toggleLabelsBtn').addEventListener('click', () => {
+            labelElements.forEach(l => l.div.classList.toggle('visible'));
+        });
+
+        function updatePhysics() {
+            // Auto Pulse Logic
+            if (isAutoPulsing) {
+                time += 0.05;
+                targetPressure = (Math.sin(time) + 1) / 2;
+                slider.value = targetPressure;
+            }
+
+            // Hysteresis Simulation:
+            // Compression is fast, release is slow (viscous nature)
+            if (targetPressure > currentPressure) {
+                currentPressure += (targetPressure - currentPressure) * 0.2; // Fast press
+            } else {
+                currentPressure += (targetPressure - currentPressure) * 0.05; // Slow release (Damping)
+            }
+
+            // 1. Deform Gel
+            // Scale Y down, Scale X/Z up (Poisson effect conservation of volume roughly)
+            const compressionFactor = 1 - (currentPressure * config.maxCompression);
+            const bulgeFactor = 1 + (currentPressure * config.maxCompression * 0.3); // Slight bulge
+            
+            gelMesh.scale.set(bulgeFactor, compressionFactor, bulgeFactor);
+            
+            // 2. Move Texture Layer
+            // It sits on top of the compressed gel
+            const newGelHeight = config.gelHeight * compressionFactor;
+            textureGroup.position.y = newGelHeight;
+            
+            // Spread texture slightly with bulge
+            textureGroup.scale.set(bulgeFactor, 1, bulgeFactor);
+
+            // 3. Move Finger
+            // Finger touches the top of the texture pillars
+            const textureTop = newGelHeight + config.pillarHeight;
+            finger.position.y = textureTop + 2.0 - (currentPressure * 0.1); // Slight penetration visual
+
+            // 4. Visual Feedback (Stress)
+            // Change Gel color based on pressure to show energy absorption
+            const stressColor = new THREE.Color(config.gelColor).lerp(new THREE.Color(0x0055ff), currentPressure);
+            gelMaterial.color = stressColor;
+
+            // 5. Update UI Metrics
+            barSoft.style.width = `${currentPressure * 100}%`;
+            // Stickiness stays low because of texture, but increases slightly with extreme pressure
+            // This visualizes the benefit: High Softness, Low Stickiness
+            const stickiness = 10 + (currentPressure * 15); 
+            barStick.style.width = `${stickiness}%`;
+        }
+
+        function updateLabels() {
+            labelElements.forEach(item => {
+                const pos = new THREE.Vector3();
+                // Get position based on object
+                if (item.data.obj === textureGroup) {
+                    pos.set(item.data.xOffset || 0, item.data.yOffset, 0);
+                    pos.applyMatrix4(textureGroup.matrixWorld);
+                } else {
+                    pos.set(0, item.data.yOffset, 0);
+                    pos.applyMatrix4(item.data.obj.matrixWorld);
+                }
+
+                pos.project(camera);
+
+                const x = (pos.x * .5 + .5) * container.clientWidth;
+                const y = (pos.y * -.5 + .5) * container.clientHeight;
+
+                // Hide if behind camera or too far
+                if (pos.z > 1 || Math.abs(pos.x) > 1.1 || Math.abs(pos.y) > 1.1) {
+                    item.div.style.opacity = 0;
+                } else {
+                    if (item.div.classList.contains('visible')) item.div.style.opacity = 1;
+                    item.div.style.left = `${x}px`;
+                    item.div.style.top = `${y}px`;
+                }
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            updatePhysics();
+            updateLabels();
+            renderer.render(scene, camera);
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start
+        animate();
+
+    </script>
+</body>
+</html>

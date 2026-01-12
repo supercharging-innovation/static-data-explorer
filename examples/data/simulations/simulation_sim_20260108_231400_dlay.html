@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microgel-Reinforced Network Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050510; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            pointer-events: none; /* Let clicks pass through to canvas where needed */
+            z-index: 10;
+        }
+
+        .panel {
+            background: rgba(20, 25, 40, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            pointer-events: auto;
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; color: #4fc3f7; letter-spacing: 1px; }
+        h2 { margin: 0 0 5px 0; font-size: 0.9rem; color: #aaa; text-transform: uppercase; }
+        p { font-size: 0.85rem; line-height: 1.4; color: #ddd; margin-bottom: 15px; }
+
+        /* Controls */
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        
+        button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-size: 0.8rem;
+        }
+
+        button:hover { background: rgba(255, 255, 255, 0.2); border-color: white; }
+        button:active { transform: scale(0.98); }
+
+        button.action-cut { background: #e53935; border-color: #ef5350; }
+        button.action-cut:hover { background: #ef5350; }
+        
+        button.action-heal { background: #43a047; border-color: #66bb6a; }
+        button.action-heal:hover { background: #66bb6a; }
+
+        button.toggle-active { background: #0288d1; border-color: #29b6f6; box-shadow: 0 0 10px rgba(41, 182, 246, 0.5); }
+
+        /* Legend */
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 0.8rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        .dot.microgel { background: #00d2ff; box-shadow: 0 0 8px #00d2ff; }
+        .dot.polymer { background: #ff9800; }
+        .dot.bond { background: #ffcc80; height: 2px; width: 15px; border-radius: 0; }
+
+        /* Labels in 3D space */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-left: 3px solid #00d2ff;
+        }
+        .label.visible { opacity: 1; }
+
+        /* Status Bar */
+        #status-bar {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            border: 1px solid #333;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #fff;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+        .status-normal { border-color: #00d2ff; color: #00d2ff; }
+        .status-cut { border-color: #e53935; color: #e53935; }
+        .status-healing { border-color: #43a047; color: #43a047; }
+
+    </style>
+</head>
+<body>
+
+    <!-- UI Overlay -->
+    <div id="ui-container">
+        <div class="panel">
+            <h1>Microgel Network</h1>
+            <p>A hybrid material that heals itself without sagging (creeping) over time.</p>
+            
+            <div class="controls">
+                <button id="btn-cut" class="action-cut">🔪 Cut Material</button>
+                <button id="btn-heal" class="action-heal">❤️ Self-Heal</button>
+            </div>
+            <div class="controls" style="margin-top: 10px;">
+                <button id="btn-gravity">⬇️ Toggle Gravity</button>
+                <button id="btn-anchors" class="toggle-active">⚓ Anchors On</button>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>Composition Legend</h2>
+            <div class="legend-item">
+                <div class="dot microgel"></div>
+                <span><b>Microgel Anchor</b><br>Structural Skeleton (Prevents Sag)</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot polymer"></div>
+                <span><b>Supramolecular Polymer</b><br>Dynamic Matrix (Allows Healing)</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot bond"></div>
+                <span><b>Hydrogen Bond</b><br>Reversible Link</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dynamic Labels -->
+    <div id="label-microgel" class="label">Microgel Core<br>(Fixed Anchor)</div>
+    <div id="label-polymer" class="label">Polymer Chain<br>(Mobile)</div>
+
+    <!-- Status Indicator -->
+    <div id="status-bar" class="status-normal">System Stable</div>
+
+    <!-- Three.js & Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            gridSize: 3, // 3x3x3 grid of microgels
+            spacing: 4,  // Distance between microgels
+            polymersPerLink: 4, // Chains between microgels
+            stiffness: 0.1,
+            damping: 0.9,
+            gravity: -0.05,
+            healDistance: 1.5,
+            cutRadius: 3.5
+        };
+
+        // --- Global Variables ---
+        let scene, camera, renderer, controls;
+        let nodes = []; // All particles (microgels and polymer nodes)
+        let springs = []; // Connections
+        let microgelIndices = []; // Track which nodes are microgels
+        let isGravityOn = false;
+        let areAnchorsActive = true;
+        let isHealing = true;
+        let simulationFrame = 0;
+
+        // UI Elements
+        const statusBar = document.getElementById('status-bar');
+        const labelMicrogel = document.getElementById('label-microgel');
+        const labelPolymer = document.getElementById('label-polymer');
+
+        // --- Initialization ---
+        function init() {
+            // Scene Setup
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x050510);
+            scene.fog = new THREE.FogExp2(0x050510, 0.03);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(0, 0, 18);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            document.body.appendChild(renderer.domElement);
+
+            // Controls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.maxDistance = 40;
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 2);
+            scene.add(ambientLight);
+            
+            const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            const blueLight = new THREE.PointLight(0x00d2ff, 2, 50);
+            blueLight.position.set(-10, -5, 0);
+            scene.add(blueLight);
+
+            // Build the Material Structure
+            buildNetwork();
+
+            // Event Listeners
+            window.addEventListener('resize', onWindowResize, false);
+            setupUI();
+
+            // Start Loop
+            animate();
+        }
+
+        // --- Physics System ---
+
+        class Node {
+            constructor(x, y, z, isMicrogel) {
+                this.pos = new THREE.Vector3(x, y, z);
+                this.originalPos = new THREE.Vector3(x, y, z); // For anchoring
+                this.vel = new THREE.Vector3(0, 0, 0);
+                this.acc = new THREE.Vector3(0, 0, 0);
+                this.isMicrogel = isMicrogel;
+                this.mass = isMicrogel ? 10 : 1;
+                this.radius = isMicrogel ? 0.6 : 0.15;
+                
+                // Visuals
+                const geometry = isMicrogel ? new THREE.IcosahedronGeometry(this.radius, 1) : new THREE.SphereGeometry(this.radius, 8, 8);
+                const material = new THREE.MeshStandardMaterial({
+                    color: isMicrogel ? 0x00d2ff : 0xff9800,
+                    emissive: isMicrogel ? 0x0044aa : 0xaa4400,
+                    emissiveIntensity: 0.5,
+                    roughness: 0.4,
+                    metalness: 0.6
+                });
+                
+                this.mesh = new THREE.Mesh(geometry, material);
+                this.mesh.position.copy(this.pos);
+                scene.add(this.mesh);
+
+                // Add glow sprite for microgels
+                if(isMicrogel) {
+                    const spriteMat = new THREE.SpriteMaterial({ 
+                        map: createGlowTexture(), 
+                        color: 0x00d2ff, 
+                        transparent: true, 
+                        opacity: 0.6,
+                        blending: THREE.AdditiveBlending
+                    });
+                    const sprite = new THREE.Sprite(spriteMat);
+                    sprite.scale.set(3, 3, 3);
+                    this.mesh.add(sprite);
+                }
+            }
+
+            updatePhysics() {
+                // Apply Gravity if enabled
+                if (isGravityOn) {
+                    this.acc.y += CONFIG.gravity;
+                }
+
+                // Microgel Anchor Logic
+                if (this.isMicrogel && areAnchorsActive) {
+                    // Strong spring force returning to original position (The "Skeleton")
+                    const force = new THREE.Vector3().subVectors(this.originalPos, this.pos).multiplyScalar(0.2);
+                    this.acc.add(force);
+                    this.vel.multiplyScalar(0.8); // High friction for anchors
+                }
+
+                // Integration (Euler)
+                this.vel.add(this.acc);
+                this.vel.multiplyScalar(CONFIG.damping); // Friction
+                this.pos.add(this.vel);
+                
+                // Reset Acc
+                this.acc.set(0, 0, 0);
+
+                // Update Visuals
+                this.mesh.position.copy(this.pos);
+            }
+        }
+
+        class Spring {
+            constructor(nodeA, nodeB) {
+                this.a = nodeA;
+                this.b = nodeB;
+                this.restLength = nodeA.pos.distanceTo(nodeB.pos);
+                this.strength = CONFIG.stiffness;
+                this.active = true;
+            }
+
+            update() {
+                if (!this.active) return;
+
+                const delta = new THREE.Vector3().subVectors(this.b.pos, this.a.pos);
+                const dist = delta.length();
+                
+                if (dist === 0) return; // Avoid divide by zero
+
+                // Hooke's Law
+                const stretch = dist - this.restLength;
+                const forceMag = stretch * this.strength;
+                
+                const force = delta.normalize().multiplyScalar(forceMag);
+
+                // Apply forces (Newtons 3rd law)
+                // F = ma -> a = F/m
+                this.a.acc.add(force.clone().multiplyScalar(1/this.a.mass));
+                this.b.acc.sub(force.clone().multiplyScalar(1/this.b.mass));
+            }
+        }
+
+        // --- Network Builder ---
+
+        function buildNetwork() {
+            // Create Microgel Grid
+            const offset = (CONFIG.gridSize - 1) * CONFIG.spacing / 2;
+            
+            // 1. Create Nodes
+            for (let x = 0; x < CONFIG.gridSize; x++) {
+                for (let y = 0; y < CONFIG.gridSize; y++) {
+                    for (let z = 0; z < CONFIG.gridSize; z++) {
+                        const px = x * CONFIG.spacing - offset;
+                        const py = y * CONFIG.spacing - offset;
+                        const pz = z * CONFIG.spacing - offset;
+                        
+                        const node = new Node(px, py, pz, true); // Is Microgel
+                        nodes.push(node);
+                        microgelIndices.push(nodes.length - 1);
+                    }
+                }
+            }
+
+            // 2. Create Polymer Chains between neighbors
+            // We connect microgels with a chain of smaller nodes
+            const connections = [];
+            
+            // Helper to check if connected
+            const isConnected = (i, j) => connections.some(c => (c[0]===i && c[1]===j) || (c[0]===j && c[1]===i));
+
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dist = nodes[i].pos.distanceTo(nodes[j].pos);
+                    // Connect immediate neighbors in grid (approx distance is spacing)
+                    if (dist < CONFIG.spacing * 1.1 && !isConnected(i, j)) {
+                        createPolymerChain(nodes[i], nodes[j]);
+                        connections.push([i, j]);
+                    }
+                }
+            }
+
+            // 3. Create Line Geometry for rendering bonds
+            updateLines();
+        }
+
+        function createPolymerChain(microgelA, microgelB) {
+            const steps = CONFIG.polymersPerLink;
+            let prevNode = microgelA;
+            
+            const direction = new THREE.Vector3().subVectors(microgelB.pos, microgelA.pos);
+            const stepVec = direction.divideScalar(steps + 1);
+
+            for (let k = 1; k <= steps; k++) {
+                const pos = new THREE.Vector3().copy(microgelA.pos).add(stepVec.clone().multiplyScalar(k));
+                // Add jitter for organic look
+                pos.add(new THREE.Vector3((Math.random()-0.5), (Math.random()-0.5), (Math.random()-0.5)));
+                
+                const pNode = new Node(pos.x, pos.y, pos.z, false);
+                nodes.push(pNode);
+                
+                springs.push(new Spring(prevNode, pNode));
+                prevNode = pNode;
+            }
+            // Connect last polymer node to destination microgel
+            springs.push(new Spring(prevNode, microgelB));
+        }
+
+        // --- Simulation Logic ---
+
+        function updateSimulation() {
+            // 1. Physics
+            springs.forEach(s => s.update());
+            nodes.forEach(n => n.updatePhysics());
+
+            // 2. Self-Healing Logic (if active)
+            if (isHealing && simulationFrame % 10 === 0) {
+                performHealing();
+            }
+
+            // 3. Update Lines
+            updateLines();
+
+            // 4. Update Labels
+            updateLabels();
+
+            simulationFrame++;
+        }
+
+        function performHealing() {
+            // Find broken ends (nodes with < 2 springs roughly)
+            // Simpler approach: Iterate all polymer nodes. If they are close to another node 
+            // and not connected, and the original structure implies they should be, connect them.
+            // For this sim: We will just look for "loose" nodes near each other.
+            
+            // Optimization: Only check nodes near the center where we cut
+            const center = new THREE.Vector3(0,0,0);
+            
+            for (let i = 0; i < nodes.length; i++) {
+                if (nodes[i].isMicrogel) continue; // Microgels don't bond to each other directly here
+                
+                // Only check nodes near center to save perf
+                if (nodes[i].pos.distanceTo(center) > CONFIG.cutRadius + 2) continue;
+
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if (nodes[j].isMicrogel) continue;
+
+                    const dist = nodes[i].pos.distanceTo(nodes[j].pos);
+                    
+                    if (dist < CONFIG.healDistance) {
+                        // Check if already connected
+                        const alreadyLinked = springs.some(s => 
+                            (s.a === nodes[i] && s.b === nodes[j]) || 
+                            (s.a === nodes[j] && s.b === nodes[i])
+                        );
+
+                        if (!alreadyLinked) {
+                            // Create new bond (Heal)
+                            const newSpring = new Spring(nodes[i], nodes[j]);
+                            // Make it a bit weak initially then stiffen? No, just standard.
+                            springs.push(newSpring);
+                            
+                            // Visual feedback?
+                            // (Could add a particle flash here)
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Visuals Management ---
+
+        let lineGeometry, lineMesh;
+
+        function updateLines() {
+            if (lineMesh) scene.remove(lineMesh);
+
+            const points = [];
+            const colors = [];
+            const colorBond = new THREE.Color(0xffcc80);
+            const colorStress = new THREE.Color(0xff0000);
+
+            springs.forEach(s => {
+                if (!s.active) return;
+                points.push(s.a.pos.clone(), s.b.pos.clone());
+                
+                // Color based on stretch (stress)
+                const currentLen = s.a.pos.distanceTo(s.b.pos);
+                const strain = Math.abs(currentLen - s.restLength) / s.restLength;
+                
+                if (strain > 0.5) {
+                    colors.push(colorStress.r, colorStress.g, colorStress.b);
+                    colors.push(colorStress.r, colorStress.g, colorStress.b);
+                } else {
+                    colors.push(colorBond.r, colorBond.g, colorBond.b);
+                    colors.push(colorBond.r, colorBond.g, colorBond.b);
+                }
+            });
+
+            lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+            lineGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            
+            const material = new THREE.LineBasicMaterial({ 
+                vertexColors: true, 
+                transparent: true, 
+                opacity: 0.6,
+                linewidth: 2 
+            });
+            
+            lineMesh = new THREE.LineSegments(lineGeometry, material);
+            scene.add(lineMesh);
+        }
+
+        function createGlowTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 32;
+            canvas.height = 32;
+            const context = canvas.getContext('2d');
+            const gradient = context.createRadialGradient(16, 16, 0, 16, 16, 16);
+            gradient.addColorStop(0, 'rgba(255,255,255,1)');
+            gradient.addColorStop(0.2, 'rgba(0,210,255,1)');
+            gradient.addColorStop(0.5, 'rgba(0,210,255,0.2)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, 32, 32);
+            return new THREE.CanvasTexture(canvas);
+        }
+
+        function updateLabels() {
+            // Project 3D positions to 2D screen space
+            const updateLabelPos = (obj, label) => {
+                if(!obj) return;
+                const tempV = obj.pos.clone();
+                tempV.project(camera);
+                
+                const x = (tempV.x * .5 + .5) * window.innerWidth;
+                const y = (-(tempV.y * .5) + .5) * window.innerHeight;
+
+                // Only show if in front of camera and central
+                if (tempV.z < 1 && Math.abs(tempV.x) < 0.9 && Math.abs(tempV.y) < 0.9) {
+                    label.style.transform = `translate(-50%, -50%) translate(${x}px, ${y-40}px)`;
+                    label.classList.add('visible');
+                } else {
+                    label.classList.remove('visible');
+                }
+            };
+
+            // Find a representative microgel (center one)
+            const centerIdx = Math.floor(nodes.length / 2); // Approximate
+            // Find actual center microgel
+            const centerMicrogel = nodes.find(n => n.isMicrogel && n.pos.distanceTo(new THREE.Vector3(0,0,0)) < 2);
+            updateLabelPos(centerMicrogel, labelMicrogel);
+
+            // Find a representative polymer node
+            const polymerNode = nodes.find(n => !n.isMicrogel && n.pos.distanceTo(new THREE.Vector3(2,2,2)) < 2);
+            updateLabelPos(polymerNode, labelPolymer);
+        }
+
+        // --- Interaction Functions ---
+
+        function cutMaterial() {
+            const cutCenter = new THREE.Vector3(0, 0, 0);
+            let cutCount = 0;
+            
+            // Remove springs near center
+            springs = springs.filter(s => {
+                const midPoint = new THREE.Vector3().addVectors(s.a.pos, s.b.pos).multiplyScalar(0.5);
+                if (midPoint.distanceTo(cutCenter) < CONFIG.cutRadius) {
+                    // Push nodes apart for visual effect
+                    const pushDir = midPoint.clone().normalize().multiplyScalar(0.5);
+                    s.a.vel.add(pushDir.clone().negate());
+                    s.b.vel.add(pushDir);
+                    cutCount++;
+                    return false; // Remove spring
+                }
+                return true;
+            });
+
+            updateStatus("Material Cut! Bonds Broken.", "status-cut");
+            
+            // Temporarily disable healing to show the damage
+            isHealing = false;
+            setTimeout(() => {
+                if(cutCount > 0) updateStatus("Healing Enabled...", "status-healing");
+                isHealing = true;
+            }, 2000);
+        }
+
+        function triggerHeal() {
+            isHealing = true;
+            updateStatus("Accelerating Healing Process...", "status-healing");
+            // Pull loose nodes towards center slightly to help healing
+            nodes.forEach(n => {
+                if (!n.isMicrogel && n.pos.distanceTo(new THREE.Vector3(0,0,0)) < CONFIG.cutRadius * 1.5) {
+                    n.vel.multiplyScalar(0.1); // Stop movement
+                    n.pos.lerp(n.originalPos, 0.1); // Move towards original state
+                }
+            });
+        }
+
+        function toggleGravity() {
+            isGravityOn = !isGravityOn;
+            const btn = document.getElementById('btn-gravity');
+            if (isGravityOn) {
+                btn.classList.add('toggle-active');
+                btn.innerHTML = "⬆️ Gravity ON (Sag Test)";
+                updateStatus("Gravity Applied. Testing Creep Resistance.", "status-normal");
+            } else {
+                btn.classList.remove('toggle-active');
+                btn.innerHTML = "⬇️ Toggle Gravity";
+                // Reset positions slowly? No, physics will handle it if anchors are on.
+                updateStatus("Gravity Removed.", "status-normal");
+            }
+        }
+
+        function toggleAnchors() {
+            areAnchorsActive = !areAnchorsActive;
+            const btn = document.getElementById('btn-anchors');
+            if (areAnchorsActive) {
+                btn.classList.add('toggle-active');
+                btn.innerHTML = "⚓ Anchors On";
+                updateStatus("Microgel Anchors Active. Structure Stabilized.", "status-normal");
+            } else {
+                btn.classList.remove('toggle-active');
+                btn.innerHTML = "⚓ Anchors Off";
+                updateStatus("Anchors Disabled. Structure susceptible to flow.", "status-cut");
+            }
+        }
+
+        function updateStatus(text, className) {
+            statusBar.innerText = text;
+            statusBar.className = "";
+            statusBar.classList.add(className);
+        }
+
+        function setupUI() {
+            document.getElementById('btn-cut').addEventListener('click', cutMaterial);
+            document.getElementById('btn-heal').addEventListener('click', triggerHeal);
+            document.getElementById('btn-gravity').addEventListener('click', toggleGravity);
+            document.getElementById('btn-anchors').addEventListener('click', toggleAnchors);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            updateSimulation();
+            renderer.render(scene, camera);
+        }
+
+        // Start
+        init();
+
+    </script>
+</body>
+</html>

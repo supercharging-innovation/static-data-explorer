@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitrimer-Brush Eco-Skin Simulator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #050a14;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            text-shadow: 0 0 10px #00d2ff;
+        }
+
+        h1 {
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #aab;
+            margin-top: 5px;
+        }
+
+        /* Controls Panel */
+        .controls {
+            pointer-events: auto;
+            background: rgba(16, 24, 45, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #00d2ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00d2ff 0%, #ff4d00 100%);
+            border-radius: 2px;
+        }
+
+        .temp-readout {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .temp-cold { color: #00d2ff; }
+        .temp-hot { color: #ff4d00; }
+
+        /* Buttons */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffffff;
+        }
+
+        button.damage-btn {
+            background: linear-gradient(45deg, #ff4d4d, #990000);
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+            border: none;
+        }
+
+        button.damage-btn:hover {
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.6);
+            transform: scale(1.02);
+        }
+
+        /* Info Panel */
+        .info-panel {
+            pointer-events: auto;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 280px;
+            background: rgba(16, 24, 45, 0.9);
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .info-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00d2ff;
+            margin-right: 8px;
+            box-shadow: 0 0 8px #00d2ff;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        /* Tooltip style annotations */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+    </style>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+        <div class="header">
+            <h1>Vitrimer-Brush Eco-Skin</h1>
+            <div class="subtitle">Self-Healing Recyclable Material Simulator</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+            <!-- Left Controls -->
+            <div class="controls">
+                <div class="control-group">
+                    <label>Temperature Control</label>
+                    <input type="range" id="tempSlider" min="0" max="100" value="0">
+                    <div class="temp-readout">
+                        <span class="temp-cold">SERVICE TEMP (25°C)</span>
+                        <span class="temp-hot">RECYCLE TEMP (150°C)</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Stress Test</label>
+                    <button id="damageBtn" class="damage-btn">CUT MATERIAL</button>
+                    <div style="margin-top: 10px; font-size: 0.8rem; color: #aaa; text-align: center;">
+                        (Click to damage, then raise heat to heal)
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Visualization</label>
+                    <button id="toggleParticles">Toggle Chemical Attack</button>
+                </div>
+            </div>
+
+            <!-- Right Info Panel -->
+            <div class="info-panel">
+                <div class="info-title">
+                    <span id="statusDot" class="status-indicator"></span>
+                    <span id="statusText">Stable Network</span>
+                </div>
+                <p id="explanationText">
+                    At service temperature, <strong>Vitrimer bonds</strong> are locked. The material acts like a tough, chemically resistant thermoset rubber.
+                </p>
+                <hr style="border-color: rgba(255,255,255,0.1);">
+                <div style="font-family: 'Rajdhani'; font-weight: bold; margin-bottom: 5px;">LEGEND</div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #ffffff; box-shadow: 0 0 5px white;"></div> Polymer Chain Node
+                </div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #00d2ff; box-shadow: 0 0 5px #00d2ff;"></div> Dynamic Bond (Locked)
+                </div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #ff4d00; box-shadow: 0 0 5px #ff4d00;"></div> Dynamic Bond (Flowing)
+                </div>
+                <div class="legend-item">
+                    <div class="dot" style="background: #00ff00;"></div> Chemical Particle
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Annotations in 3D space -->
+    <div id="label-bond" class="annotation">Dynamic Bond</div>
+    <div id="label-polymer" class="annotation">Polymer Chain</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            gridSize: 6,
+            spacing: 2.5,
+            bondDistance: 3.5,
+            nodeRadius: 0.3,
+            bondRadius: 0.08,
+            colors: {
+                cold: new THREE.Color(0x00d2ff),
+                hot: new THREE.Color(0xff4d00),
+                node: new THREE.Color(0xffffff),
+                particle: new THREE.Color(0x00ff00)
+            }
+        };
+
+        // --- State ---
+        let state = {
+            temperature: 0, // 0 to 1
+            damaged: false,
+            particlesEnabled: true
+        };
+
+        // --- Three.js Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x050a14, 0.03);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(20, 15, 20);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = 0.5;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(10, 20, 10);
+        scene.add(dirLight);
+
+        const pointLight = new THREE.PointLight(0x00d2ff, 1, 50);
+        pointLight.position.set(0, 5, 0);
+        scene.add(pointLight);
+
+        // --- Material System ---
+        
+        // Node Material (Polymers)
+        const nodeMaterial = new THREE.MeshPhysicalMaterial({
+            color: CONFIG.colors.node,
+            metalness: 0.5,
+            roughness: 0.2,
+            clearcoat: 1.0
+        });
+
+        // Bond Material (Dynamic Vitrimers)
+        const bondMaterial = new THREE.MeshBasicMaterial({
+            color: CONFIG.colors.cold,
+            transparent: true,
+            opacity: 0.6
+        });
+
+        // Particles Material (Chemicals)
+        const particleMaterial = new THREE.MeshBasicMaterial({
+            color: CONFIG.colors.particle
+        });
+
+        // --- Objects ---
+        const nodes = [];
+        const bonds = [];
+        const particles = [];
+        const nodeGroup = new THREE.Group();
+        const bondGroup = new THREE.Group();
+        const particleGroup = new THREE.Group();
+        scene.add(nodeGroup);
+        scene.add(bondGroup);
+        scene.add(particleGroup);
+
+        // Geometry Reuse
+        const nodeGeo = new THREE.SphereGeometry(CONFIG.nodeRadius, 16, 16);
+        const bondGeo = new THREE.CylinderGeometry(CONFIG.bondRadius, CONFIG.bondRadius, 1, 8);
+        bondGeo.rotateX(Math.PI / 2); // Orient along Z initially
+
+        // --- Initialization Functions ---
+
+        function createNetwork() {
+            // Create Grid of Nodes
+            const offset = (CONFIG.gridSize * CONFIG.spacing) / 2;
+            
+            for (let x = 0; x < CONFIG.gridSize; x++) {
+                for (let y = 0; y < CONFIG.gridSize/2; y++) { // Flatter sheet
+                    for (let z = 0; z < CONFIG.gridSize; z++) {
+                        
+                        // Initial Position
+                        const px = x * CONFIG.spacing - offset;
+                        const py = y * CONFIG.spacing - offset/2;
+                        const pz = z * CONFIG.spacing - offset;
+
+                        // Add some randomness to look organic
+                        const jitter = 0.5;
+                        const finalX = px + (Math.random() - 0.5) * jitter;
+                        const finalY = py + (Math.random() - 0.5) * jitter;
+                        const finalZ = pz + (Math.random() - 0.5) * jitter;
+
+                        const mesh = new THREE.Mesh(nodeGeo, nodeMaterial);
+                        mesh.position.set(finalX, finalY, finalZ);
+                        
+                        // Store simulation data
+                        mesh.userData = {
+                            id: nodes.length,
+                            basePos: new THREE.Vector3(finalX, finalY, finalZ), // Memory of original shape
+                            velocity: new THREE.Vector3(0, 0, 0),
+                            force: new THREE.Vector3(0, 0, 0),
+                            isCut: false
+                        };
+
+                        nodeGroup.add(mesh);
+                        nodes.push(mesh);
+                    }
+                }
+            }
+
+            // Create Bonds based on distance
+            updateBonds(true);
+        }
+
+        function createParticles() {
+            for(let i=0; i<50; i++) {
+                const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 8), particleMaterial);
+                resetParticle(mesh);
+                particleGroup.add(mesh);
+                particles.push(mesh);
+            }
+        }
+
+        function resetParticle(mesh) {
+            // Spawn above the material
+            mesh.position.set(
+                (Math.random() - 0.5) * 20,
+                10 + Math.random() * 5,
+                (Math.random() - 0.5) * 20
+            );
+            mesh.userData.velocity = new THREE.Vector3(0, -0.1 - Math.random() * 0.2, 0);
+        }
+
+        // --- Simulation Logic ---
+
+        function inflictDamage() {
+            if (state.damaged) return; // Already damaged
+            state.damaged = true;
+
+            // Define a cut zone (center of material)
+            const cutRadius = 6;
+            
+            nodes.forEach(node => {
+                const dist = node.position.distanceTo(new THREE.Vector3(0, 0, 0));
+                if (dist < cutRadius) {
+                    // Push nodes away from center to create a hole
+                    const pushDir = node.position.clone().normalize();
+                    // Modify basePos so they "want" to stay apart until heated
+                    // But in this logic, we'll just push them and let the heat-based restoration handle the "healing"
+                    
+                    // Actually, to simulate damage that stays, we need to alter their current position
+                    // and rely on temperature to trigger the return to 'basePos'
+                    node.position.add(pushDir.multiplyScalar(4));
+                    node.userData.isCut = true;
+                }
+            });
+
+            updateUI();
+        }
+
+        function updateBonds(forceRebuild = false) {
+            // Simple distance-based bonding visualization
+            // In a real physics engine, we'd use spring constraints. 
+            // Here we just draw lines between close neighbors.
+
+            if (forceRebuild) {
+                // Clear existing bonds
+                while(bondGroup.children.length > 0){ 
+                    bondGroup.remove(bondGroup.children[0]); 
+                }
+                bonds.length = 0;
+            }
+
+            // This is computationally expensive O(N^2), but N is small (~100)
+            let bondIndex = 0;
+            
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dist = nodes[i].position.distanceTo(nodes[j].position);
+                    
+                    // Logic: 
+                    // Cold: Bonds break if stretched too far (brittle failure - though we simulate rubber here)
+                    // Hot: Bonds can stretch further (flow)
+                    
+                    const threshold = CONFIG.bondDistance * (1 + state.temperature * 0.5);
+
+                    if (dist < threshold) {
+                        let bondMesh;
+                        
+                        // Reuse or create bond mesh
+                        if (bondIndex < bonds.length) {
+                            bondMesh = bonds[bondIndex];
+                            bondMesh.visible = true;
+                        } else {
+                            bondMesh = new THREE.Mesh(bondGeo, bondMaterial.clone()); // Clone mat for individual color updates if needed
+                            bondGroup.add(bondMesh);
+                            bonds.push(bondMesh);
+                        }
+
+                        // Orient and position cylinder
+                        const start = nodes[i].position;
+                        const end = nodes[j].position;
+                        const mid = new THREE.Vector3().addVectors(start, end).multiplyScalar(0.5);
+                        
+                        bondMesh.position.copy(mid);
+                        bondMesh.lookAt(end);
+                        const scale = dist;
+                        bondMesh.scale.set(1, 1, scale);
+                        
+                        // Color based on stress/temp
+                        const t = state.temperature;
+                        bondMesh.material.color.lerpColors(CONFIG.colors.cold, CONFIG.colors.hot, t);
+                        
+                        // Jitter effect for high temp (bond exchange visual)
+                        if (t > 0.8 && Math.random() > 0.9) {
+                            bondMesh.visible = false; // Flicker to simulate breaking/forming
+                        }
+
+                        bondIndex++;
+                    }
+                }
+            }
+
+            // Hide unused bonds
+            for (let k = bondIndex; k < bonds.length; k++) {
+                bonds[k].visible = false;
+            }
+        }
+
+        function updateNodes() {
+            const tempFactor = state.temperature; // 0 to 1
+            
+            nodes.forEach(node => {
+                // 1. Brownian Motion (Heat Vibration)
+                if (tempFactor > 0) {
+                    const jitter = 0.05 * tempFactor;
+                    node.position.x += (Math.random() - 0.5) * jitter;
+                    node.position.y += (Math.random() - 0.5) * jitter;
+                    node.position.z += (Math.random() - 0.5) * jitter;
+                }
+
+                // 2. Shape Memory / Self-Healing Force
+                // If hot, nodes try to return to basePos (The "Brush" part of Vitrimer-Brush usually implies shape memory or ordering)
+                if (tempFactor > 0.5) {
+                    const dir = new THREE.Vector3().subVectors(node.userData.basePos, node.position);
+                    // The hotter it is, the faster it heals/flows back
+                    const healSpeed = 0.05 * tempFactor;
+                    node.position.add(dir.multiplyScalar(healSpeed));
+                }
+            });
+
+            // Check if healed
+            if (state.damaged && tempFactor > 0.8) {
+                // Simple check: are nodes close to base?
+                let totalDisp = 0;
+                nodes.forEach(n => {
+                    totalDisp += n.position.distanceTo(n.userData.basePos);
+                });
+                
+                if (totalDisp < 5) {
+                    state.damaged = false;
+                    updateUI();
+                }
+            }
+        }
+
+        function updateParticles() {
+            if (!state.particlesEnabled) {
+                particleGroup.visible = false;
+                return;
+            }
+            particleGroup.visible = true;
+
+            particles.forEach(p => {
+                p.position.add(p.userData.velocity);
+
+                // Collision with nodes (simplified shield)
+                let hit = false;
+                // Check if particle is inside the bounding box of the material
+                if (p.position.y < 2 && p.position.y > -2) {
+                     // Simple distance check against a few representative nodes to save CPU
+                     for(let n of nodes) {
+                         if (p.position.distanceTo(n.position) < 1.5) {
+                             hit = true;
+                             break;
+                         }
+                     }
+                }
+
+                if (hit) {
+                    // Bounce
+                    p.userData.velocity.y *= -0.8;
+                    p.userData.velocity.x += (Math.random()-0.5)*0.1;
+                    p.position.y += 0.5; // Push out
+                } else if (p.position.y < -10) {
+                    // Reset if it falls through (simulation of permeation/failure) or just off screen
+                    resetParticle(p);
+                }
+            });
+        }
+
+        // --- Animation Loop ---
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            controls.update();
+            updateNodes();
+            updateBonds(); // Dynamic bond drawing
+            updateParticles();
+
+            // Light color shift
+            const t = state.temperature;
+            pointLight.color.lerpColors(CONFIG.colors.cold, CONFIG.colors.hot, t);
+
+            renderer.render(scene, camera);
+        }
+
+        // --- UI Interaction ---
+
+        const tempSlider = document.getElementById('tempSlider');
+        const statusDot = document.getElementById('statusDot');
+        const statusText = document.getElementById('statusText');
+        const explainText = document.getElementById('explanationText');
+        const damageBtn = document.getElementById('damageBtn');
+        const togglePartBtn = document.getElementById('toggleParticles');
+
+        function updateUI() {
+            // Status Text
+            if (state.damaged) {
+                statusText.innerText = "Network Damaged (Gap Created)";
+                statusText.style.color = "#ff4d4d";
+                statusDot.style.background = "#ff4d4d";
+                statusDot.style.boxShadow = "0 0 8px #ff4d4d";
+            } else {
+                if (state.temperature < 0.3) {
+                    statusText.innerText = "Service Mode: Locked Network";
+                    statusText.style.color = "#00d2ff";
+                    statusDot.style.background = "#00d2ff";
+                    statusDot.style.boxShadow = "0 0 8px #00d2ff";
+                    explainText.innerHTML = "At <strong>Service Temperature</strong>, bonds are permanent. The material resists chemicals and holds its shape perfectly.";
+                } else if (state.temperature > 0.7) {
+                    statusText.innerText = "Recycle Mode: Dynamic Flow";
+                    statusText.style.color = "#ff4d00";
+                    statusDot.style.background = "#ff4d00";
+                    statusDot.style.boxShadow = "0 0 8px #ff4d00";
+                    explainText.innerHTML = "At <strong>High Temperature</strong>, bonds exchange rapidly. The material flows like a liquid, filling gaps (healing) or allowing reprocessing.";
+                } else {
+                    statusText.innerText = "Transition Phase";
+                    statusText.style.color = "#ffffff";
+                    statusDot.style.background = "#ffffff";
+                    statusDot.style.boxShadow = "0 0 8px #ffffff";
+                    explainText.innerHTML = "As heat increases, the covalent bonds begin to vibrate and unlock, preparing the network for reshaping.";
+                }
+            }
+        }
+
+        tempSlider.addEventListener('input', (e) => {
+            state.temperature = parseFloat(e.target.value) / 100;
+            updateUI();
+        });
+
+        damageBtn.addEventListener('click', () => {
+            inflictDamage();
+            // Stop auto rotation to focus on the damage
+            controls.autoRotate = false;
+        });
+
+        togglePartBtn.addEventListener('click', () => {
+            state.particlesEnabled = !state.particlesEnabled;
+        });
+
+        // Window Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize
+        createNetwork();
+        createParticles();
+        animate();
+
+    </script>
+</body>
+</html>

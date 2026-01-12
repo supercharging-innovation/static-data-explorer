@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structural Softness: Metamaterial Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0f172a; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        canvas { display: block; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            pointer-events: none; /* Let clicks pass through to canvas where possible */
+            user-select: none;
+        }
+        
+        #ui-content {
+            pointer-events: auto; /* Re-enable clicks for controls */
+        }
+
+        h1 { font-size: 18px; margin: 0 0 10px 0; color: #38bdf8; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 13px; line-height: 1.5; color: #94a3b8; margin-bottom: 15px; }
+        
+        .control-group { margin-bottom: 20px; background: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; }
+        label { display: block; font-size: 12px; font-weight: bold; color: #e2e8f0; margin-bottom: 8px; display: flex; justify-content: space-between; }
+        
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #334155;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #38bdf8;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { background: #0ea5e9; }
+
+        .legend { display: flex; align-items: center; margin-top: 8px; font-size: 11px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+        .dot-rigid { background: #64748b; border: 1px solid white; }
+        .dot-stress { background: #f59e0b; box-shadow: 0 0 5px #f59e0b; }
+        
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #38bdf8;
+            opacity: 0;
+            transition: opacity 0.3s;
+            transform: translate(-50%, -100%);
+            margin-top: -10px;
+        }
+
+        #tooltip {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            max-width: 250px;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .btn {
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .btn:hover { background: #7dd3fc; }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            font-size: 10px;
+            margin-top: 5px;
+            color: #38bdf8;
+        }
+
+    </style>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <div id="ui-content">
+            <h1>Concept 50: Structural Softness</h1>
+            <p>This material feels soft not because of chemistry, but because of <strong>geometry</strong>.</p>
+            
+            <div class="control-group">
+                <label>
+                    APPLY PRESSURE
+                    <span id="pressure-val">0%</span>
+                </label>
+                <input type="range" id="pressure-slider" min="0" max="100" value="0">
+                <button class="btn" id="anim-btn">Auto-Press Demo</button>
+            </div>
+
+            <div class="control-group">
+                <label>LEGEND</label>
+                <div class="legend">
+                    <div class="dot dot-rigid"></div>
+                    <span>Rigid Polymer (Rest State)</span>
+                </div>
+                <div class="legend">
+                    <div class="dot dot-stress"></div>
+                    <span>Buckling / Stress (Active)</span>
+                </div>
+            </div>
+            
+            <div style="font-size: 11px; color: #64748b; margin-top: 10px;">
+                <strong style="color:white;">How it works:</strong> Rigid "Chevron" struts are arranged in a lattice. When pressed, they don't squash—they bend and splay. This replicates the feel of foam without the chemical downsides.
+            </div>
+        </div>
+    </div>
+
+    <div id="tooltip">
+        <strong>Status:</strong> <span id="status-text">Material Rigid</span><br>
+        Observe how the hard plastic structure collapses to absorb force.
+    </div>
+
+    <!-- Annotations -->
+    <div id="anno-finger" class="annotation">Finger Force</div>
+    <div id="anno-buckle" class="annotation">Buckling Point</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            gridSize: 8,       // 8x8 grid
+            spacing: 1.5,      // Space between units
+            strutHeight: 2.0,  // Height of the pyramid/chevron
+            strutRadius: 0.08, // Thickness of the plastic
+            baseSpread: 0.8,   // How wide the base is
+            colorRigid: 0x64748b, // Slate grey
+            colorStress: 0xffaa00, // Orange/Gold
+            bgColor: 0x0f172a
+        };
+
+        // --- Scene Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(CONFIG.bgColor);
+        scene.fog = new THREE.Fog(CONFIG.bgColor, 10, 50);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(12, 12, 12);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.minDistance = 5;
+        controls.maxDistance = 30;
+        controls.target.set(0, 0, 0);
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(10, 20, 10);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x38bdf8, 0.5);
+        blueLight.position.set(-10, 5, -10);
+        scene.add(blueLight);
+
+        // --- Materials ---
+        const materialPlastic = new THREE.MeshStandardMaterial({
+            color: CONFIG.colorRigid,
+            roughness: 0.2,
+            metalness: 0.1,
+            flatShading: false
+        });
+
+        const materialFloor = new THREE.MeshStandardMaterial({
+            color: 0x1e293b,
+            roughness: 0.8,
+            metalness: 0.2
+        });
+
+        // --- Geometry Builders ---
+
+        // Create the floor
+        const floorGeo = new THREE.PlaneGeometry(30, 30);
+        const floor = new THREE.Mesh(floorGeo, materialFloor);
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = -0.1;
+        floor.receiveShadow = true;
+        scene.add(floor);
+
+        // Grid helper for context
+        const gridHelper = new THREE.GridHelper(30, 30, 0x334155, 0x1e293b);
+        scene.add(gridHelper);
+
+        // --- The Metamaterial Lattice ---
+        // We will build a custom object for each "Cell" so we can animate them individually
+        // Each cell consists of 4 struts meeting at a peak (Chevron/Pyramid shape)
+        
+        const cells = [];
+        const strutGeo = new THREE.CylinderGeometry(CONFIG.strutRadius, CONFIG.strutRadius, 1, 8);
+        strutGeo.translate(0, 0.5, 0); // Pivot at bottom
+
+        class Cell {
+            constructor(x, z) {
+                this.baseX = x;
+                this.baseZ = z;
+                this.group = new THREE.Group();
+                this.group.position.set(x, 0, z);
+                
+                // 4 Legs
+                this.legs = [];
+                for(let i=0; i<4; i++) {
+                    const mesh = new THREE.Mesh(strutGeo, materialPlastic.clone());
+                    mesh.castShadow = true;
+                    this.group.add(mesh);
+                    this.legs.push(mesh);
+                }
+
+                // Add a small joint sphere at top
+                const jointGeo = new THREE.SphereGeometry(CONFIG.strutRadius * 1.5, 8, 8);
+                this.joint = new THREE.Mesh(jointGeo, materialPlastic.clone());
+                this.group.add(this.joint);
+
+                scene.add(this.group);
+            }
+
+            update(pressureFactor) {
+                // pressureFactor: 0 (tall) to 1 (flat)
+                
+                // Calculate geometry based on compression
+                // Current Height
+                const currentH = CONFIG.strutHeight * (1 - pressureFactor * 0.8); // Compress up to 80%
+                
+                // Current Base Spread (Poisson effect - things get wider as they squash)
+                // Actually, for a simple chevron, the leg length is constant.
+                // L^2 = H^2 + Spread^2. 
+                // We know L (initial hypotenuse). We change H. We calculate Spread.
+                
+                const initialSpread = CONFIG.baseSpread;
+                const legLength = Math.sqrt(CONFIG.strutHeight**2 + initialSpread**2);
+                
+                // New spread based on new height
+                let currentSpread = Math.sqrt(Math.max(0, legLength**2 - currentH**2));
+                
+                // Update Joint Position
+                this.joint.position.y = currentH;
+
+                // Color mapping: Blue -> Orange based on pressure
+                const color = new THREE.Color().lerpColors(
+                    new THREE.Color(CONFIG.colorRigid),
+                    new THREE.Color(CONFIG.colorStress),
+                    pressureFactor
+                );
+                
+                this.joint.material.color.copy(color);
+                this.joint.material.emissive = color;
+                this.joint.material.emissiveIntensity = pressureFactor * 0.5;
+
+                // Update Legs
+                // 0: +x, 1: -x, 2: +z, 3: -z
+                const angles = [0, Math.PI, Math.PI/2, -Math.PI/2];
+                
+                this.legs.forEach((leg, i) => {
+                    leg.material.color.copy(color);
+                    
+                    // Reset transform
+                    leg.position.set(0,0,0);
+                    leg.rotation.set(0,0,0);
+                    
+                    // Position at base (spread out from center)
+                    // Actually, let's pivot them from the TOP joint for easier visualization of buckling?
+                    // No, pivot from bottom is physically more accurate for a base-mounted lattice.
+                    
+                    // Move base of leg out
+                    const dx = Math.cos(angles[i]) * currentSpread;
+                    const dz = Math.sin(angles[i]) * currentSpread;
+                    
+                    leg.position.set(dx, 0, dz);
+                    
+                    // Point leg at the top joint (0, currentH, 0)
+                    leg.lookAt(0, currentH, 0);
+                    
+                    // LookAt aligns Z axis. Cylinder is Y axis. Rotate X by 90 deg.
+                    leg.rotateX(Math.PI / 2);
+                    
+                    // Scale length to exactly reach the top
+                    const dist = Math.sqrt(currentSpread**2 + currentH**2);
+                    leg.scale.set(1, dist, 1);
+                });
+            }
+        }
+
+        // Initialize Grid
+        const offset = (CONFIG.gridSize * CONFIG.spacing) / 2 - (CONFIG.spacing/2);
+        for(let x=0; x<CONFIG.gridSize; x++) {
+            for(let z=0; z<CONFIG.gridSize; z++) {
+                const worldX = (x * CONFIG.spacing) - offset;
+                const worldZ = (z * CONFIG.spacing) - offset;
+                cells.push(new Cell(worldX, worldZ));
+            }
+        }
+
+        // --- The "Finger" (Force Visualizer) ---
+        const fingerGeo = new THREE.SphereGeometry(2, 32, 32);
+        const fingerMat = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            transparent: true,
+            opacity: 0.3,
+            roughness: 0.1
+        });
+        const finger = new THREE.Mesh(fingerGeo, fingerMat);
+        scene.add(finger);
+
+        // Ring to show impact zone
+        const ringGeo = new THREE.RingGeometry(2, 2.2, 32);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, side: THREE.DoubleSide, transparent: true, opacity: 0.5 });
+        const ring = new THREE.Mesh(ringGeo, ringMat);
+        ring.rotation.x = -Math.PI/2;
+        finger.add(ring);
+
+
+        // --- Interaction Logic ---
+        const slider = document.getElementById('pressure-slider');
+        const pressureDisplay = document.getElementById('pressure-val');
+        const statusText = document.getElementById('status-text');
+        const animBtn = document.getElementById('anim-btn');
+        
+        let pressure = 0; // 0 to 1
+        let isAnimating = false;
+        let animTime = 0;
+
+        slider.addEventListener('input', (e) => {
+            pressure = parseInt(e.target.value) / 100;
+            updateSimulation();
+            isAnimating = false;
+            animBtn.textContent = "Auto-Press Demo";
+        });
+
+        animBtn.addEventListener('click', () => {
+            isAnimating = !isAnimating;
+            animBtn.textContent = isAnimating ? "Stop Demo" : "Auto-Press Demo";
+        });
+
+        function updateSimulation() {
+            pressureDisplay.innerText = Math.round(pressure * 100) + "%";
+            
+            // Move finger visual
+            // Height range: Starts at 4, goes down to 1
+            const fingerY = 4 - (pressure * 2.5);
+            finger.position.set(0, fingerY, 0);
+
+            // Update UI Text
+            if(pressure < 0.1) statusText.innerText = "Material Rigid (No Load)";
+            else if(pressure < 0.6) statusText.innerText = "Elastic Buckling (Soft Feel)";
+            else statusText.innerText = "Max Compression (Bottoming Out)";
+            
+            // Update Cells
+            // We create a "Dimple" effect based on distance from center (0,0)
+            const maxRadius = 6.0; // Radius of influence
+            
+            cells.forEach(cell => {
+                const dx = cell.baseX;
+                const dz = cell.baseZ;
+                const dist = Math.sqrt(dx*dx + dz*dz);
+                
+                let localPressure = 0;
+                
+                if (dist < maxRadius) {
+                    // Gaussian-ish falloff
+                    const falloff = Math.cos((dist / maxRadius) * (Math.PI / 2));
+                    localPressure = pressure * falloff;
+                }
+                
+                // Ensure non-negative
+                localPressure = Math.max(0, localPressure);
+                
+                cell.update(localPressure);
+            });
+
+            // Update Annotation Positions
+            updateAnnotations();
+        }
+
+        // HTML Annotation Logic
+        const annoFinger = document.getElementById('anno-finger');
+        const annoBuckle = document.getElementById('anno-buckle');
+
+        function updateAnnotations() {
+            // Finger Label
+            if (pressure > 0.1) {
+                moveAnnotation(annoFinger, finger.position.clone().add(new THREE.Vector3(0, 2.5, 0)));
+                annoFinger.style.opacity = 1;
+            } else {
+                annoFinger.style.opacity = 0;
+            }
+
+            // Buckle Label - Find a center cell
+            if (pressure > 0.3) {
+                // roughly the center cell
+                const centerPos = new THREE.Vector3(0, CONFIG.strutHeight * 0.5, 0); 
+                moveAnnotation(annoBuckle, centerPos);
+                annoBuckle.style.opacity = 1;
+            } else {
+                annoBuckle.style.opacity = 0;
+            }
+        }
+
+        function moveAnnotation(elem, pos) {
+            pos.project(camera);
+            const x = (pos.x * .5 + .5) * window.innerWidth;
+            const y = (-(pos.y * .5) + .5) * window.innerHeight;
+            elem.style.left = x + 'px';
+            elem.style.top = y + 'px';
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            controls.update();
+
+            if (isAnimating) {
+                animTime += 0.03;
+                // Sine wave 0 to 1
+                pressure = (Math.sin(animTime) + 1) / 2;
+                slider.value = pressure * 100;
+                updateSimulation();
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            updateSimulation(); // Keep labels in sync
+        });
+
+        // Init
+        updateSimulation();
+        animate();
+
+    </script>
+</body>
+</html>

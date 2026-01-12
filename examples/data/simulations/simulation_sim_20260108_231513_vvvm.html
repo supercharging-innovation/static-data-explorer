@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano-Skin Hybrid Foam Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b0d12; color: #ffffff; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+            max-width: 400px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: 300;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00d2ff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        .panel {
+            background: rgba(10, 15, 20, 0.85);
+            border-left: 3px solid #00d2ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            pointer-events: auto;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .description { font-size: 14px; line-height: 1.5; color: #ccc; margin-bottom: 10px; }
+        .highlight { color: #00d2ff; font-weight: bold; }
+        .foam-text { color: #ffaa00; font-weight: bold; }
+
+        /* Controls */
+        #controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            pointer-events: auto;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        button {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover { background: rgba(255,255,255,0.2); border-color: white; }
+        button.active { background: #00d2ff; color: #000; border-color: #00d2ff; font-weight: bold; }
+
+        /* Legend */
+        #legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+            pointer-events: none;
+        }
+        .legend-item { margin-bottom: 5px; font-size: 12px; display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+        /* Labels in 3D space */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #444;
+            transition: opacity 0.3s;
+        }
+        
+        .hidden { opacity: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="ui-layer">
+        <h1>Nano-Skin Simulator</h1>
+        <div class="panel">
+            <div class="description">
+                <strong>The Problem:</strong> Traditional coatings create a hard "crust" that ruins the feel of soft foam.
+            </div>
+            <div class="description">
+                <strong>The Solution:</strong> A <span class="highlight">Nano-Skin</span> (<10 microns). It is chemically resistant but mechanically "invisible."
+            </div>
+            <div class="description">
+                <strong>Observe:</strong> When pressed, the skin <span class="highlight">buckles instantly</span> (wrinkles) rather than stretching. This transmits the full softness of the <span class="foam-text">Foam Core</span> to your finger.
+            </div>
+        </div>
+    </div>
+
+    <div id="legend">
+        <div class="legend-item">Nano-Skin Mesh <span class="dot" style="background: #00d2ff; box-shadow: 0 0 5px #00d2ff;"></span></div>
+        <div class="legend-item">Soft Foam Core <span class="dot" style="background: #ffaa00;"></span></div>
+        <div class="legend-item">Oil/Contaminants <span class="dot" style="background: #111; border: 1px solid #555;"></span></div>
+    </div>
+
+    <div id="controls">
+        <button id="btn-compress" class="active">Auto Compress</button>
+        <button id="btn-oil">Drop Oil</button>
+        <button id="btn-labels">Toggle Labels</button>
+    </div>
+
+    <!-- 3D Labels Container -->
+    <div id="label-skin" class="label">Nano-Skin (Buckles)</div>
+    <div id="label-foam" class="label">Foam Core (Compresses)</div>
+    <div id="label-probe" class="label">Pressure Source</div>
+
+    <div id="canvas-container"></div>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration ---
+        const config = {
+            foamColor: 0xffaa00,
+            skinColor: 0x00d2ff,
+            probeColor: 0xaaaaaa,
+            oilColor: 0x111111,
+            gridSize: 40, // Resolution of the skin
+            foamCount: 300, // Number of foam cells
+        };
+
+        // --- Scene Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b0d12);
+        scene.fog = new THREE.FogExp2(0x0b0d12, 0.03);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(8, 6, 8);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
+        controls.minDistance = 5;
+        controls.maxDistance = 20;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x00d2ff, 0.8, 10);
+        blueLight.position.set(-2, 2, -2);
+        scene.add(blueLight);
+
+        // --- Objects ---
+
+        // 1. The Foam Core (Instanced Mesh for performance and look)
+        // Representing foam as a collection of soft bubbles/cells
+        const foamGeometry = new THREE.IcosahedronGeometry(0.3, 1);
+        const foamMaterial = new THREE.MeshStandardMaterial({
+            color: config.foamColor,
+            roughness: 0.8,
+            metalness: 0.0,
+            transparent: true,
+            opacity: 0.9
+        });
+        
+        const foamMesh = new THREE.InstancedMesh(foamGeometry, foamMaterial, config.foamCount);
+        foamMesh.castShadow = true;
+        foamMesh.receiveShadow = true;
+        
+        const dummy = new THREE.Object3D();
+        const foamPositions = []; // Store initial positions for animation
+        
+        for (let i = 0; i < config.foamCount; i++) {
+            // Distribute in a box shape below y=0
+            const x = (Math.random() - 0.5) * 6;
+            const z = (Math.random() - 0.5) * 6;
+            const y = -Math.random() * 2 - 0.3; // Depth of foam
+            
+            dummy.position.set(x, y, z);
+            // Random rotation and slight scale variation
+            dummy.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, 0);
+            const s = 0.5 + Math.random() * 0.5;
+            dummy.scale.set(s, s, s);
+            
+            dummy.updateMatrix();
+            foamMesh.setMatrixAt(i, dummy.matrix);
+            
+            foamPositions.push({x, y, z, s, id: i});
+        }
+        scene.add(foamMesh);
+
+        // 2. The Nano-Skin (Deformable Plane)
+        // High segment count to show wrinkles
+        const skinGeo = new THREE.PlaneGeometry(6, 6, config.gridSize, config.gridSize);
+        skinGeo.rotateX(-Math.PI / 2);
+        
+        // Custom material for the skin - looks like a high-tech mesh
+        const skinMat = new THREE.MeshPhysicalMaterial({
+            color: config.skinColor,
+            emissive: 0x0044aa,
+            emissiveIntensity: 0.2,
+            metalness: 0.2,
+            roughness: 0.1,
+            transmission: 0.4, // Glass-like
+            thickness: 0.1,
+            wireframe: true, // Emphasize the "mesh" nature
+            transparent: true,
+            opacity: 0.6,
+            side: THREE.DoubleSide
+        });
+        
+        const skinMesh = new THREE.Mesh(skinGeo, skinMat);
+        skinMesh.position.y = 0.05; // Slightly above foam
+        skinMesh.receiveShadow = true;
+        scene.add(skinMesh);
+        
+        // Save original vertices for simulation
+        const originalPositions = skinGeo.attributes.position.array.slice();
+
+        // 3. The Probe (Pressure Source)
+        const probeGeo = new THREE.SphereGeometry(0.8, 32, 32);
+        const probeMat = new THREE.MeshStandardMaterial({
+            color: config.probeColor,
+            metalness: 0.8,
+            roughness: 0.2
+        });
+        const probe = new THREE.Mesh(probeGeo, probeMat);
+        probe.castShadow = true;
+        probe.position.set(0, 2, 0);
+        scene.add(probe);
+        
+        // Probe Shaft
+        const shaftGeo = new THREE.CylinderGeometry(0.2, 0.2, 5, 16);
+        const shaft = new THREE.Mesh(shaftGeo, probeMat);
+        shaft.position.y = 2.5;
+        probe.add(shaft);
+
+        // 4. Oil Droplets (Particle System)
+        const oilCount = 50;
+        const oilGeo = new THREE.SphereGeometry(0.15, 16, 16);
+        const oilMat = new THREE.MeshStandardMaterial({
+            color: config.oilColor,
+            roughness: 0.0,
+            metalness: 0.5
+        });
+        const oilMesh = new THREE.InstancedMesh(oilGeo, oilMat, oilCount);
+        oilMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        scene.add(oilMesh);
+        
+        const oilData = [];
+        for(let i=0; i<oilCount; i++) {
+            oilData.push({
+                active: false,
+                x: 0, y: 5, z: 0,
+                vy: 0,
+                vx: 0, vz: 0
+            });
+            // Initialize off-screen
+            dummy.position.set(0, -100, 0);
+            dummy.updateMatrix();
+            oilMesh.setMatrixAt(i, dummy.matrix);
+        }
+
+        // --- Interaction Logic ---
+        
+        let isAutoCompressing = true;
+        let time = 0;
+        let probeY = 2;
+        let showLabels = true;
+
+        // Raycaster for labels
+        const raycaster = new THREE.Raycaster();
+        
+        // UI Handlers
+        document.getElementById('btn-compress').addEventListener('click', (e) => {
+            isAutoCompressing = !isAutoCompressing;
+            e.target.classList.toggle('active');
+            e.target.innerText = isAutoCompressing ? "Auto Compress" : "Manual (Idle)";
+        });
+
+        document.getElementById('btn-oil').addEventListener('click', () => {
+            spawnOil();
+        });
+
+        document.getElementById('btn-labels').addEventListener('click', () => {
+            showLabels = !showLabels;
+            const labels = document.querySelectorAll('.label');
+            labels.forEach(l => l.classList.toggle('hidden', !showLabels));
+        });
+
+        function spawnOil() {
+            // Activate some oil particles
+            let spawned = 0;
+            for(let i=0; i<oilCount; i++) {
+                if(!oilData[i].active && spawned < 10) {
+                    oilData[i].active = true;
+                    oilData[i].x = (Math.random() - 0.5) * 3;
+                    oilData[i].z = (Math.random() - 0.5) * 3;
+                    oilData[i].y = 4 + Math.random();
+                    oilData[i].vy = 0;
+                    spawned++;
+                }
+            }
+        }
+
+        // --- Animation Loop ---
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.05;
+
+            // 1. Move Probe
+            if (isAutoCompressing) {
+                // Sine wave motion
+                probeY = 1.0 + Math.sin(time) * 1.2; 
+                // Clamp to not go too high or too low
+                if(probeY > 2) probeY = 2;
+                if(probeY < -0.5) probeY = -0.5;
+            } else {
+                // Return to neutral
+                probeY += (2 - probeY) * 0.1;
+            }
+            probe.position.y = probeY;
+
+            // 2. Deform Skin (The Core Mechanism)
+            const positions = skinGeo.attributes.position.array;
+            const probePos = probe.position;
+            const radius = 1.0; // Radius of influence
+            
+            for (let i = 0; i < positions.length; i += 3) {
+                const ox = originalPositions[i];
+                const oy = originalPositions[i + 1];
+                const oz = originalPositions[i + 2];
+
+                // Distance to probe center (xz plane)
+                const dx = ox - probePos.x;
+                const dz = oz - probePos.z;
+                const dist = Math.sqrt(dx * dx + dz * dz);
+
+                // Calculate depression based on probe sphere shape
+                let targetY = oy;
+                
+                // If probe is pushing down
+                if (dist < radius && probePos.y < radius) {
+                    // Sphere equation: y = sqrt(r^2 - x^2 - z^2) + center_y
+                    // We want the surface to conform to the bottom of the sphere
+                    // Sphere bottom surface at x,z is: probeY - sqrt(r^2 - dist^2)
+                    
+                    // Check if probe is actually touching this point
+                    const sphereSurfaceY = probePos.y - Math.sqrt(Math.max(0, 0.8*0.8 - dist*dist)); // 0.8 is probe radius
+                    
+                    if (sphereSurfaceY < oy) {
+                        targetY = sphereSurfaceY;
+                        
+                        // *** THE BREAKTHROUGH VISUALIZATION ***
+                        // Add high frequency noise to simulate "Buckling/Wrinkling"
+                        // Instead of stretching smooth, it gets noisy
+                        const wrinkleFreq = 15.0;
+                        const wrinkleAmp = 0.05 * (1 - (dist/radius)); // More wrinkles at center
+                        const noise = Math.sin(ox * wrinkleFreq) * Math.cos(oz * wrinkleFreq) * wrinkleAmp;
+                        
+                        targetY += noise;
+                    }
+                }
+
+                // Smooth interpolation for simulation feel
+                positions[i + 1] = targetY;
+            }
+            skinGeo.attributes.position.needsUpdate = true;
+            skinGeo.computeVertexNormals();
+
+            // 3. Compress Foam (Reaction)
+            // If probe is down, squash cells near center
+            for (let i = 0; i < config.foamCount; i++) {
+                const data = foamPositions[i];
+                const dist = Math.sqrt(data.x*data.x + data.z*data.z);
+                
+                dummy.position.set(data.x, data.y, data.z);
+                dummy.rotation.set(0,0,0);
+                
+                let scaleY = data.s;
+                
+                // Compression logic
+                if (probeY < 0.5 && dist < 1.5) {
+                    // Calculate compression factor based on probe depth
+                    const compression = Math.max(0, (0.5 - probeY) * (1.5 - dist));
+                    // Push foam down and squash
+                    dummy.position.y = data.y - compression * 0.5;
+                    scaleY = data.s * (1 - compression * 0.4); // Squash Y
+                    
+                    // Bulge X/Z slightly (Poisson effect)
+                    const buldge = 1 + compression * 0.2;
+                    dummy.scale.set(data.s * buldge, scaleY, data.s * buldge);
+                } else {
+                    dummy.scale.set(data.s, data.s, data.s);
+                }
+                
+                dummy.updateMatrix();
+                foamMesh.setMatrixAt(i, dummy.matrix);
+            }
+            foamMesh.instanceMatrix.needsUpdate = true;
+
+            // 4. Update Oil Droplets
+            for(let i=0; i<oilCount; i++) {
+                if(oilData[i].active) {
+                    // Gravity
+                    oilData[i].vy -= 0.01;
+                    oilData[i].y += oilData[i].vy;
+                    
+                    // Collision with Skin
+                    // Find skin height at this x,z
+                    // Simple approximation: check probe influence
+                    const dx = oilData[i].x - probePos.x;
+                    const dz = oilData[i].z - probePos.z;
+                    const dist = Math.sqrt(dx*dx + dz*dz);
+                    
+                    let surfaceY = 0.05; // Base skin height
+                    if (dist < 0.8 && probeY < 0.8) {
+                         const sphereSurfaceY = probePos.y - Math.sqrt(Math.max(0, 0.8*0.8 - dist*dist));
+                         if(sphereSurfaceY < surfaceY) surfaceY = sphereSurfaceY;
+                    }
+
+                    if (oilData[i].y <= surfaceY + 0.15) {
+                        oilData[i].y = surfaceY + 0.15;
+                        oilData[i].vy = 0;
+                        
+                        // Slide towards center if in depression
+                        if (dist < 0.8 && probeY < 0.5) {
+                            oilData[i].x += (probePos.x - oilData[i].x) * 0.05;
+                            oilData[i].z += (probePos.z - oilData[i].z) * 0.05;
+                        } else {
+                            // Slight jitter to look liquid
+                            oilData[i].x += (Math.random()-0.5)*0.01;
+                        }
+                    }
+                    
+                    // Reset if falls off world
+                    if (oilData[i].y < -5) oilData[i].active = false;
+
+                    dummy.position.set(oilData[i].x, oilData[i].y, oilData[i].z);
+                    dummy.scale.set(1,1,1);
+                    dummy.updateMatrix();
+                    oilMesh.setMatrixAt(i, dummy.matrix);
+                }
+            }
+            oilMesh.instanceMatrix.needsUpdate = true;
+
+            // 5. Update Labels
+            updateLabels();
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        function updateLabels() {
+            if(!showLabels) return;
+
+            // Project 3D positions to 2D screen space
+            const updateLabelPos = (obj, elementId, offset = {x:0, y:0, z:0}) => {
+                const el = document.getElementById(elementId);
+                if(!el) return;
+
+                const pos = obj.position.clone().add(new THREE.Vector3(offset.x, offset.y, offset.z));
+                pos.project(camera);
+
+                const x = (pos.x * .5 + .5) * container.clientWidth;
+                const y = (pos.y * -.5 + .5) * container.clientHeight;
+
+                // Hide if behind camera
+                if(pos.z > 1) {
+                    el.style.display = 'none';
+                } else {
+                    el.style.display = 'block';
+                    el.style.left = `${x}px`;
+                    el.style.top = `${y}px`;
+                }
+            };
+
+            updateLabelPos(probe, 'label-probe', {x: 0.8, y: 0.5, z: 0});
+            // Approximate positions for static labels
+            const skinDummy = { position: new THREE.Vector3(2, 0.2, 2) };
+            updateLabelPos(skinDummy, 'label-skin', {x:0, y:0, z:0});
+            
+            const foamDummy = { position: new THREE.Vector3(-2, -1, -2) };
+            updateLabelPos(foamDummy, 'label-foam', {x:0, y:0, z:0});
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Start
+        animate();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid A: "Fruit-Ribs" Metamaterial Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0d1117; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #ffffff; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 350px;
+            background: rgba(22, 27, 34, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #30363d;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            pointer-events: none; /* Let clicks pass through to canvas where possible, but re-enable for controls */
+        }
+        
+        h1 { font-size: 1.2rem; margin: 0 0 5px 0; color: #58a6ff; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 0.9rem; margin: 0 0 15px 0; color: #8b949e; font-weight: 400; }
+        p { font-size: 0.85rem; line-height: 1.5; color: #c9d1d9; margin-bottom: 15px; }
+        
+        /* Controls */
+        .controls { pointer-events: auto; margin-top: 20px; border-top: 1px solid #30363d; padding-top: 15px; }
+        
+        .control-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.8rem; color: #8b949e; margin-bottom: 5px; font-weight: 600; }
+        
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #21262d;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #58a6ff;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #fff;
+        }
+        
+        .toggle-btn {
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        .toggle-btn:hover { background: #30363d; }
+        .toggle-btn.active { background: #1f6feb; color: white; border-color: #1f6feb; }
+        
+        /* Legend */
+        .legend { margin-top: 15px; display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; color: #8b949e; }
+        .gradient-bar {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #00ffff 0%, #00ff00 50%, #ff0000 100%);
+            border-radius: 4px;
+            margin-top: 5px;
+        }
+        .legend-labels { display: flex; justify-content: space-between; width: 100%; margin-top: 2px; }
+
+        /* Annotations */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #58a6ff;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .annotation::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #58a6ff transparent transparent transparent;
+        }
+
+        #loading {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: white; font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading">Loading Simulation...</div>
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+        <h1>Hybrid A: "Fruit-Ribs"</h1>
+        <h2>Geometric Metamaterial Simulator</h2>
+        <p>
+            Standard rigid polymers are chemically safe but feel hard. 
+            This solution uses a hidden <strong>Micro-Rib Structure</strong> beneath a <strong>"Fruit Skin"</strong> layer to simulate softness mechanically.
+        </p>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>APPLIED FORCE (Finger Press)</label>
+                <input type="range" id="forceSlider" min="0" max="1" step="0.01" value="0">
+            </div>
+
+            <button class="toggle-btn" id="xrayBtn">
+                <span>👁️ X-Ray View (See Structure)</span>
+            </button>
+            
+            <button class="toggle-btn active" id="stressBtn">
+                <span>🌡️ Show Stress Map</span>
+            </button>
+
+            <button class="toggle-btn active" id="animBtn">
+                <span>▶️ Auto-Press Animation</span>
+            </button>
+        </div>
+
+        <div class="legend">
+            <div style="width: 100%">
+                <div>Internal Stress / Compression</div>
+                <div class="gradient-bar"></div>
+                <div class="legend-labels">
+                    <span>Relaxed</span>
+                    <span>Buckling</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Annotations (Positioned via JS) -->
+    <div id="label-skin" class="annotation">High-Modulus "Fruit Skin"</div>
+    <div id="label-ribs" class="annotation">Micro-Honeycomb Ribs</div>
+    <div id="label-finger" class="annotation">Applied Load</div>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration ---
+        const config = {
+            gridSize: 12,
+            cellSize: 1.5,
+            ribHeight: 4,
+            ribThickness: 0.15,
+            skinThickness: 0.1,
+            maxDepression: 2.5, // How deep the finger pushes
+            colorRelaxed: new THREE.Color(0x00ffff), // Cyan
+            colorStressed: new THREE.Color(0xff0000), // Red
+            bgColor: 0x0d1117
+        };
+
+        // --- State ---
+        const state = {
+            force: 0,
+            xray: false,
+            showStress: true,
+            autoAnimate: true,
+            time: 0
+        };
+
+        // --- Scene Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(config.bgColor);
+        scene.fog = new THREE.Fog(config.bgColor, 20, 60);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(20, 15, 20);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
+        controls.minDistance = 10;
+        controls.maxDistance = 40;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(10, 20, 10);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        scene.add(dirLight);
+
+        const pointLight = new THREE.PointLight(0x58a6ff, 0.5);
+        pointLight.position.set(0, 5, 0);
+        scene.add(pointLight);
+
+        // --- Materials ---
+        
+        // 1. The "Skin" Material
+        const skinMaterial = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff,
+            metalness: 0.1,
+            roughness: 0.2,
+            transmission: 0.0, // Starts opaque
+            thickness: 1.0,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1,
+            side: THREE.DoubleSide
+        });
+
+        // 2. The Rib Material (Vertex Colors enabled for stress visualization)
+        const ribMaterial = new THREE.MeshStandardMaterial({
+            vertexColors: true,
+            roughness: 0.4,
+            metalness: 0.5,
+            side: THREE.DoubleSide
+        });
+
+        // 3. The Finger/Probe Material
+        const fingerMaterial = new THREE.MeshStandardMaterial({
+            color: 0x888888,
+            roughness: 0.3,
+            metalness: 0.8,
+            transparent: true,
+            opacity: 0.7
+        });
+
+        // --- Geometry Generation ---
+
+        // Group to hold everything
+        const modelGroup = new THREE.Group();
+        scene.add(modelGroup);
+
+        // 1. Generate Ribs (The "Active Ingredient")
+        // We create custom geometry to allow for bending/buckling animation
+        const ribGeom = new THREE.BufferGeometry();
+        const positions = [];
+        const colors = [];
+        const normals = [];
+        const initialY = []; // Store initial Y to calculate deformation
+        const centers = []; // Store center of each rib segment for distance calc
+
+        const halfSize = (config.gridSize * config.cellSize) / 2;
+
+        // Helper to add a quad
+        function addQuad(p1, p2, p3, p4, center) {
+            // Triangle 1
+            positions.push(...p1, ...p2, ...p4);
+            // Triangle 2
+            positions.push(...p2, ...p3, ...p4);
+
+            // Simple normals (up/sideways depending on orientation - recalculated later anyway)
+            normals.push(0,1,0, 0,1,0, 0,1,0, 0,1,0, 0,1,0, 0,1,0);
+
+            // Initial colors (cyan)
+            for(let i=0; i<6; i++) {
+                colors.push(config.colorRelaxed.r, config.colorRelaxed.g, config.colorRelaxed.b);
+                initialY.push(p1[1], p2[1], p4[1], p2[1], p3[1], p4[1]); // Rough approx
+                centers.push(center.x, center.z, center.x, center.z, center.x, center.z, center.x, center.z, center.x, center.z, center.x, center.z);
+            }
+        }
+
+        // Generate Grid
+        // Vertical segments (Ribs)
+        const segsY = 10; // Segments vertically to allow bending
+        
+        for (let x = 0; x <= config.gridSize; x++) {
+            for (let z = 0; z < config.gridSize; z++) {
+                // X-aligned walls
+                const xPos = (x * config.cellSize) - halfSize;
+                const zStart = (z * config.cellSize) - halfSize;
+                const zEnd = ((z + 1) * config.cellSize) - halfSize;
+                
+                // Create a wall with vertical segments
+                for(let s=0; s<segsY; s++) {
+                    const yBot = (s / segsY) * config.ribHeight;
+                    const yTop = ((s + 1) / segsY) * config.ribHeight;
+                    
+                    const p1 = [xPos, yBot, zStart];
+                    const p2 = [xPos, yTop, zStart];
+                    const p3 = [xPos, yTop, zEnd];
+                    const p4 = [xPos, yBot, zEnd];
+                    
+                    const centerX = xPos;
+                    const centerZ = (zStart + zEnd) / 2;
+
+                    addQuad(p1, p2, p3, p4, {x: centerX, z: centerZ});
+                }
+            }
+        }
+
+        for (let z = 0; z <= config.gridSize; z++) {
+            for (let x = 0; x < config.gridSize; x++) {
+                // Z-aligned walls
+                const zPos = (z * config.cellSize) - halfSize;
+                const xStart = (x * config.cellSize) - halfSize;
+                const xEnd = ((x + 1) * config.cellSize) - halfSize;
+
+                for(let s=0; s<segsY; s++) {
+                    const yBot = (s / segsY) * config.ribHeight;
+                    const yTop = ((s + 1) / segsY) * config.ribHeight;
+
+                    const p1 = [xStart, yBot, zPos];
+                    const p2 = [xStart, yTop, zPos];
+                    const p3 = [xEnd, yTop, zPos];
+                    const p4 = [xEnd, yBot, zPos];
+
+                    const centerX = (xStart + xEnd) / 2;
+                    const centerZ = zPos;
+
+                    addQuad(p1, p2, p3, p4, {x: centerX, z: centerZ});
+                }
+            }
+        }
+
+        ribGeom.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+        ribGeom.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        ribGeom.setAttribute('initialY', new THREE.Float32BufferAttribute(positions.map(p => p), 3)); // Copy positions for reference
+        ribGeom.setAttribute('centerPos', new THREE.Float32BufferAttribute(centers, 2));
+        ribGeom.computeVertexNormals();
+
+        const ribsMesh = new THREE.Mesh(ribGeom, ribMaterial);
+        ribsMesh.position.y = -config.ribHeight; // Move down so top is at 0
+        modelGroup.add(ribsMesh);
+
+
+        // 2. Generate Skin (Top Layer)
+        const skinGeom = new THREE.PlaneGeometry(config.gridSize * config.cellSize, config.gridSize * config.cellSize, 40, 40);
+        skinGeom.rotateX(-Math.PI / 2); // Lay flat
+        const skinMesh = new THREE.Mesh(skinGeom, skinMaterial);
+        skinMesh.position.y = 0.05; // Just above ribs
+        skinMesh.receiveShadow = true;
+        modelGroup.add(skinMesh);
+
+        // Store original skin positions
+        const skinBasePos = skinGeom.attributes.position.array.slice();
+
+        // 3. The "Finger"
+        const fingerGeom = new THREE.CapsuleGeometry(1, 4, 4, 16);
+        const fingerMesh = new THREE.Mesh(fingerGeom, fingerMaterial);
+        fingerMesh.position.set(0, 3, 0);
+        fingerMesh.castShadow = true;
+        scene.add(fingerMesh);
+
+
+        // --- Animation Logic ---
+
+        function updateDeformation() {
+            const force = state.force; // 0 to 1
+            const depression = force * config.maxDepression;
+            
+            // Move Finger
+            fingerMesh.position.y = 2.5 - depression;
+
+            // 1. Deform Skin
+            const skinPos = skinMesh.geometry.attributes.position;
+            const skinArr = skinPos.array;
+
+            for (let i = 0; i < skinBasePos.length; i += 3) {
+                const x = skinBasePos[i];
+                const y = skinBasePos[i+1];
+                const z = skinBasePos[i+2];
+
+                // Distance from center
+                const dist = Math.sqrt(x*x + z*z);
+                
+                // Gaussian falloff for depression
+                const influence = Math.exp(-(dist * dist) / 15); 
+                
+                skinArr[i+1] = y - (depression * influence);
+            }
+            skinPos.needsUpdate = true;
+            skinMesh.geometry.computeVertexNormals();
+
+            // 2. Deform Ribs (Buckling Effect)
+            const ribPos = ribsMesh.geometry.attributes.position;
+            const ribArr = ribPos.array;
+            const ribBase = ribsMesh.geometry.attributes.initialY.array;
+            const ribCenters = ribsMesh.geometry.attributes.centerPos.array;
+            const ribColors = ribsMesh.geometry.attributes.color;
+            
+            // Temp vars for color interpolation
+            const c1 = config.colorRelaxed;
+            const c2 = config.colorStressed;
+
+            for (let i = 0; i < ribArr.length; i += 3) {
+                // Original Coordinates (relative to mesh origin)
+                const ox = ribBase[i];
+                const oy = ribBase[i+1]; // Height (0 to 4)
+                const oz = ribBase[i+2];
+                
+                // Center of this rib segment (for radial distance)
+                const cx = ribCenters[(i/3)*2];
+                const cz = ribCenters[(i/3)*2 + 1];
+
+                const dist = Math.sqrt(cx*cx + cz*cz);
+                const influence = Math.exp(-(dist * dist) / 15);
+                
+                // How much is the roof pushed down at this X,Z?
+                const localDepression = depression * influence;
+                
+                // Vertical Compression scale
+                // Top of rib is at y=4, bottom at y=0.
+                // We want y=4 to move down by localDepression.
+                // y_new = y_old * ( (4 - dep) / 4 )
+                const compressionFactor = (config.ribHeight - localDepression) / config.ribHeight;
+                
+                // Apply Vertical Compression
+                let ny = oy * compressionFactor;
+
+                // Apply Buckling (Bulge outward)
+                // Max bulge happens at mid-height (oy approx 2)
+                // Bulge amount depends on compression
+                const normalizedHeight = oy / config.ribHeight; // 0 to 1
+                const bulgeShape = Math.sin(normalizedHeight * Math.PI); // 0 at ends, 1 at center
+                const bulgeAmount = localDepression * 0.15 * bulgeShape; // Factor controls bulge width
+
+                // Direction from center of scene to push bulge? 
+                // Actually, ribs buckle perpendicular to their face.
+                // Since our ribs are axis aligned, we can cheat. 
+                // If x is constant in base geometry, bulge x. If z is constant, bulge z.
+                // Simplified: Just push away from center of scene to look like volume expansion
+                const dirX = cx === 0 ? 0 : cx / dist;
+                const dirZ = cz === 0 ? 0 : cz / dist;
+
+                let nx = ox + (dirX * bulgeAmount);
+                let nz = oz + (dirZ * bulgeAmount);
+
+                ribArr[i] = nx;
+                ribArr[i+1] = ny;
+                ribArr[i+2] = nz;
+
+                // Color Stress Map
+                if (state.showStress) {
+                    // Stress is proportional to localDepression
+                    const stressLevel = Math.min(localDepression / 1.5, 1.0); // Normalize roughly
+                    
+                    ribColors.setXYZ(i/3, 
+                        THREE.MathUtils.lerp(c1.r, c2.r, stressLevel),
+                        THREE.MathUtils.lerp(c1.g, c2.g, stressLevel),
+                        THREE.MathUtils.lerp(c1.b, c2.b, stressLevel)
+                    );
+                } else {
+                    ribColors.setXYZ(i/3, c1.r, c1.g, c1.b);
+                }
+            }
+            ribPos.needsUpdate = true;
+            ribColors.needsUpdate = true;
+        }
+
+
+        // --- Interaction Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Auto Animation Logic
+            if (state.autoAnimate) {
+                state.time += 0.03;
+                // Sine wave 0 to 1
+                const val = (Math.sin(state.time) + 1) / 2;
+                state.force = val;
+                // Update slider UI to match
+                document.getElementById('forceSlider').value = val;
+            }
+
+            updateDeformation();
+            controls.update();
+            
+            // Label Positioning
+            updateAnnotations();
+
+            renderer.render(scene, camera);
+        }
+
+        // --- Annotation Logic ---
+        function updateAnnotations() {
+            // Helper to project 3D to 2D
+            function moveLabel(id, position) {
+                const vector = position.clone();
+                vector.project(camera);
+
+                const x = (vector.x * .5 + .5) * window.innerWidth;
+                const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+                const el = document.getElementById(id);
+                
+                // Hide if behind camera or too far
+                if (vector.z > 1 || Math.abs(vector.x) > 1.1 || Math.abs(vector.y) > 1.1) {
+                    el.style.opacity = 0;
+                } else {
+                    el.style.opacity = 1;
+                    el.style.left = `${x}px`;
+                    el.style.top = `${y - 40}px`; // Offset up
+                }
+            }
+
+            // Finger Label
+            moveLabel('label-finger', new THREE.Vector3(0, fingerMesh.position.y + 2.5, 0));
+            
+            // Skin Label (Offset slightly)
+            moveLabel('label-skin', new THREE.Vector3(4, 0.5, 4));
+
+            // Ribs Label (Only show if Xray or viewing from side/under)
+            if (state.xray || camera.position.y < 2) {
+                moveLabel('label-ribs', new THREE.Vector3(-2, -2, -2));
+                document.getElementById('label-ribs').style.opacity = 1;
+            } else {
+                document.getElementById('label-ribs').style.opacity = 0;
+            }
+        }
+
+        // --- UI Event Listeners ---
+        
+        const slider = document.getElementById('forceSlider');
+        slider.addEventListener('input', (e) => {
+            state.force = parseFloat(e.target.value);
+            state.autoAnimate = false; // Stop auto if user interacts
+            document.getElementById('animBtn').classList.remove('active');
+            document.getElementById('animBtn').querySelector('span').innerText = "▶️ Auto-Press Animation";
+        });
+
+        const xrayBtn = document.getElementById('xrayBtn');
+        xrayBtn.addEventListener('click', () => {
+            state.xray = !state.xray;
+            xrayBtn.classList.toggle('active');
+            
+            if (state.xray) {
+                skinMaterial.transmission = 0.8;
+                skinMaterial.opacity = 0.3;
+                skinMaterial.transparent = true;
+                skinMaterial.roughness = 0.1;
+            } else {
+                skinMaterial.transmission = 0.0;
+                skinMaterial.opacity = 1.0;
+                skinMaterial.transparent = false;
+                skinMaterial.roughness = 0.2;
+            }
+        });
+
+        const stressBtn = document.getElementById('stressBtn');
+        stressBtn.addEventListener('click', () => {
+            state.showStress = !state.showStress;
+            stressBtn.classList.toggle('active');
+        });
+
+        const animBtn = document.getElementById('animBtn');
+        animBtn.addEventListener('click', () => {
+            state.autoAnimate = !state.autoAnimate;
+            animBtn.classList.toggle('active');
+            if(state.autoAnimate) {
+                animBtn.querySelector('span').innerText = "⏸️ Pause Animation";
+            } else {
+                animBtn.querySelector('span').innerText = "▶️ Auto-Press Animation";
+            }
+        });
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize
+        document.getElementById('loading').style.display = 'none';
+        if(state.autoAnimate) animBtn.querySelector('span').innerText = "⏸️ Pause Animation";
+        animate();
+
+    </script>
+</body>
+</html>

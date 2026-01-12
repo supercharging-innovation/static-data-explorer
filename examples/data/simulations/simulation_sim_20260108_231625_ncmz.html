@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Mimetic Graded Vitrimer Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0f172a; color: white; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        
+        /* UI Overlay */
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            pointer-events: auto;
+        }
+
+        h1 { font-size: 1.2rem; margin: 0 0 10px 0; color: #38bdf8; letter-spacing: 0.05em; }
+        h2 { font-size: 0.9rem; margin: 0 0 15px 0; color: #94a3b8; font-weight: 400; }
+        p { font-size: 0.85rem; line-height: 1.5; color: #cbd5e1; margin-bottom: 15px; }
+
+        /* Controls */
+        .control-group { margin-bottom: 20px; border-top: 1px solid #334155; padding-top: 15px; }
+        
+        label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px; font-weight: 600; }
+        
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #334155;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #38bdf8;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover { background: #fff; }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        button:hover { background: #dc2626; transform: translateY(-1px); }
+        button.secondary { background: #334155; }
+        button.secondary:hover { background: #475569; }
+
+        /* Status Indicators */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .status-cold { background: #3b82f6; color: white; }
+        .status-active { background: #f59e0b; color: black; }
+
+        /* Legend */
+        .legend { display: flex; align-items: center; margin-top: 5px; font-size: 0.8rem; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+        .dot-core { background: #6366f1; }
+        .dot-skin { background: #f59e0b; }
+
+        /* Annotations in 3D space */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #38bdf8;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        .annotation.visible { opacity: 1; }
+        .line {
+            position: absolute;
+            background: #38bdf8;
+            height: 1px;
+            transform-origin: 0 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .line.visible { opacity: 1; }
+
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-panel">
+        <h1>Graded Vitrimer</h1>
+        <h2>Bio-Mimetic Material Architecture</h2>
+        
+        <div class="control-group">
+            <label>
+                Temperature
+                <span id="temp-display">25°C</span>
+            </label>
+            <input type="range" id="temp-slider" min="20" max="50" value="25" step="0.1">
+            <div id="temp-status" class="status-badge status-cold">Inert (Solid)</div>
+            <p style="font-size: 0.75rem; margin-top: 8px; color: #94a3b8;">
+                <span style="color: #f59e0b;">Threshold: 37°C</span>. Above this, dynamic bonds activate.
+            </p>
+        </div>
+
+        <div class="control-group">
+            <button id="scratch-btn">Inflict Scratch</button>
+            <button id="reset-btn" class="secondary">Reset Simulation</button>
+        </div>
+
+        <div class="control-group" style="border-top: none; padding-top: 0;">
+            <p><strong>Legend:</strong></p>
+            <div class="legend"><div class="dot dot-skin"></div>Dynamic Skin (Heals)</div>
+            <div class="legend"><div class="dot dot-core"></div>Rigid Core (Structure)</div>
+        </div>
+        
+        <div style="margin-top: 15px; font-size: 0.75rem; color: #64748b; text-align: center;">
+            Left Click: Rotate | Right Click: Pan
+        </div>
+    </div>
+
+    <!-- Annotations -->
+    <div id="anno-core" class="annotation">Rigid Thermoset Core</div>
+    <div id="anno-skin" class="annotation">Dynamic Vitrimer Skin</div>
+    <div id="anno-bond" class="annotation">Dynamic Covalent Bonds</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            particleCount: 300,
+            gridSize: 10,
+            spacing: 1.2,
+            coreHeight: 3, // Layers of core
+            skinHeight: 4, // Layers of skin
+            activationTemp: 37.0,
+            scratchForce: 8.0,
+            bondDistance: 2.0,
+            colors: {
+                core: new THREE.Color(0x6366f1), // Indigo
+                skinCold: new THREE.Color(0xf59e0b), // Amber
+                skinHot: new THREE.Color(0xff4444), // Red/Hot
+                bg: 0x0f172a
+            }
+        };
+
+        // --- State ---
+        let state = {
+            temp: 25,
+            isScratched: false,
+            scratchFactor: 0, // 0 to 1, used for animation
+            time: 0
+        };
+
+        // --- Scene Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(CONFIG.colors.bg);
+        scene.fog = new THREE.Fog(CONFIG.colors.bg, 10, 50);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(15, 10, 15);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.target.set(0, 3, 0);
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        scene.add(dirLight);
+
+        const pointLight = new THREE.PointLight(0x38bdf8, 1, 20);
+        pointLight.position.set(0, 5, 0);
+        scene.add(pointLight);
+
+        // --- Material System ---
+        
+        // We will manage particles manually for physics simulation
+        const particles = [];
+        const particleGeometry = new THREE.SphereGeometry(0.3, 16, 16);
+        const coreMaterial = new THREE.MeshStandardMaterial({ 
+            color: CONFIG.colors.core, 
+            roughness: 0.4, 
+            metalness: 0.2 
+        });
+        const skinMaterial = new THREE.MeshStandardMaterial({ 
+            color: CONFIG.colors.skinCold, 
+            roughness: 0.2, 
+            metalness: 0.1,
+            emissive: 0x221100
+        });
+
+        // Group to hold everything
+        const materialGroup = new THREE.Group();
+        scene.add(materialGroup);
+
+        // Create Particles
+        // We create a block. Bottom layers = Core. Top layers = Skin.
+        let particleIdx = 0;
+        
+        // Helper to create particle
+        function createParticle(x, y, z, type) {
+            const mesh = new THREE.Mesh(particleGeometry, type === 'core' ? coreMaterial : skinMaterial.clone());
+            mesh.position.set(x, y, z);
+            
+            // Physics properties
+            const p = {
+                mesh: mesh,
+                type: type, // 'core' or 'skin'
+                originalPos: new THREE.Vector3(x, y, z),
+                velocity: new THREE.Vector3(0, 0, 0),
+                force: new THREE.Vector3(0, 0, 0),
+                // Gradient property: Higher up = more flexible (lower spring constant)
+                stiffness: type === 'core' ? 0.9 : 0.05 + (1.0 - (y / (CONFIG.coreHeight + CONFIG.skinHeight))) * 0.1,
+                id: particleIdx++
+            };
+            
+            materialGroup.add(mesh);
+            particles.push(p);
+        }
+
+        // Generate Grid
+        const offsetX = (CONFIG.gridSize * CONFIG.spacing) / 2;
+        const offsetZ = (CONFIG.gridSize * CONFIG.spacing) / 2;
+
+        for (let y = 0; y < CONFIG.coreHeight + CONFIG.skinHeight; y++) {
+            for (let x = 0; x < CONFIG.gridSize; x++) {
+                for (let z = 0; z < CONFIG.gridSize; z++) {
+                    // Slight randomization to look organic
+                    const jitterX = (Math.random() - 0.5) * 0.2;
+                    const jitterZ = (Math.random() - 0.5) * 0.2;
+                    
+                    const posX = (x * CONFIG.spacing) - offsetX + jitterX;
+                    const posY = (y * CONFIG.spacing);
+                    const posZ = (z * CONFIG.spacing) - offsetZ + jitterZ;
+
+                    const type = y < CONFIG.coreHeight ? 'core' : 'skin';
+                    createParticle(posX, posY, posZ, type);
+                }
+            }
+        }
+
+        // --- Dynamic Bonds (Lines) ---
+        // We use LineSegments for performance. We update positions every frame.
+        // Only skin particles have dynamic bonds.
+        const maxConnections = particles.length * 4; // Estimate
+        const lineGeometry = new THREE.BufferGeometry();
+        const linePositions = new Float32Array(maxConnections * 6); // 2 points * 3 coords
+        lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+        
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0xffffff,
+            transparent: true,
+            opacity: 0.3,
+            blending: THREE.AdditiveBlending
+        });
+
+        const bondsMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
+        materialGroup.add(bondsMesh);
+
+
+        // --- Simulation Logic ---
+
+        function updatePhysics() {
+            state.time += 0.01;
+            
+            // Determine material state based on temperature
+            const temp = parseFloat(document.getElementById('temp-slider').value);
+            state.temp = temp;
+            
+            // Activation factor: 0.0 if cold, ramps up to 1.0 above 37
+            let activation = 0;
+            if (temp >= CONFIG.activationTemp) {
+                activation = Math.min((temp - CONFIG.activationTemp) / 10, 1.0); // Ramp up over 10 degrees
+            }
+
+            // Visual Status Update
+            const statusEl = document.getElementById('temp-status');
+            const tempDisplay = document.getElementById('temp-display');
+            tempDisplay.innerText = temp.toFixed(1) + "°C";
+            
+            if (temp >= CONFIG.activationTemp) {
+                statusEl.className = "status-badge status-active";
+                statusEl.innerText = "Active (Self-Healing)";
+                statusEl.style.background = `rgb(245, 158, 11)`;
+            } else {
+                statusEl.className = "status-badge status-cold";
+                statusEl.innerText = "Inert (Solid)";
+                statusEl.style.background = `rgb(59, 130, 246)`;
+            }
+
+            // Scratch Logic
+            // If scratched, target position is pushed away from center
+            let scratchTarget = 0;
+            if (state.isScratched) {
+                scratchTarget = 1;
+                // If active (hot), we heal -> scratchFactor goes to 0
+                if (activation > 0.1) {
+                    state.isScratched = false; // Trigger healing process
+                }
+            }
+            
+            // Smoothly interpolate scratch factor
+            // If hot, heal fast. If cold, stay scratched.
+            const healSpeed = activation > 0 ? 0.05 : 0.0;
+            const scratchSpeed = 0.1;
+            
+            if (state.isScratched) {
+                state.scratchFactor = THREE.MathUtils.lerp(state.scratchFactor, 1, scratchSpeed);
+            } else {
+                // Healing
+                if (activation > 0) {
+                     state.scratchFactor = THREE.MathUtils.lerp(state.scratchFactor, 0, healSpeed * (1 + activation));
+                }
+            }
+
+
+            // Update Particles
+            let lineIndex = 0;
+
+            particles.forEach(p => {
+                // 1. Calculate Target Position (Home)
+                const target = p.originalPos.clone();
+
+                // Apply Scratch Deformation
+                // Scratch is a trench along the Z axis at X=0
+                if (state.scratchFactor > 0.01 && p.type === 'skin') {
+                    const distToCenter = Math.abs(p.originalPos.x);
+                    const depthFactor = (p.originalPos.y - (CONFIG.coreHeight * CONFIG.spacing)) / (CONFIG.skinHeight * CONFIG.spacing); // 0 at bottom of skin, 1 at top
+                    
+                    if (distToCenter < 2.5) {
+                        const pushDir = p.originalPos.x > 0 ? 1 : -1;
+                        // Push away from center based on scratchFactor
+                        target.x += pushDir * CONFIG.scratchForce * state.scratchFactor * Math.max(0, depthFactor);
+                        // Dip down slightly
+                        target.y -= state.scratchFactor * Math.max(0, depthFactor) * 2; 
+                    }
+                }
+
+                // 2. Physics Forces
+                
+                // Spring force to target
+                // If hot, skin becomes looser (lower stiffness) but tries to return home (memory)
+                // If cold and scratched, it's locked in the scratched position (plastic deformation simulation)
+                // Actually, for ELI5: 
+                // Cold = Stiffness High. It snaps to wherever the "current" geometry dictates.
+                // Hot = Stiffness Low (viscous), but "Memory" allows it to flow back.
+                
+                const currentPos = p.mesh.position;
+                const force = target.clone().sub(currentPos);
+                
+                // Viscoelasticity simulation
+                let k = p.stiffness; // Spring constant
+                
+                // If skin and hot, reduce stiffness (becomes gel-like)
+                if (p.type === 'skin') {
+                    if (activation > 0) {
+                        k = k * 0.3; // Becomes softer
+                    }
+                    
+                    // Brownian Motion (Heat Jitter)
+                    // Increases with temperature
+                    const jitterMag = (temp - 20) * 0.002;
+                    p.mesh.position.x += (Math.random() - 0.5) * jitterMag;
+                    p.mesh.position.y += (Math.random() - 0.5) * jitterMag;
+                    p.mesh.position.z += (Math.random() - 0.5) * jitterMag;
+                    
+                    // Color shift
+                    const colorLerp = Math.min((temp - 20) / 30, 1);
+                    p.mesh.material.color.lerpColors(CONFIG.colors.skinCold, CONFIG.colors.skinHot, colorLerp * 0.5);
+                    p.mesh.material.emissiveIntensity = colorLerp * 0.5;
+                }
+
+                // Apply spring force
+                p.velocity.add(force.multiplyScalar(k));
+                
+                // Damping (Friction)
+                p.velocity.multiplyScalar(0.85);
+                
+                // Update position
+                p.mesh.position.add(p.velocity);
+
+                // 3. Dynamic Bonds (Drawing Lines)
+                // Only draw for skin, and only to neighbors
+                if (p.type === 'skin') {
+                    // Simple neighbor check (optimization: just check array neighbors roughly)
+                    // For a proper grid, we can just check distance to a subset
+                    // To keep FPS high, we only check particles close in index or random sampling?
+                    // Better: Pre-calculate neighbors or just do brute force on a subset?
+                    // Brute force 300 particles is fine (300^2 = 90,000 checks, doable in JS)
+                    
+                    // Optimization: Only check particles with higher ID to avoid duplicates
+                    for (let j = p.id + 1; j < particles.length; j++) {
+                        const other = particles[j];
+                        if (other.type !== 'skin') continue;
+
+                        const distSq = p.mesh.position.distanceToSquared(other.mesh.position);
+                        
+                        // Bond length logic
+                        const maxDist = CONFIG.bondDistance * (1 + activation * 0.5); // Bonds stretch when hot
+
+                        if (distSq < maxDist * maxDist) {
+                            if (lineIndex < maxConnections * 6) {
+                                linePositions[lineIndex++] = p.mesh.position.x;
+                                linePositions[lineIndex++] = p.mesh.position.y;
+                                linePositions[lineIndex++] = p.mesh.position.z;
+                                linePositions[lineIndex++] = other.mesh.position.x;
+                                linePositions[lineIndex++] = other.mesh.position.y;
+                                linePositions[lineIndex++] = other.mesh.position.z;
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Update Line Geometry
+            bondsMesh.geometry.setDrawRange(0, lineIndex / 3);
+            bondsMesh.geometry.attributes.position.needsUpdate = true;
+            
+            // Pulse the bond opacity based on temp
+            lineMaterial.opacity = 0.1 + (activation * 0.4) + (Math.sin(state.time * 5) * 0.1);
+        }
+
+        // --- Interaction Handlers ---
+
+        document.getElementById('scratch-btn').addEventListener('click', () => {
+            state.isScratched = true;
+            // If temp is high, it will immediately start healing, so maybe reset temp?
+            // No, let the user discover that scratching a hot material heals instantly.
+        });
+
+        document.getElementById('reset-btn').addEventListener('click', () => {
+            state.isScratched = false;
+            state.scratchFactor = 0;
+            document.getElementById('temp-slider').value = 25;
+            // Reset positions
+            particles.forEach(p => {
+                p.mesh.position.copy(p.originalPos);
+                p.velocity.set(0,0,0);
+            });
+        });
+
+        // --- Annotation Tracking ---
+        
+        function updateAnnotations() {
+            // Project 3D positions to 2D screen space
+            const updateLabel = (id, position) => {
+                const vector = position.clone();
+                vector.project(camera);
+
+                const x = (vector.x * .5 + .5) * window.innerWidth;
+                const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+                const el = document.getElementById(id);
+                
+                // Hide if behind camera
+                if (vector.z > 1) {
+                    el.classList.remove('visible');
+                } else {
+                    el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+                    el.classList.add('visible');
+                }
+            };
+
+            // Core Label (Bottom Center)
+            updateLabel('anno-core', new THREE.Vector3(0, CONFIG.coreHeight/2 * CONFIG.spacing, 0));
+            
+            // Skin Label (Top Center)
+            updateLabel('anno-skin', new THREE.Vector3(0, (CONFIG.coreHeight + CONFIG.skinHeight - 1) * CONFIG.spacing, 0));
+            
+            // Bond Label (Somewhere in the skin)
+            updateLabel('anno-bond', new THREE.Vector3(3, (CONFIG.coreHeight + 2) * CONFIG.spacing, 0));
+        }
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            updatePhysics();
+            updateAnnotations();
+            renderer.render(scene, camera);
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+
+    </script>
+</body>
+</html>

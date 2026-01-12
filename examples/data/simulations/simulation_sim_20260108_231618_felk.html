@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic Flash-Lock Barrier Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050510; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        canvas { display: block; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(100, 200, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            pointer-events: all;
+            user-select: none;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            color: #00d2ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        p { font-size: 0.9rem; line-height: 1.4; color: #ccc; margin-bottom: 15px; }
+
+        .control-group { margin-bottom: 15px; }
+        
+        button {
+            background: linear-gradient(135deg, #00d2ff 0%, #0078ff 100%);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 8px;
+            transition: transform 0.1s, opacity 0.2s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+        button:active { transform: translateY(1px); }
+        
+        button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .status-panel {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 5px currentColor;
+        }
+
+        .legend { margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; }
+        .legend-item { display: flex; align-items: center; margin-bottom: 5px; font-size: 0.8rem; color: #aaa; }
+        .legend-color { width: 12px; height: 12px; margin-right: 8px; border-radius: 2px; }
+
+        /* Labels in 3D space */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #444;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .label.visible { opacity: 1; }
+
+        /* Toggle Switch */
+        .toggle-container { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #444; transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #00d2ff; }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+    </style>
+</head>
+<body>
+
+    <!-- 3D Labels (Hidden initially, positioned by JS) -->
+    <div id="label-barrier" class="label">Flexible Matrix</div>
+    <div id="label-solvent" class="label">Polar Solvent</div>
+    <div id="label-reaction" class="label">Flash-Lock!</div>
+
+    <!-- UI Panel -->
+    <div id="ui-container">
+        <h1>Ionic Flash-Lock</h1>
+        <p>A smart barrier that instantly stiffens upon contact with dangerous solvents.</p>
+        
+        <div class="control-group">
+            <div class="toggle-container">
+                <span><strong>Protection Active</strong></span>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-mechanism" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div style="font-size: 0.8rem; color: #888; margin-bottom: 10px;">
+                Turn OFF to see solvent penetrate. Turn ON to see it bounce.
+            </div>
+            <button id="btn-reset" class="secondary">Reset Matrix</button>
+        </div>
+
+        <div class="status-panel">
+            <div class="status-item">
+                <div class="indicator" style="background-color: #00d2ff;" id="status-matrix"></div>
+                <span id="text-matrix">State: Gel / Flexible</span>
+            </div>
+            <div class="status-item">
+                <div class="indicator" style="background-color: #ff3333;" id="status-threat"></div>
+                <span id="text-threat">Threat: Approaching</span>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div style="font-size: 0.75rem; text-transform: uppercase; color: #666; margin-bottom: 5px;">Legend</div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #0044aa; border: 1px solid #00d2ff;"></div>
+                <span>Flexible Matrix (Safe)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: white; box-shadow: 0 0 5px white;"></div>
+                <span>Rigid/Locked (Protected)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff3333; box-shadow: 0 0 5px red;"></div>
+                <span>Polar Solvent (Threat)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration ---
+        const config = {
+            gridSize: 30,
+            gridSpacing: 0.5,
+            waveSpeed: 2.0,
+            waveHeight: 0.5,
+            solventSpeed: 0.15,
+            solventCount: 8,
+            lockRadius: 2.0, // Radius of influence for locking
+            mechanismActive: true
+        };
+
+        // --- Scene Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x050510);
+        scene.fog = new THREE.FogExp2(0x050510, 0.03);
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 8, 12);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2; // Don't go below ground
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        scene.add(dirLight);
+
+        const pointLight = new THREE.PointLight(0x00d2ff, 1, 20);
+        pointLight.position.set(0, 2, 0);
+        scene.add(pointLight);
+
+        // --- The Matrix (Barrier) ---
+        // We use a grid of points connected by lines to simulate a molecular lattice
+        const geometry = new THREE.PlaneGeometry(
+            config.gridSize * config.gridSpacing, 
+            config.gridSize * config.gridSpacing, 
+            config.gridSize, 
+            config.gridSize
+        );
+        geometry.rotateX(-Math.PI / 2); // Lay flat
+
+        // Store original positions for wave calculation
+        const positionAttribute = geometry.attributes.position;
+        const vertexCount = positionAttribute.count;
+        const originalPositions = [];
+        const lockedState = []; // 0 = flexible, 1 = locked
+        const colors = [];
+
+        const colorFlexible = new THREE.Color(0x0044aa);
+        const colorLocked = new THREE.Color(0xffffff);
+
+        for (let i = 0; i < vertexCount; i++) {
+            originalPositions.push({
+                x: positionAttribute.getX(i),
+                y: positionAttribute.getY(i),
+                z: positionAttribute.getZ(i)
+            });
+            lockedState.push(0);
+            colors.push(colorFlexible.r, colorFlexible.g, colorFlexible.b);
+        }
+
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+        // Material for the lattice
+        const material = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            vertexColors: true,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.6,
+            roughness: 0.4,
+            metalness: 0.8
+        });
+
+        // Add points at vertices for "Atoms" look
+        const pointsMaterial = new THREE.PointsMaterial({
+            size: 0.15,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.9
+        });
+
+        const matrixMesh = new THREE.Mesh(geometry, material);
+        const matrixPoints = new THREE.Points(geometry, pointsMaterial);
+        
+        const matrixGroup = new THREE.Group();
+        matrixGroup.add(matrixMesh);
+        matrixGroup.add(matrixPoints);
+        scene.add(matrixGroup);
+
+
+        // --- Solvents (Threats) ---
+        const solventGeometry = new THREE.SphereGeometry(0.3, 16, 16);
+        const solventMaterial = new THREE.MeshBasicMaterial({ color: 0xff3333 });
+        const solvents = [];
+
+        function createSolvent() {
+            const mesh = new THREE.Mesh(solventGeometry, solventMaterial);
+            
+            // Add a glow effect
+            const glowGeo = new THREE.SphereGeometry(0.5, 16, 16);
+            const glowMat = new THREE.MeshBasicMaterial({ 
+                color: 0xff0000, 
+                transparent: true, 
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+            const glow = new THREE.Mesh(glowGeo, glowMat);
+            mesh.add(glow);
+
+            resetSolvent(mesh);
+            scene.add(mesh);
+            return { mesh: mesh, velocity: new THREE.Vector3(), state: 'falling' };
+        }
+
+        function resetSolvent(mesh) {
+            // Random position above the board
+            const range = (config.gridSize * config.gridSpacing) / 2 - 2;
+            mesh.position.set(
+                (Math.random() - 0.5) * 2 * range,
+                8 + Math.random() * 5,
+                (Math.random() - 0.5) * 2 * range
+            );
+        }
+
+        for (let i = 0; i < config.solventCount; i++) {
+            solvents.push(createSolvent());
+        }
+
+        // --- Interaction Logic ---
+        
+        // Raycaster for labels
+        const raycaster = new THREE.Raycaster();
+        const labelBarrier = document.getElementById('label-barrier');
+        const labelSolvent = document.getElementById('label-solvent');
+        const labelReaction = document.getElementById('label-reaction');
+
+        function updateLabels() {
+            // Simple projection for labels
+            // Center of matrix
+            toScreenPosition(new THREE.Vector3(0, 0, 0), labelBarrier);
+            
+            // Find active solvent
+            const activeSolvent = solvents.find(s => s.mesh.position.y > 0 && s.mesh.position.y < 5);
+            if(activeSolvent) {
+                toScreenPosition(activeSolvent.mesh.position, labelSolvent);
+                labelSolvent.classList.add('visible');
+            } else {
+                labelSolvent.classList.remove('visible');
+            }
+
+            // Reaction label logic handled in collision
+        }
+
+        function toScreenPosition(objPos, element) {
+            const vector = objPos.clone();
+            vector.project(camera);
+            const x = (vector.x * .5 + .5) * window.innerWidth;
+            const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+            if (vector.z < 1) { // Only show if in front of camera
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+                element.classList.add('visible');
+            } else {
+                element.classList.remove('visible');
+            }
+        }
+
+        // --- Animation Loop ---
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const time = clock.getElapsedTime();
+            const delta = clock.getDelta();
+
+            // 1. Update Matrix (Wave Animation)
+            const positions = geometry.attributes.position.array;
+            const cols = geometry.attributes.color.array;
+            let activeLocks = 0;
+
+            for (let i = 0; i < vertexCount; i++) {
+                // If locked, interpolate towards 0 (flat/rigid)
+                // If not locked, wave based on sine
+                
+                const ox = originalPositions[i].x;
+                const oz = originalPositions[i].z; // z in data is y in world relative to plane rotation
+                
+                // Calculate wave height
+                // Complex wave: composite of two sines
+                const waveY = Math.sin(ox * 0.5 + time * config.waveSpeed) * 0.3 + 
+                              Math.cos(oz * 0.3 + time * config.waveSpeed * 1.2) * 0.3;
+
+                if (lockedState[i] > 0) {
+                    // It is locked. 
+                    // Visual: Make it rigid (y -> 0)
+                    // lockedState can act as an interpolation factor (1.0 -> fully locked)
+                    // But here we just keep it at 1 once hit.
+                    
+                    // Lerp position to flat (0)
+                    const currentY = positions[i * 3 + 1]; // Y is index 1
+                    positions[i * 3 + 1] = THREE.MathUtils.lerp(currentY, 0, 0.1);
+
+                    // Color: White
+                    cols[i * 3] = THREE.MathUtils.lerp(cols[i * 3], colorLocked.r, 0.1);
+                    cols[i * 3 + 1] = THREE.MathUtils.lerp(cols[i * 3 + 1], colorLocked.g, 0.1);
+                    cols[i * 3 + 2] = THREE.MathUtils.lerp(cols[i * 3 + 2], colorLocked.b, 0.1);
+                    
+                    activeLocks++;
+                } else {
+                    // Flexible state
+                    positions[i * 3 + 1] = waveY * config.waveHeight;
+
+                    // Color: Blue
+                    cols[i * 3] = colorFlexible.r;
+                    cols[i * 3 + 1] = colorFlexible.g;
+                    cols[i * 3 + 2] = colorFlexible.b;
+                }
+            }
+
+            geometry.attributes.position.needsUpdate = true;
+            geometry.attributes.color.needsUpdate = true;
+
+            // Update Status UI
+            const statusMatrix = document.getElementById('status-matrix');
+            const textMatrix = document.getElementById('text-matrix');
+            
+            if (activeLocks > 0) {
+                statusMatrix.style.backgroundColor = 'white';
+                statusMatrix.style.boxShadow = '0 0 8px white';
+                textMatrix.textContent = "State: LOCALLY RIGID (Reaction Active)";
+                textMatrix.style.color = "#fff";
+            } else {
+                statusMatrix.style.backgroundColor = '#00d2ff';
+                statusMatrix.style.boxShadow = '0 0 5px #00d2ff';
+                textMatrix.textContent = "State: Gel / Flexible";
+                textMatrix.style.color = "#ccc";
+            }
+
+
+            // 2. Update Solvents
+            let reactionHappening = false;
+            let reactionPos = new THREE.Vector3();
+
+            solvents.forEach(s => {
+                // Gravity movement
+                if (s.state === 'falling') {
+                    s.mesh.position.y -= config.solventSpeed;
+                } else if (s.state === 'bouncing') {
+                    s.mesh.position.add(s.velocity);
+                    s.velocity.y -= 0.01; // Gravity
+                    if (s.mesh.position.y < -5) resetSolvent(s.mesh);
+                }
+
+                // Check Bounds
+                if (s.mesh.position.y < -5) {
+                    resetSolvent(s.mesh);
+                    s.state = 'falling';
+                }
+
+                // Collision with Matrix
+                // Matrix is roughly at y=0 (plus waves)
+                if (s.state === 'falling' && s.mesh.position.y < 0.5 && s.mesh.position.y > -0.5) {
+                    
+                    if (config.mechanismActive) {
+                        // MECHANISM: ON
+                        // 1. Trigger Lock on nearby vertices
+                        let hit = false;
+                        for (let i = 0; i < vertexCount; i++) {
+                            const dx = originalPositions[i].x - s.mesh.position.x;
+                            const dz = originalPositions[i].z - s.mesh.position.z; // z in orig is z in world
+                            const dist = Math.sqrt(dx*dx + dz*dz);
+
+                            if (dist < config.lockRadius) {
+                                lockedState[i] = 1; // LOCK IT
+                                hit = true;
+                            }
+                        }
+
+                        if (hit) {
+                            // 2. Bounce Solvent
+                            s.state = 'bouncing';
+                            s.velocity.set(
+                                (Math.random() - 0.5) * 0.2, // Random spread X
+                                0.3 + Math.random() * 0.2,   // Upward bounce
+                                (Math.random() - 0.5) * 0.2  // Random spread Z
+                            );
+                            
+                            reactionHappening = true;
+                            reactionPos.copy(s.mesh.position);
+                        }
+                    } else {
+                        // MECHANISM: OFF
+                        // Just pass through, maybe slow down slightly visually
+                        // No state change
+                    }
+                }
+            });
+
+            // Update Reaction Label
+            if (reactionHappening) {
+                toScreenPosition(reactionPos, labelReaction);
+                labelReaction.classList.add('visible');
+                // Flash effect
+                scene.background = new THREE.Color(0x101525); // Slight flash
+            } else {
+                labelReaction.classList.remove('visible');
+                scene.background.lerp(new THREE.Color(0x050510), 0.1); // Fade back
+            }
+
+            updateLabels();
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // --- UI Events ---
+        
+        // Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Toggle Mechanism
+        document.getElementById('toggle-mechanism').addEventListener('change', (e) => {
+            config.mechanismActive = e.target.checked;
+            const status = document.getElementById('text-threat');
+            if(config.mechanismActive) {
+                status.textContent = "Mechanism: ACTIVE (Will Crosslink)";
+                status.style.color = "#00d2ff";
+            } else {
+                status.textContent = "Mechanism: INACTIVE (Permeable)";
+                status.style.color = "#ff3333";
+            }
+        });
+
+        // Reset
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            for (let i = 0; i < vertexCount; i++) {
+                lockedState[i] = 0;
+            }
+            solvents.forEach(s => resetSolvent(s.mesh));
+        });
+
+    </script>
+</body>
+</html>

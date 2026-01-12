@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermally-Driven Segregation Simulator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #0b0d12;
+            font-family: 'Rajdhani', sans-serif;
+            color: #ffffff;
+        }
+
+        #canvas-container {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+        }
+
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Header */
+        header {
+            background: rgba(11, 13, 18, 0.85);
+            backdrop-filter: blur(8px);
+            padding: 15px 25px;
+            border-left: 4px solid #00d2ff;
+            border-radius: 0 10px 10px 0;
+            max-width: 500px;
+            pointer-events: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            font-weight: 400;
+            color: #00d2ff;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Control Panel */
+        #controls {
+            background: rgba(11, 13, 18, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            width: 320px;
+            pointer-events: auto;
+            align-self: flex-end;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 8px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00d2ff 0%, #ff0055 100%);
+            border-radius: 2px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #00d2ff;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background: #66e0ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button.reset {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+            margin-top: 10px;
+        }
+        
+        button.reset:hover {
+            border-color: #fff;
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Metrics */
+        .metric-box {
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border-left: 3px solid #ffcc00;
+        }
+
+        .metric-title {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffcc00;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .bar-container {
+            width: 100%;
+            height: 6px;
+            background: #333;
+            margin-top: 5px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 0%;
+            background: #ffcc00;
+            transition: width 0.3s ease;
+        }
+
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            pointer-events: auto;
+            background: rgba(0,0,0,0.6);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Floating Labels */
+        .label-3d {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .label-line {
+            position: absolute;
+            background: white;
+            height: 1px;
+            transform-origin: 0 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        /* Status Indicator */
+        #temp-status {
+            text-align: right;
+            font-weight: bold;
+            color: #00d2ff;
+        }
+
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <!-- 3D Labels (populated via JS) -->
+    <div id="labels-container"></div>
+
+    <div id="ui-layer">
+        <header>
+            <h1>Thermally-Driven Segregation</h1>
+            <h2>Concept 15: Variotherm Surface Migration</h2>
+            <div style="margin-top: 10px; font-size: 14px; color: #ccc; line-height: 1.4;">
+                Visualizing how heat cycles drive slip agents to the surface, creating a lubricious skin without coatings.
+            </div>
+        </header>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="dot" style="background: #ffcc00; box-shadow: 0 0 5px #ffcc00;"></div>
+                Slip Agents (Low Surface Energy)
+            </div>
+            <div class="legend-item">
+                <div class="dot" style="background: rgba(0, 210, 255, 0.5); border: 1px solid #00d2ff;"></div>
+                Polymer Matrix
+            </div>
+            <div class="legend-item">
+                <div class="dot" style="background: linear-gradient(90deg, #00d2ff, #ff0055);"></div>
+                Mold Wall Temperature
+            </div>
+        </div>
+
+        <div id="controls">
+            <div class="control-group">
+                <label>
+                    <span>MOLD TEMPERATURE</span>
+                    <span id="temp-val">20°C</span>
+                </label>
+                <input type="range" id="temp-slider" min="0" max="1" step="0.01" value="0">
+                <div id="temp-status">COOLING PHASE</div>
+            </div>
+
+            <div class="metric-box">
+                <div class="metric-title">Surface Lubricity</div>
+                <div class="metric-value" id="lubricity-val">0%</div>
+                <div class="bar-container">
+                    <div class="bar-fill" id="lubricity-bar"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <button id="btn-cycle">Run Full Cycle</button>
+                <button id="btn-reset" class="reset">Reset Simulation</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            particleCount: 150,
+            boxSize: { x: 4, y: 4, z: 4 },
+            colors: {
+                cold: new THREE.Color(0x001133),
+                hot: new THREE.Color(0xaa0000),
+                particle: 0xffcc00,
+                polymer: 0x00a8ff
+            },
+            physics: {
+                viscosityCold: 0.99, // High friction
+                viscosityHot: 0.90,  // Lower friction
+                migrationForce: 0.08, // Force pushing to surface
+                brownianScale: 0.05   // Random jitter
+            }
+        };
+
+        // --- State ---
+        let state = {
+            temperature: 0, // 0.0 to 1.0
+            isCycling: false,
+            lubricityScore: 0
+        };
+
+        // --- Three.js Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x0b0d12, 0.03);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(8, 5, 8);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below floor
+        controls.minDistance = 5;
+        controls.maxDistance = 15;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const glowLight = new THREE.PointLight(0x00d2ff, 0.5, 10);
+        glowLight.position.set(0, 2, 0);
+        scene.add(glowLight);
+
+        // --- Objects ---
+
+        // 1. The Mold Wall (Floor)
+        const planeGeometry = new THREE.PlaneGeometry(10, 10);
+        const planeMaterial = new THREE.MeshStandardMaterial({ 
+            color: CONFIG.colors.cold,
+            roughness: 0.2,
+            metalness: 0.8
+        });
+        const moldWall = new THREE.Mesh(planeGeometry, planeMaterial);
+        moldWall.rotation.x = -Math.PI / 2;
+        moldWall.receiveShadow = true;
+        scene.add(moldWall);
+
+        // Grid helper for context
+        const grid = new THREE.GridHelper(10, 10, 0x333333, 0x111111);
+        scene.add(grid);
+
+        // 2. The Polymer Matrix (Translucent Box)
+        // We render this slightly raised so y=0 is the interface
+        const boxGeo = new THREE.BoxGeometry(CONFIG.boxSize.x, CONFIG.boxSize.y, CONFIG.boxSize.z);
+        const boxMat = new THREE.MeshPhysicalMaterial({
+            color: CONFIG.colors.polymer,
+            transmission: 0.6,
+            opacity: 0.3,
+            transparent: true,
+            roughness: 0.1,
+            metalness: 0.1,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1,
+            side: THREE.DoubleSide
+        });
+        const polymerMatrix = new THREE.Mesh(boxGeo, boxMat);
+        polymerMatrix.position.y = CONFIG.boxSize.y / 2; // Sit on floor
+        scene.add(polymerMatrix);
+
+        // Edges for the box
+        const edges = new THREE.EdgesGeometry(boxGeo);
+        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0x00d2ff, transparent: true, opacity: 0.3 }));
+        line.position.copy(polymerMatrix.position);
+        scene.add(line);
+
+        // 3. Slip Agents (Particles)
+        const particles = [];
+        const particleGeo = new THREE.SphereGeometry(0.12, 16, 16);
+        const particleMat = new THREE.MeshStandardMaterial({
+            color: CONFIG.colors.particle,
+            emissive: CONFIG.colors.particle,
+            emissiveIntensity: 0.5,
+            roughness: 0.3,
+            metalness: 0.5
+        });
+
+        // Use InstancedMesh for performance
+        const instancedMesh = new THREE.InstancedMesh(particleGeo, particleMat, CONFIG.particleCount);
+        instancedMesh.castShadow = true;
+        instancedMesh.receiveShadow = true;
+        scene.add(instancedMesh);
+
+        const dummy = new THREE.Object3D();
+
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < CONFIG.particleCount; i++) {
+                particles.push({
+                    x: (Math.random() - 0.5) * (CONFIG.boxSize.x - 0.4),
+                    y: Math.random() * (CONFIG.boxSize.y - 0.4) + 0.2, // Keep inside box
+                    z: (Math.random() - 0.5) * (CONFIG.boxSize.z - 0.4),
+                    vy: 0,
+                    vx: 0,
+                    vz: 0,
+                    scale: 0.5 + Math.random() * 0.5
+                });
+            }
+            updateInstanceMesh();
+        }
+
+        function updateInstanceMesh() {
+            let surfaceCount = 0;
+            
+            particles.forEach((p, i) => {
+                dummy.position.set(p.x, p.y, p.z);
+                dummy.scale.set(p.scale, p.scale, p.scale);
+                dummy.updateMatrix();
+                instancedMesh.setMatrixAt(i, dummy.matrix);
+
+                // Count particles near surface (y < 0.3)
+                if(p.y < 0.3) surfaceCount++;
+            });
+            instancedMesh.instanceMatrix.needsUpdate = true;
+
+            // Update Score
+            const percentage = Math.min(100, Math.round((surfaceCount / (CONFIG.particleCount * 0.4)) * 100)); // normalize relative to expected saturation
+            state.lubricityScore = percentage;
+            updateUI(percentage);
+        }
+
+        initParticles();
+
+        // --- Physics Engine ---
+
+        function updatePhysics() {
+            // Physics parameters based on Temperature
+            // Temp 0 = Solid, High Viscosity, No Movement
+            // Temp 1 = Liquid, Low Viscosity, High Mobility
+            
+            const temp = state.temperature;
+            
+            // If temp is very low, everything freezes
+            if (temp < 0.1) return;
+
+            particles.forEach(p => {
+                // 1. Brownian Motion (Heat Energy)
+                // Increases with temperature
+                const jitter = CONFIG.physics.brownianScale * temp;
+                p.vx += (Math.random() - 0.5) * jitter;
+                p.vz += (Math.random() - 0.5) * jitter;
+                p.vy += (Math.random() - 0.5) * jitter;
+
+                // 2. Segregation Force (Thermodynamics)
+                // Low surface energy agents are pushed to the boundary (y=0) when mobility allows
+                // This force is proportional to temperature (mobility)
+                const segregationPush = -CONFIG.physics.migrationForce * temp; 
+                p.vy += segregationPush;
+
+                // 3. Apply Velocity
+                p.x += p.vx;
+                p.y += p.vy;
+                p.z += p.vz;
+
+                // 4. Damping (Viscosity)
+                // Viscosity decreases as temp increases, so damping decreases
+                const damping = 0.9 - (0.1 * temp); 
+                p.vx *= damping;
+                p.vy *= damping;
+                p.vz *= damping;
+
+                // 5. Boundary Constraints
+                const halfX = (CONFIG.boxSize.x - 0.4) / 2;
+                const halfZ = (CONFIG.boxSize.z - 0.4) / 2;
+                
+                // Walls
+                if (p.x < -halfX) { p.x = -halfX; p.vx *= -0.5; }
+                if (p.x > halfX) { p.x = halfX; p.vx *= -0.5; }
+                if (p.z < -halfZ) { p.z = -halfZ; p.vz *= -0.5; }
+                if (p.z > halfZ) { p.z = halfZ; p.vz *= -0.5; }
+                
+                // Floor (The Mold Surface)
+                // Allow them to stack slightly
+                if (p.y < 0.1) {
+                    p.y = 0.1;
+                    p.vy = 0;
+                    // Friction at surface
+                    p.vx *= 0.5;
+                    p.vz *= 0.5;
+                }
+                
+                // Ceiling
+                if (p.y > CONFIG.boxSize.y - 0.2) {
+                    p.y = CONFIG.boxSize.y - 0.2;
+                    p.vy *= -0.5;
+                }
+            });
+
+            updateInstanceMesh();
+        }
+
+        // --- Animation Loop ---
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            updatePhysics();
+            
+            // Visual updates based on Temp
+            const t = state.temperature;
+            
+            // Mold Color: Blue -> Red
+            moldWall.material.color.lerpColors(CONFIG.colors.cold, CONFIG.colors.hot, t);
+            moldWall.material.emissive.setHex(0xff0000);
+            moldWall.material.emissiveIntensity = t * 0.5;
+
+            // Glow Light
+            glowLight.color.setHSL(0.6 - (t * 0.6), 1, 0.5); // Blue to Red
+            glowLight.intensity = 0.5 + t;
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // --- UI & Interaction Logic ---
+
+        const slider = document.getElementById('temp-slider');
+        const tempVal = document.getElementById('temp-val');
+        const tempStatus = document.getElementById('temp-status');
+        const lubricityVal = document.getElementById('lubricity-val');
+        const lubricityBar = document.getElementById('lubricity-bar');
+
+        function updateUI(lubricity) {
+            lubricityVal.innerText = lubricity + '%';
+            lubricityBar.style.width = lubricity + '%';
+            
+            // Color code the bar based on success
+            if(lubricity < 30) lubricityBar.style.background = '#ffcc00'; // Yellow
+            else if (lubricity < 70) lubricityBar.style.background = '#ffa500'; // Orange
+            else lubricityBar.style.background = '#00ff00'; // Green (Success)
+        }
+
+        slider.addEventListener('input', (e) => {
+            if(state.isCycling) return; // Lock if cycling
+            setTemperature(parseFloat(e.target.value));
+        });
+
+        function setTemperature(val) {
+            state.temperature = val;
+            
+            // Update UI text
+            const c = Math.round(20 + (val * 180)); // 20C to 200C
+            tempVal.innerText = c + "°C";
+            slider.value = val;
+
+            if(val < 0.2) {
+                tempStatus.innerText = "COOLING / SOLID";
+                tempStatus.style.color = "#00d2ff";
+            } else if (val > 0.7) {
+                tempStatus.innerText = "HEATING / MOBILE";
+                tempStatus.style.color = "#ff0055";
+            } else {
+                tempStatus.innerText = "TRANSITION";
+                tempStatus.style.color = "#ffffff";
+            }
+        }
+
+        // Cycle Logic
+        document.getElementById('btn-cycle').addEventListener('click', () => {
+            if(state.isCycling) return;
+            state.isCycling = true;
+            runCycle();
+        });
+
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            state.isCycling = false;
+            setTemperature(0);
+            initParticles();
+        });
+
+        function runCycle() {
+            let phase = 0; // 0: Heat, 1: Hold, 2: Cool
+            let startTime = null;
+            const heatDuration = 2000;
+            const holdDuration = 3000;
+            const coolDuration = 2000;
+
+            function cycleLoop(timestamp) {
+                if(!state.isCycling) return;
+                if(!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+
+                if(phase === 0) {
+                    // Heating
+                    const progress = Math.min(elapsed / heatDuration, 1);
+                    setTemperature(progress); // 0 -> 1
+                    if(progress >= 1) {
+                        phase = 1;
+                        startTime = timestamp;
+                    }
+                } else if (phase === 1) {
+                    // Holding (High Temp)
+                    setTemperature(1);
+                    if(elapsed > holdDuration) {
+                        phase = 2;
+                        startTime = timestamp;
+                    }
+                } else if (phase === 2) {
+                    // Cooling
+                    const progress = Math.min(elapsed / coolDuration, 1);
+                    setTemperature(1 - progress); // 1 -> 0
+                    if(progress >= 1) {
+                        state.isCycling = false;
+                        return; // Done
+                    }
+                }
+
+                requestAnimationFrame(cycleLoop);
+            }
+            requestAnimationFrame(cycleLoop);
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Add 3D Labels via Overlay
+        const labels = [
+            { text: "Mold Surface", pos: new THREE.Vector3(0, 0, 5.2) },
+            { text: "Polymer Matrix", pos: new THREE.Vector3(0, 3, 0) },
+            { text: "Slip Agents", pos: new THREE.Vector3(1.5, 1.5, 1.5) }
+        ];
+
+        const labelContainer = document.getElementById('labels-container');
+        
+        labels.forEach(l => {
+            const div = document.createElement('div');
+            div.className = 'label-3d';
+            div.innerText = l.text;
+            labelContainer.appendChild(div);
+            l.element = div;
+        });
+
+        // Update labels position in loop
+        function updateLabels() {
+            labels.forEach(l => {
+                const vector = l.pos.clone();
+                vector.project(camera);
+
+                const x = (vector.x * .5 + .5) * window.innerWidth;
+                const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+                if (Math.abs(vector.z) < 1) {
+                    l.element.style.left = `${x}px`;
+                    l.element.style.top = `${y}px`;
+                    l.element.style.opacity = 1;
+                } else {
+                    l.element.style.opacity = 0;
+                }
+            });
+            requestAnimationFrame(updateLabels);
+        }
+        updateLabels();
+
+    </script>
+</body>
+</html>

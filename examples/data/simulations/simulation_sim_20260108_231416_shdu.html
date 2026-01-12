@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 2 Blend: Homogeneous Pre-compounding Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #111; color: #eee; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        
+        /* UI Overlay */
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(20, 25, 30, 0.9);
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        h1 { font-size: 1.2rem; margin: 0 0 10px 0; color: #fff; letter-spacing: 1px; }
+        h2 { font-size: 0.9rem; margin: 15px 0 5px 0; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; }
+        p { font-size: 0.85rem; line-height: 1.4; color: #ccc; margin-bottom: 15px; }
+
+        /* Controls */
+        .control-group { margin-bottom: 20px; }
+        label { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 5px; color: #00d2ff; font-weight: bold; }
+        
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #333;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #00d2ff;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #333;
+            border: 1px solid #555;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+        button:hover { background: #444; border-color: #00d2ff; }
+        button.active { background: #00d2ff; color: #000; border-color: #00d2ff; }
+
+        /* Status Indicators */
+        .status-bar {
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        .status-fill {
+            height: 100%;
+            width: 100%;
+            background: #00ff88;
+            transition: width 0.5s, background-color 0.5s;
+        }
+        .metric-value { font-size: 1.5rem; font-weight: bold; color: #fff; }
+        .metric-label { font-size: 0.7rem; color: #888; text-transform: uppercase; }
+
+        /* Legend */
+        .legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 15px; border-top: 1px solid #444; padding-top: 10px; }
+        .legend-item { display: flex; align-items: center; font-size: 0.75rem; color: #bbb; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+
+        /* 3D Labels */
+        .label-3d {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .label-3d.visible { opacity: 1; }
+
+        /* Instructions */
+        #instructions {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            pointer-events: none;
+        }
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-panel">
+        <h1>Tier 2 Blend Simulator</h1>
+        <p>Pre-compounding high-performance copolymer into base material to ensure chemical resistance.</p>
+
+        <div class="control-group">
+            <label>
+                <span>Blend Ratio (Copolymer %)</span>
+                <span id="ratio-val">0%</span>
+            </label>
+            <input type="range" id="mix-slider" min="0" max="100" value="0">
+        </div>
+
+        <div class="control-group">
+            <h2>Simulation Control</h2>
+            <button id="btn-stress">Toggle Chemical Attack</button>
+            <button id="btn-slice">Toggle Cross-Section</button>
+        </div>
+
+        <div class="control-group">
+            <h2>Material Integrity</h2>
+            <div class="status-bar">
+                <div id="integrity-bar" class="status-fill"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-top:5px;">
+                <span id="integrity-text" class="metric-label">100% Intact</span>
+                <span id="protection-status" class="metric-label" style="color:#ff4444">VULNERABLE</span>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="dot" style="background: rgba(0, 100, 255, 0.5); border:1px solid white;"></div>Base Resin</div>
+            <div class="legend-item"><div class="dot" style="background: #ffd700; box-shadow: 0 0 5px #ffd700;"></div>Copolymer (Shield)</div>
+            <div class="legend-item"><div class="dot" style="background: #00ff00;"></div>Chemical Attack</div>
+        </div>
+    </div>
+
+    <div id="instructions">
+        Click & Drag to Rotate • Scroll to Zoom • Increase Blend Ratio to Protect
+    </div>
+
+    <!-- 3D Labels (Hidden by default, positioned via JS) -->
+    <div id="lbl-matrix" class="label-3d">Base Matrix</div>
+    <div id="lbl-copolymer" class="label-3d">Protective Particle</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            particleCount: 800,
+            baseColor: 0x0044aa,
+            damageColor: 0xff0000,
+            copolymerColor: 0xffd700,
+            attackColor: 0x00ff44,
+            boxSize: { x: 4, y: 1.5, z: 2 }
+        };
+
+        // --- State ---
+        let state = {
+            mixRatio: 0, // 0 to 1
+            isAttacking: false,
+            isSliced: false,
+            integrity: 100, // 0 to 100
+            damageLevel: 0 // 0 to 1
+        };
+
+        // --- Scene Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x111111);
+        scene.fog = new THREE.FogExp2(0x111111, 0.05);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(5, 4, 6);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.shadowMap.enabled = true;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x00d2ff, 1, 10);
+        blueLight.position.set(-2, 2, -2);
+        scene.add(blueLight);
+
+        // --- Objects ---
+
+        // 1. The Base Matrix (The Part)
+        const geometry = new THREE.BoxGeometry(CONFIG.boxSize.x, CONFIG.boxSize.y, CONFIG.boxSize.z);
+        // Move geometry so bottom is at 0
+        geometry.translate(0, CONFIG.boxSize.y / 2, 0); 
+        
+        const material = new THREE.MeshPhysicalMaterial({
+            color: CONFIG.baseColor,
+            metalness: 0.1,
+            roughness: 0.2,
+            transmission: 0.6, // Glass-like
+            thickness: 1.0,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const mainBlock = new THREE.Mesh(geometry, material);
+        mainBlock.castShadow = true;
+        mainBlock.receiveShadow = true;
+        scene.add(mainBlock);
+
+        // 2. The Copolymer Particles (Instanced Mesh for performance)
+        const particleGeo = new THREE.IcosahedronGeometry(0.06, 1);
+        const particleMat = new THREE.MeshStandardMaterial({
+            color: CONFIG.copolymerColor,
+            emissive: 0xffaa00,
+            emissiveIntensity: 0.5,
+            roughness: 0.4,
+            metalness: 0.8
+        });
+
+        const particlesMesh = new THREE.InstancedMesh(particleGeo, particleMat, CONFIG.particleCount);
+        particlesMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        scene.add(particlesMesh);
+
+        // Store original particle positions
+        const particlePositions = [];
+        const dummy = new THREE.Object3D();
+
+        for (let i = 0; i < CONFIG.particleCount; i++) {
+            // Random position inside the box
+            const x = (Math.random() - 0.5) * CONFIG.boxSize.x * 0.9;
+            const y = Math.random() * CONFIG.boxSize.y * 0.9 + 0.1; // Keep slightly off floor
+            const z = (Math.random() - 0.5) * CONFIG.boxSize.z * 0.9;
+            
+            particlePositions.push({x, y, z, active: false});
+            
+            // Initial placement (hidden)
+            dummy.position.set(0, -100, 0); 
+            dummy.updateMatrix();
+            particlesMesh.setMatrixAt(i, dummy.matrix);
+        }
+        particlesMesh.instanceMatrix.needsUpdate = true;
+
+        // 3. Attack Agents (Rain)
+        const attackParticleCount = 100;
+        const attackGeo = new THREE.SphereGeometry(0.05, 8, 8);
+        const attackMat = new THREE.MeshBasicMaterial({ color: CONFIG.attackColor });
+        const attackMesh = new THREE.InstancedMesh(attackGeo, attackMat, attackParticleCount);
+        scene.add(attackMesh);
+
+        const attackDrops = [];
+        for(let i=0; i<attackParticleCount; i++) {
+            attackDrops.push({
+                x: (Math.random() - 0.5) * CONFIG.boxSize.x,
+                y: 5 + Math.random() * 5,
+                z: (Math.random() - 0.5) * CONFIG.boxSize.z,
+                speed: 0.05 + Math.random() * 0.1,
+                active: false
+            });
+        }
+
+        // 4. Floor Grid
+        const gridHelper = new THREE.GridHelper(20, 20, 0x333333, 0x222222);
+        scene.add(gridHelper);
+
+        // --- Logic & Animation Functions ---
+
+        function updateParticles() {
+            // Determine how many particles should be visible based on mix ratio
+            const activeCount = Math.floor(state.mixRatio * CONFIG.particleCount);
+            
+            for (let i = 0; i < CONFIG.particleCount; i++) {
+                const p = particlePositions[i];
+                
+                if (i < activeCount) {
+                    // Show particle
+                    // Handle Slicing logic
+                    if (state.isSliced && p.z > 0) {
+                        dummy.position.set(0, -100, 0); // Hide if sliced
+                    } else {
+                        dummy.position.set(p.x, p.y, p.z);
+                        // Subtle bobbing animation
+                        dummy.position.y += Math.sin(Date.now() * 0.002 + i) * 0.005;
+                    }
+                    dummy.scale.set(1, 1, 1);
+                } else {
+                    // Hide particle
+                    dummy.position.set(0, -100, 0);
+                }
+                dummy.updateMatrix();
+                particlesMesh.setMatrixAt(i, dummy.matrix);
+            }
+            particlesMesh.instanceMatrix.needsUpdate = true;
+        }
+
+        function updateBlockVisuals() {
+            // Slice Logic
+            if (state.isSliced) {
+                // We can't easily slice geometry in vanilla threejs without CSG, 
+                // so we'll scale it to look like a cut
+                mainBlock.scale.z = 0.5;
+                mainBlock.position.z = -CONFIG.boxSize.z / 4;
+            } else {
+                mainBlock.scale.z = 1;
+                mainBlock.position.z = 0;
+            }
+
+            // Damage Color Logic
+            // Interpolate between Base Color (Blue) and Damage Color (Red)
+            const targetColor = new THREE.Color(CONFIG.baseColor).lerp(new THREE.Color(CONFIG.damageColor), state.damageLevel);
+            mainBlock.material.color = targetColor;
+            
+            // Adjust transmission/opacity based on damage (damage makes it cloudy/opaque)
+            mainBlock.material.transmission = 0.6 - (state.damageLevel * 0.4);
+        }
+
+        function simulateAttack() {
+            if (!state.isAttacking) {
+                // Reset drops
+                for(let i=0; i<attackParticleCount; i++) {
+                    dummy.position.set(0, -100, 0);
+                    dummy.updateMatrix();
+                    attackMesh.setMatrixAt(i, dummy.matrix);
+                }
+                attackMesh.instanceMatrix.needsUpdate = true;
+                return;
+            }
+
+            // Resistance Logic: The higher the mix, the slower the damage
+            // Mix 0 = High Damage rate. Mix 1 = Zero Damage rate.
+            // However, even at Mix 0.8, there is a tiny chance, but we'll simplify.
+            // Threshold: If mix > 0.4, we are "Safe".
+            
+            const protectionFactor = state.mixRatio; 
+            const damageRate = 0.005 * (1 - protectionFactor); // Damage accumulates if protection is low
+            const recoveryRate = 0.01;
+
+            // Update Integrity
+            if (protectionFactor < 0.3) {
+                state.damageLevel = Math.min(1, state.damageLevel + damageRate);
+            } else {
+                // Healing/Resisting
+                state.damageLevel = Math.max(0, state.damageLevel - recoveryRate);
+            }
+
+            state.integrity = Math.round((1 - state.damageLevel) * 100);
+
+            // Animate Drops
+            for(let i=0; i<attackParticleCount; i++) {
+                let d = attackDrops[i];
+                d.y -= d.speed;
+
+                // Hit detection with box top
+                if (d.y < CONFIG.boxSize.y && d.y > 0 && 
+                    Math.abs(d.x) < CONFIG.boxSize.x/2 && 
+                    Math.abs(d.z) < CONFIG.boxSize.z/2) {
+                    
+                    // Hit!
+                    // If protected, bounce/spark. If not, disappear into material.
+                    if (protectionFactor > 0.3) {
+                        // Protected: Bounce effect (reset to top for loop)
+                        d.y = 5 + Math.random() * 2;
+                        d.x = (Math.random() - 0.5) * CONFIG.boxSize.x;
+                        d.z = (Math.random() - 0.5) * CONFIG.boxSize.z;
+                    } else {
+                        // Penetrate (Reset but count as damage)
+                        d.y = 5 + Math.random() * 2;
+                    }
+                }
+
+                // Reset if falls below floor
+                if (d.y < 0) {
+                    d.y = 5 + Math.random() * 5;
+                }
+
+                // Draw
+                dummy.position.set(d.x, d.y, d.z);
+                dummy.scale.set(1,1,1);
+                dummy.updateMatrix();
+                attackMesh.setMatrixAt(i, dummy.matrix);
+            }
+            attackMesh.instanceMatrix.needsUpdate = true;
+        }
+
+        function updateUI() {
+            // Slider Text
+            document.getElementById('ratio-val').innerText = Math.round(state.mixRatio * 100) + "%";
+            
+            // Integrity Bar
+            const bar = document.getElementById('integrity-bar');
+            bar.style.width = state.integrity + "%";
+            
+            // Color of bar changes from Green to Red
+            if (state.integrity > 80) bar.style.backgroundColor = "#00ff88";
+            else if (state.integrity > 40) bar.style.backgroundColor = "#ffaa00";
+            else bar.style.backgroundColor = "#ff0000";
+
+            document.getElementById('integrity-text').innerText = state.integrity + "% Intact";
+
+            // Status Text
+            const statusLabel = document.getElementById('protection-status');
+            if (state.mixRatio > 0.3) {
+                statusLabel.innerText = "PROTECTED";
+                statusLabel.style.color = "#00ff88";
+            } else {
+                statusLabel.innerText = "VULNERABLE";
+                statusLabel.style.color = "#ff4444";
+            }
+
+            // Button States
+            const btnStress = document.getElementById('btn-stress');
+            if(state.isAttacking) {
+                btnStress.classList.add('active');
+                btnStress.innerText = "Stop Attack";
+            } else {
+                btnStress.classList.remove('active');
+                btnStress.innerText = "Start Chemical Attack";
+            }
+
+            const btnSlice = document.getElementById('btn-slice');
+            if(state.isSliced) {
+                btnSlice.classList.add('active');
+                btnSlice.innerText = "Restore View";
+            } else {
+                btnSlice.classList.remove('active');
+                btnSlice.innerText = "Slice Cross-Section";
+            }
+        }
+
+        function updateLabels() {
+            // Project 3D positions to 2D screen space for labels
+            // Label 1: Matrix
+            const vecMatrix = new THREE.Vector3(-1.5, 0.5, 0);
+            vecMatrix.project(camera);
+            const x1 = (vecMatrix.x * .5 + .5) * window.innerWidth;
+            const y1 = (-(vecMatrix.y * .5) + .5) * window.innerHeight;
+            
+            const lblMatrix = document.getElementById('lbl-matrix');
+            lblMatrix.style.transform = `translate(-50%, -50%) translate(${x1}px, ${y1}px)`;
+            lblMatrix.classList.add('visible');
+
+            // Label 2: Particle (Find one active particle or hide)
+            const lblPoly = document.getElementById('lbl-copolymer');
+            if (state.mixRatio > 0.05) {
+                // Find a particle that is roughly visible
+                const pIndex = Math.floor(state.mixRatio * CONFIG.particleCount) - 1;
+                if (pIndex >= 0) {
+                    const p = particlePositions[pIndex];
+                    const vecPoly = new THREE.Vector3(p.x, p.y, p.z);
+                    vecPoly.project(camera);
+                    const x2 = (vecPoly.x * .5 + .5) * window.innerWidth;
+                    const y2 = (-(vecPoly.y * .5) + .5) * window.innerHeight;
+                    
+                    lblPoly.style.transform = `translate(-50%, -50%) translate(${x2}px, ${y2}px)`;
+                    lblPoly.classList.add('visible');
+                }
+            } else {
+                lblPoly.classList.remove('visible');
+            }
+        }
+
+        // --- Event Listeners ---
+        document.getElementById('mix-slider').addEventListener('input', (e) => {
+            state.mixRatio = parseInt(e.target.value) / 100;
+        });
+
+        document.getElementById('btn-stress').addEventListener('click', () => {
+            state.isAttacking = !state.isAttacking;
+        });
+
+        document.getElementById('btn-slice').addEventListener('click', () => {
+            state.isSliced = !state.isSliced;
+        });
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // --- Main Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            controls.update();
+            updateParticles();
+            simulateAttack();
+            updateBlockVisuals();
+            updateUI();
+            updateLabels();
+
+            renderer.render(scene, camera);
+        }
+
+        // Initialize state
+        state.mixRatio = 0; // Start empty
+        animate();
+
+    </script>
+</body>
+</html>

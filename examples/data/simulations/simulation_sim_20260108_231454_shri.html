@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacre-Mimetic SINC Armor Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0b1015; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        canvas { display: block; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            pointer-events: none; /* Let clicks pass through to canvas where needed */
+        }
+
+        .panel {
+            background: rgba(16, 24, 32, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid #2c3e50;
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            pointer-events: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        h1 { font-size: 18px; margin: 0 0 5px 0; color: #00d2ff; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 14px; margin: 0 0 10px 0; color: #8fa1b3; font-weight: 400; }
+        p { font-size: 13px; line-height: 1.5; color: #ccc; margin-bottom: 15px; }
+
+        .controls { display: flex; flex-direction: column; gap: 10px; }
+        
+        button {
+            background: #2c3e50;
+            color: white;
+            border: 1px solid #465f75;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button:hover { background: #3a5066; border-color: #00d2ff; }
+        button:active { transform: translateY(1px); }
+        
+        button.primary {
+            background: linear-gradient(90deg, #005f7a 0%, #00d2ff 100%);
+            border: none;
+            color: #001f2b;
+        }
+        button.primary:hover { opacity: 0.9; }
+
+        button.danger {
+            background: linear-gradient(90deg, #7a2e00 0%, #ff5e00 100%);
+            border: none;
+            color: #2b0c00;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            background: #333;
+            color: #aaa;
+            margin-top: 10px;
+        }
+
+        .status-badge.active { background: #004d40; color: #00d2ff; border: 1px solid #00d2ff; }
+        .status-badge.broken { background: #3e1a1a; color: #ff5e00; border: 1px solid #ff5e00; }
+
+        /* Legend */
+        .legend-item { display: flex; align-items: center; margin-bottom: 5px; font-size: 12px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 10px; }
+        
+        /* Annotations */
+        .annotation {
+            position: absolute;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid #555;
+            white-space: nowrap;
+        }
+        
+        .visible { opacity: 1; }
+
+        #tutorial-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            pointer-events: none;
+            text-align: center;
+            border: 1px solid #444;
+        }
+
+    </style>
+    <!-- Load Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <div class="panel">
+            <h1>SINC Armor Simulator</h1>
+            <h2>Nacre-Mimetic Nanocrystallization</h2>
+            <p>
+                Standard surfaces are often amorphous (disordered). 
+                <strong>SINC</strong> (Solvent-Induced Nanocrystallization) reorganizes the surface into a "Brick-and-Mortar" structure, like a seashell, for extreme durability.
+            </p>
+            
+            <div class="controls">
+                <button id="btn-reset" onclick="resetSim()">
+                    <span>Reset Surface</span> ↺
+                </button>
+                <button id="btn-crystallize" class="primary" onclick="startCrystallization()">
+                    <span>Apply Solvent (SINC)</span> ⬡
+                </button>
+                <button id="btn-impact" class="danger" onclick="triggerImpact()">
+                    <span>Test Impact Strength</span> ⚡
+                </button>
+            </div>
+
+            <div id="status-display" class="status-badge">State: Amorphous (Weak)</div>
+        </div>
+
+        <div class="panel">
+            <h2>Legend</h2>
+            <div class="legend-item"><div class="dot" style="background: #555;"></div>Amorphous Polymer</div>
+            <div class="legend-item"><div class="dot" style="background: #00d2ff;"></div>Crystalline "Brick"</div>
+            <div class="legend-item"><div class="dot" style="background: #ff0055;"></div>Soft "Mortar" Bond</div>
+            <div class="legend-item"><div class="dot" style="background: rgba(0, 210, 255, 0.3);"></div>Solvent Wave</div>
+        </div>
+    </div>
+
+    <div id="tutorial-overlay">Wait... initializing simulation</div>
+
+    <!-- Annotations in 3D space -->
+    <div id="label-brick" class="annotation">Nanocrystal (Hard)</div>
+    <div id="label-mortar" class="annotation">Polymer Bridge (Flexible)</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            gridSize: 10, // 10x10 grid
+            hexRadius: 1.8,
+            spacing: 1.1,
+            animSpeed: 0.05,
+            solventSpeed: 0.2
+        };
+
+        // --- State Management ---
+        const STATE = {
+            isCrystallized: false,
+            isCrystallizing: false,
+            isImpacting: false,
+            isBroken: false,
+            solventProgress: -20, // X position of solvent wave
+            impactProgress: 0
+        };
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b1015);
+        scene.fog = new THREE.FogExp2(0x0b1015, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(20, 20, 20);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(10, 20, 10);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x00d2ff, 0.5, 50);
+        blueLight.position.set(-10, 5, -10);
+        scene.add(blueLight);
+
+        // --- Objects ---
+
+        // 1. The Platform
+        const platformGeo = new THREE.CylinderGeometry(25, 25, 1, 64);
+        const platformMat = new THREE.MeshStandardMaterial({ color: 0x1a2633, roughness: 0.8 });
+        const platform = new THREE.Mesh(platformGeo, platformMat);
+        platform.position.y = -1;
+        platform.receiveShadow = true;
+        scene.add(platform);
+
+        // Grid helper for context
+        const gridHelper = new THREE.GridHelper(50, 50, 0x2c3e50, 0x1a2633);
+        gridHelper.position.y = -0.49;
+        scene.add(gridHelper);
+
+        // 2. The "Bricks" (Hexagons)
+        const bricks = [];
+        const mortarBridges = [];
+        const brickGeo = new THREE.CylinderGeometry(CONFIG.hexRadius, CONFIG.hexRadius, 0.5, 6);
+        const brickMatRaw = new THREE.MeshStandardMaterial({ color: 0x555555, roughness: 0.9, metalness: 0.1 });
+        const brickMatCryst = new THREE.MeshPhysicalMaterial({ 
+            color: 0x00d2ff, 
+            roughness: 0.2, 
+            metalness: 0.6,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1
+        });
+
+        // Generate Grid
+        const hexWidth = CONFIG.hexRadius * 2 * 0.866; // height of hex triangle
+        const hexHeight = CONFIG.hexRadius * 1.5;
+
+        for (let row = 0; row < CONFIG.gridSize; row++) {
+            for (let col = 0; col < CONFIG.gridSize; col++) {
+                // Calculate Ordered Position
+                const xOffset = (row % 2) * (hexWidth / 2);
+                const x = (col * hexWidth + xOffset) - (CONFIG.gridSize * hexWidth / 2);
+                const z = (row * hexHeight * 0.75) - (CONFIG.gridSize * hexHeight * 0.35); // Tweak spacing
+                
+                const brick = new THREE.Mesh(brickGeo.clone(), brickMatRaw.clone());
+                
+                // Store target (crystalline) state
+                brick.userData = {
+                    targetPos: new THREE.Vector3(x, 0, z),
+                    targetRot: new THREE.Euler(0, 0, 0),
+                    // Initial Random (Amorphous) state
+                    startPos: new THREE.Vector3(x + (Math.random()-0.5)*3, (Math.random()*2), z + (Math.random()-0.5)*3),
+                    startRot: new THREE.Euler(Math.random(), Math.random(), Math.random()),
+                    velocity: new THREE.Vector3(0,0,0), // For physics
+                    isCrystallized: false
+                };
+
+                // Set initial state
+                brick.position.copy(brick.userData.startPos);
+                brick.rotation.copy(brick.userData.startRot);
+                brick.castShadow = true;
+                brick.receiveShadow = true;
+
+                scene.add(brick);
+                bricks.push(brick);
+            }
+        }
+
+        // 3. The Mortar (Hidden initially)
+        // We create simple lines/tubes between neighbors
+        const mortarMat = new THREE.MeshBasicMaterial({ color: 0xff0055, transparent: true, opacity: 0 });
+        const mortarGeo = new THREE.CylinderGeometry(0.1, 0.1, 1, 4);
+        
+        // Simple logic: Create visual bridges for effect (not strict topology)
+        // Just create a pool of bridges to animate in
+        for(let i=0; i<80; i++) {
+            const bridge = new THREE.Mesh(mortarGeo, mortarMat.clone());
+            bridge.rotation.z = Math.PI / 2;
+            bridge.visible = false;
+            scene.add(bridge);
+            mortarBridges.push(bridge);
+        }
+
+        // 4. The Solvent Wave
+        const solventGeo = new THREE.BoxGeometry(2, 10, 30);
+        const solventMat = new THREE.MeshPhongMaterial({ 
+            color: 0x00d2ff, 
+            transparent: true, 
+            opacity: 0.2,
+            side: THREE.DoubleSide
+        });
+        const solventWave = new THREE.Mesh(solventGeo, solventMat);
+        solventWave.position.set(-20, 2, 0);
+        solventWave.visible = false;
+        scene.add(solventWave);
+
+        // 5. The Impactor
+        const impactorGeo = new THREE.SphereGeometry(3, 32, 32);
+        const impactorMat = new THREE.MeshStandardMaterial({ color: 0xff5e00, emissive: 0x551100, roughness: 0.4 });
+        const impactor = new THREE.Mesh(impactorGeo, impactorMat);
+        impactor.position.set(0, 15, 0);
+        impactor.castShadow = true;
+        scene.add(impactor);
+
+
+        // --- Interaction Logic ---
+
+        function updateUI(text, statusClass) {
+            const el = document.getElementById('status-display');
+            el.innerText = text;
+            el.className = 'status-badge ' + statusClass;
+        }
+
+        function setTutorial(text) {
+            document.getElementById('tutorial-overlay').innerText = text;
+        }
+
+        function resetSim() {
+            STATE.isCrystallized = false;
+            STATE.isCrystallizing = false;
+            STATE.isImpacting = false;
+            STATE.isBroken = false;
+            STATE.solventProgress = -20;
+            STATE.impactProgress = 0;
+
+            solventWave.visible = false;
+            impactor.position.set(0, 15, 0);
+
+            // Reset Bricks
+            bricks.forEach(b => {
+                b.position.copy(b.userData.startPos);
+                b.rotation.copy(b.userData.startRot);
+                b.material = brickMatRaw.clone(); // Reset material
+                b.userData.isCrystallized = false;
+                b.userData.velocity.set(0,0,0);
+            });
+
+            // Hide Mortar
+            mortarBridges.forEach(m => {
+                m.visible = false;
+                m.material.opacity = 0;
+            });
+
+            updateUI("State: Amorphous (Weak)", "");
+            setTutorial("Click 'Apply Solvent' to organize the structure.");
+            
+            // Hide labels
+            document.getElementById('label-brick').classList.remove('visible');
+            document.getElementById('label-mortar').classList.remove('visible');
+        }
+
+        function startCrystallization() {
+            if (STATE.isCrystallized || STATE.isImpacting) return;
+            STATE.isCrystallizing = true;
+            STATE.solventProgress = -20;
+            solventWave.visible = true;
+            solventWave.position.x = -20;
+            
+            updateUI("Process: Solvent Inducing Crystallization...", "active");
+            setTutorial("Solvent wave organizes particles into a lattice.");
+        }
+
+        function triggerImpact() {
+            if (STATE.isImpacting || STATE.isBroken) return;
+            if (STATE.isCrystallizing) return; // Wait for process
+
+            STATE.isImpacting = true;
+            STATE.impactProgress = 0;
+            
+            if (STATE.isCrystallized) {
+                setTutorial("Impact! Structure flexes and dissipates energy.");
+            } else {
+                setTutorial("Impact! Unstructured surface shatters.");
+            }
+        }
+
+        // --- Animation Loop ---
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const time = Date.now() * 0.001;
+
+            // 1. Solvent Animation
+            if (STATE.isCrystallizing) {
+                STATE.solventProgress += CONFIG.solventSpeed;
+                solventWave.position.x = STATE.solventProgress;
+                
+                // Wave visual effect
+                solventWave.scale.y = 1 + Math.sin(time * 5) * 0.1;
+
+                // Check bricks
+                let allDone = true;
+                bricks.forEach(b => {
+                    // If wave passes brick
+                    if (b.position.x < STATE.solventProgress + 2) {
+                        if (!b.userData.isCrystallized) {
+                            b.userData.isCrystallized = true;
+                            b.material = brickMatCryst; // Swap to shiny material
+                        }
+                        
+                        // Lerp to target
+                        b.position.lerp(b.userData.targetPos, 0.1);
+                        // Slerp rotation (quaternion would be better but Euler lerp works for small steps here)
+                        b.rotation.x = THREE.MathUtils.lerp(b.rotation.x, b.userData.targetRot.x, 0.1);
+                        b.rotation.y = THREE.MathUtils.lerp(b.rotation.y, b.userData.targetRot.y, 0.1);
+                        b.rotation.z = THREE.MathUtils.lerp(b.rotation.z, b.userData.targetRot.z, 0.1);
+                    } else {
+                        allDone = false;
+                        // Idle float for uncrystallized
+                        b.position.y += Math.sin(time + b.position.x) * 0.002; 
+                    }
+                });
+
+                if (STATE.solventProgress > 20) {
+                    STATE.isCrystallizing = false;
+                    STATE.isCrystallized = true;
+                    solventWave.visible = false;
+                    updateUI("State: Nacre-Mimetic Armor (Strong)", "active");
+                    setTutorial("Structure is now tough. Try 'Test Impact Strength'.");
+                    
+                    // Show Mortar
+                    mortarBridges.forEach((m, i) => {
+                        if (i < bricks.length - 10) { // arbitrary mapping
+                            const b1 = bricks[i];
+                            const b2 = bricks[i+1];
+                            // Only bridge close ones
+                            if (b1.position.distanceTo(b2.position) < 4) {
+                                m.position.copy(b1.position).lerp(b2.position, 0.5);
+                                m.lookAt(b2.position);
+                                m.rotateX(Math.PI/2);
+                                m.visible = true;
+                                m.material.opacity = 0.8;
+                            }
+                        }
+                    });
+
+                    // Show Labels
+                    updateLabels();
+                }
+            }
+
+            // 2. Impact Animation
+            if (STATE.isImpacting) {
+                // Drop Impactor
+                if (impactor.position.y > 1.5) {
+                    impactor.position.y -= 0.8; // Fall speed
+                } else {
+                    // HIT!
+                    if (!STATE.isBroken) {
+                        // Impact Logic
+                        if (STATE.isCrystallized) {
+                            // STRONG REACTION
+                            // Impactor bounce
+                            impactor.position.y += Math.sin(time * 20) * 0.1; // Jiggle
+                            
+                            // Shockwave through bricks
+                            bricks.forEach(b => {
+                                const dist = b.position.distanceTo(new THREE.Vector3(0,0,0));
+                                if (dist < 10) {
+                                    // Dip down
+                                    b.position.y = -0.5 * Math.exp(-dist*0.5) * Math.sin(Date.now()*0.02);
+                                }
+                            });
+                            
+                            // Fade out impactor slowly
+                            if (impactor.position.y <= 1.6) {
+                                setTimeout(() => {
+                                    STATE.isImpacting = false;
+                                    impactor.position.set(0, 15, 0);
+                                }, 1000);
+                            }
+
+                        } else {
+                            // WEAK REACTION (Scatter)
+                            STATE.isBroken = true;
+                            updateUI("Result: Surface Failed/Shattered", "broken");
+                            
+                            // Explosion force
+                            bricks.forEach(b => {
+                                const dist = b.position.distanceTo(new THREE.Vector3(0,0,0));
+                                if (dist < 8) {
+                                    // Calculate explosion vector
+                                    let dir = b.position.clone().sub(new THREE.Vector3(0,0,0)).normalize();
+                                    dir.y = 1; // Upward component
+                                    b.userData.velocity = dir.multiplyScalar(0.5 + Math.random());
+                                }
+                            });
+                        }
+                    } else {
+                        // Physics update for broken pieces
+                        bricks.forEach(b => {
+                            if (b.userData.velocity.lengthSq() > 0) {
+                                b.position.add(b.userData.velocity);
+                                b.userData.velocity.y -= 0.02; // Gravity
+                                b.rotation.x += 0.1;
+                                
+                                // Floor collision
+                                if (b.position.y < -5) b.userData.velocity.set(0,0,0);
+                            }
+                        });
+                    }
+                }
+            }
+
+            // Pulse mortar
+            if (STATE.isCrystallized && !STATE.isImpacting) {
+                 const pulse = 0.5 + 0.5 * Math.sin(time * 3);
+                 mortarMat.opacity = 0.3 + (pulse * 0.4);
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+            
+            // Update Labels Position
+            if (STATE.isCrystallized) {
+                updateLabels();
+            }
+        }
+
+        function updateLabels() {
+            // Project 3D positions to 2D screen
+            const brickPos = new THREE.Vector3(0, 0.5, 0);
+            brickPos.project(camera);
+            
+            const x = (brickPos.x * .5 + .5) * window.innerWidth;
+            const y = (brickPos.y * -.5 + .5) * window.innerHeight;
+
+            const labelBrick = document.getElementById('label-brick');
+            labelBrick.style.transform = `translate(-50%, -50%) translate(${x}px, ${y - 40}px)`;
+            labelBrick.classList.add('visible');
+
+            // Mortar Label (offset)
+            const mortarPos = new THREE.Vector3(2, 0, 2);
+            mortarPos.project(camera);
+            const mx = (mortarPos.x * .5 + .5) * window.innerWidth;
+            const my = (mortarPos.y * -.5 + .5) * window.innerHeight;
+
+            const labelMortar = document.getElementById('label-mortar');
+            labelMortar.style.transform = `translate(-50%, -50%) translate(${mx}px, ${my}px)`;
+            labelMortar.classList.add('visible');
+        }
+
+        // Initialize
+        resetSim();
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>

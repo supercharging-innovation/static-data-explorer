@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip-Rod Vitrimer Composite Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #111; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        canvas { display: block; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(20, 20, 30, 0.9);
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            user-select: none;
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; color: #00d2ff; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 0.9rem; line-height: 1.4; color: #ccc; margin-bottom: 15px; }
+
+        /* Controls */
+        .control-group { margin-bottom: 20px; }
+        label { display: block; font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; color: #fff; }
+        
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #444;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #00d2ff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            border: 1px solid #555;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        button:hover { background: #444; }
+        button.active {
+            background: #ff4d4d;
+            border-color: #ff4d4d;
+            box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+        }
+
+        /* Legend */
+        .legend-item { display: flex; align-items: center; margin-top: 8px; font-size: 0.8rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        
+        /* 3D Labels */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: opacity 0.3s;
+            opacity: 0; /* Hidden by default, shown via JS */
+        }
+        .annotation::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px 5px 0;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.7) transparent;
+        }
+
+        #status-indicator {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Three.js & OrbitControls -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+<!-- UI Interface -->
+<div id="ui-container">
+    <h1>Slip-Rod Vitrimer</h1>
+    <p>A recyclable composite that doesn't break under stress.</p>
+
+    <div class="control-group">
+        <label for="stressSlider">Mechanical Stress (Pull)</label>
+        <input type="range" id="stressSlider" min="0" max="100" value="0">
+    </div>
+
+    <div class="control-group">
+        <label>Chemical State</label>
+        <button id="heatBtn">Activate Heat / Recycle</button>
+    </div>
+
+    <div id="status-indicator" style="color: #00d2ff;">
+        State: COLD (Rigid & Tough)
+    </div>
+
+    <div style="margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;">
+        <label>Key Components:</label>
+        <div class="legend-item"><div class="dot" style="background: #ffaa00;"></div>LCP Rod (Reinforcement)</div>
+        <div class="legend-item"><div class="dot" style="background: rgba(0, 210, 255, 0.5); border: 1px solid white;"></div>Slip Interface (Energy Dissipation)</div>
+        <div class="legend-item"><div class="dot" style="background: #334466;"></div>Vitrimer Matrix (Recyclable)</div>
+    </div>
+</div>
+
+<!-- Annotation Elements -->
+<div id="label-matrix" class="annotation">Vitrimer Matrix</div>
+<div id="label-rod" class="annotation">LCP Rod</div>
+<div id="label-slip" class="annotation">Slip Coating</div>
+
+<script>
+    // --- SCENE SETUP ---
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x111116);
+    scene.fog = new THREE.FogExp2(0x111116, 0.02);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(5, 4, 8);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    // --- LIGHTING ---
+    const ambientLight = new THREE.AmbientLight(0x404040, 2);
+    scene.add(ambientLight);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 10, 7);
+    scene.add(dirLight);
+
+    const pointLight = new THREE.PointLight(0x00d2ff, 0.5, 10);
+    pointLight.position.set(0, 0, 0);
+    scene.add(pointLight);
+
+    // --- MATERIALS ---
+    
+    // 1. Vitrimer Matrix (The Jelly)
+    const matrixMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0x224488,
+        metalness: 0.1,
+        roughness: 0.1,
+        transparent: true,
+        opacity: 0.3,
+        transmission: 0.5,
+        thickness: 1.0,
+        side: THREE.DoubleSide
+    });
+
+    // 2. LCP Rods (The Sticks)
+    const rodMaterial = new THREE.MeshStandardMaterial({
+        color: 0xffaa00,
+        metalness: 0.6,
+        roughness: 0.4
+    });
+
+    // 3. Slip Interface (The Coating)
+    // We use a custom shader approach simply by using a glowing transparent material
+    const slipMaterial = new THREE.MeshBasicMaterial({
+        color: 0x00ffff,
+        transparent: true,
+        opacity: 0.0, // Starts invisible
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide // Render inside out for halo effect
+    });
+
+    // --- OBJECT GENERATION ---
+
+    const compositeGroup = new THREE.Group();
+    scene.add(compositeGroup);
+
+    // Create Matrix Block
+    const matrixGeo = new THREE.BoxGeometry(4, 2, 2);
+    const matrixMesh = new THREE.Mesh(matrixGeo, matrixMaterial);
+    compositeGroup.add(matrixMesh);
+
+    // Internal Particles (representing dynamic bonds)
+    const particlesGeo = new THREE.BufferGeometry();
+    const particleCount = 200;
+    const posArray = new Float32Array(particleCount * 3);
+    
+    for(let i = 0; i < particleCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 3.8; // Spread within box
+    }
+    particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const particlesMat = new THREE.PointsMaterial({
+        size: 0.05,
+        color: 0xffffff,
+        transparent: true,
+        opacity: 0.3
+    });
+    const bondParticles = new THREE.Points(particlesGeo, particlesMat);
+    // Limit particle rendering to inside the box visually
+    bondParticles.scale.set(1, 0.5, 0.5); 
+    compositeGroup.add(bondParticles);
+
+
+    // Create Rods
+    const rodCount = 12;
+    const rods = [];
+    const slipLayers = [];
+    const rodGeo = new THREE.CylinderGeometry(0.08, 0.08, 1.5, 16);
+    const slipGeo = new THREE.CylinderGeometry(0.15, 0.15, 1.55, 16); // Slightly larger
+
+    for (let i = 0; i < rodCount; i++) {
+        const rodGroup = new THREE.Group();
+        
+        // Random Position inside the matrix
+        const x = (Math.random() - 0.5) * 3;
+        const y = (Math.random() - 0.5) * 1.5;
+        const z = (Math.random() - 0.5) * 1.5;
+        
+        // Random Rotation
+        const rotX = (Math.random() - 0.5) * 2;
+        const rotZ = (Math.random() - 0.5) * 2;
+
+        rodGroup.position.set(x, y, z);
+        rodGroup.rotation.set(rotX, 0, rotZ);
+
+        // Actual Rod
+        const rodMesh = new THREE.Mesh(rodGeo, rodMaterial);
+        
+        // Slip Layer
+        const slipMesh = new THREE.Mesh(slipGeo, slipMaterial.clone());
+        
+        rodGroup.add(rodMesh);
+        rodGroup.add(slipMesh);
+        
+        // Store original transform for animation
+        rodGroup.userData = {
+            originalPos: new THREE.Vector3(x, y, z),
+            originalRot: new THREE.Euler(rotX, 0, rotZ),
+            velocity: new THREE.Vector3((Math.random()-0.5)*0.02, (Math.random()-0.5)*0.02, (Math.random()-0.5)*0.02)
+        };
+
+        rods.push(rodMesh);
+        slipLayers.push(slipMesh);
+        compositeGroup.add(rodGroup);
+    }
+
+    // --- STATE MANAGEMENT ---
+    let state = {
+        stress: 0, // 0 to 1
+        heat: false,
+        time: 0
+    };
+
+    // --- CONTROLS ---
+    const stressSlider = document.getElementById('stressSlider');
+    const heatBtn = document.getElementById('heatBtn');
+    const statusDiv = document.getElementById('status-indicator');
+
+    stressSlider.addEventListener('input', (e) => {
+        if(state.heat) return; // Disable stress when melting
+        state.stress = parseInt(e.target.value) / 100;
+        updateVisuals();
+    });
+
+    heatBtn.addEventListener('click', () => {
+        state.heat = !state.heat;
+        
+        if(state.heat) {
+            heatBtn.classList.add('active');
+            heatBtn.innerText = "Cool Down (Solidify)";
+            statusDiv.innerHTML = "State: HOT (Flowing & Recyclable)";
+            statusDiv.style.color = "#ff4d4d";
+            
+            // Auto reset stress physically
+            stressSlider.value = 0;
+            state.stress = 0;
+            stressSlider.disabled = true;
+        } else {
+            heatBtn.classList.remove('active');
+            heatBtn.innerText = "Activate Heat / Recycle";
+            statusDiv.innerHTML = "State: COLD (Rigid & Tough)";
+            statusDiv.style.color = "#00d2ff";
+            stressSlider.disabled = false;
+        }
+    });
+
+    // --- ANIMATION LOGIC ---
+
+    function updateVisuals() {
+        const s = state.stress;
+
+        // 1. Matrix Deformation (Poisson effect approximation)
+        // Stretches in X, shrinks in Y/Z
+        const scaleX = 1 + (s * 0.8); // Stretch up to 1.8x
+        const scaleYZ = 1 - (s * 0.3); // Thin out
+        
+        matrixMesh.scale.set(scaleX, scaleYZ, scaleYZ);
+        bondParticles.scale.set(scaleX, scaleYZ * 0.5, scaleYZ * 0.5); // Keep particles inside
+
+        // 2. Rod Behavior (Alignment and Slip)
+        compositeGroup.children.forEach(child => {
+            if(child.type === 'Group') { // It's a rod group
+                const originalPos = child.userData.originalPos;
+                const originalRot = child.userData.originalRot;
+
+                // Move rod with matrix but slightly less (simulating matrix flowing past rod)
+                child.position.x = originalPos.x * (1 + s * 0.5); 
+                child.position.y = originalPos.y * scaleYZ;
+                child.position.z = originalPos.z * scaleYZ;
+
+                // Rotate towards X axis (alignment under tension)
+                // Interpolate from original rotation to flat (0,0,Math.PI/2) roughly
+                child.rotation.x = THREE.MathUtils.lerp(originalRot.x, 0, s);
+                child.rotation.z = THREE.MathUtils.lerp(originalRot.z, Math.PI/2, s * 0.8); // Align with pull
+                
+                // Get the slip mesh (2nd child)
+                const slipMesh = child.children[1];
+                if(slipMesh) {
+                    // Opacity increases with stress to show energy dissipation
+                    slipMesh.material.opacity = s * 0.8; 
+                    
+                    // Pulse effect calculation
+                    const pulse = Math.sin(state.time * 10) * 0.2 + 0.8;
+                    slipMesh.scale.set(1 + s*0.2*pulse, 1, 1 + s*0.2*pulse);
+                }
+            }
+        });
+
+        // 3. Matrix Color Change (Stress Whitening vs Heat)
+        if (!state.heat) {
+            // Slight color shift on stress
+            matrixMaterial.color.setHSL(0.6, 0.6, 0.3 + s * 0.2); 
+        }
+    }
+
+    function animateHeat() {
+        // Heat Color
+        const targetColor = state.heat ? new THREE.Color(0xff4d4d) : new THREE.Color(0x224488);
+        matrixMaterial.color.lerp(targetColor, 0.05);
+        
+        // Particle Chaos (Dynamic Bonds)
+        const positions = bondParticles.geometry.attributes.position.array;
+        
+        for(let i = 0; i < particleCount; i++) {
+            const i3 = i * 3;
+            if(state.heat) {
+                // Brownian motion
+                positions[i3] += (Math.random() - 0.5) * 0.1;
+                positions[i3+1] += (Math.random() - 0.5) * 0.1;
+                positions[i3+2] += (Math.random() - 0.5) * 0.1;
+
+                // Boundary check (rough box)
+                if(Math.abs(positions[i3]) > 1.8) positions[i3] *= -0.9;
+                if(Math.abs(positions[i3+1]) > 0.9) positions[i3+1] *= -0.9;
+                if(Math.abs(positions[i3+2]) > 0.9) positions[i3+2] *= -0.9;
+            } else {
+                // Return to "grid" or slow down
+                // For this demo, we just stop them moving fast
+            }
+        }
+        bondParticles.geometry.attributes.position.needsUpdate = true;
+
+        // Rod Floating in Liquid
+        if(state.heat) {
+            compositeGroup.children.forEach(child => {
+                if(child.type === 'Group') {
+                    child.position.add(child.userData.velocity);
+                    child.rotation.x += 0.01;
+                    child.rotation.z += 0.005;
+
+                    // Bounds check
+                    if(Math.abs(child.position.x) > 1.8) child.userData.velocity.x *= -1;
+                    if(Math.abs(child.position.y) > 0.8) child.userData.velocity.y *= -1;
+                    if(Math.abs(child.position.z) > 0.8) child.userData.velocity.z *= -1;
+                }
+            });
+        }
+    }
+
+    // --- LABEL POSITIONING ---
+    const labelMatrix = document.getElementById('label-matrix');
+    const labelRod = document.getElementById('label-rod');
+    const labelSlip = document.getElementById('label-slip');
+
+    function updateLabels() {
+        // We pick specific objects to attach labels to
+        // Matrix: Center
+        updateLabelPosition(labelMatrix, new THREE.Vector3(0, 1.2, 0));
+        
+        // Rod: Pick the first rod group
+        const firstRod = compositeGroup.children.find(c => c.type === 'Group');
+        if(firstRod) {
+            updateLabelPosition(labelRod, firstRod.position.clone());
+            
+            // Slip: Only show if stress is high
+            if(state.stress > 0.2 && !state.heat) {
+                labelSlip.style.opacity = 1;
+                const offset = firstRod.position.clone().add(new THREE.Vector3(0, 0.2, 0));
+                updateLabelPosition(labelSlip, offset);
+            } else {
+                labelSlip.style.opacity = 0;
+            }
+        }
+        
+        // Base visibility
+        labelMatrix.style.opacity = 1;
+        labelRod.style.opacity = 1;
+    }
+
+    function updateLabelPosition(el, position) {
+        const vector = position.clone();
+        vector.project(camera);
+
+        const x = (vector.x * .5 + .5) * window.innerWidth;
+        const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+        // Check if behind camera
+        if(vector.z > 1) {
+            el.style.display = 'none';
+        } else {
+            el.style.display = 'block';
+            el.style.left = x + 'px';
+            el.style.top = y + 'px';
+        }
+    }
+
+    // --- MAIN LOOP ---
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        state.time += 0.01;
+
+        if(state.heat) {
+            animateHeat();
+        } else {
+            // Ensure rods return to stress positions if heat is turned off
+            updateVisuals(); 
+        }
+
+        controls.update();
+        renderer.render(scene, camera);
+        updateLabels();
+    }
+
+    // Handle Resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Start
+    animate();
+
+</script>
+</body>
+</html>

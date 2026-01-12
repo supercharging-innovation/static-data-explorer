@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Diffusion Brake Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #1a1a1d; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #eee; }
+        canvas { display: block; }
+        
+        /* UI Container */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(30, 30, 35, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #4cc9f0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            user-select: none;
+        }
+
+        h1 { margin: 0 0 5px 0; font-size: 1.2rem; color: #4cc9f0; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { margin: 0 0 15px 0; font-size: 0.9rem; color: #aaa; font-weight: 400; }
+        
+        .control-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #ccc; }
+        
+        /* Slider Styling */
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #333;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #4cc9f0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+        /* Button Styling */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #f72585;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s, transform 0.1s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        button:hover { background: #d01e6f; }
+        button:active { transform: scale(0.98); }
+        button.active { background: #4cc9f0; color: #111; }
+
+        /* Legend */
+        .legend { margin-top: 20px; border-top: 1px solid #444; padding-top: 15px; font-size: 0.8rem; }
+        .legend-item { display: flex; align-items: center; margin-bottom: 6px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        
+        /* Annotations */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            border: 1px solid #555;
+        }
+        .annotation.visible { opacity: 1; }
+        .line {
+            position: absolute;
+            height: 1px;
+            background: #fff;
+            transform-origin: 0 50%;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .line.visible { opacity: 0.6; }
+
+        /* Info Box */
+        #info-panel {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #ccc;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 6px;
+        }
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <h1>Gradient Diffusion</h1>
+        <h2>Concept 7: The "No-Peel" Interface</h2>
+
+        <div class="control-group">
+            <label for="processSlider">1. Manufacturing Process</label>
+            <input type="range" id="processSlider" min="0" max="100" value="0">
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #888; margin-top: 4px;">
+                <span>Raw TPE</span>
+                <span>Diffusion</span>
+                <span>Cured</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>2. Performance Check</label>
+            <button id="stressBtn">Run Stress Test (Bend)</button>
+        </div>
+
+        <div id="info-panel">
+            <strong>Current View:</strong> <span id="status-text">Raw Material</span><br>
+            <span id="explanation">Drag the slider to infuse the reactive solution.</span>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="dot" style="background: #3a86ff;"></div>Soft Elastic Core</div>
+            <div class="legend-item"><div class="dot" style="background: #fb8500;"></div>Hardened Surface</div>
+            <div class="legend-item"><div class="dot" style="background: #ff0000; box-shadow: 0 0 5px #ff0000;"></div>Stress/Failure Point</div>
+        </div>
+    </div>
+
+    <!-- Annotations in DOM -->
+    <div id="label-trad" class="annotation">Sharp Interface (Weak)</div>
+    <div id="label-grad" class="annotation">Gradient Transition (Strong)</div>
+
+    <script>
+        // --- SCENE SETUP ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color('#121214');
+        scene.fog = new THREE.Fog('#121214', 20, 50);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 6, 14);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.minDistance = 5;
+        controls.maxDistance = 20;
+        // Limit vertical angle to keep the "lab bench" feel
+        controls.maxPolarAngle = Math.PI / 2 - 0.1;
+
+        // --- LIGHTING ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 7);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x4cc9f0, 0.5);
+        blueLight.position.set(-5, 2, 0);
+        scene.add(blueLight);
+
+        // --- MATERIALS & SHADERS ---
+
+        // Common Uniforms
+        const commonUniforms = {
+            uTime: { value: 0 },
+            uProcess: { value: 0.0 }, // 0 to 1 (Manufacturing progress)
+            uBend: { value: 0.0 },    // 0 to 1 (Bending amount)
+            uColorCore: { value: new THREE.Color('#3a86ff') }, // Blue
+            uColorSurface: { value: new THREE.Color('#fb8500') }, // Orange
+            uColorStress: { value: new THREE.Color('#ff0000') }   // Red
+        };
+
+        // Vertex Shader: Handles the Bending Geometry
+        const vertexShader = `
+            uniform float uBend;
+            varying vec2 vUv;
+            varying float vBendStress;
+            varying vec3 vPos;
+
+            void main() {
+                vUv = uv;
+                vec3 pos = position;
+                
+                // Simple parabolic bend logic
+                // We bend along Z axis based on X distance from center
+                float xOffset = pos.x;
+                float bendFactor = uBend * 0.8; // Max bend amount
+                
+                // Curve equation: y = -x^2
+                float curve = -pow(xOffset * 0.5, 2.0) * bendFactor;
+                pos.y += curve;
+                
+                // Rotate normal logic (simplified for visual effect)
+                // When bending, the top stretches, bottom compresses
+                // We calculate stress based on curvature and distance from neutral axis (y)
+                // But for this demo, stress is highest at the surface (top/bottom) when bent
+                
+                vBendStress = abs(pos.x) * uBend; // Stress increases away from center
+                vPos = pos;
+
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+            }
+        `;
+
+        // Fragment Shader: Traditional (Sharp Interface)
+        const fragmentShaderTraditional = `
+            uniform float uProcess;
+            uniform float uBend;
+            uniform vec3 uColorCore;
+            uniform vec3 uColorSurface;
+            uniform vec3 uColorStress;
+            varying vec2 vUv;
+            varying float vBendStress;
+
+            void main() {
+                // Distance from center (0.5) to edge (0.0 or 1.0) on Y axis (thickness)
+                // Actually let's do thickness on Y. vUv.y 0=bottom, 1=top.
+                // Let's assume the coating is on Top and Bottom.
+                
+                float distFromCenter = abs(vUv.y - 0.5) * 2.0; // 0 at center, 1 at edges
+                
+                // Sharp Interface Logic
+                // If process > 0, we have a coating layer
+                float coatingThickness = 0.2 * uProcess; // Max 20% depth
+                float isCoating = step(1.0 - coatingThickness, distFromCenter);
+                
+                vec3 finalColor = mix(uColorCore, uColorSurface, isCoating);
+                
+                // Stress/Failure Logic for Traditional
+                // If bent, and we are AT the interface, show failure (Red line)
+                float interfaceLoc = 1.0 - coatingThickness;
+                float isInterface = 1.0 - smoothstep(0.0, 0.02, abs(distFromCenter - interfaceLoc));
+                
+                if (uProcess > 0.5 && uBend > 0.1) {
+                    // Flash red at the interface to simulate delamination risk
+                    finalColor = mix(finalColor, uColorStress, isInterface * uBend * 2.0);
+                }
+
+                // Basic lighting approximation
+                float light = 1.0 - (abs(vUv.x - 0.5) * 0.2);
+                gl_FragColor = vec4(finalColor * light, 1.0);
+            }
+        `;
+
+        // Fragment Shader: Gradient (Smooth Diffusion)
+        const fragmentShaderGradient = `
+            uniform float uProcess;
+            uniform float uBend;
+            uniform vec3 uColorCore;
+            uniform vec3 uColorSurface;
+            uniform vec3 uColorStress;
+            varying vec2 vUv;
+            varying float vBendStress;
+
+            void main() {
+                float distFromCenter = abs(vUv.y - 0.5) * 2.0;
+                
+                // Gradient Logic
+                // Smoothstep creates the gradient fade
+                float diffusionDepth = 0.6 * uProcess; // Deeper penetration
+                
+                // Create a smooth transition from core to surface
+                // The 'start' of the transition moves inwards as process increases
+                float gradientFactor = smoothstep(1.0 - diffusionDepth, 1.0, distFromCenter);
+                
+                vec3 finalColor = mix(uColorCore, uColorSurface, gradientFactor);
+                
+                // Stress Logic for Gradient
+                // When bent, stress is distributed. No red line.
+                // Instead, the surface glows slightly brighter orange/yellow, showing energy absorption
+                if (uBend > 0.1) {
+                    float stress = gradientFactor * uBend * 0.5;
+                    finalColor += vec3(stress, stress, 0.0); // Add yellowish tint
+                }
+
+                float light = 1.0 - (abs(vUv.x - 0.5) * 0.2);
+                gl_FragColor = vec4(finalColor * light, 1.0);
+            }
+        `;
+
+        // --- OBJECTS ---
+
+        // Geometry for the bars (High segmentation for bending)
+        const barGeo = new THREE.BoxGeometry(6, 1.5, 1.5, 60, 10, 1);
+
+        // 1. Traditional Bar (Left)
+        const matTrad = new THREE.ShaderMaterial({
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShaderTraditional,
+            uniforms: JSON.parse(JSON.stringify(commonUniforms)) // Clone uniforms
+        });
+        const barTrad = new THREE.Mesh(barGeo, matTrad);
+        barTrad.position.set(-3.5, 0, 0);
+        scene.add(barTrad);
+
+        // 2. Gradient Bar (Right)
+        const matGrad = new THREE.ShaderMaterial({
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShaderGradient,
+            uniforms: JSON.parse(JSON.stringify(commonUniforms))
+        });
+        const barGrad = new THREE.Mesh(barGeo, matGrad);
+        barGrad.position.set(3.5, 0, 0);
+        scene.add(barGrad);
+
+        // Labels (3D Text or Sprites are complex, using HTML overlay projection)
+        const labels = [
+            { id: 'label-trad', obj: barTrad, offset: new THREE.Vector3(0, 1.5, 0) },
+            { id: 'label-grad', obj: barGrad, offset: new THREE.Vector3(0, 1.5, 0) }
+        ];
+
+        // --- PARTICLES (Visualizing the "Active Ingredients") ---
+        const particleCount = 400;
+        const particleGeo = new THREE.BufferGeometry();
+        const particlePos = new Float32Array(particleCount * 3);
+        const particleTargets = new Float32Array(particleCount * 3); // Where they want to go
+        const particleSpeeds = new Float32Array(particleCount);
+
+        for(let i=0; i<particleCount; i++) {
+            // Start random cloud above
+            particlePos[i*3] = (Math.random() - 0.5) * 14;
+            particlePos[i*3+1] = 5 + Math.random() * 5;
+            particlePos[i*3+2] = (Math.random() - 0.5) * 5;
+
+            // Target: Surface of the Gradient Bar
+            particleTargets[i*3] = 3.5 + (Math.random() - 0.5) * 6; // X area of right bar
+            // Y target: either top surface (0.75) or bottom (-0.75)
+            particleTargets[i*3+1] = Math.random() > 0.5 ? 0.75 : -0.75; 
+            // Add some jitter to penetrate slightly
+            particleTargets[i*3+1] += (Math.random() - 0.5) * 0.5;
+            
+            particleTargets[i*3+2] = (Math.random() - 0.5) * 1.5;
+            
+            particleSpeeds[i] = 0.02 + Math.random() * 0.05;
+        }
+
+        particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePos, 3));
+        const particleMat = new THREE.PointsMaterial({
+            color: 0xfb8500,
+            size: 0.1,
+            transparent: true,
+            opacity: 0.0 // Start invisible
+        });
+        const particles = new THREE.Points(particleGeo, particleMat);
+        scene.add(particles);
+
+
+        // --- FLOOR/GRID ---
+        const gridHelper = new THREE.GridHelper(30, 30, 0x333333, 0x222222);
+        gridHelper.position.y = -3;
+        scene.add(gridHelper);
+
+        // --- ANIMATION & LOGIC ---
+        const clock = new THREE.Clock();
+        let isBending = false;
+        let bendTarget = 0.0;
+        let currentBend = 0.0;
+
+        // UI Elements
+        const slider = document.getElementById('processSlider');
+        const stressBtn = document.getElementById('stressBtn');
+        const statusText = document.getElementById('status-text');
+        const explanation = document.getElementById('explanation');
+
+        // Events
+        slider.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value) / 100;
+            matTrad.uniforms.uProcess.value = val;
+            matGrad.uniforms.uProcess.value = val;
+            
+            // Particle Opacity logic
+            if(val > 0 && val < 0.9) {
+                particleMat.opacity = 0.8;
+            } else {
+                particleMat.opacity = Math.max(0, 1.0 - (val - 0.9)*10);
+            }
+
+            if(val === 0) {
+                statusText.innerText = "Raw TPE Material";
+                explanation.innerText = "Soft, flexible, but susceptible to surface wear.";
+            } else if (val < 1) {
+                statusText.innerText = "Diffusion Process";
+                explanation.innerText = "Reactive solution penetrates the surface. Notice the Gradient bar absorbing particles deeply.";
+            } else {
+                statusText.innerText = "Cured & Ready";
+                explanation.innerText = "Surface is now tough. Left: Distinct layer. Right: Gradient.";
+            }
+        });
+
+        stressBtn.addEventListener('click', () => {
+            isBending = !isBending;
+            bendTarget = isBending ? 1.0 : 0.0;
+            stressBtn.classList.toggle('active');
+            stressBtn.innerText = isBending ? "Release Stress" : "Run Stress Test (Bend)";
+            
+            if(isBending) {
+                explanation.innerText = "Bending applies stress. Look at the interface on the Left vs the smooth color on the Right.";
+            } else {
+                explanation.innerText = "Stress released.";
+            }
+        });
+
+        function updateParticles() {
+            const positions = particles.geometry.attributes.position.array;
+            const processVal = matGrad.uniforms.uProcess.value;
+
+            // Only animate particles if process is active but not complete
+            if (processVal > 0.01 && processVal < 0.99) {
+                for(let i=0; i<particleCount; i++) {
+                    const px = positions[i*3];
+                    const py = positions[i*3+1];
+                    const pz = positions[i*3+2];
+                    
+                    const tx = particleTargets[i*3];
+                    const ty = particleTargets[i*3+1];
+                    const tz = particleTargets[i*3+2];
+
+                    // Lerp towards target based on slider value roughly
+                    // Actually, let's just make them swarm towards target based on time
+                    // But bounded by the slider value.
+                    
+                    // Simple logic: Move towards target
+                    positions[i*3] += (tx - px) * 0.05;
+                    positions[i*3+1] += (ty - py) * 0.05;
+                    positions[i*3+2] += (tz - pz) * 0.05;
+                }
+            } else if (processVal <= 0.01) {
+                // Reset to top
+                for(let i=0; i<particleCount; i++) {
+                    positions[i*3+1] = 5 + Math.random() * 5;
+                }
+            }
+            particles.geometry.attributes.position.needsUpdate = true;
+        }
+
+        function updateLabels() {
+            labels.forEach(item => {
+                const el = document.getElementById(item.id);
+                // Get position of object
+                const pos = item.obj.position.clone().add(item.offset);
+                
+                // If bending, adjust label height slightly
+                if(currentBend > 0.1) pos.y -= currentBend * 0.5;
+
+                // Project to 2D
+                pos.project(camera);
+
+                const x = (pos.x * .5 + .5) * window.innerWidth;
+                const y = (-(pos.y * .5) + .5) * window.innerHeight;
+
+                el.style.left = `${x}px`;
+                el.style.top = `${y}px`;
+
+                // Fade in only if process is complete
+                if(matGrad.uniforms.uProcess.value > 0.8) {
+                    el.classList.add('visible');
+                } else {
+                    el.classList.remove('visible');
+                }
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const dt = clock.getDelta();
+            
+            // Smooth Bend Animation
+            currentBend += (bendTarget - currentBend) * 3.0 * dt;
+            matTrad.uniforms.uBend.value = currentBend;
+            matGrad.uniforms.uBend.value = currentBend;
+
+            updateParticles();
+            updateLabels();
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>

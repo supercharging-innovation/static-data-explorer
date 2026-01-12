@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Induction-Vitrimer Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0b0d10; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        #canvas-container { width: 100vw; height: 100vh; display: block; }
+        
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            pointer-events: none;
+            max-width: 400px;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00d2ff;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        p { font-size: 0.9rem; line-height: 1.4; color: #ccc; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 8px; border-left: 3px solid #00d2ff; }
+
+        /* Controls */
+        #controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            background: rgba(20, 20, 30, 0.8);
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            pointer-events: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        button {
+            background: linear-gradient(135deg, #00d2ff 0%, #0078ff 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4); }
+        button:active { transform: translateY(0); }
+        button.secondary { background: #444; }
+
+        /* Legend */
+        #legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            pointer-events: none;
+        }
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 0.85rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; display: inline-block; }
+        
+        /* 3D Labels */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid #555;
+            white-space: nowrap;
+        }
+        .label.visible { opacity: 1; }
+        .label::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0,0,0,0.8) transparent transparent transparent;
+        }
+
+        /* Status Panel */
+        #status-panel {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 220px;
+            border-left: 4px solid #ff9d00;
+        }
+        .metric { margin-bottom: 15px; }
+        .metric-label { font-size: 0.75rem; color: #888; text-transform: uppercase; }
+        .metric-value { font-size: 1.2rem; font-weight: bold; font-family: monospace; }
+        .bar-container { width: 100%; height: 6px; background: #333; margin-top: 5px; border-radius: 3px; overflow: hidden; }
+        .bar-fill { height: 100%; background: #00d2ff; width: 0%; transition: width 0.1s; }
+
+    </style>
+    <!-- Load Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+        <h1>Hybrid B: Induction-Vitrimer</h1>
+        <p>
+            <strong>The Concept:</strong> Rapidly curing a high-performance skin using magnetic fields.<br><br>
+            The resin is filled with tiny <strong>Iron Oxide</strong> particles. When the <strong>Induction Coil</strong> passes over, it magnetically excites these particles, generating heat from the <i>inside out</i>. This instantly locks the liquid resin into a solid, recyclable solid.
+        </p>
+    </div>
+
+    <div id="legend">
+        <div class="legend-item"><span class="dot" style="background: rgba(0, 200, 255, 0.5); border: 1px solid cyan;"></span>Uncured Resin (Liquid)</div>
+        <div class="legend-item"><span class="dot" style="background: #ff5500;"></span>Iron Oxide Susceptors</div>
+        <div class="legend-item"><span class="dot" style="background: #ffff00; box-shadow: 0 0 5px yellow;"></span>Active Heating</div>
+        <div class="legend-item"><span class="dot" style="background: #cccccc; border: 1px solid white;"></span>Cured Vitrimer (Solid)</div>
+        <div class="legend-item"><span class="dot" style="background: #b87333;"></span>Induction Coil</div>
+    </div>
+
+    <div id="status-panel">
+        <div class="metric">
+            <div class="metric-label">Local Temperature</div>
+            <div class="metric-value" id="temp-val">25°C</div>
+            <div class="bar-container"><div class="bar-fill" id="temp-bar" style="background: linear-gradient(90deg, blue, red);"></div></div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">Cure Progress</div>
+            <div class="metric-value" id="cure-val">0%</div>
+            <div class="bar-container"><div class="bar-fill" id="cure-bar" style="background: #00ff88;"></div></div>
+        </div>
+        <div class="metric">
+            <div class="metric-label">IR Feedback Signal</div>
+            <div class="metric-value" id="ir-val" style="color: #00ff00;">STABLE</div>
+        </div>
+    </div>
+
+    <div id="controls">
+        <button id="btn-scan">Start Induction Scan</button>
+        <button id="btn-reset" class="secondary">Reset Material</button>
+        <button id="btn-labels" class="secondary">Toggle Labels</button>
+    </div>
+
+    <!-- 3D Labels Container -->
+    <div id="labels-container"></div>
+
+    <script>
+        // --- 1. Scene Setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b0d10);
+        scene.fog = new THREE.FogExp2(0x0b0d10, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(8, 8, 8);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2; // Don't go below ground
+
+        // --- 2. Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 1.5); // Soft white light
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 1024;
+        dirLight.shadow.mapSize.height = 1024;
+        scene.add(dirLight);
+
+        const spotLight = new THREE.SpotLight(0x00d2ff, 2);
+        spotLight.position.set(-10, 10, 0);
+        spotLight.lookAt(0,0,0);
+        scene.add(spotLight);
+
+        // --- 3. The Vitrimer Skin (Hex Grid) ---
+        // We will use a group of individual meshes to represent the "voxels" of the material
+        // This allows us to change their color individually based on state.
+        
+        const skinGroup = new THREE.Group();
+        scene.add(skinGroup);
+
+        const hexRadius = 0.3;
+        const hexHeight = 0.1;
+        const rows = 12;
+        const cols = 20;
+        const gridWidth = cols * hexRadius * 1.5;
+        const gridDepth = rows * hexRadius * 1.732;
+
+        const cells = []; // Store data for each cell
+
+        const hexGeometry = new THREE.CylinderGeometry(hexRadius, hexRadius, hexHeight, 6);
+        
+        // Materials
+        const liquidMaterial = new THREE.MeshPhysicalMaterial({
+            color: 0x0055ff, // Blue
+            transparent: true,
+            opacity: 0.6,
+            roughness: 0.2,
+            metalness: 0.1,
+            transmission: 0.5,
+            thickness: 0.5
+        });
+
+        const curedMaterial = new THREE.MeshPhysicalMaterial({
+            color: 0xdddddd, // Silver/White
+            roughness: 0.1,
+            metalness: 0.6,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.1
+        });
+
+        // Create the grid
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const mesh = new THREE.Mesh(hexGeometry, liquidMaterial.clone());
+                
+                // Offset for hex grid
+                const xOffset = c * hexRadius * 1.75 - (gridWidth / 2);
+                const zOffset = r * hexRadius * 1.95 + (c % 2) * (hexRadius * 0.95) - (gridDepth / 2);
+                
+                // Add slight curve to simulate a car part or casing
+                const yCurve = -0.05 * (Math.pow(xOffset, 2) + Math.pow(zOffset, 2));
+
+                mesh.position.set(xOffset, yCurve, zOffset);
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+                
+                // Add "Iron Oxide" particles inside the mesh
+                const particles = new THREE.Group();
+                const pGeo = new THREE.SphereGeometry(0.04, 4, 4);
+                const pMat = new THREE.MeshBasicMaterial({ color: 0xaa4400 }); // Rust color
+                
+                for(let p=0; p<3; p++) {
+                    const particle = new THREE.Mesh(pGeo, pMat.clone());
+                    particle.position.set(
+                        (Math.random() - 0.5) * hexRadius,
+                        (Math.random() - 0.5) * hexHeight,
+                        (Math.random() - 0.5) * hexRadius
+                    );
+                    particles.add(particle);
+                }
+                mesh.add(particles);
+
+                skinGroup.add(mesh);
+
+                cells.push({
+                    mesh: mesh,
+                    particles: particles,
+                    state: 'liquid', // liquid, heating, cured
+                    temp: 20, // Celsius
+                    cureLevel: 0, // 0 to 1
+                    baseY: yCurve
+                });
+            }
+        }
+
+        // --- 4. The Induction Coil ---
+        const coilGroup = new THREE.Group();
+        
+        // Copper Loop
+        const torusGeo = new THREE.TorusGeometry(0.8, 0.1, 16, 100);
+        const copperMat = new THREE.MeshStandardMaterial({ color: 0xb87333, metalness: 0.9, roughness: 0.2 });
+        const coilMesh = new THREE.Mesh(torusGeo, copperMat);
+        coilMesh.rotation.x = Math.PI / 2;
+        coilGroup.add(coilMesh);
+
+        // Magnetic Field Visual (Cone)
+        const fieldGeo = new THREE.ConeGeometry(0.8, 2, 32, 1, true);
+        const fieldMat = new THREE.MeshBasicMaterial({ 
+            color: 0xaa00ff, 
+            transparent: true, 
+            opacity: 0.0, 
+            wireframe: true,
+            side: THREE.DoubleSide
+        });
+        const fieldMesh = new THREE.Mesh(fieldGeo, fieldMat);
+        fieldMesh.position.y = -1;
+        fieldMesh.rotation.x = Math.PI;
+        coilGroup.add(fieldMesh);
+
+        // IR Sensor Visual
+        const sensorGeo = new THREE.CylinderGeometry(0.02, 0.02, 1.5);
+        const sensorMat = new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: true, opacity: 0.5 });
+        const sensorBeam = new THREE.Mesh(sensorGeo, sensorMat);
+        sensorBeam.position.y = -0.75;
+        coilGroup.add(sensorBeam);
+
+        // Coil Box Housing
+        const boxGeo = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+        const boxMat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+        const box = new THREE.Mesh(boxGeo, boxMat);
+        box.position.y = 0.5;
+        coilGroup.add(box);
+
+        scene.add(coilGroup);
+
+        // --- 5. Animation Logic ---
+        
+        let isScanning = false;
+        let scanProgress = 0;
+        let labelsVisible = true;
+        const scanSpeed = 0.005;
+        const scanPathStart = new THREE.Vector3(-4, 1.5, 0);
+        const scanPathEnd = new THREE.Vector3(4, 1.5, 0);
+
+        coilGroup.position.copy(scanPathStart);
+
+        function updateSimulation() {
+            if (isScanning) {
+                scanProgress += scanSpeed;
+                if (scanProgress > 1) {
+                    scanProgress = 1;
+                    isScanning = false;
+                    fieldMesh.material.opacity = 0;
+                    sensorBeam.material.opacity = 0;
+                    document.getElementById('btn-scan').innerText = "Scan Complete";
+                }
+
+                // Move Coil
+                const currentPos = new THREE.Vector3().lerpVectors(scanPathStart, scanPathEnd, scanProgress);
+                // Add a sine wave motion to cover width
+                currentPos.z = Math.sin(scanProgress * Math.PI * 4) * 2;
+                coilGroup.position.copy(currentPos);
+                
+                // Visualize Field
+                fieldMesh.material.opacity = 0.3 + Math.sin(Date.now() * 0.02) * 0.1;
+                fieldMesh.rotation.y += 0.1;
+                sensorBeam.material.opacity = 0.8;
+
+                // Check Interactions with Cells
+                let totalTemp = 0;
+                let activeCount = 0;
+
+                cells.forEach(cell => {
+                    // Distance check (ignoring Y for flat projection logic, but including for accuracy)
+                    const dx = cell.mesh.position.x - coilGroup.position.x;
+                    const dz = cell.mesh.position.z - coilGroup.position.z;
+                    const dist = Math.sqrt(dx*dx + dz*dz);
+
+                    // Induction Range
+                    if (dist < 0.8) {
+                        // HEATING UP
+                        cell.temp = Math.min(cell.temp + 5, 200); // Max temp 200C
+                        
+                        // Particles glow
+                        cell.particles.children.forEach(p => {
+                            p.material.color.setHex(0xffff00); // Yellow hot
+                            p.scale.setScalar(1.5);
+                        });
+
+                        // Vibrate mesh slightly
+                        cell.mesh.position.y = cell.baseY + (Math.random() * 0.05);
+
+                        totalTemp += cell.temp;
+                        activeCount++;
+
+                    } else {
+                        // COOLING DOWN
+                        cell.temp = Math.max(cell.temp - 2, 20);
+                        
+                        // Particles cool
+                        cell.particles.children.forEach(p => {
+                            p.material.color.setHex(0xaa4400); // Back to rust
+                            p.scale.setScalar(1.0);
+                        });
+                        
+                        cell.mesh.position.y = cell.baseY;
+                    }
+
+                    // Curing Logic (Topology Freezing Transition)
+                    if (cell.temp > 120 && cell.cureLevel < 1) {
+                        cell.cureLevel += 0.05;
+                    }
+
+                    // Update Visuals based on Cure Level
+                    if (cell.cureLevel > 0) {
+                        // Lerp color from Liquid Blue to Cured Silver
+                        const r = THREE.MathUtils.lerp(0, 0.86, cell.cureLevel); // to 0xdd
+                        const g = THREE.MathUtils.lerp(0.33, 0.86, cell.cureLevel);
+                        const b = THREE.MathUtils.lerp(1, 0.86, cell.cureLevel);
+                        
+                        cell.mesh.material.color.setRGB(r, g, b);
+                        cell.mesh.material.opacity = 0.6 + (cell.cureLevel * 0.4); // Become solid
+                        cell.mesh.material.roughness = 0.2 - (cell.cureLevel * 0.1); // Become glossy
+                    }
+                });
+
+                // Update UI Panel
+                if (activeCount > 0) {
+                    const avgTemp = totalTemp / activeCount;
+                    document.getElementById('temp-val').innerText = Math.round(avgTemp) + "°C";
+                    document.getElementById('temp-bar').style.width = (avgTemp / 200 * 100) + "%";
+                    
+                    // IR Feedback Logic
+                    const irVal = document.getElementById('ir-val');
+                    if (avgTemp > 180) {
+                        sensorBeam.material.color.setHex(0xff0000);
+                        irVal.innerText = "THROTTLING POWER";
+                        irVal.style.color = "red";
+                    } else if (avgTemp > 100) {
+                        sensorBeam.material.color.setHex(0x00ff00);
+                        irVal.innerText = "OPTIMAL";
+                        irVal.style.color = "#00ff00";
+                    } else {
+                        sensorBeam.material.color.setHex(0xffff00);
+                        irVal.innerText = "HEATING";
+                        irVal.style.color = "yellow";
+                    }
+                }
+
+                // Update Progress Bar
+                const totalCured = cells.reduce((acc, c) => acc + c.cureLevel, 0);
+                const pct = Math.round((totalCured / cells.length) * 100);
+                document.getElementById('cure-val').innerText = pct + "%";
+                document.getElementById('cure-bar').style.width = pct + "%";
+            }
+        }
+
+        // --- 6. Labels and UI Logic ---
+        
+        function createLabel(text, parentObj, yOffset) {
+            const div = document.createElement('div');
+            div.className = 'label visible';
+            div.textContent = text;
+            document.getElementById('labels-container').appendChild(div);
+            return { div, parent: parentObj, offset: yOffset };
+        }
+
+        const labelList = [
+            createLabel("Induction Coil", coilGroup, 1.2),
+            createLabel("Vitrimer Skin (Liquid)", skinGroup.children[0], 0.5), // Attach to first cell initially
+            createLabel("Iron Oxide Particles", skinGroup.children[10], 0.2)
+        ];
+
+        function updateLabels() {
+            if (!labelsVisible) return;
+
+            labelList.forEach(lbl => {
+                const pos = new THREE.Vector3();
+                lbl.parent.getWorldPosition(pos);
+                pos.y += lbl.offset;
+                
+                // Update specific labels dynamically
+                if(lbl.div.textContent.includes("Vitrimer")) {
+                    // Move this label to a cell that is currently being processed or just generally in the middle
+                    const centerCell = cells[Math.floor(cells.length/2)];
+                    if(centerCell.cureLevel > 0.5) lbl.div.textContent = "Vitrimer Skin (Cured)";
+                    else lbl.div.textContent = "Vitrimer Skin (Liquid)";
+                }
+
+                pos.project(camera);
+
+                const x = (pos.x * .5 + .5) * window.innerWidth;
+                const y = (-(pos.y * .5) + .5) * window.innerHeight;
+
+                // Hide if behind camera
+                if (pos.z > 1) {
+                    lbl.div.style.opacity = 0;
+                } else {
+                    lbl.div.style.opacity = 1;
+                    lbl.div.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+                }
+            });
+        }
+
+        // --- 7. Event Listeners ---
+
+        document.getElementById('btn-scan').addEventListener('click', () => {
+            if (!isScanning && scanProgress < 1) {
+                isScanning = true;
+                document.getElementById('btn-scan').innerText = "Scanning...";
+            } else if (scanProgress >= 1) {
+                // Reset position for re-scan without full reset
+                scanProgress = 0;
+                isScanning = true;
+                document.getElementById('btn-scan').innerText = "Scanning...";
+            }
+        });
+
+        document.getElementById('btn-reset').addEventListener('click', () => {
+            isScanning = false;
+            scanProgress = 0;
+            coilGroup.position.copy(scanPathStart);
+            fieldMesh.material.opacity = 0;
+            sensorBeam.material.opacity = 0;
+            document.getElementById('btn-scan').innerText = "Start Induction Scan";
+            
+            // Reset Cells
+            cells.forEach(cell => {
+                cell.cureLevel = 0;
+                cell.temp = 20;
+                cell.state = 'liquid';
+                cell.mesh.material.color.setHex(0x0055ff);
+                cell.mesh.material.opacity = 0.6;
+                cell.mesh.material.roughness = 0.2;
+                cell.particles.children.forEach(p => {
+                    p.material.color.setHex(0xaa4400);
+                    p.scale.setScalar(1.0);
+                });
+            });
+
+            document.getElementById('cure-val').innerText = "0%";
+            document.getElementById('cure-bar').style.width = "0%";
+            document.getElementById('temp-val').innerText = "20°C";
+            document.getElementById('temp-bar').style.width = "10%";
+            document.getElementById('ir-val').innerText = "STANDBY";
+            document.getElementById('ir-val').style.color = "#888";
+        });
+
+        document.getElementById('btn-labels').addEventListener('click', () => {
+            labelsVisible = !labelsVisible;
+            const labels = document.querySelectorAll('.label');
+            labels.forEach(l => l.style.display = labelsVisible ? 'block' : 'none');
+        });
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // --- 8. Render Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            updateSimulation();
+            updateLabels();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+    </script>
+</body>
+</html>

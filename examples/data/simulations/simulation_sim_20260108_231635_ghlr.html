@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solvophobic Stiffening Simulator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Open Sans', sans-serif; background-color: #050a14; color: white; }
+        
+        /* UI Panels */
+        .panel {
+            position: absolute;
+            background: rgba(10, 20, 40, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        #info-panel {
+            top: 20px;
+            left: 20px;
+            width: 320px;
+        }
+
+        #controls-panel {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #legend-panel {
+            top: 20px;
+            right: 20px;
+            width: 200px;
+        }
+
+        #gauge-panel {
+            bottom: 150px;
+            right: 20px;
+            width: 180px;
+            text-align: center;
+        }
+
+        /* Typography */
+        h1 { font-family: 'Exo 2', sans-serif; font-size: 1.4rem; margin: 0 0 10px 0; color: #00ffff; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-family: 'Exo 2', sans-serif; font-size: 1rem; margin: 0 0 10px 0; color: #ffffff; }
+        p { font-size: 0.9rem; line-height: 1.5; color: #ccc; margin-bottom: 10px; }
+        .highlight { color: #ff00aa; font-weight: bold; }
+        .oil-text { color: #ffcc00; font-weight: bold; }
+
+        /* Controls */
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #ffcc00;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 10px #ffcc00;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #333;
+            border-radius: 2px;
+        }
+        
+        button {
+            background: rgba(0, 255, 255, 0.1);
+            border: 1px solid #00ffff;
+            color: #00ffff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Exo 2', sans-serif;
+            transition: all 0.3s;
+        }
+        button:hover { background: rgba(0, 255, 255, 0.3); box-shadow: 0 0 10px #00ffff; }
+
+        /* Legend Items */
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; display: inline-block; }
+        
+        /* Gauge Bar */
+        .gauge-container {
+            width: 100%;
+            height: 20px;
+            background: #222;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+            border: 1px solid #555;
+            position: relative;
+        }
+        .gauge-fill {
+            height: 100%;
+            width: 20%;
+            background: linear-gradient(90deg, #00ffff, #00ff00);
+            transition: width 0.5s ease-out, background 0.5s;
+        }
+        .gauge-label { font-size: 0.8rem; color: #aaa; margin-top: 5px; display: flex; justify-content: space-between; }
+
+        /* Labels in 3D */
+        .label-3d {
+            position: absolute;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            border-left: 2px solid #ff00aa;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .visible { opacity: 1; }
+
+        #loading {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; color: #00ffff; display: flex; justify-content: center; align-items: center;
+            z-index: 1000; font-family: 'Exo 2'; font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading">Initializing Simulation...</div>
+
+    <!-- 3D Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Info Panel -->
+    <div id="info-panel" class="panel">
+        <h1>Solvophobic Stiffening</h1>
+        <p>This simulation demonstrates a breakthrough TPE material that gets <strong>stronger</strong> when exposed to oil.</p>
+        <p><strong>How it works:</strong> The polymer chains contain special <span class="highlight">supramolecular motifs</span> (pink nodes). These nodes hate oil.</p>
+        <p>When <span class="oil-text">oil</span> enters the system, the nodes rush to connect with each other to hide from the oil. This "hugging" effect tightens the molecular mesh, increasing stiffness.</p>
+    </div>
+
+    <!-- Legend -->
+    <div id="legend-panel" class="panel">
+        <h2>Components</h2>
+        <div class="legend-item">
+            <span class="dot" style="background: #00aaff; box-shadow: 0 0 5px #00aaff;"></span>
+            <span>Polymer Chain</span>
+        </div>
+        <div class="legend-item">
+            <span class="dot" style="background: #ff00aa; box-shadow: 0 0 5px #ff00aa;"></span>
+            <span>H-Bonding Motif</span>
+        </div>
+        <div class="legend-item">
+            <span class="dot" style="background: #ffcc00; box-shadow: 0 0 5px #ffcc00;"></span>
+            <span>Oil Molecule</span>
+        </div>
+    </div>
+
+    <!-- Gauge -->
+    <div id="gauge-panel" class="panel">
+        <h2>Material Stiffness</h2>
+        <div class="gauge-container">
+            <div id="stiffness-bar" class="gauge-fill"></div>
+        </div>
+        <div class="gauge-label">
+            <span>Soft</span>
+            <span>Rigid</span>
+        </div>
+        <div id="status-text" style="margin-top:10px; font-size: 0.85rem; color: #00ffff;">Normal State</div>
+    </div>
+
+    <!-- Controls -->
+    <div id="controls-panel" class="panel">
+        <label for="oil-slider" style="font-weight: bold; color: #ffcc00;">Oil Concentration</label>
+        <input type="range" id="oil-slider" min="0" max="100" value="0">
+        
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+            <button id="toggle-labels">Toggle Labels</button>
+            <button id="reset-sim">Reset Simulation</button>
+        </div>
+        <p style="font-size: 0.8rem; margin: 0; color: #888;">Drag slider to inject oil</p>
+    </div>
+
+    <!-- 3D Labels (Dynamically positioned) -->
+    <div id="label-motif" class="label-3d">Active Motif</div>
+    <div id="label-chain" class="label-3d">Polymer Chain</div>
+
+    <script>
+        // --- 1. SETUP THREE.JS ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x050a14, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 40);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        container.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+
+        const blueLight = new THREE.PointLight(0x0088ff, 2, 50);
+        blueLight.position.set(-10, -10, 5);
+        scene.add(blueLight);
+
+        // --- 2. SIMULATION STATE ---
+        const state = {
+            oilLevel: 0, // 0.0 to 1.0
+            showLabels: true,
+            time: 0
+        };
+
+        // --- 3. CREATE OBJECTS ---
+
+        // A. Oil Particles (Instanced Mesh for performance)
+        const oilCount = 800;
+        const oilGeometry = new THREE.SphereGeometry(0.3, 8, 8);
+        const oilMaterial = new THREE.MeshPhongMaterial({ 
+            color: 0xffcc00, 
+            emissive: 0xffaa00,
+            emissiveIntensity: 0.2,
+            transparent: true,
+            opacity: 0
+        });
+        const oilSystem = new THREE.InstancedMesh(oilGeometry, oilMaterial, oilCount);
+        const dummy = new THREE.Object3D();
+        const oilVelocities = [];
+
+        for(let i=0; i<oilCount; i++) {
+            dummy.position.set(
+                (Math.random() - 0.5) * 40,
+                (Math.random() - 0.5) * 40,
+                (Math.random() - 0.5) * 40
+            );
+            dummy.updateMatrix();
+            oilSystem.setMatrixAt(i, dummy.matrix);
+            
+            // Random drift velocity
+            oilVelocities.push({
+                x: (Math.random() - 0.5) * 0.05,
+                y: (Math.random() - 0.5) * 0.05,
+                z: (Math.random() - 0.5) * 0.05
+            });
+        }
+        scene.add(oilSystem);
+
+        // B. Polymer Chains
+        const chains = [];
+        const numChains = 12;
+        const nodesPerChain = 8;
+        const chainGroup = new THREE.Group();
+        scene.add(chainGroup);
+
+        class PolymerChain {
+            constructor(id) {
+                this.id = id;
+                this.nodes = []; // Physics nodes
+                this.motifs = []; // The "Active Ingredients" (indices of nodes)
+                this.mesh = null;
+                this.motifMeshes = [];
+                
+                // Initialize nodes in a wavy line
+                const startX = (Math.random() - 0.5) * 20;
+                const startY = (Math.random() - 0.5) * 20;
+                const startZ = (Math.random() - 0.5) * 10;
+                
+                for(let i=0; i<nodesPerChain; i++) {
+                    this.nodes.push({
+                        pos: new THREE.Vector3(startX + i * 1.5, startY + Math.sin(i)*2, startZ + Math.cos(i)*2),
+                        vel: new THREE.Vector3(0,0,0),
+                        acc: new THREE.Vector3(0,0,0),
+                        basePos: new THREE.Vector3(startX + i * 1.5, startY + Math.sin(i)*2, startZ + Math.cos(i)*2) // Home position for elasticity
+                    });
+                    
+                    // Every 2nd or 3rd node is an active motif
+                    if (i > 0 && i < nodesPerChain -1 && i % 2 !== 0) {
+                        this.motifs.push(i);
+                    }
+                }
+                
+                this.createMesh();
+                this.createMotifVisuals();
+            }
+
+            createMesh() {
+                // We will update the geometry every frame
+                const path = new THREE.CatmullRomCurve3(this.nodes.map(n => n.pos));
+                const geometry = new THREE.TubeGeometry(path, 20, 0.2, 8, false);
+                const material = new THREE.MeshPhongMaterial({ 
+                    color: 0x00aaff, 
+                    shininess: 100,
+                    transparent: true,
+                    opacity: 0.8
+                });
+                this.mesh = new THREE.Mesh(geometry, material);
+                chainGroup.add(this.mesh);
+            }
+
+            createMotifVisuals() {
+                const geo = new THREE.SphereGeometry(0.5, 16, 16);
+                const mat = new THREE.MeshStandardMaterial({ 
+                    color: 0xff00aa, 
+                    emissive: 0xff0066,
+                    emissiveIntensity: 0.5,
+                    roughness: 0.2
+                });
+
+                this.motifs.forEach(index => {
+                    const mesh = new THREE.Mesh(geo, mat);
+                    this.motifMeshes.push({ mesh: mesh, nodeIndex: index });
+                    chainGroup.add(mesh);
+                });
+            }
+
+            updatePhysics(allChains, oilFactor) {
+                const stiffness = 0.02 + (oilFactor * 0.05); // Chains get stiffer locally
+                const damping = 0.9;
+                const repulsionDist = 2.0;
+                const attractionDist = 15.0; // Range of solvophobic attraction
+                
+                // 1. Internal Forces (Springs between nodes)
+                for(let i=0; i<this.nodes.length; i++) {
+                    const node = this.nodes[i];
+                    
+                    // Browninan Motion (Random flutter)
+                    node.acc.add(new THREE.Vector3(
+                        (Math.random()-0.5)*0.02, 
+                        (Math.random()-0.5)*0.02, 
+                        (Math.random()-0.5)*0.02
+                    ));
+
+                    // Spring to neighbors
+                    if(i > 0) {
+                        const prev = this.nodes[i-1];
+                        const dist = node.pos.distanceTo(prev.pos);
+                        const targetDist = 1.5;
+                        const force = (dist - targetDist) * 0.1;
+                        const dir = new THREE.Vector3().subVectors(prev.pos, node.pos).normalize();
+                        node.acc.add(dir.multiplyScalar(force));
+                        prev.acc.add(dir.multiplyScalar(-1)); // Action-Reaction
+                    }
+
+                    // Return to shape (Elastic memory) - Weak
+                    const homeDir = new THREE.Vector3().subVectors(node.basePos, node.pos);
+                    node.acc.add(homeDir.multiplyScalar(0.002)); // Very weak restoring force
+                }
+
+                // 2. Solvophobic Attraction (The Key Mechanism)
+                // If oil is present, motifs attract other motifs strongly
+                if(oilFactor > 0.1) {
+                    this.motifs.forEach(mIndex => {
+                        const myNode = this.nodes[mIndex];
+                        
+                        // Check against all other chains' motifs
+                        allChains.forEach(otherChain => {
+                            if(otherChain === this) return; // Don't self-attract too much
+                            
+                            otherChain.motifs.forEach(omIndex => {
+                                const otherNode = otherChain.nodes[omIndex];
+                                const dist = myNode.pos.distanceTo(otherNode.pos);
+                                
+                                if(dist < attractionDist) {
+                                    // The Force: Proportional to oil level
+                                    // They want to clump to hide from oil
+                                    const forceStrength = (oilFactor * 0.05) / (dist * dist + 0.1);
+                                    const dir = new THREE.Vector3().subVectors(otherNode.pos, myNode.pos).normalize();
+                                    myNode.acc.add(dir.multiplyScalar(forceStrength));
+                                }
+                            });
+                        });
+                    });
+                }
+
+                // 3. General Repulsion (Prevent collapse into singularity)
+                // Simplified: Just push away from center if too close
+                // Or push away from other nodes
+                /* Performance optimization: Skipping N^2 repulsion for N nodes. 
+                   Instead, just a boundary box force */
+                this.nodes.forEach(node => {
+                    if(node.pos.length() > 25) {
+                        node.acc.add(node.pos.clone().multiplyScalar(-0.01));
+                    }
+                });
+
+                // 4. Integration
+                this.nodes.forEach(node => {
+                    node.vel.add(node.acc);
+                    node.vel.multiplyScalar(damping);
+                    node.pos.add(node.vel);
+                    node.acc.set(0,0,0); // Reset accel
+                });
+            }
+
+            updateVisuals() {
+                // Update Tube
+                const path = new THREE.CatmullRomCurve3(this.nodes.map(n => n.pos));
+                // Dispose old geometry to prevent memory leak
+                this.mesh.geometry.dispose();
+                this.mesh.geometry = new THREE.TubeGeometry(path, 20, 0.2, 8, false);
+
+                // Update Motifs (Spheres)
+                this.motifMeshes.forEach(item => {
+                    item.mesh.position.copy(this.nodes[item.nodeIndex].pos);
+                    
+                    // Visual feedback: Pulse when active
+                    if (state.oilLevel > 0.2) {
+                        const scale = 1 + Math.sin(state.time * 10) * 0.2 * state.oilLevel;
+                        item.mesh.scale.set(scale, scale, scale);
+                        item.mesh.material.emissiveIntensity = 0.5 + state.oilLevel;
+                    } else {
+                        item.mesh.scale.set(1, 1, 1);
+                        item.mesh.material.emissiveIntensity = 0.5;
+                    }
+                });
+            }
+        }
+
+        // Initialize Chains
+        for(let i=0; i<numChains; i++) {
+            chains.push(new PolymerChain(i));
+        }
+
+        // --- 4. INTERACTION LOGIC ---
+        const slider = document.getElementById('oil-slider');
+        const stiffnessBar = document.getElementById('stiffness-bar');
+        const statusText = document.getElementById('status-text');
+
+        slider.addEventListener('input', (e) => {
+            state.oilLevel = parseFloat(e.target.value) / 100;
+            updateGauge();
+        });
+
+        function updateGauge() {
+            // Logic: High Oil -> High Stiffness (Solvophobic Effect)
+            // Visual: Bar grows, color shifts
+            const pct = 20 + (state.oilLevel * 80); // Base 20% stiffness, up to 100%
+            stiffnessBar.style.width = pct + '%';
+            
+            if(state.oilLevel < 0.2) {
+                stiffnessBar.style.background = '#00ffff'; // Soft
+                statusText.innerText = "State: Flexible (Normal)";
+                statusText.style.color = "#00ffff";
+            } else if (state.oilLevel < 0.7) {
+                stiffnessBar.style.background = 'linear-gradient(90deg, #00ffff, #ff00aa)'; // Transition
+                statusText.innerText = "State: Stiffening (Solvophobic Association)";
+                statusText.style.color = "#ff88dd";
+            } else {
+                stiffnessBar.style.background = 'linear-gradient(90deg, #ff00aa, #ff0000)'; // Rigid
+                statusText.innerText = "State: High Rigidity (Network Locked)";
+                statusText.style.color = "#ff0000";
+            }
+
+            // Update Oil Visuals
+            oilMaterial.opacity = state.oilLevel * 0.6; // Max opacity 0.6
+        }
+
+        document.getElementById('reset-sim').addEventListener('click', () => {
+            slider.value = 0;
+            state.oilLevel = 0;
+            updateGauge();
+            // Reset positions
+            chains.forEach(c => {
+                c.nodes.forEach(n => {
+                    n.pos.copy(n.basePos);
+                    n.vel.set(0,0,0);
+                });
+            });
+        });
+
+        const labelMotif = document.getElementById('label-motif');
+        const labelChain = document.getElementById('label-chain');
+        const toggleBtn = document.getElementById('toggle-labels');
+
+        toggleBtn.addEventListener('click', () => {
+            state.showLabels = !state.showLabels;
+            if(!state.showLabels) {
+                labelMotif.classList.remove('visible');
+                labelChain.classList.remove('visible');
+            }
+        });
+
+        // --- 5. ANIMATION LOOP ---
+        
+        // Helper for labels
+        function updateLabel(element, position, text) {
+            if(!state.showLabels) return;
+            
+            // Project 3D to 2D
+            const vector = position.clone();
+            vector.project(camera);
+
+            const x = (vector.x * .5 + .5) * window.innerWidth;
+            const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+            // Check if visible (in front of camera)
+            if (vector.z < 1 && x > 0 && x < window.innerWidth && y > 0 && y < window.innerHeight) {
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+                element.classList.add('visible');
+            } else {
+                element.classList.remove('visible');
+            }
+        }
+
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const delta = clock.getDelta();
+            state.time += delta;
+
+            controls.update();
+
+            // Update Oil Particles
+            if(state.oilLevel > 0) {
+                for(let i=0; i<oilCount; i++) {
+                    oilSystem.getMatrixAt(i, dummy.matrix);
+                    dummy.matrix.decompose(dummy.position, dummy.quaternion, dummy.scale);
+                    
+                    const vel = oilVelocities[i];
+                    dummy.position.x += vel.x;
+                    dummy.position.y += vel.y;
+                    dummy.position.z += vel.z;
+
+                    // Wrap around box
+                    if(dummy.position.x > 20) dummy.position.x = -20;
+                    if(dummy.position.x < -20) dummy.position.x = 20;
+                    if(dummy.position.y > 20) dummy.position.y = -20;
+                    if(dummy.position.y < -20) dummy.position.y = 20;
+                    if(dummy.position.z > 20) dummy.position.z = -20;
+                    if(dummy.position.z < -20) dummy.position.z = 20;
+
+                    dummy.updateMatrix();
+                    oilSystem.setMatrixAt(i, dummy.matrix);
+                }
+                oilSystem.instanceMatrix.needsUpdate = true;
+            }
+
+            // Update Chains
+            chains.forEach(chain => {
+                chain.updatePhysics(chains, state.oilLevel);
+                chain.updateVisuals();
+            });
+
+            // Update Labels
+            if(state.showLabels && chains.length > 0) {
+                // Attach label to the first motif of the first chain
+                const motifPos = chains[0].nodes[chains[0].motifs[0]].pos;
+                updateLabel(labelMotif, motifPos);
+
+                // Attach label to the middle of the second chain
+                const chainPos = chains[1].nodes[4].pos;
+                updateLabel(labelChain, chainPos);
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Hide loading screen
+        document.getElementById('loading').style.display = 'none';
+        
+        // Start
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>

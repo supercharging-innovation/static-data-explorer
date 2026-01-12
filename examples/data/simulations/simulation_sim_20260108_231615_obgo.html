@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Amphiphilic Tie-Layer Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #1a1a2e; color: white; }
+        #canvas-container { width: 100vw; height: 100vh; }
+        
+        /* UI Overlay */
+        #ui-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(16, 20, 30, 0.9);
+            border-left: 4px solid #00d2ff;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            pointer-events: auto;
+        }
+
+        h1 { margin: 0 0 10px 0; font-size: 1.2rem; color: #00d2ff; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { margin: 0 0 5px 0; font-size: 0.9rem; color: #aaa; }
+        p { font-size: 0.85rem; line-height: 1.4; color: #ddd; margin-bottom: 15px; }
+
+        /* Controls */
+        .control-group { margin-bottom: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px; }
+        label { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; cursor: pointer; }
+        
+        /* Custom Toggle */
+        .toggle-switch { position: relative; width: 40px; height: 20px; background: #555; border-radius: 20px; transition: 0.3s; }
+        .toggle-switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: white; border-radius: 50%; transition: 0.3s; }
+        input[type="checkbox"] { display: none; }
+        input[type="checkbox"]:checked + .toggle-switch { background: #00d2ff; }
+        input[type="checkbox"]:checked + .toggle-switch::after { transform: translateX(20px); }
+
+        /* Range Slider */
+        input[type="range"] { width: 100%; margin-top: 8px; accent-color: #ff4757; }
+
+        /* Status Indicators */
+        .status-box { display: flex; gap: 10px; margin-top: 10px; }
+        .indicator { flex: 1; padding: 8px; text-align: center; border-radius: 4px; font-size: 0.8rem; font-weight: bold; opacity: 0.5; transition: 0.3s; }
+        .indicator.active { opacity: 1; transform: scale(1.05); }
+        .status-ok { background: #2ecc71; color: #003311; }
+        .status-warn { background: #f1c40f; color: #443300; }
+        .status-fail { background: #ff4757; color: white; }
+
+        /* Legend */
+        .legend-item { display: flex; align-items: center; margin-top: 5px; font-size: 0.8rem; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
+
+        /* Floating Labels */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            pointer-events: none;
+            user-select: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: opacity 0.3s;
+        }
+
+        /* Instructions */
+        #instructions {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.6);
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+            pointer-events: none;
+        }
+    </style>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-panel">
+        <h1>Dynamic Tie-Layer</h1>
+        <h2>Problem: Delamination</h2>
+        <p>Recycled cores and virgin skins expand differently under heat. This shear stress breaks standard glues.</p>
+        
+        <div class="control-group">
+            <label>
+                <span><b>1. Apply Thermal Stress</b><br><small>Simulates expansion/contraction</small></span>
+                <input type="checkbox" id="stressToggle">
+                <div class="toggle-switch"></div>
+            </label>
+            <input type="range" id="stressSlider" min="0" max="100" value="0" disabled>
+        </div>
+
+        <div class="control-group">
+            <label>
+                <span><b>2. Activate Vitrimer</b><br><small>Enable dynamic bond exchange</small></span>
+                <input type="checkbox" id="solutionToggle">
+                <div class="toggle-switch" style="background: #444;"></div>
+            </label>
+        </div>
+
+        <div class="status-box">
+            <div id="stat-stable" class="indicator status-ok active">STABLE</div>
+            <div id="stat-strain" class="indicator status-warn">STRAIN</div>
+            <div id="stat-fail" class="indicator status-fail">FAILURE</div>
+        </div>
+
+        <div style="margin-top: 20px; border-top: 1px solid #444; padding-top: 10px;">
+            <div class="legend-item"><div class="dot" style="background: #00d2ff;"></div>Virgin Skin (Top)</div>
+            <div class="legend-item"><div class="dot" style="background: #555;"></div>Recycled Core (Bottom)</div>
+            <div class="legend-item"><div class="dot" style="background: #ffa500;"></div>Vitrimer Tie-Layer</div>
+            <div class="legend-item"><div class="dot" style="background: #ff4757;"></div>Broken Bond</div>
+        </div>
+    </div>
+
+    <div id="instructions">Click & Drag to Rotate • Scroll to Zoom</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            moleculeCount: 40,
+            skinHeight: 3,
+            coreHeight: 3,
+            gap: 1.5,
+            width: 12,
+            depth: 6,
+            maxStrain: 3.5, // How far layers can move
+            breakPoint: 2.0, // Distance at which standard bonds break
+            relaxPoint: 1.5, // Distance at which vitrimers swap bonds
+            colors: {
+                skin: 0x00d2ff,
+                core: 0x4a4a4a,
+                molecule: 0xffa500, // Orange
+                bond: 0xffffff,
+                broken: 0xff4757, // Red
+                relaxed: 0x2ecc71 // Green
+            }
+        };
+
+        // --- Global Variables ---
+        let scene, camera, renderer, controls;
+        let skinMesh, coreMesh;
+        let molecules = []; // Array to store our tie-layer agents
+        let time = 0;
+        let stressLevel = 0; // 0 to 1
+        let isStressActive = false;
+        let isSolutionActive = false;
+        
+        // DOM Elements
+        const stressToggle = document.getElementById('stressToggle');
+        const stressSlider = document.getElementById('stressSlider');
+        const solutionToggle = document.getElementById('solutionToggle');
+        const statStable = document.getElementById('stat-stable');
+        const statStrain = document.getElementById('stat-strain');
+        const statFail = document.getElementById('stat-fail');
+
+        // --- Initialization ---
+        function init() {
+            // Scene Setup
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a2e);
+            scene.fog = new THREE.Fog(0x1a1a2e, 10, 50);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 2, 18);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.shadowMap.enabled = true;
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Controls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.minDistance = 5;
+            controls.maxDistance = 30;
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 1.5);
+            scene.add(ambientLight);
+
+            const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+            dirLight.position.set(5, 10, 7);
+            dirLight.castShadow = true;
+            scene.add(dirLight);
+
+            const pointLight = new THREE.PointLight(0x00d2ff, 0.5);
+            pointLight.position.set(-5, 5, -5);
+            scene.add(pointLight);
+
+            // Create Objects
+            createEnvironment();
+            createMolecules();
+            createLabels();
+
+            // Event Listeners
+            window.addEventListener('resize', onWindowResize);
+            setupUI();
+
+            // Start Loop
+            animate();
+        }
+
+        // --- Object Creation ---
+
+        function createEnvironment() {
+            // 1. Recycled Core (Bottom) - Rough, speckled look
+            const coreGeo = new THREE.BoxGeometry(CONFIG.width, CONFIG.coreHeight, CONFIG.depth);
+            
+            // Procedural texture for "recycled" look
+            const canvas = document.createElement('canvas');
+            canvas.width = 512; canvas.height = 512;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#444';
+            ctx.fillRect(0,0,512,512);
+            // Add noise
+            for(let i=0; i<5000; i++) {
+                ctx.fillStyle = Math.random() > 0.5 ? '#222' : '#666';
+                ctx.fillRect(Math.random()*512, Math.random()*512, 4, 4);
+            }
+            const coreTex = new THREE.CanvasTexture(canvas);
+
+            const coreMat = new THREE.MeshStandardMaterial({ 
+                map: coreTex,
+                roughness: 0.9,
+                metalness: 0.1
+            });
+            coreMesh = new THREE.Mesh(coreGeo, coreMat);
+            coreMesh.position.y = -CONFIG.coreHeight/2 - CONFIG.gap/2;
+            coreMesh.receiveShadow = true;
+            scene.add(coreMesh);
+
+            // 2. Virgin Skin (Top) - Smooth, shiny, semi-transparent
+            const skinGeo = new THREE.BoxGeometry(CONFIG.width, CONFIG.skinHeight, CONFIG.depth);
+            const skinMat = new THREE.MeshPhysicalMaterial({ 
+                color: CONFIG.colors.skin,
+                transparent: true,
+                opacity: 0.7,
+                roughness: 0.1,
+                metalness: 0.1,
+                transmission: 0.2,
+                clearcoat: 1.0
+            });
+            skinMesh = new THREE.Mesh(skinGeo, skinMat);
+            skinMesh.position.y = CONFIG.skinHeight/2 + CONFIG.gap/2;
+            skinMesh.castShadow = true;
+            scene.add(skinMesh);
+        }
+
+        function createMolecules() {
+            const moleculeGeo = new THREE.IcosahedronGeometry(0.15, 1);
+            const moleculeMat = new THREE.MeshStandardMaterial({ 
+                color: CONFIG.colors.molecule, 
+                emissive: 0xff4400,
+                emissiveIntensity: 0.5
+            });
+
+            // Create a grid of molecules in the gap
+            const rows = 4;
+            const cols = 10;
+            const xStep = CONFIG.width / cols;
+            const zStep = CONFIG.depth / rows;
+
+            for(let x = 0; x < cols; x++) {
+                for(let z = 0; z < rows; z++) {
+                    const group = new THREE.Group();
+                    
+                    // Initial Position
+                    const posX = (x - cols/2) * xStep + xStep/2;
+                    const posZ = (z - rows/2) * zStep + zStep/2;
+                    const posY = 0; // Center of gap
+
+                    // The "Vitrimer" center node
+                    const node = new THREE.Mesh(moleculeGeo, moleculeMat.clone());
+                    group.add(node);
+
+                    // 1. Bottom Bond (Chemical Anchor to Core)
+                    // We draw this as a line that can "break" or "move"
+                    const bondGeo = new THREE.CylinderGeometry(0.02, 0.02, 1, 8);
+                    const bondMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
+                    const bond = new THREE.Mesh(bondGeo, bondMat);
+                    bond.geometry.translate(0, 0.5, 0); // Pivot at bottom
+                    bond.rotation.x = Math.PI; // Point down
+                    // Custom property to track anchor point relative to the core
+                    bond.userData = { 
+                        anchorOffset: new THREE.Vector3(posX, -CONFIG.gap/2, posZ),
+                        isBroken: false,
+                        originalX: posX
+                    };
+                    group.add(bond);
+
+                    // 2. Top Entanglement (Physical Tangle in Skin)
+                    // Visualized as a squiggly line going up
+                    const curve = new THREE.CatmullRomCurve3([
+                        new THREE.Vector3(0, 0, 0),
+                        new THREE.Vector3(0.1, 0.4, 0),
+                        new THREE.Vector3(-0.1, 0.8, 0.1),
+                        new THREE.Vector3(0, 1.2, -0.1)
+                    ]);
+                    const tubeGeo = new THREE.TubeGeometry(curve, 8, 0.03, 4, false);
+                    const tubeMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.skin });
+                    const entanglement = new THREE.Mesh(tubeGeo, tubeMat);
+                    group.add(entanglement);
+
+                    // Position the whole group
+                    group.position.set(posX, posY, posZ);
+                    scene.add(group);
+
+                    // Store reference for animation
+                    molecules.push({
+                        group: group,
+                        node: node,
+                        bond: bond,
+                        entanglement: entanglement,
+                        basePos: new THREE.Vector3(posX, posY, posZ)
+                    });
+                }
+            }
+        }
+
+        function createLabels() {
+            addLabel("Virgin Skin (High Performance)", 0, 3.5, 0);
+            addLabel("Recycled Core (Low Cost)", 0, -3.5, 0);
+            addLabel("Tie-Layer Interface", 5, 0, 0);
+        }
+
+        function addLabel(text, x, y, z) {
+            const div = document.createElement('div');
+            div.className = 'label';
+            div.textContent = text;
+            document.body.appendChild(div);
+
+            // Store position for updating in render loop
+            div.dataset.x = x;
+            div.dataset.y = y;
+            div.dataset.z = z;
+        }
+
+        function updateLabels() {
+            const labels = document.querySelectorAll('.label');
+            labels.forEach(label => {
+                const pos = new THREE.Vector3(
+                    parseFloat(label.dataset.x),
+                    parseFloat(label.dataset.y),
+                    parseFloat(label.dataset.z)
+                );
+                
+                // If label is attached to skin, move it with skin
+                if(label.textContent.includes("Skin")) {
+                    pos.x += skinMesh.position.x;
+                }
+
+                pos.project(camera);
+                
+                const x = (pos.x * .5 + .5) * window.innerWidth;
+                const y = (-(pos.y * .5) + .5) * window.innerHeight;
+
+                // Hide if behind camera
+                if (pos.z > 1) {
+                    label.style.display = 'none';
+                } else {
+                    label.style.display = 'block';
+                    label.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`;
+                }
+            });
+        }
+
+        // --- UI Logic ---
+
+        function setupUI() {
+            stressToggle.addEventListener('change', (e) => {
+                isStressActive = e.target.checked;
+                stressSlider.disabled = !isStressActive;
+            });
+
+            stressSlider.addEventListener('input', (e) => {
+                // Manual control overrides auto-animation temporarily
+            });
+
+            solutionToggle.addEventListener('change', (e) => {
+                isSolutionActive = e.target.checked;
+                resetBonds(); // Reset visual state when switching modes
+            });
+        }
+
+        function resetBonds() {
+            molecules.forEach(mol => {
+                mol.bond.userData.isBroken = false;
+                mol.bond.visible = true;
+                mol.bond.material.color.setHex(0xffffff);
+                mol.node.material.color.setHex(CONFIG.colors.molecule);
+                // Reset anchor to original X relative to group
+                mol.bond.userData.anchorOffset.x = mol.basePos.x;
+            });
+        }
+
+        function updateStatus(strain) {
+            // Reset all
+            statStable.classList.remove('active');
+            statStrain.classList.remove('active');
+            statFail.classList.remove('active');
+
+            if (strain < 0.5) {
+                statStable.classList.add('active');
+            } else {
+                // Check if we have failures
+                const hasFailures = molecules.some(m => m.bond.userData.isBroken);
+                if (hasFailures) {
+                    statFail.classList.add('active');
+                } else {
+                    statStrain.classList.add('active');
+                }
+            }
+        }
+
+        // --- Animation Loop ---
+
+        function animate() {
+            requestAnimationFrame(animate);
+            time += 0.01;
+
+            // 1. Calculate Stress/Displacement
+            if (isStressActive) {
+                // Oscillate skin layer left and right
+                const oscillation = Math.sin(time * 2) * CONFIG.maxStrain;
+                // Use slider value if user is interacting (simplified here to just show oscillation)
+                skinMesh.position.x = oscillation;
+            } else {
+                // Return to center
+                skinMesh.position.x = THREE.MathUtils.lerp(skinMesh.position.x, 0, 0.1);
+            }
+
+            // 2. Update Molecules
+            const skinDisp = skinMesh.position.x;
+            
+            molecules.forEach(mol => {
+                // The top of the molecule (entanglement) moves WITH the skin
+                // The bottom of the molecule (bond) is ANCHORED to the core
+                
+                // Calculate position of the node (vitrimer center). 
+                // It sits in the middle, but gets pulled by the skin.
+                const targetX = mol.basePos.x + (skinDisp * 0.7); 
+                mol.group.position.x = targetX;
+
+                // Update Entanglement (Top)
+                // It leans towards the skin movement
+                mol.entanglement.rotation.z = -skinDisp * 0.2;
+
+                // Update Bond (Bottom) logic
+                const anchorX = mol.bond.userData.anchorOffset.x;
+                const currentX = mol.group.position.x;
+                const dist = currentX - anchorX; // Horizontal stretch distance
+                
+                // Calculate Angle/Stretch
+                // Bond height is approx gap/2 (0.75). 
+                const stretchLen = Math.sqrt(dist*dist + 0.75*0.75);
+                
+                // Point bond at anchor
+                const angle = Math.atan2(dist, 0.75);
+                mol.bond.rotation.z = angle;
+                mol.bond.scale.y = stretchLen / 0.75; // Stretch the cylinder
+
+                // --- KEY MECHANISM LOGIC ---
+                
+                if (Math.abs(dist) > CONFIG.breakPoint && !isSolutionActive) {
+                    // FAILURE MODE: Bond snaps
+                    if (!mol.bond.userData.isBroken) {
+                        mol.bond.userData.isBroken = true;
+                        mol.bond.visible = false; // Hide bond
+                        mol.node.material.color.setHex(CONFIG.colors.broken); // Turn red
+                    }
+                } 
+                else if (isSolutionActive) {
+                    // VITRIMER MODE: Dynamic Exchange
+                    if (Math.abs(dist) > CONFIG.relaxPoint) {
+                        // The bond is stretched too far.
+                        // Instead of breaking, we "hop" the anchor point closer to current position.
+                        // This simulates the chemical bond exchanging with a neighbor.
+                        
+                        // Move anchor closer to current X
+                        mol.bond.userData.anchorOffset.x = currentX - (Math.sign(dist) * 0.2);
+                        
+                        // Visual Feedback: Flash Green (Relaxation)
+                        mol.bond.material.color.setHex(CONFIG.colors.relaxed);
+                        mol.node.material.color.setHex(CONFIG.colors.relaxed);
+                    } else {
+                        // Normal state, slowly return color
+                        mol.bond.material.color.lerp(new THREE.Color(0xffffff), 0.1);
+                        mol.node.material.color.lerp(new THREE.Color(CONFIG.colors.molecule), 0.1);
+                    }
+                    
+                    // Ensure bond is visible
+                    mol.bond.visible = true;
+                    mol.bond.userData.isBroken = false;
+                }
+                else {
+                    // Normal Elastic Mode (No failure yet)
+                    if (!mol.bond.userData.isBroken) {
+                        // Color based on stress
+                        const stressRatio = Math.min(Math.abs(dist) / CONFIG.breakPoint, 1);
+                        mol.node.material.color.lerpColors(
+                            new THREE.Color(CONFIG.colors.molecule), 
+                            new THREE.Color(0xff4757), 
+                            stressRatio
+                        );
+                    }
+                }
+            });
+
+            updateStatus(Math.abs(skinMesh.position.x));
+            updateLabels();
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Start
+        init();
+
+    </script>
+</body>
+</html>

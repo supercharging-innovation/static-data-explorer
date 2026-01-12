@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Eco-Bloom Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #1a1a1a; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        
+        /* UI Overlay Containers */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(20, 20, 25, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #444;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            pointer-events: auto;
+            user-select: none;
+        }
+
+        #info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(20, 20, 25, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #00d2ff;
+            font-size: 14px;
+            line-height: 1.5;
+            pointer-events: none;
+        }
+
+        /* Typography */
+        h1 { margin: 0 0 10px 0; font-size: 20px; font-weight: 700; letter-spacing: 0.5px; color: #fff; }
+        h2 { margin: 0 0 5px 0; font-size: 14px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        p { margin: 0 0 15px 0; font-size: 14px; color: #ccc; }
+        
+        /* Controls */
+        .control-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; display: flex; justify-content: space-between; }
+        
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #00d2ff;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px #00d2ff;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #444;
+            border-radius: 2px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #00d2ff, #0078ff);
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 210, 255, 0.4);
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+        button:disabled {
+            background: #444;
+            color: #888;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Status Indicators */
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+        }
+        .status-val { color: #00d2ff; font-weight: bold; }
+
+        /* Floating Labels in 3D space */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #555;
+            transition: opacity 0.3s;
+        }
+        .annotation::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0,0,0,0.7) transparent transparent transparent;
+        }
+
+        /* Graph Canvas */
+        #graph-canvas {
+            width: 100%;
+            height: 60px;
+            background: #222;
+            border: 1px solid #333;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <!-- Main 3D Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Controls Panel -->
+    <div id="ui-container">
+        <h1>Raw Eco-Bloom Simulator</h1>
+        <p>Recycled Polymer Crystallization</p>
+        
+        <div class="control-group">
+            <label>
+                <span>Cooling Rate</span>
+                <span id="rate-label">Slow (Bloom)</span>
+            </label>
+            <input type="range" id="cooling-slider" min="0" max="1" step="0.01" value="0.1">
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:#666; margin-top:4px;">
+                <span>Slow (Crystals Grow)</span>
+                <span>Fast (Freeze Chaos)</span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Temperature Profile</label>
+            <canvas id="graph-canvas" width="280" height="60"></canvas>
+        </div>
+
+        <button id="inject-btn">Inject Plastic</button>
+
+        <div class="status-row">
+            <span>Current Temp: <span id="temp-display" class="status-val">20°C</span></span>
+            <span>State: <span id="state-display" class="status-val">Ready</span></span>
+        </div>
+    </div>
+
+    <!-- Context Panel -->
+    <div id="info-panel">
+        <h2>How It Works</h2>
+        <p>
+            <strong>The Problem:</strong> Recycled plastic is inconsistent. Usually, this looks like "muddy" waste.
+        </p>
+        <p>
+            <strong>The Solution:</strong> By carefully controlling the <em>cooling curve</em>, we allow the polymers to separate and crystallize.
+        </p>
+        <p>
+            <strong>The Result:</strong> The "impurities" form a beautiful, stone-like <strong>Terrazzo</strong> pattern instead of a defect.
+        </p>
+        <div style="font-size: 11px; color: #888; margin-top: 10px;">
+            <span style="display:inline-block; width:10px; height:10px; background:#00d2ff; border-radius:50%; margin-right:5px;"></span>
+            Blue particles represent recycled polymer chains.
+        </div>
+    </div>
+
+    <!-- Annotations -->
+    <div id="label-mold" class="annotation">Injection Mold</div>
+    <div id="label-feedstock" class="annotation">Recycled Feedstock</div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            particleCount: 1500,
+            moldSize: { x: 4, y: 0.5, z: 2.5 },
+            meltTemp: 250, // Degrees C
+            ambientTemp: 20, // Degrees C
+            colors: [
+                new THREE.Color(0x00d2ff), // Cyan
+                new THREE.Color(0xff0055), // Magenta
+                new THREE.Color(0xffcc00), // Yellow
+                new THREE.Color(0xffffff), // White
+                new THREE.Color(0x333333)  // Dark Grey
+            ]
+        };
+
+        // --- Global State ---
+        let state = {
+            isInjecting: false,
+            temperature: CONFIG.ambientTemp,
+            coolingRate: 0.1, // 0 to 1 (0 = slow/bloom, 1 = fast/freeze)
+            time: 0,
+            crystallization: 0 // 0 to 1
+        };
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x111111);
+        scene.fog = new THREE.FogExp2(0x111111, 0.05);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 5, 6);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Don't go below ground
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        scene.add(dirLight);
+
+        const spotLight = new THREE.SpotLight(0x00d2ff, 2);
+        spotLight.position.set(-5, 5, 0);
+        spotLight.angle = 0.5;
+        scene.add(spotLight);
+
+        // --- Scene Objects ---
+
+        // 1. The Mold (Container)
+        const moldGeo = new THREE.BoxGeometry(CONFIG.moldSize.x, CONFIG.moldSize.y, CONFIG.moldSize.z);
+        const moldEdges = new THREE.EdgesGeometry(moldGeo);
+        const moldMat = new THREE.LineBasicMaterial({ color: 0x555555, transparent: true, opacity: 0.3 });
+        const moldLines = new THREE.LineSegments(moldEdges, moldMat);
+        moldLines.position.y = CONFIG.moldSize.y / 2;
+        scene.add(moldLines);
+        
+        // Mold Floor
+        const floorGeo = new THREE.PlaneGeometry(10, 10);
+        const floorMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, roughness: 0.8, metalness: 0.2 });
+        const floor = new THREE.Mesh(floorGeo, floorMat);
+        floor.rotation.x = -Math.PI / 2;
+        floor.receiveShadow = true;
+        scene.add(floor);
+
+        // 2. The Particles (Recycled Feedstock)
+        // We use InstancedMesh for high performance
+        const particleGeo = new THREE.DodecahedronGeometry(0.06, 0);
+        const particleMat = new THREE.MeshStandardMaterial({
+            roughness: 0.4,
+            metalness: 0.1,
+        });
+        
+        const particles = new THREE.InstancedMesh(particleGeo, particleMat, CONFIG.particleCount);
+        particles.castShadow = true;
+        particles.receiveShadow = true;
+        scene.add(particles);
+
+        // Data arrays to store individual particle state
+        const dummy = new THREE.Object3D();
+        const positions = [];
+        const velocities = [];
+        const rotations = [];
+        const targetScales = [];
+        const particleColors = [];
+
+        // Initialize Particles
+        for (let i = 0; i < CONFIG.particleCount; i++) {
+            // Random start position (above the mold)
+            const x = (Math.random() - 0.5) * CONFIG.moldSize.x;
+            const y = CONFIG.moldSize.y + Math.random() * 2; // Start high
+            const z = (Math.random() - 0.5) * CONFIG.moldSize.z;
+            
+            positions.push(new THREE.Vector3(x, y, z));
+            velocities.push(new THREE.Vector3(0, 0, 0));
+            rotations.push(new THREE.Vector3(Math.random(), Math.random(), Math.random()));
+            
+            // Assign a random recycled color
+            const color = CONFIG.colors[Math.floor(Math.random() * CONFIG.colors.length)];
+            particleColors.push(color);
+            particles.setColorAt(i, color);
+
+            // Target scale depends on cooling mode (calculated later), init at 1
+            targetScales.push(1.0);
+        }
+        particles.instanceMatrix.needsUpdate = true;
+        particles.instanceColor.needsUpdate = true;
+
+        // --- Logic & Animation ---
+
+        function updatePhysics() {
+            if (!state.isInjecting) return;
+
+            // Temperature Decay
+            // If cooling rate is low (Eco-Bloom), temp drops slowly.
+            // If cooling rate is high (Standard), temp drops fast.
+            const decayRate = 0.5 + (state.coolingRate * 2.0); 
+            state.temperature -= decayRate;
+            
+            if (state.temperature <= CONFIG.ambientTemp) {
+                state.temperature = CONFIG.ambientTemp;
+                state.isInjecting = false;
+                document.getElementById('state-display').innerText = "Solidified";
+                document.getElementById('inject-btn').disabled = false;
+            }
+
+            // Calculate Viscosity/Crystallization based on Temp
+            // High temp = low viscosity (fluid). Low temp = high viscosity (solid).
+            const tempRatio = (state.temperature - CONFIG.ambientTemp) / (CONFIG.meltTemp - CONFIG.ambientTemp);
+            const viscosity = 1 - tempRatio; // 0 = fluid, 1 = solid
+
+            // Determine Crystallization Target based on Cooling Rate
+            // Low cooling rate = High Crystallization (Bloom)
+            // High cooling rate = Low Crystallization (Frozen Chaos)
+            const maxCrystalSize = 1.0 + (1.0 - state.coolingRate) * 4.0; // Scale factor up to 5x
+            const crystalOpacity = 1.0 - state.coolingRate; // Used for effect logic
+
+            for (let i = 0; i < CONFIG.particleCount; i++) {
+                const p = positions[i];
+                const v = velocities[i];
+
+                // 1. Gravity & Injection Flow
+                if (p.y > CONFIG.moldSize.y * 0.8) {
+                    // Falling into mold
+                    v.y -= 0.01; 
+                    v.x += (Math.random() - 0.5) * 0.01;
+                    v.z += (Math.random() - 0.5) * 0.01;
+                } else {
+                    // Inside mold - Brownian motion / Flow
+                    if (viscosity < 0.9) {
+                        v.y *= 0.9; // Dampen vertical fall
+                        // Flow outwards to fill corners
+                        v.x += p.x * 0.001; 
+                        v.z += p.z * 0.001;
+                        // Random heat jitter
+                        const jitter = 0.02 * tempRatio;
+                        v.x += (Math.random() - 0.5) * jitter;
+                        v.z += (Math.random() - 0.5) * jitter;
+                    } else {
+                        // Freezing
+                        v.set(0,0,0);
+                    }
+                }
+
+                // 2. Collision with Mold Walls
+                const halfX = CONFIG.moldSize.x / 2 - 0.1;
+                const halfZ = CONFIG.moldSize.z / 2 - 0.1;
+                
+                if (p.x < -halfX || p.x > halfX) v.x *= -0.5;
+                if (p.z < -halfZ || p.z > halfZ) v.z *= -0.5;
+                if (p.y < 0.1) {
+                    p.y = 0.1;
+                    v.y = 0;
+                    // Friction on floor
+                    v.x *= 0.9;
+                    v.z *= 0.9;
+                }
+
+                // Apply Velocity
+                p.add(v);
+                
+                // Bounds clamp
+                p.x = Math.max(-halfX, Math.min(halfX, p.x));
+                p.z = Math.max(-halfZ, Math.min(halfZ, p.z));
+
+                // 3. ECO-BLOOM MECHANISM: Crystallization/Scaling
+                // As it cools (viscosity goes up), particles transform
+                
+                dummy.position.copy(p);
+                
+                // Rotate based on heat
+                rotations[i].x += v.z * 2;
+                rotations[i].z -= v.x * 2;
+                dummy.rotation.set(rotations[i].x, rotations[i].y, rotations[i].z);
+
+                // SCALE LOGIC (The Visual Key)
+                // If hot, scale is small (liquid).
+                // If cooling slowly, scale grows (crystallization).
+                // If cooling fast, scale stays small (frozen).
+                
+                let currentScale = 1.0;
+                
+                if (viscosity > 0.2) {
+                    // Transitioning to solid
+                    // Target scale depends on cooling rate
+                    const growthSpeed = 0.05 * (1.0 - state.coolingRate); // Fast growth if slow cool
+                    
+                    if (targetScales[i] < maxCrystalSize) {
+                         targetScales[i] += growthSpeed;
+                    }
+                    
+                    currentScale = targetScales[i];
+                    
+                    // Flattening effect for Terrazzo look if blooming
+                    if (state.coolingRate < 0.5) {
+                        dummy.scale.set(currentScale, currentScale * 0.2, currentScale);
+                        // Orient flat to ground roughly
+                        dummy.rotation.x *= 0.95;
+                        dummy.rotation.z *= 0.95;
+                    } else {
+                        dummy.scale.set(currentScale, currentScale, currentScale);
+                    }
+                } else {
+                    // Liquid state - small blobs
+                    dummy.scale.set(1, 1, 1);
+                    targetScales[i] = 1.0;
+                }
+
+                dummy.updateMatrix();
+                particles.setMatrixAt(i, dummy.matrix);
+            }
+            
+            particles.instanceMatrix.needsUpdate = true;
+            drawGraph();
+        }
+
+        // --- Interaction Logic ---
+
+        const slider = document.getElementById('cooling-slider');
+        const rateLabel = document.getElementById('rate-label');
+        const injectBtn = document.getElementById('inject-btn');
+        const tempDisplay = document.getElementById('temp-display');
+
+        slider.addEventListener('input', (e) => {
+            state.coolingRate = parseFloat(e.target.value);
+            if(state.coolingRate < 0.3) rateLabel.innerText = "Slow (Bloom Effect)";
+            else if(state.coolingRate > 0.7) rateLabel.innerText = "Fast (Standard)";
+            else rateLabel.innerText = "Medium";
+        });
+
+        injectBtn.addEventListener('click', () => {
+            resetSimulation();
+            state.isInjecting = true;
+            state.temperature = CONFIG.meltTemp;
+            injectBtn.disabled = true;
+            document.getElementById('state-display').innerText = "Cooling...";
+        });
+
+        function resetSimulation() {
+            for (let i = 0; i < CONFIG.particleCount; i++) {
+                // Reset positions to top
+                positions[i].set(
+                    (Math.random() - 0.5) * CONFIG.moldSize.x,
+                    CONFIG.moldSize.y + Math.random() * 4,
+                    (Math.random() - 0.5) * CONFIG.moldSize.z
+                );
+                velocities[i].set(0, -0.1, 0);
+                targetScales[i] = 1.0;
+                
+                // Reset Matrix
+                dummy.position.copy(positions[i]);
+                dummy.scale.set(1,1,1);
+                dummy.updateMatrix();
+                particles.setMatrixAt(i, dummy.matrix);
+            }
+            particles.instanceMatrix.needsUpdate = true;
+        }
+
+        // --- Visualization: Graph ---
+        const canvas = document.getElementById('graph-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw axes
+            ctx.strokeStyle = '#444';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(20, 10);
+            ctx.lineTo(20, 50);
+            ctx.lineTo(270, 50);
+            ctx.stroke();
+
+            // Draw Curve (Simulated)
+            ctx.beginPath();
+            ctx.strokeStyle = '#00d2ff';
+            ctx.lineWidth = 2;
+            
+            // Start point
+            let x = 20;
+            let y = 10; // High temp
+            ctx.moveTo(x, y);
+
+            // Simulate the curve based on current rate
+            const steps = 100;
+            const decay = 0.02 + (state.coolingRate * 0.08);
+            
+            for(let i=0; i<steps; i++) {
+                x += 2.5;
+                // Simple exponential decay visualization
+                let tempVal = 1.0 * Math.pow((1-decay), i); 
+                y = 50 - (tempVal * 40);
+                ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            // Draw Current Position Indicator
+            if(state.isInjecting) {
+                const progress = 1 - ((state.temperature - CONFIG.ambientTemp) / (CONFIG.meltTemp - CONFIG.ambientTemp));
+                const currentX = 20 + (progress * 50 / decay); // Approximate X position
+                if(currentX < 270) {
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.arc(currentX, 50 - ( (state.temperature - CONFIG.ambientTemp)/(CONFIG.meltTemp-CONFIG.ambientTemp) * 40 ), 3, 0, Math.PI*2);
+                    ctx.fill();
+                }
+            }
+            
+            // Labels
+            ctx.fillStyle = '#888';
+            ctx.font = '10px Arial';
+            ctx.fillText('Temp', 0, 30);
+            ctx.fillText('Time', 140, 60);
+        }
+
+        // --- Label Positioning ---
+        const lblMold = document.getElementById('label-mold');
+        const lblFeed = document.getElementById('label-feedstock');
+        const vTemp = new THREE.Vector3();
+
+        function updateLabels() {
+            // Mold Label
+            vTemp.set(CONFIG.moldSize.x/2 + 0.5, 0.2, 0);
+            vTemp.project(camera);
+            const x1 = (vTemp.x * .5 + .5) * window.innerWidth;
+            const y1 = (-(vTemp.y * .5) + .5) * window.innerHeight;
+            lblMold.style.transform = `translate(-50%, -100%) translate(${x1}px, ${y1}px)`;
+
+            // Feedstock Label (Track a particle or fixed space above)
+            // If injecting, hide feedstock label or move it
+            if(state.isInjecting && state.temperature < 200) {
+                 lblFeed.style.opacity = 0;
+            } else {
+                 lblFeed.style.opacity = 1;
+                 vTemp.set(0, 3, 0);
+                 vTemp.project(camera);
+                 const x2 = (vTemp.x * .5 + .5) * window.innerWidth;
+                 const y2 = (-(vTemp.y * .5) + .5) * window.innerHeight;
+                 lblFeed.style.transform = `translate(-50%, -100%) translate(${x2}px, ${y2}px)`;
+            }
+        }
+
+        // --- Main Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            updatePhysics();
+            controls.update();
+            updateLabels();
+            
+            // Update UI Temp
+            tempDisplay.innerText = Math.round(state.temperature) + "°C";
+
+            renderer.render(scene, camera);
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initial Graph Draw
+        drawGraph();
+        animate();
+
+    </script>
+</body>
+</html>

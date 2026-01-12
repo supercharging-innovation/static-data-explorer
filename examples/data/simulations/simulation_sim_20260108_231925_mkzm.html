@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auxetic Armored Mesh Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0b0c10; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #c5c6c7; }
+        canvas { display: block; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(11, 12, 16, 0.85);
+            border: 1px solid #45a29e;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(69, 162, 158, 0.2);
+            backdrop-filter: blur(5px);
+            pointer-events: none; /* Allow clicks to pass through to canvas generally */
+        }
+        
+        #ui-container * {
+            pointer-events: auto; /* Re-enable clicks for UI elements */
+        }
+
+        h1 {
+            font-size: 1.2rem;
+            color: #66fcf1;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #45a29e;
+            padding-bottom: 10px;
+        }
+
+        p { font-size: 0.9rem; line-height: 1.4; margin-bottom: 15px; }
+
+        .control-group { margin-bottom: 15px; }
+        
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: #45a29e;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+            accent-color: #66fcf1;
+        }
+
+        .btn {
+            background: #1f2833;
+            color: #66fcf1;
+            border: 1px solid #45a29e;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .btn:hover { background: #45a29e; color: #0b0c10; }
+
+        /* Legend */
+        .legend-item { display: flex; align-items: center; margin-bottom: 5px; font-size: 0.8rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        .dot-skeleton { background: #66fcf1; box-shadow: 0 0 5px #66fcf1; }
+        .dot-elastomer { background: rgba(200, 200, 255, 0.5); border: 1px solid white; }
+        .dot-impact { background: #ff0055; }
+
+        /* Annotations */
+        .annotation {
+            position: absolute;
+            background: rgba(11, 12, 16, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid #66fcf1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            transform: translate(-50%, -50%);
+        }
+        
+        .annotation::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px 5px 0;
+            border-style: solid;
+            border-color: #66fcf1 transparent transparent transparent;
+        }
+
+        .visible { opacity: 1; }
+
+        #info-panel {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(31, 40, 51, 0.5);
+            border-left: 3px solid #ff0055;
+            font-size: 0.85rem;
+        }
+    </style>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <div id="ui-container">
+        <h1>Auxetic Armored Mesh</h1>
+        <p>A composite material that <strong>densifies</strong> upon impact instead of buckling.</p>
+        
+        <div class="control-group">
+            <label for="impactSlider">Impact Force / Compression</label>
+            <input type="range" id="impactSlider" min="0" max="1" step="0.01" value="0">
+        </div>
+
+        <div class="control-group">
+            <label>Visualization Controls</label>
+            <button class="btn" id="toggleElastomer">Toggle Elastomer Visibility</button>
+            <button class="btn" id="animateBtn">Auto-Animate Impact</button>
+        </div>
+
+        <div class="control-group">
+            <label>Legend</label>
+            <div class="legend-item"><div class="dot dot-skeleton"></div>Auxetic Skeleton (Rigid)</div>
+            <div class="legend-item"><div class="dot dot-elastomer"></div>Elastomer Matrix (Flexible)</div>
+            <div class="legend-item"><div class="dot dot-impact"></div>Impactor</div>
+        </div>
+
+        <div id="info-panel">
+            <strong>Status:</strong> <span id="status-text">Rest State</span><br>
+            <span id="physics-text" style="color: #aaa;">Material has standard density.</span>
+        </div>
+    </div>
+
+    <!-- Annotations -->
+    <div id="label-skeleton" class="annotation">Re-entrant Honeycomb Structure</div>
+    <div id="label-densification" class="annotation">Densification Zone</div>
+
+    <script>
+        // --- Scene Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b0c10);
+        
+        // Fog for depth
+        scene.fog = new THREE.FogExp2(0x0b0c10, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(8, 8, 10);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.minDistance = 5;
+        controls.maxDistance = 20;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 7);
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x66fcf1, 1, 20);
+        blueLight.position.set(0, 2, 0);
+        scene.add(blueLight);
+
+        // --- Grid Helper ---
+        const gridHelper = new THREE.GridHelper(20, 20, 0x1f2833, 0x1f2833);
+        scene.add(gridHelper);
+
+        // --- Simulation Variables ---
+        let impactFactor = 0; // 0 to 1
+        const skeletonLines = []; // Store line references for animation
+        const rows = 6;
+        const cols = 6;
+        const cellSize = 1.2;
+        
+        // --- Create Auxetic Skeleton ---
+        // We will build a "Re-entrant Honeycomb" pattern
+        // The key feature is the internal angle pointing inwards
+        
+        const skeletonGroup = new THREE.Group();
+        const materialSkeleton = new THREE.LineBasicMaterial({ 
+            color: 0x66fcf1, 
+            linewidth: 2,
+            transparent: true,
+            opacity: 0.9
+        });
+
+        // Function to calculate vertex position based on grid and impact
+        function getCellVertices(r, c, impact) {
+            // Center of the cell
+            const cx = (c - cols/2) * cellSize + cellSize/2;
+            const cz = (r - rows/2) * cellSize + cellSize/2;
+            
+            // Auxetic behavior simulation:
+            // As impact increases, the cell shrinks towards the center (0,0,0) of the world
+            // simulating the material pulling itself in (densifying).
+            
+            // Distance from center of impact
+            const dist = Math.sqrt(cx*cx + cz*cz);
+            const maxDist = 5;
+            
+            // The "Pull" factor: stronger near the center
+            const pull = Math.max(0, (1 - dist/maxDist) * impact * 0.6);
+            
+            // Modified center position (pulled inwards)
+            const mcx = cx * (1 - pull * 0.5); // Global contraction
+            const mcz = cz * (1 - pull * 0.5);
+
+            // Shape Geometry (The Bow Tie)
+            // Normal Hexagon would be convex. Re-entrant is concave.
+            
+            // Base width/depth of a cell
+            let w = cellSize * 0.45;
+            let d = cellSize * 0.45;
+            
+            // Animation: The "re-entrant" angle gets sharper
+            // When impact = 1, the "waist" of the bow-tie gets narrower
+            const waistFactor = 0.4 - (impact * 0.2); // Gets smaller (more hourglass)
+            
+            // Vertices relative to cell center
+            // 0: Top Left, 1: Top Mid (inward), 2: Top Right
+            // 3: Bot Right, 4: Bot Mid (inward), 5: Bot Left
+            
+            const yLevel = 0; // Flat sheet for simplicity, but could be 3D
+
+            return [
+                new THREE.Vector3(mcx - w, yLevel, mcz - d),        // Top Left
+                new THREE.Vector3(mcx, yLevel, mcz - d * waistFactor), // Top Mid (The re-entrant part)
+                new THREE.Vector3(mcx + w, yLevel, mcz - d),        // Top Right
+                new THREE.Vector3(mcx + w, yLevel, mcz + d),        // Bot Right
+                new THREE.Vector3(mcx, yLevel, mcz + d * waistFactor), // Bot Mid
+                new THREE.Vector3(mcx - w, yLevel, mcz + d)         // Bot Left
+            ];
+        }
+
+        // Generate the grid
+        for(let r=0; r<rows; r++){
+            for(let c=0; c<cols; c++){
+                const geometry = new THREE.BufferGeometry();
+                // 6 points + 1 to close loop = 7 points
+                const positions = new Float32Array(7 * 3);
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                
+                const line = new THREE.Line(geometry, materialSkeleton);
+                line.userData = { r: r, c: c }; // Store grid pos
+                skeletonLines.push(line);
+                skeletonGroup.add(line);
+            }
+        }
+        scene.add(skeletonGroup);
+
+        // --- Create Elastomer (The Matrix) ---
+        const elastomerGeo = new THREE.BoxGeometry(cols*cellSize, 0.5, rows*cellSize);
+        const elastomerMat = new THREE.MeshPhysicalMaterial({
+            color: 0xffffff,
+            transparent: true,
+            opacity: 0.15,
+            roughness: 0.1,
+            metalness: 0.1,
+            transmission: 0.5,
+            side: THREE.DoubleSide
+        });
+        const elastomer = new THREE.Mesh(elastomerGeo, elastomerMat);
+        elastomer.position.y = 0;
+        scene.add(elastomer);
+
+        // --- Create Impactor ---
+        const impactorGeo = new THREE.SphereGeometry(1, 32, 32);
+        const impactorMat = new THREE.MeshStandardMaterial({ 
+            color: 0xff0055, 
+            roughness: 0.4,
+            emissive: 0x550022,
+            emissiveIntensity: 0.5
+        });
+        const impactor = new THREE.Mesh(impactorGeo, impactorMat);
+        impactor.position.set(0, 3, 0);
+        scene.add(impactor);
+
+        // Arrow helper for force
+        const arrowDir = new THREE.Vector3(0, -1, 0);
+        const arrowOrigin = new THREE.Vector3(0, 3, 0);
+        const arrowLength = 2;
+        const arrowColor = 0xff0055;
+        const arrowHelper = new THREE.ArrowHelper(arrowDir, arrowOrigin, arrowLength, arrowColor, 0.5, 0.5);
+        scene.add(arrowHelper);
+
+        // --- Animation Logic ---
+        function updateGeometry() {
+            // Update Skeleton
+            skeletonLines.forEach(line => {
+                const verts = getCellVertices(line.userData.r, line.userData.c, impactFactor);
+                const positions = line.geometry.attributes.position.array;
+                
+                // Map vertices to buffer
+                // Loop: 0->1->2->3->4->5->0
+                const indices = [0, 1, 2, 3, 4, 5, 0];
+                
+                for(let i=0; i<indices.length; i++) {
+                    const v = verts[indices[i]];
+                    positions[i*3] = v.x;
+                    positions[i*3+1] = v.y;
+                    positions[i*3+2] = v.z;
+                }
+                
+                line.geometry.attributes.position.needsUpdate = true;
+            });
+
+            // Update Impactor
+            impactor.position.y = 3 - (impactFactor * 2.8); // Moves down to 0.2
+            arrowHelper.position.y = impactor.position.y;
+            
+            // Update Elastomer (Compression effect)
+            // It gets slightly thinner in Y and slightly smaller in X/Z (Auxetic behavior)
+            elastomer.scale.set(1 - (impactFactor * 0.15), 1 - (impactFactor * 0.5), 1 - (impactFactor * 0.15));
+            
+            // Visual cues (Color intensity of skeleton increases with pressure)
+            materialSkeleton.color.setHSL(0.48, 1, 0.5 + (impactFactor * 0.5));
+            
+            // Update UI Text
+            updateInfoPanel();
+            updateAnnotations();
+        }
+
+        function updateInfoPanel() {
+            const statusText = document.getElementById('status-text');
+            const physicsText = document.getElementById('physics-text');
+            
+            if(impactFactor < 0.1) {
+                statusText.innerText = "Rest State";
+                statusText.style.color = "#c5c6c7";
+                physicsText.innerText = "Material is relaxed. Structure is expanded.";
+            } else {
+                statusText.innerText = "IMPACT DETECTED";
+                statusText.style.color = "#ff0055";
+                physicsText.innerHTML = `Auxetic mechanism active.<br>Structure is <strong>densifying</strong> towards impact point.<br>Density Increase: +${Math.round(impactFactor * 40)}%`;
+            }
+        }
+
+        // --- Interaction ---
+        const slider = document.getElementById('impactSlider');
+        let isAutoAnimating = false;
+        let autoAnimDirection = 1;
+
+        slider.addEventListener('input', (e) => {
+            impactFactor = parseFloat(e.target.value);
+            isAutoAnimating = false;
+            updateGeometry();
+        });
+
+        document.getElementById('toggleElastomer').addEventListener('click', () => {
+            elastomer.visible = !elastomer.visible;
+        });
+
+        document.getElementById('animateBtn').addEventListener('click', () => {
+            isAutoAnimating = !isAutoAnimating;
+        });
+
+        // --- Annotation Logic ---
+        const labelSkeleton = document.getElementById('label-skeleton');
+        const labelDensification = document.getElementById('label-densification');
+        
+        function updateAnnotations() {
+            // Only show labels at certain angles/times to reduce clutter
+            updateLabelPosition(labelSkeleton, new THREE.Vector3(3, 0, 3));
+            
+            if(impactFactor > 0.5) {
+                labelDensification.classList.add('visible');
+                updateLabelPosition(labelDensification, new THREE.Vector3(0, 0, 0));
+                labelSkeleton.classList.remove('visible');
+            } else {
+                labelDensification.classList.remove('visible');
+                labelSkeleton.classList.add('visible');
+            }
+        }
+
+        function updateLabelPosition(el, position) {
+            const vector = position.clone();
+            vector.project(camera);
+
+            const x = (vector.x * .5 + .5) * window.innerWidth;
+            const y = (-(vector.y * .5) + .5) * window.innerHeight;
+
+            // Hide if behind camera
+            if(vector.z > 1) {
+                el.style.opacity = 0;
+            } else if (el.classList.contains('visible')) {
+                el.style.opacity = 1;
+                el.style.left = `${x}px`;
+                el.style.top = `${y}px`;
+            }
+        }
+
+        // --- Main Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+
+            if(isAutoAnimating) {
+                impactFactor += 0.01 * autoAnimDirection;
+                if(impactFactor >= 1) {
+                    impactFactor = 1;
+                    autoAnimDirection = -1;
+                } else if (impactFactor <= 0) {
+                    impactFactor = 0;
+                    autoAnimDirection = 1;
+                }
+                slider.value = impactFactor;
+                updateGeometry();
+            }
+
+            // Subtle idle animation for the elastomer
+            if(impactFactor === 0) {
+                 const time = Date.now() * 0.001;
+                 elastomer.position.y = Math.sin(time) * 0.05;
+                 skeletonGroup.position.y = Math.sin(time) * 0.05;
+            } else {
+                elastomer.position.y = 0;
+                skeletonGroup.position.y = 0;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Initial render
+        updateGeometry();
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>

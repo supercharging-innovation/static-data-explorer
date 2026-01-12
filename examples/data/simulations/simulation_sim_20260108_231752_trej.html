@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nano-Phase Separated Shield Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0b1015; color: white; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        header {
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            pointer-events: auto;
+        }
+        h1 { margin: 0; font-weight: 300; letter-spacing: 2px; font-size: 24px; color: #4deeea; text-transform: uppercase; }
+        h2 { margin: 5px 0 0 0; font-size: 14px; color: #aaa; font-weight: 400; }
+
+        /* Controls Panel */
+        #controls {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            width: 300px;
+            background: rgba(16, 24, 32, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #334;
+            pointer-events: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .control-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 14px; color: #ccc; }
+        
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #334;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #4deeea;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+        .btn {
+            background: #334;
+            color: white;
+            border: 1px solid #556;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .btn:hover { background: #4deeea; color: #000; border-color: #4deeea; }
+
+        /* Info / Legend */
+        #legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(16, 24, 32, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #334;
+            pointer-events: auto;
+            max-width: 300px;
+        }
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 13px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; display: inline-block; }
+        
+        /* Floating Labels */
+        .annotation {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border: 1px solid #4deeea;
+        }
+        .annotation.visible { opacity: 1; }
+
+        /* Status Indicator */
+        #status-box {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+    </style>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <!-- UI Container -->
+    <div id="ui-container">
+        <header>
+            <h1>Nano-Phase Shield</h1>
+            <h2>PFAS-Free Block Copolymer Technology</h2>
+        </header>
+
+        <div id="controls">
+            <div class="control-group">
+                <label for="phaseSlider">Phase Separation (Organization)</label>
+                <input type="range" id="phaseSlider" min="0" max="1" step="0.01" value="0.5">
+            </div>
+            
+            <div id="status-box" style="color: #ffaa00;">structure: DISORDERED</div>
+
+            <div class="control-group">
+                <p style="font-size: 12px; color: #889; line-height: 1.4;">
+                    Slide to <b>Right</b> to optimize the nanostructure. <br>
+                    Watch how the "Hard Domains" align to block oil molecules.
+                </p>
+            </div>
+
+            <button class="btn" id="toggleOil">Toggle Oil Flow</button>
+            <button class="btn" id="resetCam">Reset Camera</button>
+        </div>
+
+        <div id="legend">
+            <div style="font-weight: bold; margin-bottom: 10px; color: #fff;">Active Ingredients</div>
+            <div class="legend-item">
+                <span class="dot" style="background: #00ffff; box-shadow: 0 0 5px #00ffff;"></span>
+                <span><b>Hard Domains (Crystalline)</b><br>Physical barrier & strength</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot" style="background: #5555aa;"></span>
+                <span><b>Soft Domains (Amorphous)</b><br>Flexibility & connection</span>
+            </div>
+            <div class="legend-item">
+                <span class="dot" style="background: #ff8800; box-shadow: 0 0 5px #ff8800;"></span>
+                <span><b>Oil Molecules</b><br>Large organic contaminants</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Annotations -->
+    <div id="label-hard" class="annotation">Hard Domain</div>
+    <div id="label-soft" class="annotation">Soft Domain</div>
+
+    <script>
+        // --- 1. SCENE SETUP ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0b1015);
+        scene.fog = new THREE.FogExp2(0x0b1015, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(15, 12, 15);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.1; // Prevent going below ground
+
+        // --- 2. LIGHTING ---
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+        dirLight.position.set(10, 20, 10);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x0088ff, 1, 20);
+        blueLight.position.set(0, 5, 0);
+        scene.add(blueLight);
+
+        // --- 3. SHIELD SIMULATION VARIABLES ---
+        const GRID_SIZE = 12; // 12x12 grid
+        const SPACING = 1.8;
+        const hardDomains = [];
+        const softConnectors = [];
+        
+        // Group to hold the entire shield
+        const shieldGroup = new THREE.Group();
+        scene.add(shieldGroup);
+
+        // Materials
+        const hardMaterial = new THREE.MeshStandardMaterial({ 
+            color: 0x00ffff, 
+            emissive: 0x004444, 
+            roughness: 0.2, 
+            metalness: 0.8 
+        });
+        
+        const softMaterial = new THREE.LineBasicMaterial({ 
+            color: 0x4444aa, 
+            transparent: true, 
+            opacity: 0.4,
+            linewidth: 1
+        });
+
+        // Geometry for Hard Domains (Cubes representing crystalline blocks)
+        const blockGeo = new THREE.BoxGeometry(0.8, 0.8, 0.8);
+        const edgesGeo = new THREE.EdgesGeometry(blockGeo);
+
+        // --- 4. BUILD SHIELD ---
+        // We create a grid of objects. Each object has a "target" position (optimized) and a "random" position (disordered).
+        
+        for(let x = 0; x < GRID_SIZE; x++) {
+            for(let z = 0; z < GRID_SIZE; z++) {
+                
+                // 1. Create Hard Domain Mesh
+                const mesh = new THREE.Mesh(blockGeo, hardMaterial);
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+                
+                // Add glowing edges for tech look
+                const edges = new THREE.LineSegments(edgesGeo, new THREE.LineBasicMaterial({ color: 0xffffff }));
+                mesh.add(edges);
+
+                // Calculate Target Position (Hexagonal Packing for optimization)
+                const xOffset = (z % 2) * (SPACING / 2);
+                const targetX = (x * SPACING + xOffset) - (GRID_SIZE * SPACING / 2);
+                const targetZ = (z * SPACING * 0.866) - (GRID_SIZE * SPACING / 2);
+                const targetY = 0;
+
+                // Calculate Random Position (Disordered state)
+                const randX = targetX + (Math.random() - 0.5) * SPACING * 1.5;
+                const randZ = targetZ + (Math.random() - 0.5) * SPACING * 1.5;
+                const randY = (Math.random() - 0.5) * 1.0; // Uneven surface
+
+                const domain = {
+                    mesh: mesh,
+                    targetPos: new THREE.Vector3(targetX, targetY, targetZ),
+                    randPos: new THREE.Vector3(randX, randY, randZ),
+                    currentPos: new THREE.Vector3(randX, randY, randZ)
+                };
+                
+                mesh.position.copy(domain.randPos);
+                shieldGroup.add(mesh);
+                hardDomains.push(domain);
+            }
+        }
+
+        // Create Soft Connectors (Lines between nearby neighbors)
+        // In a real simulation, we'd use a distance check. Here, we know the grid indices.
+        // We will update line geometry every frame based on domain positions.
+        const connectorGeo = new THREE.BufferGeometry();
+        // Allocate buffer (max 4 connections per node * number of nodes * 2 points * 3 coords)
+        const maxConnections = hardDomains.length * 6; 
+        const positions = new Float32Array(maxConnections * 3);
+        connectorGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        const connectorsMesh = new THREE.LineSegments(connectorGeo, softMaterial);
+        shieldGroup.add(connectorsMesh);
+
+        // --- 5. OIL SIMULATION ---
+        const oilParticles = [];
+        const oilGeo = new THREE.IcosahedronGeometry(0.35, 1); // Large molecule
+        const oilMat = new THREE.MeshStandardMaterial({ 
+            color: 0xff8800, 
+            roughness: 0.1, 
+            metalness: 0.1,
+            emissive: 0x442200
+        });
+
+        let oilFlowing = true;
+        const GRAVITY = 0.05;
+
+        function spawnOil() {
+            if(!oilFlowing) return;
+            // Spawn less frequently
+            if(Math.random() > 0.1) return;
+
+            const mesh = new THREE.Mesh(oilGeo, oilMat);
+            
+            // Spawn area
+            const range = GRID_SIZE * SPACING * 0.4;
+            mesh.position.set(
+                (Math.random() - 0.5) * range * 2,
+                10 + Math.random() * 5,
+                (Math.random() - 0.5) * range * 2
+            );
+            
+            scene.add(mesh);
+            oilParticles.push({
+                mesh: mesh,
+                velocity: new THREE.Vector3(0, -0.1, 0),
+                state: 'falling' // falling, blocked, passed
+            });
+        }
+
+        // --- 6. ANIMATION LOOP & LOGIC ---
+        
+        const clock = new THREE.Clock();
+        const phaseSlider = document.getElementById('phaseSlider');
+        const statusBox = document.getElementById('status-box');
+
+        // Labels
+        const labelHard = document.getElementById('label-hard');
+        const labelSoft = document.getElementById('label-soft');
+        
+        function updateLabels() {
+            // Project 3D positions to 2D screen
+            if(hardDomains.length > 0) {
+                const centerNode = hardDomains[Math.floor(hardDomains.length/2)];
+                const vec = centerNode.mesh.position.clone();
+                vec.y += 0.8;
+                vec.project(camera);
+                
+                const x = (vec.x * .5 + .5) * window.innerWidth;
+                const y = (-(vec.y * .5) + .5) * window.innerHeight;
+
+                labelHard.style.left = `${x}px`;
+                labelHard.style.top = `${y}px`;
+                labelHard.classList.add('visible');
+
+                // Soft label (offset slightly)
+                const x2 = x + 40;
+                const y2 = y + 40;
+                labelSoft.style.left = `${x2}px`;
+                labelSoft.style.top = `${y2}px`;
+                labelSoft.classList.add('visible');
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const time = clock.getElapsedTime();
+            const phaseValue = parseFloat(phaseSlider.value); // 0 to 1
+
+            // 1. Update Shield Structure based on Slider
+            // Lerp between Random and Ordered
+            hardDomains.forEach((domain, i) => {
+                // Interpolate position
+                domain.currentPos.lerpVectors(domain.randPos, domain.targetPos, phaseValue);
+                
+                // Add slight "breathing" motion (Brownian motion simulation)
+                const breathe = Math.sin(time * 2 + i) * 0.05 * (1 - phaseValue * 0.8); // Less movement when ordered
+                
+                domain.mesh.position.copy(domain.currentPos);
+                domain.mesh.position.y += breathe;
+                
+                // Rotate cubes to align when ordered
+                domain.mesh.rotation.x = THREE.MathUtils.lerp(Math.random(), 0, phaseValue);
+                domain.mesh.rotation.z = THREE.MathUtils.lerp(Math.random(), 0, phaseValue);
+            });
+
+            // 2. Update Soft Connectors
+            // Draw lines between neighbors within a certain distance
+            let posIndex = 0;
+            const positions = connectorsMesh.geometry.attributes.position.array;
+            const connectDist = SPACING * 1.6; // Threshold to draw connection
+
+            // Simple neighbor check (optimization: could use spatial hash, but N is small here)
+            for(let i=0; i<hardDomains.length; i++) {
+                for(let j=i+1; j<hardDomains.length; j++) {
+                    const d = hardDomains[i].mesh.position.distanceTo(hardDomains[j].mesh.position);
+                    if(d < connectDist) {
+                        positions[posIndex++] = hardDomains[i].mesh.position.x;
+                        positions[posIndex++] = hardDomains[i].mesh.position.y;
+                        positions[posIndex++] = hardDomains[i].mesh.position.z;
+                        
+                        positions[posIndex++] = hardDomains[j].mesh.position.x;
+                        positions[posIndex++] = hardDomains[j].mesh.position.y;
+                        positions[posIndex++] = hardDomains[j].mesh.position.z;
+                    }
+                }
+            }
+            connectorsMesh.geometry.setDrawRange(0, posIndex / 3);
+            connectorsMesh.geometry.attributes.position.needsUpdate = true;
+
+            // 3. Update Oil Particles
+            spawnOil();
+            
+            // Collision Thresholds
+            // If phaseValue is high (>0.8), holes are small -> Blocked
+            // If phaseValue is low (<0.5), holes are big -> Pass through
+            
+            // We simulate this by checking distance to nearest Hard Domain.
+            // If distance > (BlockSize/2 + OilSize) AND phaseValue is low, it falls through.
+            
+            for (let i = oilParticles.length - 1; i >= 0; i--) {
+                const p = oilParticles[i];
+                
+                if (p.state === 'falling') {
+                    p.velocity.y -= 0.002; // Gravity
+                    p.mesh.position.add(p.velocity);
+
+                    // Check interaction with shield layer (approx y=0)
+                    if (p.mesh.position.y < 0.5 && p.mesh.position.y > -0.5) {
+                        
+                        // Find distance to nearest hard domain
+                        let minDist = 999;
+                        for(let d of hardDomains) {
+                            const dist = new THREE.Vector2(d.mesh.position.x, d.mesh.position.z)
+                                .distanceTo(new THREE.Vector2(p.mesh.position.x, p.mesh.position.z));
+                            if(dist < minDist) minDist = dist;
+                        }
+
+                        // Logic: 
+                        // Hard domain radius ~0.4. Oil radius 0.35.
+                        // If perfectly packed, max gap is small.
+                        // If disordered, gaps are huge.
+                        
+                        // Effective "Pore Size" based on slider
+                        // High slider = small pore. Low slider = big pore.
+                        const barrierStrength = phaseValue; // 0 to 1
+                        const penetrationChance = 1 - barrierStrength;
+
+                        // Visual collision logic
+                        if (barrierStrength > 0.75) {
+                            // BLOCKED: Bounce/Slide
+                            p.velocity.y = 0;
+                            p.velocity.x = (Math.random()-0.5) * 0.05;
+                            p.velocity.z = (Math.random()-0.5) * 0.05;
+                            p.mesh.position.y = 0.5; // Sit on top
+                            p.state = 'blocked';
+                        } else {
+                            // PASS THROUGH
+                            // Just let it keep falling
+                            p.state = 'passed';
+                        }
+                    }
+                } else if (p.state === 'blocked') {
+                    // Slide around on surface
+                    p.mesh.position.add(p.velocity);
+                    p.velocity.multiplyScalar(0.95); // Friction
+                    // If it slides off edge, fall
+                    if(Math.abs(p.mesh.position.x) > GRID_SIZE || Math.abs(p.mesh.position.z) > GRID_SIZE) {
+                        p.state = 'falling';
+                    }
+                } else if (p.state === 'passed') {
+                    p.mesh.position.add(p.velocity); // Keep falling
+                }
+
+                // Cleanup
+                if (p.mesh.position.y < -10) {
+                    scene.remove(p.mesh);
+                    oilParticles.splice(i, 1);
+                }
+            }
+
+            // 4. Update UI Text
+            if(phaseValue < 0.3) {
+                statusBox.innerHTML = "Structure: DISORDERED<br><span style='font-size:12px; font-weight:normal'>Gaps too large. Oil penetrates.</span>";
+                statusBox.style.color = "#ff5555";
+            } else if (phaseValue < 0.75) {
+                statusBox.innerHTML = "Structure: ASSEMBLING...<br><span style='font-size:12px; font-weight:normal'>Domains aligning.</span>";
+                statusBox.style.color = "#ffff55";
+            } else {
+                statusBox.innerHTML = "Structure: OPTIMIZED SHIELD<br><span style='font-size:12px; font-weight:normal'>Nano-pores smaller than oil. 100% Rejection.</span>";
+                statusBox.style.color = "#4deeea";
+            }
+
+            controls.update();
+            updateLabels();
+            renderer.render(scene, camera);
+        }
+
+        // --- 7. EVENT LISTENERS ---
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        document.getElementById('toggleOil').addEventListener('click', () => {
+            oilFlowing = !oilFlowing;
+        });
+
+        document.getElementById('resetCam').addEventListener('click', () => {
+            controls.reset();
+            camera.position.set(15, 12, 15);
+        });
+
+        // Start
+        animate();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tie-Layer Overmold Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #1a1a1a; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        canvas { display: block; }
+        
+        /* UI Overlay Containers */
+        #ui-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            padding: 20px;
+            pointer-events: auto;
+        }
+        h1 { margin: 0; font-size: 1.5rem; color: #00d2ff; text-transform: uppercase; letter-spacing: 2px; }
+        p.subtitle { margin: 5px 0 0; font-size: 0.9rem; color: #aaa; }
+
+        /* Controls Panel */
+        .controls {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid #444;
+            padding: 20px;
+            border-radius: 8px;
+            width: 280px;
+            pointer-events: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .control-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 0.85rem; color: #ccc; }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .btn-toggle { background: #444; color: white; border: 1px solid #666; }
+        .btn-toggle.active { background: #00d2ff; color: #000; border-color: #00d2ff; }
+        
+        .btn-action { 
+            background: #ff9d00; 
+            color: black; 
+            box-shadow: 0 0 10px rgba(255, 157, 0, 0.3);
+        }
+        .btn-action:hover { background: #ffb700; }
+        .btn-action:disabled { background: #555; color: #888; cursor: not-allowed; box-shadow: none; }
+
+        /* Info / Legend Panel */
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            border-left: 4px solid #00d2ff;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            max-width: 350px;
+            pointer-events: auto;
+        }
+        .info-title { font-weight: bold; color: #00d2ff; margin-bottom: 5px; }
+        .info-text { font-size: 0.9rem; line-height: 1.4; color: #ddd; }
+
+        /* Labels in 3D space */
+        .label {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: opacity 0.3s;
+        }
+        
+        .hidden { opacity: 0; }
+
+        /* Status Indicator */
+        #status-indicator {
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: #333;
+        }
+        .status-fail { background: #ff3333; color: white; }
+        .status-success { background: #00cc66; color: black; }
+        .status-idle { background: #333; color: #888; }
+
+    </style>
+</head>
+<body>
+
+    <div id="ui-container">
+        <div class="header">
+            <h1>Tie-Layer Architecture</h1>
+            <p class="subtitle">Solving Delamination & Haptics in 2-Shot Molding</p>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>CONFIGURATION</label>
+                <button id="btn-std" class="btn-toggle active" onclick="setMode('standard')">Standard Process</button>
+                <button id="btn-sol" class="btn-toggle" onclick="setMode('solution')">Tie-Layer Solution</button>
+            </div>
+
+            <div class="control-group">
+                <label>SIMULATION</label>
+                <button id="btn-pull" class="btn-action" onclick="triggerPullTest()">Perform Pull Test</button>
+                <div id="status-indicator" class="status-idle">READY</div>
+            </div>
+
+            <div class="control-group">
+                <label>VISIBILITY</label>
+                <button class="btn-toggle active" style="font-size: 0.8rem; padding: 8px;" onclick="toggleLabels()">Toggle Labels</button>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <div class="info-title" id="info-title">Standard Molding</div>
+            <div class="info-text" id="info-desc">
+                Traditional 2-shot molding relies on heat to fuse layers. Without a chemical bond, the skin peels off easily (delamination). The surface is also smooth, creating a "greasy" feel.
+            </div>
+        </div>
+    </div>
+
+    <!-- Labels Container -->
+    <div id="labels-container"></div>
+
+    <!-- Three.js & OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            colors: {
+                core: 0x2c3e50,      // Dark Blue/Grey
+                skin: 0x00a8cc,      // Cyan/Teal
+                tieLayer: 0xff9d00,  // Orange
+                bond: 0x00ff66,      // Bright Green
+                microsphere: 0xdddddd // Silver/White
+            },
+            dims: {
+                width: 4,
+                depth: 4,
+                coreHeight: 1.5,
+                skinHeight: 0.8,
+                tieHeight: 0.1
+            }
+        };
+
+        // --- State ---
+        let state = {
+            mode: 'standard', // 'standard' or 'solution'
+            isPulling: false,
+            pullProgress: 0,
+            labelsVisible: true
+        };
+
+        // --- Three.js Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a1a);
+        scene.fog = new THREE.Fog(0x1a1a1a, 10, 30);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(6, 4, 6);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 5);
+        dirLight.castShadow = true;
+        scene.add(dirLight);
+
+        const spotLight = new THREE.SpotLight(0x00d2ff, 0.5);
+        spotLight.position.set(-5, 5, -5);
+        scene.add(spotLight);
+
+        // --- Objects ---
+
+        // Group to hold the entire assembly
+        const assembly = new THREE.Group();
+        scene.add(assembly);
+
+        // 1. Core (Bottom Layer)
+        const coreGeo = new THREE.BoxGeometry(CONFIG.dims.width, CONFIG.dims.coreHeight, CONFIG.dims.depth);
+        const coreMat = new THREE.MeshStandardMaterial({ 
+            color: CONFIG.colors.core, 
+            roughness: 0.7 
+        });
+        const core = new THREE.Mesh(coreGeo, coreMat);
+        core.position.y = -CONFIG.dims.coreHeight / 2;
+        core.castShadow = true;
+        core.receiveShadow = true;
+        assembly.add(core);
+
+        // 2. Tie-Layer (Middle Layer - Solution Only)
+        const tieGeo = new THREE.BoxGeometry(CONFIG.dims.width, CONFIG.dims.tieHeight, CONFIG.dims.depth);
+        const tieMat = new THREE.MeshStandardMaterial({ 
+            color: CONFIG.colors.tieLayer, 
+            emissive: CONFIG.colors.tieLayer,
+            emissiveIntensity: 0.5,
+            transparent: true,
+            opacity: 0
+        });
+        const tieLayer = new THREE.Mesh(tieGeo, tieMat);
+        tieLayer.position.y = 0; // Centered at origin
+        assembly.add(tieLayer);
+
+        // 3. Skin (Top Layer)
+        const skinGeo = new THREE.BoxGeometry(CONFIG.dims.width, CONFIG.dims.skinHeight, CONFIG.dims.depth);
+        const skinMat = new THREE.MeshStandardMaterial({ 
+            color: CONFIG.colors.skin, 
+            roughness: 0.1, // Shiny initially
+            metalness: 0.1,
+            transparent: true,
+            opacity: 0.95
+        });
+        const skin = new THREE.Mesh(skinGeo, skinMat);
+        skin.position.y = CONFIG.dims.skinHeight / 2;
+        skin.castShadow = true;
+        assembly.add(skin);
+
+        // 4. Microspheres (Texture - Solution Only)
+        const spheresGroup = new THREE.Group();
+        const sphereGeo = new THREE.SphereGeometry(0.08, 8, 8);
+        const sphereMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.microsphere, roughness: 0.9 });
+        
+        for(let i=0; i<80; i++) {
+            const mesh = new THREE.Mesh(sphereGeo, sphereMat);
+            // Random scatter on top surface
+            mesh.position.x = (Math.random() - 0.5) * CONFIG.dims.width;
+            mesh.position.z = (Math.random() - 0.5) * CONFIG.dims.depth;
+            mesh.position.y = CONFIG.dims.skinHeight / 2; // Embedded halfway
+            mesh.scale.set(0,0,0); // Hidden initially
+            spheresGroup.add(mesh);
+        }
+        skin.add(spheresGroup); // Add to skin so they move with it
+
+        // 5. Covalent Bonds (Visual Connectors)
+        const bondsGroup = new THREE.Group();
+        const bondGeo = new THREE.CylinderGeometry(0.02, 0.02, 0.4, 6);
+        const bondMat = new THREE.MeshBasicMaterial({ color: CONFIG.colors.bond });
+        
+        for(let i=0; i<20; i++) {
+            const bond = new THREE.Mesh(bondGeo, bondMat);
+            bond.position.x = (Math.random() - 0.5) * (CONFIG.dims.width - 0.5);
+            bond.position.z = (Math.random() - 0.5) * (CONFIG.dims.depth - 0.5);
+            bond.position.y = -0.2; // Spanning the gap
+            bond.visible = false;
+            bondsGroup.add(bond);
+        }
+        assembly.add(bondsGroup);
+
+        // --- Labels ---
+        const labelsData = [
+            { text: "Rigid Core (Substrate)", obj: core, yOffset: -0.5 },
+            { text: "Soft Skin (TPE)", obj: skin, yOffset: 0.5 },
+            { text: "Tie-Layer (SEBS-g-MA)", obj: tieLayer, yOffset: 0, id: 'lbl-tie' },
+            { text: "Glass Microspheres", obj: skin, yOffset: 0.6, id: 'lbl-micro' }
+        ];
+
+        const labelsContainer = document.getElementById('labels-container');
+        const labelsDOM = [];
+
+        labelsData.forEach(data => {
+            const div = document.createElement('div');
+            div.className = 'label';
+            div.textContent = data.text;
+            if (data.id) div.id = data.id;
+            labelsContainer.appendChild(div);
+            labelsDOM.push({ div, ...data });
+        });
+
+        // --- Logic & Animation ---
+
+        function setMode(mode) {
+            state.mode = mode;
+            
+            // Reset Positions
+            skin.position.y = CONFIG.dims.skinHeight / 2;
+            state.pullProgress = 0;
+            state.isPulling = false;
+            document.getElementById('btn-pull').disabled = false;
+            document.getElementById('status-indicator').className = 'status-idle';
+            document.getElementById('status-indicator').innerText = 'READY';
+
+            // UI Updates
+            document.getElementById('btn-std').classList.toggle('active', mode === 'standard');
+            document.getElementById('btn-sol').classList.toggle('active', mode === 'solution');
+
+            if (mode === 'standard') {
+                // Hide Tie Layer
+                tieLayer.material.opacity = 0;
+                
+                // Hide Bonds
+                bondsGroup.children.forEach(b => b.visible = false);
+
+                // Hide Microspheres & Make Skin Shiny
+                spheresGroup.children.forEach(s => s.scale.set(0,0,0));
+                skin.material.roughness = 0.1;
+                
+                // Text
+                document.getElementById('info-title').innerText = "Standard Molding";
+                document.getElementById('info-desc').innerText = "Traditional 2-shot molding relies on heat to fuse layers. Without a chemical bond, the skin peels off easily (delamination). The surface is also smooth, creating a 'greasy' feel.";
+                
+                // Labels
+                document.getElementById('lbl-tie').classList.add('hidden');
+                document.getElementById('lbl-micro').classList.add('hidden');
+
+            } else {
+                // Show Tie Layer
+                tieLayer.material.opacity = 0.8;
+
+                // Show Microspheres & Make Skin Matte
+                spheresGroup.children.forEach(s => s.scale.set(1,1,1));
+                skin.material.roughness = 0.9; // Matte finish
+
+                // Text
+                document.getElementById('info-title').innerText = "Tie-Layer Solution";
+                document.getElementById('info-desc').innerHTML = "<b>1. Tie-Layer:</b> Creates covalent bonds between core and skin, preventing delamination.<br><b>2. Microspheres:</b> Embedded glass spheres create texture, solving the 'greasy feel'.";
+
+                // Labels
+                if(state.labelsVisible) {
+                    document.getElementById('lbl-tie').classList.remove('hidden');
+                    document.getElementById('lbl-micro').classList.remove('hidden');
+                }
+            }
+        }
+
+        function toggleLabels() {
+            state.labelsVisible = !state.labelsVisible;
+            labelsDOM.forEach(l => {
+                if (!state.labelsVisible) {
+                    l.div.classList.add('hidden');
+                } else {
+                    // Only show specific labels if in solution mode
+                    if ((l.id === 'lbl-tie' || l.id === 'lbl-micro') && state.mode === 'standard') return;
+                    l.div.classList.remove('hidden');
+                }
+            });
+        }
+
+        function triggerPullTest() {
+            if (state.isPulling) return;
+            state.isPulling = true;
+            document.getElementById('btn-pull').disabled = true;
+            document.getElementById('status-indicator').innerText = 'TESTING...';
+            document.getElementById('status-indicator').className = 'status-idle';
+        }
+
+        // --- Main Animation Loop ---
+        const clock = new THREE.Clock();
+        const tempV = new THREE.Vector3();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const dt = clock.getDelta();
+            const time = clock.getElapsedTime();
+
+            // Pulse Tie-Layer
+            if (state.mode === 'solution') {
+                tieLayer.material.emissiveIntensity = 0.5 + Math.sin(time * 3) * 0.2;
+            }
+
+            // Pull Test Logic
+            if (state.isPulling) {
+                if (state.mode === 'standard') {
+                    // Fail Scenario: Layer peels off completely
+                    state.pullProgress += dt * 0.8;
+                    skin.position.y = (CONFIG.dims.skinHeight / 2) + (state.pullProgress * 3);
+                    skin.rotation.z = -state.pullProgress * 0.2; // Slight tilt
+                    
+                    if (state.pullProgress > 1.5) {
+                        document.getElementById('status-indicator').innerText = 'FAILURE: DELAMINATION';
+                        document.getElementById('status-indicator').className = 'status-fail';
+                    }
+                } else {
+                    // Success Scenario: Layer stretches but holds
+                    state.pullProgress += dt;
+                    
+                    // Elastic bounce effect
+                    const stretch = Math.sin(state.pullProgress * 10) * Math.exp(-state.pullProgress * 2) * 0.3;
+                    // Clamp stretch so it doesn't go below 0
+                    const offset = Math.max(0, stretch);
+                    
+                    skin.position.y = (CONFIG.dims.skinHeight / 2) + offset;
+
+                    // Visualize Bonds Stretching
+                    bondsGroup.children.forEach(bond => {
+                        bond.visible = true;
+                        // Stretch bonds
+                        const scaleY = 1 + (offset * 4);
+                        bond.scale.set(1, scaleY, 1);
+                        bond.position.y = offset / 2; // Keep centered between layers
+                    });
+
+                    if (state.pullProgress > 2) {
+                        state.isPulling = false;
+                        document.getElementById('btn-pull').disabled = false;
+                        document.getElementById('status-indicator').innerText = 'SUCCESS: BOND HELD';
+                        document.getElementById('status-indicator').className = 'status-success';
+                        
+                        // Hide bonds after test
+                        setTimeout(() => {
+                            if(!state.isPulling) bondsGroup.children.forEach(b => b.visible = false);
+                        }, 500);
+                    }
+                }
+            }
+
+            controls.update();
+            renderer.render(scene, camera);
+            updateLabels();
+        }
+
+        function updateLabels() {
+            labelsDOM.forEach(item => {
+                if (item.div.classList.contains('hidden')) return;
+
+                // Get 3D position
+                tempV.setFromMatrixPosition(item.obj.matrixWorld);
+                tempV.y += item.yOffset;
+                
+                // Project to 2D screen space
+                tempV.project(camera);
+
+                const x = (tempV.x * .5 + .5) * window.innerWidth;
+                const y = (tempV.y * -.5 + .5) * window.innerHeight;
+
+                // Check if behind camera
+                if (tempV.z > 1) {
+                    item.div.style.display = 'none';
+                } else {
+                    item.div.style.display = 'block';
+                    item.div.style.left = `${x}px`;
+                    item.div.style.top = `${y}px`;
+                    item.div.style.transform = 'translate(-50%, -50%)';
+                }
+            });
+        }
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize
+        setMode('standard');
+        animate();
+
+    </script>
+</body>
+</html>

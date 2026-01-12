@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Rheo-Skin Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050510; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        #canvas-container { width: 100vw; height: 100vh; }
+        
+        /* UI Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 320px;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #334466;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            pointer-events: all;
+        }
+
+        h1 { font-size: 1.2rem; margin: 0 0 10px 0; color: #00ffff; text-transform: uppercase; letter-spacing: 1px; }
+        h2 { font-size: 0.9rem; margin: 0 0 15px 0; color: #aaccff; font-weight: normal; }
+        
+        .control-group { margin-bottom: 15px; }
+        label { display: block; font-size: 0.8rem; color: #8899aa; margin-bottom: 5px; }
+        
+        /* Custom Toggle */
+        .toggle-container { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; cursor: pointer; }
+        .toggle-label { font-size: 0.9rem; font-weight: bold; color: #fff; }
+        .toggle-switch {
+            width: 50px; height: 26px; background: #333; border-radius: 13px; position: relative; transition: 0.3s;
+        }
+        .toggle-switch::after {
+            content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px;
+            background: #fff; border-radius: 50%; transition: 0.3s;
+        }
+        .toggle-active { background: #ffaa00; box-shadow: 0 0 10px #ffaa00aa; }
+        .toggle-active::after { left: 27px; }
+
+        /* Sliders */
+        input[type=range] { width: 100%; cursor: pointer; accent-color: #00ffff; }
+
+        /* Legend */
+        .legend-item { display: flex; align-items: center; margin-bottom: 6px; font-size: 0.8rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        .legend-skin { background: #00ffff; box-shadow: 0 0 5px #00ffff; }
+        .legend-core { background: #555566; border: 1px solid #777; }
+        .legend-velcro { background: #ffaa00; box-shadow: 0 0 8px #ffaa00; }
+
+        /* Info Panel */
+        #info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #ccc;
+            pointer-events: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .highlight { color: #ffaa00; font-weight: bold; }
+
+        /* Labels in 3D space */
+        .label-3d {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas-container"></div>
+
+    <div id="ui-layer">
+        <h1>Gradient Rheo-Skin</h1>
+        <h2>Hybrid Alpha Injection Simulator</h2>
+
+        <div class="control-group">
+            <div class="legend-item"><div class="dot legend-skin"></div>Nano-Shield Skin (Fluorinated)</div>
+            <div class="legend-item"><div class="dot legend-core"></div>Recycled Core (Cheap)</div>
+            <div class="legend-item"><div class="dot legend-velcro"></div>Molecular Velcro (Compatibilizer)</div>
+        </div>
+
+        <div class="control-group">
+            <div class="toggle-container" id="velcro-toggle">
+                <span class="toggle-label">Activate Molecular Velcro</span>
+                <div class="toggle-switch" id="velcro-switch"></div>
+            </div>
+            <p style="font-size: 0.75rem; color: #888; margin-top: 5px;">
+                <i>Without Velcro, layers delaminate. With Velcro, they fuse.</i>
+            </p>
+        </div>
+
+        <div class="control-group">
+            <label>Injection Speed</label>
+            <input type="range" id="speed-slider" min="0.1" max="2.0" step="0.1" value="1.0">
+        </div>
+
+        <div class="control-group">
+            <button id="reset-btn" style="width: 100%; padding: 8px; background: #334466; color: white; border: none; border-radius: 4px; cursor: pointer;">Reset Simulation</button>
+        </div>
+    </div>
+
+    <div id="info-panel">
+        Current State: <span id="status-text" class="highlight">Delamination Risk High</span>
+    </div>
+
+    <!-- 3D Labels (Hidden initially, positioned by JS) -->
+    <div id="label-fountain" class="label-3d">Fountain Flow Front</div>
+    <div id="label-interface" class="label-3d">50μm Interface</div>
+
+    <!-- Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // --- Configuration & State ---
+        const config = {
+            tubeRadius: 4,
+            tubeLength: 30,
+            particleCount: 2500,
+            skinRatio: 0.35, // 35% skin, 65% core
+            speed: 1.0,
+            velcroActive: false,
+            coreColor: new THREE.Color(0x444455),
+            skinColor: new THREE.Color(0x00ffff),
+            velcroColor: new THREE.Color(0xffaa00)
+        };
+
+        let scene, camera, renderer, controls;
+        let particles = [];
+        let particleSystem;
+        let velcroSystem;
+        let velcroLines = []; // Array to store active link positions
+        let clock = new THREE.Clock();
+        
+        // --- Asset Generation (Procedural Textures) ---
+        function createCircleTexture() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 32; canvas.height = 32;
+            const ctx = canvas.getContext('2d');
+            
+            const grad = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+            grad.addColorStop(0, 'rgba(255,255,255,1)');
+            grad.addColorStop(0.4, 'rgba(255,255,255,0.8)');
+            grad.addColorStop(1, 'rgba(255,255,255,0)');
+            
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 32, 32);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            return texture;
+        }
+
+        // --- Initialization ---
+        function init() {
+            const container = document.getElementById('canvas-container');
+
+            // Scene
+            scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x050510, 0.02);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(15, 10, 15);
+            camera.lookAt(0, 0, 5);
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Controls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.maxDistance = 50;
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040);
+            scene.add(ambientLight);
+            const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+            dirLight.position.set(10, 20, 10);
+            scene.add(dirLight);
+            const blueLight = new THREE.PointLight(0x0044ff, 2, 50);
+            blueLight.position.set(0, 0, 0);
+            scene.add(blueLight);
+
+            // Objects
+            createMold();
+            initParticles();
+            initVelcroVisuals();
+
+            // Event Listeners
+            window.addEventListener('resize', onWindowResize);
+            setupUI();
+
+            // Start Loop
+            animate();
+        }
+
+        function createMold() {
+            // Transparent cylinder representing the mold cavity
+            const geometry = new THREE.CylinderGeometry(config.tubeRadius, config.tubeRadius, config.tubeLength, 32, 1, true);
+            // Rotate to lie on Z axis
+            geometry.rotateX(Math.PI / 2);
+            geometry.translate(0, 0, config.tubeLength / 2); // Start at 0, go to length
+
+            const material = new THREE.MeshPhongMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.1,
+                side: THREE.DoubleSide,
+                wireframe: false
+            });
+
+            const mold = new THREE.Mesh(geometry, material);
+            scene.add(mold);
+
+            // Wireframe overlay for tech look
+            const wireGeo = new THREE.WireframeGeometry(geometry);
+            const wireMat = new THREE.LineBasicMaterial({ color: 0x334466, opacity: 0.3, transparent: true });
+            const wireframe = new THREE.LineSegments(wireGeo, wireMat);
+            scene.add(wireframe);
+
+            // Nozzle indicator
+            const nozzleGeo = new THREE.ConeGeometry(2, 4, 16);
+            nozzleGeo.rotateX(-Math.PI / 2);
+            nozzleGeo.translate(0, 0, -2);
+            const nozzleMat = new THREE.MeshStandardMaterial({ color: 0x444444, roughness: 0.2, metalness: 0.8 });
+            scene.add(new THREE.Mesh(nozzleGeo, nozzleMat));
+        }
+
+        function initParticles() {
+            // We use a custom object structure to track logic, but render using Points
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(config.particleCount * 3);
+            const colors = new Float32Array(config.particleCount * 3);
+            const sizes = new Float32Array(config.particleCount);
+
+            for (let i = 0; i < config.particleCount; i++) {
+                resetParticle(i, true); // Random start
+                
+                positions[i*3] = particles[i].x;
+                positions[i*3+1] = particles[i].y;
+                positions[i*3+2] = particles[i].z;
+                
+                // Color setup happens in resetParticle
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.4,
+                vertexColors: true,
+                map: createCircleTexture(),
+                transparent: true,
+                opacity: 0.9,
+                depthWrite: false,
+                blending: THREE.AdditiveBlending
+            });
+
+            particleSystem = new THREE.Points(geometry, material);
+            scene.add(particleSystem);
+        }
+
+        function initVelcroVisuals() {
+            // A system to draw lines between bonded particles
+            // We'll use a pre-allocated line segments buffer
+            const maxLinks = 2000;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(maxLinks * 6); // 2 points per line * 3 coords
+            
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            
+            const material = new THREE.LineBasicMaterial({
+                color: 0xffaa00,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+
+            velcroSystem = new THREE.LineSegments(geometry, material);
+            velcroSystem.frustumCulled = false; // Always render
+            scene.add(velcroSystem);
+        }
+
+        // --- Physics Logic ---
+
+        function resetParticle(i, randomZ = false) {
+            // Determine type based on ID
+            const isSkin = i < config.particleCount * config.skinRatio;
+            
+            // Spawn at nozzle (0,0,0) with slight jitter
+            const rStart = Math.random() * 0.5;
+            const theta = Math.random() * Math.PI * 2;
+            
+            const p = {
+                id: i,
+                type: isSkin ? 'skin' : 'core',
+                x: rStart * Math.cos(theta),
+                y: rStart * Math.sin(theta),
+                z: randomZ ? Math.random() * config.tubeLength : (Math.random() * -5), // Start behind nozzle or random along tube
+                vx: 0, vy: 0, vz: 0,
+                state: 'flowing', // flowing, expanding, frozen
+                maxRadius: isSkin ? config.tubeRadius * 0.95 : config.tubeRadius * 0.65
+            };
+            
+            particles[i] = p;
+        }
+
+        function updateParticles(dt) {
+            const positions = particleSystem.geometry.attributes.position.array;
+            const colors = particleSystem.geometry.attributes.color.array;
+            const sizes = particleSystem.geometry.attributes.size.array;
+
+            // Velocity Profile Constants
+            const centerSpeed = 5.0 * config.speed;
+            const flowFrontZ = (Date.now() * 0.005 * config.speed) % (config.tubeLength + 10);
+            
+            // Velcro Data
+            let linkCount = 0;
+            const linkPositions = velcroSystem.geometry.attributes.position.array;
+            
+            // Reset link positions buffer
+            linkPositions.fill(0);
+
+            // Spatial hashing for velcro (simple grid optimization)
+            // Only tracking particles in the interface zone for bonding
+            const interfaceZoneParticles = []; 
+
+            for (let i = 0; i < config.particleCount; i++) {
+                const p = particles[i];
+                
+                // 1. Move Forward (Poiseuille-like flow approximation)
+                // Center moves faster than edges
+                const currentR = Math.sqrt(p.x*p.x + p.y*p.y);
+                const speedFactor = 1 - (currentR / config.tubeRadius);
+                
+                if (p.state !== 'frozen') {
+                    p.vz = centerSpeed * (0.2 + 0.8 * speedFactor);
+                    p.z += p.vz * dt;
+                }
+
+                // 2. Fountain Flow Logic
+                // If particle is near the "front" of the stream or its time to expand
+                // In this sim, we simulate the result: particles drift outward as they travel
+                // Skin particles drift all the way to wall. Core particles drift to interface.
+                
+                const expansionRate = 2.0 * config.speed;
+                
+                if (p.state !== 'frozen') {
+                    // Radial expansion logic
+                    if (currentR < p.maxRadius) {
+                        const angle = Math.atan2(p.y, p.x);
+                        const dr = expansionRate * dt * (p.z / 10); // Expand more as we get further
+                        
+                        const newR = Math.min(currentR + dr, p.maxRadius);
+                        p.x = Math.cos(angle) * newR;
+                        p.y = Math.sin(angle) * newR;
+                    }
+
+                    // Solidification logic (Skin only)
+                    // If skin hits the wall, it freezes due to cooling
+                    if (p.type === 'skin' && currentR >= p.maxRadius * 0.98) {
+                        p.state = 'frozen';
+                    }
+                }
+
+                // Recycle particles
+                if (p.z > config.tubeLength) {
+                    resetParticle(i);
+                    p.z = -2; // Start just before nozzle
+                }
+
+                // Update Buffer
+                positions[i*3] = p.x;
+                positions[i*3+1] = p.y;
+                positions[i*3+2] = p.z;
+
+                // Color Logic
+                let col;
+                if (p.type === 'skin') {
+                    col = config.skinColor;
+                    sizes[i] = 0.5;
+                } else {
+                    col = config.coreColor;
+                    sizes[i] = 0.4;
+                }
+
+                // Velcro / Bonding Logic
+                // If Velcro is active, check particles near the interface
+                // Interface is roughly at radius 2.5 - 3.0
+                const interfaceRadius = config.tubeRadius * 0.65;
+                const isInterface = Math.abs(currentR - interfaceRadius) < 0.5;
+
+                if (config.velcroActive && isInterface && p.z > 0 && p.z < config.tubeLength) {
+                    // Visual feedback: Interface particles glow gold
+                    // Instead of full color change, let's tint them
+                    if (Math.random() > 0.8) { // Flicker effect
+                        colors[i*3] = config.velcroColor.r;
+                        colors[i*3+1] = config.velcroColor.g;
+                        colors[i*3+2] = config.velcroColor.b;
+                    } else {
+                        colors[i*3] = col.r;
+                        colors[i*3+1] = col.g;
+                        colors[i*3+2] = col.b;
+                    }
+
+                    // Collect for linking
+                    interfaceZoneParticles.push(i);
+
+                } else {
+                    // Standard Colors
+                    colors[i*3] = col.r;
+                    colors[i*3+1] = col.g;
+                    colors[i*3+2] = col.b;
+                }
+            }
+
+            // Draw Velcro Links
+            // Connect random pairs in the interface zone to simulate "Molecular Velcro"
+            if (config.velcroActive && interfaceZoneParticles.length > 2) {
+                // Limit number of links for performance
+                const maxDraw = Math.min(interfaceZoneParticles.length, 1000); 
+                
+                for (let j = 0; j < maxDraw; j+=2) {
+                    if (linkCount >= 2000) break;
+
+                    const idx1 = interfaceZoneParticles[j];
+                    // Find a neighbor (approximated by just taking the next one in the list for chaos)
+                    // Or better, find one of opposite type
+                    let idx2 = interfaceZoneParticles[(j+1) % interfaceZoneParticles.length];
+                    
+                    const p1 = particles[idx1];
+                    const p2 = particles[idx2];
+
+                    // Only link if they are close enough spatially
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dz = p1.z - p2.z;
+                    const distSq = dx*dx + dy*dy + dz*dz;
+
+                    if (distSq < 2.0 && p1.type !== p2.type) {
+                        // Draw Link
+                        linkPositions[linkCount*6] = p1.x;
+                        linkPositions[linkCount*6+1] = p1.y;
+                        linkPositions[linkCount*6+2] = p1.z;
+                        
+                        linkPositions[linkCount*6+3] = p2.x;
+                        linkPositions[linkCount*6+4] = p2.y;
+                        linkPositions[linkCount*6+5] = p2.z;
+                        
+                        linkCount++;
+                    }
+                }
+            }
+
+            particleSystem.geometry.attributes.position.needsUpdate = true;
+            particleSystem.geometry.attributes.color.needsUpdate = true;
+            particleSystem.geometry.attributes.size.needsUpdate = true;
+            
+            velcroSystem.geometry.attributes.position.needsUpdate = true;
+            velcroSystem.geometry.setDrawRange(0, linkCount * 2);
+            
+            updateLabels();
+        }
+
+        // --- UI & Interaction ---
+
+        function setupUI() {
+            const toggle = document.getElementById('velcro-toggle');
+            const switchEl = document.getElementById('velcro-switch');
+            const statusText = document.getElementById('status-text');
+            const slider = document.getElementById('speed-slider');
+            const resetBtn = document.getElementById('reset-btn');
+
+            toggle.addEventListener('click', () => {
+                config.velcroActive = !config.velcroActive;
+                if (config.velcroActive) {
+                    switchEl.classList.add('toggle-active');
+                    statusText.innerHTML = "Molecular Velcro ACTIVE: Interface Fused";
+                    statusText.style.color = "#ffaa00";
+                } else {
+                    switchEl.classList.remove('toggle-active');
+                    statusText.innerHTML = "Delamination Risk High";
+                    statusText.style.color = "#ff4444";
+                }
+            });
+
+            slider.addEventListener('input', (e) => {
+                config.speed = parseFloat(e.target.value);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                for(let i=0; i<config.particleCount; i++) {
+                    resetParticle(i);
+                }
+            });
+        }
+
+        function updateLabels() {
+            // Project 3D positions to 2D screen space for labels
+            const fountainLabel = document.getElementById('label-fountain');
+            const interfaceLabel = document.getElementById('label-interface');
+
+            // Find the furthest Z position
+            let maxZ = -10;
+            particles.forEach(p => { if(p.z > maxZ && p.z < config.tubeLength) maxZ = p.z; });
+
+            // Position Fountain Label
+            if (maxZ > 0) {
+                updateLabelPosition(fountainLabel, new THREE.Vector3(0, 0, maxZ));
+            }
+
+            // Position Interface Label (static Z, at interface radius)
+            updateLabelPosition(interfaceLabel, new THREE.Vector3(config.tubeRadius * 0.65, 0, config.tubeLength / 2));
+        }
+
+        function updateLabelPosition(element, position) {
+            position.project(camera);
+            const x = (position.x * .5 + .5) * window.innerWidth;
+            const y = (-(position.y * .5) + .5) * window.innerHeight;
+
+            if (Math.abs(position.z) < 1) { // Only show if in front of camera
+                element.style.display = 'block';
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+            } else {
+                element.style.display = 'none';
+            }
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const dt = clock.getDelta();
+            
+            controls.update();
+            updateParticles(dt);
+            
+            renderer.render(scene, camera);
+        }
+
+        // Run
+        init();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Solvophobic Armor Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050510; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: white; }
+        
+        /* UI Overlay */
+        #ui-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Header */
+        #header {
+            padding: 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+            pointer-events: auto;
+        }
+        h1 { margin: 0; font-weight: 300; letter-spacing: 2px; color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        h2 { margin: 5px 0 0 0; font-size: 14px; color: #aaa; }
+
+        /* Controls Panel */
+        #controls {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 300px;
+            background: rgba(10, 20, 30, 0.85);
+            border: 1px solid #00ffff;
+            border-radius: 8px;
+            padding: 20px;
+            pointer-events: auto;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .control-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 14px; color: #ccc; }
+        
+        /* Sliders */
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            background: #333;
+            height: 6px;
+            border-radius: 3px;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #00ffff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Buttons */
+        .btn-row { display: flex; gap: 10px; }
+        button {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #444;
+            background: #222;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+        button:hover { background: #333; border-color: #666; }
+        button.active { background: #ff3333; border-color: #ff0000; box-shadow: 0 0 10px #ff0000; }
+        button.reset { border-color: #00ffff; color: #00ffff; }
+        button.reset:hover { background: rgba(0, 255, 255, 0.2); }
+
+        /* Legend */
+        #legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00ffff;
+            pointer-events: auto;
+        }
+        .legend-item { display: flex; align-items: center; margin-bottom: 8px; font-size: 13px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+        
+        /* Tooltip / Info */
+        #info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #ddd;
+            pointer-events: auto;
+            border-top: 2px solid #00ffff;
+        }
+
+        /* 3D Labels */
+        .label {
+            color: #fff;
+            font-family: sans-serif;
+            padding: 5px 10px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ffff;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+    </style>
+    <!-- Three.js Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"></script>
+</head>
+<body>
+
+    <!-- UI Overlay -->
+    <div id="ui-container">
+        <div id="header">
+            <h1>GRADIENT ARMOR</h1>
+            <h2>Hybrid Solvophobic Diffusion Simulator</h2>
+        </div>
+
+        <div id="controls">
+            <div class="control-group">
+                <label>ARMOR DIFFUSION LEVEL (Cost vs Protection)</label>
+                <input type="range" id="diffusionSlider" min="0" max="100" value="50">
+                <div style="display:flex; justify-content:space-between; font-size:10px; color:#666; margin-top:5px;">
+                    <span>Untreated (Cheap)</span>
+                    <span>Deep Soak (Expensive)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>SIMULATION CONTROLS</label>
+                <div class="btn-row">
+                    <button id="toggleRainBtn">Start Solvent Rain</button>
+                    <button id="resetBtn" class="reset">Regenerate Block</button>
+                </div>
+            </div>
+            
+            <div style="font-size: 11px; color: #888; border-top: 1px solid #333; padding-top: 10px;">
+                <strong style="color:white">Status:</strong> <span id="statusText">System Ready. Adjust Diffusion.</span>
+            </div>
+        </div>
+
+        <div id="legend">
+            <div class="legend-item">
+                <div class="dot" style="background: #444;"></div>
+                <span>Cheap Carrier Polymer (Vulnerable)</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot" style="background: #00ffff; box-shadow: 0 0 5px #00ffff;"></div>
+                <span>Solvophobic Armor (Repels Solvent)</span>
+            </div>
+            <div class="legend-item">
+                <div class="dot" style="background: #ff3333;"></div>
+                <span>Solvent Attack</span>
+            </div>
+        </div>
+
+        <div id="info-panel">
+            <strong>How it works:</strong><br>
+            Instead of making the whole block out of expensive material, we diffuse active ingredients into the top surface.<br><br>
+            1. <strong>Adjust Diffusion:</strong> See how the armor fades into the block (Gradient).<br>
+            2. <strong>Start Rain:</strong> Watch the red solvent attack.<br>
+            3. <strong>Observe:</strong> Treated areas bounce the solvent away. Untreated areas get eaten.
+        </div>
+    </div>
+
+    <script>
+        // --- Configuration ---
+        const CONFIG = {
+            gridSize: 10,
+            spacing: 1.5,
+            baseColor: 0x333333,
+            armorColor: 0x00ffff,
+            solventColor: 0xff3333,
+            damageColor: 0x110000,
+            rainSpeed: 0.3,
+            rainDensity: 2
+        };
+
+        // --- Scene Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x050510);
+        scene.fog = new THREE.FogExp2(0x050510, 0.02);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(25, 20, 25);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        // Label Renderer
+        const labelRenderer = new THREE.CSS2DRenderer();
+        labelRenderer.setSize(window.innerWidth, window.innerHeight);
+        labelRenderer.domElement.style.position = 'absolute';
+        labelRenderer.domElement.style.top = '0px';
+        labelRenderer.domElement.style.pointerEvents = 'none';
+        document.body.appendChild(labelRenderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // --- Lighting ---
+        const ambientLight = new THREE.AmbientLight(0x404040);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(10, 20, 10);
+        dirLight.castShadow = true;
+        scene.add(dirLight);
+
+        const blueLight = new THREE.PointLight(0x00ffff, 0.5, 50);
+        blueLight.position.set(0, 10, 0);
+        scene.add(blueLight);
+
+        // --- State ---
+        let diffusionLevel = 0.5; // 0 to 1
+        let isRaining = false;
+        let polymerNodes = [];
+        let solventParticles = [];
+        let frameCount = 0;
+
+        // --- Objects ---
+
+        // 1. The Polymer Block (Grid of spheres)
+        const nodeGeometry = new THREE.SphereGeometry(0.5, 16, 16);
+        const baseMaterial = new THREE.MeshLambertMaterial({ color: CONFIG.baseColor });
+        
+        // Group to hold the block
+        const blockGroup = new THREE.Group();
+        scene.add(blockGroup);
+
+        function createBlock() {
+            // Clear existing
+            while(blockGroup.children.length > 0){ 
+                blockGroup.remove(blockGroup.children[0]); 
+            }
+            polymerNodes = [];
+
+            const offset = (CONFIG.gridSize * CONFIG.spacing) / 2;
+
+            for (let x = 0; x < CONFIG.gridSize; x++) {
+                for (let y = 0; y < CONFIG.gridSize / 2; y++) { // Half height block
+                    for (let z = 0; z < CONFIG.gridSize; z++) {
+                        const material = baseMaterial.clone();
+                        const mesh = new THREE.Mesh(nodeGeometry, material);
+                        
+                        mesh.position.set(
+                            x * CONFIG.spacing - offset,
+                            y * CONFIG.spacing - 5, // Center vertically
+                            z * CONFIG.spacing - offset
+                        );
+                        
+                        mesh.userData = {
+                            initialY: mesh.position.y,
+                            gridY: y, // 0 is bottom, 4 is top
+                            isDamaged: false,
+                            armorStrength: 0
+                        };
+
+                        blockGroup.add(mesh);
+                        polymerNodes.push(mesh);
+                    }
+                }
+            }
+            updateArmorVisuals();
+        }
+
+        // 2. Armor Logic
+        function updateArmorVisuals() {
+            const maxGridY = (CONFIG.gridSize / 2) - 1;
+            
+            polymerNodes.forEach(node => {
+                if (node.userData.isDamaged) return;
+
+                // Calculate gradient strength based on depth from top
+                // Normalize gridY: 0 (bottom) to 1 (top)
+                const normalizedHeight = node.userData.gridY / maxGridY;
+                
+                // The diffusion slider determines how deep the "1.0" strength penetrates
+                // We want a curve. 
+                // If diffusion is 0: Armor is 0 everywhere.
+                // If diffusion is 1: Armor is 1 everywhere.
+                // If diffusion is 0.5: Top is 1, fades to 0 halfway down.
+                
+                let strength = 0;
+                
+                // Math for gradient diffusion
+                // We define a "penetration depth"
+                const penetration = diffusionLevel * 1.5; // Scale up slightly
+                const depthFromTop = 1 - normalizedHeight;
+                
+                if (depthFromTop < penetration) {
+                    // Linear fade
+                    strength = 1 - (depthFromTop / (penetration + 0.001));
+                }
+                
+                // Clamp
+                strength = Math.max(0, Math.min(1, strength));
+                node.userData.armorStrength = strength;
+
+                // Visual Update
+                const baseColor = new THREE.Color(CONFIG.baseColor);
+                const armorColor = new THREE.Color(CONFIG.armorColor);
+                
+                // Interpolate color
+                node.material.color.copy(baseColor).lerp(armorColor, strength);
+                node.material.emissive.copy(armorColor).multiplyScalar(strength * 0.5);
+            });
+        }
+
+        // 3. Solvent System
+        const solventGeometry = new THREE.IcosahedronGeometry(0.3, 0);
+        const solventMaterial = new THREE.MeshBasicMaterial({ color: CONFIG.solventColor });
+
+        function spawnSolvent() {
+            if (!isRaining) return;
+
+            // Spawn multiple per frame
+            for(let i=0; i<CONFIG.rainDensity; i++) {
+                const mesh = new THREE.Mesh(solventGeometry, solventMaterial);
+                
+                const range = (CONFIG.gridSize * CONFIG.spacing);
+                const x = (Math.random() - 0.5) * range;
+                const z = (Math.random() - 0.5) * range;
+                
+                mesh.position.set(x, 15, z); // Start high up
+                
+                mesh.userData = {
+                    velocity: new THREE.Vector3(0, -CONFIG.rainSpeed - (Math.random() * 0.2), 0),
+                    active: true
+                };
+                
+                scene.add(mesh);
+                solventParticles.push(mesh);
+            }
+        }
+
+        function updateSolvent() {
+            for (let i = solventParticles.length - 1; i >= 0; i--) {
+                const p = solventParticles[i];
+                
+                // Move
+                p.position.add(p.userData.velocity);
+
+                // Remove if too low or flew away
+                if (p.position.y < -10 || p.position.y > 30) {
+                    scene.remove(p);
+                    solventParticles.splice(i, 1);
+                    continue;
+                }
+
+                // Collision Detection with Polymer Block
+                // Optimization: Only check if within Y range of block
+                if (p.position.y < 3 && p.position.y > -6 && p.userData.active) {
+                    let hit = false;
+                    
+                    // Simple distance check against all nodes (could be octree optimized, but grid is small enough)
+                    for (let node of polymerNodes) {
+                        if (node.userData.isDamaged) continue; // Pass through damaged nodes
+
+                        const distSq = p.position.distanceToSquared(node.position);
+                        
+                        if (distSq < 0.6) { // Hit radius
+                            hit = true;
+                            
+                            // Interaction Logic
+                            if (node.userData.armorStrength > 0.3) {
+                                // REPEL
+                                p.userData.velocity.y *= -1.5; // Bounce up fast
+                                p.userData.velocity.x = (Math.random() - 0.5) * 0.5;
+                                p.userData.velocity.z = (Math.random() - 0.5) * 0.5;
+                                p.userData.active = false; // Don't hit again immediately
+                                
+                                // Flash effect on node
+                                node.material.emissiveIntensity = 2.0;
+                                setTimeout(() => { 
+                                    if(!node.userData.isDamaged) node.material.emissiveIntensity = node.userData.armorStrength * 0.5; 
+                                }, 100);
+
+                            } else {
+                                // DAMAGE
+                                node.userData.isDamaged = true;
+                                node.material.color.setHex(CONFIG.damageColor);
+                                node.material.emissive.setHex(0x000000);
+                                node.scale.setScalar(0.3); // Shrink
+                                
+                                // Solvent keeps going or disappears? Let's make it disappear as "consumed"
+                                scene.remove(p);
+                                solventParticles.splice(i, 1);
+                            }
+                            break; // Handled this particle
+                        }
+                    }
+                }
+            }
+        }
+
+        // --- Labels ---
+        function createLabel(text, position) {
+            const div = document.createElement('div');
+            div.className = 'label';
+            div.textContent = text;
+            const label = new THREE.CSS2DObject(div);
+            label.position.copy(position);
+            scene.add(label);
+            return label;
+        }
+
+        const labelTop = createLabel("Surface Interface", new THREE.Vector3(10, 2, 0));
+        const labelCore = createLabel("Carrier Core", new THREE.Vector3(10, -4, 0));
+
+
+        // --- UI Events ---
+        const slider = document.getElementById('diffusionSlider');
+        const statusText = document.getElementById('statusText');
+        
+        slider.addEventListener('input', (e) => {
+            diffusionLevel = e.target.value / 100;
+            updateArmorVisuals();
+            statusText.textContent = `Diffusion Penetration: ${(diffusionLevel*100).toFixed(0)}%`;
+        });
+
+        const rainBtn = document.getElementById('toggleRainBtn');
+        rainBtn.addEventListener('click', () => {
+            isRaining = !isRaining;
+            if (isRaining) {
+                rainBtn.textContent = "Stop Solvent Rain";
+                rainBtn.classList.add('active');
+                statusText.textContent = "ATTACK IN PROGRESS - Observing Resistance...";
+            } else {
+                rainBtn.textContent = "Start Solvent Rain";
+                rainBtn.classList.remove('active');
+                statusText.textContent = "Attack Paused.";
+            }
+        });
+
+        const resetBtn = document.getElementById('resetBtn');
+        resetBtn.addEventListener('click', () => {
+            createBlock(); // Rebuilds grid
+            // Clear solvent
+            solventParticles.forEach(p => scene.remove(p));
+            solventParticles = [];
+            statusText.textContent = "System Regenerated.";
+        });
+
+        // --- Init ---
+        createBlock();
+
+        // --- Animation Loop ---
+        function animate() {
+            requestAnimationFrame(animate);
+            frameCount++;
+
+            // Spawn Rain
+            if (isRaining && frameCount % 5 === 0) {
+                spawnSolvent();
+            }
+
+            updateSolvent();
+            
+            controls.update();
+            renderer.render(scene, camera);
+            labelRenderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution Deep Dive - Static Export</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Marked for Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f4;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
+    </style>
+</head>
+
+<body class="bg-[#FAF9F7] text-stone-900 font-sans selection:bg-amber-100 selection:text-amber-900 antialiased">
+
+    <!-- Loading State -->
+    <div id="loading"
+        class="fixed inset-0 flex items-center justify-center bg-[#FAF9F7] z-50 transition-opacity duration-300">
+        <div class="flex flex-col items-center gap-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-stone-800"></div>
+            <p class="text-stone-500 font-mono text-xs uppercase tracking-wider">Loading Data...</p>
+        </div>
+    </div>
+
+    <!-- Error State -->
+    <div id="error" class="hidden fixed inset-0 flex items-center justify-center bg-[#FAF9F7] z-50">
+        <div class="text-center max-w-lg px-6">
+            <h2 class="text-2xl font-serif text-rose-600 mb-2">Error Loading Data</h2>
+            <p class="text-stone-500 mb-6">Could not load solution data. Please ensure local JSON files are present.</p>
+            <button onclick="window.location.reload()"
+                class="px-4 py-2 bg-stone-900 text-white rounded text-sm hover:bg-stone-800 transition-colors">Retry</button>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="hidden opacity-0 transition-opacity duration-500 min-h-screen">
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: ELEVATOR PITCH  (Executive Briefing) -->
+        <!-- ========================================== -->
+        <div id="elevator-pitch-view" class="min-h-screen">
+            <!-- Hero -->
+            <div
+                class="relative min-h-[90vh] flex flex-col justify-center items-center px-6 overflow-hidden border-b border-stone-200 pt-20 pb-20">
+                <div class="absolute inset-0 z-0 pointer-events-none">
+                    <div
+                        class="absolute top-0 inset-x-0 h-full bg-[radial-gradient(ellipse_at_50%_-20%,_rgba(180,140,100,0.08),transparent_60%)]">
+                    </div>
+                    <div
+                        class="absolute bottom-0 inset-x-0 h-1/2 bg-[radial-gradient(ellipse_at_50%_100%,_rgba(245,240,230,0.5),transparent_70%)]">
+                    </div>
+                </div>
+
+                <div class="relative z-10 max-w-5xl w-full text-center space-y-10">
+                    <div class="absolute top-8 left-8 z-20">
+                        <a href="index.html"
+                            class="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors cursor-pointer group font-medium text-sm">
+                            <i data-lucide="arrow-left"
+                                class="w-4 h-4 group-hover:-translate-x-1 transition-transform"></i> Back to Solutions
+                        </a>
+                    </div>
+
+                    <div
+                        class="inline-flex items-center gap-2.5 px-4 py-2 rounded-sm bg-stone-900 text-stone-100 text-xs font-mono font-medium tracking-[0.15em] uppercase mx-auto">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Executive Briefing
+                    </div>
+
+                    <h1 id="pitch-idea-name"
+                        class="text-5xl md:text-7xl lg:text-8xl font-serif font-medium tracking-tight text-stone-900 leading-[1.1] pb-2">
+                    </h1>
+
+                    <p id="pitch-tagline"
+                        class="text-base md:text-lg font-mono font-medium tracking-[0.2em] uppercase text-amber-700">
+                    </p>
+
+                    <p id="pitch-one-liner"
+                        class="font-serif text-2xl md:text-3xl lg:text-4xl text-stone-600 max-w-4xl mx-auto leading-snug italic">
+                    </p>
+
+                    <!-- Problem Solving Grid -->
+                    <div id="pitch-problem-container" class="mt-20 max-w-4xl mx-auto px-6 text-left hidden">
+                        <h3
+                            class="text-xs font-mono font-medium uppercase tracking-[0.2em] text-stone-400 mb-8 border-b border-stone-200 pb-4">
+                            How does it solve the problem?</h3>
+                        <div id="pitch-problem-list" class="space-y-0"></div>
+                    </div>
+
+                    <!-- ELI5 -->
+                    <div class="max-w-3xl mx-auto pt-10 mt-8">
+                        <div
+                            class="bg-white border-l-4 border-amber-500 p-8 text-left shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-4 opacity-5"><i data-lucide="brain"
+                                    class="w-24 h-24 text-stone-900"></i></div>
+                            <p class="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-amber-700 mb-3">
+                                Simply Put</p>
+                            <p id="pitch-eli5"
+                                class="text-xl md:text-2xl text-stone-800 font-serif leading-relaxed relative z-10"></p>
+                        </div>
+                    </div>
+
+                    <div class="pt-8"><i data-lucide="chevron-right"
+                            class="w-6 h-6 text-stone-300 rotate-90 mx-auto animate-bounce"></i></div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 py-24 space-y-32">
+                <!-- Inspiration -->
+                <section class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                        <div
+                            class="flex flex-col p-8 bg-white border border-stone-200 shadow-sm hover:shadow-md hover:border-stone-300 transition-all group rounded-sm">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="p-3 bg-stone-100 text-stone-600 rounded"><i data-lucide="brain"
+                                        class="w-6 h-6"></i></div>
+                                <i data-lucide="external-link"
+                                    class="w-4 h-4 text-stone-300 group-hover:text-stone-500 opacity-0 group-hover:opacity-100 transition-all"></i>
+                            </div>
+                            <span
+                                class="text-[10px] font-mono font-medium uppercase text-stone-400 tracking-[0.15em] mb-2">Inspiration
+                                Mechanism</span>
+                            <h3 id="pitch-mech-name"
+                                class="text-2xl font-serif font-medium text-stone-900 group-hover:text-stone-700 transition-colors">
+                            </h3>
+                        </div>
+                        <div
+                            class="flex flex-col p-8 bg-white border border-stone-200 shadow-sm hover:shadow-md hover:border-stone-300 transition-all group rounded-sm">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="p-3 bg-amber-50 text-amber-600 rounded"><i data-lucide="lightbulb"
+                                        class="w-6 h-6"></i></div>
+                                <i data-lucide="external-link"
+                                    class="w-4 h-4 text-stone-300 group-hover:text-amber-500 opacity-0 group-hover:opacity-100 transition-all"></i>
+                            </div>
+                            <span
+                                class="text-[10px] font-mono font-medium uppercase text-stone-400 tracking-[0.15em] mb-2">Original
+                                Scenario</span>
+                            <h3 id="pitch-scenario"
+                                class="text-2xl font-serif font-medium text-stone-900 group-hover:text-amber-700 transition-colors">
+                            </h3>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white border border-stone-200 p-10 text-center rounded-sm shadow-sm relative overflow-hidden">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-stone-300 via-amber-400 to-stone-300">
+                        </div>
+                        <p class="text-[10px] font-mono font-medium uppercase text-stone-400 tracking-[0.2em] mb-6">The
+                            Connection</p>
+                        <p id="pitch-connection"
+                            class="text-2xl md:text-3xl font-serif text-stone-800 italic leading-relaxed max-w-4xl mx-auto">
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Core Concept -->
+                <section class="grid lg:grid-cols-12 gap-12 items-start">
+                    <div class="lg:col-span-4 sticky top-24">
+                        <h2
+                            class="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-amber-700 mb-4 flex items-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4"></i> The Concept
+                        </h2>
+                        <h3 class="text-4xl font-serif font-medium text-stone-900 mb-6 leading-tight">The Core Concept
+                        </h3>
+                        <p class="text-stone-500 text-lg leading-relaxed">A formal definition of the proposed solution
+                            and its fundamental operating principles.</p>
+                    </div>
+                    <div class="lg:col-span-8">
+                        <div class="bg-white border border-stone-200 p-10 md:p-14 shadow-sm rounded-sm">
+                            <p id="pitch-description"
+                                class="text-xl md:text-2xl font-serif text-stone-700 leading-relaxed indent-8"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Visual Evidence -->
+                <section id="pitch-visuals" class="border-y border-stone-200 py-20 bg-white -mx-6 px-6 hidden">
+                    <div class="text-center mb-16 max-w-7xl mx-auto">
+                        <h2 class="text-3xl font-serif font-medium text-stone-900 mb-3">Visualizing the Concept</h2>
+                        <p class="text-stone-500 font-mono text-sm">Conceptual visualization and embodiment</p>
+                    </div>
+                    <div id="pitch-images-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto"></div>
+                </section>
+
+                <!-- How It Works -->
+                <section id="pitch-how-it-works" class="hidden">
+                    <div class="flex items-end justify-between mb-16 border-b border-stone-200 pb-8">
+                        <h2 class="text-4xl md:text-5xl font-serif font-medium text-stone-900">How It Works</h2>
+                        <div class="hidden md:flex items-center gap-3 text-stone-400 font-mono text-sm">
+                            <span class="font-medium text-stone-900">01</span>
+                            <div class="w-16 h-px bg-stone-300"></div>
+                            <span id="pitch-hiw-count" class="font-medium text-stone-900"></span>
+                        </div>
+                    </div>
+                    <div id="pitch-hiw-grid" class="grid md:grid-cols-3 gap-8"></div>
+                </section>
+
+                <!-- Feasibility & Why it will work -->
+                <section id="pitch-feasibility" class="space-y-16 hidden">
+                    <div>
+                        <h2 class="text-4xl font-serif font-medium text-stone-900 mb-3">Why It Will Work</h2>
+                        <p class="text-stone-500 text-lg mb-8">Feasibility & Precedents</p>
+                        <div id="pitch-feasibility-summary"
+                            class="bg-stone-100 p-6 rounded-sm mb-8 border border-stone-200 hidden">
+                            <p class="text-stone-800 italic font-serif text-lg"></p>
+                        </div>
+                        <div id="pitch-feasibility-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+                    </div>
+                    <!-- Claims -->
+                    <div class="bg-stone-100 border border-stone-200 p-8 md:p-12 rounded-sm relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h2 class="text-2xl font-serif font-medium text-stone-900 mb-8 flex items-center gap-3"><i
+                                    data-lucide="shield-check" class="text-amber-600 w-6 h-6"></i> Validated Claims &
+                                Evidence</h2>
+                            <div id="pitch-claims-list" class="space-y-4"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Validation Strategy (Pitch Version) -->
+                <section id="pitch-validation" class="border-t border-stone-200 pt-20 hidden">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="p-3 bg-emerald-100 rounded text-emerald-700"><i data-lucide="activity"
+                                class="w-8 h-8"></i></div>
+                        <div>
+                            <h2 class="text-3xl font-serif font-medium text-stone-900">Validation Strategy</h2>
+                            <p class="text-stone-500">Protocols to verify critical assumptions.</p>
+                        </div>
+                    </div>
+                    <div id="pitch-validation-grid" class="grid md:grid-cols-3 gap-8"></div>
+                </section>
+
+                <!-- Differentiation -->
+                <section id="pitch-differentiation" class="pt-20 border-t border-stone-200 hidden">
+                    <div class="mb-16">
+                        <h2 class="text-3xl font-serif font-medium text-stone-900 flex items-center gap-3 mb-6"><i
+                                data-lucide="trending-up" class="text-stone-600 w-6 h-6"></i> Differentiation & Market
+                            Fit</h2>
+                        <p id="pitch-market-summary"
+                            class="text-xl text-stone-600 max-w-4xl leading-relaxed font-serif italic"></p>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-16">
+                        <!-- Left: Edges -->
+                        <div class="space-y-12">
+                            <div id="pitch-edge-card"
+                                class="bg-stone-900 p-10 rounded-sm shadow-xl text-white relative overflow-hidden hidden">
+                                <div
+                                    class="absolute top-0 right-0 p-32 bg-amber-500/10 blur-[80px] rounded-full pointer-events-none">
+                                </div>
+                                <h4
+                                    class="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-amber-400 mb-4 flex items-center gap-2">
+                                    <i data-lucide="zap" class="w-4 h-4"></i> Our Key Edge
+                                </h4>
+                                <p id="pitch-edge-text"
+                                    class="text-2xl font-serif font-medium leading-relaxed relative z-10"></p>
+                            </div>
+                            <div id="pitch-weakness-card"
+                                class="bg-amber-50 border border-amber-200 p-8 rounded-sm relative hidden">
+                                <div class="absolute top-6 right-6 p-2 bg-amber-100 text-amber-600 rounded"><i
+                                        data-lucide="scale" class="w-5 h-5"></i></div>
+                                <h4
+                                    class="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-amber-800 mb-4">
+                                    The Strategic Trade-off</h4>
+                                <p id="pitch-weakness-text"
+                                    class="text-lg text-amber-900/80 leading-relaxed italic font-serif"></p>
+                            </div>
+                        </div>
+                        <!-- Right: Competitors -->
+                        <div class="space-y-8">
+                            <h4
+                                class="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-stone-500 border-b border-stone-200 pb-2">
+                                Competition Analysis</h4>
+                            <div id="pitch-competitors-list" class="space-y-8"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Risks -->
+                <section id="pitch-risks"
+                    class="bg-white border border-stone-200 p-10 md:p-16 rounded-sm shadow-sm relative overflow-hidden mt-20 hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 via-rose-400 to-amber-400">
+                    </div>
+                    <h2 class="text-3xl font-serif font-medium text-stone-900 flex items-center gap-3 mb-12"><i
+                            data-lucide="alert-triangle" class="text-amber-500 w-6 h-6"></i> Critical Risks & Mitigation
+                    </h2>
+                    <div id="pitch-risks-grid" class="grid md:grid-cols-2 gap-12"></div>
+                </section>
+
+                <!-- CTA -->
+                <div class="py-20 text-center border-t border-stone-200 mt-20">
+                    <h2 class="text-3xl font-serif font-medium text-stone-900 mb-8">Ready to dive deeper?</h2>
+                    <button onclick="switchView('dossier')"
+                        class="inline-flex items-center gap-3 px-10 py-5 bg-stone-900 hover:bg-stone-800 text-white font-medium text-xl transition-all hover:scale-[1.02] shadow-xl rounded-sm cursor-pointer">
+                        Access Full Technical Dossier <i data-lucide="chevron-right"></i>
+                    </button>
+                    <p class="mt-6 text-stone-500 text-sm font-mono">Contains detailed protocols, simulation data, and
+                        expert contacts.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: FULL TECHNICAL DOSSIER -->
+        <!-- ========================================== -->
+        <div id="dossier-view" class="hidden min-h-screen bg-white">
+            <!-- Dossier Hero -->
+            <section class="relative w-full py-20 bg-stone-50 border-b border-stone-200">
+                <div class="max-w-4xl mx-auto px-6">
+                    <button onclick="switchView('pitch')"
+                        class="mb-8 flex items-center gap-2 text-sm font-medium text-stone-500 hover:text-amber-600 transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Executive Briefing
+                    </button>
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-xs font-bold uppercase tracking-wider mb-6">
+                        <i data-lucide="file-text" class="w-3 h-3"></i> Technical Dossier
+                    </div>
+                    <h1 id="dossier-title" class="text-4xl md:text-5xl font-serif font-medium text-stone-900 mb-6"></h1>
+                    <p id="dossier-oneliner" class="text-xl text-stone-600 font-light leading-relaxed"></p>
+
+                    <!-- Metadata Stats -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 border-t border-stone-200 pt-8">
+                        <div>
+                            <span class="text-[10px] font-mono uppercase text-stone-400 block mb-1">Novelty Score</span>
+                            <div class="flex gap-0.5"><i data-lucide="star"
+                                    class="w-4 h-4 fill-amber-400 text-amber-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-amber-400 text-amber-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-amber-400 text-amber-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-amber-400 text-amber-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-amber-400 text-amber-400"></i></div>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono uppercase text-stone-400 block mb-1">Impact Score</span>
+                            <div class="flex gap-0.5"><i data-lucide="star"
+                                    class="w-4 h-4 fill-emerald-400 text-emerald-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-emerald-400 text-emerald-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-emerald-400 text-emerald-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-emerald-400 text-emerald-400"></i><i data-lucide="star"
+                                    class="w-4 h-4 fill-emerald-400 text-emerald-400"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="max-w-4xl mx-auto px-6 py-20 space-y-24">
+
+                <!-- Mechanism Embodiment -->
+                <section class="space-y-6">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                            <i data-lucide="box" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-3xl font-serif font-medium text-stone-900">Mechanism Embodiment</h2>
+                    </div>
+
+                    <div class="p-8 border border-stone-200 bg-white shadow-sm mb-12 rounded-sm">
+                        <p id="dossier-embodiment-summary"
+                            class="text-lg font-serif italic text-stone-700 leading-relaxed"></p>
+                    </div>
+
+                    <h3 class="text-xl font-medium mb-6 text-stone-800 flex items-center gap-2">
+                        <i data-lucide="layers" class="w-5 h-5 text-purple-500"></i> Active Ingredients
+                    </h3>
+                    <div id="dossier-ingredients-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                </section>
+
+                <!-- Cross Domain Evidence -->
+                <section class="space-y-6 pt-16 border-t border-dashed border-stone-200">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div
+                            class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-3xl font-serif font-medium text-stone-900">Cross-Domain Evidence</h2>
+                    </div>
+                    <p id="dossier-evidence-summary" class="text-lg text-stone-600 mb-10 max-w-3xl leading-relaxed"></p>
+                    <div id="dossier-evidence-list" class="space-y-20"></div>
+                </section>
+
+                <!-- Breakthrough Potential -->
+                <section class="space-y-6 pt-16 border-t border-dashed border-stone-200">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div
+                            class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-3xl font-serif font-medium text-stone-900">Breakthrough Potential</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Novelty -->
+                        <div class="bg-amber-50/50 border border-amber-100 p-8 rounded-sm">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span
+                                    class="text-xs font-mono font-bold uppercase text-amber-700 bg-amber-100 px-2 py-1 rounded">Novelty
+                                    Analysis</span>
+                                <div id="dossier-novelty-score" class="flex gap-0.5"></div>
+                            </div>
+                            <h4 id="dossier-novelty-level"
+                                class="text-xl font-serif font-medium text-stone-900 mb-2 capitalize"></h4>
+                            <p id="dossier-novelty-justification" class="text-stone-700 leading-relaxed"></p>
+                        </div>
+                        <!-- Impact -->
+                        <div class="bg-emerald-50/50 border border-emerald-100 p-8 rounded-sm">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span
+                                    class="text-xs font-mono font-bold uppercase text-emerald-700 bg-emerald-100 px-2 py-1 rounded">Impact
+                                    Assessment</span>
+                                <div id="dossier-impact-score" class="flex gap-0.5"></div>
+                            </div>
+                            <h4 id="dossier-impact-magnitude"
+                                class="text-xl font-serif font-medium text-stone-900 mb-2 capitalize"></h4>
+                            <p id="dossier-impact-justification" class="text-stone-700 leading-relaxed"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Validation Workflow -->
+                <section class="space-y-6 pt-16 border-t border-dashed border-stone-200">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div
+                            class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+                            <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-3xl font-serif font-medium text-stone-900">Validation Protocol</h2>
+                    </div>
+                    <div id="dossier-validation-detailed" class="space-y-8"></div>
+                </section>
+
+                <!-- Ecosystem -->
+                <section class="space-y-6 pt-16 border-t border-dashed border-stone-200">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div
+                            class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+                            <i data-lucide="users" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-3xl font-serif font-medium text-stone-900">Innovation Ecosystem</h2>
+                    </div>
+
+                    <!-- Simpler Tabs -->
+                    <div class="flex gap-4 border-b border-stone-200 mb-8 overflow-x-auto pb-1">
+                        <button onclick="switchEcoTab('experts')" id="tab-experts"
+                            class="eco-tab active px-4 py-2 text-sm font-medium border-b-2 border-stone-900 text-stone-900">Leading
+                            Experts</button>
+                        <button onclick="switchEcoTab('orgs')" id="tab-orgs"
+                            class="eco-tab px-4 py-2 text-sm font-medium border-b-2 border-transparent text-stone-500 hover:text-stone-800">Organizations</button>
+                        <button onclick="switchEcoTab('collab')" id="tab-collab"
+                            class="eco-tab px-4 py-2 text-sm font-medium border-b-2 border-transparent text-stone-500 hover:text-stone-800">Collaborations</button>
+                    </div>
+
+                    <div id="eco-content-experts" class="eco-content block">
+                        <div id="dossier-experts-grid" class="grid md:grid-cols-2 gap-6"></div>
+                    </div>
+                    <div id="eco-content-orgs" class="eco-content hidden">
+                        <div id="dossier-orgs-grid" class="grid md:grid-cols-2 gap-6"></div>
+                    </div>
+                    <div id="eco-content-collab" class="eco-content hidden">
+                        <div id="dossier-collab-grid" class="grid md:grid-cols-2 gap-6"></div>
+                    </div>
+                </section>
+
+                <!-- Simulation -->
+                <section class="pt-16 border-t border-stone-200">
+                    <div class="flex items-center gap-3 mb-8">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600">
+                            <i data-lucide="monitor-play" class="w-5 h-5"></i>
+                        </div>
+                        <h2 class="text-3xl font-serif font-medium text-stone-900">Prototype Simulation</h2>
+                    </div>
+
+                    <!-- Embed -->
+                    <div
+                        class="w-full aspect-video bg-stone-900 rounded-lg border border-stone-800 relative overflow-hidden group mb-8">
+                        <iframe id="simulation-iframe" class="w-full h-full border-0 bg-white"
+                            sandbox="allow-same-origin allow-scripts"></iframe>
+                        <div id="simulation-placeholder"
+                            class="absolute inset-0 flex flex-col items-center justify-center p-6 bg-stone-900 hidden">
+                            <div class="text-stone-600 mb-4"><i data-lucide="monitor-off" class="w-12 h-12"></i></div>
+                            <p class="text-stone-400">Simulation visualization not available.</p>
+                        </div>
+                    </div>
+
+                    <div id="simulation-caption"
+                        class="prose prose-stone max-w-3xl mx-auto text-sm text-stone-600 mb-12"></div>
+
+                    <!-- Innovation Timeline -->
+                    <h3 class="text-lg font-bold text-stone-900 mb-6">Workflow Steps</h3>
+                    <div id="simulation-timeline" class="space-y-0 relative border-l-2 border-stone-200 ml-3"></div>
+                </section>
+            </div>
+            <!-- Footer -->
+            <footer
+                className="py-12 border-t border-neutral-200 dark:border-neutral-900 text-center text-neutral-500 text-sm">
+                <p class="text-center text-stone-400 text-sm py-10">Generated by Moonshot Engine</p>
+            </footer>
+        </div>
+
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const solutionId = urlParams.get('id');
+        const initialView = urlParams.get('view') || 'pitch';
+
+        // Helper to encode image paths
+        const fixImg = (path) => path ? encodeURI(path).replace(/'/g, '%27') : null;
+
+        const renderSource = (url) => url ? `<a href="${url}" target="_blank" class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 hover:bg-amber-50 border border-stone-200 hover:border-amber-300 rounded text-[10px] font-mono font-medium uppercase tracking-wider text-stone-500 hover:text-amber-700 transition-all">Source <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>` : '';
+
+        async function init() {
+            if (solutionId) {
+                await loadSolution(solutionId);
+            } else {
+                await loadIndex();
+            }
+        }
+
+        async function loadIndex() {
+            try {
+                const response = await fetch('data/solutions_index.json');
+                if (!response.ok) throw new Error("Failed to load index");
+                const data = await response.json();
+                renderIndex(data.solutions);
+                showApp();
+            } catch (e) {
+                console.warn(e);
+                document.getElementById('loading').innerHTML = `<p class="text-rose-600">Failed to load index. Ensure you ran the export script.</p>`;
+            }
+        }
+
+        function renderIndex(solutions) {
+            const app = document.getElementById('app');
+            app.innerHTML = `
+                <div class="max-w-7xl mx-auto px-6 py-20">
+                    <div class="mb-16 text-center">
+                         <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-sm bg-stone-900 text-stone-100 text-xs font-mono font-medium tracking-[0.15em] uppercase mb-6"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Static Export</div>
+                        <h1 class="text-5xl md:text-6xl font-serif font-medium text-stone-900 mb-6">Generated Solutions</h1>
+                        <p class="text-xl text-stone-500 font-serif italic max-w-2xl mx-auto">A complete archive of ${solutions.length} generated concepts.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        ${solutions.map(sol => `
+                            <a href="?id=${sol.id}" class="group bg-white border border-stone-200 rounded-sm overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col h-full">
+                                <div class="aspect-video bg-stone-100 relative overflow-hidden border-b border-stone-100">
+                                    ${sol.thumbnail ? `<img src="${fixImg(sol.thumbnail)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=No+Image'">` : `<div class="w-full h-full flex items-center justify-center text-stone-300"><i data-lucide="image" class="w-8 h-8"></i></div>`}
+                                    <div class="absolute top-3 right-3 bg-white/90 backdrop-blur border border-stone-200 px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-stone-600 rounded-sm">${sol.stage || 'Concept'}</div>
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <div class="mb-3">
+                                        <span class="text-[10px] font-mono font-medium uppercase tracking-wider text-amber-600 mb-2 block truncate">${sol.mechanism || 'Mechanism'}</span>
+                                        <h3 class="text-xl font-serif font-medium text-stone-900 group-hover:text-amber-700 transition-colors line-clamp-2">${sol.title}</h3>
+                                    </div>
+                                    <p class="text-sm text-stone-500 line-clamp-3 mb-6 flex-grow leading-relaxed">${sol.one_liner || 'No description available.'}</p>
+                                    <div class="flex items-center gap-2 text-xs font-medium text-stone-900 group-hover:translate-x-1 transition-transform border-t border-stone-100 pt-4 mt-auto">View Executive Briefing <i data-lucide="arrow-right" class="w-3 h-3"></i></div>
+                                </div>
+                            </a>`).join('')}
+                    </div>
+                </div>`;
+            lucide.createIcons();
+        }
+
+        async function loadSolution(id) {
+            try {
+                // Fetch full dossier (source of truth) and pitch
+                const [pitchRes, dossierRes] = await Promise.allSettled([
+                    fetch(`data/elevator_pitch_${id}.json`).then(r => r.ok ? r.json() : null),
+                    fetch(`data/solution_${id}.json`).then(r => r.ok ? r.json() : null)
+                ]);
+
+                const pitchJson = pitchRes.status === 'fulfilled' ? pitchRes.value : null;
+                const dossierJson = dossierRes.status === 'fulfilled' ? dossierRes.value : null;
+
+                if (!pitchJson && !dossierJson) throw new Error("No data found");
+
+                // Merge data logic similar to SolutionPage.tsx
+                // Use pitchJson usually, but fallback fields from dossier.executive_summary
+                let summaryData = pitchJson?.dossier || pitchJson || {};
+
+                // If pitch missing, extract from dossier
+                if (!summaryData.idea_name && dossierJson?.executive_summary) {
+                    summaryData = dossierJson.executive_summary.dossier || dossierJson.executive_summary;
+                }
+
+                // Images usually in dossier
+                let images = dossierJson?.visual_representation?.generated_images || [];
+                // Fix paths
+                images.forEach(img => img.path = fixImg(img.path));
+
+                populatePitchView(summaryData, images);
+                if (dossierJson) populateDossierView(dossierJson, summaryData);
+
+                showApp();
+                if (initialView === 'dossier') switchView('dossier');
+
+            } catch (e) {
+                console.error(e);
+                document.getElementById('error').classList.remove('hidden');
+                document.getElementById('loading').classList.add('hidden');
+            }
+        }
+
+        function populatePitchView(data, images) {
+            // Hero
+            document.getElementById('pitch-idea-name').textContent = data.idea_name || 'Untitled';
+            document.getElementById('pitch-tagline').textContent = data.tagline || '';
+            document.getElementById('pitch-one-liner').textContent = `"${data.one_liner || ''}"`;
+            document.getElementById('pitch-eli5').textContent = data.explain_like_i_am_5 || '';
+
+            // Problem Solving
+            if (data.how_it_solves_the_problem?.length) {
+                document.getElementById('pitch-problem-container').classList.remove('hidden');
+                document.getElementById('pitch-problem-list').innerHTML = data.how_it_solves_the_problem.map(item => `
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-12 py-8 border-b border-stone-200 last:border-0 group hover:bg-stone-50/50 transition-colors px-4 -mx-4 rounded-sm">
+                        <div class="md:w-1/3">
+                            <div class="flex items-center gap-2 mb-2"><i data-lucide="target" class="w-3 h-3 text-rose-400"></i><span class="text-[10px] font-mono font-medium uppercase tracking-wider text-stone-400">The Challenge</span></div>
+                            <p class="text-stone-800 text-lg font-serif italic leading-relaxed">"${item.problem_aspect}"</p>
+                        </div>
+                        <div class="md:w-2/3">
+                            <div class="flex items-center gap-2 mb-2"><span class="w-1.5 h-1.5 rounded-full bg-teal-500"></span><span class="text-[10px] font-mono font-medium uppercase tracking-wider text-stone-400">Technical Approach</span></div>
+                            <p class="text-stone-600 text-sm leading-relaxed font-sans">${item.how_it_solves}</p>
+                        </div>
+                    </div>`).join('');
+            }
+
+            // Content Sections
+            document.getElementById('pitch-mech-name').textContent = data.inspiration_mechanism_name || 'Unknown';
+            document.getElementById('pitch-scenario').textContent = data.inspiration_scenario || 'Unknown';
+            document.getElementById('pitch-connection').textContent = `"${data.inspiration_connection || ''}"`;
+            document.getElementById('pitch-description').textContent = data.description || '';
+
+            // Images
+            if (images.length) {
+                document.getElementById('pitch-visuals').classList.remove('hidden');
+                document.getElementById('pitch-images-grid').innerHTML = images.map(img => `
+                    <div class="flex flex-col gap-3 group">
+                        <div class="aspect-video bg-stone-100 rounded-sm overflow-hidden border border-stone-200 shadow-sm group-hover:shadow-md transition-all">
+                            <img src="${img.path}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                        </div>
+                        <div><h4 class="font-serif font-medium text-stone-900">${img.title || ''}</h4><p class="text-xs text-stone-500 font-mono mt-1">${img.description || ''}</p></div>
+                    </div>`).join('');
+            }
+
+            // How It Works
+            if (data.how_it_works?.length) {
+                document.getElementById('pitch-how-it-works').classList.remove('hidden');
+                document.getElementById('pitch-hiw-count').textContent = `0${data.how_it_works.length}`;
+                document.getElementById('pitch-hiw-grid').innerHTML = data.how_it_works.map((item, idx) => `
+                    <div class="group p-8 bg-white border border-stone-200 rounded-sm shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-amber-50 rounded-bl-full -mr-2 -mt-2 transition-transform group-hover:scale-110"></div>
+                        <span class="absolute top-5 right-5 text-2xl font-mono font-medium text-amber-300 group-hover:text-amber-500 transition-colors">0${idx + 1}</span>
+                        <h3 class="text-xl font-serif font-medium text-stone-900 mb-4 pr-8 relative z-10">${item.header}</h3>
+                        <p class="text-stone-600 leading-relaxed relative z-10">${item.description}</p>
+                    </div>`).join('');
+            }
+
+            // Feasibility
+            if (data.feasibility_evidence?.length || data.main_claims?.length) {
+                document.getElementById('pitch-feasibility').classList.remove('hidden');
+                if (data.feasibility_summary) {
+                    document.getElementById('pitch-feasibility-summary').classList.remove('hidden');
+                    document.querySelector('#pitch-feasibility-summary p').textContent = `"${data.feasibility_summary}"`;
+                }
+                document.getElementById('pitch-feasibility-grid').innerHTML = (data.feasibility_evidence || []).map(item => `
+                    <div class="p-6 bg-white border border-stone-200 rounded-sm shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-3">
+                            <span class="text-[10px] font-mono font-medium uppercase tracking-wider text-stone-900 bg-stone-100 px-2 py-0.5 rounded-sm">${item.domain}</span>
+                            ${renderSource(item.source_url)}
+                        </div>
+                        <p class="text-sm text-stone-700 leading-relaxed mb-4">${item.evidence}</p>
+                        ${(item.takeaway || item.how_it_solves) ? `
+                        <div class="bg-stone-50 rounded-sm p-3 space-y-2 border border-stone-100 mt-auto">
+                            ${item.takeaway ? `<div><span class="text-[10px] font-mono font-medium uppercase text-stone-400 block">Key Insight</span><p class="text-xs font-medium text-stone-800">${item.takeaway}</p></div>` : ''}
+                            ${item.how_it_solves ? `<div><span class="text-[10px] font-mono font-medium uppercase text-amber-700 block">Relevance</span><p class="text-xs text-stone-600">${item.how_it_solves}</p></div>` : ''}
+                        </div>` : ''}
+                    </div>`).join('');
+
+                document.getElementById('pitch-claims-list').innerHTML = (data.main_claims || []).map(claim => `
+                    <div class="grid md:grid-cols-12 gap-6 p-6 bg-white border border-stone-200 rounded-sm shadow-sm items-center hover:border-amber-300 transition-colors">
+                        <div class="md:col-span-12 lg:col-span-5"><h3 class="text-lg font-medium text-stone-900">${claim.claim}</h3></div>
+                        <div class="md:col-span-12 lg:col-span-5"><p class="text-sm text-stone-600">${claim.evidence}</p></div>
+                        <div class="md:col-span-12 lg:col-span-2 text-right">${renderSource(claim.source_url)}</div>
+                    </div>`).join('');
+            }
+
+            // Validation
+            if (data.validation_tests?.length) {
+                document.getElementById('pitch-validation').classList.remove('hidden');
+                document.getElementById('pitch-validation-grid').innerHTML = data.validation_tests.map((test, idx) => `
+                    <div class="bg-white rounded-sm p-8 border border-stone-200 shadow-sm hover:shadow-md hover:border-emerald-200 transition-all flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-stone-100">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i><span class="font-mono text-xs font-medium uppercase tracking-wider text-emerald-700">Test Protocol 0${idx + 1}</span>
+                        </div>
+                        <h3 class="font-serif font-medium text-stone-900 text-xl mb-3">${test.test_name}</h3>
+                        <p class="text-stone-600 text-sm mb-6 flex-grow">${test.what_it_validates}</p>
+                        <div class="bg-stone-50 p-4 rounded-sm border border-stone-100 space-y-3">
+                            <div><span class="text-[10px] font-mono font-medium uppercase text-stone-400 block mb-1">Method</span><p class="text-stone-800 text-xs font-medium">${test.how_to_run}</p></div>
+                            <div><span class="text-[10px] font-mono font-medium uppercase text-stone-400 block mb-1">Target Outcome</span><p class="text-emerald-700 text-xs font-mono font-medium">${test.success_criteria}</p></div>
+                        </div>
+                    </div>`).join('');
+            }
+
+            // Differentiation
+            if (data.competitive_landscape_summary || data.competitors?.length) {
+                document.getElementById('pitch-differentiation').classList.remove('hidden');
+                if (data.competitive_landscape_summary) document.getElementById('pitch-market-summary').textContent = `"${data.competitive_landscape_summary}"`;
+
+                if (data.our_key_differentiator) {
+                    document.getElementById('pitch-edge-card').classList.remove('hidden');
+                    document.getElementById('pitch-edge-text').textContent = data.our_key_differentiator;
+                }
+                if (data.our_key_weakness) {
+                    document.getElementById('pitch-weakness-card').classList.remove('hidden');
+                    document.getElementById('pitch-weakness-text').textContent = `"${data.our_key_weakness}"`;
+                }
+
+                document.getElementById('pitch-competitors-list').innerHTML = (data.competitors || []).map(comp => `
+                    <div class="bg-white border border-stone-200 p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex justify-between items-start mb-3">
+                            <div><h5 class="font-medium text-stone-900 text-xl">${comp.name}</h5><p class="text-xs text-stone-500 mt-1">${comp.description}</p></div>
+                            ${renderSource(comp.source_url)}
+                        </div>
+                        <div class="grid grid-cols-2 gap-6 my-6 p-4 bg-stone-50 rounded-sm border border-stone-100">
+                            <div><span class="text-[10px] uppercase font-mono font-medium text-emerald-600 mb-1 block flex items-center gap-1"><i data-lucide="check-circle-2" class="w-3 h-3"></i> Strengths</span><p class="text-xs text-stone-700 leading-snug">${comp.strengths}</p></div>
+                            <div><span class="text-[10px] uppercase font-mono font-medium text-rose-500 mb-1 block flex items-center gap-1"><i data-lucide="x-circle" class="w-3 h-3"></i> Limitations</span><p class="text-xs text-stone-700 leading-snug">${comp.limitations}</p></div>
+                        </div>
+                        <div class="flex gap-3 items-start"><div class="mt-1 p-1 bg-stone-100 rounded text-stone-600"><i data-lucide="trending-up" class="w-4 h-4 shrink-0"></i></div><p class="text-sm text-stone-700 font-medium leading-relaxed"><span class="font-mono text-stone-900 block text-[10px] uppercase tracking-wide mb-0.5">Vs Our Solution</span>${comp.how_we_compare}</p></div>
+                    </div>`).join('');
+            }
+
+            // Risks
+            if (data.key_risks?.length) {
+                document.getElementById('pitch-risks').classList.remove('hidden');
+                document.getElementById('pitch-risks-grid').innerHTML = data.key_risks.map((risk, idx) => `
+                    <div>
+                        <div class="flex items-start gap-4 mb-4">
+                            <span class="text-sm font-mono font-medium text-amber-700 bg-amber-50 px-2 py-1 rounded-sm border border-amber-100">Risk 0${idx + 1}</span>
+                            <h3 class="text-xl font-medium text-stone-900 leading-tight">${risk.risk}</h3>
+                        </div>
+                        <div class="space-y-4 pl-0">
+                            <div class="bg-stone-50 p-6 rounded-sm border border-stone-200">
+                                <span class="text-[10px] font-mono font-medium uppercase text-stone-500 mb-2 block">Mitigation Strategy</span>
+                                <p class="text-stone-800 leading-relaxed font-medium">${risk.mitigation}</p>
+                            </div>
+                            <div class="flex justify-between items-center gap-4 pl-2">
+                                <p class="text-xs text-stone-500 italic">Evidence: "${risk.evidence}"</p>
+                                ${renderSource(risk.source_url)}
+                            </div>
+                        </div>
+                    </div>`).join('');
+            }
+        }
+
+        function populateDossierView(dossier, summary) {
+            document.getElementById('dossier-title').textContent = summary.idea_name || 'Technical Dossier';
+            document.getElementById('dossier-oneliner').textContent = summary.one_liner || '';
+
+            // --- 1. Mechanism Embodiment ---
+            const emb = dossier.mechanism_embodiment;
+            if (emb) {
+                document.getElementById('dossier-embodiment-summary').innerText = `"${emb.mechanism_embodiment_summary || 'No summary available.'}"`;
+
+                if (emb.active_ingredients?.length) {
+                    document.getElementById('dossier-ingredients-grid').innerHTML = emb.active_ingredients.map(ing => `
+                        <div class="p-6 rounded-sm border border-stone-200 bg-stone-50 hover:bg-white hover:shadow-md transition-all">
+                            <h4 class="font-bold text-lg text-stone-900 mb-2">${ing.ingredient_name}</h4>
+                            <p class="text-sm text-stone-600 mb-4 line-clamp-2">${ing.one_line_description}</p>
+                            <p class="text-sm text-stone-500 leading-relaxed">${ing.detailed_description}</p>
+                            ${ing.mechanism_link ? `
+                                <div class="mt-4 pt-4 border-t border-stone-200">
+                                    <span class="text-[10px] font-mono font-bold text-blue-600 uppercase tracking-wider">Mechanism Function</span>
+                                    <p class="text-xs text-stone-500 mt-1">${ing.mechanism_link}</p>
+                                </div>` : ''}
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // --- 2. Cross Domain Evidence ---
+            const cross = dossier.cross_domain_evidence;
+            if (cross) {
+                document.getElementById('dossier-evidence-summary').innerText = cross.executive_summary || '';
+
+                if (cross.cross_domain_instances?.length) {
+                    document.getElementById('dossier-evidence-list').innerHTML = cross.cross_domain_instances.map(instance => `
+                        <div class="group relative pl-8 border-l-2 border-stone-200 hover:border-emerald-500 transition-colors">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-stone-100 border-2 border-stone-300 group-hover:border-emerald-500 transition-colors"></div>
+                            
+                            <div class="mb-3">
+                                <h3 class="text-xl font-bold text-stone-900 flex items-center gap-2">
+                                    ${instance.domain_name}
+                                    <span class="text-stone-300 font-light">/</span>
+                                    <span class="font-medium text-emerald-700">${instance.application_context}</span>
+                                </h3>
+                            </div>
+                            
+                            <p class="text-stone-600 mb-6 leading-relaxed">${instance.implementation_description}</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm mb-4">
+                                <div class="bg-stone-50 p-4 rounded border border-stone-100">
+                                    <span class="block text-[10px] font-mono font-bold text-stone-400 uppercase mb-2">Success Indicators</span>
+                                    <ul class="list-disc list-inside text-stone-600 space-y-1 text-xs">
+                                        ${(instance.success_indicators || []).map(s => `<li>${s}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                <div class="bg-stone-50 p-4 rounded border border-stone-100">
+                                    <span class="block text-[10px] font-mono font-bold text-stone-400 uppercase mb-2">Lessons Learned</span>
+                                    <ul class="list-disc list-inside text-stone-600 space-y-1 text-xs">
+                                        ${(instance.lessons_learned || []).map(l => `<li>${l}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            ${instance.evidence_sources?.length ? `
+                                <div class="flex flex-wrap items-center gap-2 mt-4">
+                                    <span class="text-xs font-bold text-stone-400 font-mono uppercase">Sources:</span>
+                                    ${instance.evidence_sources.map(s => `<a href="${s.url}" target="_blank" class="text-xs flex items-center gap-1 text-blue-600 hover:underline bg-blue-50 px-2 py-0.5 rounded-full transition-colors"><i data-lucide="external-link" class="w-3 h-3"></i> ${s.title ? s.title.substring(0, 30) + '...' : 'Link'}</a>`).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // --- 3. Breakthrough Potential ---
+            const bp = dossier.breakthrough_potential;
+            if (bp) {
+                // Stars renderer
+                const renderStars = (score, colorClass) => {
+                    let html = '';
+                    for (let i = 0; i < 5; i++) {
+                        html += `<i data-lucide="star" class="w-4 h-4 ${i < score ? 'fill-' + colorClass : 'text-stone-300'} text-${colorClass}"></i>`;
+                    }
+                    return html;
+                };
+
+                const novelty = bp.novelty_analysis || {};
+                document.getElementById('dossier-novelty-score').innerHTML = renderStars(novelty.novelty_score || 0, 'amber-400');
+                document.getElementById('dossier-novelty-level').innerText = novelty.novelty_level || 'Moderate';
+                document.getElementById('dossier-novelty-justification').innerText = novelty.novelty_justification || '';
+
+                const impact = bp.breakthrough_analysis || {};
+                document.getElementById('dossier-impact-score').innerHTML = renderStars(impact.impact_score || 0, 'emerald-400');
+                document.getElementById('dossier-impact-magnitude').innerText = impact.impact_magnitude || 'High';
+                document.getElementById('dossier-impact-justification').innerText = impact.impact_justification || '';
+            }
+
+            // --- 4. Validation Workflow ---
+            const val = dossier.validation_workflow;
+            if (val && val.validation_tests) {
+                document.getElementById('dossier-validation-detailed').innerHTML = val.validation_tests.map((test, idx) => `
+                    <div class="border border-stone-200 rounded-sm overflow-hidden hover:shadow-md transition-shadow">
+                        <div class="bg-stone-50 p-4 border-b border-stone-200 flex justify-between items-center">
+                            <h3 class="font-bold text-stone-900 flex items-center gap-2">
+                                <span class="bg-white border border-stone-200 px-2 py-0.5 rounded text-xs font-mono text-stone-500">Test ${idx + 1}</span>
+                                ${test.name}
+                            </h3>
+                            <span class="text-[10px] font-bold uppercase tracking-wider ${test.priority === 'Critical' ? 'text-rose-600 bg-rose-50' : 'text-blue-600 bg-blue-50'} px-2 py-1 rounded border ${test.priority === 'Critical' ? 'border-rose-100' : 'border-blue-100'}">${test.priority || 'Standard'} Priority</span>
+                        </div>
+                        <div class="p-6 grid md:grid-cols-2 gap-8">
+                            <div>
+                                <span class="text-[10px] font-mono font-bold uppercase text-stone-400 block mb-2">Purpose</span>
+                                <p class="text-sm text-stone-700 leading-relaxed">${test.purpose}</p>
+                            </div>
+                            <div>
+                                <span class="text-[10px] font-mono font-bold uppercase text-stone-400 block mb-2">Methodology</span>
+                                <p class="text-sm text-stone-700 leading-relaxed">${test.methodology}</p>
+                            </div>
+                            <div class="md:col-span-2 bg-emerald-50/50 p-4 rounded border border-emerald-100/50">
+                                <span class="text-[10px] font-mono font-bold uppercase text-emerald-600 block mb-1">Success Criteria</span>
+                                <p class="text-sm font-medium text-emerald-900 leading-relaxed font-mono">${test.success_criteria}</p>   
+                            </div>
+                        </div>
+                    </div>`).join('');
+            }
+
+            // --- 5. Ecosystem ---
+            const eco = dossier.expert_identification;
+            if (eco) {
+                // Experts
+                if (eco.top_experts?.length) {
+                    document.getElementById('dossier-experts-grid').innerHTML = eco.top_experts.map(exp => `
+                        <div class="bg-stone-50 border border-stone-200 rounded-sm p-6 hover:border-indigo-300 transition-colors">
+                            <div class="flex justify-between items-start mb-4">
+                                <div><h4 class="font-bold text-lg text-stone-900">${exp.name}</h4><p class="text-xs text-stone-500">${exp.position} • ${exp.affiliation}</p></div>
+                                ${exp.profile_url ? `<a href="${exp.profile_url}" target="_blank" class="p-2 bg-white rounded-full text-stone-400 hover:text-indigo-600 border border-stone-200 hover:border-indigo-300 transition-all"><i data-lucide="external-link" class="w-4 h-4"></i></a>` : ''}
+                            </div>
+                            <p class="text-sm text-stone-600 mb-4">${exp.why_good_fit}</p>
+                            <div class="flex flex-wrap gap-2 pt-4 border-t border-stone-200">
+                                ${(exp.expertise || []).map(t => `<span class="px-2 py-1 bg-white border border-stone-200 rounded text-[10px] text-stone-500 font-mono uppercase">${t}</span>`).join('')}
+                            </div>
+                        </div>`).join('');
+                }
+
+                // Orgs
+                if (eco.relevant_organizations?.length) {
+                    document.getElementById('dossier-orgs-grid').innerHTML = eco.relevant_organizations.map(org => `
+                        <div class="bg-stone-50 border border-stone-200 rounded-sm p-6 hover:border-indigo-300 transition-colors">
+                            <div class="flex justify-between items-start mb-4">
+                                <div><h4 class="font-bold text-lg text-stone-900">${org.name}</h4><p class="text-xs text-stone-500 flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i> ${org.location} • ${org.type}</p></div>
+                                ${org.website ? `<a href="${org.website}" target="_blank" class="p-2 bg-white rounded-full text-stone-400 hover:text-indigo-600 border border-stone-200 hover:border-indigo-300 transition-all"><i data-lucide="external-link" class="w-4 h-4"></i></a>` : ''}
+                            </div>
+                            <p class="text-sm text-stone-600 mb-4 border-l-2 border-indigo-400 pl-3 bg-indigo-50 py-1">${org.why_good_fit}</p>
+                            ${org.work_done?.length ? `
+                            <div class="mt-4">
+                                <span class="text-[10px] font-mono font-bold uppercase text-stone-400 block mb-1">Recent Activity</span>
+                                <ul class="list-disc list-inside text-xs text-stone-600 space-y-1">${org.work_done.map(w => `<li>${w}</li>`).join('')}</ul>
+                            </div>` : ''}
+                        </div>`).join('');
+                }
+
+                // Collaborations
+                if (eco.collaboration_opportunities?.length) {
+                    document.getElementById('dossier-collab-grid').innerHTML = eco.collaboration_opportunities.map(col => `
+                        <div class="bg-white border border-stone-200 p-6 rounded-sm shadow-sm relative overflow-hidden group">
+                           <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity"><i data-lucide="handshake" class="w-12 h-12 text-indigo-500"></i></div>
+                           <span class="inline-block px-2 py-1 bg-indigo-50 text-indigo-600 text-[10px] font-bold uppercase tracking-wider mb-2 rounded border border-indigo-100">${col.opportunity_type.replace(/_/g, ' ')}</span>
+                           <h3 class="text-lg font-bold text-stone-900 mb-4">${col.target}</h3>
+                           <p class="text-sm text-stone-600 mb-4">${col.rationale}</p>
+                           <div class="pt-4 border-t border-stone-100">
+                                <span class="text-[10px] font-mono font-bold uppercase text-emerald-600 block mb-1">Recommended Approach</span>
+                                <p class="text-xs text-stone-500 italic">"${col.approach}"</p>
+                           </div>
+                        </div>`).join('');
+                }
+            }
+
+            // --- 6. Simulation ---
+            const threed = dossier.visual_representation?.threed_simulation;
+            const workflow = dossier.simulation_workflow;
+
+            // Iframe
+            if (threed && threed.html_path) {
+                // Remove API prefix, use relative path from JSON
+                // The export logic sets it to 'data/simulations/foo.html'
+                document.getElementById('simulation-iframe').src = threed.html_path;
+            } else {
+                document.getElementById('simulation-iframe').classList.add('hidden');
+                document.getElementById('simulation-placeholder').classList.remove('hidden');
+            }
+
+            // Caption
+            if (threed && threed.caption) {
+                document.getElementById('simulation-caption').innerHTML = marked.parse(threed.caption);
+            }
+
+            // Timeline
+            if (workflow && workflow.simulation_steps) {
+                document.getElementById('simulation-timeline').innerHTML = workflow.simulation_steps.map((step, idx) => `
+                    <div class="mb-8 pl-6 relative">
+                        <span class="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-stone-300 border-2 border-white"></span>
+                        <h4 class="font-bold text-stone-900 mb-1 flex items-center gap-2">
+                            Step ${idx + 1}: ${step.step_name}
+                            ${step.duration ? `<span class="text-[10px] font-mono font-normal text-stone-400 bg-stone-100 px-1.5 py-0.5 rounded">${step.duration}</span>` : ''}
+                        </h4>
+                        <p class="text-sm text-stone-600">${step.description}</p>
+                        ${step.active_agent ? `<div class="mt-2 text-xs font-mono text-stone-500 flex items-center gap-1"><i data-lucide="bot" class="w-3 h-3"></i> Agent: ${step.active_agent}</div>` : ''}
+                    </div>`).join('');
+            } else if (typeof workflow === 'string') {
+                // Fallback for raw text
+                document.getElementById('simulation-timeline').innerHTML = `<p class="whitespace-pre-wrap font-mono text-xs text-stone-600 bg-stone-50 p-4 rounded border border-stone-200">${workflow}</p>`;
+            }
+        }
+
+        function switchEcoTab(tabId) {
+            // Update buttons
+            document.querySelectorAll('.eco-tab').forEach(b => {
+                b.classList.remove('border-stone-900', 'text-stone-900');
+                b.classList.add('border-transparent', 'text-stone-500');
+            });
+            const activeBtn = document.getElementById('tab-' + tabId);
+            activeBtn.classList.remove('border-transparent', 'text-stone-500');
+            activeBtn.classList.add('border-stone-900', 'text-stone-900');
+
+            // Update content
+            document.querySelectorAll('.eco-content').forEach(c => c.classList.add('hidden'));
+            document.getElementById('eco-content-' + tabId).classList.remove('hidden');
+        }
+
+        function switchView(viewName) {
+            const pitchView = document.getElementById('elevator-pitch-view');
+            const dossierView = document.getElementById('dossier-view');
+            if (viewName === 'dossier') {
+                pitchView.classList.add('hidden');
+                dossierView.classList.remove('hidden');
+                window.scrollTo(0, 0);
+                updateUrl('dossier');
+            } else {
+                dossierView.classList.add('hidden');
+                pitchView.classList.remove('hidden');
+                window.scrollTo(0, 0);
+                updateUrl('pitch');
+            }
+        }
+
+        function updateUrl(view) {
+            if (!solutionId) return;
+            const url = new URL(window.location);
+            url.searchParams.set('view', view);
+            window.history.pushState({}, '', url);
+        }
+
+        function showApp() {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('app').classList.remove('hidden');
+            setTimeout(() => document.getElementById('app').classList.remove('opacity-0'), 50);
+            lucide.createIcons();
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>
