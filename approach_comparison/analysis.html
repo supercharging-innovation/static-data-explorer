@@ -1,0 +1,3408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparison Analysis | Transfer Building Blocks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1c1917;
+      --ink-secondary: #44403c;
+      --ink-tertiary: #78716c;
+      --paper: #fafaf9;
+      --paper-tinted: #f5f5f4;
+      --rule: #e7e5e4;
+      --rule-dark: #d6d3d1;
+      --accent: #b45309;
+      --accent-muted: #d97706;
+      --positive: #166534;
+      --positive-bg: #dcfce7;
+      --negative: #991b1b;
+      --negative-bg: #fee2e2;
+      --neutral: #1e40af;
+      --neutral-bg: #dbeafe;
+
+      --font-display: 'Newsreader', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --measure: 68ch;
+      --measure-wide: 90ch;
+      --nav-height: 56px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      font-size: clamp(15px, 1vw + 12px, 18px);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .top-nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--ink-tertiary);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--rule);
+      z-index: 99;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.1s;
+    }
+
+    /* Floating section indicator */
+    .section-indicator {
+      position: fixed;
+      top: calc(var(--nav-height) + 24px);
+      right: 2rem;
+      z-index: 90;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 1rem;
+      font-size: 0.75rem;
+      opacity: 0;
+      transform: translateX(20px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      max-width: 200px;
+    }
+
+    .section-indicator.visible {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: auto;
+    }
+
+    .section-indicator-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-indicator-title {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .section-indicator nav {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .section-indicator nav a {
+      display: block;
+      font-size: 0.6875rem;
+      color: var(--ink-tertiary);
+      text-decoration: none;
+      padding: 0.25rem 0;
+    }
+
+    .section-indicator nav a:hover {
+      color: var(--ink);
+    }
+
+    .section-indicator nav a.current {
+      color: var(--accent);
+    }
+
+    @media (max-width: 1100px) {
+      .section-indicator {
+        display: none;
+      }
+    }
+
+    /* Main content */
+    .container {
+      max-width: calc(var(--measure-wide) + 4rem);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .container--narrow {
+      max-width: calc(var(--measure) + 4rem);
+    }
+
+    /* Section anchors */
+    .section-anchor {
+      scroll-margin-top: calc(var(--nav-height) + 2rem);
+    }
+
+    /* Header */
+    header {
+      padding: calc(var(--nav-height) + 4rem) 0 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .header-meta {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+      margin-bottom: 2rem;
+    }
+
+    .header-intro {
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: var(--ink-secondary);
+      max-width: var(--measure);
+    }
+
+    /* Quick jump nav */
+    .quick-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .quick-jump a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-tertiary);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--rule);
+      transition: all 0.15s;
+    }
+
+    .quick-jump a:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* Big number callout */
+    .headline-stat {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .headline-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 800px) {
+      .headline-stat-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .headline-number {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 400;
+      line-height: 0.85;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+
+    .headline-number span {
+      font-size: 0.4em;
+      vertical-align: super;
+    }
+
+    .headline-context h2 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .headline-context p {
+      color: var(--ink-secondary);
+      max-width: 45ch;
+    }
+
+    .headline-supporting {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+
+    .supporting-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .supporting-stat strong {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+
+    .supporting-stat span {
+      font-size: 0.8125rem;
+      color: var(--ink-tertiary);
+    }
+
+    /* Section headers */
+    .section-header {
+      padding: 4rem 0 2rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 3rem;
+    }
+
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--ink-tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    /* Prose */
+    .prose {
+      max-width: var(--measure);
+    }
+
+    .prose p {
+      margin-bottom: 1.5rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Metrics list */
+    .metrics-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      margin: 3rem 0;
+    }
+
+    .metric-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    @media (max-width: 600px) {
+      .metric-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+    .metric-item dt {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+
+    .metric-item dt.highlight {
+      color: var(--accent);
+    }
+
+    .metric-item dd {
+      font-size: 0.9375rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Data table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.875rem;
+    }
+
+    .data-table th {
+      text-align: left;
+      font-weight: 600;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid var(--ink);
+      white-space: nowrap;
+    }
+
+    .data-table th:first-child {
+      padding-left: 0;
+    }
+
+    .data-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+
+    .data-table td:first-child {
+      padding-left: 0;
+      font-weight: 500;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .data-table .num {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+    }
+
+    .data-table .num.high { color: var(--positive); }
+    .data-table .num.mid { color: var(--ink-secondary); }
+    .data-table .num.low { color: var(--negative); }
+
+    .data-table .delta {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--positive);
+    }
+
+    .data-table .delta.neg { color: var(--negative); }
+
+    /* Pull quote */
+    .pull-quote {
+      margin: 3rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-style: italic;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    .pull-quote cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-style: normal;
+      color: var(--ink-tertiary);
+    }
+
+    /* Two-column findings */
+    .findings-duo {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      margin: 3rem 0;
+      padding: 2rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    @media (max-width: 700px) {
+      .findings-duo {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .finding-block h3 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .finding-block p {
+      font-size: 0.9375rem;
+      color: var(--ink-secondary);
+    }
+
+    .finding-block.positive h3 { color: var(--positive); }
+    .finding-block.negative h3 { color: var(--negative); }
+
+    /* =========================================
+       PAIR ANALYSIS SECTION - SCROLLYTELLING
+       ========================================= */
+
+    .pairs-section {
+      border-top: 2px solid var(--ink);
+    }
+
+    /* Sticky pair header */
+    .pair-sticky-header {
+      position: sticky;
+      top: var(--nav-height);
+      background: var(--paper);
+      z-index: 40;
+      border-bottom: 1px solid var(--rule);
+      padding: 1rem 0;
+    }
+
+    .pair-sticky-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .pair-sticky-title {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .pair-sticky-title .pair-num {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .pair-sticky-title h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    .pair-sticky-nav {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .pair-sticky-nav a {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--ink-tertiary);
+      text-decoration: none;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+
+    .pair-sticky-nav a:hover {
+      color: var(--ink);
+    }
+
+    .pair-sticky-nav a.active {
+      color: var(--ink);
+      border-bottom-color: var(--accent);
+    }
+
+    @media (max-width: 800px) {
+      .pair-sticky-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .pair-sticky-nav {
+        overflow-x: auto;
+        width: 100%;
+        padding-bottom: 0.5rem;
+      }
+    }
+
+    /* Pair content */
+    .pair-content {
+      padding: 3rem 0;
+    }
+
+    /* Pair intro */
+    .pair-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 3rem;
+    }
+
+    @media (max-width: 700px) {
+      .pair-intro {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .pair-intro-left .pair-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .pair-intro-left h4 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .pair-intro-left .mechanism-name {
+      font-size: 1rem;
+      color: var(--ink-secondary);
+    }
+
+    .context-block {
+      margin-bottom: 2rem;
+    }
+
+    .context-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .context-block h5 {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      margin-bottom: 0.75rem;
+    }
+
+    .context-block p {
+      font-size: 0.9375rem;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    .context-block .eli5 {
+      margin-top: 0.75rem;
+      font-style: italic;
+      color: var(--ink-tertiary);
+      font-size: 0.875rem;
+    }
+
+    /* Subsection within pair */
+    .pair-subsection {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pair-subsection:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .pair-subsection h5 {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Solutions list */
+    .solution-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 2fr;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+
+    @media (max-width: 600px) {
+      .solution-row {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+    }
+
+    .solution-row:first-of-type {
+      border-top: 1px solid var(--rule);
+    }
+
+    .solution-id {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--ink-tertiary);
+    }
+
+    .solution-id.a1 { color: var(--positive); }
+    .solution-id.a2 { color: var(--neutral); }
+
+    .solution-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+    }
+
+    .solution-concept {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Scores table */
+    .scores-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+    }
+
+    .scores-table th {
+      text-align: center;
+      font-weight: 600;
+      padding: 0.5rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 0.75rem;
+    }
+
+    .scores-table th:first-child {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    .scores-table td {
+      text-align: center;
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--font-mono);
+    }
+
+    .scores-table td:first-child {
+      text-align: left;
+      padding-left: 0;
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    .scores-table tr.highlight-row td {
+      background: var(--paper-tinted);
+      font-weight: 600;
+    }
+
+    .scores-table tr:last-child td {
+      border-bottom: 2px solid var(--ink);
+      font-weight: 600;
+    }
+
+    .scores-table .a1 { color: var(--positive); }
+    .scores-table .a2 { color: var(--neutral); }
+
+    /* Solution details - expandable */
+    .solution-detail {
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 0;
+    }
+
+    .solution-detail:last-child {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .solution-detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .investment-subsection-header {
+      margin-top: 2rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-tertiary);
+      margin-bottom: 1rem;
+    }
+
+    .mt-2 {
+      margin-top: 2rem;
+    }
+
+    .solution-detail-header h6 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 400;
+    }
+
+    .solution-detail-header h6 .tag {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      margin-right: 0.75rem;
+    }
+
+    .solution-detail-header h6 .tag.a1 { color: var(--positive); }
+    .solution-detail-header h6 .tag.a2 { color: var(--neutral); }
+
+    .solution-detail-header .toggle-btn {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--ink-tertiary);
+      background: none;
+      border: 1px solid var(--rule);
+      cursor: pointer;
+      transition: transform 0.2s, background 0.15s;
+    }
+
+    .solution-detail-header .toggle-btn:hover {
+      background: var(--paper-tinted);
+    }
+
+    .solution-detail.open .toggle-btn {
+      transform: rotate(45deg);
+    }
+
+    .solution-detail-body {
+      display: none;
+      padding-top: 1.5rem;
+    }
+
+    .solution-detail.open .solution-detail-body {
+      display: block;
+    }
+
+    .solution-description {
+      font-size: 0.9375rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.5rem;
+      max-width: var(--measure);
+    }
+
+    .innovations-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .innovation {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .innovation strong {
+      display: block;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .innovation span {
+      font-size: 0.8125rem;
+      color: var(--ink-tertiary);
+    }
+
+    .eval-grid {
+      display: grid;
+      gap: 0;
+    }
+
+    .eval-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--rule);
+    }
+
+    @media (max-width: 600px) {
+      .eval-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+    .eval-metric {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .eval-metric-label {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .eval-metric-score {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      margin-top: 0.25rem;
+    }
+
+    .eval-metric-score.high { color: var(--positive); }
+    .eval-metric-score.mid { color: var(--ink-secondary); }
+    .eval-metric-score.low { color: var(--negative); }
+
+    .eval-reasoning {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    /* Key findings box */
+    .key-findings {
+      padding: 2rem;
+      border: 1px solid var(--rule-dark);
+      background: var(--paper-tinted);
+    }
+
+    .key-findings h5 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .key-findings ul {
+      list-style: none;
+    }
+
+    .key-findings li {
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--rule);
+      font-size: 0.9375rem;
+      color: var(--ink-secondary);
+    }
+
+    .key-findings li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .key-findings li strong {
+      color: var(--ink);
+    }
+
+    /* Investment recommendations */
+    .investment-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .investment-item:first-of-type {
+      border-top: 1px solid var(--rule);
+    }
+
+    .investment-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .investment-header strong {
+      font-size: 0.9375rem;
+    }
+
+    .investment-tier {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .investment-tier.primary { color: var(--positive); }
+    .investment-tier.secondary { color: var(--neutral); }
+    .investment-tier.exploratory { color: var(--accent); }
+    .investment-tier.skip { color: var(--negative); }
+
+    .investment-item p {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Pair divider */
+    .pair-divider {
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pair-divider-line {
+      width: 60px;
+      height: 2px;
+      background: var(--rule-dark);
+    }
+
+    /* =========================================
+       FINAL RECOMMENDATIONS SECTION
+       ========================================= */
+
+    .recommendations-section {
+      border-top: 2px solid var(--ink);
+      padding: 4rem 0;
+    }
+
+    .approach-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin: 3rem 0;
+      padding: 2rem 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    @media (max-width: 700px) {
+      .approach-comparison {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .approach-col h4 {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .approach-col.positive h4 { border-bottom-color: var(--positive); }
+    .approach-col.neutral h4 { border-bottom-color: var(--neutral); }
+
+    .approach-col ul {
+      list-style: none;
+    }
+
+    .approach-col li {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+      padding: 0.5rem 0;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .approach-col li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--ink-tertiary);
+    }
+
+    /* Final recs tiers */
+    .rec-tier {
+      margin-bottom: 3rem;
+    }
+
+    .rec-tier h4 {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .rec-tier.t1 h4 { color: var(--positive); border-bottom-color: var(--positive); }
+    .rec-tier.t2 h4 { color: var(--neutral); border-bottom-color: var(--neutral); }
+    .rec-tier.t3 h4 { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .rec-list {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .rec-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr auto;
+      gap: 2rem;
+      padding: 0.75rem 0;
+      align-items: baseline;
+    }
+
+    @media (max-width: 700px) {
+      .rec-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
+      }
+    }
+
+    .rec-item strong {
+      font-size: 0.9375rem;
+    }
+
+    .rec-item .pair-ref {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--ink-tertiary);
+      display: block;
+    }
+
+    .rec-item .rationale {
+      font-size: 0.875rem;
+      color: var(--ink-secondary);
+    }
+
+    .rec-item .risk {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      color: var(--ink-tertiary);
+      white-space: nowrap;
+    }
+
+    /* Conclusion */
+    .conclusion {
+      padding: 4rem 0;
+      border-top: 2px solid var(--ink);
+      margin-top: 4rem;
+    }
+
+    .conclusion-statement {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.35;
+      max-width: 36ch;
+      margin-bottom: 2rem;
+    }
+
+    .conclusion-strategy {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    @media (max-width: 700px) {
+      .conclusion-strategy {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .strategy-point h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .strategy-point p {
+      font-size: 0.8125rem;
+      color: var(--ink-secondary);
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 60;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 4rem;
+    }
+
+    .footer-text {
+      font-size: 0.75rem;
+      color: var(--ink-tertiary);
+      text-align: center;
+    }
+
+    /* Scroll reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="index.html" class="nav-brand">Transfer Building Blocks</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Architecture</a></li>
+        <li><a href="analysis.html" class="active">Analysis</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Progress bar -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- Floating section indicator -->
+  <div class="section-indicator" id="sectionIndicator">
+    <p class="section-indicator-label">You're reading</p>
+    <p class="section-indicator-title" id="indicatorTitle">—</p>
+    <nav id="indicatorNav"></nav>
+  </div>
+
+  <main>
+    <!-- Header -->
+    <header id="top">
+      <div class="container">
+        <p class="header-meta">Research Analysis · 27 Solutions · 5 Problem-Mechanism Pairs</p>
+        <h1>Transfer Building Blocks vs. Solution Deep Dive</h1>
+        <p class="header-intro">A rigorous evaluation of two approaches to mechanism-inspired innovation, comparing solutions across seven dimensions with evidence-based reasoning.</p>
+
+        <nav class="quick-jump">
+          <a href="#headline">Key Finding</a>
+          <a href="#framework">Metrics</a>
+          <a href="#aggregate">Data</a>
+          <a href="#pair1">Pair 1</a>
+          <a href="#pair2">Pair 2</a>
+          <a href="#pair3">Pair 3</a>
+          <a href="#pair4">Pair 4</a>
+          <a href="#pair5">Pair 5</a>
+          <a href="#recommendations">Recommendations</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================================
+         OVERVIEW SECTION
+         ========================================= -->
+
+    <!-- Big Number -->
+    <section class="headline-stat section-anchor" id="headline">
+      <div class="container">
+        <div class="headline-stat-grid reveal">
+          <div class="headline-number">+348<span>%</span></div>
+          <div class="headline-context">
+            <h2>Mechanism Fidelity Advantage</h2>
+            <p>Transfer Building Blocks maintains faithful alignment with source mechanisms. Solution Deep Dive consistently abandons them.</p>
+            <div class="headline-supporting">
+              <div class="supporting-stat">
+                <strong>+49%</strong>
+                <span>Higher Novelty</span>
+              </div>
+              <div class="supporting-stat">
+                <strong>+44%</strong>
+                <span>Breakthrough Potential</span>
+              </div>
+              <div class="supporting-stat">
+                <strong>100%</strong>
+                <span>TBB High-Fidelity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Explanation -->
+    <section class="section-anchor" id="framework">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <p class="section-number">01</p>
+          <h2>Evaluation Framework</h2>
+        </div>
+
+        <div class="prose reveal">
+          <p>Each solution was evaluated by an expert R&D assessor across seven dimensions. Scores range from 1-10, accompanied by evidence-based justification.</p>
+        </div>
+
+        <dl class="metrics-list reveal">
+          <div class="metric-item">
+            <dt>Novelty</dt>
+            <dd>Scientific originality. Does this represent genuinely new combinations, or recombination of known approaches?</dd>
+          </div>
+          <div class="metric-item">
+            <dt>Breakthrough Potential</dt>
+            <dd>If successful, does this open new application spaces or fundamentally change the paradigm?</dd>
+          </div>
+          <div class="metric-item">
+            <dt>Impact</dt>
+            <dd>Commercial value and breadth of application if the solution works.</dd>
+          </div>
+          <div class="metric-item">
+            <dt>Feasibility</dt>
+            <dd>Technical risk and manufacturing readiness. Are required technologies established?</dd>
+          </div>
+          <div class="metric-item">
+            <dt class="highlight">Mechanism Fidelity</dt>
+            <dd>Does the solution faithfully transfer the source mechanism's core principle? This proved to be the critical differentiator.</dd>
+          </div>
+          <div class="metric-item">
+            <dt>Problem Fit</dt>
+            <dd>How directly does the solution address the stated problem?</dd>
+          </div>
+          <div class="metric-item">
+            <dt>Ease of Conception</dt>
+            <dd>Could a typical R&D expert arrive at this through standard thinking? Lower = better IP defensibility.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Aggregate Comparison -->
+    <section class="section-anchor" id="aggregate">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-number">02</p>
+          <h2>Aggregate Comparison</h2>
+        </div>
+
+        <table class="data-table reveal">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Approach 1 (TBB)</th>
+              <th>Approach 2 (SDD)</th>
+              <th>Delta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Novelty</td>
+              <td><span class="num high">8.2</span></td>
+              <td><span class="num mid">5.5</span></td>
+              <td><span class="delta">+49%</span></td>
+            </tr>
+            <tr>
+              <td>Breakthrough Potential</td>
+              <td><span class="num high">7.9</span></td>
+              <td><span class="num mid">5.5</span></td>
+              <td><span class="delta">+44%</span></td>
+            </tr>
+            <tr>
+              <td>Impact</td>
+              <td><span class="num high">7.6</span></td>
+              <td><span class="num mid">5.6</span></td>
+              <td><span class="delta">+36%</span></td>
+            </tr>
+            <tr>
+              <td>Feasibility</td>
+              <td><span class="num mid">5.3</span></td>
+              <td><span class="num mid">5.8</span></td>
+              <td><span class="delta neg">-9%</span></td>
+            </tr>
+            <tr>
+              <td>Mechanism Fidelity</td>
+              <td><span class="num high">9.4</span></td>
+              <td><span class="num low">2.1</span></td>
+              <td><span class="delta">+348%</span></td>
+            </tr>
+            <tr>
+              <td>Problem Fit</td>
+              <td><span class="num high">8.1</span></td>
+              <td><span class="num mid">5.0</span></td>
+              <td><span class="delta">+62%</span></td>
+            </tr>
+            <tr>
+              <td>Ease of Conception</td>
+              <td><span class="num low">2.5</span></td>
+              <td><span class="num mid">5.8</span></td>
+              <td><span class="delta neg">-57%</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="findings-duo reveal">
+          <div class="finding-block positive">
+            <h3>100% of TBB solutions scored 9-10 on mechanism fidelity</h3>
+            <p>Every Approach 1 solution (11/11) explicitly implements the source mechanism's core principle.</p>
+          </div>
+          <div class="finding-block negative">
+            <h3>100% of SDD solutions scored below 5 on mechanism fidelity</h3>
+            <p>Every Approach 2 solution (16/16) abandons the source mechanism for known engineering approaches.</p>
+          </div>
+        </div>
+
+        <div class="pull-quote reveal">
+          <p>Mechanism fidelity predicts innovation quality. Solutions that faithfully transfer the mechanism score ~50% higher on novelty and breakthrough potential.</p>
+          <cite>Analysis of 27 solutions across 5 problem-mechanism pairs</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         PAIR-BY-PAIR ANALYSIS - SCROLLYTELLING
+         ========================================= -->
+    <section class="pairs-section">
+
+      <!-- PAIR 1 -->
+      <article class="section-anchor" id="pair1" data-pair="1">
+        <div class="pair-sticky-header">
+          <div class="container">
+            <div class="pair-sticky-inner">
+              <div class="pair-sticky-title">
+                <span class="pair-num">PAIR 1 OF 5</span>
+                <h3>Capillary-Locked Lubricating Film</h3>
+              </div>
+              <nav class="pair-sticky-nav">
+                <a href="#p1-context" class="active">Context</a>
+                <a href="#p1-solutions">Solutions</a>
+                <a href="#p1-scores">Scores</a>
+                <a href="#p1-deep">Details</a>
+                <a href="#p1-findings">Findings</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="pair-content">
+          <div class="container">
+            <div class="pair-intro section-anchor" id="p1-context">
+              <div class="pair-intro-left reveal">
+                <p class="pair-label">Problem Domain</p>
+                <h4>Soft-Touch Chemical Resistance</h4>
+                <p class="mechanism-name">How can a soft material resist chemical attack without rigid coatings?</p>
+              </div>
+              <div class="pair-intro-right reveal">
+                <div class="context-block">
+                  <h5>Mechanism</h5>
+                  <p>A micro-textured surface uses capillary forces to immobilize a liquid layer, preventing direct contact with the underlying solid.</p>
+                  <p class="eli5">Like tiny grooves filled with oil that stay slippery—surface tension keeps the liquid in place as a protective barrier.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p1-solutions">
+              <h5>Solutions Generated</h5>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-1</span>
+                <span class="solution-name">One-Pot Self-Assembly SLIPS</span>
+                <span class="solution-concept">Co-formulate polymer with surface-segregating anchor + blooming fluorinated lubricant</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-2</span>
+                <span class="solution-name">Hydraulic Shunting Composite</span>
+                <span class="solution-concept">Hierarchical re-entrant pores with laterally interconnected micro-reservoirs</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-1</span>
+                <span class="solution-name">Visco-Textured Composite</span>
+                <span class="solution-concept">Sandwich composite with viscous gel base + oleophobic textured top</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-2</span>
+                <span class="solution-name">Nano-Skin Hybrid Foam</span>
+                <span class="solution-concept">Ultra-thin nanofiber mesh that buckles to transmit foam softness</span>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p1-scores">
+              <h5>Comparative Scores</h5>
+              <table class="scores-table reveal">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th class="a1">A1-1</th>
+                    <th class="a1">A1-2</th>
+                    <th class="a2">A2-1</th>
+                    <th class="a2">A2-2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Novelty</td><td class="a1">8</td><td class="a1">9</td><td class="a2">5</td><td class="a2">7</td></tr>
+                  <tr><td>Breakthrough</td><td class="a1">8</td><td class="a1">9</td><td class="a2">6</td><td class="a2">7</td></tr>
+                  <tr><td>Impact</td><td class="a1">9</td><td class="a1">8</td><td class="a2">7</td><td class="a2">6</td></tr>
+                  <tr><td>Feasibility</td><td class="a1">7</td><td class="a1">5</td><td class="a2">8</td><td class="a2">4</td></tr>
+                  <tr class="highlight-row"><td>Mechanism Fidelity</td><td class="a1">10</td><td class="a1">10</td><td class="a2">3</td><td class="a2">2</td></tr>
+                  <tr><td>Problem Fit</td><td class="a1">9</td><td class="a1">8</td><td class="a2">7</td><td class="a2">6</td></tr>
+                  <tr><td>Ease of Conception</td><td class="a1">4</td><td class="a1">2</td><td class="a2">7</td><td class="a2">5</td></tr>
+                  <tr><td>Average</td><td class="a1">7.9</td><td class="a1">7.3</td><td class="a2">6.1</td><td class="a2">5.3</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p1-deep">
+              <h5>Solution Deep Dives</h5>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-1</span> One-Pot Self-Assembly SLIPS</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Formulate the soft polymer with a fluorinated oligomer lubricant and a surface-segregating anchor agent. Mold the surface with a micro-texture. The anchor agent primes the texture to wet the fluorinated lubricant, which blooms from the matrix to capillary-lock into the texture, creating a stable, lipophobic barrier.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>One-Pot Self-Assembly</strong><span>Eliminates multi-step SLIPS fabrication</span></div>
+                    <div class="innovation"><strong>Intrinsic Replenishment</strong><span>Bulk acts as lifetime reservoir</span></div>
+                    <div class="innovation"><strong>Compliance-Decoupled Protection</strong><span>Liquid interface maintains flexibility</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">The "one-pot" integration of SLIPS components into a masterbatch is genuinely novel. Traditional SLIPS require fabricate → functionalize → infuse steps. This approach embeds all three into the base material formulation. Academic literature on SLIPS focuses on post-processing; this is a manufacturing paradigm shift.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">If successful, this creates self-replenishing soft-touch materials with inherent chemical resistance - a new product category. The combination solves the core conflict (soft + chemically resistant) that the industry has struggled with.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">High commercial value for cosmetics packaging, personal care products, medical devices. Could displace existing coated solutions with a fundamentally superior approach.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Each component (surface-segregating additives, blooming lubricants, micro-texture molding) exists in industrial practice. The novel integration is plausible but requires careful compatibility engineering. Trade-offs (haptics, PFAS regulations) are acknowledged and manageable.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">10/10</span></div>
+                      <p class="eval-reasoning">Perfect alignment. Uses capillary locking explicitly. The micro-texture creates the capillary geometry; the lubricant is immobilized by capillary forces; the liquid layer prevents direct solid contact. All elements of the source mechanism are faithfully transferred.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Directly addresses chemical resistance of soft materials without rigid coatings. The self-replenishment aspect even exceeds the problem requirements by adding durability.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">An R&D expert familiar with both SLIPS and polymer additives might eventually converge on this, but the specific combination of surface-segregating anchors + blooming lubricants + capillary texture is non-obvious. Requires cross-domain expertise in polymer science and surface physics.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-2</span> Hydraulic Shunting Composite</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Soft-touch material with compliant core and integral skin featuring hierarchical, re-entrant pore structure. Subsurface micro-reservoirs are laterally interconnected, allowing fluid to redistribute internally during compression rather than ejecting.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Hydraulic Shunting</strong><span>Internal lateral redistribution during compression</span></div>
+                    <div class="innovation"><strong>Soft-Matter Capillary Locking</strong><span>Adapts ink-bottle geometry to elastomers</span></div>
+                    <div class="innovation"><strong>Dynamic Barrier Self-Healing</strong><span>Liquid barrier flows back to heal defects</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">The "hydraulic shunting" concept - internal lateral redistribution to prevent pressure-induced lubricant ejection - is highly novel. This addresses a known failure mode of SLIPS under compression that remains an open research problem. The combination with soft elastomers is unprecedented.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Solves the critical pressure-failure problem of liquid-infused surfaces on compressible substrates. If validated, this opens SLIPS technology to applications currently inaccessible (touchable soft surfaces, medical devices, wearables).</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Slightly narrower application space than A1-1 due to higher manufacturing complexity, but would be transformative for premium segments requiring both softness and durability under repeated touch.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Creating hierarchical re-entrant pores in elastomers is significantly more challenging than A1-1. HIPE polymerization and breath-figure techniques cited are real but not yet demonstrated at scale for this specific geometry. Higher technical risk.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">10/10</span></div>
+                      <p class="eval-reasoning">Excellent alignment. Uses capillary locking (ink-bottle geometry), liquid-layer barrier, and extends the mechanism by addressing its failure mode under compression. The extension is mechanism-consistent rather than mechanism-divergent.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Addresses the problem well, but the polar fluid choice (PEG) creates water vulnerability - a trade-off not present in the original problem framing.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Highly non-obvious. Requires deep understanding of SLIPS failure modes, hierarchical pore physics, and soft matter mechanics. The lateral interconnection insight is particularly creative. An expert would need to specifically study SLIPS failure under compression to arrive at this solution.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-1</span> Visco-Textured Composite</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Sandwich composite combining sealed high-hysteresis viscous gel base for damping with re-entrant micro-textured top layer coated in bio-based oleophobic finish.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Sandwich composites with soft cores and protective skins are well-established. Re-entrant micro-textures for oleophobicity are published. Bio-based oleophobic finishes exist. The combination is incrementally novel but uses known building blocks in expected ways.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Provides a practical solution but doesn't fundamentally change the paradigm. The "haptic illusion" framing is clever marketing but doesn't represent a scientific breakthrough.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Commercially viable for near-term products. TRL 7 suggests manufacturing readiness. Would compete as a better-engineered version of existing solutions rather than a new category.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">High feasibility due to use of established techniques. Main risk is micro-pillar demolding at scale, which is an engineering rather than science challenge.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Poor alignment with "Capillary-Locked Lubricating Film." The solution uses a viscous gel (not a capillary-locked liquid layer) and micro-texture (for oleophobicity, not capillary locking). The protective mechanism is a solid coating with finish, not an immobilized liquid interface. This is a conventional composite, not a SLIPS-inspired design.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Solves the problem through encapsulation rather than the specified mechanism. The soft gel under a protective skin is a valid engineering approach but bypasses the mechanism's insights.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">A competent packaging engineer would likely arrive at this "sandwich" approach through standard design thinking. The specific gel + texture combination requires some expertise but follows obvious design patterns.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-2</span> Nano-Skin Hybrid Foam</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Ultra-thin (&lt;10 micron) discontinuous nanofiber mesh or polymer skin applied via electrospinning or CVD that buckles upon pressure to transmit underlying foam softness.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">The "buckling skin" concept that transmits underlying foam softness is creative. Electrospun nano-skins are established technology, but the specific application to soft-touch with buckling mechanics is less common.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">If the "graded interface" tie-layer problem is solved, this enables true decoupling of chemical resistance and haptics. The concept is scientifically interesting.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Limited to ultra-premium segment due to CVD/electrospinning costs. TRL 4 indicates significant development work needed. Narrow commercial path.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">High risk. The delamination problem under shear is acknowledged but not solved. The graded interface tie-layer is proposed as a solution but is itself a research challenge. Manufacturing at scale is uncertain.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Very poor alignment. The solution uses a solid (albeit ultra-thin) nanofiber mesh - not a liquid layer, not capillary-locked, and not preventing contact through a slippery interface. The buckling mechanism is mechanical, not surface-physics-based. This is fundamentally a coating approach, not a SLIPS transfer.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Partially addresses the problem but introduces new failure modes (delamination) and manufacturing constraints. The foam + skin architecture adds complexity without leveraging the mechanism's elegance.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">The "thin buckling skin" concept is relatively accessible to materials scientists familiar with flexible electronics or filtration membranes. The specific application requires some creativity.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p1-findings">
+              <div class="key-findings reveal">
+                <h5>Key Findings — Pair 1</h5>
+                <ul>
+                  <li><strong>Perfect mechanism transfer in A1:</strong> Both solutions (10/10 fidelity) use capillary locking, liquid-layer barriers. A1-2 even extends the mechanism by addressing its compression failure mode.</li>
+                  <li><strong>Mechanism abandonment in A2:</strong> A2-1 uses viscous gel (not capillary-locked), A2-2 uses solid nanofiber mesh. Neither transfers the mechanism.</li>
+                </ul>
+              </div>
+
+              <h5 class="investment-subsection-header">Investment Recommendations</h5>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-1: One-Pot Self-Assembly SLIPS</strong><span class="investment-tier primary">Primary</span></div>
+                <p>Best novelty/feasibility balance. One-pot formulation is differentiated IP with clear path to scale.</p>
+              </div>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-2: Hydraulic Shunting</strong><span class="investment-tier exploratory">Exploratory</span></div>
+                <p>Higher risk but addresses fundamental unsolved problem. If successful, opens new application spaces.</p>
+              </div>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A2-1, A2-2</strong><span class="investment-tier skip">Skip</span></div>
+                <p>Neither transfers source mechanism. Both could be developed without mechanism inspiration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="pair-divider"><div class="pair-divider-line"></div></div>
+
+      <!-- PAIR 2 -->
+      <article class="section-anchor" id="pair2" data-pair="2">
+        <div class="pair-sticky-header">
+          <div class="container">
+            <div class="pair-sticky-inner">
+              <div class="pair-sticky-title">
+                <span class="pair-num">PAIR 2 OF 5</span>
+                <h3>Composite Gradient Interphase</h3>
+              </div>
+              <nav class="pair-sticky-nav">
+                <a href="#p2-context" class="active">Context</a>
+                <a href="#p2-solutions">Solutions</a>
+                <a href="#p2-scores">Scores</a>
+                <a href="#p2-deep">Details</a>
+                <a href="#p2-findings">Findings</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="pair-content">
+          <div class="container">
+            <div class="pair-intro section-anchor" id="p2-context">
+              <div class="pair-intro-left reveal">
+                <p class="pair-label">Problem Domain</p>
+                <h4>Soft-Touch via Structural Gradient</h4>
+                <p class="mechanism-name">Creating heterogeneous domain structures to manage conflicting requirements</p>
+              </div>
+              <div class="pair-intro-right reveal">
+                <div class="context-block">
+                  <h5>Mechanism</h5>
+                  <p>A structural transition zone with heterogeneous domains (dense granules in porous matrix) bridges incompatible phases via gradient.</p>
+                  <p class="eli5">Like a sponge with hard bits scattered through—hard bits block chemicals while soft parts stay flexible.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p2-solutions">
+              <h5>Solutions Generated</h5>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-1</span>
+                <span class="solution-name">Surface-Localized Mosaic Crystallization</span>
+                <span class="solution-concept">Non-crystallizable surface-segregating additives force formation of discrete crystalline granules at surface</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-2</span>
+                <span class="solution-name">Sub-Surface Dense Mosaic Layer</span>
+                <span class="solution-concept">Self-stratifying additives organize into mosaic of dense micro-domains below surface</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-1</span>
+                <span class="solution-name">Hybrid A ("Fruit-Ribs")</span>
+                <span class="solution-concept">Geometric metamaterial using chemically inert polymer with honeycomb rib structure</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-2</span>
+                <span class="solution-name">Hybrid B ("Induction-Vitrimer")</span>
+                <span class="solution-concept">Induction-cured vitrimer skins with rapid crosslinking</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-3</span>
+                <span class="solution-name">Vitrimer Baseline</span>
+                <span class="solution-concept">Standard thermal oven curing for vitrimer chemistry</span>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p2-scores">
+              <h5>Comparative Scores</h5>
+              <table class="scores-table reveal">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th class="a1">A1-1</th>
+                    <th class="a1">A1-2</th>
+                    <th class="a2">A2-1</th>
+                    <th class="a2">A2-2</th>
+                    <th class="a2">A2-3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Novelty</td><td class="a1">8</td><td class="a1">7</td><td class="a2">5</td><td class="a2">6</td><td class="a2">3</td></tr>
+                  <tr><td>Breakthrough</td><td class="a1">8</td><td class="a1">7</td><td class="a2">5</td><td class="a2">6</td><td class="a2">4</td></tr>
+                  <tr><td>Impact</td><td class="a1">8</td><td class="a1">7</td><td class="a2">6</td><td class="a2">6</td><td class="a2">5</td></tr>
+                  <tr><td>Feasibility</td><td class="a1">6</td><td class="a1">7</td><td class="a2">7</td><td class="a2">5</td><td class="a2">8</td></tr>
+                  <tr class="highlight-row"><td>Mechanism Fidelity</td><td class="a1">9</td><td class="a1">8</td><td class="a2">2</td><td class="a2">1</td><td class="a2">1</td></tr>
+                  <tr><td>Problem Fit</td><td class="a1">8</td><td class="a1">8</td><td class="a2">5</td><td class="a2">5</td><td class="a2">5</td></tr>
+                  <tr><td>Ease of Conception</td><td class="a1">3</td><td class="a1">4</td><td class="a2">6</td><td class="a2">5</td><td class="a2">8</td></tr>
+                  <tr><td>Average</td><td class="a1">7.1</td><td class="a1">6.9</td><td class="a2">5.1</td><td class="a2">4.9</td><td class="a2">4.9</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p2-deep">
+              <h5>Solution Deep Dives</h5>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-1</span> Surface-Localized Mosaic Crystallization</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">A soft-touch material with Surface-Localized Mosaic Crystallization and Gradient Density Transition Zone. Uses non-crystallizable surface-segregating additives to force formation of discrete crystalline granules at the surface, creating a "mosaic" of hard domains within a soft matrix.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Inverted Gradient Interphase</strong><span>Places dense mosaic at surface for external protection</span></div>
+                    <div class="innovation"><strong>Additive-Driven Microstructuring</strong><span>Uses additives as structural templates</span></div>
+                    <div class="innovation"><strong>Decoupled Functionality</strong><span>Achieves resistance + compliance in single step</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">The use of "non-crystallizable" additives to force crystallization into discontinuous domains is scientifically interesting. This inverts typical crystallization suppression approaches and creates structured heterogeneity. The concept of using additives as structural templates rather than just chemical modifiers is a paradigm shift.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">If the mosaic crystallization can be controlled, this enables a new class of materials with spatially-programmed properties from a single formulation. The self-assembly aspect is particularly valuable for manufacturing.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">High value for soft-touch applications requiring both compliance and chemical resistance. Single-step processing significantly reduces manufacturing cost vs. coating approaches.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Crystallization control at surfaces is established in polymer science (nucleating agents, cooling gradients). The specific "mosaic" morphology is more challenging to achieve consistently. Requires careful additive selection and processing window optimization.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Excellent alignment. Creates genuine "heterogeneous domains" (crystalline granules in amorphous matrix) that bridge phases. The gradient is achieved through surface-directed crystallization. The mosaic structure distributes function across domains exactly as the mechanism describes.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Addresses chemical resistance through crystalline barriers while maintaining bulk flexibility. The mosaic joints allow deformation without barrier fracture.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Non-obvious. Requires knowledge of polymer crystallization physics, surface-segregating additive chemistry, and the insight to use crystallization as a structuring tool. Most R&D experts would approach this through coatings rather than in-situ structuring.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-2</span> Sub-Surface Dense Mosaic Layer</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Self-stratifying additives organize into a mosaic of dense micro-domains arranged in a vertical concentration gradient peaking slightly below the surface. Creates a "buried barrier" that preserves natural tactile properties.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Sub-Surface Positioning</strong><span>Buries the hard barrier to preserve tactile feel</span></div>
+                    <div class="innovation"><strong>Mosaic Flexibility</strong><span>Discontinuous micro-domains survive flexing</span></div>
+                    <div class="innovation"><strong>Spontaneous Formation</strong><span>Leverages self-stratification, no coating step</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Sub-surface barrier placement is a clever inversion of typical coating approaches. Self-stratifying additives are known, but using them to create buried gradients with specific peak positions is less common.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">The "invisible barrier" concept that doesn't affect surface feel could enable premium haptics with hidden protection. Less dramatic than A1-1 but still valuable.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Strong value proposition for applications where surface feel is paramount (cosmetics packaging, high-end electronics). The "feels natural, performs protected" positioning is compelling.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Self-stratifying additive systems are commercially available (some fluorosurfactants, silicone-modified polymers). Controlling the gradient profile is more challenging but within reach of standard formulation development.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Good alignment. Creates heterogeneous domains (mosaic micro-domains) in a gradient arrangement. The sub-surface positioning is a creative extension of the mechanism rather than a deviation.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Addresses chemical resistance while explicitly preserving "natural tactile properties" - a direct response to the premium feel requirement in the problem statement.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Requires understanding of stratification physics and the insight that barrier placement affects haptics. Less obvious than coatings, but follows from knowledge of multi-component polymer systems.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-1</span> Hybrid A ("Fruit-Ribs")</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Geometric metamaterial using high-modulus, chemically inert polymer with high-density micro-honeycomb rib structure for structural compliance and variable-thickness "fruit skin" layer.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Honeycomb/rib structures for mechanical compliance are well-established in aerospace and packaging. The "fruit-rib" analogy is illustrative but doesn't add technical novelty. Using hard polymers with mechanical softness is a known approach.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Incremental improvement on structural foam/honeycomb technology. Doesn't fundamentally change the material landscape.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Could reduce chemical vulnerability by eliminating soft chemistry entirely. Limited by the geometric constraints of honeycomb structures on curved/complex surfaces.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">TRL 6 suggests reasonable manufacturing readiness. Honeycomb micro-molding is established. Main challenge is achieving sufficient geometric resolution for soft feel.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Poor alignment with "Composite Gradient Interphase." The solution uses geometric compliance (ribs bending), not heterogeneous domains bridging phases. There's no gradient, no interphase, no distributed functionality across domains - it's a structural engineering approach.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Solves chemical resistance by avoiding soft chemistry, but doesn't actually make a "soft" material - it makes a hard material that feels soft through geometry. This is a valid engineering solution but sidesteps the core problem.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">A mechanical engineer would readily consider geometric compliance as an alternative to material softness. Standard design thinking for load-bearing structures.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-2</span> Hybrid B ("Induction-Vitrimer")</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Rapid induction curing to create high-performance vitrimer skins. Resin doped with iron oxide susceptors, scanned by induction coil for rapid crosslinking.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Induction heating for polymer curing is established (automotive joining). Vitrimers are hot research area. The combination for surface skinning is somewhat novel but follows obvious technology trends.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Enables faster vitrimer processing (98% cycle time reduction claimed), which could make vitrimers commercially viable for mass production. This is manufacturing innovation, not material innovation.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Primarily a manufacturing advantage. The resulting material properties (vitrimer skin) are achieved through faster means, but not better means. Value is in process economics.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">TRL 4 with high risk. Induction field uniformity over complex geometries is challenging. Iron oxide susceptor dispersion must be precisely controlled. IR feedback loop adds complexity.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">1/10</span></div>
+                      <p class="eval-reasoning">No alignment. This is a processing technology for vitrimers, not a gradient interphase. There are no heterogeneous domains, no structural transition zone, no distributed functionality. The solution doesn't engage with the mechanism at all.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Vitrimers can provide chemical resistance and recyclability, but this solution focuses on how to make vitrimers faster, not on why vitrimers solve the soft-touch problem better than alternatives.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">An engineer familiar with vitrimers and induction heating would connect these technologies. Requires cross-domain knowledge but follows logical technical paths.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-3</span> Vitrimer Baseline</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Standard thermal oven curing for vitrimer chemistry. Parts molded then racked in batch ovens for 20-40 minutes.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Minimal novelty. Standard vitrimer processing using established batch oven curing. This is essentially "use vitrimers as they're typically made."</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Provides vitrimer benefits (recyclability, chemical resistance) but through conventional means. No breakthrough, just technology adoption.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Vitrimer adoption would be valuable, but the slow cycle time (20-40 min) limits commercial viability in high-volume manufacturing. This is explicitly positioned as a "fallback."</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">TRL 6, low risk. Standard processing with known equipment. The "safe" option that works but isn't exciting.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">1/10</span></div>
+                      <p class="eval-reasoning">No alignment with "Composite Gradient Interphase." Vitrimers create crosslinked networks, not heterogeneous domain structures. No gradient, no interphase, no distributed functionality.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Vitrimers can provide chemical resistance, but the solution doesn't explain how this addresses the soft-touch requirement. Vitrimers aren't inherently soft.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Obvious to anyone following the vitrimer literature. "Use vitrimers for chemical resistance" is a straightforward technology scouting conclusion.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p2-findings">
+              <div class="key-findings reveal">
+                <h5>Key Findings — Pair 2</h5>
+                <ul>
+                  <li><strong>Zero mechanism fidelity in A2:</strong> A2-1 uses geometric compliance (ribs), A2-2 focuses on induction heating, A2-3 is standard vitrimer. None creates heterogeneous domain gradients.</li>
+                  <li><strong>A1 uses self-assembly:</strong> A1-1's mosaic crystallization creates actual heterogeneous domains. A1-2's sub-surface gradient implements transition zone. Both faithful to mechanism.</li>
+                </ul>
+              </div>
+
+              <h5 class="investment-subsection-header">Investment Recommendations</h5>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-1: Surface-Localized Mosaic Crystallization</strong><span class="investment-tier primary">Primary</span></div>
+                <p>Highest novelty and mechanism fidelity. "Additive-as-template" concept has broad platform potential.</p>
+              </div>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>All A2 Solutions</strong><span class="investment-tier skip">Skip</span></div>
+                <p>None transfers the mechanism. A2-1 is structural engineering, A2-2/A2-3 are vitrimer processing variants.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="pair-divider"><div class="pair-divider-line"></div></div>
+
+      <!-- PAIR 3 -->
+      <article class="section-anchor" id="pair3" data-pair="3">
+        <div class="pair-sticky-header">
+          <div class="container">
+            <div class="pair-sticky-inner">
+              <div class="pair-sticky-title">
+                <span class="pair-num">PAIR 3 OF 5</span>
+                <h3>Boundary-Modulated Phase Differentiation</h3>
+              </div>
+              <nav class="pair-sticky-nav">
+                <a href="#p3-context" class="active">Context</a>
+                <a href="#p3-solutions">Solutions</a>
+                <a href="#p3-scores">Scores</a>
+                <a href="#p3-standout">Details</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="pair-content">
+          <div class="container">
+            <div class="pair-intro section-anchor" id="p3-context">
+              <div class="pair-intro-left reveal">
+                <p class="pair-label">Problem Domain</p>
+                <h4>Soft-Touch via Phase Control</h4>
+                <p class="mechanism-name">Using boundary conditions to create distinct functional zones</p>
+              </div>
+              <div class="pair-intro-right reveal">
+                <div class="context-block">
+                  <h5>Mechanism</h5>
+                  <p>A single homogeneous material creates distinct zones (dense skin vs. cellular core) by using boundary conditions to locally suppress or enable phase change.</p>
+                  <p class="eli5">Like bread crust forming—same dough, but heat differences make outside hard while inside stays soft.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p3-solutions">
+              <h5>Solutions Generated</h5>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-1</span>
+                <span class="solution-name">Optical Gradient Dual-Cure Foam</span>
+                <span class="solution-concept">UV-transparent mold creates optical gradient that suppresses foaming at surface, thermal cure creates foam core</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-1</span>
+                <span class="solution-name">GCP-Densified PFAS-Free Network</span>
+                <span class="solution-concept">Gas Counter-Pressure to suppress blowing agents mechanically</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-2</span>
+                <span class="solution-name">Structural Softness Metamaterial</span>
+                <span class="solution-concept">Rigid polymers molded into micro-lattice/auxetic structures</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-3</span>
+                <span class="solution-name">Thermally-Driven Segregation</span>
+                <span class="solution-concept">Variotherm control drives slip agents to surface</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-4</span>
+                <span class="solution-name">Silicone-Hybrid GCP</span>
+                <span class="solution-concept">Silicone-hybrid chemistry with Gas Counter-Pressure</span>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p3-scores">
+              <h5>Comparative Scores</h5>
+              <table class="scores-table reveal">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th class="a1">A1-1</th>
+                    <th class="a2">A2-1</th>
+                    <th class="a2">A2-2</th>
+                    <th class="a2">A2-3</th>
+                    <th class="a2">A2-4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Novelty</td><td class="a1">9</td><td class="a2">4</td><td class="a2">6</td><td class="a2">4</td><td class="a2">4</td></tr>
+                  <tr><td>Breakthrough</td><td class="a1">9</td><td class="a2">5</td><td class="a2">7</td><td class="a2">4</td><td class="a2">4</td></tr>
+                  <tr><td>Impact</td><td class="a1">8</td><td class="a2">6</td><td class="a2">6</td><td class="a2">5</td><td class="a2">5</td></tr>
+                  <tr><td>Feasibility</td><td class="a1">6</td><td class="a2">7</td><td class="a2">4</td><td class="a2">9</td><td class="a2">6</td></tr>
+                  <tr class="highlight-row"><td>Mechanism Fidelity</td><td class="a1">10</td><td class="a2">3</td><td class="a2">1</td><td class="a2">4</td><td class="a2">2</td></tr>
+                  <tr><td>Problem Fit</td><td class="a1">9</td><td class="a2">6</td><td class="a2">5</td><td class="a2">5</td><td class="a2">5</td></tr>
+                  <tr><td>Ease of Conception</td><td class="a1">2</td><td class="a2">7</td><td class="a2">5</td><td class="a2">8</td><td class="a2">7</td></tr>
+                  <tr><td>Average</td><td class="a1">7.6</td><td class="a2">5.4</td><td class="a2">4.9</td><td class="a2">5.6</td><td class="a2">4.7</td></tr>
+                </tbody>
+              </table>
+
+              <div class="pull-quote reveal mt-2">
+                <p>Approach 1 produced only one solution, but that solution is exceptional. Approach 2 produced four solutions, all incremental or off-mechanism.</p>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p3-standout">
+              <h5>Solution Deep Dives</h5>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-1</span> Optical Gradient Dual-Cure Foam</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Monolithic soft-touch part from single elastomeric dual-cure precursor. UV-transparent mold creates optical gradient that suppresses foaming at surface (dense elastomeric skin). Core triggered thermally, expands into soft foam. Chemical resistance via dense skin, softness via foam core.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Optical Gradient Control</strong><span>Replaces thermal gradient with tunable UV gradient</span></div>
+                    <div class="innovation"><strong>Orthogonal Dual-Cure</strong><span>Decouples skinning (UV) from foaming (thermal)</span></div>
+                    <div class="innovation"><strong>Tunable Barrier Depth</strong><span>Adjust skin thickness via UV absorber concentration</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">The optical gradient approach to skin formation is highly novel. Traditional integral skin foams use cold mold surfaces (thermal gradient) - this replaces an imprecise thermal control with a tunable optical one. The orthogonal dual-cure chemistry (UV for skin, thermal for foam) provides independent control over each zone - a significant advancement.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">If validated, this enables precisely controlled skin-foam structures with unprecedented tunability. The ability to dial in skin thickness via light intensity or absorber concentration opens new design space. Could transform integral skin foam manufacturing.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">High value for applications requiring both chemical resistance and softness. Automotive interiors, packaging, consumer electronics housings. Single-material recyclability is an additional benefit.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Dual-cure systems exist commercially (UV + thermal). UV-transparent molds are feasible (quartz, specialty polymers). The integration requires careful cure chemistry design to prevent interference between UV and thermal mechanisms. Moderate technical risk.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">10/10</span></div>
+                      <p class="eval-reasoning">Perfect alignment. Uses boundary conditions (UV intensity gradient at mold surface) to modulate a phase change (foaming vs. dense cure). Creates monolithic structure with distinct functional zones from single homogeneous precursor. This is exactly what the mechanism describes.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Dense elastomeric skin provides chemical resistance; foam core provides softness. Single-material system addresses recyclability concern. The "tunable barrier depth" enables optimization for different chemical exposure scenarios.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Highly non-obvious. Requires connecting optical physics (UV penetration gradients), dual-cure polymer chemistry, and foam physics. An R&D expert would typically think of thermal gradients or coatings - the optical route requires cross-domain insight.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-1</span> GCP-Densified PFAS-Free Network</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Uses Gas Counter-Pressure (GCP) to mechanically suppress blowing agents and force high-viscosity PFAS-free polymers into a dense, smooth skin.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">GCP is established manufacturing technology for foam molding. Using it to create dense skins is the primary application. The PFAS-free aspect is a material choice, not a mechanism innovation.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Enables use of sustainable polymers in foam molding - valuable but incremental. Doesn't fundamentally change the skin formation mechanism.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">TRL 6 suggests near-term commercial viability. Would enable PFAS-free products meeting regulations. Process improvement rather than product innovation.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">GCP technology is mature. The challenge is with high-viscosity polymers that are harder to mold. Risk is medium-high as stated.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Partial alignment. Uses boundary conditions (pressure at mold surface) to suppress foaming. However, the mechanism is purely mechanical pressure, not a phase change modulation. The "dense skin" is created by preventing foam formation through external force, not by inducing a different phase state. This is conventional GCP processing, not a novel interpretation of the mechanism.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Creates dense skins on foams, which provides some chemical resistance. But the primary framing is about enabling PFAS-free polymers, not about solving the chemical resistance problem innovatively.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Any foam processing engineer would consider GCP for skin quality improvement. This is standard manufacturing knowledge.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-2</span> Structural Softness Metamaterial</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Rigid polymers molded into micro-lattice or auxetic structures designed to buckle under finger pressure. Provides softness perception from hard materials.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Metamaterials for mechanical properties are an active research area. Auxetic structures for softness perception are moderately novel but follow established metamaterial design principles.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">If manufacturable at scale, could "sidestep" chemical trade-offs entirely by using chemically stable materials with geometric softness. This is a valid alternative approach.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">TRL 4 indicates significant development needed. Limited to applications where geometric constraints can be accommodated. Complex surfaces (curves, tight radii) are challenging.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">High risk acknowledged. Micro-lattice molding at production volumes is not established. Auxetic structures require precise geometry to function.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">1/10</span></div>
+                      <p class="eval-reasoning">No alignment. The mechanism is about phase differentiation (dense vs. cellular zones from phase changes). This solution uses geometric buckling of a single-phase material. No boundary modulation, no phase change, no distinct functional zones - just mechanical design.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Solves the problem by avoiding soft chemistry rather than by making soft chemistry resistant. Valid engineering approach but doesn't address the core problem of making soft materials chemically stable.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">An engineer familiar with metamaterials would consider this. Requires knowledge of mechanical metamaterial design principles.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-3</span> Thermally-Driven Segregation</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Uses Variotherm temperature control to drive low-surface-energy slip agents to surface during molding cycle.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Variotherm (rapid mold heating/cooling) is established technology. Using temperature to drive additive migration is known polymer processing. The combination is incremental.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Provides surface modification without post-processing, but achieves modest performance improvement. Not a breakthrough, just better execution of existing approaches.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">TRL 8 suggests ready for implementation. Low risk "drop-in" solution. Limited upside - described as providing "significant performance boost" but not breakthrough performance.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Very high feasibility - uses existing equipment and known processing techniques. The safe, incremental option.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Partial alignment. Uses boundary conditions (temperature at mold surface) to drive segregation. However, this is additive migration, not phase differentiation. The material doesn't form distinct zones via phase change - it just concentrates slip agents at the surface.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Slip agents at the surface provide some protection but are not a barrier system. Addresses "feel" more than chemical resistance.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Standard polymer processing knowledge. Any engineer familiar with additive migration during molding would arrive at this.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-4</span> Silicone-Hybrid GCP</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Combines silicone-hybrid chemistry with Gas Counter-Pressure processing for chemical resistance.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Silicone-hybrid materials are established. GCP is established. The combination is a "hedge" solution, not innovative.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Provides a backup pathway, explicitly positioned for "markets with less stringent silicone regulations." Not breakthrough, just an alternative chemistry.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">TRL 5 with medium risk. Limited to markets accepting silicone chemistry. Positioned as fallback, not primary solution.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Silicone processing is known. GCP is known. Integration is feasible but not trivial.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Minimal alignment. GCP creates dense skins through mechanical pressure suppression, not through boundary-modulated phase differentiation. The silicone chemistry is about material properties, not about the mechanism.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Silicone provides chemical resistance. But this is material substitution, not mechanism transfer.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Obvious combination of known technologies. Standard R&D portfolio approach.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="pair-divider"><div class="pair-divider-line"></div></div>
+
+      <!-- PAIR 4 -->
+      <article class="section-anchor" id="pair4" data-pair="4">
+        <div class="pair-sticky-header">
+          <div class="container">
+            <div class="pair-sticky-inner">
+              <div class="pair-sticky-title">
+                <span class="pair-num">PAIR 4 OF 5</span>
+                <h3>Fluid-Mediated Gradient Mass Transfer</h3>
+              </div>
+              <nav class="pair-sticky-nav">
+                <a href="#p4-context" class="active">Context</a>
+                <a href="#p4-solutions">Solutions</a>
+                <a href="#p4-scores">Scores</a>
+                <a href="#p4-deep">Details</a>
+                <a href="#p4-findings">Findings</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="pair-content">
+          <div class="container">
+            <div class="pair-intro section-anchor" id="p4-context">
+              <div class="pair-intro-left reveal">
+                <p class="pair-label">Problem Domain</p>
+                <h4>Bio-Based Interior Self-Healing</h4>
+                <p class="mechanism-name">Maintaining premium appearance without synthetic coatings</p>
+              </div>
+              <div class="pair-intro-right reveal">
+                <div class="context-block">
+                  <h5>Mechanism</h5>
+                  <p>A fluid phase acts as transport channel, dissolving material at high-energy points (scratch ridges) and redepositing at low-energy points (voids).</p>
+                  <p class="eli5">Like sugar dissolving faster from pointy tips and reforming in smooth areas—material flows from scratch peaks to valleys.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p4-solutions">
+              <h5>Solutions Generated</h5>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-1</span>
+                <span class="solution-name">Solution-Precipitation Self-Healing</span>
+                <span class="solution-concept">Scratch ridges dissolve in waxy transport phase, redeposit in voids; micro-domain structure for short diffusion</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-2</span>
+                <span class="solution-name">Solar-Thermal NADES Healing</span>
+                <span class="solution-concept">Natural Deep Eutectic Solvent with temperature-sensitive solubility; car heat activates healing</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-3</span>
+                <span class="solution-name">DES-Confined Bio-Crystalline Matrix</span>
+                <span class="solution-concept">Lyophobic fiber scaffold in liquid DES matrix; photothermal agents boost healing kinetics</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-1</span>
+                <span class="solution-name">Photo-Latent Vitrimer Skin</span>
+                <span class="solution-concept">UV-triggered catalyst release enables ambient bond exchange</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-2</span>
+                <span class="solution-name">Induction-Release Hygro-Skin</span>
+                <span class="solution-concept">Moisture-driven crack closure with induction debonding for recycling</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-3</span>
+                <span class="solution-name">Vascularized Solvent-Triggered Vitrimer</span>
+                <span class="solution-concept">Hollow Janus fibers release healing solvent upon damage</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-4</span>
+                <span class="solution-name">Osmotic Scaffold</span>
+                <span class="solution-concept">Osmotic swelling for haptic feedback (pivot from original intent)</span>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p4-scores">
+              <h5>Comparative Scores</h5>
+              <table class="scores-table reveal">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th class="a1">A1-1</th>
+                    <th class="a1">A1-2</th>
+                    <th class="a1">A1-3</th>
+                    <th class="a2">A2-1</th>
+                    <th class="a2">A2-2</th>
+                    <th class="a2">A2-3</th>
+                    <th class="a2">A2-4</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Novelty</td><td class="a1">9</td><td class="a1">8</td><td class="a1">8</td><td class="a2">6</td><td class="a2">5</td><td class="a2">7</td><td class="a2">5</td></tr>
+                  <tr><td>Breakthrough</td><td class="a1">9</td><td class="a1">8</td><td class="a1">7</td><td class="a2">6</td><td class="a2">5</td><td class="a2">7</td><td class="a2">4</td></tr>
+                  <tr><td>Impact</td><td class="a1">8</td><td class="a1">8</td><td class="a1">7</td><td class="a2">6</td><td class="a2">6</td><td class="a2">5</td><td class="a2">4</td></tr>
+                  <tr><td>Feasibility</td><td class="a1">5</td><td class="a1">5</td><td class="a1">4</td><td class="a2">5</td><td class="a2">7</td><td class="a2">3</td><td class="a2">3</td></tr>
+                  <tr class="highlight-row"><td>Mechanism Fidelity</td><td class="a1">10</td><td class="a1">9</td><td class="a1">9</td><td class="a2">3</td><td class="a2">2</td><td class="a2">4</td><td class="a2">1</td></tr>
+                  <tr><td>Problem Fit</td><td class="a1">9</td><td class="a1">8</td><td class="a1">7</td><td class="a2">6</td><td class="a2">5</td><td class="a2">5</td><td class="a2">2</td></tr>
+                  <tr><td>Ease of Conception</td><td class="a1">2</td><td class="a1">3</td><td class="a1">2</td><td class="a2">5</td><td class="a2">6</td><td class="a2">4</td><td class="a2">5</td></tr>
+                  <tr><td>Average</td><td class="a1">7.4</td><td class="a1">7.0</td><td class="a1">6.3</td><td class="a2">5.3</td><td class="a2">5.1</td><td class="a2">5.0</td><td class="a2">3.4</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p4-deep">
+              <h5>Solution Deep Dives</h5>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-1</span> Solution-Precipitation Self-Healing</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Bio-based material where soluble polymer matrix contains micro-domains separated by catalytic, waxy transport phase. Scratch ridges (high curvature/stress) dissolve and redeposit into scratch voids (low energy). Process accelerated by catalyst and optimized for short diffusion paths.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Regenerative Abrasion</strong><span>Uses wear energy as healing activation</span></div>
+                    <div class="innovation"><strong>Geological Biomimicry</strong><span>Adapts inorganic "pressure solution" physics to organic soft matter</span></div>
+                    <div class="innovation"><strong>Sintered Micro-Structure</strong><span>Granular, fluid-permeated structure minimizes diffusion distances</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Applying geological dissolution-reprecipitation (Ostwald ripening, pressure solution) to organic polymers is genuinely novel. Most self-healing polymers use chain entanglement or encapsulated healing agents - this uses thermodynamic curvature-driven mass transfer through a liquid phase. The "geological biomimicry" framing is scientifically grounded.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">If validated, this creates truly self-healing materials that smooth scratches through natural thermodynamics rather than triggered chemistry. The regenerative aspect (damage energy powers repair) is conceptually powerful.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">High value for automotive interiors where scratch resistance is critical for perceived quality. Bio-based constraint met. Could extend to furniture, packaging, consumer electronics.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">The curvature-driven dissolution concept is sound physics. Creating the sintered micro-structure with catalytic wax phase is challenging. Temperature sensitivity (dormant in cold, soft in heat) is a real trade-off requiring careful formulation.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">10/10</span></div>
+                      <p class="eval-reasoning">Perfect alignment. Uses fluid transport phase (waxy layer) as high-speed channel for mass transfer. Material dissolves at high-energy points (scratch ridges, high curvature) and redeposits at low-energy points (voids). This is exactly the mechanism's principle applied to scratch healing.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Directly addresses scratch repair in bio-based materials. Self-healing eliminates the need for coatings. The "unmarred appearance" goal is achieved through continuous repair rather than prevention.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Highly non-obvious. Requires connecting geological physics (pressure solution, Ostwald ripening), polymer chemistry (soluble bio-polymers), and transport physics (catalytic wax phases). Most R&D experts would think of encapsulated healing agents or reversible bonds, not curvature-driven dissolution.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-2</span> Solar-Thermal NADES Healing</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Bio-composite with capillary-bound Natural Deep Eutectic Solvent (NADES). High solubility/diffusivity at elevated temperature. When car heats from sun exposure, NADES becomes highly active, rapidly dissolving scratch edges and redepositing mass into scratch voids.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Solar-Thermal Harvesting</strong><span>Leverages car interior heat as repair energy source</span></div>
+                    <div class="innovation"><strong>NADES Transport Phase</strong><span>Plant-based, non-volatile solvents for ionic transport</span></div>
+                    <div class="innovation"><strong>Curvature-Driven Smoothing</strong><span>Shifts from "crack filling" to "surface leveling"</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Using the typically damaging solar heating of car interiors as a repair trigger is clever inversion. NADES are emerging green solvents; their application as transport phases for self-healing is novel. The temperature-activated design is well-suited to the automotive environment.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">If the temperature sensitivity can be engineered precisely, this creates materials that heal during the day and remain rigid during use. The environmental trigger eliminates user intervention.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Well-matched to automotive interiors where solar heating is unavoidable. The bio-based NADES chemistry aligns with sustainability requirements. Could differentiate premium sustainable interiors.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">NADES are real and researched for green chemistry. The temperature-dependent solubility tuning is challenging. Risk of "healing too much" in summer (material softening) vs. "not healing" in winter (dormant). Requires narrow formulation window.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Strong alignment. Uses fluid phase (NADES) for mass transport between high-energy (scratch edges) and low-energy (voids) sites. The temperature modulation is a clever extension - the mechanism doesn't specify the activation, so using environmental heat is valid.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Addresses scratch repair for bio-based materials. Solar-thermal trigger is automotive-specific and appropriate. Trade-off of dormancy in cold climates is acknowledged.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Requires knowledge of NADES chemistry, self-healing mechanisms, and the insight to use environmental temperature as activation. Cross-domain synthesis not obvious to typical R&D expert.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-3</span> DES-Confined Bio-Crystalline Matrix</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Bio-based material with rigid supramolecular bio-crystalline domains separated by Deep Eutectic Solvent (DES) film. Lyophobic bio-fibers form dry structural scaffold to arrest creep. Photothermal agents heat solvent film. Curvature-driven Ostwald ripening smooths scratches.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Lyophobic Structural Confinement</strong><span>Solvent-repelling fibers prevent bulk creep</span></div>
+                    <div class="innovation"><strong>Curvature-Driven Healing</strong><span>Surface energy drives repair via Ostwald Ripening</span></div>
+                    <div class="innovation"><strong>Photothermal Kinetic Boosting</strong><span>Sunlight powers healing</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">The combination of lyophobic fiber confinement with liquid-phase healing addresses a key trade-off (healing mobility vs. structural rigidity). The "wet" healing matrix with "dry" structural skeleton is a sophisticated materials design.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Solves the stiffness-vs-healability trade-off that limits many self-healing approaches. If the fiber confinement works, this enables practical structural materials with self-repair.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Addresses the same automotive application but with added structural sophistication. The optical clarity trade-off (likely opaque) limits some applications but aligns with matte interior finishes.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Most complex of the three A1 solutions. Requires: (1) lyophobic fiber synthesis, (2) DES formulation, (3) photothermal agent integration, (4) bio-crystalline domain formation. Many components to optimize simultaneously.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Strong alignment. Uses fluid phase (DES) for mass transfer via Ostwald ripening. The fiber confinement is an extension that doesn't violate the mechanism - it just contains the fluid to the active zone.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Addresses scratch healing for bio-based materials. The complexity may be over-engineered for the problem. Trade-offs (opacity, temperature stability) are relevant constraints.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Very complex synthesis of multiple concepts. Requires deep knowledge of fiber physics, DES chemistry, photothermal materials, and self-healing mechanisms. Highly non-obvious combination.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-1</span> Photo-Latent Vitrimer Skin</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Vanillin-derived vitrimers with UV-triggered catalyst release. Post-production UV flash activates catalyst, allowing ambient humidity to trigger bond exchange for healing.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Vitrimers are hot research area. Photo-latent catalyst release is known in other contexts. The combination for automotive self-healing is reasonably novel. Vanillin-derived bio-base is a nice sustainability touch.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Enables faster vitrimer processing while retaining healing capability. This is primarily a manufacturing innovation (enabling industrial cycle times) rather than a fundamental materials breakthrough.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">TRL 4 indicates development work needed. If successful, enables vitrimers in automotive applications. Medium risk/high reward positioning.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Photo-latent acid generators are commercial. Vitrimer chemistry is established but still being optimized. Integration with bio-based vanillin chemistry adds complexity. Humidity dependence may be limiting.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Weak alignment. Vitrimers heal through bond exchange (chemical reorganization), not fluid-mediated mass transfer. There's no liquid transport phase, no dissolution at high-energy points, no redeposition at low-energy points. The healing mechanism is fundamentally different from the source mechanism.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Provides scratch healing capability for bio-based materials. The UV activation step is an additional manufacturing requirement. Humidity dependence may be limiting in dry climates.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Follows logical vitrimer development path. An R&D expert tracking vitrimer literature would consider photo-activation approaches.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-2</span> Induction-Release Hygro-Skin</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Hygro-compressive skin closes cracks through moisture-induced swelling. Iron oxide nanoparticles enable induction debonding for end-of-life disassembly.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Hygroscopic swelling for crack closure is known. Induction debonding is established in automotive recycling research. The combination addresses two separate problems (healing + recyclability) but neither is particularly novel.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">The recyclability aspect via induction debonding is valuable for automotive end-of-life requirements. But healing via swelling is limited - it closes cracks but doesn't restore material.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">TRL 6 suggests reasonable maturity. Low risk/high reward positioning is appropriate. Primarily valuable for recyclability, secondarily for healing.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Both components (hygroscopic materials, induction-release adhesives) are individually mature. Integration is feasible.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Poor alignment. Moisture swelling is volumetric expansion, not fluid-mediated mass transfer. There's no dissolution-reprecipitation, no transport phase, no high-to-low energy mass movement. The mechanism principle is not applied.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Addresses scratch appearance (crack closure) but not material restoration. Primarily addresses recyclability (a secondary concern in the problem statement).</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Combining hygroscopic healing with recyclability features follows obvious sustainability trends.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-3</span> Vascularized Solvent-Triggered Vitrimer</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Hollow Janus fibers in vitrimer matrix rupture upon damage, releasing solvent that plasticizes material for rapid healing.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Vascular healing networks are established (White/Sottos capsule systems). Janus fibers for directional release are more novel. Application to vitrimers is interesting - the solvent triggers bond exchange rather than filling cracks.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Offers "infinite healing potential" and rapid response. If the vascular network can be manufactured, this provides multiple healing cycles (unlike one-shot capsule systems).</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">TRL 2 indicates very early stage. High risk acknowledged. Would require significant development for automotive applications. Manufacturing hollow Janus fibers at scale is unproven.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Very low feasibility. Hollow Janus fiber networks in vitrimers are research-grade concepts. No established manufacturing pathway. High technical risk.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Partial alignment. Uses a fluid (released solvent) to enable healing. However, the solvent triggers bond exchange (chemical mechanism), not dissolution-reprecipitation (mass transfer mechanism). The fluid is an activator, not a transport medium.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Would provide scratch healing if manufacturable. But feasibility barriers are significant. Long development timeline doesn't match "near-term product" needs.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Follows vascular healing research trends. Requires awareness of both vascular systems and vitrimer chemistry.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-4</span> Osmotic Scaffold</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Osmotic pressure within scaffold for physical texture changes/haptic responses. Pivoted from original surface protection intent.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Osmotic actuation is known in soft robotics and hydrogels. The pivot to haptic feedback is a creative reframing but the underlying physics is established.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">The "transformed failure into feature" framing is interesting but the application (haptic feedback) is quite different from scratch resistance. This is a concept pivot, not a breakthrough in the original problem space.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">TRL 2 with high risk. The pivot suggests the original intent didn't work. Haptic feedback is interesting but not what was asked for.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Controlling osmotic swelling precisely for haptic effects is challenging. High risk acknowledged.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">1/10</span></div>
+                      <p class="eval-reasoning">No alignment. Osmotic swelling is water uptake causing volumetric expansion. There's no fluid-mediated mass transfer, no dissolution-reprecipitation, no gradient transport. The mechanism is completely different.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Does not address scratch resistance. Explicitly pivoted to haptic feedback, which is not the stated problem.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">The pivot shows creative thinking but also indicates difficulty with the original problem.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p4-findings">
+              <div class="key-findings reveal">
+                <h5>Key Findings — Pair 4</h5>
+                <ul>
+                  <li><strong>All A1 solutions use fluid transport:</strong> Waxy layers (A1-1), NADES solvents (A1-2), DES films (A1-3)—all for dissolution-reprecipitation healing.</li>
+                  <li><strong>A2 uses different mechanisms:</strong> Vitrimer bond exchange, hygroscopic swelling. A2-4 pivoted away from scratch resistance entirely.</li>
+                  <li><strong>Clever extension:</strong> A1-2 uses typically damaging solar heating as a repair trigger—brilliant inversion.</li>
+                </ul>
+              </div>
+
+              <h5 class="investment-subsection-header">Investment Recommendations</h5>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-1: Solution-Precipitation Self-Healing</strong><span class="investment-tier primary">Primary</span></div>
+                <p>"Geological biomimicry" via Ostwald ripening. Regenerative concept is scientifically elegant.</p>
+              </div>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-2: Solar-Thermal NADES Healing</strong><span class="investment-tier secondary">Secondary</span></div>
+                <p>Clever use of automotive environment as trigger. Sustainable NADES chemistry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="pair-divider"><div class="pair-divider-line"></div></div>
+
+      <!-- PAIR 5 -->
+      <article class="section-anchor" id="pair5" data-pair="5">
+        <div class="pair-sticky-header">
+          <div class="container">
+            <div class="pair-sticky-inner">
+              <div class="pair-sticky-title">
+                <span class="pair-num">PAIR 5 OF 5</span>
+                <h3>Sacrificial Geometric Interception</h3>
+              </div>
+              <nav class="pair-sticky-nav">
+                <a href="#p5-context" class="active">Context</a>
+                <a href="#p5-solutions">Solutions</a>
+                <a href="#p5-scores">Scores</a>
+                <a href="#p5-deep">Details</a>
+                <a href="#p5-findings">Findings</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="pair-content">
+          <div class="container">
+            <div class="pair-intro section-anchor" id="p5-context">
+              <div class="pair-intro-left reveal">
+                <p class="pair-label">Problem Domain</p>
+                <h4>Bio-Based Interior via Sacrificial Protection</h4>
+                <p class="mechanism-name">Protruding elements that absorb contact before the bulk</p>
+              </div>
+              <div class="pair-intro-right reveal">
+                <div class="context-block">
+                  <h5>Mechanism</h5>
+                  <p>Protruding geometric elements force external contact to occur on buffer first, decoupling protected surface from direct abrasion.</p>
+                  <p class="eli5">Like bumper guards on car doors—small protruding bits take hits so main surface stays pristine.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p5-solutions">
+              <h5>Solutions Generated</h5>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-1</span>
+                <span class="solution-name">Micro-Ribbed Sacrificial Tips</span>
+                <span class="solution-concept">Elastic cantilever ribs with hardened, segmented tips that micro-detach under abrasion</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-2</span>
+                <span class="solution-name">Geometry-Induced Hardened Plateaus</span>
+                <span class="solution-concept">Mold thermal history creates hardened protruding nodes; controlled invisible wear</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a1">A1-3</span>
+                <span class="solution-name">RI-Matched Bio-Mineral Mesa Platelets</span>
+                <span class="solution-concept">Transparent mineral platelets at texture peaks; invisible micro-fracture upon damage</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-1</span>
+                <span class="solution-name">Ductile Lignin-Elastomer Lattice</span>
+                <span class="solution-concept">Lignin matrix grafted with bio-elastomers; IPN arrests crack propagation</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-2</span>
+                <span class="solution-name">Nano-Isometric Photo-Plastic</span>
+                <span class="solution-concept">Block-copolymer constrains photo-active healing domains to &lt;40nm</span>
+              </div>
+              <div class="solution-row reveal">
+                <span class="solution-id a2">A2-3</span>
+                <span class="solution-name">Fractal Matte</span>
+                <span class="solution-concept">Fractal geometry creates optical noise floor hiding micro-scratches</span>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p5-scores">
+              <h5>Comparative Scores</h5>
+              <table class="scores-table reveal">
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th class="a1">A1-1</th>
+                    <th class="a1">A1-2</th>
+                    <th class="a1">A1-3</th>
+                    <th class="a2">A2-1</th>
+                    <th class="a2">A2-2</th>
+                    <th class="a2">A2-3</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Novelty</td><td class="a1">8</td><td class="a1">8</td><td class="a1">9</td><td class="a2">6</td><td class="a2">7</td><td class="a2">5</td></tr>
+                  <tr><td>Breakthrough</td><td class="a1">8</td><td class="a1">7</td><td class="a1">8</td><td class="a2">6</td><td class="a2">7</td><td class="a2">4</td></tr>
+                  <tr><td>Impact</td><td class="a1">8</td><td class="a1">7</td><td class="a1">7</td><td class="a2">6</td><td class="a2">5</td><td class="a2">6</td></tr>
+                  <tr><td>Feasibility</td><td class="a1">6</td><td class="a1">5</td><td class="a1">4</td><td class="a2">7</td><td class="a2">3</td><td class="a2">9</td></tr>
+                  <tr class="highlight-row"><td>Mechanism Fidelity</td><td class="a1">10</td><td class="a1">9</td><td class="a1">9</td><td class="a2">2</td><td class="a2">1</td><td class="a2">3</td></tr>
+                  <tr><td>Problem Fit</td><td class="a1">9</td><td class="a1">8</td><td class="a1">7</td><td class="a2">5</td><td class="a2">4</td><td class="a2">5</td></tr>
+                  <tr><td>Ease of Conception</td><td class="a1">3</td><td class="a1">3</td><td class="a1">1</td><td class="a2">6</td><td class="a2">4</td><td class="a2">8</td></tr>
+                  <tr><td>Average</td><td class="a1">7.4</td><td class="a1">6.7</td><td class="a1">6.4</td><td class="a2">5.4</td><td class="a2">4.4</td><td class="a2">5.7</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p5-deep">
+              <h5>Solution Deep Dives</h5>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-1</span> Micro-Ribbed Sacrificial Tips</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Bio-based material with micro-ribbed surface texture. Ribs are elastic cantilevers with hardened, segmented tips acting as sacrificial buffers. Designed with "wear allowance" height - tips micro-detach to dissipate abrasion energy while maintaining geometric offset to protect aesthetic layer.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Intrinsic Sacrificial Layer</strong><span>Replacing extrinsic coating with geometric feature</span></div>
+                    <div class="innovation"><strong>Dual-Function Micro-Structure</strong><span>Ribs as hard armor + soft springs</span></div>
+                    <div class="innovation"><strong>Shear-Induced Hardening</strong><span>Mold flow creates property gradients without additives</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">The "wear allowance" concept - engineering a precise height of sacrificial material - is innovative. The dual-function micro-structure (hard tips on flexible cantilevers) is a sophisticated mechanical design. The shear-induced hardening leverages manufacturing physics for functional grading.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">If manufacturable, this creates surfaces that gracefully degrade rather than catastrophically fail. The "invisible wear" paradigm (tips detach but aesthetic remains) is conceptually powerful for long-term durability.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">High value for automotive interiors where scratch resistance determines perceived quality. Bio-based constraint met through geometry rather than chemistry. Could extend to furniture, consumer electronics.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Micro-rib molding is challenging but established (e.g., microfluidics, structured surfaces). Creating hardened tips through shear during molding is less proven but physically plausible. Main challenge is consistency across complex automotive geometries.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">10/10</span></div>
+                      <p class="eval-reasoning">Perfect alignment. Uses protruding geometric elements (rib tips) as sacrificial buffers. External contact occurs on buffer first. Buffer is designed to detach/erode, decoupling the aesthetic surface from direct abrasion. This is exactly the mechanism's principle.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Directly addresses scratch resistance for bio-based materials through geometry rather than coatings. The "wear indication" via color change is a bonus feature. Trade-offs (cleanability, haptics) are acknowledged.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Requires connecting micro-structure design, polymer rheology (shear-induced crystallization), and wear mechanics. Most R&D experts would think of coatings or material substitution, not geometric sacrificial elements.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-2</span> Geometry-Induced Hardened Plateaus</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Bio-based material with protruding nodes shaped as micro-mesas (flat-topped plateaus). Mold thermal history during contact with protruding geometry creates locally hardened nodes. Nodes wear invisibly as flat tops erode smoothly rather than creating scratch patterns.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Geometry-Induced Hardness</strong><span>Shape drives local thermal history for hardness gradient</span></div>
+                    <div class="innovation"><strong>Sacrificial Micro-Plateaus</strong><span>Controlled, invisible wear maintains optical fidelity</span></div>
+                    <div class="innovation"><strong>Intrinsic Functional Grading</strong><span>Composite-like performance from single material</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Using geometric features to control local cooling/crystallization history is a sophisticated manufacturing insight. The "invisible wear" concept where flat plateau erosion doesn't create visible scratch patterns is clever optical design.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Enables the performance of hard/soft composites from single bio-material stream. The manufacturing simplicity (no additives, no post-processing) is valuable for sustainability.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">High value for automotive but narrower processing window than A1-1. The requirement for specific thermal history may limit manufacturing flexibility.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">The thermal gradient/crystallization link is real polymer physics. However, achieving consistent hardness gradients across complex parts is challenging. "Narrow processing window" trade-off is acknowledged - may limit manufacturing robustness.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Strong alignment. Uses protruding geometric elements (plateaus) as sacrificial buffers. Geometry designed for controlled wear that maintains protection. The hardening mechanism is an extension of the basic sacrificial geometry concept.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Addresses scratch resistance through geometric protection and controlled wear. Bio-based single-material stream meets sustainability requirement. Process sensitivity is a concern.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Requires connecting mold thermal physics, polymer crystallization, and wear optics. Non-obvious synthesis of multiple domains.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a1">A1-3</span> RI-Matched Bio-Mineral Mesa Platelets</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Surface texture peaks shaped as micro-mesas with transparent/refractive-index-matched bio-mineral platelets. Platelets oriented flat on mesa tops via rigid precursor pedestal. Texture pitch calibrated to be smaller than stressor curvature to geometrically filter contact.</p>
+                  <div class="innovations-row">
+                    <div class="innovation"><strong>Invisible Failure Mode</strong><span>RI-matching hides sacrificial micro-fractures</span></div>
+                    <div class="innovation"><strong>Micro-Mesa Orientation</strong><span>Geometry mechanically orients protective platelets</span></div>
+                    <div class="innovation"><strong>Geometric Filtering</strong><span>Texture pitch excludes stressors based on curvature radius</span></div>
+                  </div>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">The combination of: (1) RI-matched mineral for invisible fracture, (2) geometry-controlled platelet orientation, and (3) curvature-based geometric filtering is highly novel. The "invisible fracture" concept decouples physical damage from optical damage.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">If the RI-matching works under fracture, this creates surfaces that absorb damage without showing it. The geometric filtering concept (pitch smaller than key radius) is a new design principle.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">High value for premium applications requiring long-term optical quality. The opacity trade-off (multi-phase scattering) limits applications to matte finishes. Process complexity (wipe-and-cast) adds cost.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Most complex of the three solutions. RI-matching under fracture is challenging - cracks introduce air gaps that scatter light. The "matrix wetting cracks" assumption needs validation. Bio-mineral platelet synthesis at scale is unproven.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Strong alignment. Uses protruding geometric elements (platelet-topped mesas) as sacrificial buffers. Platelets intercept contact before the bulk. The fracture-based sacrificial mechanism is sophisticated. Geometric filtering extends the concept.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">Addresses scratch resistance through geometric protection. The opacity and process complexity trade-offs limit application range but may be acceptable for premium segments.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">1/10</span></div>
+                      <p class="eval-reasoning">Extremely non-obvious. Requires synthesizing: optical physics (RI-matching), fracture mechanics, geometric filtering, platelet orientation control, and bio-mineral chemistry. Almost certainly not conceivable through standard R&D thinking.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-1</span> Ductile Lignin-Elastomer Lattice</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Lignin matrix grafted with bio-elastomers forming Interpenetrating Polymer Network (IPN) where rubbery domains arrest crack propagation.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">IPNs for toughening are established. Lignin valorization is an active research area. The combination for automotive interiors is reasonably novel but follows established material design patterns.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Could enable lignin waste utilization in automotive applications - valuable for sustainability. The carbon-negative framing is compelling. However, crack arrest is damage tolerance, not damage prevention.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">TRL 6 suggests reasonable maturity. Medium risk positioning. Value primarily in sustainability (waste lignin utilization) rather than performance breakthrough.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">IPN chemistry is mature. Lignin-elastomer grafting is researched. Integration at automotive scale is the main challenge.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">2/10</span></div>
+                      <p class="eval-reasoning">Poor alignment. The IPN arrests crack propagation through rubber domain energy dissipation - not through geometric interception. There's no sacrificial element, no geometric buffer, no decoupling of contact. The mechanism principle is not applied.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Provides damage tolerance (crack arrest) rather than scratch prevention. The material still gets scratched - the cracks just don't propagate as catastrophically. Different problem framing.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">Standard polymer toughening approach. Any polymer scientist familiar with lignin research would consider IPN strategies.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-2</span> Nano-Isometric Photo-Plastic</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Block-copolymer self-assembly constrains photo-active healing domains to &lt;40nm, preventing light scattering during healing.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">The &lt;40nm constraint to avoid optical scattering is a precise design requirement. Using block-copolymer self-assembly to achieve this is sophisticated nanotechnology.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score mid">7/10</span></div>
+                      <p class="eval-reasoning">If achievable, enables optically clear self-healing - valuable for transparent applications. However, the healing mechanism requires light activation which may not be available in all use cases.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">TRL 2 indicates very early stage. High risk. Would require significant development. Transparent interiors are a niche (display covers, some trim).</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Block-copolymer self-assembly to precise nanoscale dimensions is challenging. Photo-active chemistry integration adds complexity. Manufacturing at automotive scale is far from proven.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">1/10</span></div>
+                      <p class="eval-reasoning">No alignment. This is a photo-triggered healing mechanism via chemical bond reorganization. There's no geometric interception, no sacrificial buffer, no protruding elements. Completely different approach.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Addresses scratches through healing rather than prevention. The photo-activation requirement limits applicability. Primarily relevant for transparent applications.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Follows block-copolymer and photo-responsive material research trends. Requires nanotechnology expertise.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="solution-detail reveal">
+                <div class="solution-detail-header" onclick="this.parentElement.classList.toggle('open')">
+                  <h6><span class="tag a2">A2-3</span> Fractal Matte</h6>
+                  <button type="button" class="toggle-btn">+</button>
+                </div>
+                <div class="solution-detail-body">
+                  <p class="solution-description">Fractal geometry creates high optical noise floor that makes micro-scratches invisible to human eye.</p>
+                  <div class="eval-grid">
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Novelty</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Fractal/complex surface textures for optical masking are known. Matte finishes already use random texture to hide defects. This is a refined version of established practice.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Breakthrough Potential</span><span class="eval-metric-score low">4/10</span></div>
+                      <p class="eval-reasoning">Improves perceived durability through optical masking. Doesn't prevent damage, just hides it. Incremental improvement on existing matte texture approaches.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Impact</span><span class="eval-metric-score mid">6/10</span></div>
+                      <p class="eval-reasoning">TRL 8 suggests ready for implementation. Low risk "safety net" solution. Provides reliable improvement using existing manufacturing processes.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Feasibility</span><span class="eval-metric-score high">9/10</span></div>
+                      <p class="eval-reasoning">Very high feasibility - fractal texturing is achievable with existing mold texturing technologies. This is explicitly positioned as the safe backup option.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Mechanism Fidelity</span><span class="eval-metric-score low">3/10</span></div>
+                      <p class="eval-reasoning">Weak alignment. The fractal geometry is optical, not mechanical. It doesn't intercept contact or act as a sacrificial buffer - scratches still occur, they're just optically masked by the complex texture. This is camouflage, not protection.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Problem Fit</span><span class="eval-metric-score mid">5/10</span></div>
+                      <p class="eval-reasoning">Addresses "unmarred appearance" through optical illusion rather than actual protection. The scratches still exist - they're just less visible. Doesn't prevent degradation, just masks it.</p>
+                    </div>
+                    <div class="eval-row">
+                      <div class="eval-metric"><span class="eval-metric-label">Ease of Conception</span><span class="eval-metric-score high">8/10</span></div>
+                      <p class="eval-reasoning">Obvious extension of existing matte texture approaches. Any surface designer would consider increasing texture complexity to hide defects.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pair-subsection section-anchor" id="p5-findings">
+              <div class="key-findings reveal">
+                <h5>Key Findings — Pair 5</h5>
+                <ul>
+                  <li><strong>Perfect geometric implementation:</strong> A1-1 uses protruding rib tips that micro-detach, A1-2 uses hardened plateau nodes, A1-3 uses bio-mineral platelets on mesas.</li>
+                  <li><strong>A2 uses different strategies:</strong> IPN toughening (crack arrest, not interception), nano-healing (chemical, not geometric), optical masking (camouflage, not protection).</li>
+                  <li><strong>A1-3's "invisible fracture"</strong> (RI-matching hides sacrificial micro-fractures) is exceptionally non-obvious—ease of conception 1/10.</li>
+                </ul>
+              </div>
+
+              <h5 class="investment-subsection-header">Investment Recommendations</h5>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-1: Micro-Ribbed Sacrificial Tips</strong><span class="investment-tier primary">Primary</span></div>
+                <p>Best balance of novelty, feasibility, mechanism fidelity. "Wear allowance" design principle is transferable.</p>
+              </div>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A1-3: RI-Matched Bio-Mineral Platelets</strong><span class="investment-tier exploratory">Exploratory</span></div>
+                <p>Highest novelty but highest risk. "Invisible fracture" potentially transformative. Worth academic partnership.</p>
+              </div>
+              <div class="investment-item reveal">
+                <div class="investment-header"><strong>A2-3: Fractal Matte</strong><span class="investment-tier skip">Fallback Only</span></div>
+                <p>High feasibility (TRL 8) but low innovation. Optical masking, not genuine protection.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- =========================================
+         FINAL RECOMMENDATIONS
+         ========================================= -->
+    <section class="recommendations-section section-anchor" id="recommendations">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-number">03</p>
+          <h2>Overall Recommendations</h2>
+        </div>
+
+        <div class="approach-comparison reveal">
+          <div class="approach-col positive">
+            <h4>Approach 1: Transfer Building Blocks</h4>
+            <ul>
+              <li>100% mechanism fidelity (9-10/10 on all 11 solutions)</li>
+              <li>49% higher novelty on average</li>
+              <li>44% higher breakthrough potential</li>
+              <li>Solutions hard for R&D experts to conceive (2.5/10 ease)</li>
+              <li>Strong competitive moat through novel mechanisms</li>
+            </ul>
+          </div>
+          <div class="approach-col neutral">
+            <h4>Approach 2: Solution Deep Dive</h4>
+            <ul>
+              <li>0% mechanism fidelity (&lt;5/10 on all 16 solutions)</li>
+              <li>Manufacturing focus with TRL claims</li>
+              <li>Higher near-term feasibility in some cases</li>
+              <li>Consistently abandons source mechanism</li>
+              <li>Could be developed without mechanism inspiration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rec-tier t1 reveal" id="tier1">
+          <h4>Tier 1: Primary Investment</h4>
+          <div class="rec-list">
+            <div class="rec-item">
+              <div><strong>One-Pot Self-Assembly SLIPS</strong><span class="pair-ref">Pair 1, A1-1</span></div>
+              <span class="rationale">Best novelty/feasibility balance. One-pot manufacturing is differentiated IP.</span>
+              <span class="risk">Medium Risk</span>
+            </div>
+            <div class="rec-item">
+              <div><strong>Solution-Precipitation Self-Healing</strong><span class="pair-ref">Pair 4, A1-1</span></div>
+              <span class="rationale">"Geological biomimicry" via Ostwald ripening. Scientifically elegant.</span>
+              <span class="risk">Medium Risk</span>
+            </div>
+            <div class="rec-item">
+              <div><strong>Micro-Ribbed Sacrificial Tips</strong><span class="pair-ref">Pair 5, A1-1</span></div>
+              <span class="rationale">Practical geometric protection. "Wear allowance" principle is transferable.</span>
+              <span class="risk">Medium Risk</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-tier t2 reveal" id="tier2">
+          <h4>Tier 2: Secondary Investment</h4>
+          <div class="rec-list">
+            <div class="rec-item">
+              <div><strong>Mosaic Crystallization</strong><span class="pair-ref">Pair 2, A1-1</span></div>
+              <span class="rationale">Additive-as-template concept. Platform potential for property gradients.</span>
+              <span class="risk">Medium Risk</span>
+            </div>
+            <div class="rec-item">
+              <div><strong>Optical Gradient Dual-Cure</strong><span class="pair-ref">Pair 3, A1-1</span></div>
+              <span class="rationale">Exceptional novelty (9). Transformative for skin/foam formation.</span>
+              <span class="risk">High Risk</span>
+            </div>
+            <div class="rec-item">
+              <div><strong>Solar-Thermal NADES Healing</strong><span class="pair-ref">Pair 4, A1-2</span></div>
+              <span class="rationale">Automotive environment as trigger. Sustainable chemistry.</span>
+              <span class="risk">Medium Risk</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rec-tier t3 reveal" id="tier3">
+          <h4>Tier 3: Exploratory Research</h4>
+          <div class="rec-list">
+            <div class="rec-item">
+              <div><strong>Hydraulic Shunting Composite</strong><span class="pair-ref">Pair 1, A1-2</span></div>
+              <span class="rationale">Addresses fundamental SLIPS failure mode. Opens new applications if successful.</span>
+              <span class="risk">High Risk</span>
+            </div>
+            <div class="rec-item">
+              <div><strong>RI-Matched Bio-Mineral Platelets</strong><span class="pair-ref">Pair 5, A1-3</span></div>
+              <span class="rationale">"Invisible fracture" via refractive index matching. Potentially transformative.</span>
+              <span class="risk">High Risk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="conclusion section-anchor" id="conclusion">
+      <div class="container">
+        <p class="conclusion-statement reveal">Use Transfer Building Blocks to generate breakthrough concepts, then apply Solution Deep Dive's commercialization rigor to selected winners.</p>
+
+        <div class="conclusion-strategy reveal">
+          <div class="strategy-point">
+            <h4>Discovery Phase</h4>
+            <p>Use TBB when seeking genuinely novel solutions with defensible IP. The mechanism discipline ensures true innovation.</p>
+          </div>
+          <div class="strategy-point">
+            <h4>Development Phase</h4>
+            <p>Once a TBB solution is selected, apply SDD's rigor: TRL assessment, risk profiling, manufacturing pathway.</p>
+          </div>
+          <div class="strategy-point">
+            <h4>Not Competitors</h4>
+            <p>TBB: "What does the mechanism inspire?" SDD: "How do we de-risk and manufacture?" Different tools.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <footer>
+    <p class="footer-text">Transfer Building Blocks v3.4.0 · Expert R&D Comparison · 27 Solutions · 7 Dimensions · Generated 2026-01-27</p>
+  </footer>
+
+  <script>
+    // Progress bar
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      document.getElementById('progressFill').style.width = progress + '%';
+    }
+
+    // Back to top button
+    function updateBackToTop() {
+      const btn = document.getElementById('backToTop');
+      btn.classList.toggle('visible', window.scrollY > 600);
+    }
+
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Section indicator
+    function updateSectionIndicator() {
+      const indicator = document.getElementById('sectionIndicator');
+      const titleEl = document.getElementById('indicatorTitle');
+      const navEl = document.getElementById('indicatorNav');
+
+      // Get current pair section
+      const pairs = document.querySelectorAll('[data-pair]');
+      let currentPair = null;
+
+      pairs.forEach(pair => {
+        const rect = pair.getBoundingClientRect();
+        if (rect.top <= 150 && rect.bottom > 150) {
+          currentPair = pair;
+        }
+      });
+
+      if (currentPair) {
+        indicator.classList.add('visible');
+        const pairNum = currentPair.dataset.pair;
+        const pairTitle = currentPair.querySelector('.pair-sticky-title h3').textContent;
+        titleEl.textContent = `Pair ${pairNum}: ${pairTitle}`;
+
+        // Build nav
+        const links = currentPair.querySelectorAll('.pair-sticky-nav a');
+        let navHtml = '';
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          const text = link.textContent;
+          const target = document.querySelector(href);
+          const isCurrent = target && target.getBoundingClientRect().top <= 200;
+          navHtml += `<a href="${href}" class="${isCurrent ? 'current' : ''}">${text}</a>`;
+        });
+        navEl.innerHTML = navHtml;
+      } else {
+        indicator.classList.remove('visible');
+      }
+    }
+
+    // Update sticky nav active states
+    function updateStickyNavs() {
+      document.querySelectorAll('[data-pair]').forEach(pair => {
+        const links = pair.querySelectorAll('.pair-sticky-nav a');
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          const target = document.querySelector(href);
+          if (target) {
+            const rect = target.getBoundingClientRect();
+            const isActive = rect.top <= 200 && rect.bottom > 100;
+            link.classList.toggle('active', isActive);
+          }
+        });
+      });
+    }
+
+    // Scroll reveal
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (rect.top < windowHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    // Throttled scroll handler
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateProgress();
+          updateBackToTop();
+          updateSectionIndicator();
+          updateStickyNavs();
+          revealOnScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Initial calls
+    updateProgress();
+    updateBackToTop();
+    revealOnScroll();
+  </script>
+</body>
+</html>
