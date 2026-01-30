@@ -6,8 +6,11 @@
 <title>Transfer Analysis Report — Analogical Mechanism Transfer for Sustainable Automotive Interiors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@400;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:wght@300;400;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
   :root {
     --serif: 'Source Serif 4', 'Georgia', serif;
     --sans: 'Source Sans 3', 'Helvetica Neue', sans-serif;
@@ -16,15 +19,16 @@
     --bg: #fefdfb;
     --surface: #f7f6f3;
     --surface-alt: #f0efec;
-    --border: #ddd;
+    --border: #d8d6d1;
     --border-light: #e8e7e4;
 
     --ink: #1a1a1a;
-    --ink-secondary: #444;
-    --ink-muted: #777;
-    --ink-faint: #aaa;
+    --ink-secondary: #3d3d3d;
+    --ink-muted: #6b6b6b;
+    --ink-faint: #a0a0a0;
 
     --blue: #1a4480;
+    --blue-mid: #2b5ea7;
     --blue-light: #e8f0fe;
     --green: #1b6e2a;
     --green-light: #e6f4ea;
@@ -35,9 +39,15 @@
     --amber: #92400e;
     --amber-light: #fffbeb;
     --amber-bg: #fefcf3;
+
+    --sidebar-w: 240px;
+    --content-max: 780px;
+    --gutter: 48px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; scroll-padding-top: 32px; }
 
   body {
     font-family: var(--serif);
@@ -49,12 +59,116 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* --- Page Layout --- */
-  .page { max-width: 780px; margin: 0 auto; padding: 72px 24px 120px; }
+  /* ============================================================
+     PAGE LAYOUT — sidebar + main content
+     ============================================================ */
+  .layout {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+    min-height: 100vh;
+  }
 
-  /* --- Title Block --- */
-  .title-block { margin-bottom: 56px; padding-bottom: 40px; border-bottom: 2px solid var(--ink); }
-  .title-block .kicker {
+  /* --- Sidebar / TOC --- */
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-light);
+    background: var(--surface);
+    padding: 40px 0 40px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .sidebar-header {
+    padding: 0 24px 24px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 20px;
+  }
+  .sidebar-kicker {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .sidebar-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+  .sidebar-meta {
+    margin-top: 8px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  .toc { list-style: none; }
+  .toc-section { padding: 0; }
+  .toc-section > a {
+    display: block;
+    padding: 7px 24px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.15s ease;
+  }
+  .toc-section > a:hover {
+    color: var(--blue);
+    background: var(--surface-alt);
+  }
+  .toc-section > a.active {
+    color: var(--blue);
+    border-left-color: var(--blue);
+    background: var(--blue-light);
+  }
+  .toc-section .toc-sub { list-style: none; overflow: hidden; }
+  .toc-section .toc-sub a {
+    display: block;
+    padding: 4px 24px 4px 36px;
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .toc-section .toc-sub a:hover { color: var(--blue); }
+  .toc-section .toc-sub a.active { color: var(--blue); font-weight: 600; }
+
+  li.toc-divider {
+    height: 1px;
+    background: var(--border-light);
+    margin: 12px 24px;
+    list-style: none;
+  }
+
+  /* --- Main Column --- */
+  .main {
+    max-width: calc(var(--content-max) + var(--gutter) * 2);
+    padding: 0 var(--gutter);
+    margin: 0 auto;
+  }
+
+  /* ============================================================
+     TITLE BLOCK
+     ============================================================ */
+  .title-block {
+    padding: 72px 0 48px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 0;
+  }
+  .title-kicker {
     font-family: var(--sans);
     font-size: 13px;
     font-weight: 600;
@@ -65,81 +179,95 @@
   }
   .title-block h1 {
     font-family: var(--serif);
-    font-size: 34px;
+    font-size: clamp(28px, 4vw, 36px);
     font-weight: 700;
-    line-height: 1.22;
+    line-height: 1.2;
     letter-spacing: -0.3px;
     color: var(--ink);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    max-width: 680px;
   }
   .title-block .subtitle {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 300;
     color: var(--ink-secondary);
-    line-height: 1.55;
+    line-height: 1.6;
     max-width: 640px;
   }
-  .title-block .meta {
+  .title-block .meta-row {
     margin-top: 24px;
     font-family: var(--sans);
     font-size: 14px;
     color: var(--ink-muted);
     display: flex;
-    gap: 20px;
+    gap: 24px;
     flex-wrap: wrap;
   }
-  .title-block .meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .title-block .meta-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
 
-  /* --- Section Headings --- */
-  .section-number {
+  /* ============================================================
+     KEY FINDINGS — horizontal strip below title
+     ============================================================ */
+  .key-findings {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .key-findings-label {
     font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
     text-transform: uppercase;
     color: var(--blue);
-    margin-bottom: 6px;
-    display: block;
+    margin-bottom: 16px;
   }
-  h2 {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 20px;
-    color: var(--ink);
+  .findings-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
   }
-  h3 {
-    font-family: var(--serif);
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.35;
-    margin-bottom: 12px;
-    color: var(--ink);
+  .finding {
+    padding: 16px 20px;
+    border-left: 1px solid var(--border-light);
   }
-  h4 {
+  .finding:first-child { border-left: none; padding-left: 0; }
+  .finding-value {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 36px;
     font-weight: 700;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: var(--ink-secondary);
-    margin-bottom: 10px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .finding-value.fv-blue { color: var(--blue); }
+  .finding-value.fv-green { color: var(--green); }
+  .finding-value.fv-red { color: var(--red); }
+  .finding-value.fv-amber { color: var(--amber); }
+  .finding-label {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-muted);
+    font-weight: 600;
+  }
+  .finding-detail {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 2px;
+    line-height: 1.4;
   }
 
-  /* --- Content Sections --- */
-  .section { margin-bottom: 56px; }
-  .section p { margin-bottom: 16px; }
-  .section p:last-child { margin-bottom: 0; }
-
-  /* --- Abstract --- */
+  /* ============================================================
+     ABSTRACT
+     ============================================================ */
   .abstract {
-    background: var(--surface);
-    border-left: 4px solid var(--blue);
-    padding: 28px 32px;
-    margin-bottom: 56px;
+    padding: 32px 0 40px;
+    border-bottom: 1px solid var(--border);
   }
-  .abstract .label {
+  .abstract-label {
     font-family: var(--sans);
     font-size: 12px;
     font-weight: 700;
@@ -150,13 +278,61 @@
   }
   .abstract p {
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
+    color: var(--ink-secondary);
+    max-width: 680px;
+  }
+
+  /* ============================================================
+     SECTION SYSTEM
+     ============================================================ */
+  .section {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .section:last-child { border-bottom: none; }
+  .section p { margin-bottom: 16px; }
+  .section p:last-child { margin-bottom: 0; }
+
+  .section-number {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 6px;
+    display: block;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 28px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    color: var(--ink);
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  h4 {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     color: var(--ink-secondary);
     margin-bottom: 10px;
   }
-  .abstract p:last-child { margin-bottom: 0; }
 
-  /* --- Problem Statement --- */
+  /* ============================================================
+     PROBLEM STATEMENT
+     ============================================================ */
   .problem-statement {
     font-size: 18px;
     line-height: 1.75;
@@ -165,70 +341,32 @@
     border-left: 3px solid var(--border);
     padding-left: 24px;
     margin: 24px 0 32px;
+    max-width: 680px;
   }
 
-  /* --- Summary Table --- */
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    margin: 28px 0 12px;
-  }
-  .summary-cell {
-    background: var(--bg);
-    padding: 20px 16px;
-    text-align: center;
-  }
-  .summary-cell .value {
-    font-family: var(--sans);
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .summary-cell .value.v-blue { color: var(--blue); }
-  .summary-cell .value.v-green { color: var(--green); }
-  .summary-cell .value.v-red { color: var(--red); }
-  .summary-cell .value.v-amber { color: var(--amber); }
-  .summary-cell .desc {
-    font-family: var(--sans);
-    font-size: 12px;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    font-weight: 600;
-  }
-  .bar-track { height: 4px; background: var(--surface-alt); margin: 0; }
-  .bar-fill { height: 100%; background: var(--green); }
-  .summary-note {
-    font-family: var(--sans);
-    font-size: 13px;
-    color: var(--ink-muted);
-    margin-top: 10px;
-  }
-
-  /* --- Method Diagram --- */
+  /* ============================================================
+     METHOD FLOW
+     ============================================================ */
   .method-flow {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 24px 0 28px;
+    gap: 0;
+    margin: 28px 0;
+    border: 1px solid var(--border);
   }
   .method-step {
     position: relative;
-    border: 1px solid var(--border);
-    padding: 18px 16px 16px;
-    background: var(--bg);
+    padding: 20px 18px 18px;
+    border-right: 1px solid var(--border-light);
   }
+  .method-step:last-child { border-right: none; }
   .method-step .step-num {
     font-family: var(--sans);
     font-size: 11px;
     font-weight: 700;
     color: var(--blue);
     letter-spacing: 0.8px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   .method-step .step-title {
     font-family: var(--sans);
@@ -243,21 +381,12 @@
     color: var(--ink-muted);
     line-height: 1.5;
   }
-  .method-step::after {
-    content: '\2192';
-    position: absolute;
-    right: -14px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: var(--ink-faint);
-  }
-  .method-step:last-child::after { content: none; }
 
+  /* Decision Grid */
   .decision-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 6px;
     margin: 16px 0;
   }
   .decision-item {
@@ -274,7 +403,7 @@
     font-weight: 700;
     font-family: var(--mono);
     letter-spacing: 0.5px;
-    padding: 1px 6px;
+    padding: 2px 7px;
     flex-shrink: 0;
   }
   .decision-tag.proceed { color: var(--green); background: var(--green-light); }
@@ -283,20 +412,39 @@
   .decision-tag.complete { color: var(--blue); background: var(--blue-light); }
   .decision-desc { color: var(--ink-secondary); }
 
-  /* --- Horizontal Rule --- */
-  hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 56px 0;
+  /* Parameters note */
+  .params-note {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-muted);
+    padding: 10px 16px;
+    background: var(--surface);
+    margin-top: 20px;
+    display: inline-block;
   }
 
-  /* --- Case Study --- */
+  /* ============================================================
+     CASE STUDIES
+     ============================================================ */
+  .cases-intro { margin-bottom: 36px; }
+
   .case {
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 0;
+    padding: 36px 0;
+    border-top: 1px solid var(--border);
   }
-  .case:last-child { border-bottom: none; padding-bottom: 0; }
+  .case:first-of-type { border-top: none; padding-top: 0; }
+
+  /* Case header row */
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .case-header-left { flex: 1; min-width: 0; }
 
   .case-label {
     font-family: var(--sans);
@@ -314,27 +462,29 @@
     font-family: var(--serif);
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 6px;
     color: var(--ink);
+    line-height: 1.3;
   }
 
   .case-outcome {
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 4px 12px;
+    padding: 5px 14px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 18px;
+    white-space: nowrap;
   }
   .case-outcome.success { background: var(--green-light); color: var(--green); }
   .case-outcome.failure { background: var(--red-light); color: var(--red); }
   .case-outcome.near-miss { background: var(--amber-light); color: var(--amber); }
 
-  /* Source & Mechanism */
+  /* Source & Mechanism — two columns */
   .source-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
     margin: 20px 0 24px;
   }
   .source-box h4 { margin-bottom: 8px; }
@@ -352,6 +502,7 @@
   }
   .source-box a:hover { text-decoration: underline; }
 
+  /* Transfer hypothesis */
   .transfer-idea {
     font-size: 16px;
     line-height: 1.7;
@@ -363,13 +514,18 @@
   }
   .transfer-idea strong { color: var(--ink); }
 
-  /* --- Tables --- */
+  /* ============================================================
+     TABLES
+     ============================================================ */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
   table {
     width: 100%;
     border-collapse: collapse;
     font-size: 14px;
     font-family: var(--sans);
-    margin: 20px 0;
   }
   thead th {
     text-align: left;
@@ -380,6 +536,7 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--ink-secondary);
+    white-space: nowrap;
   }
   tbody td {
     padding: 10px 14px;
@@ -389,6 +546,7 @@
     line-height: 1.5;
   }
   tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: var(--surface); }
 
   .table-caption {
     font-family: var(--sans);
@@ -404,7 +562,9 @@
   .tag-amber { color: var(--amber); }
   .tag-blue { color: var(--blue); }
 
-  /* --- Quotations (Arbiter) --- */
+  /* ============================================================
+     ARBITER QUOTES
+     ============================================================ */
   .arbiter-block {
     margin: 20px 0;
     padding: 16px 20px;
@@ -432,7 +592,9 @@
   }
   .arbiter-block blockquote:last-child { margin-bottom: 0; }
 
-  /* --- Reflection / Analysis --- */
+  /* ============================================================
+     ANALYSIS / REFLECTION BLOCKS
+     ============================================================ */
   .analysis-block {
     margin: 20px 0;
     padding: 16px 20px;
@@ -466,7 +628,9 @@
     line-height: 1.55;
   }
 
-  /* --- Verdict / Root Cause Box --- */
+  /* ============================================================
+     VERDICT / ROOT CAUSE
+     ============================================================ */
   .verdict-box {
     margin: 24px 0;
     padding: 20px 24px;
@@ -491,7 +655,9 @@
     color: var(--ink);
   }
 
-  /* --- Solutions Inline --- */
+  /* ============================================================
+     SOLUTIONS TAGS
+     ============================================================ */
   .solutions-list {
     display: flex;
     flex-wrap: wrap;
@@ -512,7 +678,39 @@
     font-size: 12px;
   }
 
-  /* --- Conclusion Grid --- */
+  /* ============================================================
+     COMPARATIVE TABLE (Section 6) — vertical layout for readability
+     ============================================================ */
+  .compare-table { margin: 24px 0; }
+  .compare-table table { table-layout: auto; }
+  .compare-table thead th:first-child { width: 130px; }
+  .compare-table thead th {
+    font-size: 11px;
+    padding: 10px 10px;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .compare-table thead th:first-child { text-align: left; }
+  .compare-table tbody td:first-child {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  .compare-table tbody td {
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .compare-table tbody td:first-child { text-align: left; }
+
+  /* ============================================================
+     CONCLUSION GRID
+     ============================================================ */
   .conclusion-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -541,10 +739,17 @@
     line-height: 1.5;
   }
 
-  /* --- Footnote / Endmatter --- */
+  /* --- Inline code --- */
+  .problem-id {
+    font-family: var(--mono);
+    font-size: 0.8em;
+  }
+
+  /* ============================================================
+     ENDMATTER
+     ============================================================ */
   .endmatter {
-    margin-top: 56px;
-    padding-top: 24px;
+    padding: 24px 0 80px;
     border-top: 1px solid var(--border);
     font-family: var(--sans);
     font-size: 13px;
@@ -552,779 +757,1155 @@
     line-height: 1.6;
   }
 
-  /* --- Print --- */
+  /* ============================================================
+     BACK-TO-TOP
+     ============================================================ */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 40px;
+    height: 40px;
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 100;
+  }
+  .back-to-top.visible { opacity: 1; pointer-events: auto; }
+  .back-to-top:hover { background: var(--blue); }
+
+  /* ============================================================
+     PRINT
+     ============================================================ */
   @media print {
     body { font-size: 11pt; }
-    .page { max-width: 100%; padding: 0; }
-    .summary-grid, .method-flow, .decision-grid, .conclusion-grid { break-inside: avoid; }
+    .layout { display: block; }
+    .sidebar { display: none; }
+    .main { max-width: 100%; padding: 0 24px; }
+    .back-to-top { display: none; }
     .case { break-inside: avoid; }
+    .method-flow, .decision-grid, .conclusion-grid { break-inside: avoid; }
     .title-block { border-bottom-width: 1px; }
   }
 
-  /* --- Mobile --- */
-  @media (max-width: 700px) {
-    .page { padding: 40px 16px 80px; }
-    .title-block h1 { font-size: 26px; }
-    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  /* ============================================================
+     MOBILE
+     ============================================================ */
+  @media (max-width: 960px) {
+    .layout {
+      display: block;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100vh;
+      z-index: 200;
+      transition: transform 0.25s ease;
+      border-right: 1px solid var(--border);
+      box-shadow: none;
+    }
+    .sidebar.open {
+      transform: translateX(280px);
+      box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+    }
+    .menu-toggle {
+      display: flex;
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 300;
+      width: 40px;
+      height: 40px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--ink);
+    }
+    .sidebar-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.2);
+      z-index: 199;
+    }
+    .sidebar.open ~ .sidebar-overlay { display: block; }
+
+    .main { padding: 0 20px; }
+    .title-block { padding-top: 56px; }
+    .title-block h1 { font-size: 24px; }
+    .findings-row { grid-template-columns: repeat(2, 1fr); gap: 0; }
+    .finding { padding: 12px 16px; }
+    .finding:nth-child(odd) { border-left: none; }
+    .finding:nth-child(n+3) { border-top: 1px solid var(--border-light); }
     .method-flow { grid-template-columns: 1fr 1fr; }
-    .method-step::after { content: none; }
     .source-grid { grid-template-columns: 1fr; }
     .decision-grid { grid-template-columns: 1fr; }
     .conclusion-grid { grid-template-columns: 1fr; }
-    table { font-size: 12px; }
-    thead th, tbody td { padding: 8px 10px; }
+    .compare-table { overflow-x: auto; }
+    table { min-width: 640px; }
+  }
+  @media (min-width: 961px) {
+    .menu-toggle { display: none; }
+    .sidebar-overlay { display: none !important; }
   }
 </style>
 </head>
 <body>
-<div class="page">
+
+<!-- Mobile menu toggle -->
+<button type="button" class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">&#9776;</button>
+
+<div class="layout">
 
   <!-- ================================================================ -->
-  <!-- TITLE BLOCK -->
+  <!-- SIDEBAR / TABLE OF CONTENTS -->
   <!-- ================================================================ -->
-  <header class="title-block">
-    <div class="kicker">Transfer Building Blocks</div>
-    <h1>Analogical Mechanism Transfer for Scratch-Resistant Sustainable Automotive Interiors</h1>
-    <p class="subtitle">
-      A diagnostic report on 30 cross-domain mechanism transfers, examining success patterns, failure modes, and the role of automated quality arbitration.
-    </p>
-    <div class="meta">
-      <span>January 30, 2026</span>
-      <span>Problem&nbsp;ID:&nbsp;<code style="font-family:var(--mono); font-size: 13px;">692ca2c8</code></span>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-kicker">TBB Report</div>
+      <div class="sidebar-title">Sustainable Automotive Interiors</div>
+      <div class="sidebar-meta">January 30, 2026</div>
     </div>
-  </header>
+    <ul class="toc">
+      <li class="toc-section"><a href="#key-findings">Key Findings</a></li>
+      <li class="toc-section"><a href="#abstract">Abstract</a></li>
+      <li class="toc-divider" aria-hidden="true"></li>
+      <li class="toc-section">
+        <a href="#introduction">1. Introduction</a>
+      </li>
+      <li class="toc-section">
+        <a href="#methods">2. Methods</a>
+      </li>
+      <li class="toc-section">
+        <a href="#results">3. Results Overview</a>
+      </li>
+      <li class="toc-divider" aria-hidden="true"></li>
+      <li class="toc-section">
+        <a href="#failures">4. Failed Transfers</a>
+        <ul class="toc-sub">
+          <li><a href="#case-1">Case 1 &middot; Phase Entrapment</a></li>
+          <li><a href="#case-2">Case 2 &middot; Cooperative Plastron</a></li>
+          <li><a href="#case-3">Case 3 &middot; Synthetic Emulation</a></li>
+        </ul>
+      </li>
+      <li class="toc-section">
+        <a href="#successes">5. Successful Transfers</a>
+        <ul class="toc-sub">
+          <li><a href="#case-4">Case 4 &middot; Fluid-Mediated Mass Transfer</a></li>
+          <li><a href="#case-5">Case 5 &middot; Constructive Strain Adaptation</a></li>
+          <li><a href="#case-6">Case 6 &middot; Restoration-Mediated Release</a></li>
+        </ul>
+      </li>
+      <li class="toc-divider" aria-hidden="true"></li>
+      <li class="toc-section"><a href="#comparison">6. Comparative Analysis</a></li>
+      <li class="toc-section"><a href="#discussion">7. Discussion</a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
 
   <!-- ================================================================ -->
-  <!-- ABSTRACT -->
+  <!-- MAIN CONTENT -->
   <!-- ================================================================ -->
-  <div class="abstract">
-    <div class="label">Abstract</div>
-    <p>
-      Thirty biological and material-science mechanisms were transferred to address a car interior durability challenge: making bio-based materials scratch-resistant without synthetic coatings. Each mechanism was explored through a tree-structured search with automated arbitration. Of the 30 transfers, 27 succeeded (producing 66 candidate solutions), while 3 failed. This report examines 3 representative successes and all 3 failures, demonstrating how the system navigates analogical transfer, course-corrects drifting explorations, and identifies fundamentally incompatible domains.
-    </p>
-  </div>
+  <main class="main">
 
-  <!-- ================================================================ -->
-  <!-- 1. INTRODUCTION -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">1. Introduction</span>
-    <h2>The Target Problem</h2>
-
-    <div class="problem-statement">
-      Car interiors increasingly rely on bio-based or recycled materials to meet sustainability expectations, but these materials are easily scratched by everyday interactions such as keys, fingernails, cleaning cloths, and cargo. How can a sustainable interior material maintain a premium, unmarred appearance over years of repeated abrasion while avoiding synthetic coatings or treatments?
-    </div>
-
-    <p>
-      The challenge reduces to a materials-science tension: bio-based polymers that satisfy sustainability requirements are typically softer than their petrochemical counterparts, making them vulnerable to surface damage. The solution space must navigate between the constraints of sustainability (no synthetic coatings) and performance (scratch resistance over years of use).
-    </p>
-  </div>
-
-  <!-- ================================================================ -->
-  <!-- 2. METHODS -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">2. Methods</span>
-    <h2>Transfer Building Blocks (TBB)</h2>
-
-    <p>
-      The TBB system performs analogical transfer by exploring how a mechanism from one domain (e.g., biology, geology) can be adapted to solve a problem in another domain (e.g., automotive materials). The exploration is structured as a tree search with automated quality gates.
-    </p>
-
-    <div class="method-flow">
-      <div class="method-step">
-        <div class="step-num">1 &middot; MAP</div>
-        <div class="step-title">Branch</div>
-        <div class="step-desc">Generate 3 parallel strategy directions for transferring the mechanism</div>
+    <!-- TITLE BLOCK -->
+    <header class="title-block" id="top">
+      <div class="title-kicker">Transfer Building Blocks</div>
+      <h1>Analogical Mechanism Transfer for Scratch-Resistant Sustainable Automotive Interiors</h1>
+      <p class="subtitle">
+        A diagnostic report on 30 cross-domain mechanism transfers, examining success patterns, failure modes, and the role of automated quality arbitration.
+      </p>
+      <div class="meta-row">
+        <span>January 30, 2026</span>
+        <span>Problem&nbsp;ID:&nbsp;<code class="problem-id">692ca2c8</code></span>
       </div>
-      <div class="method-step">
-        <div class="step-num">2 &middot; BUILD</div>
-        <div class="step-title">Deepen</div>
-        <div class="step-desc">Each branch proposes incremental building blocks, one step at a time</div>
-      </div>
-      <div class="method-step">
-        <div class="step-num">3 &middot; EVALUATE</div>
-        <div class="step-title">Assess</div>
-        <div class="step-desc">Dimension agents score novelty, feasibility, and mechanism grounding</div>
-      </div>
-      <div class="method-step">
-        <div class="step-num">4 &middot; DECIDE</div>
-        <div class="step-title">Arbitrate</div>
-        <div class="step-desc">The Arbiter routes each branch: advance, correct, prune, or finalize</div>
-      </div>
-    </div>
+    </header>
 
-    <p>After each building block, the Arbiter makes one of four decisions:</p>
-
-    <div class="decision-grid">
-      <div class="decision-item"><span class="decision-tag proceed">PROCEED</span><span class="decision-desc">Block is sound; continue building deeper</span></div>
-      <div class="decision-item"><span class="decision-tag reflect">REFLECT</span><span class="decision-desc">Drifting from mechanism; course-correct</span></div>
-      <div class="decision-item"><span class="decision-tag prune">PRUNE</span><span class="decision-desc">Dead end; terminate this branch</span></div>
-      <div class="decision-item"><span class="decision-tag complete">COMPLETE</span><span class="decision-desc">Solution is mature; finalize (min&nbsp;depth&nbsp;4)</span></div>
-    </div>
-
-    <p>
-      When the Arbiter selects <strong>REFLECT</strong>, a Reflector agent diagnoses the drift and provides corrective guidance. The Builder retries with this guidance. After approximately 2 failed reflections on the same block, the Arbiter typically prunes the branch. A run fails when all branches are exhausted without producing a completed solution.
-    </p>
-
-    <p>
-      Parameters for this run: beam width&nbsp;=&nbsp;3, max&nbsp;turns&nbsp;=&nbsp;50, max&nbsp;depth&nbsp;=&nbsp;15, min&nbsp;depth&nbsp;=&nbsp;4.
-    </p>
-  </div>
-
-  <!-- ================================================================ -->
-  <!-- 3. RESULTS OVERVIEW -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">3. Results Overview</span>
-    <h2>Pipeline Summary</h2>
-
-    <p>
-      Mechanisms were sourced from two upstream pipelines: <strong>Mechanism Ranking</strong> (top 10, selected by relevance scoring across 2,000+ candidates) and <strong>Mechanism Selection</strong> (top 20, selected through structural alignment, domain distance, and breakthrough potential). All 30 ran overnight in 6 batches of 5, completing in approximately 4 hours.
-    </p>
-
-    <div class="summary-grid">
-      <div class="summary-cell">
-        <div class="value v-blue">30</div>
-        <div class="desc">Mechanisms Run</div>
-      </div>
-      <div class="summary-cell">
-        <div class="value v-green">27</div>
-        <div class="desc">Successful</div>
-      </div>
-      <div class="summary-cell">
-        <div class="value v-red">3</div>
-        <div class="desc">Failed</div>
-      </div>
-      <div class="summary-cell">
-        <div class="value v-amber">66</div>
-        <div class="desc">Solutions Produced</div>
-      </div>
-    </div>
-    <div class="bar-track"><div class="bar-fill" style="width: 90%"></div></div>
-    <p class="summary-note">90% transfer success rate. All 66 solutions were imported to the deep dive pipeline.</p>
-  </div>
-
-  <hr>
-
-  <!-- ================================================================ -->
-  <!-- 4. CASE STUDIES: SUCCESS -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">4. Case Studies &mdash; Successful Transfers</span>
-    <h2>Three Modes of Success</h2>
-    <p>
-      The following cases illustrate the range of successful transfer dynamics: a clean pass-through with zero course corrections, a run that pivoted mid-exploration to meet sustainability constraints, and a complex exploration that branched into multiple distinct solutions.
-    </p>
-
-    <!-- ---- Success 1 ---- -->
-    <div class="case">
-      <div class="case-label success">Case 1 &mdash; Clean Transfer &middot; Ranking Pipeline</div>
-      <h3 class="case-title">Fluid-Mediated Gradient Mass Transfer</h3>
-      <span class="case-outcome success">3 Solutions &middot; 0 Reflections</span>
-
-      <div class="source-grid">
-        <div class="source-box">
-          <h4>Source Scenario</h4>
-          <p>
-            Deep underground, rock salt formations develop micro-cracks over geological time. These cracks contain brine pockets. Stress gradients dissolve salt at high-stress points and re-precipitate it at low-stress points&mdash;the cracks heal themselves through the liquid phase.
-          </p>
-          <a href="https://studenttheses.uu.nl/handle/20.500.12932/20854" target="_blank" rel="noopener">Utrecht University Thesis &rarr;</a>
+    <!-- KEY FINDINGS -->
+    <div class="key-findings" id="key-findings">
+      <div class="key-findings-label">Key Findings</div>
+      <div class="findings-row">
+        <div class="finding">
+          <div class="finding-value fv-blue">30</div>
+          <div class="finding-label">Mechanisms Tested</div>
+          <div class="finding-detail">From Ranking &amp; Selection pipelines</div>
         </div>
-        <div class="source-box">
-          <h4>Mechanism Principle</h4>
-          <p>
-            A rigid solid self-heals by maintaining a thin liquid film on internal surfaces. Stress gradients drive dissolution at high-energy crack tips and re-deposition at low-energy sites, transporting material through the liquid phase to fill gaps.
-          </p>
+        <div class="finding">
+          <div class="finding-value fv-green">27</div>
+          <div class="finding-label">Successful Transfers</div>
+          <div class="finding-detail">90% success rate</div>
         </div>
-      </div>
-
-      <div class="transfer-idea">
-        <strong>Transfer hypothesis:</strong> If rock salt heals cracks by dissolving and re-depositing through brine, a bio-material could heal scratches by dissolving and re-depositing through an embedded bio-solvent&mdash;filling the scratch groove from the inside.
-      </div>
-
-      <h4>Branch Exploration</h4>
-      <table>
-        <thead>
-          <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>NADES-mediated dissolution-precipitation with solar-thermal activation</td>
-            <td>4 &rarr; COMPLETE</td>
-            <td>0</td>
-            <td class="tag-green">DES transport phase with lignin solubility gradient</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mesoporous grain boundary solvent network</td>
-            <td>4 &rarr; COMPLETE</td>
-            <td>0</td>
-            <td class="tag-green">&ldquo;Living composite&rdquo; with nanoconfined solvent</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Interfacial solvent with lattice-matched precipitation</td>
-            <td>10 &rarr; COMPLETE</td>
-            <td>0</td>
-            <td class="tag-green">Semi-crystalline oligomer with thermodynamic solubility gradients</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="arbiter-block">
-        <div class="quote-label q-green">Arbiter at Completion</div>
-        <blockquote>&ldquo;The solution has successfully translated the abstract mechanism (Pressure Solution) into a novel polymer context using thermodynamic solubility gradients (amorphous vs. crystalline) to drive autonomous scratch filling.&rdquo;</blockquote>
-      </div>
-
-      <div class="verdict-box success">
-        <div class="verdict-label">Why It Worked</div>
-        <p>
-          The core physics maps directly: a scratch creates a stress concentration; a confined liquid phase can dissolve surrounding polymer and re-deposit it to fill the scratch. Geological time scales become polymer kinetics, brine becomes a bio-solvent, rock salt becomes a bio-polymer matrix. Zero reflections were needed because the underlying dissolution-transport-redeposition mechanism is domain-agnostic.
-        </p>
+        <div class="finding">
+          <div class="finding-value fv-amber">66</div>
+          <div class="finding-label">Solutions Produced</div>
+          <div class="finding-detail">Imported to deep dive pipeline</div>
+        </div>
+        <div class="finding">
+          <div class="finding-value fv-red">3</div>
+          <div class="finding-label">Failed Transfers</div>
+          <div class="finding-detail">2 physics mismatch, 1 operational drift</div>
+        </div>
       </div>
     </div>
 
-    <!-- ---- Success 2 ---- -->
-    <div class="case">
-      <div class="case-label success">Case 2 &mdash; Course-Corrected &middot; Ranking Pipeline</div>
-      <h3 class="case-title">Constructive Strain Adaptation</h3>
-      <span class="case-outcome success">3 Solutions &middot; 2 Reflections</span>
-
-      <div class="source-grid">
-        <div class="source-box">
-          <h4>Source Scenario</h4>
-          <p>
-            Scientists embedded molecular &ldquo;switches&rdquo; (mechanophores) into polymers. When stressed, these switches snap open&mdash;but instead of breaking the material, they expose reactive groups that cross-link with neighbors. The material gets harder at the exact point of stress. Damage becomes reinforcement.
-          </p>
-          <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2631603/" target="_blank" rel="noopener">NIH/PMC &rarr;</a>
-        </div>
-        <div class="source-box">
-          <h4>Mechanism Principle</h4>
-          <p>
-            Mechanical stress activates latent cross-linking agents. Stress energy breaks &ldquo;sacrificial&rdquo; bonds that transform into reactive sites, immediately binding with neighbors&mdash;increasing density and rigidity in direct response to load.
-          </p>
-        </div>
-      </div>
-
-      <div class="transfer-idea">
-        <strong>Transfer hypothesis:</strong> If a polymer can get harder where it is scratched by activating hidden cross-linkers, a bio-material could do the same&mdash;the act of scratching triggers a chemical reaction that hardens and seals the scratch zone.
-      </div>
-
-      <h4>Branch Exploration</h4>
-      <table>
-        <thead>
-          <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>Bio-based mechanophore crystallization islands</td>
-            <td>5 &rarr; COMPLETE</td>
-            <td>0</td>
-            <td class="tag-green">PLA/PHA with reactive islands that harden at scratch sites</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Iso-refractive mechanophore densification</td>
-            <td>6 &rarr; COMPLETE</td>
-            <td class="tag-amber">2 (depth 2)</td>
-            <td class="tag-green">Self-hardening system with optical camouflage</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Protein-based sacrificial double network</td>
-            <td>6 &rarr; COMPLETE</td>
-            <td>0</td>
-            <td class="tag-green">Globular plant proteins as sacrificial mechanophores</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="analysis-block">
-        <div class="analysis-label">Course Correction on Branch 1</div>
-        <div class="analysis-step">
-          <strong>Problem detected:</strong> The initial block used synthetic mechanophores (gem-dibromocyclopropane)&mdash;technically grounded in the source mechanism but not sustainable for the target problem&rsquo;s bio-material constraint.
-        </div>
-        <div class="analysis-step">
-          <strong>Correction applied:</strong> The Reflector pushed toward bio-derived alternatives. After 2 iterations, the Builder pivoted to a bio-compatible system with matched refractive indices&mdash;producing the most creative solution of the three.
-        </div>
-      </div>
-
-      <div class="arbiter-block">
-        <div class="quote-label q-green">Arbiter at Completion</div>
-        <blockquote>&ldquo;The solution represents a fully formed, high-novelty concept: &lsquo;Iso-refractive Mechanophore Hardening.&rsquo; It successfully translates the mechanism&rsquo;s core logic (adaptation to strain) into a novel application (invisible hardening) that addresses both structural and optical aspects of scratch concealment.&rdquo;</blockquote>
-      </div>
-
-      <div class="verdict-box success">
-        <div class="verdict-label">Why It Worked</div>
-        <p>
-          The transfer is near-literal: the source mechanism is a polymer that strengthens under stress; the target problem is a polymer being stressed by scratching. The creative leap was adapting from bulk stress to surface abrasion and from synthetic to bio-based chemistry. The 2 reflections on Branch 1 demonstrate the system course-correcting on sustainability constraints while maintaining mechanism fidelity&mdash;and producing the most novel solution as a result.
-        </p>
-      </div>
+    <!-- ABSTRACT -->
+    <div class="abstract" id="abstract">
+      <div class="abstract-label">Abstract</div>
+      <p>
+        Thirty biological and material-science mechanisms were transferred to address a car interior durability challenge: making bio-based materials scratch-resistant without synthetic coatings. Each mechanism was explored through a tree-structured search with automated arbitration. Of the 30 transfers, 27 succeeded (producing 66 candidate solutions), while 3 failed. This report examines 3 representative successes and all 3 failures, demonstrating how the system navigates analogical transfer, course-corrects drifting explorations, and identifies fundamentally incompatible domains.
+      </p>
     </div>
 
-    <!-- ---- Success 3 ---- -->
-    <div class="case">
-      <div class="case-label success">Case 3 &mdash; Highest Yield &middot; Selection Pipeline</div>
-      <h3 class="case-title">Restoration-Mediated Release</h3>
-      <span class="case-outcome success">4 Solutions &middot; 4 Reflections</span>
+    <!-- ================================================================ -->
+    <!-- 1. INTRODUCTION -->
+    <!-- ================================================================ -->
+    <div class="section" id="introduction">
+      <span class="section-number">1. Introduction</span>
+      <h2>The Target Problem</h2>
 
-      <div class="source-grid">
-        <div class="source-box">
-          <h4>Source Scenario</h4>
-          <p>
-            When skin is cut, platelets and fibrin form a hard scab. The scab is anchored to damaged tissue. As new skin grows underneath, it releases enzymes that degrade the anchors. The scab falls off precisely when it is no longer needed. Restoration triggers release.
-          </p>
-          <a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/scab" target="_blank" rel="noopener">ScienceDirect &rarr;</a>
-        </div>
-        <div class="source-box">
-          <h4>Mechanism Principle</h4>
-          <p>
-            A temporary protective cover adheres to the &ldquo;damaged&rdquo; state. As the substrate transitions to a &ldquo;healed&rdquo; state, the interface changes properties, degrading the anchors. The cover self-detaches. Protection is precisely temporary: restoration triggers release.
-          </p>
-        </div>
-      </div>
-
-      <div class="transfer-idea">
-        <strong>Transfer hypothesis:</strong> If a scab protects a wound and self-ejects when the skin heals, a scratch on a car interior could trigger a temporary &ldquo;scab&rdquo; material that fills the scratch and self-ejects once the underlying material recovers.
-      </div>
-
-      <h4>Branch Exploration</h4>
-      <table>
-        <thead>
-          <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>Micro-ablative surface with strain-induced hardening</td>
-            <td>5 &rarr; COMPLETE</td>
-            <td class="tag-amber">2 (depth 4)</td>
-            <td class="tag-green">Crystallization-driven micro-pillar surface</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Shear-responsive oligomer &ldquo;catch-and-release&rdquo;</td>
-            <td>4 &rarr; COMPLETE</td>
-            <td class="tag-amber">1 (depth 4)</td>
-            <td class="tag-green">Self-polishing shear-responsive system</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Transient volatile &ldquo;scabbing&rdquo;</td>
-            <td>3&rarr;COMPLETE, BRANCHED&nbsp;at&nbsp;6</td>
-            <td class="tag-amber">1 (depth 6)</td>
-            <td class="tag-green">2 solutions via branch split</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="solutions-list">
-        <span class="solution-tag">Shear-Responsive Self-Polisher <span class="depth">&middot; d4</span></span>
-        <span class="solution-tag">Micro-Ablative Crystallizer <span class="depth">&middot; d5</span></span>
-        <span class="solution-tag">Sublimating Scab (Cyclodextrin) <span class="depth">&middot; d8</span></span>
-        <span class="solution-tag">Refractive Eutectic Scab (MSM/Sorbitol) <span class="depth">&middot; d11</span></span>
+      <div class="problem-statement">
+        Car interiors increasingly rely on bio-based or recycled materials to meet sustainability expectations, but these materials are easily scratched by everyday interactions such as keys, fingernails, cleaning cloths, and cargo. How can a sustainable interior material maintain a premium, unmarred appearance over years of repeated abrasion while avoiding synthetic coatings or treatments?
       </div>
 
       <p>
-        This was the most complex exploration. Branch 2 was marked COMPLETE at depth 3, but the system continued exploring. At depth 6, the Arbiter issued the only <strong>BRANCH</strong> decision in this run&mdash;splitting the path because two viable chemical directions emerged (menthol-based vs. MSM-based scab agents):
+        The challenge reduces to a materials-science tension: bio-based polymers that satisfy sustainability requirements are typically softer than their petrochemical counterparts, making them vulnerable to surface damage. The solution space must navigate between the constraints of sustainability (no synthetic coatings) and performance (scratch resistance over years of use).
+      </p>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- 2. METHODS -->
+    <!-- ================================================================ -->
+    <div class="section" id="methods">
+      <span class="section-number">2. Methods</span>
+      <h2>Transfer Building Blocks (TBB)</h2>
+
+      <p>
+        The TBB system performs analogical transfer by exploring how a mechanism from one domain (e.g., biology, geology) can be adapted to solve a problem in another domain (e.g., automotive materials). The exploration is structured as a tree search with automated quality gates.
       </p>
 
-      <div class="arbiter-block">
-        <div class="quote-label q-amber">Arbiter at Branch Decision (Depth 6)</div>
-        <blockquote>&ldquo;The solution features a highly novel and well-grounded mechanism (&lsquo;Transient Scab&rsquo; via crystallization shedding), but the specific instantiation using Menthol faces a critical feasibility flaw: its low melting point cannot withstand automotive interior temperatures.&rdquo;</blockquote>
+      <div class="method-flow">
+        <div class="method-step">
+          <div class="step-num">1 &middot; MAP</div>
+          <div class="step-title">Branch</div>
+          <div class="step-desc">Generate 3 parallel strategy directions for transferring the mechanism</div>
+        </div>
+        <div class="method-step">
+          <div class="step-num">2 &middot; BUILD</div>
+          <div class="step-title">Deepen</div>
+          <div class="step-desc">Each branch proposes incremental building blocks, one step at a time</div>
+        </div>
+        <div class="method-step">
+          <div class="step-num">3 &middot; EVALUATE</div>
+          <div class="step-title">Assess</div>
+          <div class="step-desc">Dimension agents score novelty, feasibility, and mechanism grounding</div>
+        </div>
+        <div class="method-step">
+          <div class="step-num">4 &middot; DECIDE</div>
+          <div class="step-title">Arbitrate</div>
+          <div class="step-desc">The Arbiter routes each branch: advance, correct, prune, or finalize</div>
+        </div>
       </div>
 
-      <div class="arbiter-block">
-        <div class="quote-label q-green">Arbiter at Final Completion (Depth 11)</div>
-        <blockquote>&ldquo;The solution has successfully translated the source mechanism (Restoration-Mediated Release) into a specific, novel polymer science concept. It defines the chemistry (MSM/Sorbitol), the physical process (Solvent-Induced Crystallization), and the outcome (transparent, self-ejecting scab).&rdquo;</blockquote>
+      <p>After each building block, the Arbiter makes one of four decisions:</p>
+
+      <div class="decision-grid">
+        <div class="decision-item"><span class="decision-tag proceed">PROCEED</span><span class="decision-desc">Block is sound; continue building deeper</span></div>
+        <div class="decision-item"><span class="decision-tag reflect">REFLECT</span><span class="decision-desc">Drifting from mechanism; course-correct</span></div>
+        <div class="decision-item"><span class="decision-tag prune">PRUNE</span><span class="decision-desc">Dead end; terminate this branch</span></div>
+        <div class="decision-item"><span class="decision-tag complete">COMPLETE</span><span class="decision-desc">Solution is mature; finalize (min&nbsp;depth&nbsp;4)</span></div>
       </div>
 
-      <div class="verdict-box success">
-        <div class="verdict-label">Why It Worked</div>
+      <p>
+        When the Arbiter selects <strong>REFLECT</strong>, a Reflector agent diagnoses the drift and provides corrective guidance. The Builder retries with this guidance. After approximately 2 failed reflections on the same block, the Arbiter typically prunes the branch. A run fails when all branches are exhausted without producing a completed solution.
+      </p>
+
+      <div class="params-note">beam&nbsp;width&nbsp;=&nbsp;3 &nbsp;&middot;&nbsp; max&nbsp;turns&nbsp;=&nbsp;50 &nbsp;&middot;&nbsp; max&nbsp;depth&nbsp;=&nbsp;15 &nbsp;&middot;&nbsp; min&nbsp;depth&nbsp;=&nbsp;4</div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- 3. RESULTS OVERVIEW -->
+    <!-- ================================================================ -->
+    <div class="section" id="results">
+      <span class="section-number">3. Results Overview</span>
+      <h2>Pipeline Summary</h2>
+
+      <p>
+        Mechanisms were sourced from two upstream pipelines: <strong>Mechanism Ranking</strong> (top 10, selected by relevance scoring across 2,000+ candidates) and <strong>Mechanism Selection</strong> (top 20, selected through structural alignment, domain distance, and breakthrough potential). All 30 ran overnight in 6 batches of 5, completing in approximately 4 hours.
+      </p>
+      <p>
+        The Ranking pipeline achieved a 100% success rate (10/10). All 3 failures originated from the Selection pipeline (3/20). In total, 66 candidate solutions were produced and imported to the deep dive pipeline.
+      </p>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- 4. CASE STUDIES: FAILURE -->
+    <!-- ================================================================ -->
+    <div class="section" id="failures">
+      <span class="section-number">4. Case Studies &mdash; Failed Transfers</span>
+      <h2>Three Failure Modes</h2>
+      <p class="cases-intro">
+        All 3 failed mechanisms came from the Mechanism Selection pipeline. The Mechanism Ranking pipeline&rsquo;s top 10 achieved a 100% success rate. Two failures share the same root cause (fundamental physics mismatch); the third is a near-miss caused by operational drift.
+      </p>
+
+      <div class="analysis-block" style="margin-bottom: 32px;">
+        <div class="analysis-label">How Branches Terminate</div>
+        <div class="analysis-step">
+          <strong>Arbiter PRUNE:</strong> The arbiter explicitly kills the branch. This happens after the reflector has tried to save it (typically 2 rounds with <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code>), but the builder still cannot course-correct. The arbiter concludes the drift is unrecoverable.
+        </div>
+        <div class="analysis-step">
+          <strong>Reflector-recommended abandonment:</strong> The arbiter says REFLECT, the reflector diagnoses the problem, but sets <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code>&mdash;meaning &ldquo;I can articulate what&rsquo;s wrong, but I don&rsquo;t think this branch is salvageable.&rdquo; The system abandons the node. Final state: <code style="font-family:var(--mono); font-size: 0.85em;">decision: REFLECT, status: abandoned</code>.
+        </div>
+      </div>
+
+      <!-- ---- Case 1 ---- -->
+      <div class="case" id="case-1">
+        <div class="case-header">
+          <div class="case-header-left">
+            <div class="case-label failure">Case 1 &mdash; Fundamental Physics Mismatch</div>
+            <h3 class="case-title">Surface-Energy Mediated Phase Entrapment</h3>
+          </div>
+          <span class="case-outcome failure">Domain Incompatible &middot; 0 Solutions &middot; Run <code style="font-family:var(--mono); font-size: 12px;">697c34e4</code></span>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-box">
+            <h4>Source Scenario</h4>
+            <p>
+              The diving bell spider (<em>Argyroneta aquatica</em>) lives entirely underwater by spinning a silk dome that traps an air bubble&mdash;a &ldquo;plastron&rdquo; functioning as a physical gill. The spider&rsquo;s hydrophobic silk uses surface tension to pin a gas layer against a liquid environment.
+            </p>
+            <a href="https://jeb.biologists.org/content/214/13/2175" target="_blank" rel="noopener">Journal of Experimental Biology &rarr;</a>
+          </div>
+          <div class="source-box">
+            <h4>Mechanism Principle</h4>
+            <p>
+              Stabilize a gas phase within a liquid environment using a textured, low-surface-energy surface. The texture increases the contact angle of the liquid, creating a stable air film that stays pinned even when submerged.
+            </p>
+          </div>
+        </div>
+
+        <div class="transfer-idea">
+          <strong>Transfer hypothesis:</strong> If the spider creates an invisible protective gas barrier using surface texture, perhaps a similar invisible layer could shield a car interior surface from scratches.
+        </div>
+
+        <h4>Branch 0: Topological Shielding &mdash; Arbiter PRUNED after 2 reflections</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Vertical stiffness gradient in micro-texture; densified tips to resist contact. Framed as &ldquo;breakthrough pressure&rdquo; but used mechanical stiffness, not surface tension.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Develop a &lsquo;Liquid-Infused Texture&rsquo;&mdash;trap a protective fluid via capillary action.&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code></td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Builder returned with liquid-infused surface (SLIPS): bio-oil trapped by capillary forces. Still liquid infusion, not gas entrapment.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R2</td>
+                <td>Guidance: &ldquo;Design geometry so abrasive forces cannot overcome breakthrough pressure, maintaining a protective air gap.&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code></td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Builder returned with the same SLIPS concept plus stiffened tips. Arbiter: &ldquo;Persistent drift. Substituted gas retention/surface tension with SLIPS/liquid infusion. Reflection limit reached. Low novelty&mdash;incremental variation of existing &lsquo;Armored SLIPS&rsquo; literature.&rdquo;</td>
+                <td class="tag-red">PRUNE</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Branch 1: Intrinsic Phase Migration &mdash; Reflector abandoned after 2 reflections</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Bridging micro-texture plus blooming wax. Abrasive objects ride on waxed peaks.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Redefine strategy for &lsquo;Phase Entrapment.&rsquo; Reference breakthrough pressure or pinning mechanics.&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code></td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Builder returned with texture + wax again. Arbiter: &ldquo;Has discarded the core dynamic of &lsquo;Phase Entrapment.&rsquo; Merely uses texture to reduce contact area and wax to lubricate. Generic tribology, not analogical transfer.&rdquo;</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R2</td>
+                <td>Guidance: &ldquo;Design micro-texture to maximize capillary retention of wax, creating a &lsquo;liquid plastron.&rsquo; The abrasive CANNOT touch the surface.&rdquo; <strong><code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code></strong>&mdash;reflector concluded this branch is not salvageable.</td>
+                <td class="tag-red">Abandoned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Branch 2: Optical Scattering Camouflage &mdash; Reflector abandoned after 1 reflection</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Low-friction micro-pillar array forcing abrasive objects to bridge across tips (&ldquo;Solid Cassie-Baxter state&rdquo;). Arbiter: &ldquo;Fundamental physics mismatch&mdash;solid objects have no surface tension to prevent them penetrating voids. Micro-pillars will simply be crushed or sheared.&rdquo;</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Discard optical camouflage. New strategy: how can a trapped fluid layer prevent a solid object from touching the base material.&rdquo; <strong><code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code></strong>&mdash;reflector recognized phase entrapment cannot work in this domain.</td>
+                <td class="tag-red">Abandoned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="arbiter-block">
+          <div class="quote-label q-red">Key Arbiter Decisions</div>
+          <blockquote>&ldquo;The solution has substituted the source&rsquo;s core physics (gas retention / surface tension) with a purely mechanical approach.&rdquo;</blockquote>
+          <blockquote>&ldquo;Fundamental physics mismatch&mdash;solid objects have no surface tension to prevent them from penetrating voids. Micro-pillars will simply be crushed or sheared.&rdquo;</blockquote>
+        </div>
+
+        <div class="verdict-box failure">
+          <div class="verdict-label">Root Cause</div>
+          <p>
+            The plastron effect requires a <strong>gas&ndash;liquid interface</strong>. The diving bell spider&rsquo;s mechanism works because water tries to displace trapped air, and surface tension prevents it. The target problem&mdash;scratching of a car interior&mdash;is solid-on-solid contact. There is no liquid medium. The Reflector gave mechanism-faithful guidance every time, but the Builder could not follow it because the target environment lacks the fluid medium required. On Branch 0, the reflector tried twice (<code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code> both times) before the arbiter pruned. On Branches 1 and 2, the reflector itself recommended abandonment after recognizing the futility.
+          </p>
+        </div>
+      </div>
+
+      <!-- ---- Case 2 ---- -->
+      <div class="case" id="case-2">
+        <div class="case-header">
+          <div class="case-header-left">
+            <div class="case-label failure">Case 2 &mdash; Fundamental Physics Mismatch</div>
+            <h3 class="case-title">Cooperative Plastron Entrapment</h3>
+          </div>
+          <span class="case-outcome failure">Domain Incompatible &middot; 0 Solutions &middot; Run <code style="font-family:var(--mono); font-size: 12px;">697c3f64</code></span>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-box">
+            <h4>Source Scenario</h4>
+            <p>
+              Fire ants link their hydrophobic bodies into a living raft. Their interlocked waxy exoskeletons create a rough surface that pins water&rsquo;s meniscus and traps large air volumes&mdash;a cooperative plastron keeping the colony afloat and dry.
+            </p>
+            <a href="https://www.core77.com/posts/41475" target="_blank" rel="noopener">Core77 Article &rarr;</a>
+          </div>
+          <div class="source-box">
+            <h4>Mechanism Principle</h4>
+            <p>
+              Hydrophobic elements aggregate to create a composite rough surface that pins the liquid meniscus and traps a gas volume. The trapped gas provides buoyancy and acts as a barrier.
+            </p>
+          </div>
+        </div>
+
+        <div class="transfer-idea">
+          <strong>Transfer hypothesis:</strong> If ant colonies cooperatively trap a protective gas barrier using surface geometry, perhaps a similar cooperative micro-structure could trap a protective layer against abrasion.
+        </div>
+
+        <h4>Branch 0: Geometric Exclusion &mdash; Arbiter PRUNED after 2 reflections</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Replaced air pockets with viscous bio-fluid (plant oil) pinned by capillary forces. A liquid-infused surface where fluid deflects abrasive forces.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Focus on &lsquo;Gas Entrapment.&rsquo; How can the voids trap air that actively resists the pressure of an abrasive object?&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code></td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Builder returned with the same liquid-infused approach. Arbiter: &ldquo;Fundamental inversion of physics: Gas vs. Liquid, Repulsion vs. Attraction.&rdquo; Also noted fatal UX flaws: greasy feel and dust attraction.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R2</td>
+                <td>Guidance: &ldquo;Define the &lsquo;trapped phase&rsquo; as a lubricating material retained by texture.&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code>&mdash;reflector pivoted to a different trapped phase.</td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Arbiter: &ldquo;Morphed into a different bio-inspired mechanism (Nepenthes/SLIPS). Fatal user experience flaws directly conflict with &lsquo;Aesthetic Signal&rsquo; goal. Reflected twice without resolution.&rdquo;</td>
+                <td class="tag-red">PRUNE</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Branch 1: Intrinsic Lubricant Reservoirs &mdash; Reflector abandoned after 1 reflection</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Composite micro-texture of fibrils pinning bio-wax at tips. Self-lubricating interface. Arbiter: &ldquo;Critical &lsquo;Physics Inversion.&rsquo; Source uses hydrophobicity to REPEL liquids and trap gas. Solution does the OPPOSITE: retains a lubricant (wetting).&rdquo;</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Discard the lubricant idea. Focus on how a &lsquo;trapped gas layer&rsquo; can solve the problem.&rdquo; <strong><code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code></strong>&mdash;reflector concluded the physics inversion makes this unsalvageable.</td>
+                <td class="tag-red">Abandoned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Branch 2: Optical Depth Masking &mdash; Arbiter PRUNED after 2 reflections</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Re-entrant micro-lattice trapping air as &ldquo;pneumatic dashpot&rdquo; to dissipate impact energy.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Porous structure must trap a renewable protective layer relying on meniscus pinning rather than material hardness.&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code></td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Builder returned with hydrophobic porous lattice trapping air. Arbiter recognized the fundamental wall: without a liquid pressing against the structure, there is no meniscus to pin the air.</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R2</td>
+                <td>Guidance: &ldquo;Apply hydrophobic chemistry so that, <em>upon contact with liquids</em>, it traps a permanent air barrier.&rdquo; <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code>&mdash;but the phrase <strong>&ldquo;upon contact with liquids&rdquo;</strong> reveals the impossible assumption.</td>
+                <td>Builder retried</td>
+              </tr>
+              <tr>
+                <td>Retry</td>
+                <td>Arbiter: &ldquo;Plastron functions via surface tension at a liquid&ndash;gas interface. Solution attempts this in a dry car interior. Without the liquid, there is no meniscus; the structure becomes generic open-cell foam where air simply vents.&rdquo;</td>
+                <td class="tag-red">PRUNE</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="arbiter-block">
+          <div class="quote-label q-red">Key Arbiter Decisions</div>
+          <blockquote>&ldquo;Fundamental inversion of physics: Gas vs. Liquid, Repulsion vs. Attraction.&rdquo;</blockquote>
+          <blockquote>&ldquo;The &lsquo;Plastron&rsquo; mechanism functions via surface tension at a liquid&ndash;gas interface (meniscus pinning). Without the liquid, there is no meniscus; the structure becomes generic open-cell foam where air simply vents.&rdquo;</blockquote>
+        </div>
+
+        <div class="verdict-box failure">
+          <div class="verdict-label">Root Cause</div>
+          <p>
+            Same mechanistic family as Case 1. Cooperative Plastron Entrapment requires a <strong>liquid medium pressing against a hydrophobic surface</strong> to pin menisci and trap gas. Fire ants achieve this on water. A car interior being scratched by keys is solid-on-solid contact. No liquid, no meniscus, no plastron. The Branch 2 arbiter rationale is the most explicit diagnosis in the dataset: <em>&ldquo;Without the liquid, there is no meniscus to trap the air; the structure becomes generic open-cell foam.&rdquo;</em> Branch 1 additionally inverted the physics entirely&mdash;retaining liquid instead of repelling it.
+          </p>
+        </div>
+      </div>
+
+      <!-- ---- Case 3 ---- -->
+      <div class="case" id="case-3">
+        <div class="case-header">
+          <div class="case-header-left">
+            <div class="case-label near-miss">Case 3 &mdash; Operational Drift / Near Miss</div>
+            <h3 class="case-title">Functional Decoupling via Synthetic Emulation</h3>
+          </div>
+          <span class="case-outcome near-miss">Viable Transfer, Drifted &middot; 0 Solutions &middot; Run <code style="font-family:var(--mono); font-size: 12px;">697c4626</code></span>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-box">
+            <h4>Source Scenario</h4>
+            <p>
+              Ultramarine blue could only come from lapis lazuli&mdash;rare and expensive. In 1826, a chemist analyzed <em>why</em> lapis is blue (sulfur atoms in a sodalite lattice) and synthesized it from cheap ingredients. Same color, no gemstone. The key: decouple the desired effect from its problematic source.
+            </p>
+            <a href="https://www.core77.com/posts/27273" target="_blank" rel="noopener">Core77 Article &rarr;</a>
+          </div>
+          <div class="source-box">
+            <h4>Mechanism Principle</h4>
+            <p>
+              Separate a desired effect from its original, problematic source. Analyze the physical basis of the effect, then engineer a new structure producing the same outcome without the original material&rsquo;s downsides. Turn an extraction problem into a design problem.
+            </p>
+          </div>
+        </div>
+
+        <div class="transfer-idea">
+          <strong>Transfer hypothesis:</strong> If chemists analyzed what makes lapis lazuli blue and rebuilt that effect synthetically, perhaps we can analyze what makes a hard coating scratch-resistant and rebuild that property structurally in a bio-material&mdash;no synthetic coating needed.
+        </div>
+
+        <h4>Branch 0: Volumetric Optical Camouflage &mdash; THE NEAR MISS</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>&ldquo;Functionally Graded Integral Skin&rdquo;&mdash;vertical density gradient creating hyper-dense surface transitioning to compliant core. Arbiter: &ldquo;Novel combination. Mechanism grounding assessed as Strong.&rdquo;</td>
+                <td class="tag-green">PROCEED</td>
+              </tr>
+              <tr>
+                <td>Depth&nbsp;3</td>
+                <td>&ldquo;Self-Stratifying Densification&rdquo;&mdash;molding process triggers harder constituents to migrate and concentrate at surface. Arbiter: &ldquo;Reached high level of conceptual maturity. Novel and fully defined.&rdquo;</td>
+                <td class="tag-blue">COMPLETE</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><em>But minimum depth is 4, so exploration continues&hellip;</em></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Depth&nbsp;4</td>
+                <td>&ldquo;Bio-Mineral Emulation Agents&rdquo;&mdash;rice husk silica, shellfish calcite. Arbiter: &ldquo;Optical Camouflage appears generic rather than analogical transfer. Shift from &lsquo;structural emulation&rsquo; toward simple sedimentation.&rdquo;</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Identify the specific physical property of the constrained source and synthesize that exact structure using safe bio-materials.&rdquo; <strong><code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code></strong>&mdash;reflector concluded the branch had drifted too far; this was the last viable branch.</td>
+                <td class="tag-red">Abandoned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Branch 1: Metamaterial Surface Densification &mdash; Reflector abandoned after 1 reflection</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Hierarchical &ldquo;brick-and-mortar&rdquo; mimicking nacre. Arbiter: &ldquo;Imported generic engineering concepts (Nacre, Auxetics) not in the source mechanism. This is &lsquo;generic biomimicry&rsquo; not &lsquo;mechanism-grounded innovation.&rsquo; High similarity to existing nacre-inspired auxetic literature.&rdquo;</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Focus on synthesizing hardness using the base material&rsquo;s own chemistry, not external geometric patterns.&rdquo; <strong><code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code></strong>&mdash;reflector concluded the branch was borrowing from unrelated mechanisms.</td>
+                <td class="tag-red">Abandoned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Branch 2: Sacrificial Gradient Emulation &mdash; Reflector abandoned after 1 reflection</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Step</th><th>What happened</th><th>Decision</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Depth&nbsp;2</td>
+                <td>Compliant micro-pillars plus sacrificial gradient for graceful aging. Arbiter: &ldquo;By introducing &lsquo;patina,&rsquo; the solution accepts damage rather than emulating resistance. Violates the mechanism&rsquo;s invariant of &lsquo;Fidelity&rsquo; and the problem&rsquo;s constraint for &lsquo;unmarred&rsquo; appearance.&rdquo;</td>
+                <td class="tag-amber">REFLECT</td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td>Guidance: &ldquo;Propose &lsquo;Structural Emulation&rsquo; where bio-material&rsquo;s micro-architecture replicates the physical mechanism of resistance, ensuring surface remains pristine.&rdquo; <strong><code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code></strong>&mdash;reflector concluded the patina approach fundamentally contradicts the mechanism.</td>
+                <td class="tag-red">Abandoned</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="arbiter-block">
+          <div class="quote-label q-green">Arbiter at Depth 3 (Positive)</div>
+          <blockquote>&ldquo;The solution has reached a high level of conceptual maturity, effectively resolving the target problem through a cohesive, mechanism-grounded architecture.&rdquo;</blockquote>
+        </div>
+        <div class="arbiter-block">
+          <div class="quote-label q-red">Arbiter at Depth 4 (Rejection)</div>
+          <blockquote>&ldquo;The &lsquo;Volumetric Optical Camouflage&rsquo; component appears to be a generic addition rather than an analogical transfer from the source mechanism.&rdquo;</blockquote>
+        </div>
+
+        <div class="verdict-box near-miss">
+          <div class="verdict-label">Root Cause</div>
+          <p>
+            Unlike Cases 1 and 2, this was <strong>not a fundamental physics mismatch</strong>. The transfer concept is valid. The failure was operational: Branches 1 and 2 drifted to well-known engineering patterns and were abandoned after a single reflection (<code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code>). Branch 0 was genuinely close&mdash;the Arbiter marked it COMPLETE at depth 3&mdash;but minimum depth 4 forced one more block, and that block drifted. Notably, all three branches died via <strong>reflector-recommended abandonment</strong>, not arbiter PRUNE. The reflector was more aggressive here than with the plastron mechanisms, where it tried harder before the arbiter eventually pruned. This mechanism could succeed on a re-run with wider beam width or more reflection tolerance.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- 5. CASE STUDIES: SUCCESS -->
+    <!-- ================================================================ -->
+    <div class="section" id="successes">
+      <span class="section-number">5. Case Studies &mdash; Successful Transfers</span>
+      <h2>Three Modes of Success</h2>
+      <p class="cases-intro">
+        The following cases illustrate the range of successful transfer dynamics: a clean pass-through with zero course corrections, a run that pivoted mid-exploration to meet sustainability constraints, and a complex exploration that branched into multiple distinct solutions.
+      </p>
+
+      <!-- ---- Case 4 ---- -->
+      <div class="case" id="case-4">
+        <div class="case-header">
+          <div class="case-header-left">
+            <div class="case-label success">Case 4 &mdash; Clean Transfer &middot; Ranking Pipeline</div>
+            <h3 class="case-title">Fluid-Mediated Gradient Mass Transfer</h3>
+          </div>
+          <span class="case-outcome success">3 Solutions &middot; 0 Reflections</span>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-box">
+            <h4>Source Scenario</h4>
+            <p>
+              Deep underground, rock salt formations develop micro-cracks over geological time. These cracks contain brine pockets. Stress gradients dissolve salt at high-stress points and re-precipitate it at low-stress points&mdash;the cracks heal themselves through the liquid phase.
+            </p>
+            <a href="https://studenttheses.uu.nl/handle/20.500.12932/20854" target="_blank" rel="noopener">Utrecht University Thesis &rarr;</a>
+          </div>
+          <div class="source-box">
+            <h4>Mechanism Principle</h4>
+            <p>
+              A rigid solid self-heals by maintaining a thin liquid film on internal surfaces. Stress gradients drive dissolution at high-energy crack tips and re-deposition at low-energy sites, transporting material through the liquid phase to fill gaps.
+            </p>
+          </div>
+        </div>
+
+        <div class="transfer-idea">
+          <strong>Transfer hypothesis:</strong> If rock salt heals cracks by dissolving and re-depositing through brine, a bio-material could heal scratches by dissolving and re-depositing through an embedded bio-solvent&mdash;filling the scratch groove from the inside.
+        </div>
+
+        <h4>Branch Exploration</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>NADES-mediated dissolution-precipitation with solar-thermal activation</td>
+                <td>4 &rarr; COMPLETE</td>
+                <td>0</td>
+                <td class="tag-green">DES transport phase with lignin solubility gradient</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Mesoporous grain boundary solvent network</td>
+                <td>4 &rarr; COMPLETE</td>
+                <td>0</td>
+                <td class="tag-green">&ldquo;Living composite&rdquo; with nanoconfined solvent</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Interfacial solvent with lattice-matched precipitation</td>
+                <td>10 &rarr; COMPLETE</td>
+                <td>0</td>
+                <td class="tag-green">Semi-crystalline oligomer with thermodynamic solubility gradients</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="arbiter-block">
+          <div class="quote-label q-green">Arbiter at Completion</div>
+          <blockquote>&ldquo;The solution has successfully translated the abstract mechanism (Pressure Solution) into a novel polymer context using thermodynamic solubility gradients (amorphous vs. crystalline) to drive autonomous scratch filling.&rdquo;</blockquote>
+        </div>
+
+        <div class="verdict-box success">
+          <div class="verdict-label">Why It Worked</div>
+          <p>
+            The core physics maps directly: a scratch creates a stress concentration; a confined liquid phase can dissolve surrounding polymer and re-deposit it to fill the scratch. Geological time scales become polymer kinetics, brine becomes a bio-solvent, rock salt becomes a bio-polymer matrix. Zero reflections were needed because the underlying dissolution-transport-redeposition mechanism is domain-agnostic.
+          </p>
+        </div>
+      </div>
+
+      <!-- ---- Case 5 ---- -->
+      <div class="case" id="case-5">
+        <div class="case-header">
+          <div class="case-header-left">
+            <div class="case-label success">Case 5 &mdash; Course-Corrected &middot; Ranking Pipeline</div>
+            <h3 class="case-title">Constructive Strain Adaptation</h3>
+          </div>
+          <span class="case-outcome success">3 Solutions &middot; 2 Reflections</span>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-box">
+            <h4>Source Scenario</h4>
+            <p>
+              Scientists embedded molecular &ldquo;switches&rdquo; (mechanophores) into polymers. When stressed, these switches snap open&mdash;but instead of breaking the material, they expose reactive groups that cross-link with neighbors. The material gets harder at the exact point of stress. Damage becomes reinforcement.
+            </p>
+            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2631603/" target="_blank" rel="noopener">NIH/PMC &rarr;</a>
+          </div>
+          <div class="source-box">
+            <h4>Mechanism Principle</h4>
+            <p>
+              Mechanical stress activates latent cross-linking agents. Stress energy breaks &ldquo;sacrificial&rdquo; bonds that transform into reactive sites, immediately binding with neighbors&mdash;increasing density and rigidity in direct response to load.
+            </p>
+          </div>
+        </div>
+
+        <div class="transfer-idea">
+          <strong>Transfer hypothesis:</strong> If a polymer can get harder where it is scratched by activating hidden cross-linkers, a bio-material could do the same&mdash;the act of scratching triggers a chemical reaction that hardens and seals the scratch zone.
+        </div>
+
+        <h4>Branch Exploration</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>Bio-based mechanophore crystallization islands</td>
+                <td>5 &rarr; COMPLETE</td>
+                <td>0</td>
+                <td class="tag-green">PLA/PHA with reactive islands that harden at scratch sites</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Iso-refractive mechanophore densification</td>
+                <td>6 &rarr; COMPLETE</td>
+                <td class="tag-amber">2 (depth 2)</td>
+                <td class="tag-green">Self-hardening system with optical camouflage</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Protein-based sacrificial double network</td>
+                <td>6 &rarr; COMPLETE</td>
+                <td>0</td>
+                <td class="tag-green">Globular plant proteins as sacrificial mechanophores</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="analysis-block">
+          <div class="analysis-label">Course Correction on Branch 1</div>
+          <div class="analysis-step">
+            <strong>Problem detected:</strong> The initial block used synthetic mechanophores (gem-dibromocyclopropane)&mdash;technically grounded in the source mechanism but not sustainable for the target problem&rsquo;s bio-material constraint.
+          </div>
+          <div class="analysis-step">
+            <strong>Correction applied:</strong> The Reflector pushed toward bio-derived alternatives. After 2 iterations, the Builder pivoted to a bio-compatible system with matched refractive indices&mdash;producing the most creative solution of the three.
+          </div>
+        </div>
+
+        <div class="arbiter-block">
+          <div class="quote-label q-green">Arbiter at Completion</div>
+          <blockquote>&ldquo;The solution represents a fully formed, high-novelty concept: &lsquo;Iso-refractive Mechanophore Hardening.&rsquo; It successfully translates the mechanism&rsquo;s core logic (adaptation to strain) into a novel application (invisible hardening) that addresses both structural and optical aspects of scratch concealment.&rdquo;</blockquote>
+        </div>
+
+        <div class="verdict-box success">
+          <div class="verdict-label">Why It Worked</div>
+          <p>
+            The transfer is near-literal: the source mechanism is a polymer that strengthens under stress; the target problem is a polymer being stressed by scratching. The creative leap was adapting from bulk stress to surface abrasion and from synthetic to bio-based chemistry. The 2 reflections on Branch 1 demonstrate the system course-correcting on sustainability constraints while maintaining mechanism fidelity&mdash;and producing the most novel solution as a result.
+          </p>
+        </div>
+      </div>
+
+      <!-- ---- Case 6 ---- -->
+      <div class="case" id="case-6">
+        <div class="case-header">
+          <div class="case-header-left">
+            <div class="case-label success">Case 6 &mdash; Highest Yield &middot; Selection Pipeline</div>
+            <h3 class="case-title">Restoration-Mediated Release</h3>
+          </div>
+          <span class="case-outcome success">4 Solutions &middot; 4 Reflections</span>
+        </div>
+
+        <div class="source-grid">
+          <div class="source-box">
+            <h4>Source Scenario</h4>
+            <p>
+              When skin is cut, platelets and fibrin form a hard scab. The scab is anchored to damaged tissue. As new skin grows underneath, it releases enzymes that degrade the anchors. The scab falls off precisely when it is no longer needed. Restoration triggers release.
+            </p>
+            <a href="https://www.sciencedirect.com/topics/medicine-and-dentistry/scab" target="_blank" rel="noopener">ScienceDirect &rarr;</a>
+          </div>
+          <div class="source-box">
+            <h4>Mechanism Principle</h4>
+            <p>
+              A temporary protective cover adheres to the &ldquo;damaged&rdquo; state. As the substrate transitions to a &ldquo;healed&rdquo; state, the interface changes properties, degrading the anchors. The cover self-detaches. Protection is precisely temporary: restoration triggers release.
+            </p>
+          </div>
+        </div>
+
+        <div class="transfer-idea">
+          <strong>Transfer hypothesis:</strong> If a scab protects a wound and self-ejects when the skin heals, a scratch on a car interior could trigger a temporary &ldquo;scab&rdquo; material that fills the scratch and self-ejects once the underlying material recovers.
+        </div>
+
+        <h4>Branch Exploration</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0</td>
+                <td>Micro-ablative surface with strain-induced hardening</td>
+                <td>5 &rarr; COMPLETE</td>
+                <td class="tag-amber">2 (depth 4)</td>
+                <td class="tag-green">Crystallization-driven micro-pillar surface</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Shear-responsive oligomer &ldquo;catch-and-release&rdquo;</td>
+                <td>4 &rarr; COMPLETE</td>
+                <td class="tag-amber">1 (depth 4)</td>
+                <td class="tag-green">Self-polishing shear-responsive system</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Transient volatile &ldquo;scabbing&rdquo;</td>
+                <td>3&rarr;COMPLETE, BRANCHED&nbsp;at&nbsp;6</td>
+                <td class="tag-amber">1 (depth 6)</td>
+                <td class="tag-green">2 solutions via branch split</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="solutions-list">
+          <span class="solution-tag">Shear-Responsive Self-Polisher <span class="depth">&middot; d4</span></span>
+          <span class="solution-tag">Micro-Ablative Crystallizer <span class="depth">&middot; d5</span></span>
+          <span class="solution-tag">Sublimating Scab (Cyclodextrin) <span class="depth">&middot; d8</span></span>
+          <span class="solution-tag">Refractive Eutectic Scab (MSM/Sorbitol) <span class="depth">&middot; d11</span></span>
+        </div>
+
         <p>
-          The scab metaphor transfers directly. A scratch on a car interior is a wound. A temporary material that fills the scratch, protects it while the matrix recovers via stress relaxation, and then self-ejects when the surface is restored is a direct functional mapping. The &ldquo;restoration triggers release&rdquo; principle is domain-agnostic: it does not depend on specific physics like fluid interfaces. It works wherever there is a damage&ndash;protect&ndash;heal&ndash;release cycle. This run produced 4 solutions&mdash;the highest yield of any mechanism.
+          This was the most complex exploration. Branch 2 was marked COMPLETE at depth 3, but the system continued exploring. At depth 6, the Arbiter issued the only <strong>BRANCH</strong> decision in this run&mdash;splitting the path because two viable chemical directions emerged (menthol-based vs. MSM-based scab agents):
         </p>
-      </div>
-    </div>
-  </div>
 
-  <hr>
-
-  <!-- ================================================================ -->
-  <!-- 5. CASE STUDIES: FAILURE -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">5. Case Studies &mdash; Failed Transfers</span>
-    <h2>Three Failure Modes</h2>
-    <p>
-      All 3 failed mechanisms came from the Mechanism Selection pipeline. The Mechanism Ranking pipeline&rsquo;s top 10 achieved a 100% success rate. Two failures share the same root cause (fundamental physics mismatch); the third is a near-miss caused by operational drift.
-    </p>
-
-    <!-- ---- Failure 1 ---- -->
-    <div class="case">
-      <div class="case-label failure">Case 4 &mdash; Fundamental Physics Mismatch</div>
-      <h3 class="case-title">Surface-Energy Mediated Phase Entrapment</h3>
-      <span class="case-outcome failure">Domain Incompatible &middot; 0 Solutions</span>
-
-      <div class="source-grid">
-        <div class="source-box">
-          <h4>Source Scenario</h4>
-          <p>
-            The diving bell spider (<em>Argyroneta aquatica</em>) lives entirely underwater by spinning a silk dome that traps an air bubble&mdash;a &ldquo;plastron&rdquo; functioning as a physical gill. The spider&rsquo;s hydrophobic silk uses surface tension to pin a gas layer against a liquid environment.
-          </p>
-          <a href="https://jeb.biologists.org/content/214/13/2175" target="_blank" rel="noopener">Journal of Experimental Biology &rarr;</a>
+        <div class="arbiter-block">
+          <div class="quote-label q-amber">Arbiter at Branch Decision (Depth 6)</div>
+          <blockquote>&ldquo;The solution features a highly novel and well-grounded mechanism (&lsquo;Transient Scab&rsquo; via crystallization shedding), but the specific instantiation using Menthol faces a critical feasibility flaw: its low melting point cannot withstand automotive interior temperatures.&rdquo;</blockquote>
         </div>
-        <div class="source-box">
-          <h4>Mechanism Principle</h4>
+
+        <div class="arbiter-block">
+          <div class="quote-label q-green">Arbiter at Final Completion (Depth 11)</div>
+          <blockquote>&ldquo;The solution has successfully translated the source mechanism (Restoration-Mediated Release) into a specific, novel polymer science concept. It defines the chemistry (MSM/Sorbitol), the physical process (Solvent-Induced Crystallization), and the outcome (transparent, self-ejecting scab).&rdquo;</blockquote>
+        </div>
+
+        <div class="verdict-box success">
+          <div class="verdict-label">Why It Worked</div>
           <p>
-            Stabilize a gas phase within a liquid environment using a textured, low-surface-energy surface. The texture increases the contact angle of the liquid, creating a stable air film that stays pinned even when submerged.
+            The scab metaphor transfers directly. A scratch on a car interior is a wound. A temporary material that fills the scratch, protects it while the matrix recovers via stress relaxation, and then self-ejects when the surface is restored is a direct functional mapping. The &ldquo;restoration triggers release&rdquo; principle is domain-agnostic: it does not depend on specific physics like fluid interfaces. It works wherever there is a damage&ndash;protect&ndash;heal&ndash;release cycle. This run produced 4 solutions&mdash;the highest yield of any mechanism.
           </p>
         </div>
-      </div>
-
-      <div class="transfer-idea">
-        <strong>Transfer hypothesis:</strong> If the spider creates an invisible protective gas barrier using surface texture, perhaps a similar invisible layer could shield a car interior surface from scratches.
-      </div>
-
-      <h4>Branch Exploration</h4>
-      <table>
-        <thead>
-          <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>Topological shielding&mdash;micro-ridges for contact resistance</td>
-            <td>2</td>
-            <td>2</td>
-            <td class="tag-red">PRUNED</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Intrinsic phase migration via blooming wax</td>
-            <td>2</td>
-            <td>2</td>
-            <td class="tag-red">Stuck at REFLECT</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Optical scattering camouflage</td>
-            <td>2</td>
-            <td>1</td>
-            <td class="tag-red">Stuck at REFLECT</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="arbiter-block">
-        <div class="quote-label q-red">Arbiter Diagnosis</div>
-        <blockquote>&ldquo;The solution has substituted the source&rsquo;s core physics (gas retention / surface tension) with a purely mechanical approach.&rdquo;</blockquote>
-        <blockquote>&ldquo;The source mechanism works by trapping a layer (gas) to prevent contact; the current solution has discarded the core dynamic of &lsquo;Phase Entrapment.&rsquo;&rdquo;</blockquote>
-      </div>
-
-      <div class="analysis-block">
-        <div class="analysis-label">Reflection Attempts</div>
-        <div class="analysis-step">
-          <strong>Reflection 1:</strong> Source relies on surface tension and capillary forces; solution substituted mechanical resistance.
-          <div class="guidance-note">Guidance: &ldquo;Maintain a protective air gap over the material&rsquo;s core surface.&rdquo;</div>
-        </div>
-        <div class="analysis-step">
-          <strong>Reflection 2:</strong> Source traps a gas in a liquid environment. Solution keeps substituting solid structures.
-          <div class="guidance-note">Guidance: &ldquo;Ensure abrasive forces cannot overcome breakthrough pressure to maintain an air gap.&rdquo;&mdash;But there is no liquid medium to hold the air gap against.</div>
-        </div>
-      </div>
-
-      <div class="verdict-box failure">
-        <div class="verdict-label">Root Cause</div>
-        <p>
-          The plastron effect requires a <strong>gas&ndash;liquid interface</strong>. The diving bell spider&rsquo;s mechanism works because water tries to displace trapped air, and surface tension prevents it. The target problem&mdash;scratching of a car interior&mdash;is solid-on-solid contact. There is no liquid medium. The Reflector gave correct, mechanism-faithful guidance every time, but the Builder could not follow it because the target environment lacks the required fluid medium. This creates an unresolvable loop: faithful guidance that is physically impossible to implement.
-        </p>
       </div>
     </div>
 
-    <!-- ---- Failure 2 ---- -->
-    <div class="case">
-      <div class="case-label failure">Case 5 &mdash; Fundamental Physics Mismatch</div>
-      <h3 class="case-title">Cooperative Plastron Entrapment</h3>
-      <span class="case-outcome failure">Domain Incompatible &middot; 0 Solutions</span>
+    <!-- ================================================================ -->
+    <!-- 6. COMPARATIVE ANALYSIS -->
+    <!-- ================================================================ -->
+    <div class="section" id="comparison">
+      <span class="section-number">6. Comparative Analysis</span>
+      <h2>All Six Cases at a Glance</h2>
 
-      <div class="source-grid">
-        <div class="source-box">
-          <h4>Source Scenario</h4>
-          <p>
-            Fire ants link their hydrophobic bodies into a living raft. Their interlocked waxy exoskeletons create a rough surface that pins water&rsquo;s meniscus and traps large air volumes&mdash;a cooperative plastron keeping the colony afloat and dry.
-          </p>
-          <a href="https://www.core77.com/posts/41475" target="_blank" rel="noopener">Core77 Article &rarr;</a>
+      <div class="compare-table">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Metric</th>
+                <th>Rock Salt Healing</th>
+                <th>Mechanophore Stiffening</th>
+                <th>Scab Formation</th>
+                <th>Diving Bell Spider</th>
+                <th>Fire Ant Rafts</th>
+                <th>Synthetic Ultramarine</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Outcome</strong></td>
+                <td class="tag-green">3 solutions</td>
+                <td class="tag-green">3 solutions</td>
+                <td class="tag-green">4 solutions</td>
+                <td class="tag-red">Failed</td>
+                <td class="tag-red">Failed</td>
+                <td class="tag-amber">Failed (close)</td>
+              </tr>
+              <tr>
+                <td><strong>Deepest</strong></td>
+                <td>Depth 10</td>
+                <td>Depth 6</td>
+                <td>Depth 11</td>
+                <td>Depth 2</td>
+                <td>Depth 2</td>
+                <td>Depth 4</td>
+              </tr>
+              <tr>
+                <td><strong>Reflections</strong></td>
+                <td class="tag-green">0</td>
+                <td>2</td>
+                <td>4</td>
+                <td>5</td>
+                <td>5</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <td><strong>Termination</strong></td>
+                <td>&mdash;</td>
+                <td>&mdash;</td>
+                <td>&mdash;</td>
+                <td>1&times; PRUNE, 2&times; reflector-abandoned</td>
+                <td>2&times; PRUNE, 1&times; reflector-abandoned</td>
+                <td>3&times; reflector-abandoned</td>
+              </tr>
+              <tr>
+                <td><strong>Core Physics</strong></td>
+                <td>Dissolution-transport via liquid film</td>
+                <td>Stress-activated cross-linking</td>
+                <td>Damage &rarr; protect &rarr; heal &rarr; release</td>
+                <td>Surface tension pins gas in liquid</td>
+                <td>Hydrophobic aggregation traps gas</td>
+                <td>Decouple effect, re-engineer</td>
+              </tr>
+              <tr>
+                <td><strong>Transfer Quality</strong></td>
+                <td class="tag-green">Direct physics match</td>
+                <td class="tag-green">Near-literal</td>
+                <td class="tag-green">Domain-agnostic</td>
+                <td class="tag-red">Needs liquid medium</td>
+                <td class="tag-red">Needs liquid medium</td>
+                <td class="tag-amber">Viable but drifted</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="source-box">
-          <h4>Mechanism Principle</h4>
-          <p>
-            Hydrophobic elements aggregate to create a composite rough surface that pins the liquid meniscus and traps a gas volume. The trapped gas provides buoyancy and acts as a barrier.
-          </p>
-        </div>
-      </div>
-
-      <div class="transfer-idea">
-        <strong>Transfer hypothesis:</strong> If ant colonies cooperatively trap a protective gas barrier using surface geometry, perhaps a similar cooperative micro-structure could trap a protective layer against abrasion.
-      </div>
-
-      <h4>Branch Exploration</h4>
-      <table>
-        <thead>
-          <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>Geometric exclusion &ldquo;solid plastron&rdquo;</td>
-            <td>2</td>
-            <td>2</td>
-            <td class="tag-red">PRUNED (drifted to SLIPS)</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Intrinsic lubricant reservoirs &ldquo;waxy plastron&rdquo;</td>
-            <td>2</td>
-            <td>1</td>
-            <td class="tag-red">Stuck at REFLECT (physics inversion)</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Optical depth masking</td>
-            <td>2</td>
-            <td>2</td>
-            <td class="tag-red">PRUNED (terminology drift)</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="arbiter-block">
-        <div class="quote-label q-red">Arbiter Diagnosis</div>
-        <blockquote>&ldquo;Instead of adapting the Plastron (gas trapping) physics, it has implemented SLIPS (liquid trapping), which relies on inverted wetting dynamics.&rdquo;</blockquote>
-        <blockquote>&ldquo;The &lsquo;Plastron&rsquo; mechanism functions via surface tension at a liquid&ndash;gas interface (meniscus pinning). The target environment has no liquid&ndash;gas interface.&rdquo;</blockquote>
-      </div>
-
-      <div class="analysis-block">
-        <div class="analysis-label">Most Revealing Reflection</div>
-        <div class="analysis-step">
-          <strong>Reflector guidance (Branch 2):</strong> &ldquo;Apply hydrophobic chemistry so that, <em>upon contact with liquids</em>, it traps a permanent air barrier.&rdquo;
-          <div class="guidance-note">The phrase &ldquo;upon contact with liquids&rdquo; reveals the impossible assumption: the target environment never presents liquids in this way.</div>
-        </div>
-      </div>
-
-      <div class="verdict-box failure">
-        <div class="verdict-label">Root Cause</div>
-        <p>
-          Same mechanistic family as Case 4. Cooperative Plastron Entrapment requires a <strong>liquid medium pressing against a hydrophobic surface</strong> to pin menisci and trap gas. Fire ants achieve this on water. A car interior being scratched by keys is solid-on-solid contact. No liquid, no meniscus, no plastron. Branch 1 additionally inverted the physics entirely&mdash;retaining liquid instead of repelling it&mdash;precisely the opposite of the source mechanism.
-        </p>
+        <p class="table-caption">Table 1. Comparison of transfer outcomes, exploration depth, termination modes, and failure causes across all six examined mechanisms.</p>
       </div>
     </div>
 
-    <!-- ---- Failure 3 ---- -->
-    <div class="case">
-      <div class="case-label near-miss">Case 6 &mdash; Operational Drift / Near Miss</div>
-      <h3 class="case-title">Functional Decoupling via Synthetic Emulation</h3>
-      <span class="case-outcome near-miss">Viable Transfer, Drifted &middot; 0 Solutions</span>
+    <!-- ================================================================ -->
+    <!-- 7. DISCUSSION -->
+    <!-- ================================================================ -->
+    <div class="section" id="discussion">
+      <span class="section-number">7. Discussion</span>
+      <h2>Conclusions</h2>
 
-      <div class="source-grid">
-        <div class="source-box">
-          <h4>Source Scenario</h4>
-          <p>
-            Ultramarine blue could only come from lapis lazuli&mdash;rare and expensive. In 1826, a chemist analyzed <em>why</em> lapis is blue (sulfur atoms in a sodalite lattice) and synthesized it from cheap ingredients. Same color, no gemstone. The key: decouple the desired effect from its problematic source.
-          </p>
-          <a href="https://www.core77.com/posts/27273" target="_blank" rel="noopener">Core77 Article &rarr;</a>
+      <p>
+        The TBB system&rsquo;s quality gates function as designed. The successful transfers demonstrate three modes of effective analogical reasoning: clean physics matches that require no correction, explorations that pivot mid-course to meet domain constraints (and often produce the most creative outcomes), and complex runs that branch into multiple distinct solution architectures.
+      </p>
+
+      <div class="conclusion-grid">
+        <div class="conclusion-cell">
+          <div class="c-value c-green">27</div>
+          <div class="c-desc">Successful transfers producing 66 solutions&mdash;from clean pass-throughs to complex multi-branch explorations.</div>
         </div>
-        <div class="source-box">
-          <h4>Mechanism Principle</h4>
-          <p>
-            Separate a desired effect from its original, problematic source. Analyze the physical basis of the effect, then engineer a new structure producing the same outcome without the original material&rsquo;s downsides. Turn an extraction problem into a design problem.
-          </p>
+        <div class="conclusion-cell">
+          <div class="c-value c-red">2</div>
+          <div class="c-desc">Fundamental mismatches&mdash;plastron mechanisms require a liquid medium absent from the target domain. No re-run can resolve this.</div>
         </div>
-      </div>
-
-      <div class="transfer-idea">
-        <strong>Transfer hypothesis:</strong> If chemists analyzed what makes lapis lazuli blue and rebuilt that effect synthetically, perhaps we can analyze what makes a hard coating scratch-resistant and rebuild that property structurally in a bio-material&mdash;no synthetic coating needed.
-      </div>
-
-      <h4>Branch Exploration</h4>
-      <table>
-        <thead>
-          <tr><th>Branch</th><th>Strategy</th><th>Depth</th><th>Reflections</th><th>Outcome</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>Volumetric optical camouflage</td>
-            <td>4</td>
-            <td class="tag-amber">1 (depth 4)</td>
-            <td class="tag-amber">Near miss: COMPLETE at depth 3, drifted at 4</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Metamaterial surface densification (auxetic/nacre)</td>
-            <td>2</td>
-            <td>1</td>
-            <td class="tag-red">Stuck at REFLECT</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Sacrificial gradient emulation</td>
-            <td>2</td>
-            <td>1</td>
-            <td class="tag-red">Stuck at REFLECT</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="arbiter-block">
-        <div class="quote-label q-green">Arbiter at Depth 3 (Positive)</div>
-        <blockquote>&ldquo;The solution has reached a high level of conceptual maturity, effectively resolving the target problem through a cohesive, mechanism-grounded architecture.&rdquo;</blockquote>
-      </div>
-      <div class="arbiter-block">
-        <div class="quote-label q-red">Arbiter at Depth 4 (Rejection)</div>
-        <blockquote>&ldquo;The &lsquo;Volumetric Optical Camouflage&rsquo; component appears to be a generic addition rather than an analogical transfer from the source mechanism.&rdquo;</blockquote>
-      </div>
-
-      <div class="analysis-block">
-        <div class="analysis-label">Reflection Attempts</div>
-        <div class="analysis-step">
-          <strong>Branch 0, depth 4:</strong> The optical camouflage component was identified as generic, not derived from the source mechanism.
-          <div class="guidance-note">Guidance: &ldquo;Identify the specific physical property of the constrained source and synthesize that exact structure using safe bio-materials.&rdquo;&mdash;Actionable, but the branch had exhausted its retries.</div>
-        </div>
-        <div class="analysis-step">
-          <strong>Branches 1 &amp; 2:</strong> Imported external engineering concepts (nacre, auxetics, patina) with no connection to the &ldquo;analyze effect, then emulate&rdquo; principle.
-          <div class="guidance-note">Each received only 1 reflection before being abandoned&mdash;less runway than the plastron mechanisms, which each received 2.</div>
+        <div class="conclusion-cell">
+          <div class="c-value c-amber">1</div>
+          <div class="c-desc">Near miss&mdash;Synthetic Emulation is conceptually compatible but the exploration drifted. Could succeed with additional runway.</div>
         </div>
       </div>
 
-      <div class="verdict-box near-miss">
-        <div class="verdict-label">Root Cause</div>
-        <p>
-          Unlike Cases 4 and 5, this was <strong>not a fundamental physics mismatch</strong>. The transfer concept is valid: &ldquo;analyze what makes a coating scratch-resistant, then rebuild that property structurally in a bio-material&rdquo; is a sound approach. The failure was operational. Branches 1 and 2 drifted to well-known engineering patterns instead of staying grounded in the &ldquo;analyze then emulate&rdquo; principle. Branch 0 was genuinely close&mdash;the Arbiter marked it COMPLETE at depth 3&mdash;but the system requires minimum depth 4, and the depth-4 block added generic bio-materials not grounded in the source mechanism. This mechanism could plausibly succeed on a re-run with wider beam width or more reflection tolerance.
-        </p>
-      </div>
-    </div>
-  </div>
+      <p>
+        The failures are as informative as the successes. The Arbiter correctly differentiates between mechanisms that <em>cannot</em> transfer (Cases 1 and 2, where the source physics requires environmental conditions absent from the target domain) and mechanisms that <em>could</em> transfer but did not (Case 3, where operational drift consumed the available exploration budget). This distinction is critical: it means the system can explain <em>why</em> a transfer fails, not merely <em>that</em> it fails.
+      </p>
 
-  <hr>
+      <p>
+        The failures also reveal two distinct termination dynamics. For the plastron mechanisms (Cases 1 and 2), the reflector initially tried to save branches (<code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: false</code>), giving the builder multiple retries before the arbiter eventually pruned. The system fought hard to make the transfer work. For the synthetic emulation near-miss (Case 3), the reflector was more aggressive&mdash;every branch was killed by <code style="font-family:var(--mono); font-size: 0.85em;">should_abandon: true</code> after a single reflection, giving the builder less runway. This asymmetry is informative: the reflector recognized the plastron failures as genuine challenges worth retrying, while classifying the drift failures as categorically wrong.
+      </p>
 
-  <!-- ================================================================ -->
-  <!-- 6. COMPARATIVE ANALYSIS -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">6. Comparative Analysis</span>
-    <h2>All Six Cases at a Glance</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Rock Salt Healing</th>
-          <th>Mechanophore Stiffening</th>
-          <th>Scab Formation</th>
-          <th>Diving Bell Spider</th>
-          <th>Fire Ant Rafts</th>
-          <th>Synthetic Ultramarine</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Outcome</strong></td>
-          <td class="tag-green">3 solutions</td>
-          <td class="tag-green">3 solutions</td>
-          <td class="tag-green">4 solutions</td>
-          <td class="tag-red">Failed</td>
-          <td class="tag-red">Failed</td>
-          <td class="tag-amber">Failed (close)</td>
-        </tr>
-        <tr>
-          <td><strong>Deepest</strong></td>
-          <td>Depth 10</td>
-          <td>Depth 6</td>
-          <td>Depth 11</td>
-          <td>Depth 2</td>
-          <td>Depth 2</td>
-          <td>Depth 4</td>
-        </tr>
-        <tr>
-          <td><strong>Reflections</strong></td>
-          <td class="tag-green">0</td>
-          <td>2</td>
-          <td>4</td>
-          <td>5</td>
-          <td>5</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td><strong>Core Physics</strong></td>
-          <td>Dissolution-transport via liquid film</td>
-          <td>Stress-activated cross-linking</td>
-          <td>Damage &rarr; protect &rarr; heal &rarr; release</td>
-          <td>Surface tension pins gas in liquid</td>
-          <td>Hydrophobic aggregation traps gas</td>
-          <td>Decouple effect, re-engineer</td>
-        </tr>
-        <tr>
-          <td><strong>Transfer Quality</strong></td>
-          <td class="tag-green">Direct physics match</td>
-          <td class="tag-green">Near-literal</td>
-          <td class="tag-green">Domain-agnostic</td>
-          <td class="tag-red">Needs liquid medium</td>
-          <td class="tag-red">Needs liquid medium</td>
-          <td class="tag-amber">Viable but drifted</td>
-        </tr>
-      </tbody>
-    </table>
-    <p class="table-caption">Table 1. Comparison of transfer outcomes, exploration depth, and failure modes across all six examined mechanisms.</p>
-  </div>
-
-  <hr>
-
-  <!-- ================================================================ -->
-  <!-- 7. DISCUSSION -->
-  <!-- ================================================================ -->
-  <div class="section">
-    <span class="section-number">7. Discussion</span>
-    <h2>Conclusions</h2>
-
-    <p>
-      The TBB system&rsquo;s quality gates function as designed. The successful transfers demonstrate three modes of effective analogical reasoning: clean physics matches that require no correction, explorations that pivot mid-course to meet domain constraints (and often produce the most creative outcomes), and complex runs that branch into multiple distinct solution architectures.
-    </p>
-
-    <div class="conclusion-grid">
-      <div class="conclusion-cell">
-        <div class="c-value c-green">27</div>
-        <div class="c-desc">Successful transfers producing 66 solutions&mdash;from clean pass-throughs to complex multi-branch explorations.</div>
-      </div>
-      <div class="conclusion-cell">
-        <div class="c-value c-red">2</div>
-        <div class="c-desc">Fundamental mismatches&mdash;plastron mechanisms require a liquid medium absent from the target domain. No re-run can resolve this.</div>
-      </div>
-      <div class="conclusion-cell">
-        <div class="c-value c-amber">1</div>
-        <div class="c-desc">Near miss&mdash;Synthetic Emulation is conceptually compatible but the exploration drifted. Could succeed with additional runway.</div>
-      </div>
+      <p>
+        A 90% success rate with principled, explainable outcomes&mdash;where the system articulates the mechanistic reason for each transfer&rsquo;s success or failure&mdash;validates the approach. The 3 failures are not bugs; they are the system functioning as intended.
+      </p>
     </div>
 
-    <p>
-      The failures are as informative as the successes. The Arbiter correctly differentiates between mechanisms that <em>cannot</em> transfer (Cases 4 and 5, where the source physics requires environmental conditions absent from the target domain) and mechanisms that <em>could</em> transfer but did not (Case 6, where operational drift consumed the available exploration budget). This distinction is critical: it means the system can explain <em>why</em> a transfer fails, not merely <em>that</em> it fails.
-    </p>
+    <!-- ENDMATTER -->
+    <div class="endmatter">
+      <p>Report generated January 30, 2026. Problem ID: <code class="problem-id">692ca2c8900196e715a7e87f</code>. All explorations used Transfer Building Blocks v1 with beam&nbsp;width&nbsp;=&nbsp;3, max&nbsp;turns&nbsp;=&nbsp;50, max&nbsp;depth&nbsp;=&nbsp;15, min&nbsp;depth&nbsp;=&nbsp;4.</p>
+    </div>
 
-    <p>
-      A 90% success rate with principled, explainable outcomes&mdash;where the system articulates the mechanistic reason for each transfer&rsquo;s success or failure&mdash;validates the approach. The 3 failures are not bugs; they are the system functioning as intended.
-    </p>
-  </div>
-
-  <!-- ================================================================ -->
-  <!-- ENDMATTER -->
-  <!-- ================================================================ -->
-  <div class="endmatter">
-    <p>Report generated January 30, 2026. Problem ID: <code style="font-family:var(--mono); font-size: 12px;">692ca2c8900196e715a7e87f</code>. All explorations used Transfer Building Blocks v1 with beam&nbsp;width&nbsp;=&nbsp;3, max&nbsp;turns&nbsp;=&nbsp;50, max&nbsp;depth&nbsp;=&nbsp;15, min&nbsp;depth&nbsp;=&nbsp;4.</p>
-  </div>
-
+  </main>
 </div>
+
+<!-- Back to top button -->
+<button type="button" class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0})" aria-label="Back to top">&uarr;</button>
+
+<script>
+  // --- Back to top visibility ---
+  const backBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 600);
+  });
+
+  // --- Mobile sidebar toggle ---
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+
+  // Close sidebar when clicking a link (mobile)
+  document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 960) {
+        document.getElementById('sidebar').classList.remove('open');
+      }
+    });
+  });
+
+  // --- Active TOC tracking via IntersectionObserver ---
+  const sections = document.querySelectorAll('[id]');
+  const tocLinks = document.querySelectorAll('.toc a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, {
+    rootMargin: '-10% 0px -80% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(section => {
+    if (section.id && document.querySelector('.toc a[href="#' + section.id + '"]')) {
+      observer.observe(section);
+    }
+  });
+</script>
+
 </body>
 </html>
