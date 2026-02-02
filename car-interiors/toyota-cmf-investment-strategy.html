@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota CMF R&D Investment Strategy | $2M Budget Allocation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors - Sophisticated technical palette */
+            --toyota-red: oklch(0.55 0.20 25);
+            --accent-gold: oklch(0.75 0.12 85);
+            --tier1-green: oklch(0.65 0.15 155);
+            --tier2-blue: oklch(0.60 0.15 245);
+            --bg-primary: oklch(0.98 0.005 280);
+            --bg-secondary: oklch(0.96 0.008 280);
+            --bg-tertiary: oklch(0.93 0.01 280);
+            --text-primary: oklch(0.25 0.015 280);
+            --text-secondary: oklch(0.45 0.01 280);
+            --text-tertiary: oklch(0.60 0.008 280);
+            --border-subtle: oklch(0.88 0.01 280);
+            --border-emphasis: oklch(0.80 0.015 280);
+
+            /* Typography scale */
+            --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+            --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.375rem);
+            --text-xl: clamp(1.375rem, 1.25rem + 0.6vw, 1.875rem);
+            --text-2xl: clamp(1.875rem, 1.65rem + 1vw, 2.625rem);
+            --text-3xl: clamp(2.25rem, 1.9rem + 1.5vw, 3.5rem);
+            --text-4xl: clamp(3rem, 2.4rem + 2.5vw, 5rem);
+
+            /* Spacing */
+            --space-xs: clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);
+            --space-sm: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
+            --space-md: clamp(1.25rem, 1rem + 1vw, 2rem);
+            --space-lg: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+            --space-xl: clamp(3rem, 2rem + 4vw, 6rem);
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+            font-size: var(--text-base);
+            line-height: 1.65;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout */
+        .page-container {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .page-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-subtle);
+            padding: var(--space-lg) var(--space-sm);
+            overflow-y: auto;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+        }
+
+        .sidebar-title {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-sm);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--toyota-red);
+            margin-bottom: var(--space-md);
+        }
+
+        .nav-section {
+            margin-bottom: var(--space-md);
+        }
+
+        .nav-section-title {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .nav-link {
+            display: block;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-left: 2px solid transparent;
+            margin-left: -0.75rem;
+            transition: all 0.15s ease-out;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            border-left-color: var(--toyota-red);
+            background: var(--bg-tertiary);
+        }
+
+        .nav-link.active {
+            color: var(--text-primary);
+            font-weight: 500;
+            border-left-color: var(--toyota-red);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: var(--space-xl) var(--space-lg);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: var(--space-lg) var(--space-md);
+            }
+        }
+
+        /* Header */
+        .document-header {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 2px solid var(--border-emphasis);
+        }
+
+        .document-title {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .document-subtitle {
+            font-size: var(--text-xl);
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .document-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .meta-label {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+        }
+
+        .meta-value {
+            font-size: var(--text-base);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.015em;
+        }
+
+        .section-subtitle {
+            font-size: var(--text-lg);
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Executive Summary Highlight */
+        .exec-summary {
+            background: linear-gradient(135deg,
+                oklch(0.96 0.02 25 / 0.3),
+                oklch(0.96 0.02 85 / 0.2));
+            border-left: 4px solid var(--toyota-red);
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .exec-summary h3 {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .exec-summary ul {
+            list-style: none;
+            margin: var(--space-sm) 0;
+        }
+
+        .exec-summary li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .exec-summary li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--toyota-red);
+            font-weight: 600;
+        }
+
+        /* Key Insight Box */
+        .key-insight {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: var(--space-md);
+            margin: var(--space-md) 0;
+            border-radius: 6px;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .key-insight strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Investment Cards */
+        .investment-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-lg) 0;
+            transition: box-shadow 0.2s ease-out;
+        }
+
+        .investment-card:hover {
+            box-shadow: 0 8px 24px oklch(0.5 0.05 280 / 0.08);
+        }
+
+        .investment-card.tier-1 {
+            border-left: 5px solid var(--tier1-green);
+        }
+
+        .investment-card.tier-2 {
+            border-left: 5px solid var(--tier2-blue);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-md);
+            gap: var(--space-md);
+        }
+
+        .card-rank {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--text-tertiary);
+            min-width: 60px;
+        }
+
+        .card-title-section {
+            flex: 1;
+        }
+
+        .card-title {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .card-budget {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .budget-amount {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--toyota-red);
+            line-height: 1;
+        }
+
+        .budget-percent {
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            margin-top: 0.25rem;
+        }
+
+        .card-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            margin-bottom: var(--space-md);
+        }
+
+        .card-meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .card-meta-label {
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+        }
+
+        .card-meta-value {
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .breakthrough-section h4 {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: var(--space-md) 0 var(--space-sm) 0;
+        }
+
+        .how-it-works {
+            background: var(--bg-primary);
+            padding: var(--space-sm);
+            border-radius: 6px;
+            margin: var(--space-sm) 0;
+        }
+
+        .how-it-works ul {
+            margin-left: 1.5rem;
+            margin-top: var(--space-xs);
+        }
+
+        .how-it-works li {
+            margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+        }
+
+        /* R&D Phase Timeline */
+        .phase-timeline {
+            margin: var(--space-md) 0;
+        }
+
+        .phase {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: var(--space-md);
+            align-items: start;
+            padding: var(--space-sm);
+            border-left: 2px solid var(--border-subtle);
+            margin-left: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .phase-label {
+            font-weight: 600;
+            font-size: var(--text-sm);
+            color: var(--text-primary);
+            min-width: 150px;
+        }
+
+        .phase-content {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
+        .phase-content ul {
+            margin-top: var(--space-xs);
+            margin-left: 1rem;
+        }
+
+        .phase-budget {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+            font-size: var(--text-base);
+            color: var(--toyota-red);
+        }
+
+        /* Success Criteria */
+        .success-criteria {
+            background: oklch(0.95 0.02 155 / 0.3);
+            border: 1px solid oklch(0.75 0.08 155);
+            padding: var(--space-md);
+            border-radius: 6px;
+            margin: var(--space-md) 0;
+        }
+
+        .success-criteria ul {
+            list-style: none;
+            margin: var(--space-sm) 0;
+        }
+
+        .success-criteria li {
+            padding-left: 1.8rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .success-criteria li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--tier1-green);
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        /* Risk Mitigation */
+        .risk-box {
+            background: oklch(0.96 0.015 25 / 0.3);
+            border-left: 3px solid oklch(0.60 0.15 25);
+            padding: var(--space-sm) var(--space-md);
+            margin: var(--space-sm) 0;
+            border-radius: 0 4px 4px 0;
+            font-size: var(--text-sm);
+        }
+
+        .risk-box strong {
+            color: var(--toyota-red);
+        }
+
+        /* Budget Summary Table */
+        .budget-viz {
+            margin: var(--space-lg) 0;
+            overflow-x: auto;
+        }
+
+        .budget-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .budget-table thead {
+            background: var(--bg-tertiary);
+        }
+
+        .budget-table th {
+            text-align: left;
+            padding: var(--space-sm) var(--space-md);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            border-bottom: 2px solid var(--border-emphasis);
+        }
+
+        .budget-table td {
+            padding: var(--space-sm) var(--space-md);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .budget-table tbody tr:last-child td {
+            border-bottom: none;
+            font-weight: 600;
+            background: var(--bg-tertiary);
+        }
+
+        .budget-table tbody tr:hover:not(:last-child) {
+            background: var(--bg-primary);
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tier-badge.tier-1 {
+            background: oklch(0.90 0.08 155);
+            color: oklch(0.35 0.12 155);
+        }
+
+        .tier-badge.tier-2 {
+            background: oklch(0.90 0.08 245);
+            color: oklch(0.35 0.12 245);
+        }
+
+        .prob-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prob-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+            max-width: 100px;
+        }
+
+        .prob-fill {
+            height: 100%;
+            background: var(--tier1-green);
+            transition: width 1s ease-out;
+        }
+
+        .prob-value {
+            font-weight: 600;
+            font-size: var(--text-sm);
+            min-width: 40px;
+        }
+
+        /* Data Visualization - Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+
+        .portfolio-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: var(--space-md);
+        }
+
+        .portfolio-card-title {
+            font-size: var(--text-sm);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .portfolio-card-value {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .portfolio-card-subtitle {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            margin-top: var(--space-xs);
+        }
+
+        /* Lists */
+        .content-list {
+            margin: var(--space-sm) 0;
+            padding-left: 1.5rem;
+        }
+
+        .content-list li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .content-list li strong {
+            color: var(--text-primary);
+        }
+
+        /* Dividers */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg,
+                var(--toyota-red),
+                transparent);
+            margin: var(--space-xl) 0;
+            border: none;
+        }
+
+        /* Conclusion Box */
+        .conclusion-box {
+            background: linear-gradient(135deg,
+                oklch(0.96 0.02 25 / 0.4),
+                oklch(0.96 0.02 155 / 0.2));
+            border: 2px solid var(--toyota-red);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .conclusion-box h2 {
+            font-family: 'Fraunces', serif;
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .recommendation-banner {
+            background: var(--toyota-red);
+            color: white;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 8px;
+            margin-top: var(--space-md);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Footer */
+        .document-footer {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-subtle);
+            color: var(--text-tertiary);
+            font-size: var(--text-sm);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Print styles */
+        @media print {
+            .sidebar {
+                display: none;
+            }
+            .page-container {
+                grid-template-columns: 1fr;
+            }
+            .investment-card {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-title">Toyota CMF</div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Overview</div>
+                <a href="#executive-summary" class="nav-link">Executive Summary</a>
+                <a href="#investment-recommendations" class="nav-link">Recommendations</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Tier 1 Innovations</div>
+                <a href="#rank-1" class="nav-link">Rank #1 - Antifragile Aging</a>
+                <a href="#rank-2" class="nav-link">Rank #2 - Shear-Sorted Armor</a>
+                <a href="#rank-3" class="nav-link">Rank #3 - Dual-Network Mirage</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Tier 2 Innovations</div>
+                <a href="#rank-4" class="nav-link">Rank #4 - Living Composite</a>
+                <a href="#rank-5" class="nav-link">Rank #5 - Flow-Aligned Fortress</a>
+                <a href="#rank-6" class="nav-link">Rank #6 - Sacrificial Foam</a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Analysis</div>
+                <a href="#budget-summary" class="nav-link">Budget Summary</a>
+                <a href="#risk-analysis" class="nav-link">Risk Analysis</a>
+                <a href="#strategic-rationale" class="nav-link">Strategic Rationale</a>
+                <a href="#next-steps" class="nav-link">Next Steps</a>
+                <a href="#conclusion" class="nav-link">Conclusion</a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Document Header -->
+            <header class="document-header">
+                <h1 class="document-title">TOYOTA CMF R&D INVESTMENT STRATEGY</h1>
+                <p class="document-subtitle">$2M Budget Allocation for Sustainable Scratch-Resistant Interior Materials</p>
+
+                <div class="document-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Date</span>
+                        <span class="meta-value">February 2026</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Analyst</span>
+                        <span class="meta-value">Senior R&D Director, Materials Innovation</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Problem</span>
+                        <span class="meta-value">Sustainable car interior materials without synthetic coatings</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Solutions Analyzed</span>
+                        <span class="meta-value">101 early-stage concepts</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Investment Horizon</span>
+                        <span class="meta-value">18 months</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Executive Summary -->
+            <section id="executive-summary" class="section">
+                <h2 class="section-title">Executive Summary</h2>
+
+                <div class="exec-summary">
+                    <p>After comprehensive analysis of 101 solution concepts, I recommend a <strong>$2M investment across 6 breakthrough technologies</strong>. This portfolio represents a paradigm shift from "scratch prevention" to "scratch resilience" - solutions that either make damage invisible, transform it into aesthetic features, or enable instant recovery.</p>
+
+                    <h3 style="margin-top: var(--space-md);">Portfolio Composition</h3>
+                    <ul>
+                        <li><strong>Tier 1 (75% - $1.5M):</strong> 3 high-confidence innovations with clear manufacturability</li>
+                        <li><strong>Tier 2 (25% - $500K):</strong> 3 moonshot concepts with transformative potential</li>
+                    </ul>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-title">Expected Outcomes (18 months)</div>
+                        <div class="portfolio-card-value">4-5</div>
+                        <div class="portfolio-card-subtitle">Technologies ready for pilot production</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-title">Breakthrough Patents</div>
+                        <div class="portfolio-card-value">2-3</div>
+                        <div class="portfolio-card-subtitle">Filed within investment period</div>
+                    </div>
+                    <div class="portfolio-card">
+                        <div class="portfolio-card-title">Premium-Tier Ready</div>
+                        <div class="portfolio-card-value">1-2</div>
+                        <div class="portfolio-card-subtitle">Concepts ready for Lexus implementation</div>
+                    </div>
+                </div>
+
+                <div class="key-insight">
+                    <strong>Key Insight:</strong> The most promising solutions don't fight against scratches - they work WITH the material's natural behavior to achieve durability through clever design rather than brute-force hardness.
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Investment Recommendations -->
+            <section id="investment-recommendations" class="section">
+                <h2 class="section-title">Investment Recommendations</h2>
+            </section>
+
+            <!-- TIER 1 -->
+            <section class="section">
+                <h2 class="section-title">🏆 Tier 1: High-Confidence Innovations</h2>
+                <p class="section-subtitle">$1.5M / 75% of total budget</p>
+
+                <!-- RANK #1 -->
+                <article id="rank-1" class="investment-card tier-1">
+                    <div class="card-header">
+                        <div class="card-rank">#1</div>
+                        <div class="card-title-section">
+                            <h3 class="card-title">"Antifragile Aging" - Bio-Polyamide 11 with Positive Patina</h3>
+                            <p class="card-subtitle">Solution ID: 697ca768ad73ee929d4a50a2 | Mechanism: Stabilized Entropy Contrast</p>
+                        </div>
+                        <div class="card-budget">
+                            <div class="budget-amount">$600K</div>
+                            <div class="budget-percent">30% of budget</div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Timeline</span>
+                            <span class="card-meta-value">18 months</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Success Probability</span>
+                            <span class="card-meta-value">75%</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Expected Value</span>
+                            <span class="card-meta-value">$450K</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Market Tier</span>
+                            <span class="card-meta-value">Lexus/Premium</span>
+                        </div>
+                    </div>
+
+                    <div class="breakthrough-section">
+                        <h4>The Breakthrough</h4>
+                        <p>Instead of resisting scratches, this material is <strong>engineered to AGE BEAUTIFULLY</strong>. Like premium leather boots that develop character over time, this Bio-PA11 composite transforms scratches into darkened, hardened "scars" that look intentional and premium.</p>
+
+                        <div class="how-it-works">
+                            <strong>How It Works:</strong>
+                            <ul>
+                                <li><strong>Functionally graded microstructure:</strong> Soft amorphous surface + tough crystalline core</li>
+                                <li><strong>Strain-induced crystallization:</strong> Scratches trigger instant localized hardening</li>
+                                <li><strong>Tribo-chemical darkening:</strong> Lignin/tannin additives turn scratches dark (not white)</li>
+                                <li><strong>Result:</strong> Each scratch makes the surface tougher and more distinctive</li>
+                            </ul>
+                        </div>
+
+                        <h4>Analogical Connection</h4>
+                        <p>The mechanism "Stabilized Entropy Contrast" comes from biological systems that manage disorder (high entropy) vs. order (low entropy) through functional decoupling. This solution embodies it by:</p>
+                        <ul class="content-list">
+                            <li><strong>High-entropy surface</strong> (amorphous, ductile) → absorbs impact energy</li>
+                            <li><strong>Low-entropy core</strong> (crystalline, tough) → maintains structural integrity</li>
+                            <li><strong>Entropy-driven transition</strong> → scratching causes crystallization (disorder → order)</li>
+                        </ul>
+
+                        <h4>Why This Is Brilliant</h4>
+                        <ul class="content-list">
+                            <li><strong>Flips the problem:</strong> Wear becomes an aesthetic FEATURE, not a defect</li>
+                            <li><strong>Self-limiting damage:</strong> Each scratch hardens the surface, preventing deeper damage</li>
+                            <li><strong>No coatings needed:</strong> Intrinsic to the bulk material</li>
+                            <li><strong>Culturally resonant:</strong> Taps into "wabi-sabi" aesthetics (beauty in imperfection)</li>
+                        </ul>
+
+                        <h4>R&D Investment Plan</h4>
+                        <div class="phase-timeline">
+                            <div class="phase">
+                                <div class="phase-label">Phase 1 (Months 1-6)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Prove strain-induced crystallization + tribo-darkening
+                                    <ul>
+                                        <li>PA11 formulations with lignin/tannin at 2-5 wt%</li>
+                                        <li>DSC/XRD characterization of crystallization kinetics</li>
+                                        <li>Tribology testing to confirm darkening under friction</li>
+                                        <li>Initial aesthetic assessment</li>
+                                    </ul>
+                                    <strong>Team:</strong> 1 polymer scientist, 1 process engineer, 1 technician
+                                </div>
+                                <div class="phase-budget">$240K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 2 (Months 7-12)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Optimize microstructure gradient and demonstrate durability
+                                    <ul>
+                                        <li>Variotherm molding process window defined</li>
+                                        <li>Prototype plaques (15cm x 15cm) for automotive testing</li>
+                                        <li>Accelerated aging tests (Taber abrader, UV exposure, temperature cycling)</li>
+                                        <li>Consumer perception testing</li>
+                                    </ul>
+                                    <strong>Milestone Gate:</strong> If patina doesn't test well aesthetically, PIVOT to dual-network solution
+                                </div>
+                                <div class="phase-budget">$240K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 3 (Months 13-18)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Scale to part geometry and validate recyclability
+                                    <ul>
+                                        <li>Full armrest or door panel prototype</li>
+                                        <li>Recycling trials</li>
+                                        <li>Cost analysis vs. current solutions</li>
+                                        <li>Patent filing</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$120K</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <strong>Success Criteria:</strong>
+                            <ul>
+                                <li>Scratches darken (not whiten) under standardized abrasion</li>
+                                <li>Surface hardness increases >30% at scratch sites</li>
+                                <li>Consumer testing: >70% prefer patina to pristine appearance after "wear simulation"</li>
+                                <li>Cost within 15% of current PA11 solutions</li>
+                            </ul>
+                        </div>
+
+                        <h4>Risk Mitigation</h4>
+                        <div class="risk-box">
+                            <strong>Risk:</strong> Patina looks "dirty" not "premium"<br>
+                            <strong>Mitigation:</strong> Texture design sprint in Month 4; if fails, pivot to concealed surfaces (trunk liners)
+                        </div>
+                        <div class="risk-box">
+                            <strong>Risk:</strong> Crystallization too slow (scratches stay soft)<br>
+                            <strong>Mitigation:</strong> Nucleating agent screening; photochemical triggers as backup
+                        </div>
+
+                        <h4>Why $600K Is Justified</h4>
+                        <ul class="content-list">
+                            <li>Highest breakthrough potential (paradigm shift in durability thinking)</li>
+                            <li>Clear manufacturability (works with existing injection molding)</li>
+                            <li>Strong IP position (novel combination)</li>
+                            <li>Premium tier ready (Lexus interior launch possible in 24 months)</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- RANK #2 -->
+                <article id="rank-2" class="investment-card tier-1">
+                    <div class="card-header">
+                        <div class="card-rank">#2</div>
+                        <div class="card-title-section">
+                            <h3 class="card-title">"Shear-Sorted Armor" - Interface Engineering Through Processing</h3>
+                            <p class="card-subtitle">Solution ID: 697ca768ad73ee929d4a50a0 | Mechanism: Geometric Defocusing Interface</p>
+                        </div>
+                        <div class="card-budget">
+                            <div class="budget-amount">$500K</div>
+                            <div class="budget-percent">25% of budget</div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Timeline</span>
+                            <span class="card-meta-value">12 months</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Success Probability</span>
+                            <span class="card-meta-value">85%</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Expected Value</span>
+                            <span class="card-meta-value">$425K</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Market Tier</span>
+                            <span class="card-meta-value">Mass Market</span>
+                        </div>
+                    </div>
+
+                    <div class="breakthrough-section">
+                        <h4>The Breakthrough</h4>
+                        <p>This solution uses <strong>particle migration during injection molding</strong> to automatically create a protective surface layer. High shear at the mold wall forces dense, hard fillers (like silica or ceramic) to migrate inward, creating a natural "armor" layer while keeping aesthetic fillers at the visible surface.</p>
+
+                        <div class="how-it-works">
+                            <strong>How It Works:</strong>
+                            <ul>
+                                <li><strong>Shear-induced migration:</strong> Hard particles pulled away from mold wall during injection</li>
+                                <li><strong>Density stratification:</strong> Heavy particles sink, light particles float → gradient</li>
+                                <li><strong>Functional decoupling:</strong> Appearance (surface) + protection (subsurface) in one shot</li>
+                                <li><strong>No additional processing:</strong> Happens automatically during standard molding</li>
+                            </ul>
+                        </div>
+
+                        <h4>Why This Is Brilliant</h4>
+                        <ul class="content-list">
+                            <li><strong>Zero capex:</strong> Uses existing injection molding equipment</li>
+                            <li><strong>Scalable immediately:</strong> No new manufacturing needed</li>
+                            <li><strong>Self-assembling:</strong> The process creates the structure automatically</li>
+                            <li><strong>Cost-neutral:</strong> Just formulation change, no process change</li>
+                        </ul>
+
+                        <h4>R&D Investment Plan</h4>
+                        <div class="phase-timeline">
+                            <div class="phase">
+                                <div class="phase-label">Phase 1 (Months 1-6)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Map shear-migration behavior in bio-based resins
+                                    <ul>
+                                        <li>Rheological characterization of candidate resins + fillers</li>
+                                        <li>Injection molding trials with varying shear rates</li>
+                                        <li>Micro-CT imaging to confirm gradient formation</li>
+                                        <li>Hardness profiling (surface → core)</li>
+                                    </ul>
+                                    <strong>Team:</strong> 1 rheology specialist, 1 process engineer
+                                </div>
+                                <div class="phase-budget">$200K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 2 (Months 7-12)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Optimize formulation for automotive specs
+                                    <ul>
+                                        <li>Filler loading optimization (balance appearance + protection)</li>
+                                        <li>Part geometry validation</li>
+                                        <li>Scratch resistance testing vs. coated controls</li>
+                                        <li>Recyclability assessment</li>
+                                    </ul>
+                                    <strong>Milestone Gate:</strong> Must achieve >50% improvement in Taber abrasion vs. unfilled bio-resin
+                                </div>
+                                <div class="phase-budget">$200K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 3 (Months 13-18)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Production readiness
+                                    <ul>
+                                        <li>Supplier qualification</li>
+                                        <li>Cost-benefit analysis for mass market</li>
+                                        <li>Patent filing on formulation + process window</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$100K</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <strong>Success Criteria:</strong>
+                            <ul>
+                                <li>Gradient forms consistently in >95% of parts</li>
+                                <li>Scratch resistance comparable to current coated solutions</li>
+                                <li>No visible color difference (gradient invisible to eye)</li>
+                                <li>Cost increase <10% vs. unfilled resin</li>
+                            </ul>
+                        </div>
+
+                        <h4>Why $500K Is Justified</h4>
+                        <ul class="content-list">
+                            <li>Fastest path to production (12-month timeline possible)</li>
+                            <li>Mass-market ready (works with Toyota/Camry tier)</li>
+                            <li>Low risk (proven physics, just need formulation)</li>
+                            <li>Huge volume potential (millions of parts/year)</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- RANK #3 -->
+                <article id="rank-3" class="investment-card tier-1">
+                    <div class="card-header">
+                        <div class="card-rank">#3</div>
+                        <div class="card-title-section">
+                            <h3 class="card-title">"Dual-Network Mirage" - Fluidize-and-Recover Material</h3>
+                            <p class="card-subtitle">Solution ID: 697ca768ad73ee929d4a50ac | Mechanism: Transient Constraint Relaxation</p>
+                        </div>
+                        <div class="card-budget">
+                            <div class="budget-amount">$400K</div>
+                            <div class="budget-percent">20% of budget</div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Timeline</span>
+                            <span class="card-meta-value">18 months</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Success Probability</span>
+                            <span class="card-meta-value">50%</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Expected Value</span>
+                            <span class="card-meta-value">$200K</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Market Tier</span>
+                            <span class="card-meta-value">Premium</span>
+                        </div>
+                    </div>
+
+                    <div class="breakthrough-section">
+                        <h4>The Breakthrough</h4>
+                        <p>This is the <strong>moonshot of Tier 1</strong> - a material that momentarily LIQUEFIES when scratched (avoiding the damage entirely), then instantly snaps back to its original shape. It's like a car surface that's solid when you touch it, but flows like water when a key drags across it.</p>
+
+                        <div class="how-it-works">
+                            <strong>How It Works:</strong>
+                            <ul>
+                                <li><strong>Dual-network architecture:</strong>
+                                    <ul>
+                                        <li>Primary network: Supramolecular bonds (H-bonds, π-π stacking) that break under shear</li>
+                                        <li>Secondary network: Sparse covalent crosslinks that store elastic energy</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Mechanism:</strong> High-speed scratch → shear breaks weak bonds → material "melts" locally → covalent network snaps it back</li>
+                                <li><strong>Timescale:</strong> Fluidization happens in milliseconds (scratch duration), recovery in <100ms</li>
+                            </ul>
+                        </div>
+
+                        <h4>Analogical Connection</h4>
+                        <p>"Transient Constraint Relaxation" comes from systems that temporarily suspend rules to avoid conflict. Examples:</p>
+                        <ul class="content-list">
+                            <li>Traffic yield systems (cars temporarily "break" right-of-way to avoid collision)</li>
+                            <li>Protein folding (structures unfold under stress, refold when released)</li>
+                        </ul>
+                        <p>This material embodies it by:</p>
+                        <ul class="content-list">
+                            <li><strong>Governing constraint:</strong> Solid-state structure (supramolecular network)</li>
+                            <li><strong>Conflict:</strong> Scratch force trying to permanently deform</li>
+                            <li><strong>Resolution:</strong> Temporarily relax constraint (fluidize) → avoid damage → reinstate (crystallize back)</li>
+                        </ul>
+
+                        <h4>Why This Is Brilliant</h4>
+                        <ul class="content-list">
+                            <li><strong>Avoidance vs. resistance:</strong> Doesn't fight the scratch, just gets out of the way</li>
+                            <li><strong>Instantaneous:</strong> Recovery in milliseconds (imperceptible to human)</li>
+                            <li><strong>Strain-rate selective:</strong> Responds to scratches (fast) but not static loads (slow)</li>
+                            <li><strong>No wear mechanism:</strong> Material never actually damaged</li>
+                        </ul>
+
+                        <h4>The Catch</h4>
+                        <ul class="content-list">
+                            <li><strong>High synthesis complexity:</strong> Dual-network polymerization is non-trivial</li>
+                            <li><strong>Tactile feel risk:</strong> Could feel "rubbery" instead of rigid</li>
+                            <li><strong>Uncertain scalability:</strong> Lab demo ≠ production process</li>
+                        </ul>
+
+                        <h4>R&D Investment Plan</h4>
+                        <div class="phase-timeline">
+                            <div class="phase">
+                                <div class="phase-label">Phase 1 (Months 1-8)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Prove the dual-network concept in bio-based systems
+                                    <ul>
+                                        <li>Synthesize 3-5 candidate formulations (bio-PU + supramolecular)</li>
+                                        <li>Rheological characterization (find the "fluidization window")</li>
+                                        <li>High-speed scratch testing with force sensors</li>
+                                        <li>Proof-of-recovery via optical microscopy</li>
+                                    </ul>
+                                    <strong>Team:</strong> 1 polymer chemist (supramolecular expertise), 1 characterization specialist<br>
+                                    <strong>Critical Experiment:</strong> Month 6 demo of scratch "vanishing" in real-time video
+                                </div>
+                                <div class="phase-budget">$200K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 2 (Months 9-15)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Solve the tactile feel problem
+                                    <ul>
+                                        <li>Surface modification to add "rigid skin" feel</li>
+                                        <li>Consumer testing (blind comparison to current materials)</li>
+                                        <li>Temperature stability testing (-40°C to +80°C)</li>
+                                    </ul>
+                                    <strong>Milestone Gate:</strong> If tactile feel fails consumer testing, STOP or pivot to niche applications
+                                </div>
+                                <div class="phase-budget">$150K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 3 (Months 16-18)</div>
+                                <div class="phase-content">
+                                    <strong>Goal:</strong> Assess scalability
+                                    <ul>
+                                        <li>Cost model (realistic COGS estimate)</li>
+                                        <li>Identify synthesis bottlenecks</li>
+                                        <li>Decision: GO for scale-up OR license to specialty applications</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$50K</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <strong>Success Criteria:</strong>
+                            <ul>
+                                <li>Demonstrated recovery from micro-scratches (<50μm depth)</li>
+                                <li>Recovery time <500ms (visually imperceptible)</li>
+                                <li>Tactile feel rated "premium" or better vs. control</li>
+                                <li>Viable synthesis route at <$50/kg</li>
+                            </ul>
+                        </div>
+
+                        <h4>Why $400K Is Justified</h4>
+                        <ul class="content-list">
+                            <li>True breakthrough potential (10x improvement in scratch resistance)</li>
+                            <li>Strong IP position (fundamental mechanism patent possible)</li>
+                            <li>If successful, enables bio-materials in high-touch areas currently off-limits</li>
+                            <li>Acceptable risk profile (20% of budget for highest-upside concept)</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- TIER 2 -->
+            <section class="section">
+                <h2 class="section-title">🚀 Tier 2: Moonshot Innovations</h2>
+                <p class="section-subtitle">$500K / 25% of total budget</p>
+                <p>These are higher-risk concepts that could be <strong>transformative</strong> if successful but have significant technical hurdles. Lower individual investments with fast fail/fast learn gates.</p>
+
+                <!-- RANK #4 -->
+                <article id="rank-4" class="investment-card tier-2">
+                    <div class="card-header">
+                        <div class="card-rank">#4</div>
+                        <div class="card-title-section">
+                            <h3 class="card-title">"Living Composite" - Self-Healing Through Fiber Fibrillation</h3>
+                            <p class="card-subtitle">Solution ID: 697ca768ad73ee929d4a509a | Mechanism: Passive Demand-Driven Transport</p>
+                        </div>
+                        <div class="card-budget">
+                            <div class="budget-amount">$200K</div>
+                            <div class="budget-percent">10% of budget</div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Timeline</span>
+                            <span class="card-meta-value">12 months</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Success Probability</span>
+                            <span class="card-meta-value">60%</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Expected Value</span>
+                            <span class="card-meta-value">$120K</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Market Tier</span>
+                            <span class="card-meta-value">Exploratory</span>
+                        </div>
+                    </div>
+
+                    <div class="breakthrough-section">
+                        <h4>The Breakthrough</h4>
+                        <p>Natural fibers (flax, hemp) naturally <strong>fibrillate</strong> (split into sub-fibrils) when abraded. This solution exploits that "defect" by loading the fiber with a resin that:</p>
+                        <ul class="content-list">
+                            <li>Stays liquid inside the fiber (anaerobic conditions)</li>
+                            <li>Cures when exposed to air (aerobic)</li>
+                            <li>Gets wicked to the surface automatically when fiber splits</li>
+                        </ul>
+                        <p><strong>Result:</strong> Self-healing that requires zero energy - the damage itself triggers the repair.</p>
+
+                        <h4>Why It's Hard to Think Of</h4>
+                        <ul class="content-list">
+                            <li>Requires recognizing fibrillation as an opportunity (most engineers try to prevent it)</li>
+                            <li>Needs understanding of anaerobic/aerobic curing chemistry</li>
+                            <li>Cross-domain knowledge (textiles + polymer chemistry + fluid transport)</li>
+                        </ul>
+
+                        <h4>R&D Plan (12 months, $200K)</h4>
+                        <div class="phase-timeline">
+                            <div class="phase">
+                                <div class="phase-label">Phase 1 (Months 1-4)</div>
+                                <div class="phase-content">
+                                    <strong>Prove concept</strong>
+                                    <ul>
+                                        <li>Select fibrillatable fibers + compatible resins</li>
+                                        <li>Demonstrate capillary wicking in abraded fibers</li>
+                                        <li>Confirm aerobic curing mechanism</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$80K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 2 (Months 5-9)</div>
+                                <div class="phase-content">
+                                    <strong>Optimize system</strong>
+                                    <ul>
+                                        <li>Rheology tuning (resin must wick but not leak under compression)</li>
+                                        <li>Fiber orientation studies (ensure omni-directional healing)</li>
+                                        <li>Accelerated aging (does resin stay stable for 10+ years?)</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$80K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 3 (Months 10-12)</div>
+                                <div class="phase-content">
+                                    <strong>Feasibility decision</strong>
+                                    <ul>
+                                        <li>Cost model</li>
+                                        <li>Scale-up assessment</li>
+                                        <li>GO/NO-GO for full development</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$40K</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <strong>Success Criteria:</strong>
+                            <ul>
+                                <li>Visible healing of micro-scratches within 1-2 minutes</li>
+                                <li>Healing efficiency >60% (recovered vs. pristine strength)</li>
+                                <li>No passive leakage under 0.5 MPa compression (seat loading)</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-box">
+                            <strong>Risk:</strong> Fiber sourcing variability (natural fibers are inconsistent)<br>
+                            <strong>Mitigation:</strong> Develop fiber specification with suppliers; backup synthetic fibrillatable option
+                        </div>
+                    </div>
+                </article>
+
+                <!-- RANK #5 -->
+                <article id="rank-5" class="investment-card tier-2">
+                    <div class="card-header">
+                        <div class="card-rank">#5</div>
+                        <div class="card-title-section">
+                            <h3 class="card-title">"Flow-Aligned Fortress" - Micro-Textured Surface Engineering</h3>
+                            <p class="card-subtitle">Solution ID: 697ca768ad73ee929d4a50b3 | Mechanism: Flow-Aligned Morphogenesis</p>
+                        </div>
+                        <div class="card-budget">
+                            <div class="budget-amount">$150K</div>
+                            <div class="budget-percent">7.5% of budget</div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Timeline</span>
+                            <span class="card-meta-value">9 months</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Success Probability</span>
+                            <span class="card-meta-value">70%</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Expected Value</span>
+                            <span class="card-meta-value">$105K</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Market Tier</span>
+                            <span class="card-meta-value">Exploratory</span>
+                        </div>
+                    </div>
+
+                    <div class="breakthrough-section">
+                        <h4>The Breakthrough</h4>
+                        <p>Use a <strong>micro-textured mold surface</strong> to force bio-fibers to align perfectly over "ridge peaks". The result: the hardest points (fiber-rich) are what contact keys/fingernails, while soft matrix stays in the valleys (protected).</p>
+
+                        <h4>Analogical Connection</h4>
+                        <p>"Flow-Aligned Morphogenesis" = structures that form by constrained flow (like rivers carving canyons). Here:</p>
+                        <ul class="content-list">
+                            <li><strong>Flow:</strong> Polymer + fiber slurry during molding</li>
+                            <li><strong>Constraint:</strong> Textured mold surface</li>
+                            <li><strong>Morphogenesis:</strong> Fibers align to follow mold topology → protective geometry emerges</li>
+                        </ul>
+
+                        <h4>Why It's Clever</h4>
+                        <ul class="content-list">
+                            <li>No exotic materials needed (standard bio-composites)</li>
+                            <li>Process innovation, not material innovation</li>
+                            <li>"Geometric exclusion" - scratches literally can't reach the vulnerable matrix</li>
+                        </ul>
+
+                        <h4>R&D Plan (9 months, $150K)</h4>
+                        <div class="phase-timeline">
+                            <div class="phase">
+                                <div class="phase-label">Phase 1 (Months 1-3)</div>
+                                <div class="phase-content">
+                                    <ul>
+                                        <li>Design mold texture (optimize ridge height/pitch)</li>
+                                        <li>Prove fiber alignment via micro-CT</li>
+                                        <li>Measure hardness gradient (peaks vs. valleys)</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$60K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 2 (Months 4-7)</div>
+                                <div class="phase-content">
+                                    <ul>
+                                        <li>Rheology optimization (ensure fibers flow into micro-features)</li>
+                                        <li>Scratch testing vs. smooth controls</li>
+                                        <li>Aesthetic assessment (does texture look cheap?)</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$60K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 3 (Months 8-9)</div>
+                                <div class="phase-content">
+                                    <ul>
+                                        <li>Mold release optimization (texture must de-mold cleanly)</li>
+                                        <li>Cost analysis (texture molds are expensive)</li>
+                                        <li>Scale decision</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$30K</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <strong>Success Criteria:</strong>
+                            <ul>
+                                <li>Fiber alignment >80% in ridge peaks</li>
+                                <li>2x improvement in abrasion resistance vs. smooth surface</li>
+                                <li>Texture aesthetic rated "premium" (not "agricultural")</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-box">
+                            <strong>Risk:</strong> Dirt/oil trapping in texture valleys<br>
+                            <strong>Mitigation:</strong> Hydrophobic surface treatment; lotus-leaf inspired self-cleaning micro-texture
+                        </div>
+                    </div>
+                </article>
+
+                <!-- RANK #6 -->
+                <article id="rank-6" class="investment-card tier-2">
+                    <div class="card-header">
+                        <div class="card-rank">#6</div>
+                        <div class="card-title-section">
+                            <h3 class="card-title">"Sacrificial Foam Defense" - Density Jamming Transition</h3>
+                            <p class="card-subtitle">Solution ID: 697ca768ad73ee929d4a50a6 | Mechanism: Density-Selective Interface Sculpting</p>
+                        </div>
+                        <div class="card-budget">
+                            <div class="budget-amount">$150K</div>
+                            <div class="budget-percent">7.5% of budget</div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Timeline</span>
+                            <span class="card-meta-value">12 months</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Success Probability</span>
+                            <span class="card-meta-value">50%</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Expected Value</span>
+                            <span class="card-meta-value">$75K</span>
+                        </div>
+                        <div class="card-meta-item">
+                            <span class="card-meta-label">Market Tier</span>
+                            <span class="card-meta-value">Exploratory</span>
+                        </div>
+                    </div>
+
+                    <div class="breakthrough-section">
+                        <h4>The Breakthrough</h4>
+                        <p>A <strong>metastable foam</strong> binder that WANTS to collapse. When scratched:</p>
+                        <ul class="content-list">
+                            <li>Abrasion crushes the foam cells</li>
+                            <li>Dense polymer nodules (suspended in foam) jam together</li>
+                            <li>Jammed layer is now harder than the original surface</li>
+                            <li>Bonus: Collapsed surface creates micro-texture that hides remaining scratches</li>
+                        </ul>
+
+                        <h4>Why It's Non-Obvious</h4>
+                        <ul class="content-list">
+                            <li>Using a "weak" material (foam) to create a "strong" defense</li>
+                            <li>Requires understanding of granular jamming physics</li>
+                            <li>Arrested spinodal decomposition is advanced materials science</li>
+                        </ul>
+
+                        <h4>R&D Plan (12 months, $150K)</h4>
+                        <div class="phase-timeline">
+                            <div class="phase">
+                                <div class="phase-label">Phase 1 (Months 1-5)</div>
+                                <div class="phase-content">
+                                    <ul>
+                                        <li>Synthesize metastable foam (arrested spinodal decomposition)</li>
+                                        <li>Confirm pore collapse under abrasion (SEM imaging)</li>
+                                        <li>Measure hardness before/after jamming transition</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$70K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 2 (Months 6-10)</div>
+                                <div class="phase-content">
+                                    <ul>
+                                        <li>Optimize nodule loading (balance weight vs. protection)</li>
+                                        <li>Test visual appearance (does collapsed foam look damaged?)</li>
+                                        <li>Thermal/UV stability of metastable foam</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$60K</div>
+                            </div>
+                            <div class="phase">
+                                <div class="phase-label">Phase 3 (Months 11-12)</div>
+                                <div class="phase-content">
+                                    <ul>
+                                        <li>Feasibility assessment</li>
+                                        <li>IP landscape (who else is working on jamming materials?)</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-budget">$20K</div>
+                            </div>
+                        </div>
+
+                        <div class="success-criteria">
+                            <strong>Success Criteria:</strong>
+                            <ul>
+                                <li>Surface hardness increases >100% after abrasion</li>
+                                <li>Collapsed foam texture masks scratches optically</li>
+                                <li>Metastable state stable for >5 years (accelerated aging)</li>
+                            </ul>
+                        </div>
+
+                        <div class="risk-box">
+                            <strong>Risk:</strong> Foam collapses prematurely (during molding or shipping)<br>
+                            <strong>Mitigation:</strong> Stabilizing agent screening; protective skin layer during processing
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Budget Summary -->
+            <section id="budget-summary" class="section">
+                <h2 class="section-title">Budget Summary</h2>
+
+                <div class="budget-viz">
+                    <table class="budget-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Technology</th>
+                                <th>Tier</th>
+                                <th>Investment</th>
+                                <th>Timeline</th>
+                                <th>Probability of Success</th>
+                                <th>Expected Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td>Antifragile Aging PA11</td>
+                                <td><span class="tier-badge tier-1">Tier 1</span></td>
+                                <td><strong>$600K</strong></td>
+                                <td>18 months</td>
+                                <td>
+                                    <div class="prob-indicator">
+                                        <div class="prob-bar">
+                                            <div class="prob-fill" style="width: 75%;"></div>
+                                        </div>
+                                        <span class="prob-value">75%</span>
+                                    </div>
+                                </td>
+                                <td><strong>$450K</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td>Shear-Sorted Armor</td>
+                                <td><span class="tier-badge tier-1">Tier 1</span></td>
+                                <td><strong>$500K</strong></td>
+                                <td>12 months</td>
+                                <td>
+                                    <div class="prob-indicator">
+                                        <div class="prob-bar">
+                                            <div class="prob-fill" style="width: 85%;"></div>
+                                        </div>
+                                        <span class="prob-value">85%</span>
+                                    </div>
+                                </td>
+                                <td><strong>$425K</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td>Dual-Network Mirage</td>
+                                <td><span class="tier-badge tier-1">Tier 1</span></td>
+                                <td><strong>$400K</strong></td>
+                                <td>18 months</td>
+                                <td>
+                                    <div class="prob-indicator">
+                                        <div class="prob-bar">
+                                            <div class="prob-fill" style="width: 50%;"></div>
+                                        </div>
+                                        <span class="prob-value">50%</span>
+                                    </div>
+                                </td>
+                                <td><strong>$200K</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td>Living Composite</td>
+                                <td><span class="tier-badge tier-2">Tier 2</span></td>
+                                <td><strong>$200K</strong></td>
+                                <td>12 months</td>
+                                <td>
+                                    <div class="prob-indicator">
+                                        <div class="prob-bar">
+                                            <div class="prob-fill" style="width: 60%;"></div>
+                                        </div>
+                                        <span class="prob-value">60%</span>
+                                    </div>
+                                </td>
+                                <td><strong>$120K</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td>Flow-Aligned Fortress</td>
+                                <td><span class="tier-badge tier-2">Tier 2</span></td>
+                                <td><strong>$150K</strong></td>
+                                <td>9 months</td>
+                                <td>
+                                    <div class="prob-indicator">
+                                        <div class="prob-bar">
+                                            <div class="prob-fill" style="width: 70%;"></div>
+                                        </div>
+                                        <span class="prob-value">70%</span>
+                                    </div>
+                                </td>
+                                <td><strong>$105K</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>6</strong></td>
+                                <td>Sacrificial Foam</td>
+                                <td><span class="tier-badge tier-2">Tier 2</span></td>
+                                <td><strong>$150K</strong></td>
+                                <td>12 months</td>
+                                <td>
+                                    <div class="prob-indicator">
+                                        <div class="prob-bar">
+                                            <div class="prob-fill" style="width: 50%;"></div>
+                                        </div>
+                                        <span class="prob-value">50%</span>
+                                    </div>
+                                </td>
+                                <td><strong>$75K</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><strong>TOTAL</strong></td>
+                                <td><strong>$2.0M</strong></td>
+                                <td>—</td>
+                                <td><strong>Portfolio: 68%</strong></td>
+                                <td><strong>$1.38M</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="margin-top: var(--space-sm); color: var(--text-tertiary); font-size: var(--text-sm);">*Expected Value = Investment × Probability of Success</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Portfolio Risk Analysis -->
+            <section id="risk-analysis" class="section">
+                <h2 class="section-title">Portfolio Risk Analysis</h2>
+
+                <h3 style="font-size: var(--text-xl); font-weight: 600; margin: var(--space-md) 0;">Risk Diversification</h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-md); margin: var(--space-md) 0;">
+                    <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: 8px; border: 1px solid var(--border-subtle);">
+                        <h4 style="font-size: var(--text-base); font-weight: 600; margin-bottom: var(--space-sm); color: var(--text-tertiary);">By Mechanism Type</h4>
+                        <ul class="content-list">
+                            <li>Phase transitions (crystallization, jamming): <strong>3 solutions</strong></li>
+                            <li>Network architectures (dual-network, fiber): <strong>2 solutions</strong></li>
+                            <li>Process innovation (shear, flow alignment): <strong>2 solutions</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: 8px; border: 1px solid var(--border-subtle);">
+                        <h4 style="font-size: var(--text-base); font-weight: 600; margin-bottom: var(--space-sm); color: var(--text-tertiary);">By Scale</h4>
+                        <ul class="content-list">
+                            <li>Molecular (bond reorganization): <strong>1 solution</strong></li>
+                            <li>Microscale (fibers, particles): <strong>4 solutions</strong></li>
+                            <li>Mesoscale (texture, gradients): <strong>2 solutions</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: 8px; border: 1px solid var(--border-subtle);">
+                        <h4 style="font-size: var(--text-base); font-weight: 600; margin-bottom: var(--space-sm); color: var(--text-tertiary);">By Timeline to Market</h4>
+                        <ul class="content-list">
+                            <li>Fast track (12-18mo): <strong>3 solutions ($1.5M)</strong></li>
+                            <li>Exploratory (24mo+): <strong>3 solutions ($500K)</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="font-size: var(--text-xl); font-weight: 600; margin: var(--space-lg) 0 var(--space-md) 0;">Critical Success Factors</h3>
+                <ul class="content-list">
+                    <li><strong>Consumer Perception:</strong> Does "worn leather" aesthetic test well? (Rank #1)</li>
+                    <li><strong>Tactile Feel:</strong> Can dual-network feel rigid? (Rank #3)</li>
+                    <li><strong>Process Control:</strong> Can we reliably create gradients/textures? (Ranks #2, #5)</li>
+                    <li><strong>Material Stability:</strong> Do metastable systems stay stable? (Rank #6)</li>
+                </ul>
+
+                <h3 style="font-size: var(--text-xl); font-weight: 600; margin: var(--space-lg) 0 var(--space-md) 0;">Failure Modes & Pivots</h3>
+
+                <div class="risk-box">
+                    <strong>If Rank #1 fails aesthetically:</strong><br>
+                    Pivot to functional surfaces (cargo areas, trunk liners). Still valuable for Tier 2/3 suppliers (commercial vehicles).
+                </div>
+
+                <div class="risk-box">
+                    <strong>If Rank #3 synthesis too expensive:</strong><br>
+                    License to specialty applications (luxury yacht interiors, private aviation). Knowledge gain feeds into other soft-touch applications.
+                </div>
+
+                <div class="risk-box">
+                    <strong>If Rank #4-6 don't achieve metrics:</strong><br>
+                    Terminate after Phase 1 gates. Reallocate budget to scaling successful Tier 1 concepts.
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Strategic Rationale -->
+            <section id="strategic-rationale" class="section">
+                <h2 class="section-title">Strategic Rationale</h2>
+
+                <h3 style="font-size: var(--text-xl); font-weight: 600; margin: var(--space-md) 0;">Why This Portfolio Wins</h3>
+
+                <ul class="content-list">
+                    <li><strong>Paradigm Shift:</strong> We're not trying to be "harder than coatings" - we're making scratches irrelevant through resilience, not resistance</li>
+
+                    <li><strong>Sustainability Alignment:</strong> Every solution is coating-free, bio-based compatible, and recyclable</li>
+
+                    <li><strong>IP Moat:</strong> These are not obvious extensions of existing tech - they require cross-domain synthesis that competitors won't easily replicate</li>
+
+                    <li><strong>Segment Coverage:</strong>
+                        <ul style="margin-top: var(--space-xs);">
+                            <li>Lexus/Premium: Ranks #1, #3 (aesthetics-driven)</li>
+                            <li>Mass market: Rank #2 (cost-driven)</li>
+                            <li>Future moonshots: Ranks #4-6 (technology platform)</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Fast Wins + Long Bets:</strong> 85% probability of at least 2 technologies ready for production in 18 months, while maintaining upside optionality</li>
+                </ul>
+
+                <h3 style="font-size: var(--text-xl); font-weight: 600; margin: var(--space-lg) 0 var(--space-md) 0;">What Makes These Ideas Hard to Come Up With?</h3>
+
+                <div style="background: var(--bg-secondary); padding: var(--space-md); border-radius: 8px; border: 1px solid var(--border-subtle); margin: var(--space-md) 0;">
+                    <ul class="content-list">
+                        <li><strong>Rank #1:</strong> Requires recognizing that "aging" can be designed (most engineers try to prevent it)</li>
+                        <li><strong>Rank #2:</strong> Needs understanding of shear-induced particle dynamics (not typical automotive materials knowledge)</li>
+                        <li><strong>Rank #3:</strong> Demands supramolecular chemistry expertise (rare in automotive materials teams)</li>
+                        <li><strong>Rank #4:</strong> Requires seeing fiber defects as opportunities (counterintuitive)</li>
+                        <li><strong>Rank #5:</strong> Needs fluid mechanics + fiber science + mold engineering (siloed knowledge)</li>
+                        <li><strong>Rank #6:</strong> Requires jamming transition physics (typically academic, not industrial)</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: var(--space-md);"><strong>Common Thread:</strong> All require synthesis of knowledge from disparate fields (biology, physics, chemistry, process engineering). This is precisely what an R&D team should focus on - ideas that competitors can't generate through incremental thinking.</p>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Next Steps -->
+            <section id="next-steps" class="section">
+                <h2 class="section-title">Recommended Next Steps</h2>
+
+                <div style="display: grid; gap: var(--space-md); margin-top: var(--space-md);">
+                    <div style="background: var(--bg-secondary); border-left: 4px solid var(--tier1-green); padding: var(--space-md); border-radius: 0 8px 8px 0;">
+                        <h3 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-sm);">Month 1-2: Foundation</h3>
+                        <ul class="content-list">
+                            <li><strong>Hire key personnel</strong> (3-4 scientists across disciplines)</li>
+                            <li><strong>Partner agreements</strong> (injection molding equipment access)</li>
+                            <li><strong>Kick-off workshops</strong> (align on success metrics)</li>
+                            <li><strong>IP baseline</strong> (freedom-to-operate analysis)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); border-left: 4px solid var(--tier2-blue); padding: var(--space-md); border-radius: 0 8px 8px 0;">
+                        <h3 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-sm);">Month 3: First Gates</h3>
+                        <ul class="content-list">
+                            <li><strong>Rank #1:</strong> Prove strain-induced crystallization</li>
+                            <li><strong>Rank #2:</strong> Demonstrate particle migration</li>
+                            <li><strong>Rank #3:</strong> Synthesize first dual-network prototype</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); border-left: 4px solid var(--accent-gold); padding: var(--space-md); border-radius: 0 8px 8px 0;">
+                        <h3 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-sm);">Month 6: Critical Decision Points</h3>
+                        <ul class="content-list">
+                            <li><strong>Rank #1:</strong> Aesthetic testing → GO/PIVOT decision</li>
+                            <li><strong>Rank #4:</strong> Capillary wicking proof → GO/STOP</li>
+                            <li><strong>Rank #5:</strong> Fiber alignment confirmed → Continue/Kill</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); border-left: 4px solid var(--toyota-red); padding: var(--space-md); border-radius: 0 8px 8px 0;">
+                        <h3 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-sm);">Month 12: Production Readiness Assessment</h3>
+                        <ul class="content-list">
+                            <li>Which technologies are ready for pilot?</li>
+                            <li>Which need 6-12 more months?</li>
+                            <li>Which should be terminated?</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--bg-secondary); border-left: 4px solid var(--text-primary); padding: var(--space-md); border-radius: 0 8px 8px 0;">
+                        <h3 style="font-size: var(--text-lg); font-weight: 600; margin-bottom: var(--space-sm);">Month 18: Commercialization Planning</h3>
+                        <ul class="content-list">
+                            <li>Supplier qualification</li>
+                            <li>Cost-benefit validated</li>
+                            <li>Tier 1 partnership discussions</li>
+                            <li>Production launch timing</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="section-divider">
+
+            <!-- Conclusion -->
+            <section id="conclusion" class="section">
+                <div class="conclusion-box">
+                    <h2>Conclusion</h2>
+                    <p>This $2M investment portfolio represents <strong>smart risk-taking</strong>. We're not betting the farm on one moonshot, nor are we playing it safe with incremental improvements. Instead, we're pursuing a balanced strategy that:</p>
+
+                    <ul class="content-list" style="margin: var(--space-md) 0;">
+                        <li><strong>Advances Toyota's sustainability leadership</strong> (all solutions coating-free)</li>
+                        <li><strong>Creates defensible IP</strong> (cross-domain innovations are hard to copy)</li>
+                        <li><strong>Delivers near-term wins</strong> (2-3 technologies production-ready in 18mo)</li>
+                        <li><strong>Maintains long-term upside</strong> (moonshots could be 10x improvements)</li>
+                        <li><strong>Leverages existing capabilities</strong> (works with current manufacturing)</li>
+                    </ul>
+
+                    <p><strong>Most importantly:</strong> These ideas fundamentally rethink what "durable" means. Instead of trying to be harder than the problem, they're smarter than the problem.</p>
+
+                    <div class="recommendation-banner">
+                        RECOMMENDATION: PROCEED with full $2M investment across all 6 solutions with staged gates.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="document-footer">
+                <p><strong>Prepared by:</strong> Dr. [Senior R&D Director]<br>
+                <strong>Toyota CMF Materials Innovation</strong><br>
+                <strong>February 2026</strong></p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Smooth scroll and active nav state
+        const navLinks = document.querySAll('.nav-link');
+        const sections = document.querySelectorAll('[id]');
+
+        function updateActiveNav() {
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // Animate probability bars on scroll
+        const probBars = document.querySelectorAll('.prob-fill');
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transition = 'width 1s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        probBars.forEach(bar => observer.observe(bar));
+    </script>
+</body>
+</html>
