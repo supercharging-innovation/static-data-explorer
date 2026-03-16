@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation Workspace — How It Works</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --border: #e5e7eb;
+  --text: #1f2937;
+  --text-dim: #6b7280;
+  --text-light: #9ca3af;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --red-border: #fecaca;
+  --green: #16a34a;
+  --green-bg: #f0fdf4;
+  --green-border: #bbf7d0;
+  --blue: #2563eb;
+  --blue-bg: #eff6ff;
+  --blue-border: #bfdbfe;
+  --orange: #ea580c;
+  --orange-bg: #fff7ed;
+  --orange-border: #fed7aa;
+  --purple: #7c3aed;
+  --purple-bg: #f5f3ff;
+  --purple-border: #ddd6fe;
+  --cyan: #0891b2;
+  --cyan-bg: #ecfeff;
+  --cyan-border: #a5f3fc;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+.page { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+h1 span { color: var(--text-dim); font-weight: 400; }
+.subtitle { color: var(--text-dim); font-size: 15px; margin-bottom: 48px; }
+
+/* Phase headers */
+.phase { margin-bottom: 48px; }
+.phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.phase-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: white; flex-shrink: 0; }
+.phase-title { font-size: 18px; font-weight: 600; }
+.phase-desc { font-size: 13px; color: var(--text-dim); margin-left: 44px; margin-bottom: 16px; }
+
+/* Concept card */
+.concept-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-left: 44px;
+  margin-bottom: 12px;
+  position: relative;
+}
+.concept-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.concept-card p { font-size: 13px; color: var(--text-dim); }
+.concept-card .source { font-size: 11px; color: var(--text-light); margin-top: 6px; }
+
+/* Decision tree */
+.tree { margin-left: 44px; position: relative; }
+.tree::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.tree-node {
+  position: relative;
+  padding: 12px 16px 12px 44px;
+  margin-bottom: 8px;
+}
+.tree-node::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 24px;
+  width: 16px;
+  height: 2px;
+}
+.tree-node .dot {
+  position: absolute;
+  left: 10px;
+  top: 19px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+.tree-node h4 { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.tree-node p { font-size: 12px; color: var(--text-dim); }
+.tree-node .evidence { font-size: 11px; margin-top: 4px; font-style: italic; }
+
+/* Node types */
+.node-kill .dot { background: var(--red-bg); border-color: var(--red); }
+.node-kill { background: var(--red-bg); border-radius: 8px; border: 1px solid var(--red-border); }
+.node-kill h4 { color: var(--red); }
+.node-kill .evidence { color: var(--red); }
+
+.node-pivot .dot { background: var(--orange-bg); border-color: var(--orange); }
+.node-pivot { background: var(--orange-bg); border-radius: 8px; border: 1px solid var(--orange-border); }
+.node-pivot h4 { color: var(--orange); }
+
+.node-discover .dot { background: var(--blue-bg); border-color: var(--blue); }
+.node-discover { background: var(--blue-bg); border-radius: 8px; border: 1px solid var(--blue-border); }
+.node-discover h4 { color: var(--blue); }
+
+.node-survive .dot { background: var(--green-bg); border-color: var(--green); }
+.node-survive { background: var(--green-bg); border-radius: 8px; border: 1px solid var(--green-border); }
+.node-survive h4 { color: var(--green); }
+
+.node-expert .dot { background: var(--purple-bg); border-color: var(--purple); }
+.node-expert { background: var(--purple-bg); border-radius: 8px; border: 1px solid var(--purple-border); }
+.node-expert h4 { color: var(--purple); }
+
+/* Constraint extraction */
+.constraint {
+  margin-left: 44px;
+  margin-top: -4px;
+  margin-bottom: 12px;
+  padding: 8px 16px 8px 44px;
+  font-size: 11px;
+  color: var(--orange);
+  font-weight: 500;
+}
+.constraint::before {
+  content: '↳ CONSTRAINT:';
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* Divider arrow */
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0;
+  color: var(--text-light);
+  font-size: 13px;
+  gap: 8px;
+}
+.flow-arrow svg { flex-shrink: 0; }
+
+/* Expert section */
+.expert-chat {
+  margin-left: 44px;
+  background: var(--surface);
+  border: 1px solid var(--purple-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.chat-header {
+  background: var(--purple-bg);
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--purple);
+  border-bottom: 1px solid var(--purple-border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chat-msg {
+  padding: 10px 16px;
+  font-size: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.chat-msg:last-child { border-bottom: none; }
+.chat-msg .who { font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+.chat-msg.expert .who { color: var(--purple); }
+.chat-msg.ai .who { color: var(--cyan); }
+.chat-msg p { color: var(--text-dim); }
+
+/* Canvas summary */
+.canvas {
+  margin-left: 44px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.canvas-section h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+.canvas-section ul {
+  list-style: none;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.canvas-section li {
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+.canvas-section li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.canvas-section.kills li::before { background: var(--red); }
+.canvas-section.constraints li::before { background: var(--orange); }
+.canvas-section.survivors li::before { background: var(--green); }
+.canvas-section.next li::before { background: var(--blue); }
+
+/* Output */
+.output-card {
+  margin-left: 44px;
+  background: var(--green-bg);
+  border: 2px solid var(--green-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.output-card h3 { font-size: 14px; font-weight: 600; color: var(--green); margin-bottom: 8px; }
+.output-card p { font-size: 13px; color: var(--text-dim); }
+.output-card .arch {
+  margin-top: 12px;
+  font-size: 12px;
+  background: white;
+  border: 1px solid var(--green-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.output-card .arch-row {
+  display: flex;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--green-border);
+}
+.output-card .arch-row:last-child { border-bottom: none; }
+.output-card .arch-role { color: var(--text-light); width: 80px; flex-shrink: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; padding-top: 1px; }
+.output-card .arch-mat { color: var(--text); }
+
+/* Footer */
+.footer-note {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-light);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Innovation Workspace <span>— How It Works</span></h1>
+<p class="subtitle">A fictional example: developing a self-cooling building facade inspired by termite mound ventilation</p>
+
+<!-- ============ PHASE 1: STARTING CONCEPT ============ -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num" style="background:var(--blue)">1</div>
+    <div class="phase-title">AI generates a starting concept</div>
+  </div>
+  <p class="phase-desc">Cross-domain analogical reasoning discovers a mechanism in nature and transfers it to the problem.</p>
+  <div class="concept-card">
+    <h3>TermoFacade: Phase-Change Ventilation Panel</h3>
+    <p>A building facade panel that uses convective chimney channels — inspired by termite mound thermoregulation — to passively cool interior spaces. Channels filled with microencapsulated phase-change material (PCM) absorb heat during the day and release it at night via stack-effect ventilation.</p>
+    <div class="source">Mechanism source: Termite Mound Passive Thermoregulation → Stack-Effect Convective Cooling</div>
+  </div>
+</div>
+
+<!-- ============ PHASE 2: AI SIMULATION ============ -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num" style="background:var(--cyan)">2</div>
+    <div class="phase-title">AI stress-tests the concept</div>
+  </div>
+  <p class="phase-desc">The AI systematically probes the concept — checking physics, feasibility, cost, and competitive position. Each failure extracts a constraint that narrows the search for what comes next.</p>
+
+  <div class="tree">
+    <div class="tree-node node-kill">
+      <div class="dot"></div>
+      <h4>PCM leakage under thermal cycling — KILLED</h4>
+      <p>Microencapsulated paraffin PCM shells crack after ~200 thermal cycles (Li et al. 2021). Building facades require 10,000+ cycles over 20-year lifespan.</p>
+      <div class="evidence">Kill evidence: 50x shortfall in cycle durability</div>
+    </div>
+    <div class="constraint">Bulk PCM in structural channels is not viable — encapsulation fails at building-scale cycle counts</div>
+
+    <div class="tree-node node-pivot">
+      <div class="dot"></div>
+      <h4>PIVOT → Shape-stabilized PCM in porous matrix</h4>
+      <p>Embed paraffin in expanded graphite or diatomite matrix — no shell to crack. Zhang 2019: 500+ cycles with <3% capacity loss.</p>
+    </div>
+
+    <div class="tree-node node-kill">
+      <div class="dot"></div>
+      <h4>Insufficient airflow in narrow channels — KILLED</h4>
+      <p>Stack effect through 2cm channels at ΔT=8°C: only 0.3 m/s airflow. Heat removal rate: ~15 W/m². Cooling load for office space: 50-80 W/m². Off by 4x.</p>
+      <div class="evidence">Kill evidence: 4x shortfall in cooling capacity vs. requirement</div>
+    </div>
+    <div class="constraint">Passive stack-effect alone cannot meet commercial building cooling loads — needs active assist or radically different geometry</div>
+
+    <div class="tree-node node-pivot">
+      <div class="dot"></div>
+      <h4>REFRAME → PCM as thermal buffer, not primary cooling</h4>
+      <p>Stop trying to replace HVAC. Instead: PCM absorbs peak load (2-4 PM), shifts it to off-peak night ventilation. Reduces HVAC sizing by 30-40%, not eliminates it.</p>
+    </div>
+
+    <div class="tree-node node-discover">
+      <div class="dot"></div>
+      <h4>DISCOVERY: Radiative cooling surface + PCM = hybrid</h4>
+      <p>AI finds a second mechanism: daytime radiative sky cooling (Raman et al. 2014, Stanford). Emits thermal IR through atmosphere's 8-13μm transparency window. Combined with PCM thermal buffer → passive cooling that actually reaches 50+ W/m².</p>
+    </div>
+
+    <div class="tree-node node-kill">
+      <div class="dot"></div>
+      <h4>Radiative film durability outdoors — KILLED as standalone</h4>
+      <p>Polymer multilayer radiative films degrade under UV within 2-3 years. Building facades need 20+ year life. But: protective glazing layer solves this at +$8/m² cost.</p>
+      <div class="evidence">Resolved with glazing — added to architecture as protective layer</div>
+    </div>
+
+    <div class="tree-node node-survive">
+      <div class="dot"></div>
+      <h4>SURVIVES: Hybrid radiative-PCM facade panel</h4>
+      <p>Glazed radiative cooling surface (daytime) + shape-stabilized PCM thermal buffer (peak shifting) + natural ventilation channels (night flush). Projected: 55 W/m² passive cooling, 35% HVAC reduction, $120/m² installed cost vs. $90/m² for standard curtain wall.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FLOW ARROW ============ -->
+<div class="flow-arrow">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  AI has mapped the design space — 3 dead ends, 2 pivots, 1 survivor with a specific architecture. Now the expert enters.
+</div>
+
+<!-- ============ PHASE 3: EXPERT REFINEMENT ============ -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num" style="background:var(--purple)">3</div>
+    <div class="phase-title">Expert adds constraints, taste, and real-world knowledge</div>
+  </div>
+  <p class="phase-desc">The expert sees the full exploration tree — what was tried, what was killed and why, what survived. They don't start from scratch. They build on the map and add what only they know.</p>
+
+  <div class="expert-chat">
+    <div class="chat-header">
+      <svg width="16" height="16" fill="none" stroke="var(--purple)" stroke-width="2"><circle cx="8" cy="5" r="3"/><path d="M2 15c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      Chat — Dr. Reyes, Building Envelope Engineer
+    </div>
+    <div class="chat-msg expert">
+      <div class="who">Expert</div>
+      <p>The PCM reframe is smart, but you're assuming we can get expanded graphite panels through fire code. What's the flame spread rating? ASTM E84 Class A is non-negotiable for exterior facades.</p>
+    </div>
+    <div class="chat-msg ai">
+      <div class="who">AI</div>
+      <p>Good catch. Paraffin/expanded-graphite composites: Class B at best (flame spread index ~40-60). Class A requires FSI ≤ 25. Two options: (1) switch to salt hydrate PCM (non-flammable, CaCl₂·6H₂O), trades 15% latent heat capacity but passes fire code; (2) add intumescent coating at +$6/m².</p>
+    </div>
+    <div class="chat-msg expert">
+      <div class="who">Expert</div>
+      <p>Salt hydrate. We've used CaCl₂ PCM on the Denver project — it works but has a phase segregation problem after ~1000 cycles. Check if anyone's solved that since 2022.</p>
+    </div>
+    <div class="chat-msg ai">
+      <div class="who">AI</div>
+      <p>Found it: Xie et al. 2024 — thickened CaCl₂·6H₂O with 2% hydroxyethyl cellulose + 0.5% SrCl₂ nucleator. 5,000 cycles, <5% capacity fade. The nucleator prevents supercooling too. Updated the architecture.</p>
+    </div>
+    <div class="chat-msg expert">
+      <div class="who">Expert</div>
+      <p>Now the real question — what does this cost vs. a Kingspan insulated panel with standard HVAC? Because my client won't pay a 30% premium for a facade, no matter how clever it is.</p>
+    </div>
+    <div class="chat-msg ai">
+      <div class="who">AI</div>
+      <p>Facade alone: $120/m² vs $90/m² Kingspan (+33%). But lifecycle: the 35% HVAC reduction saves ~$12/m²/year in a Phoenix climate zone. Payback: 2.5 years. Over 20-year building life: net savings of $150/m². I can model this for your specific climate zone if you share the location.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PHASE 4: CANVAS ============ -->
+<div class="phase">
+  <div class="phase-header">
+    <div class="phase-num" style="background:var(--text-dim)">4</div>
+    <div class="phase-title">Canvas: the structured residue</div>
+  </div>
+  <p class="phase-desc">The canvas captures everything that's been explored — kills, constraints, pivots, expert additions — as a navigable record for the team.</p>
+
+  <div class="canvas">
+    <div class="canvas-section kills">
+      <h4>Dead ends (3 killed)</h4>
+      <ul>
+        <li>Microencapsulated PCM — shell cracking at cycle count</li>
+        <li>Passive stack-effect only — 4x short on cooling capacity</li>
+        <li>Polymer radiative film — UV degradation (resolved with glazing)</li>
+      </ul>
+    </div>
+    <div class="canvas-section constraints">
+      <h4>Constraints discovered</h4>
+      <ul>
+        <li>PCM must be shape-stabilized, not encapsulated</li>
+        <li>Passive cooling alone won't replace HVAC — reframe as peak-load buffer</li>
+        <li>ASTM E84 Class A required — no paraffin (expert added)</li>
+        <li>Must beat Kingspan on 20-year lifecycle cost (expert added)</li>
+      </ul>
+    </div>
+    <div class="canvas-section survivors">
+      <h4>Surviving architecture</h4>
+      <ul>
+        <li>Glazed radiative cooling surface (daytime passive)</li>
+        <li>CaCl₂·6H₂O / HEC / SrCl₂ PCM layer (peak shifting)</li>
+        <li>Natural ventilation channels (night flush)</li>
+        <li>Payback: 2.5 years in hot climates</li>
+      </ul>
+    </div>
+    <div class="canvas-section next">
+      <h4>Next: gating experiments</h4>
+      <ul>
+        <li>Fabricate 30×30cm prototype panel with salt hydrate PCM</li>
+        <li>Thermal cycling test: 1,000 cycles, measure capacity retention</li>
+        <li>ASTM E84 fire test on full panel assembly</li>
+        <li>Field test: 1 panel on south-facing wall, Phoenix, 3 months</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">
+  The concept that entered the workspace is not the concept that left it. The AI explored the design space and killed the dead ends. The expert added fire code, cost constraints, and a specific PCM chemistry from their own project experience. Neither alone would have reached the final architecture.
+</div>
+
+</div>
+</body>
+</html>
