@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expert Simulation Decision Tree — Pharma Barrier Campaign</title>
+<script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+<script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+<script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+<style>
+:root {
+  --bg: #0f1117;
+  --surface: #1a1d27;
+  --surface2: #242835;
+  --border: #2e3345;
+  --text: #e2e4ea;
+  --text-dim: #8b8fa3;
+  --red: #ef4444;
+  --red-dim: #7f1d1d;
+  --green: #22c55e;
+  --green-dim: #14532d;
+  --orange: #f97316;
+  --orange-dim: #7c2d12;
+  --blue: #3b82f6;
+  --blue-dim: #1e3a5f;
+  --purple: #a855f7;
+  --purple-dim: #581c87;
+  --yellow: #eab308;
+  --cyan: #06b6d4;
+  --pink: #ec4899;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', monospace; background:var(--bg); color:var(--text); overflow-x:hidden; }
+h1,h2,h3,h4 { font-weight:600; }
+
+/* Header */
+.header { background:var(--surface); border-bottom:1px solid var(--border); padding:16px 24px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.header h1 { font-size:18px; color:var(--text); }
+.header .subtitle { color:var(--text-dim); font-size:13px; }
+.stats { display:flex; gap:16px; margin-left:auto; flex-wrap:wrap; }
+.stat { text-align:center; padding:4px 12px; background:var(--surface2); border-radius:6px; border:1px solid var(--border); }
+.stat .val { font-size:18px; font-weight:700; }
+.stat .label { font-size:10px; color:var(--text-dim); text-transform:uppercase; letter-spacing:1px; }
+.stat.kill .val { color:var(--red); }
+.stat.survive .val { color:var(--green); }
+.stat.cost .val { color:var(--yellow); }
+.stat.turns .val { color:var(--blue); }
+
+/* Nav tabs */
+.nav { background:var(--surface); border-bottom:1px solid var(--border); display:flex; gap:0; overflow-x:auto; }
+.nav button { background:none; border:none; color:var(--text-dim); font:inherit; padding:10px 20px; cursor:pointer; font-size:12px; text-transform:uppercase; letter-spacing:1px; border-bottom:2px solid transparent; transition:all .2s; white-space:nowrap; }
+.nav button:hover { color:var(--text); background:var(--surface2); }
+.nav button.active { color:var(--cyan); border-bottom-color:var(--cyan); }
+
+/* Panels */
+.panel { display:none; }
+.panel.active { display:flex; }
+
+/* ========= CAMPAIGN TREE VIEW ========= */
+#tree-panel { height:calc(100vh - 145px); }
+#cy { flex:1; background:#0f1117; }
+
+/* Detail panel */
+#detail-panel { width:420px; min-width:420px; background:var(--surface); border-left:1px solid var(--border); overflow-y:auto; padding:0; }
+#detail-panel .empty { padding:40px 24px; text-align:center; color:var(--text-dim); font-size:13px; }
+.detail-header { padding:16px 20px; border-bottom:1px solid var(--border); }
+.detail-header h2 { font-size:15px; margin-bottom:4px; }
+.detail-header .meta { font-size:11px; color:var(--text-dim); display:flex; gap:12px; flex-wrap:wrap; }
+.detail-header .badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; }
+.badge-kill { background:var(--red-dim); color:var(--red); }
+.badge-survive { background:var(--green-dim); color:var(--green); }
+.badge-conditional { background:var(--orange-dim); color:var(--orange); }
+.badge-strong { background:var(--green-dim); color:var(--green); }
+.badge-pivot { background:var(--orange-dim); color:var(--orange); }
+.badge-discovery { background:var(--blue-dim); color:var(--blue); }
+.badge-assessment { background:var(--purple-dim); color:var(--purple); }
+.detail-body { padding:16px 20px; font-size:12px; line-height:1.7; }
+.detail-body h3 { font-size:13px; color:var(--cyan); margin:16px 0 6px 0; }
+.detail-body h3:first-child { margin-top:0; }
+.detail-body ul { padding-left:18px; margin:4px 0; }
+.detail-body li { margin:3px 0; }
+.detail-body .evidence { background:var(--surface2); border-left:3px solid var(--red); padding:8px 12px; margin:8px 0; border-radius:0 4px 4px 0; font-size:11px; }
+.detail-body .discovery-box { background:var(--surface2); border-left:3px solid var(--blue); padding:8px 12px; margin:8px 0; border-radius:0 4px 4px 0; font-size:11px; }
+.detail-body .constraint-box { background:var(--surface2); border-left:3px solid var(--orange); padding:8px 12px; margin:8px 0; border-radius:0 4px 4px 0; font-size:11px; }
+.detail-body .survive-box { background:var(--surface2); border-left:3px solid var(--green); padding:8px 12px; margin:8px 0; border-radius:0 4px 4px 0; font-size:11px; }
+.detail-body .architecture { background:var(--surface2); border:1px solid var(--border); padding:10px 14px; margin:10px 0; border-radius:6px; font-size:11px; }
+.detail-body .architecture .layer { padding:2px 0; border-bottom:1px dashed var(--border); }
+.detail-body .architecture .layer:last-child { border-bottom:none; }
+.detail-body .perf-item { display:flex; gap:8px; margin:2px 0; }
+.detail-body .perf-label { color:var(--text-dim); min-width:100px; }
+.detail-body .perf-val { color:var(--text); }
+.detail-body strong { color:var(--text); }
+.detail-body em { color:var(--yellow); font-style:normal; }
+
+/* ========= TABLE VIEWS ========= */
+.table-panel { padding:24px; overflow:auto; height:calc(100vh - 110px); }
+.table-panel h2 { margin-bottom:16px; font-size:16px; }
+.table-panel p { color:var(--text-dim); font-size:12px; margin-bottom:16px; line-height:1.6; }
+table { width:100%; border-collapse:collapse; font-size:12px; }
+th { background:var(--surface2); color:var(--cyan); padding:10px 12px; text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.5px; position:sticky; top:0; border-bottom:2px solid var(--border); }
+td { padding:8px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+tr:hover td { background:var(--surface); }
+td.kill { color:var(--red); }
+td.survive { color:var(--green); }
+td.conditional { color:var(--orange); }
+.competitive-table td, .competitive-table th { text-align:center; font-size:11px; padding:6px 8px; }
+.competitive-table td:first-child, .competitive-table th:first-child { text-align:left; }
+.highlight-cell { background:var(--green-dim) !important; color:var(--green); font-weight:700; }
+.best-cell { background:var(--blue-dim) !important; color:var(--cyan); font-weight:700; }
+
+/* Insights panel */
+.insights-panel { padding:24px; overflow-y:auto; height:calc(100vh - 110px); }
+.insight-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:20px; margin-bottom:16px; }
+.insight-card h3 { color:var(--cyan); font-size:13px; margin-bottom:8px; }
+.insight-card p { font-size:12px; line-height:1.7; color:var(--text-dim); }
+
+/* Architectures panel */
+.arch-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(380px, 1fr)); gap:20px; padding:24px; overflow-y:auto; height:calc(100vh - 110px); }
+.arch-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+.arch-card-head { padding:16px 20px; border-bottom:1px solid var(--border); }
+.arch-card-head h3 { font-size:14px; margin-bottom:2px; }
+.arch-card-head .thread { font-size:11px; color:var(--text-dim); }
+.arch-card-head .verdict { float:right; }
+.arch-layers { padding:12px 20px; }
+.arch-layer { display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px dashed var(--border); font-size:11px; }
+.arch-layer:last-child { border-bottom:none; }
+.arch-layer .role { color:var(--text-dim); min-width:80px; text-transform:uppercase; font-size:9px; letter-spacing:.5px; }
+.arch-layer .mat { color:var(--text); }
+.arch-perf { padding:12px 20px; background:var(--surface2); }
+.arch-perf h4 { font-size:11px; color:var(--cyan); margin-bottom:8px; text-transform:uppercase; letter-spacing:.5px; }
+.arch-perf-row { display:flex; justify-content:space-between; font-size:11px; padding:3px 0; }
+.arch-perf-row .k { color:var(--text-dim); }
+.arch-perf-row .v { color:var(--text); font-weight:600; }
+
+/* Legend */
+.legend { display:flex; gap:16px; padding:8px 24px; background:var(--surface); border-bottom:1px solid var(--border); font-size:11px; flex-wrap:wrap; }
+.legend-item { display:flex; align-items:center; gap:6px; }
+.legend-dot { width:10px; height:10px; border-radius:50%; }
+
+/* Responsive */
+@media (max-width:900px) {
+  #tree-panel { flex-direction:column; }
+  #detail-panel { width:100%; min-width:0; max-height:50vh; border-left:none; border-top:1px solid var(--border); }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>Expert Simulation Decision Tree</h1>
+    <div class="subtitle">Pharma Barrier Packaging — Glass-to-Plastic Conversion &nbsp;|&nbsp; Dr. Sarah Mueller, Senior Polymer Chemist, Covestro</div>
+  </div>
+  <div class="stats">
+    <div class="stat turns"><div class="val">38</div><div class="label">Turns</div></div>
+    <div class="stat"><div class="val">5</div><div class="label">Sessions</div></div>
+    <div class="stat kill"><div class="val">14</div><div class="label">Killed</div></div>
+    <div class="stat survive"><div class="val">4</div><div class="label">Survived</div></div>
+    <div class="stat cost"><div class="val">$173.42</div><div class="label">Cost</div></div>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="active" data-panel="tree-panel">Campaign Tree</button>
+  <button data-panel="arch-panel">Architectures</button>
+  <button data-panel="killchain-panel">Kill Chain</button>
+  <button data-panel="competitive-panel">Competitive</button>
+  <button data-panel="novelty-panel">Novelty &amp; Impact</button>
+  <button data-panel="derisk-panel">De-Risking</button>
+  <button data-panel="insights-panel">Key Insights</button>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Kill</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Survive / Strong Pass</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> Pivot / Conditional</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div> Discovery</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> Assessment</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--cyan)"></div> Session Start</div>
+  <div class="legend-item"><svg width="24" height="10"><line x1="0" y1="5" x2="24" y2="5" stroke="var(--cyan)" stroke-width="2" stroke-dasharray="4,3"/></svg> Reflection Branch (missed opportunity)</div>
+  <span style="margin-left:auto; color:var(--text-dim); font-size:10px;">Click nodes for details &nbsp;|&nbsp; Scroll to zoom &nbsp;|&nbsp; Drag to pan</span>
+</div>
+
+<!-- ======= CAMPAIGN TREE ======= -->
+<div id="tree-panel" class="panel active">
+  <div id="cy"></div>
+  <div id="detail-panel"><div class="empty">Click any node in the tree to see full details.<br><br>The tree shows the complete exploration path:<br>8 pivots in the main thread, 3 parallel threads,<br>14 concepts killed, 4 survivors.</div></div>
+</div>
+
+<!-- ======= ARCHITECTURES ======= -->
+<div id="arch-panel" class="panel">
+  <div class="arch-grid">
+    <div class="arch-card">
+      <div class="arch-card-head">
+        <span class="badge badge-survive arch-card-head .verdict" style="float:right">SURVIVES</span>
+        <h3>Exterior MXD6 Film Insert Molding</h3>
+        <div class="thread">Main Thread (Sessions 1-2) &nbsp;|&nbsp; 19 turns &nbsp;|&nbsp; $100.99 &nbsp;|&nbsp; Character: Safe Bet</div>
+      </div>
+      <div class="arch-layers">
+        <div class="arch-layer"><span class="role">Exterior</span><span class="mat">Cast MXD6 barrier film (50&#956;m, thermoformed)</span></div>
+        <div class="arch-layer"><span class="role">Adhesive</span><span class="mat">Bayhydrol PC-PU primer (5-10&#956;m)</span></div>
+        <div class="arch-layer"><span class="role">Structural</span><span class="mat">Apec 1745 PC (700-750&#956;m, injection molded)</span></div>
+        <div class="arch-layer"><span class="role">Drug face</span><span class="mat">Apec 1745 PC interior (USP Class VI)</span></div>
+      </div>
+      <div class="arch-perf">
+        <h4>Performance</h4>
+        <div class="arch-perf-row"><span class="k">O&#8322; barrier</span><span class="v">42x vs COP at 60% RH, 24x at 80% RH</span></div>
+        <div class="arch-perf-row"><span class="k">vs OXYCAPT-P</span><span class="v">Exceeds (20x) by 2x</span></div>
+        <div class="arch-perf-row"><span class="k">Steam sterilization</span><span class="v">121-143&#176;C (ONLY plastic that can)</span></div>
+        <div class="arch-perf-row"><span class="k">Drug contact</span><span class="v">Apec PC (established USP Class VI)</span></div>
+        <div class="arch-perf-row"><span class="k">Process</span><span class="v">Standard injection mold + Covestro FIM platform</span></div>
+        <div class="arch-perf-row"><span class="k">Covestro value</span><span class="v">Apec 1745 + Bayhydrol PU = 2 Covestro products</span></div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-head">
+        <span class="badge badge-conditional" style="float:right">CONDITIONAL PASS</span>
+        <h3>BioBarrier PC — Li-Fluorohectorite Nacre</h3>
+        <div class="thread">Thread 1 (Session 3) &nbsp;|&nbsp; 7 turns &nbsp;|&nbsp; $30.63 &nbsp;|&nbsp; Character: Moonshot (8.7/10)</div>
+      </div>
+      <div class="arch-layers">
+        <div class="arch-layer"><span class="role">Exterior</span><span class="mat">Optional hard coat (protection)</span></div>
+        <div class="arch-layer"><span class="role">Barrier</span><span class="mat">Li-fluorohectorite nacre coating (10-20&#956;m)</span></div>
+        <div class="arch-layer"><span class="role">Structural</span><span class="mat">Apec 1745 PC (injection molded vial)</span></div>
+        <div class="arch-layer"><span class="role">Drug face</span><span class="mat">Apec 1745 PC interior (USP Class VI)</span></div>
+      </div>
+      <div class="arch-perf">
+        <h4>Performance</h4>
+        <div class="arch-perf-row"><span class="k">O&#8322; barrier</span><span class="v">1,744-3,485x vs bare PC (GLASS-EQUIVALENT)</span></div>
+        <div class="arch-perf-row"><span class="k">WVTR</span><span class="v">~225x (limited by water H-bonding in galleries)</span></div>
+        <div class="arch-perf-row"><span class="k">Optical</span><span class="v">Transparent (no Fe&#179;&#8314; contamination)</span></div>
+        <div class="arch-perf-row"><span class="k">Process</span><span class="v">Dip-coating or spray, no vacuum needed</span></div>
+        <div class="arch-perf-row"><span class="k">Covestro value</span><span class="v">Apec 1745 + nacre coating formulation</span></div>
+        <div class="arch-perf-row"><span class="k">IP landscape</span><span class="v">OPEN — Breu patents focus on synthesis, not packaging</span></div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-head">
+        <span class="badge badge-strong" style="float:right">STRONG</span>
+        <h3>Nanolayer Trilayer FIM</h3>
+        <div class="thread">Thread 2 (Session 4) &nbsp;|&nbsp; 6 turns &nbsp;|&nbsp; $27.35 &nbsp;|&nbsp; Character: Strong Middle (6.7/10)</div>
+      </div>
+      <div class="arch-layers">
+        <div class="arch-layer"><span class="role">Exterior</span><span class="mat">COC moisture barrier skin (10-15&#956;m)</span></div>
+        <div class="arch-layer"><span class="role">Tie</span><span class="mat">MAH-PE (3&#956;m)</span></div>
+        <div class="arch-layer"><span class="role">Barrier</span><span class="mat">[PC/MXD6] &#215; 512 nanolayer block (70&#956;m)</span></div>
+        <div class="arch-layer"><span class="role">Tie</span><span class="mat">MAH-PE (3&#956;m)</span></div>
+        <div class="arch-layer"><span class="role">Interior</span><span class="mat">COC moisture barrier skin (10-15&#956;m)</span></div>
+        <div class="arch-layer" style="border-top:2px solid var(--cyan);margin-top:4px;padding-top:8px"><span class="role">FIM bond</span><span class="mat">— to Apec 1745 body —</span></div>
+        <div class="arch-layer"><span class="role">Structural</span><span class="mat">Apec 1745 PC (injection molded vial)</span></div>
+        <div class="arch-layer"><span class="role">Drug face</span><span class="mat">Apec 1745 PC interior (USP Class VI)</span></div>
+      </div>
+      <div class="arch-perf">
+        <h4>Performance</h4>
+        <div class="arch-perf-row"><span class="k">O&#8322; barrier</span><span class="v">27-63x vs neat PC</span></div>
+        <div class="arch-perf-row"><span class="k">Moisture</span><span class="v">COC skins shield MXD6 from humidity</span></div>
+        <div class="arch-perf-row"><span class="k">Materials</span><span class="v">All commercial (TOPAS COC, Bynel MAH-PE, MXD6)</span></div>
+        <div class="arch-perf-row"><span class="k">Process</span><span class="v">LME coextrusion (proven) + Covestro FIM platform</span></div>
+        <div class="arch-perf-row"><span class="k">Covestro value</span><span class="v">Apec 1745 body + nanolayer film architecture IP</span></div>
+      </div>
+    </div>
+    <div class="arch-card">
+      <div class="arch-card-head">
+        <span class="badge badge-conditional" style="float:right">CONDITIONAL PASS</span>
+        <h3>Dual-Clay Spray-LbL Barrier Coating</h3>
+        <div class="thread">Thread 3 (Session 5) &nbsp;|&nbsp; 6 turns &nbsp;|&nbsp; $14.45 &nbsp;|&nbsp; Character: Cost Disruptor (5.7/10)</div>
+      </div>
+      <div class="arch-layers">
+        <div class="arch-layer"><span class="role">Barrier</span><span class="mat">20 QL dual-clay spray-LbL coating (~800nm) [PEI/BMT/PAA/VMT] &#215; 20</span></div>
+        <div class="arch-layer"><span class="role">Healing</span><span class="mat">Optional APTES/boehmite self-healing interlayer</span></div>
+        <div class="arch-layer"><span class="role">Anchor</span><span class="mat">PEI aminolysis covalent bond to PC surface</span></div>
+        <div class="arch-layer"><span class="role">Structural</span><span class="mat">Apec 1745 PC (injection molded vial)</span></div>
+        <div class="arch-layer"><span class="role">Drug face</span><span class="mat">Apec 1745 PC interior (USP Class VI)</span></div>
+      </div>
+      <div class="arch-perf">
+        <h4>Performance</h4>
+        <div class="arch-perf-row"><span class="k">O&#8322; barrier</span><span class="v">>9,000x (Grunlan 2008 on PET; PC extrapolation TBD)</span></div>
+        <div class="arch-perf-row"><span class="k">Humidity</span><span class="v">81% retention at 90% RH (Iverson 2024)</span></div>
+        <div class="arch-perf-row"><span class="k">Process</span><span class="v">Spray-LbL, aqueous, room temp, no vacuum</span></div>
+        <div class="arch-perf-row"><span class="k">Capex</span><span class="v">$200K-500K (vs $5M+ PECVD)</span></div>
+        <div class="arch-perf-row"><span class="k">Covestro value</span><span class="v">Apec 1745 + coating formulation IP</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= KILL CHAIN ======= -->
+<div id="killchain-panel" class="panel">
+  <div class="table-panel">
+    <h2>Kill Chain Summary — All Sessions</h2>
+    <p>14 concepts killed, 4 survived. Every kill backed by specific quantitative evidence and citations.</p>
+    <table>
+      <thead><tr><th>#</th><th>Concept</th><th>Session</th><th>Kill Evidence</th><th>Kill Reason</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>PC-POx block copolymer</td><td>S1:T1-2</td><td>Thermal processing, plasticization physics</td><td>3 physics-level contradictions</td><td class="kill">KILLED</td></tr>
+        <tr><td>2</td><td>Moisture-reactive crosslinking</td><td>S1:T3</td><td>Tin et al. 2003 membrane literature</td><td>Only 20-50% reduction, need 100x</td><td class="kill">KILLED</td></tr>
+        <tr><td>3</td><td>In-situ sol-gel SiOx (iSG-PC)</td><td>S1:T4-9</td><td>Maxwell model, competitive comparison</td><td>Unproven beyond-Maxwell, at best matches existing</td><td class="kill">KILLED</td></tr>
+        <tr><td>4</td><td>scCO&#8322; skin densification</td><td>S1:T9</td><td>Bologna, Monnereau, Jordao</td><td>Crystallizes PC &#8594; opaque</td><td class="kill">KILLED</td></tr>
+        <tr><td>5</td><td>PC/MXD6 co-injection (MAH tie)</td><td>S2:T3</td><td>Wang 2013, industry survey</td><td>No commercial tie layer for PC/nylon</td><td class="kill">KILLED</td></tr>
+        <tr><td>6</td><td>Desmopan TPU co-injection tie</td><td>S2:T6</td><td>Covestro processing guide</td><td>TPU decomposes at 240&#176;C, PC needs 300&#176;C</td><td class="kill">KILLED</td></tr>
+        <tr><td>7</td><td>Interior MXD6 FIM</td><td>S2:T6</td><td>Humidity calculation</td><td>MXD6 drug-contact at 100% RH &#8594; only 2x</td><td class="kill">KILLED</td></tr>
+        <tr><td>8</td><td>GO in PC melt</td><td>S3:T1</td><td>Singh & Dastgheib 2023 TGA</td><td>Thermal decomposition at 200&#176;C</td><td class="kill">KILLED</td></tr>
+        <tr><td>9</td><td>CNC in PC</td><td>S3:T1</td><td>Nielsen model</td><td>Aspect ratio ~10-30, only 1.5-3x barrier</td><td class="kill">KILLED</td></tr>
+        <tr><td>10</td><td>hBN alone in PC</td><td>S3:T1</td><td>Nielsen model at &#966;=0.03</td><td>Only 8-15x, insufficient for glass-equivalent</td><td class="kill">KILLED</td></tr>
+        <tr><td>11</td><td>ALD on PC</td><td>S3:T3</td><td>Known tech assessment</td><td>Not breakthrough, not Covestro IP</td><td class="kill">KILLED</td></tr>
+        <tr><td>12</td><td>FF-DBG (fountain flow gradient)</td><td>S4:T1</td><td>US Pat 5,866,649, mechanism library</td><td>Gradients are anti-barrier; blends 2.7-3.4x worse</td><td class="kill">KILLED</td></tr>
+        <tr><td>13</td><td>COC-only nanolayers</td><td>S4:T4</td><td>Permeability comparison</td><td>Only 1.8x better than PC, insufficient</td><td class="kill">KILLED</td></tr>
+        <tr><td>14</td><td>Standard LbL at high humidity</td><td>S5:T1</td><td>Iverson et al. OTR data</td><td>1,560% increase at 90% RH</td><td class="kill">KILLED</td></tr>
+        <tr style="background:var(--green-dim)"><td>15</td><td><strong>Exterior MXD6 FIM</strong></td><td>S2:T7-8</td><td>4/4 stress tests passed</td><td>All challenges survived</td><td class="survive"><strong>SURVIVES</strong></td></tr>
+        <tr style="background:var(--orange-dim)"><td>16</td><td><strong>BioBarrier PC (Li-fluorohectorite)</strong></td><td>S3:T6-7</td><td>Cussler model + IP assessment</td><td>Glass-equivalent barrier achievable</td><td class="conditional"><strong>CONDITIONAL</strong></td></tr>
+        <tr style="background:var(--green-dim)"><td>17</td><td><strong>Nanolayer Trilayer FIM</strong></td><td>S4:T5-6</td><td>Barrier math + materials confirmed</td><td>Most buildable, all components commercial</td><td class="survive"><strong>STRONG</strong></td></tr>
+        <tr style="background:var(--orange-dim)"><td>18</td><td><strong>Dual-Clay Spray-LbL</strong></td><td>S5:T5-6</td><td>Iverson 2024 + PEI anchoring</td><td>Published data, humidity solution found</td><td class="conditional"><strong>CONDITIONAL</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= COMPETITIVE ======= -->
+<div id="competitive-panel" class="panel">
+  <div class="table-panel">
+    <h2>Competitive Position — All 4 Concepts vs Market</h2>
+    <table class="competitive-table">
+      <thead><tr><th></th><th>Glass</th><th>Neat COP</th><th>PECVD-COP</th><th>OXYCAPT-P</th><th>Main: MXD6 FIM</th><th>T1: Nacre</th><th>T2: Nanolayer</th><th>T3: Spray-LbL</th></tr></thead>
+      <tbody>
+        <tr><td><strong>O&#8322; Barrier vs COP</strong></td><td>~&#8734;</td><td>1x</td><td>5-30x</td><td>20x</td><td class="highlight-cell">42x</td><td class="best-cell">3,485x</td><td class="highlight-cell">27-63x</td><td class="best-cell">>9,000x</td></tr>
+        <tr><td><strong>Humidity Resilient</strong></td><td>N/A</td><td>N/A</td><td>Yes</td><td>Yes</td><td>Partial (PC shields)</td><td>TBD (WVTR lag)</td><td class="highlight-cell">Yes (COC skins)</td><td class="best-cell">81% @ 90%RH</td></tr>
+        <tr><td><strong>Steam 121-143&#176;C</strong></td><td>Yes</td><td>Marginal</td><td>~121&#176;C</td><td>No</td><td class="best-cell">Yes (only one)</td><td>TBD</td><td>TBD</td><td>No (EtO/gamma)</td></tr>
+        <tr><td><strong>Breakage</strong></td><td style="color:var(--red)">HIGH</td><td>None</td><td>None</td><td>None</td><td class="highlight-cell">None</td><td class="highlight-cell">None</td><td class="highlight-cell">None</td><td class="highlight-cell">None</td></tr>
+        <tr><td><strong>Drug Contact</strong></td><td>Glass</td><td>COP</td><td>SiOx</td><td>COP</td><td>Apec PC</td><td>Apec PC</td><td>Apec PC</td><td>Apec PC</td></tr>
+        <tr><td><strong>Capex</strong></td><td>N/A</td><td>Low</td><td style="color:var(--red)">$5M+</td><td>N/A</td><td>Standard FIM</td><td>Low (dip/spray)</td><td>LME coextrusion</td><td class="best-cell">$200K-500K</td></tr>
+        <tr><td><strong>Covestro Products</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td class="highlight-cell">2 (Apec+PU)</td><td class="highlight-cell">2 (Apec+coating)</td><td>1 (Apec)</td><td class="highlight-cell">2 (Apec+coating)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= NOVELTY ======= -->
+<div id="novelty-panel" class="panel">
+  <div class="table-panel">
+    <h2>Novelty, Breakthrough & Impact Comparison</h2>
+    <table>
+      <thead><tr><th>Dimension</th><th>Main: MXD6 FIM</th><th>T1: BioBarrier PC</th><th>T2: Nanolayer FIM</th><th>T3: Spray-LbL</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Novel Science</strong></td><td>Low</td><td class="best-cell" style="text-align:center">High</td><td style="text-align:center">Medium</td><td style="text-align:center">Medium</td></tr>
+        <tr><td><strong>Novel Process</strong></td><td>Medium</td><td class="best-cell" style="text-align:center">High</td><td class="highlight-cell" style="text-align:center">High</td><td class="highlight-cell" style="text-align:center">High</td></tr>
+        <tr><td><strong>Novel Materials</strong></td><td>Low</td><td class="best-cell" style="text-align:center">High (Li-fluorohectorite)</td><td style="text-align:center">Medium</td><td style="text-align:center">Medium</td></tr>
+        <tr><td><strong>Prior Art Distance</strong></td><td>Close</td><td class="best-cell" style="text-align:center">Very far</td><td style="text-align:center">Moderate</td><td style="text-align:center">Moderate</td></tr>
+        <tr><td><strong>Novelty Score</strong></td><td>3/10</td><td class="best-cell" style="text-align:center"><strong>9/10</strong></td><td style="text-align:center">7/10</td><td style="text-align:center">6/10</td></tr>
+        <tr><td colspan=5 style="height:8px;background:var(--bg)"></td></tr>
+        <tr><td><strong>Paradigm Shift?</strong></td><td>No</td><td class="best-cell" style="text-align:center">Yes</td><td style="text-align:center">Partial</td><td style="text-align:center">Partial</td></tr>
+        <tr><td><strong>Glass-Equivalent?</strong></td><td>No (42x)</td><td class="best-cell" style="text-align:center">Yes (3,485x)</td><td style="text-align:center">Close (27-63x)</td><td class="highlight-cell" style="text-align:center">Yes (>9,000x)</td></tr>
+        <tr><td><strong>IP Moat</strong></td><td>Weak</td><td class="best-cell" style="text-align:center">Strong</td><td style="text-align:center">Medium</td><td style="text-align:center">Medium</td></tr>
+        <tr><td><strong>Breakthrough Score</strong></td><td>2/10</td><td class="best-cell" style="text-align:center"><strong>9/10</strong></td><td style="text-align:center">6/10</td><td style="text-align:center">5/10</td></tr>
+        <tr><td colspan=5 style="height:8px;background:var(--bg)"></td></tr>
+        <tr><td><strong>Market Size</strong></td><td>Large</td><td class="best-cell" style="text-align:center">Massive</td><td style="text-align:center">Large</td><td style="text-align:center">Large</td></tr>
+        <tr><td><strong>Cost Position</strong></td><td>Good</td><td style="text-align:center">TBD</td><td style="text-align:center">Moderate</td><td class="best-cell" style="text-align:center">Best</td></tr>
+        <tr><td><strong>Covestro Value</strong></td><td>Medium</td><td class="best-cell" style="text-align:center">Very High</td><td style="text-align:center">High</td><td style="text-align:center">Medium</td></tr>
+        <tr><td><strong>Time to Market</strong></td><td>12-18 mo</td><td style="text-align:center">3-5 years</td><td style="text-align:center">18-24 mo</td><td class="best-cell" style="text-align:center">12-18 mo</td></tr>
+        <tr><td><strong>Impact Score</strong></td><td>5/10</td><td class="best-cell" style="text-align:center"><strong>8/10</strong></td><td style="text-align:center">7/10</td><td style="text-align:center">6/10</td></tr>
+        <tr><td colspan=5 style="height:8px;background:var(--bg)"></td></tr>
+        <tr style="font-size:14px"><td><strong>COMPOSITE</strong></td><td style="text-align:center">3.3/10</td><td class="best-cell" style="text-align:center"><strong>8.7/10</strong></td><td style="text-align:center">6.7/10</td><td style="text-align:center">5.7/10</td></tr>
+        <tr><td><strong>Character</strong></td><td style="text-align:center;color:var(--text-dim)">Safe bet</td><td style="text-align:center;color:var(--pink)"><strong>Moonshot</strong></td><td style="text-align:center;color:var(--blue)">Strong middle</td><td style="text-align:center;color:var(--yellow)">Cost disruptor</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= DE-RISKING ======= -->
+<div id="derisk-panel" class="panel">
+  <div class="table-panel">
+    <h2>De-Risking Status</h2>
+    <p>All 4 concepts have <strong style="color:var(--green)">engineering-level unknowns</strong> (testable in 4-6 weeks), not physics-level contradictions. No fundamental science needs to be invented.</p>
+    <table>
+      <thead><tr><th>Concept</th><th>Unknowns Remaining</th><th>Type</th><th>Gating Experiment</th><th>Timeline</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Main: MXD6 FIM</strong></td><td>PU adhesion under steam cycling</td><td>Engineering</td><td>Peel adhesion after 10 cycles at 121/143&#176;C</td><td>4 weeks</td></tr>
+        <tr><td><strong>T1: BioBarrier PC</strong></td><td>Nacre adhesion to Apec; 3D coating; autoclave</td><td>Engineering + scale-up</td><td>OTR + adhesion on flat Apec coupons &#8594; 3D scale &#8594; autoclave cycling (10 cycles at 121&#176;C)</td><td>4 weeks</td></tr>
+        <tr><td><strong>T2: Nanolayer FIM</strong></td><td>Surviving layer fraction; FIM bond integrity</td><td>Engineering</td><td>Coextrude 1024L film, overmold, cross-section TEM</td><td>6 weeks</td></tr>
+        <tr><td><strong>T3: Spray-LbL</strong></td><td>PEI aminolysis on Apec; extractables; production speed</td><td>Engineering</td><td>Aminolysis + 20 QL on Apec, OTR + extractables</td><td>4 weeks</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= INSIGHTS ======= -->
+<div id="insights-panel" class="panel">
+  <div class="insights-panel">
+    <h2 style="margin-bottom:16px">Key Insights — What the Analogical Engine Added</h2>
+    <div class="insight-card">
+      <h3>1. The main thread stayed within polymer science orthodoxy</h3>
+      <p>Trying known barrier polymers in known architectures. Every concept in Sessions 1-2 could have been proposed by a senior packaging engineer. The platform's mechanism library was used for data retrieval, not for innovation.</p>
+    </div>
+    <div class="insight-card">
+      <h3>2. Thread 1 broke the framing via biomimicry</h3>
+      <p>Nacre architecture, tree anatomy, synthetic mineralogy. Li-fluorohectorite was a material nobody in packaging was considering. It came from following the sub-wavelength tortuous path mechanism through clay mineralogy literature. Score: glass-equivalent barrier from a 20&#956;m coating.</p>
+    </div>
+    <div class="insight-card">
+      <h3>3. Thread 2 broke the framing via nanomanufacturing</h3>
+      <p>Layer-multiplying coextrusion eliminates the tie layer problem entirely. The main thread spent 4 turns trying to bond PC to MXD6. The nanolayer approach makes them alternate at nm scale during coextrusion, where interdiffusion handles adhesion.</p>
+    </div>
+    <div class="insight-card">
+      <h3>4. Thread 3 broke the framing via electrokinetics</h3>
+      <p>Electrostatic self-assembly at room temperature, in water, with no vacuum. The main thread dismissed clay nanocomposites because of haze. LbL coatings are nanoscale-thin and invisible — the haze constraint doesn't apply.</p>
+    </div>
+    <div class="insight-card">
+      <h3>5. The cost of not using analogies was 8 unnecessary pivots</h3>
+      <p>The main thread killed 7 concepts across 19 turns before landing on a workable but unexceptional solution (42x, 3.3/10 composite). Each of the 3 analogical threads killed 1-2 concepts in 6-7 turns and arrived at stronger solutions (3,485x to >9,000x, 5.7-8.7/10 composite).</p>
+    </div>
+    <div class="insight-card">
+      <h3>6. The strongest concepts combine mechanisms + domain knowledge</h3>
+      <p>Li-fluorohectorite came from the mechanism library (biology &#8594; materials science). PEI aminolysis came from the expert's polymer chemistry intuition. Neither alone would have reached the concept. The platform surfaces possibilities; the expert evaluates and directs.</p>
+    </div>
+    <h2 style="margin:24px 0 16px 0">Session Index</h2>
+    <table style="max-width:700px">
+      <thead><tr><th>Session ID</th><th>Thread</th><th>Turns</th><th>Cost</th><th>Final Concept</th></tr></thead>
+      <tbody>
+        <tr><td><code>93ad0e05</code></td><td>Main (Part 1)</td><td>11</td><td>$56.69</td><td>&#8594; continued in S2</td></tr>
+        <tr><td><code>baea23ad</code></td><td>Main (Part 2)</td><td>8</td><td>$44.30</td><td>Apec + MXD6 Exterior FIM</td></tr>
+        <tr><td><code>01d4d4c7</code></td><td>Thread 1</td><td>7</td><td>$30.63</td><td>BioBarrier PC (Li-fluorohectorite nacre)</td></tr>
+        <tr><td><code>f5896d1a</code></td><td>Thread 2</td><td>6</td><td>$27.35</td><td>Nanolayer Trilayer FIM (1024L PC/MXD6 + COC)</td></tr>
+        <tr><td><code>ecaf2b66</code></td><td>Thread 3</td><td>6</td><td>$14.45</td><td>Dual-Clay Spray-LbL Barrier Coating</td></tr>
+        <tr style="font-weight:700"><td></td><td>TOTAL</td><td>38</td><td>$173.42</td><td>4 validated concepts</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// TAB NAVIGATION
+// ============================================================
+document.querySelectorAll('.nav button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.nav button').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.panel').forEach(function(p) { p.classList.remove('active'); });
+    btn.classList.add('active');
+    var panelId = btn.dataset.panel;
+    var panel = document.getElementById(panelId);
+    panel.classList.add('active');
+    if (panelId === 'tree-panel') {
+      setTimeout(function() { fitGraph(); }, 100);
+    }
+  });
+});
+
+// ============================================================
+// TREE DATA — Restructured: main thread is a linear spine,
+// threads branch from their actual missed-opportunity nodes.
+// Thread 1 from PIVOT 2 (nanofillers), Threads 2&3 from T8 (haze).
+// ============================================================
+const treeData = {
+  id:"root", name:"PASS-BC", sub:"PC-Polyoxazoline Block Copolymer (Tylosis Analogy)", type:"concept",
+  meta:"Starting Solution | Sessions 1-2: Main Thread (19 turns, $100.99) + 3 Reflection Threads (19 turns, $72.43)",
+  detail:`<h3>Starting Point</h3>
+<p><strong>Problem:</strong> Pharma barrier packaging — glass-to-plastic conversion for parenteral drug containers.</p>
+<p><strong>Starting Solution:</strong> PASS-BC (Polymeric Auto-Sealing System with Block Copolymers). A PC-Polyoxazoline block copolymer inspired by the biological tylosis analogy — plant cells that swell to seal wounded vessels.</p>
+<p><strong>Expert Persona:</strong> Dr. Sarah Mueller, Senior Polymer Chemist, Covestro</p>
+<p><strong>Key challenge:</strong> PC has ~500x worse O\u2082 barrier than glass. Need to match glass barrier while maintaining PC advantages (no breakage, lightweight, moldable, transparent).</p>
+<h3>Campaign Structure</h3>
+<p>The main thread (Sessions 1-2, 19 turns) explored polymer-science-orthodox approaches — 8 concept pivots, all from domain reasoning alone. After it completed, an analogical reflection identified 3 missed mechanism-library opportunities. Three parallel threads were spawned, branching from the <em>specific decision points</em> where the mechanism library should have been consulted:</p>
+<ul>
+<li><strong>Thread 1</strong> (BioBarrier PC) branches from <strong>PIVOT 2</strong> — where nanofillers/tortuous-path were explored but the mechanism library was never queried for biological alternatives</li>
+<li><strong>Thread 2</strong> (Nanolayer FIM) branches from <strong>T8 Haze Constraint</strong> — where FAN nanolayering was noted but never explored</li>
+<li><strong>Thread 3</strong> (Spray-LbL) branches from <strong>T8 Haze Constraint</strong> — where the pivot away from clay missed that LbL coatings bypass haze entirely</li>
+</ul>
+<p>Dashed cyan links indicate these reflection branches.</p>`,
+  children: [{
+      id:"s1t1", name:"Technical Review", sub:"4 Red Flags on PASS-BC", type:"assessment",
+          meta:"Session 1, Turn 1",
+          detail:`<h3>Technical Review of PASS-BC</h3>
+<p>Expert identified 4 fundamental red flags:</p>
+<ul>
+<li><strong>Red Flag 1: Plasticization Paradox</strong> — Moisture INCREASES permeability in most polymers. The concept relies on moisture-responsive swelling to seal gaps, but swelling increases chain mobility \u2192 more gas permeation.</li>
+<li><strong>Red Flag 2: Optical clarity after hydration</strong> — Domain growth above 40nm causes light scattering. Hydrated POx domains would need to stay below 40nm to maintain transparency required by USP &lt;790&gt;.</li>
+<li><strong>Red Flag 3: Autoclave instability</strong> — 121\u00b0C steam + PC hydrolysis. PC degrades in the presence of steam at elevated temperatures, and the concept requires steam sterilization.</li>
+<li><strong>Length-scale mismatch</strong> — Tyloses are 200\u03bcm structures; free volume in PC is at the nanoscale. The biological analogy doesn't transfer at the relevant length scale.</li>
+</ul>`,
+          children:[{
+          id:"s1t2", name:"Synthesis Feasibility", sub:"POx degrades >250\u00b0C, PC needs >260\u00b0C", type:"kill",
+          meta:"Session 1, Turn 2 | CONCEPT 1 KILLED",
+          detail:`<h3>Synthesis Feasibility Assessment</h3>
+<p><strong>Core finding:</strong> PC processing requires temperatures >260\u00b0C. POx (polyoxazoline) degrades above 250\u00b0C. There is a 10\u00b0C gap — the monomer is destroyed before the polymer can be processed.</p>
+<h3>Alternative Monomers Assessed</h3>
+<ul>
+<li><strong>PEG \u2192</strong> <span style="color:var(--red)">KILLED</span> — Plasticizes PC, crystallizes, leaches out over time</li>
+<li><strong>PVP \u2192</strong> <span style="color:var(--red)">KILLED</span> — Ideal properties on paper, but no viable synthesis route for PC-PVP block copolymer</li>
+<li><strong>Nanofillers \u2192</strong> PARTIAL — Survive processing temperatures but provide insufficient swelling response</li>
+</ul>
+<div class="evidence"><strong>CONCEPT 1 KILLED:</strong> PC-POx block copolymer — 3 physics-level contradictions (thermal processing gap, plasticization paradox, length-scale mismatch). No viable synthesis route exists.</div>
+<div class="constraint-box"><strong>Constraint extracted:</strong> "Moisture-responsive bulk additives face plasticization paradox in PC" — any additive that swells with moisture will increase, not decrease, gas permeability.</div>`
+        ,children:[{
+          id:"pivot1", name:"PIVOT 1: Crosslinking", sub:"Moisture-reactive crosslinking", type:"kill",
+          meta:"Session 1, Turn 3 | CONCEPT 2 KILLED",
+          detail:`<h3>Pivot to Moisture-Reactive Crosslinking</h3>
+<p>After killing PASS-BC, expert pivots to crosslinking chemistry — if you can't swell-to-seal, can you crosslink-to-tighten?</p>
+<h3>Three Approaches Assessed</h3>
+<ul>
+<li><strong>Blocked isocyanates \u2192</strong> <span style="color:var(--red)">KILLED</span> — Thermal/moisture paradox: unblocking requires heat (>150\u00b0C) but crosslinking requires moisture. Can't have both simultaneously during PC processing.</li>
+<li><strong>Oxazoline pendants \u2192</strong> <span style="color:var(--red)">KILLED</span> — Too reactive during processing: oxazoline groups ring-open at PC melt temperatures, causing premature crosslinking in the barrel.</li>
+<li><strong>Silane coupling \u2192</strong> Literature shows only 20-50% barrier improvement (Tin et al. 2003, membrane literature)</li>
+</ul>
+<div class="evidence"><strong>CONCEPT 2 KILLED:</strong> Crosslinking insufficient. Need 100x barrier improvement, silane coupling gives 0.2-0.5x. Off by 2 orders of magnitude.</div>
+<div class="constraint-box"><strong>Constraint extracted:</strong> "Bulk modification of PC cannot achieve 100x barrier improvement" — the fundamental free volume of PC limits what any crosslinking or additive approach can do. The polymer chain packing sets a floor.</div>`,
+          children:[{
+          id:"pivot2", name:"PIVOT 2: Sol-gel SiOx", sub:"In-situ nanoparticle formation (T4-T7) + HAZE (T8)", type:"pivot",
+          meta:"Session 1, Turns 4-8 | 5 turns on this approach",
+          detail:`<h3>In-Situ Sol-Gel SiOx in PC</h3>
+<p>The longest-explored approach in the main thread. Generated SiO\u2082 nanoparticles inside PC via sol-gel chemistry (VTMS grafting).</p>
+
+<h3>T4: Modeling</h3>
+<ul>
+<li>Maxwell model: 5 wt% SiOx \u2192 only 4% barrier improvement (disappointing)</li>
+<li><strong>BUT:</strong> Espuche 2023 reports a beyond-Maxwell effect — 700x anomaly in PS/Ag system. If this effect exists in PC/SiOx, barrier could be extraordinary.</li>
+<li>Expert proposes lab experiment: VTMS grafting on Makrolon 2808</li>
+</ul>
+
+<h3>T5: Combined System</h3>
+<ul>
+<li>Sol-gel (5-10x, if beyond-Maxwell holds) + MMT tortuous path (10-20x) = combined 50-200x</li>
+<li>Moisture activation timeline: ~10 days for full wall hydrolysis. Steam cure solves this.</li>
+<li>Market identified: Tier 2 pharma (prefilled syringes, vaccines)</li>
+</ul>
+
+<h3>T6: Deeper Feasibility</h3>
+<ul>
+<li>Protein adsorption: MANAGEABLE (Wang 2025)</li>
+<li>E&L profile: DATA GAP but not fatal</li>
+<li>TMPC variant: <span style="color:var(--red)">KILLED</span> — worse barrier from bulky methyl groups increasing free volume</li>
+<li><strong>KEY DISCOVERY:</strong> <em>Apec 1745</em> — 170\u00b0C VST, survives 143\u00b0C steam, USP Class VI certified. This becomes the substrate for ALL subsequent concepts.</li>
+</ul>
+
+<h3>T7: Business Assessment</h3>
+<ul>
+<li>IP landscape: OPEN — no patents on in-situ sol-gel for pharma PC barrier</li>
+<li>Covestro fit: STRONG post-XRG divestiture (polycarbonates now core)</li>
+</ul>
+
+<h3>T8: HAZE CONSTRAINT — Game Changer</h3>
+<ul>
+<li>USP &lt;790&gt; requires visual inspection of parenteral containers</li>
+<li>MMT at 3-5 wt% causes haze \u2192 limited to 1-2 wt% (only 3-8x barrier, insufficient)</li>
+<li>Sol-gel SiOx becomes the ONLY viable mechanism (nanoparticles invisible to light)</li>
+<li>scCO\u2082 skin densification proposed as alternative</li>
+<li><em>Portfolio notes:</em> FAN nanolayering, EFAN flow-aligned mentioned but NOT explored</li>
+</ul>
+<div class="discovery-box"><strong>Discovery:</strong> Apec 1745 — high-Tg medical PC with 143\u00b0C steam survivability. Becomes substrate for entire campaign.</div>
+<div class="constraint-box"><strong>Constraint extracted:</strong> "Nanofillers >2 wt% cause haze in PC — USP &lt;790&gt; visual inspection violated." Eliminates all bulk nanofiller approaches above the optical scattering threshold.</div>`,
+          children: [
+        {
+          id:"thread1", name:"Thread 1: BioBarrier PC", sub:"Session 3 | 7 turns | $30.63", type:"session",
+          branch:"reflection",
+          meta:"REFLECTION BRANCH from PIVOT 2 | Sub-Wavelength Tortuous Path (Nacre Architecture)",
+          detail:`<h3>Thread 1: BioBarrier PC</h3>
+<p><strong>Missed Opportunity:</strong> The main thread never queried the mechanism library for tortuous-path barrier alternatives when nanofillers were considered in Session 1.</p>
+<p><strong>Mechanism Source:</strong> Sub-Wavelength Tortuous Path Barrier (nacre architecture — biomimetic brick-and-mortar assembly from mollusk shells)</p>
+<p>7 turns, $30.63. Started by assessing 5 nanoplatelet candidates, pivoted to nacre-architecture coatings, discovered Li-fluorohectorite (Breu group, Bayreuth), and delivered a glass-equivalent barrier concept.</p>`,
+          children: [
+            {
+              id:"t1t1", name:"5 Nanoplatelet Candidates", sub:"GO, CNC, MMT killed | hBN insufficient | LDH pivots", type:"kill",
+              meta:"Session 3, Turn 1",
+              detail:`<h3>Five Nanoplatelet Candidates for Apec 1745 (280-320\u00b0C)</h3>
+<ul>
+<li><strong>GO (graphene oxide):</strong> <span style="color:var(--red)">KILLED</span><br>TGA: major decomposition 125-200\u00b0C (Singh & Dastgheib 2023). All oxygen groups annihilated by 250\u00b0C \u2192 becomes rGO. rGO absorbs visible light \u2192 brown/black coloration. Thermal decomposition + optical absorption.</li>
+<li><strong>CNC (cellulose nanocrystals):</strong> <span style="color:var(--red)">KILLED</span><br>Aspect ratio ~10-30 (rod-shaped, not platelet). Nielsen model: only 1.5-3x barrier improvement. Insufficient aspect ratio for meaningful barrier.</li>
+<li><strong>hBN (hexagonal boron nitride):</strong> INSUFFICIENT ALONE<br>Thermal stability: >900\u00b0C (survives all PC processing). Transparent. Realistic aspect ratio after melt compounding: 200-600. Nielsen model at \u03c6=0.03, \u03b1=400 \u2192 only 8-15x. Not enough for glass-equivalent.</li>
+<li><strong>MMT (montmorillonite):</strong> <span style="color:var(--red)">KILLED</span><br>Already evaluated in main thread \u2192 haze at >2 wt%. USP &lt;790&gt; visual inspection violated.</li>
+<li><strong>LDH (layered double hydroxides):</strong> <span style="color:var(--blue)">PIVOTS EVERYTHING</span><br>Yu et al. 2019 (Nature Comms): 26,000x OTR reduction on PET. BUT: as a COATING, not melt-compounded filler. \u2192 Pivots entire investigation toward COATING architectures.</li>
+</ul>`
+            },
+            {
+              id:"t1pivot", name:"PIVOT: Nacre Coatings", sub:"Coating architectures bypass all melt-processing problems", type:"pivot",
+              meta:"Session 3, Turn 2-3",
+              detail:`<h3>Nacre Coating Architectures</h3>
+<p><strong>Key finding:</strong> COATING architectures bypass ALL melt-processing problems — no thermal degradation, no haze, no aspect ratio loss from shear.</p>
+<h3>Options Evaluated</h3>
+<ul>
+<li><strong>LDH nanosheet LbL coating (Yu 2019):</strong> 26,000x OTR reduction, amino acid intercalation. BUT: WVTR only 225x (water H-bonds find paths through galleries). Promising but WVTR insufficient alone for pharma.</li>
+<li><strong>hBN with LDH decoration:</strong> Combines hBN thermal stability with LDH aspect ratio. Alignment during dip-coating UNPROVEN. SPECULATIVE — no direct literature.</li>
+<li><strong>ALD (atomic layer deposition):</strong> Manninen 2024: Al\u2082O\u2083 ALD on PC demonstrated. &lt;1 nm/cycle, glass-equivalent barrier achievable. NOTED but \u2192</li>
+</ul>
+<h3>ALD vs Bioinspired Assessment (T3)</h3>
+<ul>
+<li><strong>ALD:</strong> <span style="color:var(--red)">KILLED AS DIRECTION</span> — proven technology, Applied Materials/Picosun sell equipment. "If we go ALD, we are competing with equipment companies." Not breakthrough, not Covestro IP.</li>
+<li><strong>Bioinspired nacre:</strong> Unprecedented on injection-molded PC. If it works, Covestro owns substrate + coating formulation \u2192 COMMITTED to bioinspired direction.</li>
+</ul>`
+            },
+            {
+              id:"t1t4", name:"Li-Fluorohectorite", sub:"THE BREAKTHROUGH — Breu group, Bayreuth", type:"discovery",
+              meta:"Session 3, Turn 4",
+              detail:`<h3>Li-Fluorohectorite Discovery</h3>
+<div class="discovery-box">
+<strong>Breu group (University of Bayreuth):</strong><br>
+Synthetic fluoromica with TUNABLE aspect ratio<br>
+Aspect ratio >10,000:1 (vs 200-500 for natural MMT)<br>
+Optically clear (no Fe\u00b3\u207a contamination like natural clays)<br>
+Uniform charge density \u2192 perfect self-assembly into nacre-like brick-and-mortar
+</div>
+<h3>Three-Kingdom Biological Chimera Concept</h3>
+<ul>
+<li><strong>WOOD</strong> = Apec 1745 structural PC (tree trunk — load bearing)</li>
+<li><strong>CUTICLE</strong> = Li-fluorohectorite nacre coating (mollusk shell — barrier)</li>
+<li><strong>BARK</strong> = optional hard coat (plant bark — protection)</li>
+</ul>
+<h3>WVTR Reality Check</h3>
+<ul>
+<li>OTR: extraordinary (>10,000x possible with high aspect ratio)</li>
+<li>WVTR: more modest (~225x from Yu 2019 LDH data)</li>
+<li>Water H-bonds to polar gallery surfaces \u2192 finds paths through even well-aligned platelets</li>
+<li>Need coating THICKNESS to compensate</li>
+</ul>`
+            },
+            {
+              id:"t1t67", name:"Modeling \u2192 CONDITIONAL PASS", sub:"Cussler model: 3,485x at 20\u03bcm = GLASS-EQUIVALENT", type:"survive",
+              meta:"Session 3, Turns 5-7 | CONDITIONAL PASS",
+              detail:`<h3>Architecture Refinement (T5)</h3>
+<ul>
+<li>LDH-decorated hBN alignment: NO DIRECT EVIDENCE (speculative)</li>
+<li>Li-fluorohectorite aspect ratio confirmed: 10,000-20,000:1</li>
+<li>Dip-coating self-assembly: Breu group demonstrated on flat substrates</li>
+<li>Key question: can it coat 3D injection-molded vials?</li>
+</ul>
+<h3>Quantitative Modeling (T6)</h3>
+<p><strong>Cussler model</strong> (conservative, experimentally validated for nacre):</p>
+<table style="margin:8px 0;font-size:11px;width:auto">
+<tr><th>Nacre thickness</th><th>BIF vs bare PC</th><th>Verdict</th></tr>
+<tr><td>2 \u03bcm</td><td>352x</td><td>Beats COP, not glass</td></tr>
+<tr><td>5 \u03bcm</td><td>874x</td><td>Approaching glass</td></tr>
+<tr><td>10 \u03bcm</td><td>1,744x</td><td>Near glass-equivalent</td></tr>
+<tr><td>20 \u03bcm</td><td style="color:var(--green);font-weight:700">3,485x</td><td style="color:var(--green);font-weight:700">GLASS-EQUIVALENT</td></tr>
+</table>
+<h3>IP Landscape: OPEN</h3>
+<p>Breu group patents focus on clay synthesis, not packaging applications. No pharma barrier coating IP found.</p>
+<h3>Kill Risks (Remaining Unknowns)</h3>
+<ol>
+<li>Coating adhesion to Apec 1745 (different surface energy than PET)</li>
+<li>3D coating uniformity on vial geometry</li>
+<li>Autoclave survivability of nacre structure</li>
+<li>Scale-up from lab dip-coating to production</li>
+</ol>
+<h3>Gating Experiment: 4-Week POC</h3>
+<ul>
+<li>Week 1: coat flat Apec coupons, measure OTR + adhesion</li>
+<li>Week 2-3: scale to 3D, optimize dip protocol</li>
+<li>Week 4: autoclave cycling (10 cycles at 121\u00b0C)</li>
+</ul>
+<h3>Verdict: CONDITIONAL PASS</h3>
+<p><strong>7 strengths:</strong> glass-equivalent barrier, clear IP, Covestro fit, bioinspired differentiation, no vacuum equipment, tunable thickness, works with existing Apec 1745 substrate.</p>
+<p><strong>7 concerns:</strong> 3D coating uniformity, adhesion to Apec, autoclave stability, WVTR vs OTR asymmetry, scale-up, Breu group dependency, regulatory pathway for novel coating.</p>`
+            }
+          ]
+        },
+        {
+          id:"t8haze", name:"HAZE CONSTRAINT", sub:"USP <790> reshapes everything — FAN noted, not explored", type:"pivot",
+          branch:"main",
+          meta:"Session 1, Turn 8 | Constraint kills nanofillers | FAN/LbL missed opportunities",
+          detail:`<h3>T8: Haze Constraint Reshapes Everything</h3>
+<ul>
+<li><strong>USP &lt;790&gt;</strong> requires visual inspection of parenteral containers</li>
+<li>MMT at 3-5 wt% causes haze \u2192 limited to 1-2 wt% (only 3-8x barrier, insufficient)</li>
+<li>Sol-gel SiOx becomes the ONLY viable mechanism (nanoparticles invisible to light)</li>
+<li>scCO\u2082 skin densification proposed as alternative</li>
+<li><em>Portfolio notes:</em> FAN nanolayering, EFAN flow-aligned mentioned but <strong>NOT explored</strong></li>
+</ul>
+<div class="constraint-box"><strong>Constraint:</strong> "Nanofillers >2 wt% cause haze in PC" — eliminates all bulk nanofiller approaches above the optical scattering threshold.</div>
+<h3>Two Missed Opportunities at This Node</h3>
+<p>This is where the main thread left two critical paths unexplored:</p>
+<ol>
+<li><strong>Thread 2 (Nanolayer FIM):</strong> FAN nanolayering was literally noted here but never explored. LME coextrusion eliminates the tie layer problem entirely.</li>
+<li><strong>Thread 3 (Spray-LbL):</strong> The haze constraint killed bulk nanofillers, but LbL coatings are sub-wavelength (~160nm) and invisible. The tortuous-path mechanism that made MMT attractive is still valid — it just needs a COATING architecture, not bulk filler.</li>
+</ol>
+<p>Both threads were identified during analogical reflection AFTER the main thread completed. Dashed cyan links show these reflection branches.</p>`,
+          children: [
+        {
+          id:"thread2", name:"Thread 2: Nanolayer FIM", sub:"Session 4 | 6 turns | $27.35", type:"session",
+          branch:"reflection",
+          meta:"Forced-Assembly Nanolayering (LME Coextrusion)",
+          detail:`<h3>Thread 2: Nanolayer Trilayer FIM</h3>
+<p><strong>Missed Opportunity:</strong> FAN nanolayering and SE-IMNC were noted in Session 1 T8 but never explored. The main thread also hit the PC/MXD6 tie layer wall — nanolayer coextrusion eliminates that problem entirely (interdiffusion at nm scale handles adhesion).</p>
+<p><strong>Mechanism Source:</strong> Functionally Graded Interfacial Bridging (fountain flow), then pivoted to Forced-Assembly Nanolayering (LME coextrusion)</p>`,
+          children: [
+            {
+              id:"t2t1", name:"FF-DBG Assessment", sub:"Fountain flow creates interfaces, NOT gradients", type:"kill",
+              meta:"Session 4, Turn 1 | FF-DBG KILLED",
+              detail:`<h3>Deep Assessment of FF-DBG</h3>
+<p>(Fountain-Flow Dynamic Barrier Gradient)</p>
+<ul>
+<li><strong>Mechanism library check:</strong> "Laminar Fountain-Flow Encapsulation" confirms: fountain flow creates SHARP skin-core interfaces, NOT gradients. Invariant: "flow must remain laminar; turbulence disrupts."</li>
+<li><strong>Barrier-gradient contradiction:</strong> Gradients = BLENDING at interfaces = WORSE barrier. US Patent 5,866,649: unoriented blends 2.7-3.4x WORSE than equivalent discrete multilayers. Discrete layers >> gradients for barrier (always).</li>
+<li><strong>Dynamic mixing nozzle:</strong> Single point of failure. No published validation for barrier applications.</li>
+</ul>
+<div class="evidence"><strong>CONCEPT KILLED:</strong> FF-DBG — fountain flow creates interfaces not gradients; gradients are anti-barrier by definition (blends 2.7-3.4x worse than discrete layers).</div>`
+            },
+            {
+              id:"t2t2", name:"Portfolio Convergence", sub:"Two independent lineages converge = strong signal", type:"discovery",
+              meta:"Session 4, Turn 2",
+              detail:`<h3>Portfolio Search Finds Convergent Solutions</h3>
+<ul>
+<li><strong>FAN (Forced-Assembly Nanolayering)</strong> — "Nanolayered Confinement Shield"<br>Breakthrough: HIGH | Priority: HIGH<br>Source: Sealed Air Bubble Wrap \u2192 Composite Permeability Control<br>Uses LME (layer-multiplying elements) for 1000s of alternating layers</li>
+<li><strong>SE-IMNC</strong> (Skin-Encapsulated Injection-Multiplied Nanolayered PC)<br>Breakthrough: MEDIUM | Priority: MEDIUM<br>Source: Semiconductor superlattices \u2192 Selective Flow Decoupling</li>
+</ul>
+<div class="discovery-box"><strong>KEY INSIGHT:</strong> Two independent analogical lineages (Bubble Wrap \u2192 barrier, Semiconductors \u2192 nanolayers) converged on the same concept = strong signal of viability.</div>
+<h3>Concept Synthesis: NANOLAYER FILM INSERT MOLDING</h3>
+<p>Coextruded 1024-layer PC/MXD6 film + FIM onto Apec body. Sidesteps 3 failure modes from main thread:</p>
+<ul>
+<li>No tie layer needed (PC-to-PC surface in FIM)</li>
+<li>No processing window conflict (film coextruded separately)</li>
+<li>Barrier from continuous confinement, not bulk polymer modification</li>
+</ul>`
+            },
+            {
+              id:"t2t3", name:"Stress Tests", sub:"3/3 survived (with sacrificial layer strategy)", type:"assessment",
+              meta:"Session 4, Turn 3",
+              detail:`<h3>Stress Tests on Nanolayer FIM</h3>
+<h3>Test 1: Does overmolding destroy nanolayers?</h3>
+<ul>
+<li>Thermal diffusion through 100\u03bcm film: ~0.023 seconds</li>
+<li>Interface temp: ~230\u00b0C (7\u00b0C below MXD6 Tm of 237\u00b0C)</li>
+<li>Temperature gradient: ~1\u00b0C/micron through film</li>
+<li>RESULT: Outer 20-30% of layers sacrificed (melt side), inner 70-80% survive (mold side = cold)</li>
+<li>\u2192 Design with SACRIFICIAL LAYERS built in</li>
+</ul>
+<div class="survive-box">SURVIVED (with sacrificial layer strategy)</div>
+<h3>Test 2: Barrier math for surviving layers</h3>
+<ul>
+<li>1024 total layers \u2192 ~700 survive after overmolding</li>
+<li>PC/MXD6 at 50/50: each MXD6 layer ~140nm thick</li>
+<li>Confinement effect: amorphous MXD6 in nanolayers has HIGHER barrier than bulk crystalline MXD6</li>
+<li>Projected: 27-63x vs neat PC (depends on surviving fraction)</li>
+</ul>
+<div class="survive-box">SURVIVED</div>
+<h3>Test 3: Moisture sensitivity</h3>
+<ul>
+<li>MXD6 nanolayers sandwiched between PC nanolayers</li>
+<li>PC acts as moisture buffer (same principle as main thread)</li>
+<li>At 60% RH: barrier largely preserved</li>
+</ul>
+<div class="survive-box">SURVIVED</div>`
+            },
+            {
+              id:"t2t456", name:"Trilayer \u2192 STRONG PASS", sub:"COC moisture skins + nanolayer block + FIM", type:"survive",
+              meta:"Session 4, Turns 4-6 | STRONG PASS",
+              detail:`<h3>Material Selection (T4)</h3>
+<ul>
+<li><strong>COC as barrier layer:</strong> <span style="color:var(--red)">KILLED</span> — TOPAS COC O\u2082 perm: ~60 cc\u00b7100\u03bcm/m\u00b2/day (vs PC ~520). Only 1.8x better than PC \u2192 INSUFFICIENT.</li>
+<li><strong>MXD6 as barrier layer:</strong> CONFIRMED — O\u2082 perm: 0.7 cc\u00b7100\u03bcm/m\u00b2/day (740x better than PC). Even with 50% layer loss: 27-63x improvement survives. MXD6 is the only viable barrier layer.</li>
+<li><strong>MXDT-MXD6 copolyamide (Cheng et al. 2024):</strong> Amorphous, non-crystallizable MXD6 variant. Could improve nanolayer stability. NOTED for future.</li>
+<li><strong>COC repurposed as MOISTURE BARRIER LINER:</strong> COC WVTR: 0.02-0.03 g\u00b7mm/m\u00b2/day (one of lowest for plastics). Exterior COC skin protects MXD6 nanolayers from humidity \u2192 TRILAYER architecture emerges.</li>
+</ul>
+
+<h3>Architecture (T5)</h3>
+<div class="architecture">
+<div class="layer"><strong>COC skin</strong> — moisture barrier (10-15\u03bcm)</div>
+<div class="layer"><strong>MAH-PE tie</strong> — COC-to-nanolayer adhesion (3\u03bcm)</div>
+<div class="layer"><strong>[PC/MXD6] \u00d7 512</strong> — nanolayer barrier block (70\u03bcm)</div>
+<div class="layer"><strong>MAH-PE tie</strong> — nanolayer-to-COC adhesion (3\u03bcm)</div>
+<div class="layer"><strong>COC skin</strong> — moisture barrier (10-15\u03bcm)</div>
+<div class="layer" style="border-top:2px solid var(--cyan);margin-top:4px;padding-top:4px"><strong>— FIM bond to Apec 1745 body —</strong></div>
+</div>
+<p><strong>Why MAH-PE works here</strong> (unlike main thread):</p>
+<ul>
+<li>COC side: COC backbone IS polyethylene + norbornene \u2192 MAH-PE interdiffuses with ethylene segments</li>
+<li>MXD6 side: MAH reacts with MXD6 terminal amines</li>
+<li>PC side: in nanolayer block, PC/MXD6 interdiffusion at nm scale provides adhesion during coextrusion</li>
+<li>WO2013101699A1: patent lists both PC and MXD6 in COC nanolayer films</li>
+</ul>
+
+<h3>Verdict: STRONG</h3>
+<p>Most buildable of all 4 concepts. All components are commercial or near-commercial. LME coextrusion is proven technology (Case Western, Baer group).</p>`
+            }
+          ]
+        },
+        {
+          id:"thread3", name:"Thread 3: Spray-LbL", sub:"Session 5 | 6 turns | $14.45", type:"session",
+          branch:"reflection",
+          meta:"REFLECTION BRANCH from T8 | Electrostatic Nanocomposite Densification",
+          detail:`<h3>Thread 3: Dual-Clay Spray-LbL Barrier Coating</h3>
+<p><strong>Missed Opportunity:</strong> Electrostatic LbL coating was available in the mechanism library but never considered during the main thread's pivot away from nanofillers. The main thread treated the haze constraint as a reason to abandon clay — LbL coatings solve haze because nanoscale layers are invisible.</p>
+<p><strong>Mechanism Source:</strong> Electrostatic Nanocomposite Densification</p>
+<p>6 turns, $14.45. The cheapest and fastest thread. Produced a cost-disruptor concept ($200K capex vs $5M+ for PECVD).</p>`,
+          children: [
+            {
+              id:"t3t1", name:"LbL State of Art", sub:"Grunlan 2008: >9,000x on PET | Humidity: 1,560% increase", type:"assessment",
+              meta:"Session 5, Turn 1",
+              detail:`<h3>LbL Barrier — State of the Art</h3>
+<h3>Grunlan group (Texas A&M), 2008</h3>
+<ul>
+<li>30 bilayers NaMMT/cationic polyacrylamide on PET</li>
+<li>571 nm total thickness (sub-micron!)</li>
+<li>OTR < 0.005 cc/m\u00b2/day/atm (below Mocon detection limit)</li>
+<li>>9,000x improvement over bare PET</li>
+<li>THIS IS REAL DATA on a real substrate</li>
+</ul>
+<h3>BUT: Humidity Sensitivity is Potentially Fatal</h3>
+<ul>
+<li>Iverson et al.: 1,560% OTR increase at 90% RH</li>
+<li>Water swells polyelectrolyte binder between clay platelets</li>
+<li>Standard LbL coatings FAIL in humid environments</li>
+</ul>
+<p>Two paths forward: (A) Solve humidity (dual-clay, crosslinking) or (B) Avoid humidity (EtO sterilization instead of steam).</p>`
+            },
+            {
+              id:"t3t2", name:"Dual-Clay Breakthrough", sub:"Iverson 2024: 81% barrier retention at 90% RH", type:"discovery",
+              meta:"Session 5, Turn 2",
+              detail:`<h3>THE DUAL-CLAY BREAKTHROUGH (Iverson et al. 2024)</h3>
+<div class="discovery-box">
+<strong>4 QL system: PEI/BMT/PAA/VMT quadlayers</strong><br>
+BMT = sodium bentonite montmorillonite<br>
+VMT = vermiculite (second clay with different geometry)<br>
+Only 160 nm thick, 4 quadlayers<br><br>
+<strong>Results:</strong><br>
+OTR @ 0% RH: 0.016 cc/m\u00b2/day<br>
+OTR @ 90% RH: 0.019 cc/m\u00b2/day<br>
+<strong style="color:var(--green)">BARRIER RETENTION: 81%</strong> (vs standard systems that lose >90%!)
+</div>
+<h3>Why Dual-Clay Works</h3>
+<ul>
+<li>Different platelet sizes + geometries = better packing</li>
+<li>Fewer/smaller void spaces between platelets</li>
+<li>Less polyelectrolyte to swell = less humidity sensitivity</li>
+</ul>
+<h3>Sterilization Compatibility</h3>
+<ul>
+<li>EtO (55\u00b0C, 40-60% RH): FAVORABLE (below 90% RH threshold)</li>
+<li>Gamma (ambient): FAVORABLE (no heat, no moisture)</li>
+<li>Steam (121\u00b0C): RISKY (but not needed if EtO/gamma work)</li>
+</ul>`
+            },
+            {
+              id:"t3t3", name:"4 Engineering Challenges", sub:"All SOLVED — PEI aminolysis, spray-LbL, low capex", type:"assessment",
+              meta:"Session 5, Turn 3",
+              detail:`<h3>Four Engineering Challenges — All Resolved</h3>
+
+<h3>Challenge 1: Adhesion to Apec 1745 PC</h3>
+<div class="discovery-box"><strong>BREAKTHROUGH: PEI aminolysis</strong><br>Primary amines in PEI attack PC carbonate backbone \u2192 forms COVALENT urethane linkages at interface.<br>Howarter & Youngblood 2007 (Macromolecules): validated on polycarbonate.<br>PEI serves DOUBLE DUTY: surface activator + first LbL layer.<br>No plasma, no vacuum, no UV — pure wet chemistry. <strong>SOLVED.</strong></div>
+
+<h3>Challenge 2: 3D Coating on Injection-Molded Vials</h3>
+<ul>
+<li>Spray-LbL (vs dip-LbL) enables 3D coating on complex geometries</li>
+<li>Schlenoff group: spray-LbL achieves comparable quality to dip</li>
+<li>McFerran et al. 2022: automated spray for medical devices demonstrated</li>
+<li>1 quadlayer via spray: ~2-3 minutes (vs 30 min dip)</li>
+<li>20 QL target: ~45-60 minutes per batch</li>
+</ul>
+<div class="survive-box">SOLVED (spray-LbL proven on 3D medical substrates)</div>
+
+<h3>Challenge 3: Cost vs PECVD SiOx</h3>
+<ul>
+<li>Spray-LbL equipment: $200K-500K</li>
+<li>PECVD SiOx line: $5M+ (SiO2 Materials Science spent $500M+ R&D)</li>
+<li>Aqueous solutions, room temperature, no vacuum</li>
+<li>MASSIVE cost advantage for small/mid-sized converters</li>
+</ul>
+<div class="survive-box">SOLVED — democratizes barrier coating</div>
+
+<h3>Challenge 4: Thickness Uniformity</h3>
+<ul>
+<li>Spray-LbL on curved surfaces: documented by Schlenoff group</li>
+<li>Electrostatic self-limiting deposition helps uniformity</li>
+<li>Corner coverage better than PECVD (which has line-of-sight limitation)</li>
+</ul>
+<div class="survive-box">SOLVED (self-limiting electrostatics)</div>`
+            },
+            {
+              id:"t3t456", name:"Self-Healing \u2192 CONDITIONAL PASS", sub:"Self-healing + gamma-compatible + $200K capex", type:"survive",
+              meta:"Session 5, Turns 4-6 | CONDITIONAL PASS",
+              detail:`<h3>Self-Healing Integration (T4)</h3>
+<div class="discovery-box"><strong>Self-healing concept from mechanism library:</strong><br>APTES intercalated in boehmite (AlOOH) galleries. Moisture ingress triggers aminosilane release. Released APTES reacts with damaged PC surface \u2192 re-anchors coating.<br>"The coating heals using the very thing it defends against."</div>
+<h3>Sterilization Survivability</h3>
+<ul>
+<li><strong>EtO:</strong> FAVORABLE — clay layers inert, limited exposure time</li>
+<li><strong>Gamma (25-50 kGy):</strong> FAVORABLE — PEI crosslinks under gamma \u2192 IMPROVES barrier. Clay platelets radiation-stable. Ben Dhieb thesis: glutaraldehyde-crosslinked LbL stable.</li>
+</ul>
+<h3>PEI Cytotoxicity Concern</h3>
+<ul>
+<li>PEI is cytotoxic in solution (gene delivery literature)</li>
+<li>In LbL coating: ionically bound, not free</li>
+<li>BUT: regulatory concern for injectable drug contact</li>
+<li><strong>MITIGATION:</strong> PDDA (poly-diallyldimethylammonium) as alternative — FDA 21 CFR 173.5 clearance as food contact</li>
+</ul>
+<h3>Competitive Positioning (T5)</h3>
+<ul>
+<li>vs PECVD SiOx (SiO2 Materials Science): $500M+ invested, 350+ patents, &lt;20nm coating. Price ~$1.90/vial (research), ~$0.50-0.80 at volume.</li>
+<li>Spray-LbL: no vacuum, no plasma, no capital-intensive equipment \u2192 democratizes barrier coating for converters</li>
+</ul>
+<h3>Regulatory Pathway</h3>
+<ul>
+<li>USP &lt;661.1&gt;/&lt;661.2&gt;: extractables/leachables testing required</li>
+<li>Clay minerals (MMT, VMT): GRAS for food contact</li>
+<li>PEI: not cleared \u2192 PDDA pivot available</li>
+<li>21 CFR 177: polymer coatings on food-contact surfaces = precedent</li>
+<li>Timeline: 12-18 months to FDA DMF submission (4-week POC \u2192 6-month optimization \u2192 6-month validation)</li>
+</ul>
+<h3>Verdict: CONDITIONAL PASS</h3>
+<p><strong>8 strengths:</strong> published barrier data, humidity solution, low capex, PEI covalent anchoring, self-healing potential, gamma compatibility, spray-LbL for 3D, democratizes barrier technology.</p>
+<p><strong>8 concerns:</strong> PEI extractables, scale-up to production speed, long-term stability, WVTR (separate from OTR), autoclave unknown, uniformity on complex geometries, regulatory pathway, Covestro core competency alignment.</p>
+<h3>Gating Experiment: 4-Week POC</h3>
+<ul>
+<li>Week 1: PEI aminolysis on Apec 1745 coupons (KILL GATE — if no covalent bonding, concept dies)</li>
+<li>Week 2-3: Spray-LbL 20 QL on flat + curved substrates, measure OTR + extractables</li>
+<li>Week 4: EtO sterilization cycling (3 cycles), re-measure barrier</li>
+</ul>`
+            }
+          ]
+        },
+        {
+          id:"pivot3", name:"PIVOT 3: scCO\u2082", sub:"Supercritical CO\u2082 densification", type:"kill",
+          branch:"main",
+          meta:"Session 1, Turn 9 | CONCEPTS 3 & 4 KILLED",
+          detail:`<h3>scCO\u2082 Supercritical Densification</h3>
+<p><strong>KILLED IMMEDIATELY</strong> — scCO\u2082 crystallizes amorphous PC, making it opaque.</p>
+<ul>
+<li>Bologna et al.: 5.5% crystallinity at 80\u00b0C/300 bar</li>
+<li>Jordao 2022: 18.6% crystallinity at 60\u00b0C/10 MPa</li>
+<li>Any crystallinity in amorphous PC causes opacity \u2192 violates USP &lt;790&gt;</li>
+</ul>
+<h3>Quantitative Reality Check</h3>
+<p>PC has 2-3x WORSE baseline O\u2082 permeability than COP. Even best-case iSG-PC only matches existing OXYCAPT-P (20x vs COP). No competitive advantage.</p>
+<div class="evidence"><strong>CONCEPT 3 KILLED:</strong> iSG-PC — Beyond-Maxwell unproven, at best matches OXYCAPT-P.</div>
+<div class="evidence"><strong>CONCEPT 4 KILLED:</strong> scCO\u2082 — Crystallizes PC \u2192 opaque. Physics-level kill.</div>
+<div class="constraint-box"><strong>Competitive gate:</strong> Must exceed OXYCAPT-P (20x vs COP). Matching it isn't enough.</div>`,
+          children:[{
+          id:"pivot4", name:"PIVOT 4: Abandon Bulk Thesis", sub:'PC as STRUCTURE + dedicated BARRIER', type:"discovery",
+          branch:"main",
+          meta:"Session 1, Turn 10 | THE REFRAME",
+          detail:`<h3>The Critical Reframe</h3>
+<p>After 4 kills (PASS-BC, crosslinking, sol-gel, scCO\u2082) — all failing because you can't sufficiently modify PC's bulk properties — the expert abandons the "make PC a barrier polymer" thesis entirely.</p>
+<h3>Two Directions Explored</h3>
+<ul>
+<li><strong>High-heat niche (&gt;134\u00b0C):</strong> Market too small alone</li>
+<li><strong>PC as STRUCTURAL layer + dedicated BARRIER \u2192</strong> <em style="color:var(--green)">BREAKTHROUGH</em></li>
+</ul>
+<h3>Evidence</h3>
+<ul>
+<li>Sollogoub 2016: PC/MXD6 multilayer films validated</li>
+<li>Series model: 12-24x vs COP with 10-20% MXD6</li>
+<li>MXD6 over EVOH: EVOH fails at 121\u00b0C retort, MXD6 recovers</li>
+<li>vs OXYCAPT-P: comparable barrier, SUPERIOR heat + cold</li>
+</ul>
+<div class="discovery-box"><strong>Reframe:</strong> "PC is structure, not barrier. The barrier comes from something else — a coating, a film, a surface treatment." Opens the design space for all 4 surviving concepts.</div>`,
+          children:[{
+          id:"s2", name:"Session 2", sub:"Co-injection \u2192 FIM | 8 turns | $44.30", type:"session",
+          branch:"main",
+          meta:"Session 2 (baea23ad) | 4 more pivots",
+          detail:`<h3>Session 2 Overview</h3>
+<p>Continues from the reframe. Explores PC/MXD6 architectures: co-injection \u2192 tie layer problem \u2192 PU discovery \u2192 TPU killed \u2192 interior FIM killed \u2192 exterior MXD6 FIM survives.</p>
+<h3>3 Unknowns from Session 1</h3>
+<ol>
+<li>Apec 1745 baseline OTR (no published data)</li>
+<li>MXD6 moisture degradation over 2-year shelf life</li>
+<li>PC-MXD6 tie layer adhesion under steam cycling</li>
+</ol>`,
+          children:[
+            {
+              id:"s2t1", name:"Resolve Unknowns", sub:"Apec baseline + MXD6 humidity", type:"assessment",
+              meta:"Session 2, Turns 1-2",
+              detail:`<h3>Unknown 1: Apec Baseline O\u2082 Permeability</h3>
+<ul>
+<li>BPTMC comonomer: bulky cyclohexane ring = high free volume</li>
+<li>Density trend: Apec 1745 at 1170 kg/m\u00b3 (PC at 1200) = 2.5% less dense</li>
+<li>Aguilar-Vega & Paul: bulky comonomers INCREASE permeability</li>
+<li>Estimate: Apec ~750-1000 cc\u00b7100\u03bcm/m\u00b2/day/bar (WORSE than BPA-PC)</li>
+</ul>
+<div class="survive-box"><strong>BUT:</strong> Series resistance shows Apec deficit is IRRELEVANT. MXD6 (100\u03bcm, P=0.7) contributes 99.4% of total resistance. Apec at 850 vs BPA-PC at 650 \u2192 only 0.3% OTR difference. <strong>UNKNOWN 1 RESOLVED.</strong></div>
+<h3>Unknown 2: MXD6 Moisture Sensitivity</h3>
+<ul>
+<li>MGC data: MXD6 at 60% RH \u2192 only 1.7x degradation (vs EVOH 100x)</li>
+<li>At 80% RH: 4.7x degradation \u2192 still 21x vs COP</li>
+<li>Standard storage (60% RH): 36x improvement over COP</li>
+</ul>
+<p><strong>Inverted architecture (MXD6/PC/MXD6):</strong> <span style="color:var(--red)">KILLED</span> — identical resistance regardless of order. MXD6 exposed to humidity on both sides. FDA 21 CFR concerns.</p>
+<p><strong>Key insight:</strong> PC sandwich SHIELDS MXD6 from moisture (7-hour diffusion lag).</p>
+<div class="survive-box"><strong>UNKNOWN 2 RESOLVED:</strong> MXD6 humidity MANAGEABLE. 36x vs COP at 60% RH.</div>`,
+              children:[{
+              id:"s2t3", name:"Tie Layer Problem", sub:"No commercial PC/nylon tie layer", type:"kill",
+              meta:"Session 2, Turn 3 | CONCEPT 5 KILLED",
+              detail:`<h3>Unknown 3: Tie Layer Adhesion</h3>
+<p><strong>FINDING:</strong> No commercial tie layer for PC/nylon bonding.</p>
+<ul>
+<li>MAH-polyolefin (Bynel, Admer) can't bond to PC — zero carbonate affinity</li>
+<li>Wang et al. 2013: PC-PA aminolysis at 160-180\u00b0C — creates adhesion BUT cleaves PC chains</li>
+<li>PC embrittlement under steam (Senden 2012): all degradation mechanisms accelerate at 143\u00b0C</li>
+</ul>
+<div class="evidence"><strong>CONCEPT 5 KILLED:</strong> PC/tie/MXD6 co-injection — no tie layer chemistry exists for PC/nylon that survives steam.</div>
+<h3>Contingency Options</h3>
+<ul>
+<li><strong>A:</strong> Drop to 121\u00b0C \u2192 COP also handles 121\u00b0C, no differentiator</li>
+<li><strong>B:</strong> Different tie layer \u2192 needs invention</li>
+<li><strong>C:</strong> PC/MXD6 blend \u2192 loses discrete layer (2.7-3.4x worse)</li>
+<li><strong>D:</strong> Different barrier polymer \u2192 explored next</li>
+</ul>`,
+              children:[{
+              id:"s2t45", name:"Impossible Triangle \u2192 PU Discovery", sub:"PU as TIE LAYER = breakthrough", type:"discovery",
+              meta:"Session 2, Turns 4-5",
+              detail:`<h3>T4: Material Selection — Impossible Triangle</h3>
+<ul>
+<li><strong>PPSU (Radel):</strong> Solves heat (220\u00b0C Tg), WORSENS adhesion — no carbonate linkage</li>
+<li><strong>Single-polymer solution:</strong> IMPOSSIBLE TRIANGLE — High Tg + transparency + barrier = physics says no. Robeson tradeoff: bulky groups \u2192 high free volume \u2192 high perm.</li>
+</ul>
+<div class="constraint-box"><strong>Reframing:</strong> 143\u00b0C sterilization is incompatible with polymer barrier adhesion via melt processing.</div>
+<h3>T5: Covestro Competency Pivot</h3>
+<p><strong>PU as barrier:</strong> <span style="color:var(--red)">KILLED</span> — 1,850x worse O\u2082 perm than MXD6.</p>
+<p><strong>BUT: PU as TIE LAYER = the breakthrough</strong></p>
+<div class="discovery-box">
+<strong>Bayhydrol UH 2110:</strong> PC-based PU dispersion<br>
+PC-side: polycarbonate soft segments wet Apec (like dissolves like)<br>
+MXD6-side: urethane NH groups H-bond with amide groups<br>
+= BIFUNCTIONAL ADHESIVE — exactly the missing chemistry<br><br>
+USP compliance: CONFIRMED (USP &lt;661.1&gt;, FDA 21 CFR 177.1680)
+</div>`,
+              children:[{
+              id:"s2t6", name:"TPU + Interior FIM", sub:"Two approaches killed", type:"kill",
+              meta:"Session 2, Turn 6 | CONCEPTS 6 & 7 KILLED",
+              detail:`<h3>TPU Co-injection Tie</h3>
+<ul>
+<li>TPU (Desmopan) decomposes at ~240\u00b0C; PC needs 300-330\u00b0C</li>
+<li>60\u00b0C overshoot above decomposition</li>
+</ul>
+<div class="evidence"><strong>CONCEPT 6 KILLED:</strong> TPU decomposes at PC processing temperatures.</div>
+<h3>Interior MXD6 FIM</h3>
+<ul>
+<li><strong>KEY FIND:</strong> Covestro has Film Insert Molding (FIM) as core platform</li>
+<li>Interior MXD6: drug contacts MXD6 at 100% RH \u2192 barrier drops from 36x to 2x</li>
+</ul>
+<div class="evidence"><strong>CONCEPT 7 KILLED:</strong> Interior MXD6 at 100% RH \u2192 only 2x vs COP.</div>
+<div class="constraint-box"><strong>Constraint:</strong> MXD6 must be EXTERIOR, shielded from drug-side humidity.</div>`,
+              children:[{
+              id:"s2t78", name:"Exterior MXD6 FIM", sub:"4/4 stress tests SURVIVED", type:"survive",
+              meta:"Session 2, Turns 7-8 | CONCEPT SURVIVES",
+              detail:`<h3>Stress Testing — 4 Challenges</h3>
+<h3>1: MXD6 Orientation Relaxation During Steam</h3>
+<ul>
+<li>FIX: Use CAST (non-oriented) MXD6 film — no locked-in stresses</li>
+<li>MGC: MXD6/PP thermoformed containers survive retort</li>
+<li>50\u03bcm cast MXD6 \u2192 42x vs COP at 60% RH</li>
+</ul>
+<div class="survive-box">SURVIVED</div>
+<h3>2: Mechanical Robustness</h3>
+<ul>
+<li>50\u03bcm is 500-1000x thicker than SiOx coatings</li>
+<li>Scratch must exceed 50\u03bcm to breach barrier</li>
+</ul>
+<div class="survive-box">SURVIVED</div>
+<h3>3: Thermoforming into Vial Shape</h3>
+<ul>
+<li>10mL vial: ~1.9:1 draw ratio (food industry does 2-3:1)</li>
+<li>Corner thinning to ~15\u03bcm still gives 12x vs COP</li>
+</ul>
+<div class="survive-box">SURVIVED</div>
+<h3>4: Heat Pulse During PC Injection</h3>
+<ul>
+<li>Thermal diffusion through 50\u03bcm: ~0.02 seconds</li>
+<li>Mold wall at 80-120\u00b0C = massive heat sink</li>
+<li>Cast film has no orientation to lose</li>
+</ul>
+<div class="survive-box">SURVIVED — ALL 4 CHALLENGES PASSED</div>
+<h3>Final Architecture</h3>
+<div class="architecture">
+<div class="layer"><strong>EXTERIOR:</strong> Cast MXD6 barrier film (50\u03bcm, thermoformed)</div>
+<div class="layer"><strong>ADHESIVE:</strong> Bayhydrol PC-PU primer (5-10\u03bcm)</div>
+<div class="layer"><strong>STRUCTURAL:</strong> Apec 1745 PC (700-750\u03bcm, injection molded)</div>
+<div class="layer"><strong>DRUG FACE:</strong> Apec 1745 PC interior (USP Class VI)</div>
+</div>
+<h3>Performance</h3>
+<ul>
+<li>O\u2082 barrier: 42x vs COP at 60% RH, 24x at 80% RH</li>
+<li>Exceeds OXYCAPT-P (20x) by 2x</li>
+<li>Steam sterilization: 121-143\u00b0C (ONLY plastic that can)</li>
+<li>Drug contact: Apec PC (USP Class VI)</li>
+<li>Process: Standard injection mold + Covestro FIM platform</li>
+<li>Covestro value: Apec 1745 + Bayhydrol PU = 2 products</li>
+</ul>`
+            }]}]}]}]}
+          ]
+        }]}]}
+      ]
+    }]}]}
+  ]}]}
+  ]
+};
+
+// ============================================================
+// CYTOSCAPE TREE VISUALIZATION
+// ============================================================
+var typeColors = {
+  concept: '#6b7280', session: '#06b6d4', assessment: '#a855f7',
+  kill: '#ef4444', survive: '#22c55e', pivot: '#f97316', discovery: '#3b82f6'
+};
+
+function treeToElements(node, parentId) {
+  var els = [];
+  var label = node.name;
+  var sub = node.sub || '';
+  var displayLabel = sub ? label + '\n' + (sub.length > 40 ? sub.slice(0, 37) + '...' : sub) : label;
+  els.push({
+    data: {
+      id: node.id,
+      label: node.name,
+      displayLabel: displayLabel,
+      sub: sub,
+      type: node.type || 'concept',
+      meta: node.meta || '',
+      detail: node.detail || '',
+      branch: node.branch || ''
+    }
+  });
+  if (parentId) {
+    els.push({
+      data: {
+        id: parentId + '->' + node.id,
+        source: parentId,
+        target: node.id,
+        branch: node.branch || '',
+        targetType: node.type || 'concept'
+      }
+    });
+  }
+  if (node.children) {
+    node.children.forEach(function(c) {
+      var childEls = treeToElements(c, node.id);
+      childEls.forEach(function(el) { els.push(el); });
+    });
+  }
+  return els;
+}
+
+var cy = cytoscape({
+  container: document.getElementById('cy'),
+  elements: treeToElements(treeData, null),
+  layout: {
+    name: 'dagre',
+    rankDir: 'LR',
+    nodeSep: 50,
+    rankSep: 220,
+    edgeSep: 30,
+    animate: false,
+    fit: true,
+    padding: 40
+  },
+  style: [
+    {
+      selector: 'node',
+      style: {
+        'shape': 'roundrectangle',
+        'width': 220,
+        'height': 65,
+        'background-color': '#1a1d27',
+        'border-width': 3,
+        'border-color': '#2e3345',
+        'label': function(ele) {
+          var name = ele.data('label');
+          var sub = ele.data('sub');
+          if (sub) {
+            return name + '\n' + (sub.length > 40 ? sub.slice(0, 37) + '...' : sub);
+          }
+          return name;
+        },
+        'font-size': 11,
+        'color': '#e2e4ea',
+        'font-family': '"SF Mono", "Cascadia Code", "Fira Code", monospace',
+        'text-valign': 'center',
+        'text-halign': 'center',
+        'text-wrap': 'wrap',
+        'text-max-width': '200px',
+        'padding': '10px',
+        'text-outline-width': 0,
+        'text-background-opacity': 0,
+        'overlay-opacity': 0
+      }
+    },
+    {
+      selector: 'node[type="kill"]',
+      style: { 'border-color': '#ef4444', 'border-width': 3 }
+    },
+    {
+      selector: 'node[type="survive"]',
+      style: { 'border-color': '#22c55e', 'border-width': 3 }
+    },
+    {
+      selector: 'node[type="pivot"]',
+      style: { 'border-color': '#f97316', 'border-width': 3 }
+    },
+    {
+      selector: 'node[type="discovery"]',
+      style: { 'border-color': '#3b82f6', 'border-width': 3 }
+    },
+    {
+      selector: 'node[type="assessment"]',
+      style: { 'border-color': '#a855f7', 'border-width': 3 }
+    },
+    {
+      selector: 'node[type="session"]',
+      style: { 'border-color': '#06b6d4', 'border-width': 3 }
+    },
+    {
+      selector: 'node[type="concept"]',
+      style: { 'border-color': '#6b7280', 'border-width': 3 }
+    },
+    {
+      selector: 'node:active',
+      style: { 'overlay-opacity': 0 }
+    },
+    {
+      selector: 'node:selected',
+      style: {
+        'border-width': 4,
+        'border-color': function(ele) {
+          var t = ele.data('type');
+          var c = typeColors[t] || '#6b7280';
+          return c;
+        },
+        'background-color': '#242835',
+        'overlay-opacity': 0
+      }
+    },
+    {
+      selector: 'edge',
+      style: {
+        'width': 2,
+        'line-color': '#2e3345',
+        'target-arrow-color': '#2e3345',
+        'target-arrow-shape': 'triangle',
+        'arrow-scale': 0.8,
+        'curve-style': 'bezier',
+        'opacity': 0.7
+      }
+    },
+    {
+      selector: 'edge[branch="reflection"]',
+      style: {
+        'line-color': '#06b6d4',
+        'target-arrow-color': '#06b6d4',
+        'line-style': 'dashed',
+        'line-dash-pattern': [8, 4],
+        'opacity': 0.8,
+        'width': 2.5
+      }
+    },
+    {
+      selector: 'edge[targetType="kill"]',
+      style: {
+        'line-color': '#5c2020',
+        'target-arrow-color': '#5c2020'
+      }
+    },
+    {
+      selector: 'edge[targetType="survive"]',
+      style: {
+        'line-color': '#1a4a2e',
+        'target-arrow-color': '#1a4a2e'
+      }
+    },
+    {
+      selector: 'edge[targetType="pivot"]',
+      style: {
+        'line-color': '#5c3010',
+        'target-arrow-color': '#5c3010'
+      }
+    },
+    {
+      selector: 'edge[targetType="discovery"]',
+      style: {
+        'line-color': '#1e3a5f',
+        'target-arrow-color': '#1e3a5f'
+      }
+    },
+    {
+      selector: 'edge[targetType="session"]',
+      style: {
+        'line-color': '#0e4a56',
+        'target-arrow-color': '#0e4a56'
+      }
+    },
+    {
+      selector: 'edge[branch="reflection"][targetType="kill"]',
+      style: {
+        'line-color': '#06b6d4',
+        'target-arrow-color': '#06b6d4',
+        'line-style': 'dashed',
+        'line-dash-pattern': [8, 4]
+      }
+    },
+    {
+      selector: 'edge[branch="reflection"][targetType="survive"]',
+      style: {
+        'line-color': '#06b6d4',
+        'target-arrow-color': '#06b6d4',
+        'line-style': 'dashed',
+        'line-dash-pattern': [8, 4]
+      }
+    },
+    {
+      selector: 'edge[branch="reflection"][targetType="session"]',
+      style: {
+        'line-color': '#06b6d4',
+        'target-arrow-color': '#06b6d4',
+        'line-style': 'dashed',
+        'line-dash-pattern': [8, 4]
+      }
+    }
+  ],
+  minZoom: 0.15,
+  maxZoom: 3,
+  wheelSensitivity: 0.3,
+  boxSelectionEnabled: false
+});
+
+// Click handler for detail panel
+cy.on('tap', 'node', function(evt) {
+  var data = evt.target.data();
+  showDetail(data);
+});
+
+// Click on background to deselect
+cy.on('tap', function(evt) {
+  if (evt.target === cy) {
+    var panel = document.getElementById('detail-panel');
+    panel.innerHTML = '<div class="empty">Click any node in the tree to see full details.<br><br>The tree shows the complete exploration path:<br>8 pivots in the main thread, 3 parallel threads,<br>14 concepts killed, 4 survivors.</div>';
+  }
+});
+
+function fitGraph() {
+  cy.fit(null, 40);
+}
+
+// ============================================================
+// DETAIL PANEL
+// ============================================================
+function showDetail(data) {
+  var panel = document.getElementById('detail-panel');
+  var badgeClass = {kill:'badge-kill', survive:'badge-survive', pivot:'badge-pivot', discovery:'badge-discovery', assessment:'badge-assessment', session:'badge-discovery', concept:'badge-assessment'};
+  var badgeText = {kill:'KILL', survive:'SURVIVE', pivot:'PIVOT', discovery:'DISCOVERY', assessment:'ASSESSMENT', session:'SESSION', concept:'ROOT'};
+  panel.innerHTML = '<div class="detail-header">' +
+    '<span class="badge ' + (badgeClass[data.type] || 'badge-assessment') + '">' + (badgeText[data.type] || data.type) + '</span>' +
+    '<h2>' + (data.label || data.name || '') + '</h2>' +
+    (data.sub ? '<div class="meta">' + data.sub + '</div>' : '') +
+    (data.meta ? '<div class="meta" style="margin-top:4px">' + data.meta + '</div>' : '') +
+    '</div>' +
+    '<div class="detail-body">' + (data.detail || '<p>No additional details.</p>') + '</div>';
+}
+</script>
+</body>
+</html>
